@@ -146,3 +146,4 @@ provider = pulumi_aws.Provider('named-provider', skip_metadata_api_check=False)
 For further information, visit [AWS in the Pulumi Registry](https://www.pulumi.com/registry/packages/aws/)
 or for detailed API reference documentation, visit [AWS API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/aws/api-docs/).
 
+
