@@ -76,23 +76,23 @@ export class Product extends pulumi.CustomResource {
     /**
      * ARN of the product.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Time when the product was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * Description of the product.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Distributor (i.e., vendor) of the product.
      */
-    public readonly distributor!: pulumi.Output<string>;
+    public readonly distributor!: pulumi.Output<string | undefined>;
     /**
      * Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
      */
-    public /*out*/ readonly hasDefaultPath!: pulumi.Output<boolean>;
+    public /*out*/ readonly hasDefaultPath!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the product.
      */
@@ -108,19 +108,19 @@ export class Product extends pulumi.CustomResource {
     /**
      * Status of the product.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Support information about the product.
      */
-    public readonly supportDescription!: pulumi.Output<string>;
+    public readonly supportDescription!: pulumi.Output<string | undefined>;
     /**
      * Contact email for product support.
      */
-    public readonly supportEmail!: pulumi.Output<string>;
+    public readonly supportEmail!: pulumi.Output<string | undefined>;
     /**
      * Contact URL for product support.
      */
-    public readonly supportUrl!: pulumi.Output<string>;
+    public readonly supportUrl!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

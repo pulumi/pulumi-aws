@@ -6,6 +6,8 @@ package com.pulumi.aws.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRegionResult {
@@ -13,43 +15,43 @@ public final class GetRegionResult {
      * @return Region&#39;s description in this format: &#34;Location (Region name)&#34;.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return EC2 endpoint for the selected region.
      * 
      */
-    private String endpoint;
-    private String id;
+    private @Nullable String endpoint;
+    private @Nullable String id;
     /**
      * @return Name of the selected region.
      * 
      */
-    private String name;
+    private @Nullable String name;
 
     private GetRegionResult() {}
     /**
      * @return Region&#39;s description in this format: &#34;Location (Region name)&#34;.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return EC2 endpoint for the selected region.
      * 
      */
-    public String endpoint() {
-        return this.endpoint;
+    public Optional<String> endpoint() {
+        return Optional.ofNullable(this.endpoint);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the selected region.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -61,10 +63,10 @@ public final class GetRegionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String description;
-        private String endpoint;
-        private String id;
-        private String name;
+        private @Nullable String description;
+        private @Nullable String endpoint;
+        private @Nullable String id;
+        private @Nullable String name;
         public Builder() {}
         public Builder(GetRegionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -75,23 +77,23 @@ public final class GetRegionResult {
         }
 
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+        public Builder endpoint(@Nullable String endpoint) {
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         public GetRegionResult build() {

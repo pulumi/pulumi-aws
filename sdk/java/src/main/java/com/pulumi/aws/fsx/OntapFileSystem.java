@@ -76,14 +76,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name of the file system.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
@@ -104,14 +104,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dailyAutomaticBackupStartTime", refs={String.class}, tree="[0]")
-    private Output<String> dailyAutomaticBackupStartTime;
+    private Output</* @Nullable */ String> dailyAutomaticBackupStartTime;
 
     /**
      * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
      * 
      */
-    public Output<String> dailyAutomaticBackupStartTime() {
-        return this.dailyAutomaticBackupStartTime;
+    public Output<Optional<String>> dailyAutomaticBackupStartTime() {
+        return Codegen.optional(this.dailyAutomaticBackupStartTime);
     }
     /**
      * The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
@@ -132,56 +132,56 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="diskIopsConfiguration", refs={OntapFileSystemDiskIopsConfiguration.class}, tree="[0]")
-    private Output<OntapFileSystemDiskIopsConfiguration> diskIopsConfiguration;
+    private Output</* @Nullable */ OntapFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
     /**
      * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      * 
      */
-    public Output<OntapFileSystemDiskIopsConfiguration> diskIopsConfiguration() {
-        return this.diskIopsConfiguration;
+    public Output<Optional<OntapFileSystemDiskIopsConfiguration>> diskIopsConfiguration() {
+        return Codegen.optional(this.diskIopsConfiguration);
     }
     /**
      * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
      * 
      */
     @Export(name="endpointIpAddressRange", refs={String.class}, tree="[0]")
-    private Output<String> endpointIpAddressRange;
+    private Output</* @Nullable */ String> endpointIpAddressRange;
 
     /**
      * @return Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
      * 
      */
-    public Output<String> endpointIpAddressRange() {
-        return this.endpointIpAddressRange;
+    public Output<Optional<String>> endpointIpAddressRange() {
+        return Codegen.optional(this.endpointIpAddressRange);
     }
     /**
      * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
     @Export(name="endpoints", refs={List.class,OntapFileSystemEndpoint.class}, tree="[0,1]")
-    private Output<List<OntapFileSystemEndpoint>> endpoints;
+    private Output</* @Nullable */ List<OntapFileSystemEndpoint>> endpoints;
 
     /**
      * @return The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
-    public Output<List<OntapFileSystemEndpoint>> endpoints() {
-        return this.endpoints;
+    public Output<Optional<List<OntapFileSystemEndpoint>>> endpoints() {
+        return Codegen.optional(this.endpoints);
     }
     /**
      * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
@@ -202,42 +202,42 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyId;
+    private Output</* @Nullable */ String> kmsKeyId;
 
     /**
      * @return ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      * 
      */
-    public Output<String> kmsKeyId() {
-        return this.kmsKeyId;
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
     }
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      * 
      */
     @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> networkInterfaceIds;
+    private Output</* @Nullable */ List<String>> networkInterfaceIds;
 
     /**
      * @return Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      * 
      */
-    public Output<List<String>> networkInterfaceIds() {
-        return this.networkInterfaceIds;
+    public Output<Optional<List<String>>> networkInterfaceIds() {
+        return Codegen.optional(this.networkInterfaceIds);
     }
     /**
      * AWS account identifier that created the file system.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return AWS account identifier that created the file system.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
@@ -258,14 +258,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="routeTableIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> routeTableIds;
+    private Output</* @Nullable */ List<String>> routeTableIds;
 
     /**
      * @return Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
-    public Output<List<String>> routeTableIds() {
-        return this.routeTableIds;
+    public Output<Optional<List<String>>> routeTableIds() {
+        return Codegen.optional(this.routeTableIds);
     }
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -374,28 +374,28 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return Identifier of the Virtual Private Cloud for the file system.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Export(name="weeklyMaintenanceStartTime", refs={String.class}, tree="[0]")
-    private Output<String> weeklyMaintenanceStartTime;
+    private Output</* @Nullable */ String> weeklyMaintenanceStartTime;
 
     /**
      * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    public Output<String> weeklyMaintenanceStartTime() {
-        return this.weeklyMaintenanceStartTime;
+    public Output<Optional<String>> weeklyMaintenanceStartTime() {
+        return Codegen.optional(this.weeklyMaintenanceStartTime);
     }
 
     /**

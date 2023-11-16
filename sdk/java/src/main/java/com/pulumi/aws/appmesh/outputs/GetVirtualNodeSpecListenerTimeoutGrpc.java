@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRe
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTimeoutGrpc {
-    private List<GetVirtualNodeSpecListenerTimeoutGrpcIdle> idles;
-    private List<GetVirtualNodeSpecListenerTimeoutGrpcPerRequest> perRequests;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeoutGrpcIdle> idles;
+    private @Nullable List<GetVirtualNodeSpecListenerTimeoutGrpcPerRequest> perRequests;
 
     private GetVirtualNodeSpecListenerTimeoutGrpc() {}
     public List<GetVirtualNodeSpecListenerTimeoutGrpcIdle> idles() {
-        return this.idles;
+        return this.idles == null ? List.of() : this.idles;
     }
     public List<GetVirtualNodeSpecListenerTimeoutGrpcPerRequest> perRequests() {
-        return this.perRequests;
+        return this.perRequests == null ? List.of() : this.perRequests;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualNodeSpecListenerTimeoutGrpc {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerTimeoutGrpcIdle> idles;
-        private List<GetVirtualNodeSpecListenerTimeoutGrpcPerRequest> perRequests;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeoutGrpcIdle> idles;
+        private @Nullable List<GetVirtualNodeSpecListenerTimeoutGrpcPerRequest> perRequests;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTimeoutGrpc defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualNodeSpecListenerTimeoutGrpc {
         }
 
         @CustomType.Setter
-        public Builder idles(List<GetVirtualNodeSpecListenerTimeoutGrpcIdle> idles) {
-            this.idles = Objects.requireNonNull(idles);
+        public Builder idles(@Nullable List<GetVirtualNodeSpecListenerTimeoutGrpcIdle> idles) {
+            this.idles = idles;
             return this;
         }
         public Builder idles(GetVirtualNodeSpecListenerTimeoutGrpcIdle... idles) {
             return idles(List.of(idles));
         }
         @CustomType.Setter
-        public Builder perRequests(List<GetVirtualNodeSpecListenerTimeoutGrpcPerRequest> perRequests) {
-            this.perRequests = Objects.requireNonNull(perRequests);
+        public Builder perRequests(@Nullable List<GetVirtualNodeSpecListenerTimeoutGrpcPerRequest> perRequests) {
+            this.perRequests = perRequests;
             return this;
         }
         public Builder perRequests(GetVirtualNodeSpecListenerTimeoutGrpcPerRequest... perRequests) {

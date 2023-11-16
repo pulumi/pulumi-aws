@@ -639,21 +639,24 @@ class ScheduledActionTargetActionResumeCluster(dict):
 @pulumi.output_type
 class GetClusterClusterNodeResult(dict):
     def __init__(__self__, *,
-                 node_role: str,
-                 private_ip_address: str,
-                 public_ip_address: str):
+                 node_role: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 public_ip_address: Optional[str] = None):
         """
         :param str node_role: Whether the node is a leader node or a compute node
         :param str private_ip_address: Private IP address of a node within a cluster
         :param str public_ip_address: Public IP address of a node within a cluster
         """
-        pulumi.set(__self__, "node_role", node_role)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if node_role is not None:
+            pulumi.set(__self__, "node_role", node_role)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter(name="nodeRole")
-    def node_role(self) -> str:
+    def node_role(self) -> Optional[str]:
         """
         Whether the node is a leader node or a compute node
         """
@@ -661,7 +664,7 @@ class GetClusterClusterNodeResult(dict):
 
     @property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> str:
+    def private_ip_address(self) -> Optional[str]:
         """
         Private IP address of a node within a cluster
         """
@@ -669,7 +672,7 @@ class GetClusterClusterNodeResult(dict):
 
     @property
     @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> str:
+    def public_ip_address(self) -> Optional[str]:
         """
         Public IP address of a node within a cluster
         """

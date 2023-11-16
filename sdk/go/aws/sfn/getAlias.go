@@ -63,14 +63,14 @@ type LookupAliasArgs struct {
 // A collection of values returned by getAlias.
 type LookupAliasResult struct {
 	// ARN identifying the State Machine alias.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Date the state machine Alias was created.
-	CreationDate string `pulumi:"creationDate"`
+	CreationDate *string `pulumi:"creationDate"`
 	// Description of state machine alias.
 	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Routing Configuration of state machine alias
 	RoutingConfigurations []GetAliasRoutingConfiguration `pulumi:"routingConfigurations"`
 	StatemachineArn       string                         `pulumi:"statemachineArn"`
@@ -119,13 +119,13 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 }
 
 // ARN identifying the State Machine alias.
-func (o LookupAliasResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date the state machine Alias was created.
-func (o LookupAliasResultOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.CreationDate }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of state machine alias.
@@ -134,8 +134,8 @@ func (o LookupAliasResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAliasResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAliasResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAliasResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAliasResultOutput) Name() pulumi.StringOutput {

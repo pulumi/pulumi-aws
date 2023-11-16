@@ -16,83 +16,83 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// <summary>
         /// Description for the cluster.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Version number of the Redis engine used by the cluster.
         /// </summary>
-        public readonly string EngineVersion;
+        public readonly string? EngineVersion;
         /// <summary>
         /// The weekly time range during which maintenance on the cluster is performed.
         /// </summary>
-        public readonly string MaintenanceWindow;
+        public readonly string? MaintenanceWindow;
         /// <summary>
         /// Name of the snapshot.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Compute and memory capacity of the nodes in the cluster.
         /// </summary>
-        public readonly string NodeType;
+        public readonly string? NodeType;
         /// <summary>
         /// Number of shards in the cluster.
         /// </summary>
-        public readonly int NumShards;
+        public readonly int? NumShards;
         /// <summary>
         /// Name of the parameter group associated with the cluster.
         /// </summary>
-        public readonly string ParameterGroupName;
+        public readonly string? ParameterGroupName;
         /// <summary>
         /// Port number on which the cluster accepts connections.
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
         /// Number of days for which MemoryDB retains automatic snapshots before deleting them.
         /// </summary>
-        public readonly int SnapshotRetentionLimit;
+        public readonly int? SnapshotRetentionLimit;
         /// <summary>
         /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
         /// </summary>
-        public readonly string SnapshotWindow;
+        public readonly string? SnapshotWindow;
         /// <summary>
         /// Name of the subnet group used by the cluster.
         /// </summary>
-        public readonly string SubnetGroupName;
+        public readonly string? SubnetGroupName;
         /// <summary>
         /// ARN of the SNS topic to which cluster notifications are sent.
         /// </summary>
-        public readonly string TopicArn;
+        public readonly string? TopicArn;
         /// <summary>
         /// The VPC in which the cluster exists.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetSnapshotClusterConfigurationResult(
-            string description,
+            string? description,
 
-            string engineVersion,
+            string? engineVersion,
 
-            string maintenanceWindow,
+            string? maintenanceWindow,
 
-            string name,
+            string? name,
 
-            string nodeType,
+            string? nodeType,
 
-            int numShards,
+            int? numShards,
 
-            string parameterGroupName,
+            string? parameterGroupName,
 
-            int port,
+            int? port,
 
-            int snapshotRetentionLimit,
+            int? snapshotRetentionLimit,
 
-            string snapshotWindow,
+            string? snapshotWindow,
 
-            string subnetGroupName,
+            string? subnetGroupName,
 
-            string topicArn,
+            string? topicArn,
 
-            string vpcId)
+            string? vpcId)
         {
             Description = description;
             EngineVersion = engineVersion;

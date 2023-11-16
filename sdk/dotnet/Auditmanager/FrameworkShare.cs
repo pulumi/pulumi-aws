@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Status of the share request.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>

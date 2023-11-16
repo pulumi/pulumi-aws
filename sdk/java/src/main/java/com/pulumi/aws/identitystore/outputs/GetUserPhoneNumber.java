@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserPhoneNumber {
@@ -14,39 +16,39 @@ public final class GetUserPhoneNumber {
      * @return When `true`, this is the primary phone number associated with the user.
      * 
      */
-    private Boolean primary;
+    private @Nullable Boolean primary;
     /**
      * @return The type of phone number.
      * 
      */
-    private String type;
+    private @Nullable String type;
     /**
      * @return The user&#39;s phone number.
      * 
      */
-    private String value;
+    private @Nullable String value;
 
     private GetUserPhoneNumber() {}
     /**
      * @return When `true`, this is the primary phone number associated with the user.
      * 
      */
-    public Boolean primary() {
-        return this.primary;
+    public Optional<Boolean> primary() {
+        return Optional.ofNullable(this.primary);
     }
     /**
      * @return The type of phone number.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
     /**
      * @return The user&#39;s phone number.
      * 
      */
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetUserPhoneNumber {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean primary;
-        private String type;
-        private String value;
+        private @Nullable Boolean primary;
+        private @Nullable String type;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetUserPhoneNumber defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetUserPhoneNumber {
         }
 
         @CustomType.Setter
-        public Builder primary(Boolean primary) {
-            this.primary = Objects.requireNonNull(primary);
+        public Builder primary(@Nullable Boolean primary) {
+            this.primary = primary;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetUserPhoneNumber build() {

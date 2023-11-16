@@ -16,17 +16,17 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// The ID of the AWS Key Management Service (AWS KMS) customer managed key.
         /// </summary>
-        public readonly string KeyId;
+        public readonly string? KeyId;
         /// <summary>
         /// The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetFirewallEncryptionConfigurationResult(
-            string keyId,
+            string? keyId,
 
-            string type)
+            string? type)
         {
             KeyId = keyId;
             Type = type;

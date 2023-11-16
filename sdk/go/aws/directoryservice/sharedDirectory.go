@@ -74,7 +74,7 @@ type SharedDirectory struct {
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-	SharedDirectoryId pulumi.StringOutput `pulumi:"sharedDirectoryId"`
+	SharedDirectoryId pulumi.StringPtrOutput `pulumi:"sharedDirectoryId"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
 	//
 	// The following arguments are optional:
@@ -287,8 +287,8 @@ func (o SharedDirectoryOutput) Notes() pulumi.StringPtrOutput {
 }
 
 // Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-func (o SharedDirectoryOutput) SharedDirectoryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SharedDirectory) pulumi.StringOutput { return v.SharedDirectoryId }).(pulumi.StringOutput)
+func (o SharedDirectoryOutput) SharedDirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedDirectory) pulumi.StringPtrOutput { return v.SharedDirectoryId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier for the directory consumer account with whom the directory is to be shared. See below.

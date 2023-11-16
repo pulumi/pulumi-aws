@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetPermission {
-    private List<String> actions;
-    private String principal;
+    private @Nullable List<String> actions;
+    private @Nullable String principal;
 
     private GetDataSetPermission() {}
     public List<String> actions() {
-        return this.actions;
+        return this.actions == null ? List.of() : this.actions;
     }
-    public String principal() {
-        return this.principal;
+    public Optional<String> principal() {
+        return Optional.ofNullable(this.principal);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetDataSetPermission {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> actions;
-        private String principal;
+        private @Nullable List<String> actions;
+        private @Nullable String principal;
         public Builder() {}
         public Builder(GetDataSetPermission defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,16 +42,16 @@ public final class GetDataSetPermission {
         }
 
         @CustomType.Setter
-        public Builder actions(List<String> actions) {
-            this.actions = Objects.requireNonNull(actions);
+        public Builder actions(@Nullable List<String> actions) {
+            this.actions = actions;
             return this;
         }
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
         @CustomType.Setter
-        public Builder principal(String principal) {
-            this.principal = Objects.requireNonNull(principal);
+        public Builder principal(@Nullable String principal) {
+            this.principal = principal;
             return this;
         }
         public GetDataSetPermission build() {

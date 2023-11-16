@@ -60,11 +60,11 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The ARN of the snapshot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The configuration of the cluster from which the snapshot was taken.
      */
-    public /*out*/ readonly clusterConfigurations!: pulumi.Output<outputs.memorydb.SnapshotClusterConfiguration[]>;
+    public /*out*/ readonly clusterConfigurations!: pulumi.Output<outputs.memorydb.SnapshotClusterConfiguration[] | undefined>;
     /**
      * Name of the MemoryDB cluster to take a snapshot of.
      */
@@ -80,11 +80,11 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      */
-    public /*out*/ readonly source!: pulumi.Output<string>;
+    public /*out*/ readonly source!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

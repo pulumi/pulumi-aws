@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Comprehend
         /// ARN of the Document Classifier version.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Comprehend
         /// See the `output_data_config` Configuration Block section below.
         /// </summary>
         [Output("outputDataConfig")]
-        public Output<Outputs.DocumentClassifierOutputDataConfig> OutputDataConfig { get; private set; } = null!;
+        public Output<Outputs.DocumentClassifierOutputDataConfig?> OutputDataConfig { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Comprehend
         /// Conflicts with `version_name_prefix`.
         /// </summary>
         [Output("versionName")]
-        public Output<string> VersionName { get; private set; } = null!;
+        public Output<string?> VersionName { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique version name beginning with the specified prefix.
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Comprehend
         /// Conflicts with `version_name`.
         /// </summary>
         [Output("versionNamePrefix")]
-        public Output<string> VersionNamePrefix { get; private set; } = null!;
+        public Output<string?> VersionNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// KMS Key used to encrypt storage volumes during job processing.

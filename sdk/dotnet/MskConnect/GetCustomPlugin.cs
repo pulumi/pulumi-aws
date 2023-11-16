@@ -104,38 +104,38 @@ namespace Pulumi.Aws.MskConnect
         /// <summary>
         /// the ARN of the custom plugin.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// a summary description of the custom plugin.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// an ID of the latest successfully created revision of the custom plugin.
         /// </summary>
-        public readonly int LatestRevision;
+        public readonly int? LatestRevision;
         public readonly string Name;
         /// <summary>
         /// the state of the custom plugin.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
 
         [OutputConstructor]
         private GetCustomPluginResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            int latestRevision,
+            int? latestRevision,
 
             string name,
 
-            string state)
+            string? state)
         {
             Arn = arn;
             Description = description;

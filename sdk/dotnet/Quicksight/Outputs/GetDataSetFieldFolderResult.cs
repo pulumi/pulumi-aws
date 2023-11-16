@@ -14,16 +14,16 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class GetDataSetFieldFolderResult
     {
         public readonly ImmutableArray<string> Columns;
-        public readonly string Description;
-        public readonly string FieldFoldersId;
+        public readonly string? Description;
+        public readonly string? FieldFoldersId;
 
         [OutputConstructor]
         private GetDataSetFieldFolderResult(
             ImmutableArray<string> columns,
 
-            string description,
+            string? description,
 
-            string fieldFoldersId)
+            string? fieldFoldersId)
         {
             Columns = columns;
             Description = description;

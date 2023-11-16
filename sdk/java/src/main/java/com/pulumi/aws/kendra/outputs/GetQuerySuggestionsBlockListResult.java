@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQuerySuggestionsBlockListResult {
@@ -17,112 +19,112 @@ public final class GetQuerySuggestionsBlockListResult {
      * @return ARN of the block list.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Date-time a block list was created.
      * 
      */
-    private String createdAt;
+    private @Nullable String createdAt;
     /**
      * @return Description for the block list.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Error message containing details if there are issues processing the block list.
      * 
      */
-    private String errorMessage;
+    private @Nullable String errorMessage;
     /**
      * @return Current size of the block list text file in S3.
      * 
      */
-    private Integer fileSizeBytes;
+    private @Nullable Integer fileSizeBytes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String indexId;
     /**
      * @return Current number of valid, non-empty words or phrases in the block list text file.
      * 
      */
-    private Integer itemCount;
+    private @Nullable Integer itemCount;
     /**
      * @return Name of the block list.
      * 
      */
-    private String name;
+    private @Nullable String name;
     private String querySuggestionsBlockListId;
     /**
      * @return ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return S3 location of the block list input data. Detailed below.
      * 
      */
-    private List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths;
+    private @Nullable List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths;
     /**
      * @return Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
      * 
      */
-    private String status;
+    private @Nullable String status;
     /**
      * @return Metadata that helps organize the block list you create.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Date and time that the block list was last updated.
      * 
      */
-    private String updatedAt;
+    private @Nullable String updatedAt;
 
     private GetQuerySuggestionsBlockListResult() {}
     /**
      * @return ARN of the block list.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Date-time a block list was created.
      * 
      */
-    public String createdAt() {
-        return this.createdAt;
+    public Optional<String> createdAt() {
+        return Optional.ofNullable(this.createdAt);
     }
     /**
      * @return Description for the block list.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Error message containing details if there are issues processing the block list.
      * 
      */
-    public String errorMessage() {
-        return this.errorMessage;
+    public Optional<String> errorMessage() {
+        return Optional.ofNullable(this.errorMessage);
     }
     /**
      * @return Current size of the block list text file in S3.
      * 
      */
-    public Integer fileSizeBytes() {
-        return this.fileSizeBytes;
+    public Optional<Integer> fileSizeBytes() {
+        return Optional.ofNullable(this.fileSizeBytes);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String indexId() {
         return this.indexId;
@@ -131,15 +133,15 @@ public final class GetQuerySuggestionsBlockListResult {
      * @return Current number of valid, non-empty words or phrases in the block list text file.
      * 
      */
-    public Integer itemCount() {
-        return this.itemCount;
+    public Optional<Integer> itemCount() {
+        return Optional.ofNullable(this.itemCount);
     }
     /**
      * @return Name of the block list.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public String querySuggestionsBlockListId() {
         return this.querySuggestionsBlockListId;
@@ -148,36 +150,36 @@ public final class GetQuerySuggestionsBlockListResult {
      * @return ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return S3 location of the block list input data. Detailed below.
      * 
      */
     public List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths() {
-        return this.sourceS3Paths;
+        return this.sourceS3Paths == null ? List.of() : this.sourceS3Paths;
     }
     /**
      * @return Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
     /**
      * @return Metadata that helps organize the block list you create.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Date and time that the block list was last updated.
      * 
      */
-    public String updatedAt() {
-        return this.updatedAt;
+    public Optional<String> updatedAt() {
+        return Optional.ofNullable(this.updatedAt);
     }
 
     public static Builder builder() {
@@ -189,21 +191,21 @@ public final class GetQuerySuggestionsBlockListResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String createdAt;
-        private String description;
-        private String errorMessage;
-        private Integer fileSizeBytes;
-        private String id;
+        private @Nullable String arn;
+        private @Nullable String createdAt;
+        private @Nullable String description;
+        private @Nullable String errorMessage;
+        private @Nullable Integer fileSizeBytes;
+        private @Nullable String id;
         private String indexId;
-        private Integer itemCount;
-        private String name;
+        private @Nullable Integer itemCount;
+        private @Nullable String name;
         private String querySuggestionsBlockListId;
-        private String roleArn;
-        private List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths;
-        private String status;
-        private Map<String,String> tags;
-        private String updatedAt;
+        private @Nullable String roleArn;
+        private @Nullable List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths;
+        private @Nullable String status;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String updatedAt;
         public Builder() {}
         public Builder(GetQuerySuggestionsBlockListResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -225,33 +227,33 @@ public final class GetQuerySuggestionsBlockListResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+        public Builder createdAt(@Nullable String createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder errorMessage(String errorMessage) {
-            this.errorMessage = Objects.requireNonNull(errorMessage);
+        public Builder errorMessage(@Nullable String errorMessage) {
+            this.errorMessage = errorMessage;
             return this;
         }
         @CustomType.Setter
-        public Builder fileSizeBytes(Integer fileSizeBytes) {
-            this.fileSizeBytes = Objects.requireNonNull(fileSizeBytes);
+        public Builder fileSizeBytes(@Nullable Integer fileSizeBytes) {
+            this.fileSizeBytes = fileSizeBytes;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -260,13 +262,13 @@ public final class GetQuerySuggestionsBlockListResult {
             return this;
         }
         @CustomType.Setter
-        public Builder itemCount(Integer itemCount) {
-            this.itemCount = Objects.requireNonNull(itemCount);
+        public Builder itemCount(@Nullable Integer itemCount) {
+            this.itemCount = itemCount;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -275,31 +277,31 @@ public final class GetQuerySuggestionsBlockListResult {
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+        public Builder roleArn(@Nullable String roleArn) {
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
-        public Builder sourceS3Paths(List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths) {
-            this.sourceS3Paths = Objects.requireNonNull(sourceS3Paths);
+        public Builder sourceS3Paths(@Nullable List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths) {
+            this.sourceS3Paths = sourceS3Paths;
             return this;
         }
         public Builder sourceS3Paths(GetQuerySuggestionsBlockListSourceS3Path... sourceS3Paths) {
             return sourceS3Paths(List.of(sourceS3Paths));
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+        public Builder updatedAt(@Nullable String updatedAt) {
+            this.updatedAt = updatedAt;
             return this;
         }
         public GetQuerySuggestionsBlockListResult build() {

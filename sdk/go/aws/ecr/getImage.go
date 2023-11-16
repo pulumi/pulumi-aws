@@ -66,17 +66,17 @@ type GetImageArgs struct {
 // A collection of values returned by getImage.
 type GetImageResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id          string `pulumi:"id"`
-	ImageDigest string `pulumi:"imageDigest"`
+	Id          *string `pulumi:"id"`
+	ImageDigest *string `pulumi:"imageDigest"`
 	// Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
-	ImagePushedAt int `pulumi:"imagePushedAt"`
+	ImagePushedAt *int `pulumi:"imagePushedAt"`
 	// Size, in bytes, of the image in the repository.
-	ImageSizeInBytes int     `pulumi:"imageSizeInBytes"`
+	ImageSizeInBytes *int    `pulumi:"imageSizeInBytes"`
 	ImageTag         *string `pulumi:"imageTag"`
 	// List of tags associated with this image.
 	ImageTags      []string `pulumi:"imageTags"`
 	MostRecent     *bool    `pulumi:"mostRecent"`
-	RegistryId     string   `pulumi:"registryId"`
+	RegistryId     *string  `pulumi:"registryId"`
 	RepositoryName string   `pulumi:"repositoryName"`
 }
 
@@ -127,22 +127,22 @@ func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Cont
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetImageResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetImageResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetImageResultOutput) ImageDigest() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.ImageDigest }).(pulumi.StringOutput)
+func (o GetImageResultOutput) ImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.ImageDigest }).(pulumi.StringPtrOutput)
 }
 
 // Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
-func (o GetImageResultOutput) ImagePushedAt() pulumi.IntOutput {
-	return o.ApplyT(func(v GetImageResult) int { return v.ImagePushedAt }).(pulumi.IntOutput)
+func (o GetImageResultOutput) ImagePushedAt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *int { return v.ImagePushedAt }).(pulumi.IntPtrOutput)
 }
 
 // Size, in bytes, of the image in the repository.
-func (o GetImageResultOutput) ImageSizeInBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetImageResult) int { return v.ImageSizeInBytes }).(pulumi.IntOutput)
+func (o GetImageResultOutput) ImageSizeInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *int { return v.ImageSizeInBytes }).(pulumi.IntPtrOutput)
 }
 
 func (o GetImageResultOutput) ImageTag() pulumi.StringPtrOutput {
@@ -158,8 +158,8 @@ func (o GetImageResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetImageResultOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.RegistryId }).(pulumi.StringOutput)
+func (o GetImageResultOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetImageResultOutput) RepositoryName() pulumi.StringOutput {

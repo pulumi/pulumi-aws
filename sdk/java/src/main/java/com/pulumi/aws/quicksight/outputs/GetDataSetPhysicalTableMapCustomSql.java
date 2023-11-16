@@ -8,26 +8,28 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetPhysicalTableMapCustomSql {
-    private List<GetDataSetPhysicalTableMapCustomSqlColumn> columns;
-    private String dataSourceArn;
-    private String name;
-    private String sqlQuery;
+    private @Nullable List<GetDataSetPhysicalTableMapCustomSqlColumn> columns;
+    private @Nullable String dataSourceArn;
+    private @Nullable String name;
+    private @Nullable String sqlQuery;
 
     private GetDataSetPhysicalTableMapCustomSql() {}
     public List<GetDataSetPhysicalTableMapCustomSqlColumn> columns() {
-        return this.columns;
+        return this.columns == null ? List.of() : this.columns;
     }
-    public String dataSourceArn() {
-        return this.dataSourceArn;
+    public Optional<String> dataSourceArn() {
+        return Optional.ofNullable(this.dataSourceArn);
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
-    public String sqlQuery() {
-        return this.sqlQuery;
+    public Optional<String> sqlQuery() {
+        return Optional.ofNullable(this.sqlQuery);
     }
 
     public static Builder builder() {
@@ -39,10 +41,10 @@ public final class GetDataSetPhysicalTableMapCustomSql {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDataSetPhysicalTableMapCustomSqlColumn> columns;
-        private String dataSourceArn;
-        private String name;
-        private String sqlQuery;
+        private @Nullable List<GetDataSetPhysicalTableMapCustomSqlColumn> columns;
+        private @Nullable String dataSourceArn;
+        private @Nullable String name;
+        private @Nullable String sqlQuery;
         public Builder() {}
         public Builder(GetDataSetPhysicalTableMapCustomSql defaults) {
     	      Objects.requireNonNull(defaults);
@@ -53,26 +55,26 @@ public final class GetDataSetPhysicalTableMapCustomSql {
         }
 
         @CustomType.Setter
-        public Builder columns(List<GetDataSetPhysicalTableMapCustomSqlColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+        public Builder columns(@Nullable List<GetDataSetPhysicalTableMapCustomSqlColumn> columns) {
+            this.columns = columns;
             return this;
         }
         public Builder columns(GetDataSetPhysicalTableMapCustomSqlColumn... columns) {
             return columns(List.of(columns));
         }
         @CustomType.Setter
-        public Builder dataSourceArn(String dataSourceArn) {
-            this.dataSourceArn = Objects.requireNonNull(dataSourceArn);
+        public Builder dataSourceArn(@Nullable String dataSourceArn) {
+            this.dataSourceArn = dataSourceArn;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder sqlQuery(String sqlQuery) {
-            this.sqlQuery = Objects.requireNonNull(sqlQuery);
+        public Builder sqlQuery(@Nullable String sqlQuery) {
+            this.sqlQuery = sqlQuery;
             return this;
         }
         public GetDataSetPhysicalTableMapCustomSql build() {

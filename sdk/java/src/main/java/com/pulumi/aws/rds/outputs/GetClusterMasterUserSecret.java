@@ -6,22 +6,24 @@ package com.pulumi.aws.rds.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterMasterUserSecret {
-    private String kmsKeyId;
-    private String secretArn;
-    private String secretStatus;
+    private @Nullable String kmsKeyId;
+    private @Nullable String secretArn;
+    private @Nullable String secretStatus;
 
     private GetClusterMasterUserSecret() {}
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
-    public String secretArn() {
-        return this.secretArn;
+    public Optional<String> secretArn() {
+        return Optional.ofNullable(this.secretArn);
     }
-    public String secretStatus() {
-        return this.secretStatus;
+    public Optional<String> secretStatus() {
+        return Optional.ofNullable(this.secretStatus);
     }
 
     public static Builder builder() {
@@ -33,9 +35,9 @@ public final class GetClusterMasterUserSecret {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String kmsKeyId;
-        private String secretArn;
-        private String secretStatus;
+        private @Nullable String kmsKeyId;
+        private @Nullable String secretArn;
+        private @Nullable String secretStatus;
         public Builder() {}
         public Builder(GetClusterMasterUserSecret defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,18 +47,18 @@ public final class GetClusterMasterUserSecret {
         }
 
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder secretArn(String secretArn) {
-            this.secretArn = Objects.requireNonNull(secretArn);
+        public Builder secretArn(@Nullable String secretArn) {
+            this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
-        public Builder secretStatus(String secretStatus) {
-            this.secretStatus = Objects.requireNonNull(secretStatus);
+        public Builder secretStatus(@Nullable String secretStatus) {
+            this.secretStatus = secretStatus;
             return this;
         }
         public GetClusterMasterUserSecret build() {

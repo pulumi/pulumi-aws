@@ -6,6 +6,8 @@ package com.pulumi.aws.networkfirewall.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference {
@@ -13,15 +15,15 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferen
      * @return Total number of CIDR blocks used by the IP set references in a firewall.
      * 
      */
-    private Integer resolvedCidrCount;
+    private @Nullable Integer resolvedCidrCount;
 
     private GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference() {}
     /**
      * @return Total number of CIDR blocks used by the IP set references in a firewall.
      * 
      */
-    public Integer resolvedCidrCount() {
-        return this.resolvedCidrCount;
+    public Optional<Integer> resolvedCidrCount() {
+        return Optional.ofNullable(this.resolvedCidrCount);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferen
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer resolvedCidrCount;
+        private @Nullable Integer resolvedCidrCount;
         public Builder() {}
         public Builder(GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferen
         }
 
         @CustomType.Setter
-        public Builder resolvedCidrCount(Integer resolvedCidrCount) {
-            this.resolvedCidrCount = Objects.requireNonNull(resolvedCidrCount);
+        public Builder resolvedCidrCount(@Nullable Integer resolvedCidrCount) {
+            this.resolvedCidrCount = resolvedCidrCount;
             return this;
         }
         public GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference build() {

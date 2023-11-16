@@ -55,11 +55,11 @@ type ServiceNetworkServiceAssociation struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The account that created the association.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	CreatedBy pulumi.StringPtrOutput `pulumi:"createdBy"`
 	// The custom domain name of the service.
-	CustomDomainName pulumi.StringOutput `pulumi:"customDomainName"`
+	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
 	// The DNS name of the service.
 	DnsEntries ServiceNetworkServiceAssociationDnsEntryArrayOutput `pulumi:"dnsEntries"`
 	// The ID or Amazon Resource Identifier (ARN) of the service.
@@ -68,7 +68,7 @@ type ServiceNetworkServiceAssociation struct {
 	// The following arguments are optional:
 	ServiceNetworkIdentifier pulumi.StringOutput `pulumi:"serviceNetworkIdentifier"`
 	// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -277,18 +277,18 @@ func (o ServiceNetworkServiceAssociationOutput) ToServiceNetworkServiceAssociati
 }
 
 // The ARN of the Association.
-func (o ServiceNetworkServiceAssociationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServiceNetworkServiceAssociationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The account that created the association.
-func (o ServiceNetworkServiceAssociationOutput) CreatedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+func (o ServiceNetworkServiceAssociationOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
 // The custom domain name of the service.
-func (o ServiceNetworkServiceAssociationOutput) CustomDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.CustomDomainName }).(pulumi.StringOutput)
+func (o ServiceNetworkServiceAssociationOutput) CustomDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
 
 // The DNS name of the service.
@@ -310,8 +310,8 @@ func (o ServiceNetworkServiceAssociationOutput) ServiceNetworkIdentifier() pulum
 }
 
 // The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-func (o ServiceNetworkServiceAssociationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ServiceNetworkServiceAssociationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

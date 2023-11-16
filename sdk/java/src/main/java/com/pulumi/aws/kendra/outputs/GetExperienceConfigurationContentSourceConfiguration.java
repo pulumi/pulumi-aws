@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExperienceConfigurationContentSourceConfiguration {
@@ -15,17 +17,17 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
      * @return Identifiers of the data sources you want to use for your Amazon Kendra Experience.
      * 
      */
-    private List<String> dataSourceIds;
+    private @Nullable List<String> dataSourceIds;
     /**
      * @return Whether to use documents you indexed directly using the `BatchPutDocument API`.
      * 
      */
-    private Boolean directPutContent;
+    private @Nullable Boolean directPutContent;
     /**
      * @return Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
      * 
      */
-    private List<String> faqIds;
+    private @Nullable List<String> faqIds;
 
     private GetExperienceConfigurationContentSourceConfiguration() {}
     /**
@@ -33,21 +35,21 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
      * 
      */
     public List<String> dataSourceIds() {
-        return this.dataSourceIds;
+        return this.dataSourceIds == null ? List.of() : this.dataSourceIds;
     }
     /**
      * @return Whether to use documents you indexed directly using the `BatchPutDocument API`.
      * 
      */
-    public Boolean directPutContent() {
-        return this.directPutContent;
+    public Optional<Boolean> directPutContent() {
+        return Optional.ofNullable(this.directPutContent);
     }
     /**
      * @return Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
      * 
      */
     public List<String> faqIds() {
-        return this.faqIds;
+        return this.faqIds == null ? List.of() : this.faqIds;
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> dataSourceIds;
-        private Boolean directPutContent;
-        private List<String> faqIds;
+        private @Nullable List<String> dataSourceIds;
+        private @Nullable Boolean directPutContent;
+        private @Nullable List<String> faqIds;
         public Builder() {}
         public Builder(GetExperienceConfigurationContentSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
         }
 
         @CustomType.Setter
-        public Builder dataSourceIds(List<String> dataSourceIds) {
-            this.dataSourceIds = Objects.requireNonNull(dataSourceIds);
+        public Builder dataSourceIds(@Nullable List<String> dataSourceIds) {
+            this.dataSourceIds = dataSourceIds;
             return this;
         }
         public Builder dataSourceIds(String... dataSourceIds) {
             return dataSourceIds(List.of(dataSourceIds));
         }
         @CustomType.Setter
-        public Builder directPutContent(Boolean directPutContent) {
-            this.directPutContent = Objects.requireNonNull(directPutContent);
+        public Builder directPutContent(@Nullable Boolean directPutContent) {
+            this.directPutContent = directPutContent;
             return this;
         }
         @CustomType.Setter
-        public Builder faqIds(List<String> faqIds) {
-            this.faqIds = Objects.requireNonNull(faqIds);
+        public Builder faqIds(@Nullable List<String> faqIds) {
+            this.faqIds = faqIds;
             return this;
         }
         public Builder faqIds(String... faqIds) {

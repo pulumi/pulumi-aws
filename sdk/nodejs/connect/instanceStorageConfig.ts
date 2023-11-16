@@ -148,7 +148,7 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
     /**
      * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */

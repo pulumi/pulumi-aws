@@ -73,13 +73,13 @@ type CustomPlugin struct {
 	pulumi.CustomResourceState
 
 	// the Amazon Resource Name (ARN) of the custom plugin.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
 	// A summary description of the custom plugin.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// an ID of the latest successfully created revision of the custom plugin.
-	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
+	LatestRevision pulumi.IntPtrOutput `pulumi:"latestRevision"`
 	// Information about the location of a custom plugin. See below.
 	//
 	// The following arguments are optional:
@@ -87,7 +87,7 @@ type CustomPlugin struct {
 	// The name of the custom plugin..
 	Name pulumi.StringOutput `pulumi:"name"`
 	// the state of the custom plugin.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 }
 
 // NewCustomPlugin registers a new resource with the given unique name, arguments, and options.
@@ -282,8 +282,8 @@ func (o CustomPluginOutput) ToCustomPluginOutputWithContext(ctx context.Context)
 }
 
 // the Amazon Resource Name (ARN) of the custom plugin.
-func (o CustomPluginOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CustomPluginOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPlugin) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The type of the plugin file. Allowed values are `ZIP` and `JAR`.
@@ -297,8 +297,8 @@ func (o CustomPluginOutput) Description() pulumi.StringPtrOutput {
 }
 
 // an ID of the latest successfully created revision of the custom plugin.
-func (o CustomPluginOutput) LatestRevision() pulumi.IntOutput {
-	return o.ApplyT(func(v *CustomPlugin) pulumi.IntOutput { return v.LatestRevision }).(pulumi.IntOutput)
+func (o CustomPluginOutput) LatestRevision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomPlugin) pulumi.IntPtrOutput { return v.LatestRevision }).(pulumi.IntPtrOutput)
 }
 
 // Information about the location of a custom plugin. See below.
@@ -314,8 +314,8 @@ func (o CustomPluginOutput) Name() pulumi.StringOutput {
 }
 
 // the state of the custom plugin.
-func (o CustomPluginOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o CustomPluginOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPlugin) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type CustomPluginArrayOutput struct{ *pulumi.OutputState }

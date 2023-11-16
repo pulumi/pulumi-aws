@@ -82,31 +82,31 @@ export interface GetCertificateResult {
     /**
      * ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * ACM-issued certificate.
      */
-    readonly certificate: string;
+    readonly certificate?: string;
     /**
      * Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
      */
-    readonly certificateChain: string;
+    readonly certificateChain?: string;
     readonly domain: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly keyTypes?: string[];
     readonly mostRecent?: boolean;
     /**
      * Status of the found certificate.
      */
-    readonly status: string;
+    readonly status?: string;
     readonly statuses?: string[];
     /**
      * Mapping of tags for the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly types?: string[];
 }
 /**

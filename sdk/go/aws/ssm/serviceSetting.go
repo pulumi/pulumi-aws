@@ -54,13 +54,13 @@ type ServiceSetting struct {
 	pulumi.CustomResourceState
 
 	// ARN of the service setting.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ID of the service setting.
 	SettingId pulumi.StringOutput `pulumi:"settingId"`
 	// Value of the service setting.
 	SettingValue pulumi.StringOutput `pulumi:"settingValue"`
 	// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewServiceSetting registers a new resource with the given unique name, arguments, and options.
@@ -227,8 +227,8 @@ func (o ServiceSettingOutput) ToServiceSettingOutputWithContext(ctx context.Cont
 }
 
 // ARN of the service setting.
-func (o ServiceSettingOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ServiceSettingOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSetting) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the service setting.
@@ -242,8 +242,8 @@ func (o ServiceSettingOutput) SettingValue() pulumi.StringOutput {
 }
 
 // Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-func (o ServiceSettingOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ServiceSettingOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSetting) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type ServiceSettingArrayOutput struct{ *pulumi.OutputState }

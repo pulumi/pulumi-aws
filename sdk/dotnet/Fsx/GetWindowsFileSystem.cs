@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// The ID for Microsoft Active Directory instance that the file system is join to.
         /// </summary>
-        public readonly string ActiveDirectoryId;
+        public readonly string? ActiveDirectoryId;
         /// <summary>
         /// An array DNS alias names associated with the Amazon FSx file system.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
         /// </summary>
@@ -146,20 +146,20 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// The number of days to retain automatic backups.
         /// </summary>
-        public readonly int AutomaticBackupRetentionDays;
-        public readonly string BackupId;
+        public readonly int? AutomaticBackupRetentionDays;
+        public readonly string? BackupId;
         /// <summary>
         /// A boolean flag indicating whether tags on the file system should be copied to backups.
         /// </summary>
-        public readonly bool CopyTagsToBackups;
+        public readonly bool? CopyTagsToBackups;
         /// <summary>
         /// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         /// </summary>
-        public readonly string DailyAutomaticBackupStartTime;
+        public readonly string? DailyAutomaticBackupStartTime;
         /// <summary>
         /// The file system deployment type.
         /// </summary>
-        public readonly string DeploymentType;
+        public readonly string? DeploymentType;
         /// <summary>
         /// The SSD IOPS configuration for the file system.
         /// </summary>
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
         /// </summary>
-        public readonly string DnsName;
+        public readonly string? DnsName;
         /// <summary>
         /// Identifier of the file system (e.g. `fs-12345678`).
         /// </summary>
@@ -175,30 +175,30 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest.
         /// </summary>
-        public readonly string KmsKeyId;
+        public readonly string? KmsKeyId;
         public readonly ImmutableArray<string> NetworkInterfaceIds;
         /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
-        public readonly string OwnerId;
+        public readonly string? OwnerId;
         /// <summary>
         /// The IP address of the primary, or preferred, file server.
         /// </summary>
-        public readonly string PreferredFileServerIp;
+        public readonly string? PreferredFileServerIp;
         /// <summary>
         /// Specifies the subnet in which you want the preferred file server to be located.
         /// </summary>
-        public readonly string PreferredSubnetId;
+        public readonly string? PreferredSubnetId;
         public readonly ImmutableArray<string> SecurityGroupIds;
-        public readonly bool SkipFinalBackup;
+        public readonly bool? SkipFinalBackup;
         /// <summary>
         /// The storage capacity of the file system in gibibytes (GiB).
         /// </summary>
-        public readonly int StorageCapacity;
+        public readonly int? StorageCapacity;
         /// <summary>
         /// The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
         /// </summary>
-        public readonly string StorageType;
+        public readonly string? StorageType;
         /// <summary>
         /// Specifies the IDs of the subnets that the file system is accessible from.
         /// </summary>
@@ -206,73 +206,73 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// The tags to associate with the file system.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
         /// </summary>
-        public readonly int ThroughputCapacity;
+        public readonly int? ThroughputCapacity;
         /// <summary>
         /// The ID of the primary virtual private cloud (VPC) for the file system.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
-        public readonly string WeeklyMaintenanceStartTime;
+        public readonly string? WeeklyMaintenanceStartTime;
 
         [OutputConstructor]
         private GetWindowsFileSystemResult(
-            string activeDirectoryId,
+            string? activeDirectoryId,
 
             ImmutableArray<string> aliases,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetWindowsFileSystemAuditLogConfigurationResult> auditLogConfigurations,
 
-            int automaticBackupRetentionDays,
+            int? automaticBackupRetentionDays,
 
-            string backupId,
+            string? backupId,
 
-            bool copyTagsToBackups,
+            bool? copyTagsToBackups,
 
-            string dailyAutomaticBackupStartTime,
+            string? dailyAutomaticBackupStartTime,
 
-            string deploymentType,
+            string? deploymentType,
 
             ImmutableArray<Outputs.GetWindowsFileSystemDiskIopsConfigurationResult> diskIopsConfigurations,
 
-            string dnsName,
+            string? dnsName,
 
             string id,
 
-            string kmsKeyId,
+            string? kmsKeyId,
 
             ImmutableArray<string> networkInterfaceIds,
 
-            string ownerId,
+            string? ownerId,
 
-            string preferredFileServerIp,
+            string? preferredFileServerIp,
 
-            string preferredSubnetId,
+            string? preferredSubnetId,
 
             ImmutableArray<string> securityGroupIds,
 
-            bool skipFinalBackup,
+            bool? skipFinalBackup,
 
-            int storageCapacity,
+            int? storageCapacity,
 
-            string storageType,
+            string? storageType,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            int throughputCapacity,
+            int? throughputCapacity,
 
-            string vpcId,
+            string? vpcId,
 
-            string weeklyMaintenanceStartTime)
+            string? weeklyMaintenanceStartTime)
         {
             ActiveDirectoryId = activeDirectoryId;
             Aliases = aliases;

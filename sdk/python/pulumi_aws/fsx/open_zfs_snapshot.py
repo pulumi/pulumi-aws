@@ -355,7 +355,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name of the snapshot.
         """
@@ -363,7 +363,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "creation_time")
 
     @property

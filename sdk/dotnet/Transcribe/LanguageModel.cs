@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Transcribe
         /// ARN of the LanguageModel.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of reference base model.

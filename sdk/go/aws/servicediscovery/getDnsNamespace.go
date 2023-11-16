@@ -62,14 +62,14 @@ type GetDnsNamespaceArgs struct {
 // A collection of values returned by getDnsNamespace.
 type GetDnsNamespaceResult struct {
 	// ARN of the namespace.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the namespace.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-	HostedZone string `pulumi:"hostedZone"`
+	HostedZone *string `pulumi:"hostedZone"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	Type string            `pulumi:"type"`
@@ -118,23 +118,23 @@ func (o GetDnsNamespaceResultOutput) ToGetDnsNamespaceResultOutputWithContext(ct
 }
 
 // ARN of the namespace.
-func (o GetDnsNamespaceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetDnsNamespaceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDnsNamespaceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the namespace.
-func (o GetDnsNamespaceResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetDnsNamespaceResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDnsNamespaceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-func (o GetDnsNamespaceResultOutput) HostedZone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.HostedZone }).(pulumi.StringOutput)
+func (o GetDnsNamespaceResultOutput) HostedZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDnsNamespaceResult) *string { return v.HostedZone }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetDnsNamespaceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetDnsNamespaceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDnsNamespaceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetDnsNamespaceResultOutput) Name() pulumi.StringOutput {

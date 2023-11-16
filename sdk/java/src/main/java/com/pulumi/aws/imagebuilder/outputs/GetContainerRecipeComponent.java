@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContainerRecipeComponent {
@@ -15,27 +17,27 @@ public final class GetContainerRecipeComponent {
      * @return ARN of the Image Builder Component.
      * 
      */
-    private String componentArn;
+    private @Nullable String componentArn;
     /**
      * @return Set of parameters that are used to configure the component.
      * 
      */
-    private List<GetContainerRecipeComponentParameter> parameters;
+    private @Nullable List<GetContainerRecipeComponentParameter> parameters;
 
     private GetContainerRecipeComponent() {}
     /**
      * @return ARN of the Image Builder Component.
      * 
      */
-    public String componentArn() {
-        return this.componentArn;
+    public Optional<String> componentArn() {
+        return Optional.ofNullable(this.componentArn);
     }
     /**
      * @return Set of parameters that are used to configure the component.
      * 
      */
     public List<GetContainerRecipeComponentParameter> parameters() {
-        return this.parameters;
+        return this.parameters == null ? List.of() : this.parameters;
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetContainerRecipeComponent {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String componentArn;
-        private List<GetContainerRecipeComponentParameter> parameters;
+        private @Nullable String componentArn;
+        private @Nullable List<GetContainerRecipeComponentParameter> parameters;
         public Builder() {}
         public Builder(GetContainerRecipeComponent defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,13 +59,13 @@ public final class GetContainerRecipeComponent {
         }
 
         @CustomType.Setter
-        public Builder componentArn(String componentArn) {
-            this.componentArn = Objects.requireNonNull(componentArn);
+        public Builder componentArn(@Nullable String componentArn) {
+            this.componentArn = componentArn;
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(List<GetContainerRecipeComponentParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable List<GetContainerRecipeComponentParameter> parameters) {
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetContainerRecipeComponentParameter... parameters) {

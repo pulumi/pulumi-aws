@@ -45,12 +45,12 @@ export interface GetFindingIdsResult {
     /**
      * A list of finding IDs for the specified detector.
      */
-    readonly findingIds: string[];
+    readonly findingIds?: string[];
     /**
      * Indicates whether findings are present for the specified detector.
      */
-    readonly hasFindings: boolean;
-    readonly id: string;
+    readonly hasFindings?: boolean;
+    readonly id?: string;
 }
 /**
  * Data source for managing an AWS GuardDuty Finding Ids.

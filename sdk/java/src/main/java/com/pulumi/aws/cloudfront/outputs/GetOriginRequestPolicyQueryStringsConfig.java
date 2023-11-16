@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOriginRequestPolicyQueryStringsConfig {
-    private String queryStringBehavior;
-    private List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings;
+    private @Nullable String queryStringBehavior;
+    private @Nullable List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings;
 
     private GetOriginRequestPolicyQueryStringsConfig() {}
-    public String queryStringBehavior() {
-        return this.queryStringBehavior;
+    public Optional<String> queryStringBehavior() {
+        return Optional.ofNullable(this.queryStringBehavior);
     }
     public List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings() {
-        return this.queryStrings;
+        return this.queryStrings == null ? List.of() : this.queryStrings;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetOriginRequestPolicyQueryStringsConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String queryStringBehavior;
-        private List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings;
+        private @Nullable String queryStringBehavior;
+        private @Nullable List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings;
         public Builder() {}
         public Builder(GetOriginRequestPolicyQueryStringsConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetOriginRequestPolicyQueryStringsConfig {
         }
 
         @CustomType.Setter
-        public Builder queryStringBehavior(String queryStringBehavior) {
-            this.queryStringBehavior = Objects.requireNonNull(queryStringBehavior);
+        public Builder queryStringBehavior(@Nullable String queryStringBehavior) {
+            this.queryStringBehavior = queryStringBehavior;
             return this;
         }
         @CustomType.Setter
-        public Builder queryStrings(List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings) {
-            this.queryStrings = Objects.requireNonNull(queryStrings);
+        public Builder queryStrings(@Nullable List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings) {
+            this.queryStrings = queryStrings;
             return this;
         }
         public Builder queryStrings(GetOriginRequestPolicyQueryStringsConfigQueryString... queryStrings) {

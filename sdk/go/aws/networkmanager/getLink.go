@@ -62,23 +62,23 @@ type LookupLinkArgs struct {
 // A collection of values returned by getLink.
 type LookupLinkResult struct {
 	// ARN of the link.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Upload speed and download speed of the link as documented below
 	Bandwidths []GetLinkBandwidth `pulumi:"bandwidths"`
 	// Description of the link.
-	Description     string `pulumi:"description"`
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
+	Description     *string `pulumi:"description"`
+	GlobalNetworkId string  `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	LinkId string `pulumi:"linkId"`
+	Id     *string `pulumi:"id"`
+	LinkId string  `pulumi:"linkId"`
 	// Provider of the link.
-	ProviderName string `pulumi:"providerName"`
+	ProviderName *string `pulumi:"providerName"`
 	// ID of the site.
-	SiteId string `pulumi:"siteId"`
+	SiteId *string `pulumi:"siteId"`
 	// Key-value tags for the link.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the link.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pulumi.InvokeOption) LookupLinkResultOutput {
@@ -124,8 +124,8 @@ func (o LookupLinkResultOutput) ToLookupLinkResultOutputWithContext(ctx context.
 }
 
 // ARN of the link.
-func (o LookupLinkResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Upload speed and download speed of the link as documented below
@@ -134,8 +134,8 @@ func (o LookupLinkResultOutput) Bandwidths() GetLinkBandwidthArrayOutput {
 }
 
 // Description of the link.
-func (o LookupLinkResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLinkResultOutput) GlobalNetworkId() pulumi.StringOutput {
@@ -143,8 +143,8 @@ func (o LookupLinkResultOutput) GlobalNetworkId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupLinkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLinkResultOutput) LinkId() pulumi.StringOutput {
@@ -152,13 +152,13 @@ func (o LookupLinkResultOutput) LinkId() pulumi.StringOutput {
 }
 
 // Provider of the link.
-func (o LookupLinkResultOutput) ProviderName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.ProviderName }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
 // ID of the site.
-func (o LookupLinkResultOutput) SiteId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.SiteId }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) SiteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.SiteId }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the link.
@@ -167,8 +167,8 @@ func (o LookupLinkResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Type of the link.
-func (o LookupLinkResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

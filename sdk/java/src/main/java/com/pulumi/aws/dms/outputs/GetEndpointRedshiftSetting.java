@@ -6,30 +6,32 @@ package com.pulumi.aws.dms.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointRedshiftSetting {
-    private String bucketFolder;
-    private String bucketName;
-    private String encryptionMode;
-    private String serverSideEncryptionKmsKeyId;
-    private String serviceAccessRoleArn;
+    private @Nullable String bucketFolder;
+    private @Nullable String bucketName;
+    private @Nullable String encryptionMode;
+    private @Nullable String serverSideEncryptionKmsKeyId;
+    private @Nullable String serviceAccessRoleArn;
 
     private GetEndpointRedshiftSetting() {}
-    public String bucketFolder() {
-        return this.bucketFolder;
+    public Optional<String> bucketFolder() {
+        return Optional.ofNullable(this.bucketFolder);
     }
-    public String bucketName() {
-        return this.bucketName;
+    public Optional<String> bucketName() {
+        return Optional.ofNullable(this.bucketName);
     }
-    public String encryptionMode() {
-        return this.encryptionMode;
+    public Optional<String> encryptionMode() {
+        return Optional.ofNullable(this.encryptionMode);
     }
-    public String serverSideEncryptionKmsKeyId() {
-        return this.serverSideEncryptionKmsKeyId;
+    public Optional<String> serverSideEncryptionKmsKeyId() {
+        return Optional.ofNullable(this.serverSideEncryptionKmsKeyId);
     }
-    public String serviceAccessRoleArn() {
-        return this.serviceAccessRoleArn;
+    public Optional<String> serviceAccessRoleArn() {
+        return Optional.ofNullable(this.serviceAccessRoleArn);
     }
 
     public static Builder builder() {
@@ -41,11 +43,11 @@ public final class GetEndpointRedshiftSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bucketFolder;
-        private String bucketName;
-        private String encryptionMode;
-        private String serverSideEncryptionKmsKeyId;
-        private String serviceAccessRoleArn;
+        private @Nullable String bucketFolder;
+        private @Nullable String bucketName;
+        private @Nullable String encryptionMode;
+        private @Nullable String serverSideEncryptionKmsKeyId;
+        private @Nullable String serviceAccessRoleArn;
         public Builder() {}
         public Builder(GetEndpointRedshiftSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,28 +59,28 @@ public final class GetEndpointRedshiftSetting {
         }
 
         @CustomType.Setter
-        public Builder bucketFolder(String bucketFolder) {
-            this.bucketFolder = Objects.requireNonNull(bucketFolder);
+        public Builder bucketFolder(@Nullable String bucketFolder) {
+            this.bucketFolder = bucketFolder;
             return this;
         }
         @CustomType.Setter
-        public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+        public Builder bucketName(@Nullable String bucketName) {
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
-        public Builder encryptionMode(String encryptionMode) {
-            this.encryptionMode = Objects.requireNonNull(encryptionMode);
+        public Builder encryptionMode(@Nullable String encryptionMode) {
+            this.encryptionMode = encryptionMode;
             return this;
         }
         @CustomType.Setter
-        public Builder serverSideEncryptionKmsKeyId(String serverSideEncryptionKmsKeyId) {
-            this.serverSideEncryptionKmsKeyId = Objects.requireNonNull(serverSideEncryptionKmsKeyId);
+        public Builder serverSideEncryptionKmsKeyId(@Nullable String serverSideEncryptionKmsKeyId) {
+            this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
-            this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
+        public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         public GetEndpointRedshiftSetting build() {

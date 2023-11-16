@@ -289,11 +289,11 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Internal value used by CloudFront to allow future updates to the distribution configuration.
      */
-    public /*out*/ readonly callerReference!: pulumi.Output<string>;
+    public /*out*/ readonly callerReference!: pulumi.Output<string | undefined>;
     /**
      * Any comments you want to include about the distribution.
      */
@@ -301,7 +301,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
      */
-    public readonly continuousDeploymentPolicyId!: pulumi.Output<string>;
+    public readonly continuousDeploymentPolicyId!: pulumi.Output<string | undefined>;
     /**
      * One or more custom error response elements (multiples allowed).
      */
@@ -317,7 +317,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * DNS domain name of either the S3 bucket, or web site of your custom origin.
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    public /*out*/ readonly domainName!: pulumi.Output<string | undefined>;
     /**
      * Whether Origin Shield is enabled.
      */
@@ -325,11 +325,11 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
      */
-    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string | undefined>;
     /**
      * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
      */
@@ -337,7 +337,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * Number of invalidation batches currently in progress.
      */
-    public /*out*/ readonly inProgressValidationBatches!: pulumi.Output<number>;
+    public /*out*/ readonly inProgressValidationBatches!: pulumi.Output<number | undefined>;
     /**
      * Whether the IPv6 is enabled for the distribution.
      */
@@ -345,7 +345,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * Date and time the distribution was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
     /**
      * The logging configuration that controls how logs are written to your distribution (maximum one).
      */
@@ -381,7 +381,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -395,11 +395,11 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      */
-    public /*out*/ readonly trustedKeyGroups!: pulumi.Output<outputs.cloudfront.DistributionTrustedKeyGroup[]>;
+    public /*out*/ readonly trustedKeyGroups!: pulumi.Output<outputs.cloudfront.DistributionTrustedKeyGroup[] | undefined>;
     /**
      * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      */
-    public /*out*/ readonly trustedSigners!: pulumi.Output<outputs.cloudfront.DistributionTrustedSigner[]>;
+    public /*out*/ readonly trustedSigners!: pulumi.Output<outputs.cloudfront.DistributionTrustedSigner[] | undefined>;
     /**
      * The SSL configuration for this distribution (maximum one).
      */

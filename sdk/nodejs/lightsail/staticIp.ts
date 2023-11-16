@@ -49,11 +49,11 @@ export class StaticIp extends pulumi.CustomResource {
     /**
      * The ARN of the Lightsail static IP
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The allocated static IP address
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * The name for the allocated static IP
      */
@@ -61,7 +61,7 @@ export class StaticIp extends pulumi.CustomResource {
     /**
      * The support code.
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StaticIp resource with the given unique name, arguments, and options.

@@ -71,82 +71,82 @@ export interface GetEndpointResult {
     /**
      * The ARN of the Client VPN endpoint.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Information about the authentication method used by the Client VPN endpoint.
      */
-    readonly authenticationOptions: outputs.ec2clientvpn.GetEndpointAuthenticationOption[];
+    readonly authenticationOptions?: outputs.ec2clientvpn.GetEndpointAuthenticationOption[];
     /**
      * IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
      */
-    readonly clientCidrBlock: string;
+    readonly clientCidrBlock?: string;
     /**
      * The options for managing connection authorization for new client connections.
      */
-    readonly clientConnectOptions: outputs.ec2clientvpn.GetEndpointClientConnectOption[];
+    readonly clientConnectOptions?: outputs.ec2clientvpn.GetEndpointClientConnectOption[];
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
-    readonly clientLoginBannerOptions: outputs.ec2clientvpn.GetEndpointClientLoginBannerOption[];
-    readonly clientVpnEndpointId: string;
+    readonly clientLoginBannerOptions?: outputs.ec2clientvpn.GetEndpointClientLoginBannerOption[];
+    readonly clientVpnEndpointId?: string;
     /**
      * Information about the client connection logging options for the Client VPN endpoint.
      */
-    readonly connectionLogOptions: outputs.ec2clientvpn.GetEndpointConnectionLogOption[];
+    readonly connectionLogOptions?: outputs.ec2clientvpn.GetEndpointConnectionLogOption[];
     /**
      * Brief description of the endpoint.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * DNS name to be used by clients when connecting to the Client VPN endpoint.
      */
-    readonly dnsName: string;
+    readonly dnsName?: string;
     /**
      * Information about the DNS servers to be used for DNS resolution.
      */
-    readonly dnsServers: string[];
+    readonly dnsServers?: string[];
     readonly filters?: outputs.ec2clientvpn.GetEndpointFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * IDs of the security groups for the target network associated with the Client VPN endpoint.
      */
-    readonly securityGroupIds: string[];
+    readonly securityGroupIds?: string[];
     /**
      * Whether the self-service portal for the Client VPN endpoint is enabled.
      */
-    readonly selfServicePortal: string;
+    readonly selfServicePortal?: string;
     /**
      * The URL of the self-service portal.
      */
-    readonly selfServicePortalUrl: string;
+    readonly selfServicePortalUrl?: string;
     /**
      * The ARN of the server certificate.
      */
-    readonly serverCertificateArn: string;
+    readonly serverCertificateArn?: string;
     /**
      * The maximum VPN session duration time in hours.
      */
-    readonly sessionTimeoutHours: number;
+    readonly sessionTimeoutHours?: number;
     /**
      * Whether split-tunnel is enabled in the AWS Client VPN endpoint.
      */
-    readonly splitTunnel: boolean;
-    readonly tags: {[key: string]: string};
+    readonly splitTunnel?: boolean;
+    readonly tags?: {[key: string]: string};
     /**
      * Transport protocol used by the Client VPN endpoint.
      */
-    readonly transportProtocol: string;
+    readonly transportProtocol?: string;
     /**
      * ID of the VPC associated with the Client VPN endpoint.
      */
-    readonly vpcId: string;
+    readonly vpcId?: string;
     /**
      * Port number for the Client VPN endpoint.
      */
-    readonly vpnPort: number;
+    readonly vpnPort?: number;
 }
 /**
  * Get information on an EC2 Client VPN endpoint.

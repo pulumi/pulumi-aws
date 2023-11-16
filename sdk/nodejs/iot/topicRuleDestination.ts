@@ -47,7 +47,7 @@ export class TopicRuleDestination extends pulumi.CustomResource {
     /**
      * The ARN of the topic rule destination
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether or not to enable the destination. Default: `true`.
      */

@@ -36,7 +36,7 @@ class GetSecretsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -44,7 +44,7 @@ class GetSecretsResult:
 
     @property
     @pulumi.getter
-    def plaintext(self) -> Mapping[str, str]:
+    def plaintext(self) -> Optional[Mapping[str, str]]:
         """
         Map containing each `secret` `name` as the key with its decrypted plaintext value
         """

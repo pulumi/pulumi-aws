@@ -16,53 +16,53 @@ namespace Pulumi.Aws.Workspaces.Outputs
         /// <summary>
         /// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
         /// </summary>
-        public readonly string DeviceTypeAndroid;
+        public readonly string? DeviceTypeAndroid;
         /// <summary>
         /// (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
         /// </summary>
-        public readonly string DeviceTypeChromeos;
+        public readonly string? DeviceTypeChromeos;
         /// <summary>
         /// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
         /// </summary>
-        public readonly string DeviceTypeIos;
+        public readonly string? DeviceTypeIos;
         /// <summary>
         /// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
         /// </summary>
-        public readonly string DeviceTypeLinux;
+        public readonly string? DeviceTypeLinux;
         /// <summary>
         /// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
         /// </summary>
-        public readonly string DeviceTypeOsx;
+        public readonly string? DeviceTypeOsx;
         /// <summary>
         /// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
         /// </summary>
-        public readonly string DeviceTypeWeb;
+        public readonly string? DeviceTypeWeb;
         /// <summary>
         /// (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
         /// </summary>
-        public readonly string DeviceTypeWindows;
+        public readonly string? DeviceTypeWindows;
         /// <summary>
         /// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
         /// </summary>
-        public readonly string DeviceTypeZeroclient;
+        public readonly string? DeviceTypeZeroclient;
 
         [OutputConstructor]
         private GetDirectoryWorkspaceAccessPropertyResult(
-            string deviceTypeAndroid,
+            string? deviceTypeAndroid,
 
-            string deviceTypeChromeos,
+            string? deviceTypeChromeos,
 
-            string deviceTypeIos,
+            string? deviceTypeIos,
 
-            string deviceTypeLinux,
+            string? deviceTypeLinux,
 
-            string deviceTypeOsx,
+            string? deviceTypeOsx,
 
-            string deviceTypeWeb,
+            string? deviceTypeWeb,
 
-            string deviceTypeWindows,
+            string? deviceTypeWindows,
 
-            string deviceTypeZeroclient)
+            string? deviceTypeZeroclient)
         {
             DeviceTypeAndroid = deviceTypeAndroid;
             DeviceTypeChromeos = deviceTypeChromeos;

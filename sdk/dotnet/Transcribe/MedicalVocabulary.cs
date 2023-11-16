@@ -76,13 +76,13 @@ namespace Pulumi.Aws.Transcribe
         /// ARN of the MedicalVocabulary.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Generated download URI.
         /// </summary>
         [Output("downloadUri")]
-        public Output<string> DownloadUri { get; private set; } = null!;
+        public Output<string?> DownloadUri { get; private set; } = null!;
 
         /// <summary>
         /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.

@@ -14,13 +14,13 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class GetFirewallPolicyFirewallPolicyStatelessCustomActionResult
     {
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult> ActionDefinitions;
-        public readonly string ActionName;
+        public readonly string? ActionName;
 
         [OutputConstructor]
         private GetFirewallPolicyFirewallPolicyStatelessCustomActionResult(
             ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult> actionDefinitions,
 
-            string actionName)
+            string? actionName)
         {
             ActionDefinitions = actionDefinitions;
             ActionName = actionName;

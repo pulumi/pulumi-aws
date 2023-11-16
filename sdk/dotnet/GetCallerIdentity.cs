@@ -112,29 +112,29 @@ namespace Pulumi.Aws
         /// <summary>
         /// AWS Account ID number of the account that owns or contains the calling entity.
         /// </summary>
-        public readonly string AccountId;
+        public readonly string? AccountId;
         /// <summary>
         /// ARN associated with the calling entity.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Account ID number of the account that owns or contains the calling entity.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Unique identifier of the calling entity.
         /// </summary>
-        public readonly string UserId;
+        public readonly string? UserId;
 
         [OutputConstructor]
         private GetCallerIdentityResult(
-            string accountId,
+            string? accountId,
 
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string userId)
+            string? userId)
         {
             AccountId = accountId;
             Arn = arn;

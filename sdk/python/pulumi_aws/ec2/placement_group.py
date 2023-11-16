@@ -417,7 +417,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the placement group.
         """
@@ -433,7 +433,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> pulumi.Output[int]:
+    def partition_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of partitions to create in the
         placement group.  Can only be specified when the `strategy` is set to
@@ -443,7 +443,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="placementGroupId")
-    def placement_group_id(self) -> pulumi.Output[str]:
+    def placement_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the placement group.
         """
@@ -451,7 +451,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spreadLevel")
-    def spread_level(self) -> pulumi.Output[str]:
+    def spread_level(self) -> pulumi.Output[Optional[str]]:
         """
         Determines how placement groups spread instances. Can only be used
         when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.

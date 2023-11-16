@@ -48,20 +48,20 @@ export interface GetQueueResult {
     /**
      * The Arn of the queue.
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly id: string;
     /**
      * The same as `id`.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * The status of the queue.
      */
-    readonly status: string;
+    readonly status?: string;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Retrieve information about a AWS Elemental MediaConvert Queue.

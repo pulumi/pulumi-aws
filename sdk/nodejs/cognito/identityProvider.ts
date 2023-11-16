@@ -69,7 +69,7 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      */
-    public readonly attributeMapping!: pulumi.Output<{[key: string]: string}>;
+    public readonly attributeMapping!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The list of identity providers.
      */

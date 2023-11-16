@@ -161,9 +161,9 @@ type GetCoreNetworkPolicyDocumentResult struct {
 	AttachmentPolicies        []GetCoreNetworkPolicyDocumentAttachmentPolicy         `pulumi:"attachmentPolicies"`
 	CoreNetworkConfigurations []GetCoreNetworkPolicyDocumentCoreNetworkConfiguration `pulumi:"coreNetworkConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Standard JSON policy document rendered based on the arguments above.
-	Json           string                                      `pulumi:"json"`
+	Json           *string                                     `pulumi:"json"`
 	SegmentActions []GetCoreNetworkPolicyDocumentSegmentAction `pulumi:"segmentActions"`
 	Segments       []GetCoreNetworkPolicyDocumentSegment       `pulumi:"segments"`
 	Version        *string                                     `pulumi:"version"`
@@ -227,13 +227,13 @@ func (o GetCoreNetworkPolicyDocumentResultOutput) CoreNetworkConfigurations() Ge
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetCoreNetworkPolicyDocumentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetCoreNetworkPolicyDocumentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Standard JSON policy document rendered based on the arguments above.
-func (o GetCoreNetworkPolicyDocumentResultOutput) Json() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) string { return v.Json }).(pulumi.StringOutput)
+func (o GetCoreNetworkPolicyDocumentResultOutput) Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) *string { return v.Json }).(pulumi.StringPtrOutput)
 }
 
 func (o GetCoreNetworkPolicyDocumentResultOutput) SegmentActions() GetCoreNetworkPolicyDocumentSegmentActionArrayOutput {

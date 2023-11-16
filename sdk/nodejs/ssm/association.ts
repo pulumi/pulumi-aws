@@ -108,11 +108,11 @@ export class Association extends pulumi.CustomResource {
     /**
      * The ARN of the SSM association
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the SSM association.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string | undefined>;
     /**
      * The descriptive name for the association.
      */
@@ -128,7 +128,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
-    public readonly documentVersion!: pulumi.Output<string>;
+    public readonly documentVersion!: pulumi.Output<string | undefined>;
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      *
@@ -154,7 +154,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
@@ -166,7 +166,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[]>;
+    public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[] | undefined>;
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      *

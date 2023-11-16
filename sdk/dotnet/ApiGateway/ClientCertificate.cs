@@ -45,13 +45,13 @@ namespace Pulumi.Aws.ApiGateway
         /// ARN
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Date when the client certificate was created.
         /// </summary>
         [Output("createdDate")]
-        public Output<string> CreatedDate { get; private set; } = null!;
+        public Output<string?> CreatedDate { get; private set; } = null!;
 
         /// <summary>
         /// Description of the client certificate.
@@ -63,13 +63,13 @@ namespace Pulumi.Aws.ApiGateway
         /// Date when the client certificate will expire.
         /// </summary>
         [Output("expirationDate")]
-        public Output<string> ExpirationDate { get; private set; } = null!;
+        public Output<string?> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
         /// The PEM-encoded public key of the client certificate.
         /// </summary>
         [Output("pemEncodedCertificate")]
-        public Output<string> PemEncodedCertificate { get; private set; } = null!;
+        public Output<string?> PemEncodedCertificate { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

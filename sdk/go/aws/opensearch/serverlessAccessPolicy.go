@@ -227,7 +227,7 @@ type ServerlessAccessPolicy struct {
 	// JSON policy document to use as the content for the new policy
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Version of the policy.
-	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
+	PolicyVersion pulumi.StringPtrOutput `pulumi:"policyVersion"`
 	// Type of access policy. Must be `data`.
 	//
 	// The following arguments are optional:
@@ -433,8 +433,8 @@ func (o ServerlessAccessPolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // Version of the policy.
-func (o ServerlessAccessPolicyOutput) PolicyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessAccessPolicy) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
+func (o ServerlessAccessPolicyOutput) PolicyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessAccessPolicy) pulumi.StringPtrOutput { return v.PolicyVersion }).(pulumi.StringPtrOutput)
 }
 
 // Type of access policy. Must be `data`.

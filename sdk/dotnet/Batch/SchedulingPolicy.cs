@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Batch
         /// The Amazon Resource Name of the scheduling policy.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("fairSharePolicy")]
         public Output<Outputs.SchedulingPolicyFairSharePolicy?> FairSharePolicy { get; private set; } = null!;

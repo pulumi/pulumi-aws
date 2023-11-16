@@ -51,92 +51,92 @@ export interface GetDomainResult {
     /**
      * The policy document attached to the domain.
      */
-    readonly accessPolicies: string;
+    readonly accessPolicies?: string;
     /**
      * Key-value string pairs to specify advanced configuration options.
      */
-    readonly advancedOptions: {[key: string]: string};
+    readonly advancedOptions?: {[key: string]: string};
     /**
      * Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
      */
-    readonly advancedSecurityOptions: outputs.elasticsearch.GetDomainAdvancedSecurityOption[];
+    readonly advancedSecurityOptions?: outputs.elasticsearch.GetDomainAdvancedSecurityOption[];
     /**
      * The ARN of the domain.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Configuration of the Auto-Tune options of the domain.
      */
-    readonly autoTuneOptions: outputs.elasticsearch.GetDomainAutoTuneOption[];
+    readonly autoTuneOptions?: outputs.elasticsearch.GetDomainAutoTuneOption[];
     /**
      * Cluster configuration of the domain.
      */
-    readonly clusterConfigs: outputs.elasticsearch.GetDomainClusterConfig[];
+    readonly clusterConfigs?: outputs.elasticsearch.GetDomainClusterConfig[];
     /**
      * Domain Amazon Cognito Authentication options for Kibana.
      */
-    readonly cognitoOptions: outputs.elasticsearch.GetDomainCognitoOption[];
+    readonly cognitoOptions?: outputs.elasticsearch.GetDomainCognitoOption[];
     /**
      * Status of the creation of the domain.
      */
-    readonly created: boolean;
+    readonly created?: boolean;
     /**
      * Status of the deletion of the domain.
      */
-    readonly deleted: boolean;
+    readonly deleted?: boolean;
     /**
      * Unique identifier for the domain.
      */
-    readonly domainId: string;
+    readonly domainId?: string;
     readonly domainName: string;
     /**
      * EBS Options for the instances in the domain.
      */
-    readonly ebsOptions: outputs.elasticsearch.GetDomainEbsOption[];
+    readonly ebsOptions?: outputs.elasticsearch.GetDomainEbsOption[];
     /**
      * Elasticsearch version for the domain.
      */
-    readonly elasticsearchVersion: string;
+    readonly elasticsearchVersion?: string;
     /**
      * Domain encryption at rest related options.
      */
-    readonly encryptionAtRests: outputs.elasticsearch.GetDomainEncryptionAtRest[];
+    readonly encryptionAtRests?: outputs.elasticsearch.GetDomainEncryptionAtRest[];
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
-    readonly endpoint: string;
+    readonly endpoint?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Domain-specific endpoint used to access the Kibana application.
      */
-    readonly kibanaEndpoint: string;
+    readonly kibanaEndpoint?: string;
     /**
      * Domain log publishing related options.
      */
-    readonly logPublishingOptions: outputs.elasticsearch.GetDomainLogPublishingOption[];
+    readonly logPublishingOptions?: outputs.elasticsearch.GetDomainLogPublishingOption[];
     /**
      * Domain in transit encryption related options.
      */
-    readonly nodeToNodeEncryptions: outputs.elasticsearch.GetDomainNodeToNodeEncryption[];
+    readonly nodeToNodeEncryptions?: outputs.elasticsearch.GetDomainNodeToNodeEncryption[];
     /**
      * Status of a configuration change in the domain.
      */
-    readonly processing: boolean;
+    readonly processing?: boolean;
     /**
      * Domain snapshot related options.
      */
-    readonly snapshotOptions: outputs.elasticsearch.GetDomainSnapshotOption[];
+    readonly snapshotOptions?: outputs.elasticsearch.GetDomainSnapshotOption[];
     /**
      * Tags assigned to the domain.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * VPC Options for private Elasticsearch domains.
      */
-    readonly vpcOptions: outputs.elasticsearch.GetDomainVpcOption[];
+    readonly vpcOptions?: outputs.elasticsearch.GetDomainVpcOption[];
 }
 /**
  * Use this data source to get information about an Elasticsearch Domain

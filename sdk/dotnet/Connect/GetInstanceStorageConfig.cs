@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
         public readonly string ResourceType;
         /// <summary>
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Connect
         private GetInstanceStorageConfigResult(
             string associationId,
 
-            string id,
+            string? id,
 
             string instanceId,
 

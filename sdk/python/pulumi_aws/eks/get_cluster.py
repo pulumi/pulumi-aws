@@ -77,7 +77,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the cluster.
         """
@@ -85,7 +85,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="certificateAuthorities")
-    def certificate_authorities(self) -> Sequence['outputs.GetClusterCertificateAuthorityResult']:
+    def certificate_authorities(self) -> Optional[Sequence['outputs.GetClusterCertificateAuthorityResult']]:
         """
         Nested attribute containing `certificate-authority-data` for your cluster.
         """
@@ -93,7 +93,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> str:
+    def cluster_id(self) -> Optional[str]:
         """
         The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         """
@@ -101,7 +101,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> Optional[str]:
         """
         Unix epoch time stamp in seconds for when the cluster was created.
         """
@@ -109,7 +109,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="enabledClusterLogTypes")
-    def enabled_cluster_log_types(self) -> Sequence[str]:
+    def enabled_cluster_log_types(self) -> Optional[Sequence[str]]:
         """
         The enabled control plane logs.
         """
@@ -117,7 +117,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> Optional[str]:
         """
         Endpoint for your Kubernetes API server.
         """
@@ -125,7 +125,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -133,7 +133,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def identities(self) -> Sequence['outputs.GetClusterIdentityResult']:
+    def identities(self) -> Optional[Sequence['outputs.GetClusterIdentityResult']]:
         """
         Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `eks.Cluster` resource documentation.
         """
@@ -141,7 +141,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="kubernetesNetworkConfigs")
-    def kubernetes_network_configs(self) -> Sequence['outputs.GetClusterKubernetesNetworkConfigResult']:
+    def kubernetes_network_configs(self) -> Optional[Sequence['outputs.GetClusterKubernetesNetworkConfigResult']]:
         """
         Nested list containing Kubernetes Network Configuration.
         """
@@ -154,7 +154,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="outpostConfigs")
-    def outpost_configs(self) -> Sequence['outputs.GetClusterOutpostConfigResult']:
+    def outpost_configs(self) -> Optional[Sequence['outputs.GetClusterOutpostConfigResult']]:
         """
         Contains Outpost Configuration.
         """
@@ -162,7 +162,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> str:
+    def platform_version(self) -> Optional[str]:
         """
         Platform version for the cluster.
         """
@@ -170,7 +170,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> Optional[str]:
         """
         ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         """
@@ -178,7 +178,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         """
@@ -186,7 +186,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags.
         """
@@ -194,7 +194,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Kubernetes server version for the cluster.
         """
@@ -202,7 +202,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> 'outputs.GetClusterVpcConfigResult':
+    def vpc_config(self) -> Optional['outputs.GetClusterVpcConfigResult']:
         """
         Nested list containing VPC configuration for the cluster.
         """

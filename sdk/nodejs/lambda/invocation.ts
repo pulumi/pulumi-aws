@@ -120,7 +120,7 @@ export class Invocation extends pulumi.CustomResource {
     /**
      * String result of the lambda function invocation.
      */
-    public /*out*/ readonly result!: pulumi.Output<string>;
+    public /*out*/ readonly result!: pulumi.Output<string | undefined>;
     public readonly terraformKey!: pulumi.Output<string | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.

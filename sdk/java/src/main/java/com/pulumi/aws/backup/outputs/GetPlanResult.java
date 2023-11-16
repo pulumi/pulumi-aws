@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlanResult {
@@ -14,50 +16,50 @@ public final class GetPlanResult {
      * @return ARN of the backup plan.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Display name of a backup plan.
      * 
      */
-    private String name;
+    private @Nullable String name;
     private String planId;
     /**
      * @return Metadata that you can assign to help organize the plans you create.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      * 
      */
-    private String version;
+    private @Nullable String version;
 
     private GetPlanResult() {}
     /**
      * @return ARN of the backup plan.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Display name of a backup plan.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public String planId() {
         return this.planId;
@@ -67,14 +69,14 @@ public final class GetPlanResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -86,12 +88,12 @@ public final class GetPlanResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String id;
-        private String name;
+        private @Nullable String arn;
+        private @Nullable String id;
+        private @Nullable String name;
         private String planId;
-        private Map<String,String> tags;
-        private String version;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetPlanResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,18 +106,18 @@ public final class GetPlanResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
@@ -124,13 +126,13 @@ public final class GetPlanResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetPlanResult build() {

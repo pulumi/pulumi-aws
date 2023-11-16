@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class GetControlControlMappingSourceSourceKeywordResult
     {
-        public readonly string KeywordInputType;
-        public readonly string KeywordValue;
+        public readonly string? KeywordInputType;
+        public readonly string? KeywordValue;
 
         [OutputConstructor]
         private GetControlControlMappingSourceSourceKeywordResult(
-            string keywordInputType,
+            string? keywordInputType,
 
-            string keywordValue)
+            string? keywordValue)
         {
             KeywordInputType = keywordInputType;
             KeywordValue = keywordValue;

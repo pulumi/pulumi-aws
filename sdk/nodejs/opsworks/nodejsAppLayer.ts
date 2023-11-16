@@ -50,7 +50,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name(ARN) of the layer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
@@ -88,7 +88,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.NodejsAppLayerEbsVolume[]>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.NodejsAppLayerEbsVolume[] | undefined>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -101,7 +101,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
-    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.NodejsAppLayerLoadBasedAutoScaling>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.NodejsAppLayerLoadBasedAutoScaling | undefined>;
     /**
      * A human-readable name for the layer.
      */

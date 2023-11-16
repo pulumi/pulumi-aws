@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBotAssociationLexBot {
@@ -13,7 +15,7 @@ public final class GetBotAssociationLexBot {
      * @return Region that the Amazon Lex (V1) bot was created in.
      * 
      */
-    private String lexRegion;
+    private @Nullable String lexRegion;
     /**
      * @return Name of the Amazon Lex (V1) bot.
      * 
@@ -25,8 +27,8 @@ public final class GetBotAssociationLexBot {
      * @return Region that the Amazon Lex (V1) bot was created in.
      * 
      */
-    public String lexRegion() {
-        return this.lexRegion;
+    public Optional<String> lexRegion() {
+        return Optional.ofNullable(this.lexRegion);
     }
     /**
      * @return Name of the Amazon Lex (V1) bot.
@@ -45,7 +47,7 @@ public final class GetBotAssociationLexBot {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String lexRegion;
+        private @Nullable String lexRegion;
         private String name;
         public Builder() {}
         public Builder(GetBotAssociationLexBot defaults) {
@@ -55,8 +57,8 @@ public final class GetBotAssociationLexBot {
         }
 
         @CustomType.Setter
-        public Builder lexRegion(String lexRegion) {
-            this.lexRegion = Objects.requireNonNull(lexRegion);
+        public Builder lexRegion(@Nullable String lexRegion) {
+            this.lexRegion = lexRegion;
             return this;
         }
         @CustomType.Setter

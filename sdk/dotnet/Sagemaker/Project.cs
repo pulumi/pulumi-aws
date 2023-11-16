@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The Amazon Resource Name (ARN) assigned by AWS to this Project.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description for the project.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The ID of the project.
         /// </summary>
         [Output("projectId")]
-        public Output<string> ProjectId { get; private set; } = null!;
+        public Output<string?> ProjectId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Project.

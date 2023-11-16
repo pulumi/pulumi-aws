@@ -502,14 +502,14 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Core Network Amazon Resource Name (ARN).
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
@@ -620,14 +620,14 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return Timestamp when a core network was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * Description of the Core Network.
@@ -648,14 +648,14 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="edges", refs={List.class,CoreNetworkEdge.class}, tree="[0,1]")
-    private Output<List<CoreNetworkEdge>> edges;
+    private Output</* @Nullable */ List<CoreNetworkEdge>> edges;
 
     /**
      * @return One or more blocks detailing the edges within a core network. Detailed below.
      * 
      */
-    public Output<List<CoreNetworkEdge>> edges() {
-        return this.edges;
+    public Output<Optional<List<CoreNetworkEdge>>> edges() {
+        return Codegen.optional(this.edges);
     }
     /**
      * The ID of the global network that a core network will be a part of.
@@ -676,28 +676,28 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="segments", refs={List.class,CoreNetworkSegment.class}, tree="[0,1]")
-    private Output<List<CoreNetworkSegment>> segments;
+    private Output</* @Nullable */ List<CoreNetworkSegment>> segments;
 
     /**
      * @return One or more blocks detailing the segments within a core network. Detailed below.
      * 
      */
-    public Output<List<CoreNetworkSegment>> segments() {
-        return this.segments;
+    public Output<Optional<List<CoreNetworkSegment>>> segments() {
+        return Codegen.optional(this.segments);
     }
     /**
      * Current state of a core network.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return Current state of a core network.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

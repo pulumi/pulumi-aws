@@ -56,7 +56,7 @@ namespace Pulumi.Aws.CloudControl
         /// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
         /// </summary>
         [Output("properties")]
-        public Output<string> Properties { get; private set; } = null!;
+        public Output<string?> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.CloudControl
         /// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         /// </summary>
         [Output("schema")]
-        public Output<string> Schema { get; private set; } = null!;
+        public Output<string?> Schema { get; private set; } = null!;
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.

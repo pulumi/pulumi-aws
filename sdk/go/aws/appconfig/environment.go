@@ -74,18 +74,18 @@ type Environment struct {
 	// AppConfig application ID. Must be between 4 and 7 characters in length.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// ARN of the AppConfig Environment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the environment. Can be at most 1024 characters.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// AppConfig environment ID.
-	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
+	EnvironmentId pulumi.StringPtrOutput `pulumi:"environmentId"`
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
 	Monitors EnvironmentMonitorArrayOutput `pulumi:"monitors"`
 	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
 	// or `ROLLED_BACK`.
-	State pulumi.StringOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -302,18 +302,18 @@ func (o EnvironmentOutput) ApplicationId() pulumi.StringOutput {
 }
 
 // ARN of the AppConfig Environment.
-func (o EnvironmentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EnvironmentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the environment. Can be at most 1024 characters.
-func (o EnvironmentOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // AppConfig environment ID.
-func (o EnvironmentOutput) EnvironmentId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
+func (o EnvironmentOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
 // Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
@@ -328,8 +328,8 @@ func (o EnvironmentOutput) Name() pulumi.StringOutput {
 
 // State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
 // or `ROLLED_BACK`.
-func (o EnvironmentOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+func (o EnvironmentOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -464,7 +464,7 @@ class ServerlessCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the collection.
         """
@@ -472,7 +472,7 @@ class ServerlessCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="collectionEndpoint")
-    def collection_endpoint(self) -> pulumi.Output[str]:
+    def collection_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         """
@@ -480,7 +480,7 @@ class ServerlessCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardEndpoint")
-    def dashboard_endpoint(self) -> pulumi.Output[str]:
+    def dashboard_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Collection-specific endpoint used to access OpenSearch Dashboards.
         """
@@ -496,7 +496,7 @@ class ServerlessCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> pulumi.Output[str]:
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         """
@@ -535,7 +535,7 @@ class ServerlessCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """

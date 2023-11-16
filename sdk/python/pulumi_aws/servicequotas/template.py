@@ -386,7 +386,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalQuota")
-    def global_quota(self) -> pulumi.Output[bool]:
+    def global_quota(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the quota is global.
         """
@@ -402,7 +402,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="quotaName")
-    def quota_name(self) -> pulumi.Output[str]:
+    def quota_name(self) -> pulumi.Output[Optional[str]]:
         """
         Quota name.
         """
@@ -426,7 +426,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Output[str]:
+    def service_name(self) -> pulumi.Output[Optional[str]]:
         """
         Service name.
         """
@@ -434,7 +434,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def unit(self) -> pulumi.Output[str]:
+    def unit(self) -> pulumi.Output[Optional[str]]:
         """
         Unit of measurement.
         """

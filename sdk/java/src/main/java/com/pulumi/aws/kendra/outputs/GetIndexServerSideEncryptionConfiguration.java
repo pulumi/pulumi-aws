@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexServerSideEncryptionConfiguration {
@@ -13,15 +15,15 @@ public final class GetIndexServerSideEncryptionConfiguration {
      * @return Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
 
     private GetIndexServerSideEncryptionConfiguration() {}
     /**
      * @return Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetIndexServerSideEncryptionConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String kmsKeyId;
+        private @Nullable String kmsKeyId;
         public Builder() {}
         public Builder(GetIndexServerSideEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetIndexServerSideEncryptionConfiguration {
         }
 
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         public GetIndexServerSideEncryptionConfiguration build() {

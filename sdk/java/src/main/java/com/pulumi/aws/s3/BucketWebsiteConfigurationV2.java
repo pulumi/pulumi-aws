@@ -215,57 +215,57 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * 
      */
     @Export(name="routingRuleDetails", refs={String.class}, tree="[0]")
-    private Output<String> routingRuleDetails;
+    private Output</* @Nullable */ String> routingRuleDetails;
 
     /**
      * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
      * 
      */
-    public Output<String> routingRuleDetails() {
-        return this.routingRuleDetails;
+    public Output<Optional<String>> routingRuleDetails() {
+        return Codegen.optional(this.routingRuleDetails);
     }
     /**
      * List of rules that define when a redirect is applied and the redirect behavior. See below.
      * 
      */
     @Export(name="routingRules", refs={List.class,BucketWebsiteConfigurationV2RoutingRule.class}, tree="[0,1]")
-    private Output<List<BucketWebsiteConfigurationV2RoutingRule>> routingRules;
+    private Output</* @Nullable */ List<BucketWebsiteConfigurationV2RoutingRule>> routingRules;
 
     /**
      * @return List of rules that define when a redirect is applied and the redirect behavior. See below.
      * 
      */
-    public Output<List<BucketWebsiteConfigurationV2RoutingRule>> routingRules() {
-        return this.routingRules;
+    public Output<Optional<List<BucketWebsiteConfigurationV2RoutingRule>>> routingRules() {
+        return Codegen.optional(this.routingRules);
     }
     /**
      * Domain of the website endpoint. This is used to create Route 53 alias records.
      * 
      */
     @Export(name="websiteDomain", refs={String.class}, tree="[0]")
-    private Output<String> websiteDomain;
+    private Output</* @Nullable */ String> websiteDomain;
 
     /**
      * @return Domain of the website endpoint. This is used to create Route 53 alias records.
      * 
      */
-    public Output<String> websiteDomain() {
-        return this.websiteDomain;
+    public Output<Optional<String>> websiteDomain() {
+        return Codegen.optional(this.websiteDomain);
     }
     /**
      * Website endpoint.
      * 
      */
     @Export(name="websiteEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> websiteEndpoint;
+    private Output</* @Nullable */ String> websiteEndpoint;
 
     /**
      * @return Website endpoint.
      * 
      */
-    public Output<String> websiteEndpoint() {
-        return this.websiteEndpoint;
+    public Output<Optional<String>> websiteEndpoint() {
+        return Codegen.optional(this.websiteEndpoint);
     }
 
     /**

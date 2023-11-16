@@ -68,14 +68,14 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the secret.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
@@ -124,14 +124,14 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionId", refs={String.class}, tree="[0]")
-    private Output<String> versionId;
+    private Output</* @Nullable */ String> versionId;
 
     /**
      * @return The unique identifier of the version of the secret.
      * 
      */
-    public Output<String> versionId() {
-        return this.versionId;
+    public Output<Optional<String>> versionId() {
+        return Codegen.optional(this.versionId);
     }
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that&#39;s already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
@@ -140,7 +140,7 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="versionStages", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> versionStages;
+    private Output</* @Nullable */ List<String>> versionStages;
 
     /**
      * @return Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that&#39;s already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
@@ -148,8 +148,8 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      * 
      */
-    public Output<List<String>> versionStages() {
-        return this.versionStages;
+    public Output<Optional<List<String>>> versionStages() {
+        return Codegen.optional(this.versionStages);
     }
 
     /**

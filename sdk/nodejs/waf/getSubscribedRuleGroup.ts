@@ -65,7 +65,7 @@ export interface GetSubscribedRuleGroupResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly metricName?: string;
     readonly name?: string;
 }

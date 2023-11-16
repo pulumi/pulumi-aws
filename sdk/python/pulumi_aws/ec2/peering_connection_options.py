@@ -396,7 +396,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accepter(self) -> pulumi.Output['outputs.PeeringConnectionOptionsAccepter']:
+    def accepter(self) -> pulumi.Output[Optional['outputs.PeeringConnectionOptionsAccepter']]:
         """
         An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
         """
@@ -404,7 +404,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def requester(self) -> pulumi.Output['outputs.PeeringConnectionOptionsRequester']:
+    def requester(self) -> pulumi.Output[Optional['outputs.PeeringConnectionOptionsRequester']]:
         """
         A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         """

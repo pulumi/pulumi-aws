@@ -35,7 +35,7 @@ type GetAttachmentsArgs struct {
 type GetAttachmentsResult struct {
 	Filters []GetAttachmentsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.getAttachment][2] data source, searching by identifier.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -85,8 +85,8 @@ func (o GetAttachmentsResultOutput) Filters() GetAttachmentsFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAttachmentsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAttachmentsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetAttachmentsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAttachmentsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.getAttachment][2] data source, searching by identifier.

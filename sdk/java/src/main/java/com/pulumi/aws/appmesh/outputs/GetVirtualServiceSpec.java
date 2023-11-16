@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualServiceSpecProvider;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualServiceSpec {
-    private List<GetVirtualServiceSpecProvider> providers;
+    private @Nullable List<GetVirtualServiceSpecProvider> providers;
 
     private GetVirtualServiceSpec() {}
     public List<GetVirtualServiceSpecProvider> providers() {
-        return this.providers;
+        return this.providers == null ? List.of() : this.providers;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetVirtualServiceSpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualServiceSpecProvider> providers;
+        private @Nullable List<GetVirtualServiceSpecProvider> providers;
         public Builder() {}
         public Builder(GetVirtualServiceSpec defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetVirtualServiceSpec {
         }
 
         @CustomType.Setter
-        public Builder providers(List<GetVirtualServiceSpecProvider> providers) {
-            this.providers = Objects.requireNonNull(providers);
+        public Builder providers(@Nullable List<GetVirtualServiceSpecProvider> providers) {
+            this.providers = providers;
             return this;
         }
         public Builder providers(GetVirtualServiceSpecProvider... providers) {

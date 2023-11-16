@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetProvisioningArtifactsProvisioningArtifactDetail {
@@ -14,87 +16,87 @@ public final class GetProvisioningArtifactsProvisioningArtifactDetail {
      * @return Indicates whether the product version is active.
      * 
      */
-    private Boolean active;
+    private @Nullable Boolean active;
     /**
      * @return The UTC time stamp of the creation time.
      * 
      */
-    private String createdTime;
+    private @Nullable String createdTime;
     /**
      * @return The description of the provisioning artifact.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
      * 
      */
-    private String guidance;
+    private @Nullable String guidance;
     /**
      * @return The identifier of the provisioning artifact.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The name of the provisioning artifact.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The type of provisioning artifact.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetProvisioningArtifactsProvisioningArtifactDetail() {}
     /**
      * @return Indicates whether the product version is active.
      * 
      */
-    public Boolean active() {
-        return this.active;
+    public Optional<Boolean> active() {
+        return Optional.ofNullable(this.active);
     }
     /**
      * @return The UTC time stamp of the creation time.
      * 
      */
-    public String createdTime() {
-        return this.createdTime;
+    public Optional<String> createdTime() {
+        return Optional.ofNullable(this.createdTime);
     }
     /**
      * @return The description of the provisioning artifact.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
      * 
      */
-    public String guidance() {
-        return this.guidance;
+    public Optional<String> guidance() {
+        return Optional.ofNullable(this.guidance);
     }
     /**
      * @return The identifier of the provisioning artifact.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The name of the provisioning artifact.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The type of provisioning artifact.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -106,13 +108,13 @@ public final class GetProvisioningArtifactsProvisioningArtifactDetail {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean active;
-        private String createdTime;
-        private String description;
-        private String guidance;
-        private String id;
-        private String name;
-        private String type;
+        private @Nullable Boolean active;
+        private @Nullable String createdTime;
+        private @Nullable String description;
+        private @Nullable String guidance;
+        private @Nullable String id;
+        private @Nullable String name;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetProvisioningArtifactsProvisioningArtifactDetail defaults) {
     	      Objects.requireNonNull(defaults);
@@ -126,38 +128,38 @@ public final class GetProvisioningArtifactsProvisioningArtifactDetail {
         }
 
         @CustomType.Setter
-        public Builder active(Boolean active) {
-            this.active = Objects.requireNonNull(active);
+        public Builder active(@Nullable Boolean active) {
+            this.active = active;
             return this;
         }
         @CustomType.Setter
-        public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+        public Builder createdTime(@Nullable String createdTime) {
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder guidance(String guidance) {
-            this.guidance = Objects.requireNonNull(guidance);
+        public Builder guidance(@Nullable String guidance) {
+            this.guidance = guidance;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetProvisioningArtifactsProvisioningArtifactDetail build() {

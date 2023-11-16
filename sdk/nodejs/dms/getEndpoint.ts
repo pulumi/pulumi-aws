@@ -46,34 +46,34 @@ export interface GetEndpointArgs {
  * A collection of values returned by getEndpoint.
  */
 export interface GetEndpointResult {
-    readonly certificateArn: string;
-    readonly databaseName: string;
-    readonly elasticsearchSettings: outputs.dms.GetEndpointElasticsearchSetting[];
-    readonly endpointArn: string;
+    readonly certificateArn?: string;
+    readonly databaseName?: string;
+    readonly elasticsearchSettings?: outputs.dms.GetEndpointElasticsearchSetting[];
+    readonly endpointArn?: string;
     readonly endpointId: string;
-    readonly endpointType: string;
-    readonly engineName: string;
-    readonly extraConnectionAttributes: string;
+    readonly endpointType?: string;
+    readonly engineName?: string;
+    readonly extraConnectionAttributes?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly kafkaSettings: outputs.dms.GetEndpointKafkaSetting[];
-    readonly kinesisSettings: outputs.dms.GetEndpointKinesisSetting[];
-    readonly kmsKeyArn: string;
-    readonly mongodbSettings: outputs.dms.GetEndpointMongodbSetting[];
-    readonly password: string;
-    readonly port: number;
-    readonly redisSettings: outputs.dms.GetEndpointRedisSetting[];
-    readonly redshiftSettings: outputs.dms.GetEndpointRedshiftSetting[];
-    readonly s3Settings: outputs.dms.GetEndpointS3Setting[];
-    readonly secretsManagerAccessRoleArn: string;
-    readonly secretsManagerArn: string;
-    readonly serverName: string;
-    readonly serviceAccessRole: string;
-    readonly sslMode: string;
-    readonly tags: {[key: string]: string};
-    readonly username: string;
+    readonly id?: string;
+    readonly kafkaSettings?: outputs.dms.GetEndpointKafkaSetting[];
+    readonly kinesisSettings?: outputs.dms.GetEndpointKinesisSetting[];
+    readonly kmsKeyArn?: string;
+    readonly mongodbSettings?: outputs.dms.GetEndpointMongodbSetting[];
+    readonly password?: string;
+    readonly port?: number;
+    readonly redisSettings?: outputs.dms.GetEndpointRedisSetting[];
+    readonly redshiftSettings?: outputs.dms.GetEndpointRedshiftSetting[];
+    readonly s3Settings?: outputs.dms.GetEndpointS3Setting[];
+    readonly secretsManagerAccessRoleArn?: string;
+    readonly secretsManagerArn?: string;
+    readonly serverName?: string;
+    readonly serviceAccessRole?: string;
+    readonly sslMode?: string;
+    readonly tags?: {[key: string]: string};
+    readonly username?: string;
 }
 /**
  * Data source for managing an AWS DMS (Database Migration) Endpoint.

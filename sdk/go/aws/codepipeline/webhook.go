@@ -137,7 +137,7 @@ type Webhook struct {
 	pulumi.CustomResourceState
 
 	// The CodePipeline webhook's ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
 	Authentication pulumi.StringOutput `pulumi:"authentication"`
 	// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
@@ -157,7 +157,7 @@ type Webhook struct {
 	// The name of the pipeline.
 	TargetPipeline pulumi.StringOutput `pulumi:"targetPipeline"`
 	// The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
-	Url pulumi.StringOutput `pulumi:"url"`
+	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewWebhook registers a new resource with the given unique name, arguments, and options.
@@ -382,8 +382,8 @@ func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOu
 }
 
 // The CodePipeline webhook's ARN.
-func (o WebhookOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o WebhookOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
@@ -429,8 +429,8 @@ func (o WebhookOutput) TargetPipeline() pulumi.StringOutput {
 }
 
 // The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
-func (o WebhookOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+func (o WebhookOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 type WebhookArrayOutput struct{ *pulumi.OutputState }

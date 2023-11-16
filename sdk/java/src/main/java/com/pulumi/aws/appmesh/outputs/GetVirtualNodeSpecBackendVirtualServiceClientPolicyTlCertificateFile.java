@@ -6,18 +6,20 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile {
-    private String certificateChain;
-    private String privateKey;
+    private @Nullable String certificateChain;
+    private @Nullable String privateKey;
 
     private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile() {}
-    public String certificateChain() {
-        return this.certificateChain;
+    public Optional<String> certificateChain() {
+        return Optional.ofNullable(this.certificateChain);
     }
-    public String privateKey() {
-        return this.privateKey;
+    public Optional<String> privateKey() {
+        return Optional.ofNullable(this.privateKey);
     }
 
     public static Builder builder() {
@@ -29,8 +31,8 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertific
     }
     @CustomType.Builder
     public static final class Builder {
-        private String certificateChain;
-        private String privateKey;
+        private @Nullable String certificateChain;
+        private @Nullable String privateKey;
         public Builder() {}
         public Builder(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -39,13 +41,13 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertific
         }
 
         @CustomType.Setter
-        public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+        public Builder certificateChain(@Nullable String certificateChain) {
+            this.certificateChain = certificateChain;
             return this;
         }
         @CustomType.Setter
-        public Builder privateKey(String privateKey) {
-            this.privateKey = Objects.requireNonNull(privateKey);
+        public Builder privateKey(@Nullable String privateKey) {
+            this.privateKey = privateKey;
             return this;
         }
         public GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile build() {

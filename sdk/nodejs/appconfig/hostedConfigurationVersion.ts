@@ -125,7 +125,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
     /**
      * ARN of the AppConfig  hosted configuration version.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration profile ID.
      */
@@ -145,7 +145,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
     /**
      * Version number of the hosted configuration.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    public /*out*/ readonly versionNumber!: pulumi.Output<number | undefined>;
 
     /**
      * Create a HostedConfigurationVersion resource with the given unique name, arguments, and options.

@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Sns
         /// ARN of the subscription.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Sns
         /// Whether the subscription confirmation request was authenticated.
         /// </summary>
         [Output("confirmationWasAuthenticated")]
-        public Output<bool> ConfirmationWasAuthenticated { get; private set; } = null!;
+        public Output<bool?> ConfirmationWasAuthenticated { get; private set; } = null!;
 
         /// <summary>
         /// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
@@ -363,19 +363,19 @@ namespace Pulumi.Aws.Sns
         /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         /// </summary>
         [Output("filterPolicyScope")]
-        public Output<string> FilterPolicyScope { get; private set; } = null!;
+        public Output<string?> FilterPolicyScope { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID of the subscription's owner.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Whether the subscription has not been confirmed.
         /// </summary>
         [Output("pendingConfirmation")]
-        public Output<bool> PendingConfirmation { get; private set; } = null!;
+        public Output<bool?> PendingConfirmation { get; private set; } = null!;
 
         /// <summary>
         /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.

@@ -35,7 +35,7 @@ class GetAccessKeysResult:
 
     @property
     @pulumi.getter(name="accessKeys")
-    def access_keys(self) -> Sequence['outputs.GetAccessKeysAccessKeyResult']:
+    def access_keys(self) -> Optional[Sequence['outputs.GetAccessKeysAccessKeyResult']]:
         """
         List of the IAM access keys associated with the specified user. See below.
         """
@@ -43,7 +43,7 @@ class GetAccessKeysResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

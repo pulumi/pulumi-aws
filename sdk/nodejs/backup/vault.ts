@@ -55,7 +55,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
      */
@@ -63,7 +63,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * The server-side encryption key that is used to protect your backups.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * Name of the backup vault to create.
      */
@@ -71,7 +71,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * The number of recovery points that are stored in a backup vault.
      */
-    public /*out*/ readonly recoveryPoints!: pulumi.Output<number>;
+    public /*out*/ readonly recoveryPoints!: pulumi.Output<number | undefined>;
     /**
      * Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

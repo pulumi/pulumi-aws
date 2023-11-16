@@ -142,41 +142,41 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// ARN of the FAQ.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Unix datetime that the faq was created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// Description of the FAQ.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// When the `status` field value is `FAILED`, this contains a message that explains why.
         /// </summary>
-        public readonly string ErrorMessage;
+        public readonly string? ErrorMessage;
         public readonly string FaqId;
         /// <summary>
         /// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
         /// </summary>
-        public readonly string FileFormat;
+        public readonly string? FileFormat;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string IndexId;
         /// <summary>
         /// Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         /// </summary>
-        public readonly string LanguageCode;
+        public readonly string? LanguageCode;
         /// <summary>
         /// Name of the FAQ.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// S3 location of the FAQ input data. Detailed below.
         /// </summary>
@@ -184,47 +184,47 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Status of the FAQ. It is ready to use when the status is ACTIVE.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Metadata that helps organize the FAQs you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Date and time that the FAQ was last updated.
         /// </summary>
-        public readonly string UpdatedAt;
+        public readonly string? UpdatedAt;
 
         [OutputConstructor]
         private GetFaqResult(
-            string arn,
+            string? arn,
 
-            string createdAt,
+            string? createdAt,
 
-            string description,
+            string? description,
 
-            string errorMessage,
+            string? errorMessage,
 
             string faqId,
 
-            string fileFormat,
+            string? fileFormat,
 
-            string id,
+            string? id,
 
             string indexId,
 
-            string languageCode,
+            string? languageCode,
 
-            string name,
+            string? name,
 
-            string roleArn,
+            string? roleArn,
 
             ImmutableArray<Outputs.GetFaqS3PathResult> s3Paths,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string updatedAt)
+            string? updatedAt)
         {
             Arn = arn;
             CreatedAt = createdAt;

@@ -224,7 +224,7 @@ type BucketAclV2 struct {
 	pulumi.CustomResourceState
 
 	// Configuration block that sets the ACL permissions for an object per grantee. See below.
-	AccessControlPolicy BucketAclV2AccessControlPolicyOutput `pulumi:"accessControlPolicy"`
+	AccessControlPolicy BucketAclV2AccessControlPolicyPtrOutput `pulumi:"accessControlPolicy"`
 	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
 	// Name of the bucket.
@@ -402,8 +402,8 @@ func (o BucketAclV2Output) ToBucketAclV2OutputWithContext(ctx context.Context) B
 }
 
 // Configuration block that sets the ACL permissions for an object per grantee. See below.
-func (o BucketAclV2Output) AccessControlPolicy() BucketAclV2AccessControlPolicyOutput {
-	return o.ApplyT(func(v *BucketAclV2) BucketAclV2AccessControlPolicyOutput { return v.AccessControlPolicy }).(BucketAclV2AccessControlPolicyOutput)
+func (o BucketAclV2Output) AccessControlPolicy() BucketAclV2AccessControlPolicyPtrOutput {
+	return o.ApplyT(func(v *BucketAclV2) BucketAclV2AccessControlPolicyPtrOutput { return v.AccessControlPolicy }).(BucketAclV2AccessControlPolicyPtrOutput)
 }
 
 // Canned ACL to apply to the bucket.

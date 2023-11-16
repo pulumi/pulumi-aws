@@ -60,58 +60,58 @@ export interface GetLayerVersionResult {
     /**
      * ARN of the Lambda Layer with version.
      */
-    readonly arn: string;
+    readonly arn?: string;
     readonly compatibleArchitecture?: string;
     /**
      * A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
      */
-    readonly compatibleArchitectures: string[];
+    readonly compatibleArchitectures?: string[];
     readonly compatibleRuntime?: string;
     /**
      * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
      */
-    readonly compatibleRuntimes: string[];
+    readonly compatibleRuntimes?: string[];
     /**
      * Date this resource was created.
      */
-    readonly createdDate: string;
+    readonly createdDate?: string;
     /**
      * Description of the specific Lambda Layer version.
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of the Lambda Layer without version.
      */
-    readonly layerArn: string;
+    readonly layerArn?: string;
     readonly layerName: string;
     /**
      * License info associated with the specific Lambda Layer version.
      */
-    readonly licenseInfo: string;
+    readonly licenseInfo?: string;
     /**
      * ARN of a signing job.
      */
-    readonly signingJobArn: string;
+    readonly signingJobArn?: string;
     /**
      * The ARN for a signing profile version.
      */
-    readonly signingProfileVersionArn: string;
+    readonly signingProfileVersionArn?: string;
     /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      */
-    readonly sourceCodeHash: string;
+    readonly sourceCodeHash?: string;
     /**
      * Size in bytes of the function .zip file.
      */
-    readonly sourceCodeSize: number;
+    readonly sourceCodeSize?: number;
     /**
      * This Lamba Layer version.
      */
-    readonly version: number;
+    readonly version?: number;
 }
 /**
  * Provides information about a Lambda Layer Version.

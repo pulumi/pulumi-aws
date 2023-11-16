@@ -104,14 +104,14 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
@@ -146,14 +146,14 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
@@ -191,15 +191,15 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="shareStatus", refs={String.class}, tree="[0]")
-    private Output<String> shareStatus;
+    private Output</* @Nullable */ String> shareStatus;
 
     /**
      * @return Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    public Output<String> shareStatus() {
-        return this.shareStatus;
+    public Output<Optional<String>> shareStatus() {
+        return Codegen.optional(this.shareStatus);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

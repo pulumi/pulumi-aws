@@ -156,86 +156,86 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// ARN of the instance.
         /// </summary>
-        public readonly string Arn;
-        public readonly bool AutoResolveBestVoicesEnabled;
+        public readonly string? Arn;
+        public readonly bool? AutoResolveBestVoicesEnabled;
         /// <summary>
         /// Whether contact flow logs are enabled.
         /// </summary>
-        public readonly bool ContactFlowLogsEnabled;
+        public readonly bool? ContactFlowLogsEnabled;
         /// <summary>
         /// Whether contact lens is enabled.
         /// </summary>
-        public readonly bool ContactLensEnabled;
+        public readonly bool? ContactLensEnabled;
         /// <summary>
         /// When the instance was created.
         /// </summary>
-        public readonly string CreatedTime;
+        public readonly string? CreatedTime;
         /// <summary>
         /// Whether early media for outbound calls is enabled .
         /// </summary>
-        public readonly bool EarlyMediaEnabled;
+        public readonly bool? EarlyMediaEnabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Specifies The identity management type attached to the instance.
         /// </summary>
-        public readonly string IdentityManagementType;
+        public readonly string? IdentityManagementType;
         /// <summary>
         /// Whether inbound calls are enabled.
         /// </summary>
-        public readonly bool InboundCallsEnabled;
-        public readonly string InstanceAlias;
-        public readonly string InstanceId;
+        public readonly bool? InboundCallsEnabled;
+        public readonly string? InstanceAlias;
+        public readonly string? InstanceId;
         /// <summary>
         /// Whether multi-party calls/conference is enabled.
         /// </summary>
-        public readonly bool MultiPartyConferenceEnabled;
+        public readonly bool? MultiPartyConferenceEnabled;
         /// <summary>
         /// Whether outbound calls are enabled.
         /// </summary>
-        public readonly bool OutboundCallsEnabled;
+        public readonly bool? OutboundCallsEnabled;
         /// <summary>
         /// Service role of the instance.
         /// </summary>
-        public readonly string ServiceRole;
+        public readonly string? ServiceRole;
         /// <summary>
         /// State of the instance.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetInstanceResult(
-            string arn,
+            string? arn,
 
-            bool autoResolveBestVoicesEnabled,
+            bool? autoResolveBestVoicesEnabled,
 
-            bool contactFlowLogsEnabled,
+            bool? contactFlowLogsEnabled,
 
-            bool contactLensEnabled,
+            bool? contactLensEnabled,
 
-            string createdTime,
+            string? createdTime,
 
-            bool earlyMediaEnabled,
+            bool? earlyMediaEnabled,
 
-            string id,
+            string? id,
 
-            string identityManagementType,
+            string? identityManagementType,
 
-            bool inboundCallsEnabled,
+            bool? inboundCallsEnabled,
 
-            string instanceAlias,
+            string? instanceAlias,
 
-            string instanceId,
+            string? instanceId,
 
-            bool multiPartyConferenceEnabled,
+            bool? multiPartyConferenceEnabled,
 
-            bool outboundCallsEnabled,
+            bool? outboundCallsEnabled,
 
-            string serviceRole,
+            string? serviceRole,
 
-            string status)
+            string? status)
         {
             Arn = arn;
             AutoResolveBestVoicesEnabled = autoResolveBestVoicesEnabled;

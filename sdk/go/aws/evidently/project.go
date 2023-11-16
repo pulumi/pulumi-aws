@@ -123,29 +123,29 @@ type Project struct {
 	pulumi.CustomResourceState
 
 	// The number of ongoing experiments currently in the project.
-	ActiveExperimentCount pulumi.IntOutput `pulumi:"activeExperimentCount"`
+	ActiveExperimentCount pulumi.IntPtrOutput `pulumi:"activeExperimentCount"`
 	// The number of ongoing launches currently in the project.
-	ActiveLaunchCount pulumi.IntOutput `pulumi:"activeLaunchCount"`
+	ActiveLaunchCount pulumi.IntPtrOutput `pulumi:"activeLaunchCount"`
 	// The ARN of the project.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date and time that the project is created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
 	DataDelivery ProjectDataDeliveryPtrOutput `pulumi:"dataDelivery"`
 	// Specifies the description of the project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
-	ExperimentCount pulumi.IntOutput `pulumi:"experimentCount"`
+	ExperimentCount pulumi.IntPtrOutput `pulumi:"experimentCount"`
 	// The number of features currently in the project.
-	FeatureCount pulumi.IntOutput `pulumi:"featureCount"`
+	FeatureCount pulumi.IntPtrOutput `pulumi:"featureCount"`
 	// The date and time that the project was most recently updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
-	LaunchCount pulumi.IntOutput `pulumi:"launchCount"`
+	LaunchCount pulumi.IntPtrOutput `pulumi:"launchCount"`
 	// A name for the project.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -368,23 +368,23 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 }
 
 // The number of ongoing experiments currently in the project.
-func (o ProjectOutput) ActiveExperimentCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.ActiveExperimentCount }).(pulumi.IntOutput)
+func (o ProjectOutput) ActiveExperimentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.ActiveExperimentCount }).(pulumi.IntPtrOutput)
 }
 
 // The number of ongoing launches currently in the project.
-func (o ProjectOutput) ActiveLaunchCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.ActiveLaunchCount }).(pulumi.IntOutput)
+func (o ProjectOutput) ActiveLaunchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.ActiveLaunchCount }).(pulumi.IntPtrOutput)
 }
 
 // The ARN of the project.
-func (o ProjectOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ProjectOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that the project is created.
-func (o ProjectOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o ProjectOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
@@ -398,23 +398,23 @@ func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
-func (o ProjectOutput) ExperimentCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.ExperimentCount }).(pulumi.IntOutput)
+func (o ProjectOutput) ExperimentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.ExperimentCount }).(pulumi.IntPtrOutput)
 }
 
 // The number of features currently in the project.
-func (o ProjectOutput) FeatureCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.FeatureCount }).(pulumi.IntOutput)
+func (o ProjectOutput) FeatureCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.FeatureCount }).(pulumi.IntPtrOutput)
 }
 
 // The date and time that the project was most recently updated.
-func (o ProjectOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o ProjectOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
-func (o ProjectOutput) LaunchCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.LaunchCount }).(pulumi.IntOutput)
+func (o ProjectOutput) LaunchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.LaunchCount }).(pulumi.IntPtrOutput)
 }
 
 // A name for the project.
@@ -423,8 +423,8 @@ func (o ProjectOutput) Name() pulumi.StringOutput {
 }
 
 // The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
-func (o ProjectOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ProjectOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

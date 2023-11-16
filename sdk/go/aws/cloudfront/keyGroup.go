@@ -75,7 +75,7 @@ type KeyGroup struct {
 	// A comment to describe the key group..
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The identifier for this version of the key group.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// A list of the identifiers of the public keys in the key group.
 	Items pulumi.StringArrayOutput `pulumi:"items"`
 	// A name to identify the key group.
@@ -252,8 +252,8 @@ func (o KeyGroupOutput) Comment() pulumi.StringPtrOutput {
 }
 
 // The identifier for this version of the key group.
-func (o KeyGroupOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *KeyGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o KeyGroupOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyGroup) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // A list of the identifiers of the public keys in the key group.

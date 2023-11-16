@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
@@ -15,27 +17,27 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeaders
      * @return Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
      * 
      */
-    private String headerBehavior;
+    private @Nullable String headerBehavior;
     /**
      * @return Object that contains a list of header names. See Items for more information.
      * 
      */
-    private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers;
+    private @Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers;
 
     private GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig() {}
     /**
      * @return Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
      * 
      */
-    public String headerBehavior() {
-        return this.headerBehavior;
+    public Optional<String> headerBehavior() {
+        return Optional.ofNullable(this.headerBehavior);
     }
     /**
      * @return Object that contains a list of header names. See Items for more information.
      * 
      */
     public List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers() {
-        return this.headers;
+        return this.headers == null ? List.of() : this.headers;
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeaders
     }
     @CustomType.Builder
     public static final class Builder {
-        private String headerBehavior;
-        private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers;
+        private @Nullable String headerBehavior;
+        private @Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers;
         public Builder() {}
         public Builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,13 +59,13 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeaders
         }
 
         @CustomType.Setter
-        public Builder headerBehavior(String headerBehavior) {
-            this.headerBehavior = Objects.requireNonNull(headerBehavior);
+        public Builder headerBehavior(@Nullable String headerBehavior) {
+            this.headerBehavior = headerBehavior;
             return this;
         }
         @CustomType.Setter
-        public Builder headers(List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+        public Builder headers(@Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader> headers) {
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader... headers) {

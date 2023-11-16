@@ -52,7 +52,7 @@ type ResolverFirewallDomainList struct {
 	pulumi.CustomResourceState
 
 	// The ARN (Amazon Resource Name) of the domain list.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A array of domains for the firewall domain list.
 	Domains pulumi.StringArrayOutput `pulumi:"domains"`
 	// A name that lets you identify the domain list, to manage and use it.
@@ -239,8 +239,8 @@ func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListOutputWith
 }
 
 // The ARN (Amazon Resource Name) of the domain list.
-func (o ResolverFirewallDomainListOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ResolverFirewallDomainListOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A array of domains for the firewall domain list.

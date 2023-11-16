@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Lambda
         /// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Lambda
         /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
         /// </summary>
         [Output("ephemeralStorage")]
-        public Output<Outputs.FunctionEphemeralStorage> EphemeralStorage { get; private set; } = null!;
+        public Output<Outputs.FunctionEphemeralStorage?> EphemeralStorage { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block. Detailed below.
@@ -417,7 +417,7 @@ namespace Pulumi.Aws.Lambda
         /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
         /// </summary>
         [Output("invokeArn")]
-        public Output<string> InvokeArn { get; private set; } = null!;
+        public Output<string?> InvokeArn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Lambda
         /// Date this resource was last modified.
         /// </summary>
         [Output("lastModified")]
-        public Output<string> LastModified { get; private set; } = null!;
+        public Output<string?> LastModified { get; private set; } = null!;
 
         /// <summary>
         /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
@@ -465,13 +465,13 @@ namespace Pulumi.Aws.Lambda
         /// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         /// </summary>
         [Output("qualifiedArn")]
-        public Output<string> QualifiedArn { get; private set; } = null!;
+        public Output<string?> QualifiedArn { get; private set; } = null!;
 
         /// <summary>
         /// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
         /// </summary>
         [Output("qualifiedInvokeArn")]
-        public Output<string> QualifiedInvokeArn { get; private set; } = null!;
+        public Output<string?> QualifiedInvokeArn { get; private set; } = null!;
 
         /// <summary>
         /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
@@ -527,14 +527,14 @@ namespace Pulumi.Aws.Lambda
         /// ARN of the signing job.
         /// </summary>
         [Output("signingJobArn")]
-        public Output<string> SigningJobArn { get; private set; } = null!;
+        public Output<string?> SigningJobArn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the signing profile version.
         /// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         /// </summary>
         [Output("signingProfileVersionArn")]
-        public Output<string> SigningProfileVersionArn { get; private set; } = null!;
+        public Output<string?> SigningProfileVersionArn { get; private set; } = null!;
 
         /// <summary>
         /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
@@ -552,13 +552,13 @@ namespace Pulumi.Aws.Lambda
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         /// </summary>
         [Output("sourceCodeHash")]
-        public Output<string> SourceCodeHash { get; private set; } = null!;
+        public Output<string?> SourceCodeHash { get; private set; } = null!;
 
         /// <summary>
         /// Size in bytes of the function .zip file.
         /// </summary>
         [Output("sourceCodeSize")]
-        public Output<int> SourceCodeSize { get; private set; } = null!;
+        public Output<int?> SourceCodeSize { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -582,14 +582,14 @@ namespace Pulumi.Aws.Lambda
         /// Configuration block. Detailed below.
         /// </summary>
         [Output("tracingConfig")]
-        public Output<Outputs.FunctionTracingConfig> TracingConfig { get; private set; } = null!;
+        public Output<Outputs.FunctionTracingConfig?> TracingConfig { get; private set; } = null!;
 
         /// <summary>
         /// Latest published version of your Lambda Function.
         /// * `vpc_config.vpc_id` - ID of the VPC.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block. Detailed below.

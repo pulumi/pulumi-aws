@@ -114,15 +114,15 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accessEndpoints", refs={List.class,StackAccessEndpoint.class}, tree="[0,1]")
-    private Output<List<StackAccessEndpoint>> accessEndpoints;
+    private Output</* @Nullable */ List<StackAccessEndpoint>> accessEndpoints;
 
     /**
      * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
      * See `access_endpoints` below.
      * 
      */
-    public Output<List<StackAccessEndpoint>> accessEndpoints() {
-        return this.accessEndpoints;
+    public Output<Optional<List<StackAccessEndpoint>>> accessEndpoints() {
+        return Codegen.optional(this.accessEndpoints);
     }
     /**
      * Settings for application settings persistence.
@@ -130,43 +130,43 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applicationSettings", refs={StackApplicationSettings.class}, tree="[0]")
-    private Output<StackApplicationSettings> applicationSettings;
+    private Output</* @Nullable */ StackApplicationSettings> applicationSettings;
 
     /**
      * @return Settings for application settings persistence.
      * See `application_settings` below.
      * 
      */
-    public Output<StackApplicationSettings> applicationSettings() {
-        return this.applicationSettings;
+    public Output<Optional<StackApplicationSettings>> applicationSettings() {
+        return Codegen.optional(this.applicationSettings);
     }
     /**
      * ARN of the appstream stack.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the appstream stack.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the stack was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
+    private Output</* @Nullable */ String> createdTime;
 
     /**
      * @return Date and time, in UTC and extended RFC 3339 format, when the stack was created.
      * 
      */
-    public Output<String> createdTime() {
-        return this.createdTime;
+    public Output<Optional<String>> createdTime() {
+        return Codegen.optional(this.createdTime);
     }
     /**
      * Description for the AppStream stack.
@@ -201,28 +201,28 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="embedHostDomains", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> embedHostDomains;
+    private Output</* @Nullable */ List<String>> embedHostDomains;
 
     /**
      * @return Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
      * 
      */
-    public Output<List<String>> embedHostDomains() {
-        return this.embedHostDomains;
+    public Output<Optional<List<String>>> embedHostDomains() {
+        return Codegen.optional(this.embedHostDomains);
     }
     /**
      * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
      * 
      */
     @Export(name="feedbackUrl", refs={String.class}, tree="[0]")
-    private Output<String> feedbackUrl;
+    private Output</* @Nullable */ String> feedbackUrl;
 
     /**
      * @return URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
      * 
      */
-    public Output<String> feedbackUrl() {
-        return this.feedbackUrl;
+    public Output<Optional<String>> feedbackUrl() {
+        return Codegen.optional(this.feedbackUrl);
     }
     /**
      * Unique name for the AppStream stack.
@@ -247,14 +247,14 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="redirectUrl", refs={String.class}, tree="[0]")
-    private Output<String> redirectUrl;
+    private Output</* @Nullable */ String> redirectUrl;
 
     /**
      * @return URL that users are redirected to after their streaming session ends.
      * 
      */
-    public Output<String> redirectUrl() {
-        return this.redirectUrl;
+    public Output<Optional<String>> redirectUrl() {
+        return Codegen.optional(this.redirectUrl);
     }
     /**
      * Configuration block for the storage connectors to enable.
@@ -262,15 +262,15 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageConnectors", refs={List.class,StackStorageConnector.class}, tree="[0,1]")
-    private Output<List<StackStorageConnector>> storageConnectors;
+    private Output</* @Nullable */ List<StackStorageConnector>> storageConnectors;
 
     /**
      * @return Configuration block for the storage connectors to enable.
      * See `storage_connectors` below.
      * 
      */
-    public Output<List<StackStorageConnector>> storageConnectors() {
-        return this.storageConnectors;
+    public Output<Optional<List<StackStorageConnector>>> storageConnectors() {
+        return Codegen.optional(this.storageConnectors);
     }
     /**
      * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -278,15 +278,15 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="streamingExperienceSettings", refs={StackStreamingExperienceSettings.class}, tree="[0]")
-    private Output<StackStreamingExperienceSettings> streamingExperienceSettings;
+    private Output</* @Nullable */ StackStreamingExperienceSettings> streamingExperienceSettings;
 
     /**
      * @return The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
      * See `streaming_experience_settings` below.
      * 
      */
-    public Output<StackStreamingExperienceSettings> streamingExperienceSettings() {
-        return this.streamingExperienceSettings;
+    public Output<Optional<StackStreamingExperienceSettings>> streamingExperienceSettings() {
+        return Codegen.optional(this.streamingExperienceSettings);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -320,15 +320,15 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="userSettings", refs={List.class,StackUserSetting.class}, tree="[0,1]")
-    private Output<List<StackUserSetting>> userSettings;
+    private Output</* @Nullable */ List<StackUserSetting>> userSettings;
 
     /**
      * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `user_settings` below.
      * 
      */
-    public Output<List<StackUserSetting>> userSettings() {
-        return this.userSettings;
+    public Output<Optional<List<StackUserSetting>>> userSettings() {
+        return Codegen.optional(this.userSettings);
     }
 
     /**

@@ -78,11 +78,11 @@ type UsagePlanKey struct {
 	// Type of the API key resource. Currently, the valid key type is API_KEY.
 	KeyType pulumi.StringOutput `pulumi:"keyType"`
 	// Name of a usage plan key.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId pulumi.StringOutput `pulumi:"usagePlanId"`
 	// Value of a usage plan key.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewUsagePlanKey registers a new resource with the given unique name, arguments, and options.
@@ -270,8 +270,8 @@ func (o UsagePlanKeyOutput) KeyType() pulumi.StringOutput {
 }
 
 // Name of a usage plan key.
-func (o UsagePlanKeyOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o UsagePlanKeyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Id of the usage plan resource representing to associate the key to.
@@ -280,8 +280,8 @@ func (o UsagePlanKeyOutput) UsagePlanId() pulumi.StringOutput {
 }
 
 // Value of a usage plan key.
-func (o UsagePlanKeyOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+func (o UsagePlanKeyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type UsagePlanKeyArrayOutput struct{ *pulumi.OutputState }

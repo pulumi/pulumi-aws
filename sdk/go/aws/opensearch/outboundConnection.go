@@ -80,9 +80,9 @@ type OutboundConnection struct {
 	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
 	ConnectionMode pulumi.StringPtrOutput `pulumi:"connectionMode"`
 	// Configuration block for the outbound connection.
-	ConnectionProperties OutboundConnectionConnectionPropertiesOutput `pulumi:"connectionProperties"`
+	ConnectionProperties OutboundConnectionConnectionPropertiesPtrOutput `pulumi:"connectionProperties"`
 	// Status of the connection request.
-	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
+	ConnectionStatus pulumi.StringPtrOutput `pulumi:"connectionStatus"`
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfoOutput `pulumi:"localDomainInfo"`
 	// Configuration block for the remote Opensearch domain.
@@ -299,15 +299,15 @@ func (o OutboundConnectionOutput) ConnectionMode() pulumi.StringPtrOutput {
 }
 
 // Configuration block for the outbound connection.
-func (o OutboundConnectionOutput) ConnectionProperties() OutboundConnectionConnectionPropertiesOutput {
-	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionConnectionPropertiesOutput {
+func (o OutboundConnectionOutput) ConnectionProperties() OutboundConnectionConnectionPropertiesPtrOutput {
+	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionConnectionPropertiesPtrOutput {
 		return v.ConnectionProperties
-	}).(OutboundConnectionConnectionPropertiesOutput)
+	}).(OutboundConnectionConnectionPropertiesPtrOutput)
 }
 
 // Status of the connection request.
-func (o OutboundConnectionOutput) ConnectionStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
+func (o OutboundConnectionOutput) ConnectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnection) pulumi.StringPtrOutput { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the local Opensearch domain.

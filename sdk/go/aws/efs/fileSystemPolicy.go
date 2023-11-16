@@ -26,58 +26,58 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fs, err := efs.NewFileSystem(ctx, "fs", nil)
-//			if err != nil {
-//				return err
-//			}
-//			policyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("ExampleStatement01"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("elasticfilesystem:ClientMount"),
-//							pulumi.String("elasticfilesystem:ClientWrite"),
-//						},
-//						Resources: pulumi.StringArray{
-//							fs.Arn,
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("Bool"),
-//								Variable: pulumi.String("aws:SecureTransport"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("true"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = efs.NewFileSystemPolicy(ctx, "policyFileSystemPolicy", &efs.FileSystemPolicyArgs{
-//				FileSystemId: fs.ID(),
-//				Policy: policyPolicyDocument.ApplyT(func(policyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &policyPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// fs, err := efs.NewFileSystem(ctx, "fs", nil)
+// if err != nil {
+// return err
+// }
+// policyPolicyDocument := fs.Arn.ApplyT(func(arn *string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: "ExampleStatement01",
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Actions: []string{
+// "elasticfilesystem:ClientMount",
+// "elasticfilesystem:ClientWrite",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "Bool",
+// Variable: "aws:SecureTransport",
+// Values: []string{
+// "true",
+// },
+// },
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = efs.NewFileSystemPolicy(ctx, "policyFileSystemPolicy", &efs.FileSystemPolicyArgs{
+// FileSystemId: fs.ID(),
+// Policy: policyPolicyDocument.ApplyT(func(policyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &policyPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

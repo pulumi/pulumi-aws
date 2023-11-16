@@ -55,7 +55,7 @@ type Image struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Image.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the image.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the image. When the image is added to a domain (must be unique to the domain).
@@ -268,8 +268,8 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Image.
-func (o ImageOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ImageOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the image.

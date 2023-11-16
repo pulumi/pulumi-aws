@@ -53,13 +53,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// EC2 Transit Gateway Amazon Resource Name (ARN)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the default association route table
         /// </summary>
         [Output("associationDefaultRouteTableId")]
-        public Output<string> AssociationDefaultRouteTableId { get; private set; } = null!;
+        public Output<string?> AssociationDefaultRouteTableId { get; private set; } = null!;
 
         /// <summary>
         /// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -101,13 +101,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the AWS account that owns the EC2 Transit Gateway
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the default propagation route table
         /// </summary>
         [Output("propagationDefaultRouteTableId")]
-        public Output<string> PropagationDefaultRouteTableId { get; private set; } = null!;
+        public Output<string?> PropagationDefaultRouteTableId { get; private set; } = null!;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

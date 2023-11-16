@@ -525,7 +525,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Dedicated Host.
         """
@@ -533,7 +533,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assetId")
-    def asset_id(self) -> pulumi.Output[str]:
+    def asset_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
         """
@@ -589,7 +589,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the AWS account that owns the Dedicated Host.
         """

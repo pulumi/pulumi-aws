@@ -59,7 +59,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     /**
      * The Neptune Cluster Endpoint Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the endpoint.
      */
@@ -71,7 +71,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     /**
      * The DNS address of the endpoint.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
     /**
      * The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
      */

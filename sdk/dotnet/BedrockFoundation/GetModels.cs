@@ -202,7 +202,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// <summary>
         /// AWS region.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of model summary objects. See `model_summaries`.
         /// </summary>
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.BedrockFoundation
 
             string? byProvider,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetModelsModelSummaryResult> modelSummaries)
         {

@@ -43,7 +43,7 @@ class GetNamedQueryResult:
 
     @property
     @pulumi.getter
-    def database(self) -> str:
+    def database(self) -> Optional[str]:
         """
         Database to which the query belongs.
         """
@@ -51,7 +51,7 @@ class GetNamedQueryResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Brief explanation of the query.
         """
@@ -59,7 +59,7 @@ class GetNamedQueryResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -72,7 +72,7 @@ class GetNamedQueryResult:
 
     @property
     @pulumi.getter
-    def querystring(self) -> str:
+    def querystring(self) -> Optional[str]:
         return pulumi.get(self, "querystring")
 
     @property

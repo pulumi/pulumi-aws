@@ -141,14 +141,14 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the topic rule
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="cloudwatchAlarms", refs={List.class,TopicRuleCloudwatchAlarm.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TopicRuleCloudwatchAlarm>> cloudwatchAlarms;

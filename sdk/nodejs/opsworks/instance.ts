@@ -111,7 +111,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
      */
-    public readonly amiId!: pulumi.Output<string>;
+    public readonly amiId!: pulumi.Output<string | undefined>;
     /**
      * Machine architecture for created instances.  Valid values are `x8664` or `i386`. The default is `x8664`.
      */
@@ -123,11 +123,11 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Name of the availability zone where instances will be created by default.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * Time that the instance was created.
      */
-    public readonly createdAt!: pulumi.Output<string>;
+    public readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * Whether to delete EBS volume on deletion. Default is `true`.
      */
@@ -139,7 +139,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.opsworks.InstanceEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.opsworks.InstanceEbsBlockDevice[] | undefined>;
     /**
      * Whether the launched EC2 instance will be EBS-optimized.
      */
@@ -147,27 +147,27 @@ export class Instance extends pulumi.CustomResource {
     /**
      * EC2 instance ID.
      */
-    public /*out*/ readonly ec2InstanceId!: pulumi.Output<string>;
+    public /*out*/ readonly ec2InstanceId!: pulumi.Output<string | undefined>;
     /**
      * ECS cluster's ARN for container instances.
      */
-    public readonly ecsClusterArn!: pulumi.Output<string>;
+    public readonly ecsClusterArn!: pulumi.Output<string | undefined>;
     /**
      * Instance Elastic IP address.
      */
-    public readonly elasticIp!: pulumi.Output<string>;
+    public readonly elasticIp!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.opsworks.InstanceEphemeralBlockDevice[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.opsworks.InstanceEphemeralBlockDevice[] | undefined>;
     /**
      * Instance's host name.
      */
-    public readonly hostname!: pulumi.Output<string>;
+    public readonly hostname!: pulumi.Output<string | undefined>;
     /**
      * For registered instances, infrastructure class: ec2 or on-premises.
      */
-    public readonly infrastructureClass!: pulumi.Output<string>;
+    public readonly infrastructureClass!: pulumi.Output<string | undefined>;
     /**
      * Controls where to install OS and package updates when the instance boots.  Default is `true`.
      */
@@ -175,7 +175,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * ARN of the instance's IAM profile.
      */
-    public readonly instanceProfileArn!: pulumi.Output<string>;
+    public readonly instanceProfileArn!: pulumi.Output<string | undefined>;
     /**
      * Type of instance to start.
      */
@@ -183,7 +183,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * ID of the last service error.
      */
-    public /*out*/ readonly lastServiceErrorId!: pulumi.Output<string>;
+    public /*out*/ readonly lastServiceErrorId!: pulumi.Output<string | undefined>;
     /**
      * List of the layers the instance will belong to.
      */
@@ -191,75 +191,75 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Name of operating system that will be installed.
      */
-    public readonly os!: pulumi.Output<string>;
+    public readonly os!: pulumi.Output<string | undefined>;
     /**
      * Instance's platform.
      */
-    public /*out*/ readonly platform!: pulumi.Output<string>;
+    public /*out*/ readonly platform!: pulumi.Output<string | undefined>;
     /**
      * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
      */
-    public /*out*/ readonly privateDns!: pulumi.Output<string>;
+    public /*out*/ readonly privateDns!: pulumi.Output<string | undefined>;
     /**
      * Private IP address assigned to the instance.
      */
-    public /*out*/ readonly privateIp!: pulumi.Output<string>;
+    public /*out*/ readonly privateIp!: pulumi.Output<string | undefined>;
     /**
      * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
      */
-    public /*out*/ readonly publicDns!: pulumi.Output<string>;
+    public /*out*/ readonly publicDns!: pulumi.Output<string | undefined>;
     /**
      * Public IP address assigned to the instance, if applicable.
      */
-    public /*out*/ readonly publicIp!: pulumi.Output<string>;
+    public /*out*/ readonly publicIp!: pulumi.Output<string | undefined>;
     /**
      * For registered instances, who performed the registration.
      */
-    public /*out*/ readonly registeredBy!: pulumi.Output<string>;
+    public /*out*/ readonly registeredBy!: pulumi.Output<string | undefined>;
     /**
      * Instance's reported AWS OpsWorks Stacks agent version.
      */
-    public /*out*/ readonly reportedAgentVersion!: pulumi.Output<string>;
+    public /*out*/ readonly reportedAgentVersion!: pulumi.Output<string | undefined>;
     /**
      * For registered instances, the reported operating system family.
      */
-    public /*out*/ readonly reportedOsFamily!: pulumi.Output<string>;
+    public /*out*/ readonly reportedOsFamily!: pulumi.Output<string | undefined>;
     /**
      * For registered instances, the reported operating system name.
      */
-    public /*out*/ readonly reportedOsName!: pulumi.Output<string>;
+    public /*out*/ readonly reportedOsName!: pulumi.Output<string | undefined>;
     /**
      * For registered instances, the reported operating system version.
      */
-    public /*out*/ readonly reportedOsVersion!: pulumi.Output<string>;
+    public /*out*/ readonly reportedOsVersion!: pulumi.Output<string | undefined>;
     /**
      * Configuration block for the root block device of the instance. See Block Devices below.
      */
-    public readonly rootBlockDevices!: pulumi.Output<outputs.opsworks.InstanceRootBlockDevice[]>;
+    public readonly rootBlockDevices!: pulumi.Output<outputs.opsworks.InstanceRootBlockDevice[] | undefined>;
     /**
      * Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
      */
-    public readonly rootDeviceType!: pulumi.Output<string>;
+    public readonly rootDeviceType!: pulumi.Output<string | undefined>;
     /**
      * Root device volume ID.
      */
-    public /*out*/ readonly rootDeviceVolumeId!: pulumi.Output<string>;
+    public /*out*/ readonly rootDeviceVolumeId!: pulumi.Output<string | undefined>;
     /**
      * Associated security groups.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
      * SSH key's Deep Security Agent (DSA) fingerprint.
      */
-    public /*out*/ readonly sshHostDsaKeyFingerprint!: pulumi.Output<string>;
+    public /*out*/ readonly sshHostDsaKeyFingerprint!: pulumi.Output<string | undefined>;
     /**
      * SSH key's RSA fingerprint.
      */
-    public /*out*/ readonly sshHostRsaKeyFingerprint!: pulumi.Output<string>;
+    public /*out*/ readonly sshHostRsaKeyFingerprint!: pulumi.Output<string | undefined>;
     /**
      * Name of the SSH keypair that instances will have by default.
      */
-    public readonly sshKeyName!: pulumi.Output<string>;
+    public readonly sshKeyName!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the stack the instance will belong to.
      *
@@ -273,19 +273,19 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Instance status. Will be one of `booting`, `connectionLost`, `online`, `pending`, `rebooting`, `requested`, `runningSetup`, `setupFailed`, `shuttingDown`, `startFailed`, `stopFailed`, `stopped`, `stopping`, `terminated`, or `terminating`.
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Subnet ID to attach to.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
      */
-    public readonly tenancy!: pulumi.Output<string>;
+    public readonly tenancy!: pulumi.Output<string | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
      */
-    public readonly virtualizationType!: pulumi.Output<string>;
+    public readonly virtualizationType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.

@@ -11,6 +11,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,58 +20,58 @@ public final class GetDirectoryResult {
      * @return Directory alias.
      * 
      */
-    private String alias;
+    private @Nullable String alias;
     /**
      * @return User name for the service account.
      * 
      */
-    private String customerUserName;
+    private @Nullable String customerUserName;
     private String directoryId;
     /**
      * @return Name of the directory.
      * 
      */
-    private String directoryName;
+    private @Nullable String directoryName;
     /**
      * @return Directory type.
      * 
      */
-    private String directoryType;
+    private @Nullable String directoryType;
     /**
      * @return IP addresses of the DNS servers for the directory.
      * 
      */
-    private List<String> dnsIpAddresses;
+    private @Nullable List<String> dnsIpAddresses;
     /**
      * @return Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      * 
      */
-    private String iamRoleId;
+    private @Nullable String iamRoleId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Identifiers of the IP access control groups associated with the directory.
      * 
      */
-    private List<String> ipGroupIds;
+    private @Nullable List<String> ipGroupIds;
     /**
      * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
      */
-    private String registrationCode;
+    private @Nullable String registrationCode;
     /**
      * @return The permissions to enable or disable self-service capabilities.
      * 
      */
-    private List<GetDirectorySelfServicePermission> selfServicePermissions;
+    private @Nullable List<GetDirectorySelfServicePermission> selfServicePermissions;
     /**
      * @return Identifiers of the subnets where the directory resides.
      * 
      */
-    private List<String> subnetIds;
+    private @Nullable List<String> subnetIds;
     /**
      * @return A map of tags assigned to the WorkSpaces directory.
      * 
@@ -80,32 +81,32 @@ public final class GetDirectoryResult {
      * @return (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      * 
      */
-    private List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties;
+    private @Nullable List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties;
     /**
      * @return The default properties that are used for creating WorkSpaces. Defined below.
      * 
      */
-    private List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties;
+    private @Nullable List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties;
     /**
      * @return The identifier of the security group that is assigned to new WorkSpaces. Defined below.
      * 
      */
-    private String workspaceSecurityGroupId;
+    private @Nullable String workspaceSecurityGroupId;
 
     private GetDirectoryResult() {}
     /**
      * @return Directory alias.
      * 
      */
-    public String alias() {
-        return this.alias;
+    public Optional<String> alias() {
+        return Optional.ofNullable(this.alias);
     }
     /**
      * @return User name for the service account.
      * 
      */
-    public String customerUserName() {
-        return this.customerUserName;
+    public Optional<String> customerUserName() {
+        return Optional.ofNullable(this.customerUserName);
     }
     public String directoryId() {
         return this.directoryId;
@@ -114,64 +115,64 @@ public final class GetDirectoryResult {
      * @return Name of the directory.
      * 
      */
-    public String directoryName() {
-        return this.directoryName;
+    public Optional<String> directoryName() {
+        return Optional.ofNullable(this.directoryName);
     }
     /**
      * @return Directory type.
      * 
      */
-    public String directoryType() {
-        return this.directoryType;
+    public Optional<String> directoryType() {
+        return Optional.ofNullable(this.directoryType);
     }
     /**
      * @return IP addresses of the DNS servers for the directory.
      * 
      */
     public List<String> dnsIpAddresses() {
-        return this.dnsIpAddresses;
+        return this.dnsIpAddresses == null ? List.of() : this.dnsIpAddresses;
     }
     /**
      * @return Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      * 
      */
-    public String iamRoleId() {
-        return this.iamRoleId;
+    public Optional<String> iamRoleId() {
+        return Optional.ofNullable(this.iamRoleId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Identifiers of the IP access control groups associated with the directory.
      * 
      */
     public List<String> ipGroupIds() {
-        return this.ipGroupIds;
+        return this.ipGroupIds == null ? List.of() : this.ipGroupIds;
     }
     /**
      * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
      */
-    public String registrationCode() {
-        return this.registrationCode;
+    public Optional<String> registrationCode() {
+        return Optional.ofNullable(this.registrationCode);
     }
     /**
      * @return The permissions to enable or disable self-service capabilities.
      * 
      */
     public List<GetDirectorySelfServicePermission> selfServicePermissions() {
-        return this.selfServicePermissions;
+        return this.selfServicePermissions == null ? List.of() : this.selfServicePermissions;
     }
     /**
      * @return Identifiers of the subnets where the directory resides.
      * 
      */
     public List<String> subnetIds() {
-        return this.subnetIds;
+        return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
      * @return A map of tags assigned to the WorkSpaces directory.
@@ -185,21 +186,21 @@ public final class GetDirectoryResult {
      * 
      */
     public List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties() {
-        return this.workspaceAccessProperties;
+        return this.workspaceAccessProperties == null ? List.of() : this.workspaceAccessProperties;
     }
     /**
      * @return The default properties that are used for creating WorkSpaces. Defined below.
      * 
      */
     public List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties() {
-        return this.workspaceCreationProperties;
+        return this.workspaceCreationProperties == null ? List.of() : this.workspaceCreationProperties;
     }
     /**
      * @return The identifier of the security group that is assigned to new WorkSpaces. Defined below.
      * 
      */
-    public String workspaceSecurityGroupId() {
-        return this.workspaceSecurityGroupId;
+    public Optional<String> workspaceSecurityGroupId() {
+        return Optional.ofNullable(this.workspaceSecurityGroupId);
     }
 
     public static Builder builder() {
@@ -211,22 +212,22 @@ public final class GetDirectoryResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String alias;
-        private String customerUserName;
+        private @Nullable String alias;
+        private @Nullable String customerUserName;
         private String directoryId;
-        private String directoryName;
-        private String directoryType;
-        private List<String> dnsIpAddresses;
-        private String iamRoleId;
-        private String id;
-        private List<String> ipGroupIds;
-        private String registrationCode;
-        private List<GetDirectorySelfServicePermission> selfServicePermissions;
-        private List<String> subnetIds;
+        private @Nullable String directoryName;
+        private @Nullable String directoryType;
+        private @Nullable List<String> dnsIpAddresses;
+        private @Nullable String iamRoleId;
+        private @Nullable String id;
+        private @Nullable List<String> ipGroupIds;
+        private @Nullable String registrationCode;
+        private @Nullable List<GetDirectorySelfServicePermission> selfServicePermissions;
+        private @Nullable List<String> subnetIds;
         private @Nullable Map<String,String> tags;
-        private List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties;
-        private List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties;
-        private String workspaceSecurityGroupId;
+        private @Nullable List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties;
+        private @Nullable List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties;
+        private @Nullable String workspaceSecurityGroupId;
         public Builder() {}
         public Builder(GetDirectoryResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -249,13 +250,13 @@ public final class GetDirectoryResult {
         }
 
         @CustomType.Setter
-        public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+        public Builder alias(@Nullable String alias) {
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
-        public Builder customerUserName(String customerUserName) {
-            this.customerUserName = Objects.requireNonNull(customerUserName);
+        public Builder customerUserName(@Nullable String customerUserName) {
+            this.customerUserName = customerUserName;
             return this;
         }
         @CustomType.Setter
@@ -264,57 +265,57 @@ public final class GetDirectoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder directoryName(String directoryName) {
-            this.directoryName = Objects.requireNonNull(directoryName);
+        public Builder directoryName(@Nullable String directoryName) {
+            this.directoryName = directoryName;
             return this;
         }
         @CustomType.Setter
-        public Builder directoryType(String directoryType) {
-            this.directoryType = Objects.requireNonNull(directoryType);
+        public Builder directoryType(@Nullable String directoryType) {
+            this.directoryType = directoryType;
             return this;
         }
         @CustomType.Setter
-        public Builder dnsIpAddresses(List<String> dnsIpAddresses) {
-            this.dnsIpAddresses = Objects.requireNonNull(dnsIpAddresses);
+        public Builder dnsIpAddresses(@Nullable List<String> dnsIpAddresses) {
+            this.dnsIpAddresses = dnsIpAddresses;
             return this;
         }
         public Builder dnsIpAddresses(String... dnsIpAddresses) {
             return dnsIpAddresses(List.of(dnsIpAddresses));
         }
         @CustomType.Setter
-        public Builder iamRoleId(String iamRoleId) {
-            this.iamRoleId = Objects.requireNonNull(iamRoleId);
+        public Builder iamRoleId(@Nullable String iamRoleId) {
+            this.iamRoleId = iamRoleId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipGroupIds(List<String> ipGroupIds) {
-            this.ipGroupIds = Objects.requireNonNull(ipGroupIds);
+        public Builder ipGroupIds(@Nullable List<String> ipGroupIds) {
+            this.ipGroupIds = ipGroupIds;
             return this;
         }
         public Builder ipGroupIds(String... ipGroupIds) {
             return ipGroupIds(List.of(ipGroupIds));
         }
         @CustomType.Setter
-        public Builder registrationCode(String registrationCode) {
-            this.registrationCode = Objects.requireNonNull(registrationCode);
+        public Builder registrationCode(@Nullable String registrationCode) {
+            this.registrationCode = registrationCode;
             return this;
         }
         @CustomType.Setter
-        public Builder selfServicePermissions(List<GetDirectorySelfServicePermission> selfServicePermissions) {
-            this.selfServicePermissions = Objects.requireNonNull(selfServicePermissions);
+        public Builder selfServicePermissions(@Nullable List<GetDirectorySelfServicePermission> selfServicePermissions) {
+            this.selfServicePermissions = selfServicePermissions;
             return this;
         }
         public Builder selfServicePermissions(GetDirectorySelfServicePermission... selfServicePermissions) {
             return selfServicePermissions(List.of(selfServicePermissions));
         }
         @CustomType.Setter
-        public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+        public Builder subnetIds(@Nullable List<String> subnetIds) {
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -326,24 +327,24 @@ public final class GetDirectoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder workspaceAccessProperties(List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties) {
-            this.workspaceAccessProperties = Objects.requireNonNull(workspaceAccessProperties);
+        public Builder workspaceAccessProperties(@Nullable List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties) {
+            this.workspaceAccessProperties = workspaceAccessProperties;
             return this;
         }
         public Builder workspaceAccessProperties(GetDirectoryWorkspaceAccessProperty... workspaceAccessProperties) {
             return workspaceAccessProperties(List.of(workspaceAccessProperties));
         }
         @CustomType.Setter
-        public Builder workspaceCreationProperties(List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties) {
-            this.workspaceCreationProperties = Objects.requireNonNull(workspaceCreationProperties);
+        public Builder workspaceCreationProperties(@Nullable List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties) {
+            this.workspaceCreationProperties = workspaceCreationProperties;
             return this;
         }
         public Builder workspaceCreationProperties(GetDirectoryWorkspaceCreationProperty... workspaceCreationProperties) {
             return workspaceCreationProperties(List.of(workspaceCreationProperties));
         }
         @CustomType.Setter
-        public Builder workspaceSecurityGroupId(String workspaceSecurityGroupId) {
-            this.workspaceSecurityGroupId = Objects.requireNonNull(workspaceSecurityGroupId);
+        public Builder workspaceSecurityGroupId(@Nullable String workspaceSecurityGroupId) {
+            this.workspaceSecurityGroupId = workspaceSecurityGroupId;
             return this;
         }
         public GetDirectoryResult build() {

@@ -87,42 +87,42 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="expirePasswords", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> expirePasswords;
+    private Output</* @Nullable */ Boolean> expirePasswords;
 
     /**
      * @return Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      * 
      */
-    public Output<Boolean> expirePasswords() {
-        return this.expirePasswords;
+    public Output<Optional<Boolean>> expirePasswords() {
+        return Codegen.optional(this.expirePasswords);
     }
     /**
      * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      * 
      */
     @Export(name="hardExpiry", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> hardExpiry;
+    private Output</* @Nullable */ Boolean> hardExpiry;
 
     /**
      * @return Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      * 
      */
-    public Output<Boolean> hardExpiry() {
-        return this.hardExpiry;
+    public Output<Optional<Boolean>> hardExpiry() {
+        return Codegen.optional(this.hardExpiry);
     }
     /**
      * The number of days that an user password is valid.
      * 
      */
     @Export(name="maxPasswordAge", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maxPasswordAge;
+    private Output</* @Nullable */ Integer> maxPasswordAge;
 
     /**
      * @return The number of days that an user password is valid.
      * 
      */
-    public Output<Integer> maxPasswordAge() {
-        return this.maxPasswordAge;
+    public Output<Optional<Integer>> maxPasswordAge() {
+        return Codegen.optional(this.maxPasswordAge);
     }
     /**
      * Minimum length to require for user passwords.
@@ -143,70 +143,70 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="passwordReusePrevention", refs={Integer.class}, tree="[0]")
-    private Output<Integer> passwordReusePrevention;
+    private Output</* @Nullable */ Integer> passwordReusePrevention;
 
     /**
      * @return The number of previous passwords that users are prevented from reusing.
      * 
      */
-    public Output<Integer> passwordReusePrevention() {
-        return this.passwordReusePrevention;
+    public Output<Optional<Integer>> passwordReusePrevention() {
+        return Codegen.optional(this.passwordReusePrevention);
     }
     /**
      * Whether to require lowercase characters for user passwords.
      * 
      */
     @Export(name="requireLowercaseCharacters", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> requireLowercaseCharacters;
+    private Output</* @Nullable */ Boolean> requireLowercaseCharacters;
 
     /**
      * @return Whether to require lowercase characters for user passwords.
      * 
      */
-    public Output<Boolean> requireLowercaseCharacters() {
-        return this.requireLowercaseCharacters;
+    public Output<Optional<Boolean>> requireLowercaseCharacters() {
+        return Codegen.optional(this.requireLowercaseCharacters);
     }
     /**
      * Whether to require numbers for user passwords.
      * 
      */
     @Export(name="requireNumbers", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> requireNumbers;
+    private Output</* @Nullable */ Boolean> requireNumbers;
 
     /**
      * @return Whether to require numbers for user passwords.
      * 
      */
-    public Output<Boolean> requireNumbers() {
-        return this.requireNumbers;
+    public Output<Optional<Boolean>> requireNumbers() {
+        return Codegen.optional(this.requireNumbers);
     }
     /**
      * Whether to require symbols for user passwords.
      * 
      */
     @Export(name="requireSymbols", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> requireSymbols;
+    private Output</* @Nullable */ Boolean> requireSymbols;
 
     /**
      * @return Whether to require symbols for user passwords.
      * 
      */
-    public Output<Boolean> requireSymbols() {
-        return this.requireSymbols;
+    public Output<Optional<Boolean>> requireSymbols() {
+        return Codegen.optional(this.requireSymbols);
     }
     /**
      * Whether to require uppercase characters for user passwords.
      * 
      */
     @Export(name="requireUppercaseCharacters", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> requireUppercaseCharacters;
+    private Output</* @Nullable */ Boolean> requireUppercaseCharacters;
 
     /**
      * @return Whether to require uppercase characters for user passwords.
      * 
      */
-    public Output<Boolean> requireUppercaseCharacters() {
-        return this.requireUppercaseCharacters;
+    public Output<Optional<Boolean>> requireUppercaseCharacters() {
+        return Codegen.optional(this.requireUppercaseCharacters);
     }
 
     /**

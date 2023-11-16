@@ -299,7 +299,7 @@ class SecretRotation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rotationEnabled")
-    def rotation_enabled(self) -> pulumi.Output[bool]:
+    def rotation_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether automatic rotation is enabled for this secret.
         """

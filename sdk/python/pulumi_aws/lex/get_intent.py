@@ -52,7 +52,7 @@ class GetIntentResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Lex intent.
         """
@@ -60,7 +60,7 @@ class GetIntentResult:
 
     @property
     @pulumi.getter
-    def checksum(self) -> str:
+    def checksum(self) -> Optional[str]:
         """
         Checksum identifying the version of the intent that was created. The checksum is not
         included as an argument because the resource will add it automatically when updating the intent.
@@ -69,7 +69,7 @@ class GetIntentResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Date when the intent version was created.
         """
@@ -77,7 +77,7 @@ class GetIntentResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the intent.
         """
@@ -85,7 +85,7 @@ class GetIntentResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -93,7 +93,7 @@ class GetIntentResult:
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> Optional[str]:
         """
         Date when the $LATEST version of this intent was updated.
         """
@@ -109,7 +109,7 @@ class GetIntentResult:
 
     @property
     @pulumi.getter(name="parentIntentSignature")
-    def parent_intent_signature(self) -> str:
+    def parent_intent_signature(self) -> Optional[str]:
         """
         A unique identifier for the built-in intent to base this
         intent on. To find the signature for an intent, see

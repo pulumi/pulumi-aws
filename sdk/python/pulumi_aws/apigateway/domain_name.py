@@ -940,7 +940,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of domain name.
         """
@@ -988,7 +988,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateUploadDate")
-    def certificate_upload_date(self) -> pulumi.Output[str]:
+    def certificate_upload_date(self) -> pulumi.Output[Optional[str]]:
         """
         Upload date associated with the domain certificate.
         """
@@ -996,7 +996,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudfrontDomainName")
-    def cloudfront_domain_name(self) -> pulumi.Output[str]:
+    def cloudfront_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         """
@@ -1004,7 +1004,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudfrontZoneId")
-    def cloudfront_zone_id(self) -> pulumi.Output[str]:
+    def cloudfront_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         """
@@ -1020,7 +1020,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> pulumi.Output['outputs.DomainNameEndpointConfiguration']:
+    def endpoint_configuration(self) -> pulumi.Output[Optional['outputs.DomainNameEndpointConfiguration']]:
         """
         Configuration block defining API endpoint information including type. See below.
         """
@@ -1036,7 +1036,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownershipVerificationCertificateArn")
-    def ownership_verification_certificate_arn(self) -> pulumi.Output[str]:
+    def ownership_verification_certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         """
@@ -1062,7 +1062,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regionalDomainName")
-    def regional_domain_name(self) -> pulumi.Output[str]:
+    def regional_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         Hostname for the custom domain's regional endpoint.
         """
@@ -1070,7 +1070,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regionalZoneId")
-    def regional_zone_id(self) -> pulumi.Output[str]:
+    def regional_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         """
@@ -1078,7 +1078,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityPolicy")
-    def security_policy(self) -> pulumi.Output[str]:
+    def security_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         """

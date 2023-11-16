@@ -456,7 +456,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Route 53 Resolver endpoint.
         """
@@ -474,7 +474,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostVpcId")
-    def host_vpc_id(self) -> pulumi.Output[str]:
+    def host_vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the VPC that you want to create the resolver endpoint in.
         """

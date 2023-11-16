@@ -411,24 +411,28 @@ class ServiceActionDefinition(dict):
 @pulumi.output_type
 class GetLaunchPathsSummaryResult(dict):
     def __init__(__self__, *,
-                 constraint_summaries: Sequence['outputs.GetLaunchPathsSummaryConstraintSummaryResult'],
-                 name: str,
-                 path_id: str,
-                 tags: Mapping[str, str]):
+                 constraint_summaries: Optional[Sequence['outputs.GetLaunchPathsSummaryConstraintSummaryResult']] = None,
+                 name: Optional[str] = None,
+                 path_id: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
         """
         :param Sequence['GetLaunchPathsSummaryConstraintSummaryArgs'] constraint_summaries: Block for constraints on the portfolio-product relationship. See details below.
         :param str name: Name of the portfolio to which the path was assigned.
         :param str path_id: Identifier of the product path.
         :param Mapping[str, str] tags: Tags associated with this product path.
         """
-        pulumi.set(__self__, "constraint_summaries", constraint_summaries)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path_id", path_id)
-        pulumi.set(__self__, "tags", tags)
+        if constraint_summaries is not None:
+            pulumi.set(__self__, "constraint_summaries", constraint_summaries)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path_id is not None:
+            pulumi.set(__self__, "path_id", path_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="constraintSummaries")
-    def constraint_summaries(self) -> Sequence['outputs.GetLaunchPathsSummaryConstraintSummaryResult']:
+    def constraint_summaries(self) -> Optional[Sequence['outputs.GetLaunchPathsSummaryConstraintSummaryResult']]:
         """
         Block for constraints on the portfolio-product relationship. See details below.
         """
@@ -436,7 +440,7 @@ class GetLaunchPathsSummaryResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the portfolio to which the path was assigned.
         """
@@ -444,7 +448,7 @@ class GetLaunchPathsSummaryResult(dict):
 
     @property
     @pulumi.getter(name="pathId")
-    def path_id(self) -> str:
+    def path_id(self) -> Optional[str]:
         """
         Identifier of the product path.
         """
@@ -452,7 +456,7 @@ class GetLaunchPathsSummaryResult(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags associated with this product path.
         """
@@ -462,18 +466,20 @@ class GetLaunchPathsSummaryResult(dict):
 @pulumi.output_type
 class GetLaunchPathsSummaryConstraintSummaryResult(dict):
     def __init__(__self__, *,
-                 description: str,
-                 type: str):
+                 description: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param str description: Description of the constraint.
         :param str type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the constraint.
         """
@@ -481,7 +487,7 @@ class GetLaunchPathsSummaryConstraintSummaryResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         """
@@ -491,12 +497,12 @@ class GetLaunchPathsSummaryConstraintSummaryResult(dict):
 @pulumi.output_type
 class GetPortfolioConstraintsDetailResult(dict):
     def __init__(__self__, *,
-                 constraint_id: str,
-                 description: str,
-                 owner: str,
-                 portfolio_id: str,
-                 product_id: str,
-                 type: str):
+                 constraint_id: Optional[str] = None,
+                 description: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 portfolio_id: Optional[str] = None,
+                 product_id: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param str constraint_id: Identifier of the constraint.
         :param str description: Description of the constraint.
@@ -506,16 +512,22 @@ class GetPortfolioConstraintsDetailResult(dict):
         :param str product_id: Product identifier.
         :param str type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         """
-        pulumi.set(__self__, "constraint_id", constraint_id)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "portfolio_id", portfolio_id)
-        pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "type", type)
+        if constraint_id is not None:
+            pulumi.set(__self__, "constraint_id", constraint_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if portfolio_id is not None:
+            pulumi.set(__self__, "portfolio_id", portfolio_id)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="constraintId")
-    def constraint_id(self) -> str:
+    def constraint_id(self) -> Optional[str]:
         """
         Identifier of the constraint.
         """
@@ -523,7 +535,7 @@ class GetPortfolioConstraintsDetailResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the constraint.
         """
@@ -531,12 +543,12 @@ class GetPortfolioConstraintsDetailResult(dict):
 
     @property
     @pulumi.getter
-    def owner(self) -> str:
+    def owner(self) -> Optional[str]:
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter(name="portfolioId")
-    def portfolio_id(self) -> str:
+    def portfolio_id(self) -> Optional[str]:
         """
         Portfolio identifier.
 
@@ -546,7 +558,7 @@ class GetPortfolioConstraintsDetailResult(dict):
 
     @property
     @pulumi.getter(name="productId")
-    def product_id(self) -> str:
+    def product_id(self) -> Optional[str]:
         """
         Product identifier.
         """
@@ -554,7 +566,7 @@ class GetPortfolioConstraintsDetailResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         """
@@ -564,13 +576,13 @@ class GetPortfolioConstraintsDetailResult(dict):
 @pulumi.output_type
 class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
     def __init__(__self__, *,
-                 active: bool,
-                 created_time: str,
-                 description: str,
-                 guidance: str,
-                 id: str,
-                 name: str,
-                 type: str):
+                 active: Optional[bool] = None,
+                 created_time: Optional[str] = None,
+                 description: Optional[str] = None,
+                 guidance: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param bool active: Indicates whether the product version is active.
         :param str created_time: The UTC time stamp of the creation time.
@@ -580,17 +592,24 @@ class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
         :param str name: The name of the provisioning artifact.
         :param str type: The type of provisioning artifact.
         """
-        pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "guidance", guidance)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if guidance is not None:
+            pulumi.set(__self__, "guidance", guidance)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def active(self) -> bool:
+    def active(self) -> Optional[bool]:
         """
         Indicates whether the product version is active.
         """
@@ -598,7 +617,7 @@ class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> Optional[str]:
         """
         The UTC time stamp of the creation time.
         """
@@ -606,7 +625,7 @@ class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The description of the provisioning artifact.
         """
@@ -614,7 +633,7 @@ class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
 
     @property
     @pulumi.getter
-    def guidance(self) -> str:
+    def guidance(self) -> Optional[str]:
         """
         Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
         """
@@ -622,7 +641,7 @@ class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The identifier of the provisioning artifact.
         """
@@ -630,7 +649,7 @@ class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         The name of the provisioning artifact.
         """
@@ -638,7 +657,7 @@ class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The type of provisioning artifact.
         """

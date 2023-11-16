@@ -174,40 +174,40 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// ARN of the secret.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Decrypted part of the protected secret information that was originally provided as a binary.
         /// </summary>
-        public readonly string SecretBinary;
+        public readonly string? SecretBinary;
         public readonly string SecretId;
         /// <summary>
         /// Decrypted part of the protected secret information that was originally provided as a string.
         /// </summary>
-        public readonly string SecretString;
+        public readonly string? SecretString;
         /// <summary>
         /// Unique identifier of this version of the secret.
         /// </summary>
-        public readonly string VersionId;
+        public readonly string? VersionId;
         public readonly string? VersionStage;
         public readonly ImmutableArray<string> VersionStages;
 
         [OutputConstructor]
         private GetSecretVersionResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string secretBinary,
+            string? secretBinary,
 
             string secretId,
 
-            string secretString,
+            string? secretString,
 
-            string versionId,
+            string? versionId,
 
             string? versionStage,
 

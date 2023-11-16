@@ -66,7 +66,7 @@ export class Resource extends pulumi.CustomResource {
     /**
      * Complete path for this API resource, including all parent paths.
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    public /*out*/ readonly path!: pulumi.Output<string | undefined>;
     /**
      * Last path segment of this API resource.
      */

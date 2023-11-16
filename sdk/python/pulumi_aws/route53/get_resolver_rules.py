@@ -46,7 +46,7 @@ class GetResolverRulesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -69,7 +69,7 @@ class GetResolverRulesResult:
 
     @property
     @pulumi.getter(name="resolverRuleIds")
-    def resolver_rule_ids(self) -> Sequence[str]:
+    def resolver_rule_ids(self) -> Optional[Sequence[str]]:
         """
         IDs of the matched resolver rules.
         """

@@ -67,7 +67,7 @@ type GetPortfolioConstraintsResult struct {
 	// List of information about the constraints. See details below.
 	Details []GetPortfolioConstraintsDetail `pulumi:"details"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
 	PortfolioId string `pulumi:"portfolioId"`
 	// Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
@@ -128,8 +128,8 @@ func (o GetPortfolioConstraintsResultOutput) Details() GetPortfolioConstraintsDe
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetPortfolioConstraintsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPortfolioConstraintsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPortfolioConstraintsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.

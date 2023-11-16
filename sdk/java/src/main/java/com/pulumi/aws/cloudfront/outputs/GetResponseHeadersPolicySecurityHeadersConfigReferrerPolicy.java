@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
@@ -14,27 +16,27 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private Boolean override;
+    private @Nullable Boolean override;
     /**
      * @return Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
      * 
      */
-    private String referrerPolicy;
+    private @Nullable String referrerPolicy;
 
     private GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy() {}
     /**
      * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    public Boolean override() {
-        return this.override;
+    public Optional<Boolean> override() {
+        return Optional.ofNullable(this.override);
     }
     /**
      * @return Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
      * 
      */
-    public String referrerPolicy() {
-        return this.referrerPolicy;
+    public Optional<String> referrerPolicy() {
+        return Optional.ofNullable(this.referrerPolicy);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean override;
-        private String referrerPolicy;
+        private @Nullable Boolean override;
+        private @Nullable String referrerPolicy;
         public Builder() {}
         public Builder(GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
         }
 
         @CustomType.Setter
-        public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+        public Builder override(@Nullable Boolean override) {
+            this.override = override;
             return this;
         }
         @CustomType.Setter
-        public Builder referrerPolicy(String referrerPolicy) {
-            this.referrerPolicy = Objects.requireNonNull(referrerPolicy);
+        public Builder referrerPolicy(@Nullable String referrerPolicy) {
+            this.referrerPolicy = referrerPolicy;
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy build() {

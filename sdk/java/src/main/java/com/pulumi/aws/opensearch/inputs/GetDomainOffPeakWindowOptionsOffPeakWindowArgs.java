@@ -8,6 +8,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDomainOffPeakWindowOptionsOffPeakWindowArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +20,15 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowArgs extends com.pu
      * 10h window for updates
      * 
      */
-    @Import(name="windowStartTimes", required=true)
-    private Output<List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs>> windowStartTimes;
+    @Import(name="windowStartTimes")
+    private @Nullable Output<List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs>> windowStartTimes;
 
     /**
      * @return 10h window for updates
      * 
      */
-    public Output<List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs>> windowStartTimes() {
-        return this.windowStartTimes;
+    public Optional<Output<List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs>>> windowStartTimes() {
+        return Optional.ofNullable(this.windowStartTimes);
     }
 
     private GetDomainOffPeakWindowOptionsOffPeakWindowArgs() {}
@@ -59,7 +61,7 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowArgs extends com.pu
          * @return builder
          * 
          */
-        public Builder windowStartTimes(Output<List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs>> windowStartTimes) {
+        public Builder windowStartTimes(@Nullable Output<List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs>> windowStartTimes) {
             $.windowStartTimes = windowStartTimes;
             return this;
         }
@@ -85,7 +87,6 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindowArgs extends com.pu
         }
 
         public GetDomainOffPeakWindowOptionsOffPeakWindowArgs build() {
-            $.windowStartTimes = Objects.requireNonNull($.windowStartTimes, "expected parameter 'windowStartTimes' to be non-null");
             return $;
         }
     }

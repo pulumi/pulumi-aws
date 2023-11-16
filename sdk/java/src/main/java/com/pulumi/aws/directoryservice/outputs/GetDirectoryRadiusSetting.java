@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectoryRadiusSetting {
@@ -16,87 +18,87 @@ public final class GetDirectoryRadiusSetting {
      * @return The protocol specified for your RADIUS endpoints.
      * 
      */
-    private String authenticationProtocol;
+    private @Nullable String authenticationProtocol;
     /**
      * @return Display label.
      * 
      */
-    private String displayLabel;
+    private @Nullable String displayLabel;
     /**
      * @return Port that your RADIUS server is using for communications.
      * 
      */
-    private Integer radiusPort;
+    private @Nullable Integer radiusPort;
     /**
      * @return Maximum number of times that communication with the RADIUS server is attempted.
      * 
      */
-    private Integer radiusRetries;
+    private @Nullable Integer radiusRetries;
     /**
      * @return Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
      * 
      */
-    private List<String> radiusServers;
+    private @Nullable List<String> radiusServers;
     /**
      * @return Amount of time, in seconds, to wait for the RADIUS server to respond.
      * 
      */
-    private Integer radiusTimeout;
+    private @Nullable Integer radiusTimeout;
     /**
      * @return Not currently used.
      * 
      */
-    private Boolean useSameUsername;
+    private @Nullable Boolean useSameUsername;
 
     private GetDirectoryRadiusSetting() {}
     /**
      * @return The protocol specified for your RADIUS endpoints.
      * 
      */
-    public String authenticationProtocol() {
-        return this.authenticationProtocol;
+    public Optional<String> authenticationProtocol() {
+        return Optional.ofNullable(this.authenticationProtocol);
     }
     /**
      * @return Display label.
      * 
      */
-    public String displayLabel() {
-        return this.displayLabel;
+    public Optional<String> displayLabel() {
+        return Optional.ofNullable(this.displayLabel);
     }
     /**
      * @return Port that your RADIUS server is using for communications.
      * 
      */
-    public Integer radiusPort() {
-        return this.radiusPort;
+    public Optional<Integer> radiusPort() {
+        return Optional.ofNullable(this.radiusPort);
     }
     /**
      * @return Maximum number of times that communication with the RADIUS server is attempted.
      * 
      */
-    public Integer radiusRetries() {
-        return this.radiusRetries;
+    public Optional<Integer> radiusRetries() {
+        return Optional.ofNullable(this.radiusRetries);
     }
     /**
      * @return Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
      * 
      */
     public List<String> radiusServers() {
-        return this.radiusServers;
+        return this.radiusServers == null ? List.of() : this.radiusServers;
     }
     /**
      * @return Amount of time, in seconds, to wait for the RADIUS server to respond.
      * 
      */
-    public Integer radiusTimeout() {
-        return this.radiusTimeout;
+    public Optional<Integer> radiusTimeout() {
+        return Optional.ofNullable(this.radiusTimeout);
     }
     /**
      * @return Not currently used.
      * 
      */
-    public Boolean useSameUsername() {
-        return this.useSameUsername;
+    public Optional<Boolean> useSameUsername() {
+        return Optional.ofNullable(this.useSameUsername);
     }
 
     public static Builder builder() {
@@ -108,13 +110,13 @@ public final class GetDirectoryRadiusSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String authenticationProtocol;
-        private String displayLabel;
-        private Integer radiusPort;
-        private Integer radiusRetries;
-        private List<String> radiusServers;
-        private Integer radiusTimeout;
-        private Boolean useSameUsername;
+        private @Nullable String authenticationProtocol;
+        private @Nullable String displayLabel;
+        private @Nullable Integer radiusPort;
+        private @Nullable Integer radiusRetries;
+        private @Nullable List<String> radiusServers;
+        private @Nullable Integer radiusTimeout;
+        private @Nullable Boolean useSameUsername;
         public Builder() {}
         public Builder(GetDirectoryRadiusSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -128,41 +130,41 @@ public final class GetDirectoryRadiusSetting {
         }
 
         @CustomType.Setter
-        public Builder authenticationProtocol(String authenticationProtocol) {
-            this.authenticationProtocol = Objects.requireNonNull(authenticationProtocol);
+        public Builder authenticationProtocol(@Nullable String authenticationProtocol) {
+            this.authenticationProtocol = authenticationProtocol;
             return this;
         }
         @CustomType.Setter
-        public Builder displayLabel(String displayLabel) {
-            this.displayLabel = Objects.requireNonNull(displayLabel);
+        public Builder displayLabel(@Nullable String displayLabel) {
+            this.displayLabel = displayLabel;
             return this;
         }
         @CustomType.Setter
-        public Builder radiusPort(Integer radiusPort) {
-            this.radiusPort = Objects.requireNonNull(radiusPort);
+        public Builder radiusPort(@Nullable Integer radiusPort) {
+            this.radiusPort = radiusPort;
             return this;
         }
         @CustomType.Setter
-        public Builder radiusRetries(Integer radiusRetries) {
-            this.radiusRetries = Objects.requireNonNull(radiusRetries);
+        public Builder radiusRetries(@Nullable Integer radiusRetries) {
+            this.radiusRetries = radiusRetries;
             return this;
         }
         @CustomType.Setter
-        public Builder radiusServers(List<String> radiusServers) {
-            this.radiusServers = Objects.requireNonNull(radiusServers);
+        public Builder radiusServers(@Nullable List<String> radiusServers) {
+            this.radiusServers = radiusServers;
             return this;
         }
         public Builder radiusServers(String... radiusServers) {
             return radiusServers(List.of(radiusServers));
         }
         @CustomType.Setter
-        public Builder radiusTimeout(Integer radiusTimeout) {
-            this.radiusTimeout = Objects.requireNonNull(radiusTimeout);
+        public Builder radiusTimeout(@Nullable Integer radiusTimeout) {
+            this.radiusTimeout = radiusTimeout;
             return this;
         }
         @CustomType.Setter
-        public Builder useSameUsername(Boolean useSameUsername) {
-            this.useSameUsername = Objects.requireNonNull(useSameUsername);
+        public Builder useSameUsername(@Nullable Boolean useSameUsername) {
+            this.useSameUsername = useSameUsername;
             return this;
         }
         public GetDirectoryRadiusSetting build() {

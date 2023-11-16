@@ -898,7 +898,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Grafana workspace.
         """
@@ -914,7 +914,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[str]:
+    def configuration(self) -> pulumi.Output[Optional[str]]:
         """
         The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         """
@@ -938,7 +938,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The endpoint of the Grafana workspace.
         """
@@ -946,7 +946,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grafanaVersion")
-    def grafana_version(self) -> pulumi.Output[str]:
+    def grafana_version(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
         """
@@ -1012,7 +1012,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="samlConfigurationStatus")
-    def saml_configuration_status(self) -> pulumi.Output[str]:
+    def saml_configuration_status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "saml_configuration_status")
 
     @property

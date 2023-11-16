@@ -65,12 +65,12 @@ type IpSet struct {
 	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses pulumi.StringArrayOutput `pulumi:"addresses"`
 	// The Amazon Resource Name (ARN) of the IP set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A friendly description of the IP set.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
-	IpAddressVersion pulumi.StringOutput `pulumi:"ipAddressVersion"`
-	LockToken        pulumi.StringOutput `pulumi:"lockToken"`
+	IpAddressVersion pulumi.StringOutput    `pulumi:"ipAddressVersion"`
+	LockToken        pulumi.StringPtrOutput `pulumi:"lockToken"`
 	// A friendly name of the IP set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
@@ -294,8 +294,8 @@ func (o IpSetOutput) Addresses() pulumi.StringArrayOutput {
 }
 
 // The Amazon Resource Name (ARN) of the IP set.
-func (o IpSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o IpSetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A friendly description of the IP set.
@@ -308,8 +308,8 @@ func (o IpSetOutput) IpAddressVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.IpAddressVersion }).(pulumi.StringOutput)
 }
 
-func (o IpSetOutput) LockToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
+func (o IpSetOutput) LockToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.LockToken }).(pulumi.StringPtrOutput)
 }
 
 // A friendly name of the IP set.

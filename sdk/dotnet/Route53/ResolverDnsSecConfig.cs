@@ -54,13 +54,13 @@ namespace Pulumi.Aws.Route53
         /// The ARN for a configuration for DNSSEC validation.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Route53
         /// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         /// </summary>
         [Output("validationStatus")]
-        public Output<string> ValidationStatus { get; private set; } = null!;
+        public Output<string?> ValidationStatus { get; private set; } = null!;
 
 
         /// <summary>

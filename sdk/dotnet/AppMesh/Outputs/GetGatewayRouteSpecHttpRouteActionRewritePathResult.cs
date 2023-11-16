@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetGatewayRouteSpecHttpRouteActionRewritePathResult
     {
-        public readonly string Exact;
+        public readonly string? Exact;
 
         [OutputConstructor]
-        private GetGatewayRouteSpecHttpRouteActionRewritePathResult(string exact)
+        private GetGatewayRouteSpecHttpRouteActionRewritePathResult(string? exact)
         {
             Exact = exact;
         }

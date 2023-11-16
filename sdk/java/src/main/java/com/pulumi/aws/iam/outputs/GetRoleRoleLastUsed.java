@@ -6,6 +6,8 @@ package com.pulumi.aws.iam.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRoleRoleLastUsed {
@@ -13,27 +15,27 @@ public final class GetRoleRoleLastUsed {
      * @return The date and time, in RFC 3339 format, that the role was last used.
      * 
      */
-    private String lastUsedDate;
+    private @Nullable String lastUsedDate;
     /**
      * @return The name of the AWS Region in which the role was last used.
      * 
      */
-    private String region;
+    private @Nullable String region;
 
     private GetRoleRoleLastUsed() {}
     /**
      * @return The date and time, in RFC 3339 format, that the role was last used.
      * 
      */
-    public String lastUsedDate() {
-        return this.lastUsedDate;
+    public Optional<String> lastUsedDate() {
+        return Optional.ofNullable(this.lastUsedDate);
     }
     /**
      * @return The name of the AWS Region in which the role was last used.
      * 
      */
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetRoleRoleLastUsed {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String lastUsedDate;
-        private String region;
+        private @Nullable String lastUsedDate;
+        private @Nullable String region;
         public Builder() {}
         public Builder(GetRoleRoleLastUsed defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetRoleRoleLastUsed {
         }
 
         @CustomType.Setter
-        public Builder lastUsedDate(String lastUsedDate) {
-            this.lastUsedDate = Objects.requireNonNull(lastUsedDate);
+        public Builder lastUsedDate(@Nullable String lastUsedDate) {
+            this.lastUsedDate = lastUsedDate;
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         public GetRoleRoleLastUsed build() {

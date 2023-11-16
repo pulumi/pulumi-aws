@@ -20,12 +20,12 @@ public final class GetResolverFirewallRulesResult {
      * @return List with information about the firewall rules. See details below.
      * 
      */
-    private List<GetResolverFirewallRulesFirewallRule> firewallRules;
+    private @Nullable List<GetResolverFirewallRulesFirewallRule> firewallRules;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Integer priority;
 
     private GetResolverFirewallRulesResult() {}
@@ -40,14 +40,14 @@ public final class GetResolverFirewallRulesResult {
      * 
      */
     public List<GetResolverFirewallRulesFirewallRule> firewallRules() {
-        return this.firewallRules;
+        return this.firewallRules == null ? List.of() : this.firewallRules;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
@@ -64,8 +64,8 @@ public final class GetResolverFirewallRulesResult {
     public static final class Builder {
         private @Nullable String action;
         private String firewallRuleGroupId;
-        private List<GetResolverFirewallRulesFirewallRule> firewallRules;
-        private String id;
+        private @Nullable List<GetResolverFirewallRulesFirewallRule> firewallRules;
+        private @Nullable String id;
         private @Nullable Integer priority;
         public Builder() {}
         public Builder(GetResolverFirewallRulesResult defaults) {
@@ -88,16 +88,16 @@ public final class GetResolverFirewallRulesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder firewallRules(List<GetResolverFirewallRulesFirewallRule> firewallRules) {
-            this.firewallRules = Objects.requireNonNull(firewallRules);
+        public Builder firewallRules(@Nullable List<GetResolverFirewallRulesFirewallRule> firewallRules) {
+            this.firewallRules = firewallRules;
             return this;
         }
         public Builder firewallRules(GetResolverFirewallRulesFirewallRule... firewallRules) {
             return firewallRules(List.of(firewallRules));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

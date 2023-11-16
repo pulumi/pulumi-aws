@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteTimeoutPerRequest;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecHttpRouteTimeout {
-    private List<GetRouteSpecHttpRouteTimeoutIdle> idles;
-    private List<GetRouteSpecHttpRouteTimeoutPerRequest> perRequests;
+    private @Nullable List<GetRouteSpecHttpRouteTimeoutIdle> idles;
+    private @Nullable List<GetRouteSpecHttpRouteTimeoutPerRequest> perRequests;
 
     private GetRouteSpecHttpRouteTimeout() {}
     public List<GetRouteSpecHttpRouteTimeoutIdle> idles() {
-        return this.idles;
+        return this.idles == null ? List.of() : this.idles;
     }
     public List<GetRouteSpecHttpRouteTimeoutPerRequest> perRequests() {
-        return this.perRequests;
+        return this.perRequests == null ? List.of() : this.perRequests;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetRouteSpecHttpRouteTimeout {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecHttpRouteTimeoutIdle> idles;
-        private List<GetRouteSpecHttpRouteTimeoutPerRequest> perRequests;
+        private @Nullable List<GetRouteSpecHttpRouteTimeoutIdle> idles;
+        private @Nullable List<GetRouteSpecHttpRouteTimeoutPerRequest> perRequests;
         public Builder() {}
         public Builder(GetRouteSpecHttpRouteTimeout defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetRouteSpecHttpRouteTimeout {
         }
 
         @CustomType.Setter
-        public Builder idles(List<GetRouteSpecHttpRouteTimeoutIdle> idles) {
-            this.idles = Objects.requireNonNull(idles);
+        public Builder idles(@Nullable List<GetRouteSpecHttpRouteTimeoutIdle> idles) {
+            this.idles = idles;
             return this;
         }
         public Builder idles(GetRouteSpecHttpRouteTimeoutIdle... idles) {
             return idles(List.of(idles));
         }
         @CustomType.Setter
-        public Builder perRequests(List<GetRouteSpecHttpRouteTimeoutPerRequest> perRequests) {
-            this.perRequests = Objects.requireNonNull(perRequests);
+        public Builder perRequests(@Nullable List<GetRouteSpecHttpRouteTimeoutPerRequest> perRequests) {
+            this.perRequests = perRequests;
             return this;
         }
         public Builder perRequests(GetRouteSpecHttpRouteTimeoutPerRequest... perRequests) {

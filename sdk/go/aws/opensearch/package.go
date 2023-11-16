@@ -29,10 +29,10 @@ type Package struct {
 	pulumi.CustomResourceState
 
 	// The current version of the package.
-	AvailablePackageVersion pulumi.StringOutput `pulumi:"availablePackageVersion"`
+	AvailablePackageVersion pulumi.StringPtrOutput `pulumi:"availablePackageVersion"`
 	// Description of the package.
 	PackageDescription pulumi.StringPtrOutput `pulumi:"packageDescription"`
-	PackageId          pulumi.StringOutput    `pulumi:"packageId"`
+	PackageId          pulumi.StringPtrOutput `pulumi:"packageId"`
 	// Unique name for the package.
 	PackageName pulumi.StringOutput `pulumi:"packageName"`
 	// Configuration block for the package source options.
@@ -222,8 +222,8 @@ func (o PackageOutput) ToPackageOutputWithContext(ctx context.Context) PackageOu
 }
 
 // The current version of the package.
-func (o PackageOutput) AvailablePackageVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.AvailablePackageVersion }).(pulumi.StringOutput)
+func (o PackageOutput) AvailablePackageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringPtrOutput { return v.AvailablePackageVersion }).(pulumi.StringPtrOutput)
 }
 
 // Description of the package.
@@ -231,8 +231,8 @@ func (o PackageOutput) PackageDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringPtrOutput { return v.PackageDescription }).(pulumi.StringPtrOutput)
 }
 
-func (o PackageOutput) PackageId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageId }).(pulumi.StringOutput)
+func (o PackageOutput) PackageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringPtrOutput { return v.PackageId }).(pulumi.StringPtrOutput)
 }
 
 // Unique name for the package.

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Backup
         /// The ARN of the backup plan.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The display name of a backup plan.
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Backup
         /// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

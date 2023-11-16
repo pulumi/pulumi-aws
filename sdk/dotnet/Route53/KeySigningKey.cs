@@ -137,37 +137,37 @@ namespace Pulumi.Aws.Route53
         /// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         /// </summary>
         [Output("digestAlgorithmMnemonic")]
-        public Output<string> DigestAlgorithmMnemonic { get; private set; } = null!;
+        public Output<string?> DigestAlgorithmMnemonic { get; private set; } = null!;
 
         /// <summary>
         /// An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         /// </summary>
         [Output("digestAlgorithmType")]
-        public Output<int> DigestAlgorithmType { get; private set; } = null!;
+        public Output<int?> DigestAlgorithmType { get; private set; } = null!;
 
         /// <summary>
         /// A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
         /// </summary>
         [Output("digestValue")]
-        public Output<string> DigestValue { get; private set; } = null!;
+        public Output<string?> DigestValue { get; private set; } = null!;
 
         /// <summary>
         /// A string that represents a DNSKEY record.
         /// </summary>
         [Output("dnskeyRecord")]
-        public Output<string> DnskeyRecord { get; private set; } = null!;
+        public Output<string?> DnskeyRecord { get; private set; } = null!;
 
         /// <summary>
         /// A string that represents a delegation signer (DS) record.
         /// </summary>
         [Output("dsRecord")]
-        public Output<string> DsRecord { get; private set; } = null!;
+        public Output<string?> DsRecord { get; private set; } = null!;
 
         /// <summary>
         /// An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
         /// </summary>
         [Output("flag")]
-        public Output<int> Flag { get; private set; } = null!;
+        public Output<int?> Flag { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the Route 53 Hosted Zone.
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Route53
         /// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
         /// </summary>
         [Output("keyTag")]
-        public Output<int> KeyTag { get; private set; } = null!;
+        public Output<int?> KeyTag { get; private set; } = null!;
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
@@ -199,19 +199,19 @@ namespace Pulumi.Aws.Route53
         /// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
         /// </summary>
         [Output("publicKey")]
-        public Output<string> PublicKey { get; private set; } = null!;
+        public Output<string?> PublicKey { get; private set; } = null!;
 
         /// <summary>
         /// A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         /// </summary>
         [Output("signingAlgorithmMnemonic")]
-        public Output<string> SigningAlgorithmMnemonic { get; private set; } = null!;
+        public Output<string?> SigningAlgorithmMnemonic { get; private set; } = null!;
 
         /// <summary>
         /// An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         /// </summary>
         [Output("signingAlgorithmType")]
-        public Output<int> SigningAlgorithmType { get; private set; } = null!;
+        public Output<int?> SigningAlgorithmType { get; private set; } = null!;
 
         /// <summary>
         /// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.

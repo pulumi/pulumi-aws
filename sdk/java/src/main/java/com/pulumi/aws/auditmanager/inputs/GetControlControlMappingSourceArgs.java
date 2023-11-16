@@ -16,25 +16,25 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
 
     public static final GetControlControlMappingSourceArgs Empty = new GetControlControlMappingSourceArgs();
 
-    @Import(name="sourceDescription", required=true)
-    private Output<String> sourceDescription;
+    @Import(name="sourceDescription")
+    private @Nullable Output<String> sourceDescription;
 
-    public Output<String> sourceDescription() {
-        return this.sourceDescription;
+    public Optional<Output<String>> sourceDescription() {
+        return Optional.ofNullable(this.sourceDescription);
     }
 
-    @Import(name="sourceFrequency", required=true)
-    private Output<String> sourceFrequency;
+    @Import(name="sourceFrequency")
+    private @Nullable Output<String> sourceFrequency;
 
-    public Output<String> sourceFrequency() {
-        return this.sourceFrequency;
+    public Optional<Output<String>> sourceFrequency() {
+        return Optional.ofNullable(this.sourceFrequency);
     }
 
-    @Import(name="sourceId", required=true)
-    private Output<String> sourceId;
+    @Import(name="sourceId")
+    private @Nullable Output<String> sourceId;
 
-    public Output<String> sourceId() {
-        return this.sourceId;
+    public Optional<Output<String>> sourceId() {
+        return Optional.ofNullable(this.sourceId);
     }
 
     @Import(name="sourceKeyword")
@@ -44,32 +44,32 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.sourceKeyword);
     }
 
-    @Import(name="sourceName", required=true)
-    private Output<String> sourceName;
+    @Import(name="sourceName")
+    private @Nullable Output<String> sourceName;
 
-    public Output<String> sourceName() {
-        return this.sourceName;
+    public Optional<Output<String>> sourceName() {
+        return Optional.ofNullable(this.sourceName);
     }
 
-    @Import(name="sourceSetUpOption", required=true)
-    private Output<String> sourceSetUpOption;
+    @Import(name="sourceSetUpOption")
+    private @Nullable Output<String> sourceSetUpOption;
 
-    public Output<String> sourceSetUpOption() {
-        return this.sourceSetUpOption;
+    public Optional<Output<String>> sourceSetUpOption() {
+        return Optional.ofNullable(this.sourceSetUpOption);
     }
 
-    @Import(name="sourceType", required=true)
-    private Output<String> sourceType;
+    @Import(name="sourceType")
+    private @Nullable Output<String> sourceType;
 
-    public Output<String> sourceType() {
-        return this.sourceType;
+    public Optional<Output<String>> sourceType() {
+        return Optional.ofNullable(this.sourceType);
     }
 
-    @Import(name="troubleshootingText", required=true)
-    private Output<String> troubleshootingText;
+    @Import(name="troubleshootingText")
+    private @Nullable Output<String> troubleshootingText;
 
-    public Output<String> troubleshootingText() {
-        return this.troubleshootingText;
+    public Optional<Output<String>> troubleshootingText() {
+        return Optional.ofNullable(this.troubleshootingText);
     }
 
     private GetControlControlMappingSourceArgs() {}
@@ -103,7 +103,7 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
             $ = new GetControlControlMappingSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder sourceDescription(Output<String> sourceDescription) {
+        public Builder sourceDescription(@Nullable Output<String> sourceDescription) {
             $.sourceDescription = sourceDescription;
             return this;
         }
@@ -112,7 +112,7 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
             return sourceDescription(Output.of(sourceDescription));
         }
 
-        public Builder sourceFrequency(Output<String> sourceFrequency) {
+        public Builder sourceFrequency(@Nullable Output<String> sourceFrequency) {
             $.sourceFrequency = sourceFrequency;
             return this;
         }
@@ -121,7 +121,7 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
             return sourceFrequency(Output.of(sourceFrequency));
         }
 
-        public Builder sourceId(Output<String> sourceId) {
+        public Builder sourceId(@Nullable Output<String> sourceId) {
             $.sourceId = sourceId;
             return this;
         }
@@ -139,7 +139,7 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
             return sourceKeyword(Output.of(sourceKeyword));
         }
 
-        public Builder sourceName(Output<String> sourceName) {
+        public Builder sourceName(@Nullable Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
@@ -148,7 +148,7 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
             return sourceName(Output.of(sourceName));
         }
 
-        public Builder sourceSetUpOption(Output<String> sourceSetUpOption) {
+        public Builder sourceSetUpOption(@Nullable Output<String> sourceSetUpOption) {
             $.sourceSetUpOption = sourceSetUpOption;
             return this;
         }
@@ -157,7 +157,7 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
             return sourceSetUpOption(Output.of(sourceSetUpOption));
         }
 
-        public Builder sourceType(Output<String> sourceType) {
+        public Builder sourceType(@Nullable Output<String> sourceType) {
             $.sourceType = sourceType;
             return this;
         }
@@ -166,7 +166,7 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
             return sourceType(Output.of(sourceType));
         }
 
-        public Builder troubleshootingText(Output<String> troubleshootingText) {
+        public Builder troubleshootingText(@Nullable Output<String> troubleshootingText) {
             $.troubleshootingText = troubleshootingText;
             return this;
         }
@@ -176,13 +176,6 @@ public final class GetControlControlMappingSourceArgs extends com.pulumi.resourc
         }
 
         public GetControlControlMappingSourceArgs build() {
-            $.sourceDescription = Objects.requireNonNull($.sourceDescription, "expected parameter 'sourceDescription' to be non-null");
-            $.sourceFrequency = Objects.requireNonNull($.sourceFrequency, "expected parameter 'sourceFrequency' to be non-null");
-            $.sourceId = Objects.requireNonNull($.sourceId, "expected parameter 'sourceId' to be non-null");
-            $.sourceName = Objects.requireNonNull($.sourceName, "expected parameter 'sourceName' to be non-null");
-            $.sourceSetUpOption = Objects.requireNonNull($.sourceSetUpOption, "expected parameter 'sourceSetUpOption' to be non-null");
-            $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");
-            $.troubleshootingText = Objects.requireNonNull($.troubleshootingText, "expected parameter 'troubleshootingText' to be non-null");
             return $;
         }
     }

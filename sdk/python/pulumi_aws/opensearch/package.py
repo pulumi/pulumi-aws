@@ -314,7 +314,7 @@ class Package(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availablePackageVersion")
-    def available_package_version(self) -> pulumi.Output[str]:
+    def available_package_version(self) -> pulumi.Output[Optional[str]]:
         """
         The current version of the package.
         """
@@ -330,7 +330,7 @@ class Package(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="packageId")
-    def package_id(self) -> pulumi.Output[str]:
+    def package_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "package_id")
 
     @property

@@ -6,6 +6,8 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib {
@@ -13,27 +15,27 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
      * @return Maximum.
      * 
      */
-    private Integer max;
+    private @Nullable Integer max;
     /**
      * @return Minimum.
      * 
      */
-    private Integer min;
+    private @Nullable Integer min;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib() {}
     /**
      * @return Maximum.
      * 
      */
-    public Integer max() {
-        return this.max;
+    public Optional<Integer> max() {
+        return Optional.ofNullable(this.max);
     }
     /**
      * @return Minimum.
      * 
      */
-    public Integer min() {
-        return this.min;
+    public Optional<Integer> min() {
+        return Optional.ofNullable(this.min);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer max;
-        private Integer min;
+        private @Nullable Integer max;
+        private @Nullable Integer min;
         public Builder() {}
         public Builder(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
 
         @CustomType.Setter
-        public Builder max(Integer max) {
-            this.max = Objects.requireNonNull(max);
+        public Builder max(@Nullable Integer max) {
+            this.max = max;
             return this;
         }
         @CustomType.Setter
-        public Builder min(Integer min) {
-            this.min = Objects.requireNonNull(min);
+        public Builder min(@Nullable Integer min) {
+            this.min = min;
             return this;
         }
         public GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib build() {

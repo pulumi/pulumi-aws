@@ -6,6 +6,8 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainSoftwareUpdateOption {
@@ -13,15 +15,15 @@ public final class GetDomainSoftwareUpdateOption {
      * @return Enabled or disabled.
      * 
      */
-    private Boolean autoSoftwareUpdateEnabled;
+    private @Nullable Boolean autoSoftwareUpdateEnabled;
 
     private GetDomainSoftwareUpdateOption() {}
     /**
      * @return Enabled or disabled.
      * 
      */
-    public Boolean autoSoftwareUpdateEnabled() {
-        return this.autoSoftwareUpdateEnabled;
+    public Optional<Boolean> autoSoftwareUpdateEnabled() {
+        return Optional.ofNullable(this.autoSoftwareUpdateEnabled);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetDomainSoftwareUpdateOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean autoSoftwareUpdateEnabled;
+        private @Nullable Boolean autoSoftwareUpdateEnabled;
         public Builder() {}
         public Builder(GetDomainSoftwareUpdateOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetDomainSoftwareUpdateOption {
         }
 
         @CustomType.Setter
-        public Builder autoSoftwareUpdateEnabled(Boolean autoSoftwareUpdateEnabled) {
-            this.autoSoftwareUpdateEnabled = Objects.requireNonNull(autoSoftwareUpdateEnabled);
+        public Builder autoSoftwareUpdateEnabled(@Nullable Boolean autoSoftwareUpdateEnabled) {
+            this.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
             return this;
         }
         public GetDomainSoftwareUpdateOption build() {

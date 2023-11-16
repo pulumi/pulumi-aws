@@ -14,6 +14,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -66,28 +67,28 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="address", refs={String.class}, tree="[0]")
-    private Output<String> address;
+    private Output</* @Nullable */ String> address;
 
     /**
      * @return The DNS address of the VPC endpoint.
      * 
      */
-    public Output<String> address() {
-        return this.address;
+    public Output<Optional<String>> address() {
+        return Codegen.optional(this.address);
     }
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the endpoint.
@@ -108,14 +109,14 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return The port that Amazon Redshift Serverless listens on.
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * An array of VPC subnet IDs to associate with the endpoint.
@@ -136,28 +137,28 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcEndpoints", refs={List.class,EndpointAccessVpcEndpoint.class}, tree="[0,1]")
-    private Output<List<EndpointAccessVpcEndpoint>> vpcEndpoints;
+    private Output</* @Nullable */ List<EndpointAccessVpcEndpoint>> vpcEndpoints;
 
     /**
      * @return The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
      * 
      */
-    public Output<List<EndpointAccessVpcEndpoint>> vpcEndpoints() {
-        return this.vpcEndpoints;
+    public Output<Optional<List<EndpointAccessVpcEndpoint>>> vpcEndpoints() {
+        return Codegen.optional(this.vpcEndpoints);
     }
     /**
      * An array of security group IDs to associate with the workgroup.
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcSecurityGroupIds;
+    private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**
      * @return An array of security group IDs to associate with the workgroup.
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    public Output<Optional<List<String>>> vpcSecurityGroupIds() {
+        return Codegen.optional(this.vpcSecurityGroupIds);
     }
     /**
      * The name of the workgroup.

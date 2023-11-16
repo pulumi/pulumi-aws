@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionEnvironmentResult
     {
-        public readonly ImmutableDictionary<string, string> Variables;
+        public readonly ImmutableDictionary<string, string>? Variables;
 
         [OutputConstructor]
-        private GetFunctionEnvironmentResult(ImmutableDictionary<string, string> variables)
+        private GetFunctionEnvironmentResult(ImmutableDictionary<string, string>? variables)
         {
             Variables = variables;
         }

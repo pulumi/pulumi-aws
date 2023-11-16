@@ -161,7 +161,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Organizational unit ID in which the stack is deployed.
         /// </summary>
         [Output("organizationalUnitId")]
-        public Output<string> OrganizationalUnitId { get; private set; } = null!;
+        public Output<string?> OrganizationalUnitId { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of input parameters to override from the StackSet for this Instance.
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         /// </summary>
         [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
+        public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
         /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Stack identifier.
         /// </summary>
         [Output("stackId")]
-        public Output<string> StackId { get; private set; } = null!;
+        public Output<string?> StackId { get; private set; } = null!;
 
         /// <summary>
         /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.

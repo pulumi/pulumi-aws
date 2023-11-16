@@ -64,31 +64,31 @@ type LookupThemeArgs struct {
 // A collection of values returned by getTheme.
 type LookupThemeResult struct {
 	// ARN of the theme.
-	Arn          string `pulumi:"arn"`
-	AwsAccountId string `pulumi:"awsAccountId"`
+	Arn          *string `pulumi:"arn"`
+	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
-	BaseThemeId string `pulumi:"baseThemeId"`
+	BaseThemeId *string `pulumi:"baseThemeId"`
 	// The theme configuration, which contains the theme display properties. See configuration.
 	Configurations []GetThemeConfiguration `pulumi:"configurations"`
 	// The time that the theme was created.
-	CreatedTime string `pulumi:"createdTime"`
+	CreatedTime *string `pulumi:"createdTime"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The time that the theme was last updated.
-	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Display name of the theme.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A set of resource permissions on the theme. See permissions.
 	Permissions []GetThemePermission `pulumi:"permissions"`
 	// The theme creation status.
-	Status string `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags    map[string]string `pulumi:"tags"`
 	ThemeId string            `pulumi:"themeId"`
 	// A description of the current theme version being created/updated.
-	VersionDescription string `pulumi:"versionDescription"`
+	VersionDescription *string `pulumi:"versionDescription"`
 	// The version number of the theme version.
-	VersionNumber int `pulumi:"versionNumber"`
+	VersionNumber *int `pulumi:"versionNumber"`
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
@@ -136,17 +136,17 @@ func (o LookupThemeResultOutput) ToLookupThemeResultOutputWithContext(ctx contex
 }
 
 // ARN of the theme.
-func (o LookupThemeResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupThemeResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupThemeResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupThemeResultOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupThemeResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o LookupThemeResultOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
-func (o LookupThemeResultOutput) BaseThemeId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupThemeResult) string { return v.BaseThemeId }).(pulumi.StringOutput)
+func (o LookupThemeResultOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.BaseThemeId }).(pulumi.StringPtrOutput)
 }
 
 // The theme configuration, which contains the theme display properties. See configuration.
@@ -155,23 +155,23 @@ func (o LookupThemeResultOutput) Configurations() GetThemeConfigurationArrayOutp
 }
 
 // The time that the theme was created.
-func (o LookupThemeResultOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupThemeResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+func (o LookupThemeResultOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupThemeResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupThemeResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupThemeResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The time that the theme was last updated.
-func (o LookupThemeResultOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupThemeResult) string { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o LookupThemeResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Display name of the theme.
-func (o LookupThemeResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupThemeResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupThemeResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A set of resource permissions on the theme. See permissions.
@@ -180,8 +180,8 @@ func (o LookupThemeResultOutput) Permissions() GetThemePermissionArrayOutput {
 }
 
 // The theme creation status.
-func (o LookupThemeResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupThemeResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupThemeResultOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -194,13 +194,13 @@ func (o LookupThemeResultOutput) ThemeId() pulumi.StringOutput {
 }
 
 // A description of the current theme version being created/updated.
-func (o LookupThemeResultOutput) VersionDescription() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupThemeResult) string { return v.VersionDescription }).(pulumi.StringOutput)
+func (o LookupThemeResultOutput) VersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *string { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }
 
 // The version number of the theme version.
-func (o LookupThemeResultOutput) VersionNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupThemeResult) int { return v.VersionNumber }).(pulumi.IntOutput)
+func (o LookupThemeResultOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupThemeResult) *int { return v.VersionNumber }).(pulumi.IntPtrOutput)
 }
 
 func init() {

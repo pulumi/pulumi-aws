@@ -170,11 +170,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Attachment
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? TransitGatewayId;
 
         [OutputConstructor]
@@ -183,9 +183,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             ImmutableArray<Outputs.GetDirectConnectGatewayAttachmentFilterResult> filters,
 
-            string id,
+            string? id,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? transitGatewayId)
         {

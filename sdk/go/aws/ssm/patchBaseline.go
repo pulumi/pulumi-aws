@@ -289,7 +289,7 @@ type PatchBaseline struct {
 	// Applies to Linux instances only.
 	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrOutput `pulumi:"approvedPatchesEnableNonSecurity"`
 	// The ARN of the patch baseline.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The description of the patch baseline.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A set of global filters used to exclude patches from the baseline.
@@ -321,7 +321,7 @@ type PatchBaseline struct {
 	RejectedPatches pulumi.StringArrayOutput `pulumi:"rejectedPatches"`
 	// The action for Patch Manager to take on patches included in the `rejectedPatches` list.
 	// Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
-	RejectedPatchesAction pulumi.StringOutput `pulumi:"rejectedPatchesAction"`
+	RejectedPatchesAction pulumi.StringPtrOutput `pulumi:"rejectedPatchesAction"`
 	// Configuration block with alternate sources for patches.
 	// Applies to Linux instances only.
 	// See `source` below.
@@ -723,8 +723,8 @@ func (o PatchBaselineOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolPtrOu
 }
 
 // The ARN of the patch baseline.
-func (o PatchBaselineOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PatchBaseline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PatchBaselineOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The description of the patch baseline.
@@ -773,8 +773,8 @@ func (o PatchBaselineOutput) RejectedPatches() pulumi.StringArrayOutput {
 
 // The action for Patch Manager to take on patches included in the `rejectedPatches` list.
 // Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
-func (o PatchBaselineOutput) RejectedPatchesAction() pulumi.StringOutput {
-	return o.ApplyT(func(v *PatchBaseline) pulumi.StringOutput { return v.RejectedPatchesAction }).(pulumi.StringOutput)
+func (o PatchBaselineOutput) RejectedPatchesAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringPtrOutput { return v.RejectedPatchesAction }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block with alternate sources for patches.

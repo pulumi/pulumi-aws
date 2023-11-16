@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string StatemachineArn;
         /// <summary>
         /// ARN List identifying the statemachine versions.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Sfn
 
         [OutputConstructor]
         private GetStateMachineVersionsResult(
-            string id,
+            string? id,
 
             string statemachineArn,
 

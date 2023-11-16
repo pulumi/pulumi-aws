@@ -14,13 +14,13 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class GetDataSetPermissionResult
     {
         public readonly ImmutableArray<string> Actions;
-        public readonly string Principal;
+        public readonly string? Principal;
 
         [OutputConstructor]
         private GetDataSetPermissionResult(
             ImmutableArray<string> actions,
 
-            string principal)
+            string? principal)
         {
             Actions = actions;
             Principal = principal;

@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Transfer
         /// The ARN of the connector.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Transfer
         /// The unique identifier for the AS2 profile or SFTP Profile.
         /// </summary>
         [Output("connectorId")]
-        public Output<string> ConnectorId { get; private set; } = null!;
+        public Output<string?> ConnectorId { get; private set; } = null!;
 
         /// <summary>
         /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.

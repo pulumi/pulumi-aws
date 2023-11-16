@@ -115,11 +115,11 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * The ARN of the Glue Table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      *
@@ -149,7 +149,7 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    public readonly partitionIndices!: pulumi.Output<outputs.glue.CatalogTablePartitionIndex[]>;
+    public readonly partitionIndices!: pulumi.Output<outputs.glue.CatalogTablePartitionIndex[] | undefined>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */

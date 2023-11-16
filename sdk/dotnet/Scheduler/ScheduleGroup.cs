@@ -46,19 +46,19 @@ namespace Pulumi.Aws.Scheduler
         /// ARN of the schedule group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Time at which the schedule group was created.
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// Time at which the schedule group was last modified.
         /// </summary>
         [Output("lastModificationDate")]
-        public Output<string> LastModificationDate { get; private set; } = null!;
+        public Output<string?> LastModificationDate { get; private set; } = null!;
 
         /// <summary>
         /// Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -70,13 +70,13 @@ namespace Pulumi.Aws.Scheduler
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// State of the schedule group. Can be `ACTIVE` or `DELETING`.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -510,7 +510,7 @@ class Agreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agreementId")
-    def agreement_id(self) -> pulumi.Output[str]:
+    def agreement_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier for the AS2 agreement.
         """
@@ -518,7 +518,7 @@ class Agreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the agreement.
         """
@@ -566,7 +566,7 @@ class Agreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "status")
 
     @property

@@ -18,7 +18,7 @@ import {PolicyDocument} from "../iam";
  * const example = new aws.elasticsearch.Domain("example", {elasticsearchVersion: "2.3"});
  * const main = new aws.elasticsearch.DomainPolicy("main", {
  *     domainName: example.domainName,
- *     accessPolicies: pulumi.interpolate`{
+ *     accessPolicies: example.arn.apply(arn => `{
  *     "Version": "2012-10-17",
  *     "Statement": [
  *         {
@@ -28,11 +28,11 @@ import {PolicyDocument} from "../iam";
  *             "Condition": {
  *                 "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
  *             },
- *             "Resource": "${example.arn}/*"
+ *             "Resource": "${arn}/*"
  *         }
  *     ]
  * }
- * `,
+ * `),
  * });
  * ```
  */

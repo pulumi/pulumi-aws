@@ -55,7 +55,7 @@ namespace Pulumi.Aws.MemoryDb
         /// The ARN of the parameter group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description for the parameter group.
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.MemoryDb
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.

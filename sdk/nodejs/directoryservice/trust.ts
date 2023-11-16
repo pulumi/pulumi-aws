@@ -121,11 +121,11 @@ export class Trust extends pulumi.CustomResource {
     /**
      * Date and time when the Trust was created.
      */
-    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdDateTime!: pulumi.Output<string | undefined>;
     /**
      * Whether to delete the conditional forwarder when deleting the Trust relationship.
      */
-    public readonly deleteAssociatedConditionalForwarder!: pulumi.Output<boolean>;
+    public readonly deleteAssociatedConditionalForwarder!: pulumi.Output<boolean | undefined>;
     /**
      * ID of the Directory.
      */
@@ -133,7 +133,7 @@ export class Trust extends pulumi.CustomResource {
     /**
      * Date and time when the Trust was last updated.
      */
-    public /*out*/ readonly lastUpdatedDateTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDateTime!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name of the remote Directory.
      */
@@ -143,11 +143,11 @@ export class Trust extends pulumi.CustomResource {
      * Valid values are `Enabled` and `Disabled`.
      * Default value is `Disabled`.
      */
-    public readonly selectiveAuth!: pulumi.Output<string>;
+    public readonly selectiveAuth!: pulumi.Output<string | undefined>;
     /**
      * Date and time when the Trust state in `trustState` was last updated.
      */
-    public /*out*/ readonly stateLastUpdatedDateTime!: pulumi.Output<string>;
+    public /*out*/ readonly stateLastUpdatedDateTime!: pulumi.Output<string | undefined>;
     /**
      * The direction of the Trust relationship.
      * Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
@@ -164,17 +164,17 @@ export class Trust extends pulumi.CustomResource {
      * State of the Trust relationship.
      * One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
      */
-    public /*out*/ readonly trustState!: pulumi.Output<string>;
+    public /*out*/ readonly trustState!: pulumi.Output<string | undefined>;
     /**
      * Reason for the Trust state set in `trustState`.
      */
-    public /*out*/ readonly trustStateReason!: pulumi.Output<string>;
+    public /*out*/ readonly trustStateReason!: pulumi.Output<string | undefined>;
     /**
      * Type of the Trust relationship.
      * Valid values are `Forest` and `External`.
      * Default value is `Forest`.
      */
-    public readonly trustType!: pulumi.Output<string>;
+    public readonly trustType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Trust resource with the given unique name, arguments, and options.

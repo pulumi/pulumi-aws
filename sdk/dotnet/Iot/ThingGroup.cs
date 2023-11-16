@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Iot
         /// The ARN of the Thing Group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         [Output("metadatas")]
         public Output<ImmutableArray<Outputs.ThingGroupMetadata>> Metadatas { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Iot
         /// The current version of the Thing Group record in the registry.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>

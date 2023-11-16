@@ -2312,18 +2312,20 @@ class RuleGroupRuleGroupStatefulRuleOptions(dict):
 @pulumi.output_type
 class GetFirewallEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
-                 key_id: str,
-                 type: str):
+                 key_id: Optional[str] = None,
+                 type: Optional[str] = None):
         """
         :param str key_id: The ID of the AWS Key Management Service (AWS KMS) customer managed key.
         :param str type: The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
         """
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "type", type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> str:
+    def key_id(self) -> Optional[str]:
         """
         The ID of the AWS Key Management Service (AWS KMS) customer managed key.
         """
@@ -2331,7 +2333,7 @@ class GetFirewallEncryptionConfigurationResult(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
         """
@@ -2341,23 +2343,27 @@ class GetFirewallEncryptionConfigurationResult(dict):
 @pulumi.output_type
 class GetFirewallFirewallStatusResult(dict):
     def __init__(__self__, *,
-                 capacity_usage_summaries: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult'],
-                 configuration_sync_state_summary: str,
-                 status: str,
-                 sync_states: Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']):
+                 capacity_usage_summaries: Optional[Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult']] = None,
+                 configuration_sync_state_summary: Optional[str] = None,
+                 status: Optional[str] = None,
+                 sync_states: Optional[Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']] = None):
         """
         :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryArgs'] capacity_usage_summaries: Aggregated count of all resources used by reference sets in a firewall.
         :param str configuration_sync_state_summary: Summary of sync states for all availability zones in which the firewall is configured.
         :param Sequence['GetFirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
         """
-        pulumi.set(__self__, "capacity_usage_summaries", capacity_usage_summaries)
-        pulumi.set(__self__, "configuration_sync_state_summary", configuration_sync_state_summary)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "sync_states", sync_states)
+        if capacity_usage_summaries is not None:
+            pulumi.set(__self__, "capacity_usage_summaries", capacity_usage_summaries)
+        if configuration_sync_state_summary is not None:
+            pulumi.set(__self__, "configuration_sync_state_summary", configuration_sync_state_summary)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if sync_states is not None:
+            pulumi.set(__self__, "sync_states", sync_states)
 
     @property
     @pulumi.getter(name="capacityUsageSummaries")
-    def capacity_usage_summaries(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult']:
+    def capacity_usage_summaries(self) -> Optional[Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult']]:
         """
         Aggregated count of all resources used by reference sets in a firewall.
         """
@@ -2365,7 +2371,7 @@ class GetFirewallFirewallStatusResult(dict):
 
     @property
     @pulumi.getter(name="configurationSyncStateSummary")
-    def configuration_sync_state_summary(self) -> str:
+    def configuration_sync_state_summary(self) -> Optional[str]:
         """
         Summary of sync states for all availability zones in which the firewall is configured.
         """
@@ -2373,12 +2379,12 @@ class GetFirewallFirewallStatusResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="syncStates")
-    def sync_states(self) -> Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']:
+    def sync_states(self) -> Optional[Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']]:
         """
         Set of subnets configured for use by the firewall.
         """
@@ -2388,15 +2394,16 @@ class GetFirewallFirewallStatusResult(dict):
 @pulumi.output_type
 class GetFirewallFirewallStatusCapacityUsageSummaryResult(dict):
     def __init__(__self__, *,
-                 cidrs: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']):
+                 cidrs: Optional[Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']] = None):
         """
         :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs'] cidrs: Capacity usage of CIDR blocks used by IP set references in a firewall.
         """
-        pulumi.set(__self__, "cidrs", cidrs)
+        if cidrs is not None:
+            pulumi.set(__self__, "cidrs", cidrs)
 
     @property
     @pulumi.getter
-    def cidrs(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']:
+    def cidrs(self) -> Optional[Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']]:
         """
         Capacity usage of CIDR blocks used by IP set references in a firewall.
         """
@@ -2406,21 +2413,24 @@ class GetFirewallFirewallStatusCapacityUsageSummaryResult(dict):
 @pulumi.output_type
 class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
     def __init__(__self__, *,
-                 available_cidr_count: int,
-                 ip_set_references: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult'],
-                 utilized_cidr_count: int):
+                 available_cidr_count: Optional[int] = None,
+                 ip_set_references: Optional[Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult']] = None,
+                 utilized_cidr_count: Optional[int] = None):
         """
         :param int available_cidr_count: Available number of CIDR blocks available for use by the IP set references in a firewall.
         :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs'] ip_set_references: The list of IP set references used by a firewall.
         :param int utilized_cidr_count: Number of CIDR blocks used by the IP set references in a firewall.
         """
-        pulumi.set(__self__, "available_cidr_count", available_cidr_count)
-        pulumi.set(__self__, "ip_set_references", ip_set_references)
-        pulumi.set(__self__, "utilized_cidr_count", utilized_cidr_count)
+        if available_cidr_count is not None:
+            pulumi.set(__self__, "available_cidr_count", available_cidr_count)
+        if ip_set_references is not None:
+            pulumi.set(__self__, "ip_set_references", ip_set_references)
+        if utilized_cidr_count is not None:
+            pulumi.set(__self__, "utilized_cidr_count", utilized_cidr_count)
 
     @property
     @pulumi.getter(name="availableCidrCount")
-    def available_cidr_count(self) -> int:
+    def available_cidr_count(self) -> Optional[int]:
         """
         Available number of CIDR blocks available for use by the IP set references in a firewall.
         """
@@ -2428,7 +2438,7 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
 
     @property
     @pulumi.getter(name="ipSetReferences")
-    def ip_set_references(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult']:
+    def ip_set_references(self) -> Optional[Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult']]:
         """
         The list of IP set references used by a firewall.
         """
@@ -2436,7 +2446,7 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
 
     @property
     @pulumi.getter(name="utilizedCidrCount")
-    def utilized_cidr_count(self) -> int:
+    def utilized_cidr_count(self) -> Optional[int]:
         """
         Number of CIDR blocks used by the IP set references in a firewall.
         """
@@ -2446,15 +2456,16 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
 @pulumi.output_type
 class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult(dict):
     def __init__(__self__, *,
-                 resolved_cidr_count: int):
+                 resolved_cidr_count: Optional[int] = None):
         """
         :param int resolved_cidr_count: Total number of CIDR blocks used by the IP set references in a firewall.
         """
-        pulumi.set(__self__, "resolved_cidr_count", resolved_cidr_count)
+        if resolved_cidr_count is not None:
+            pulumi.set(__self__, "resolved_cidr_count", resolved_cidr_count)
 
     @property
     @pulumi.getter(name="resolvedCidrCount")
-    def resolved_cidr_count(self) -> int:
+    def resolved_cidr_count(self) -> Optional[int]:
         """
         Total number of CIDR blocks used by the IP set references in a firewall.
         """
@@ -2464,18 +2475,20 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult(dict
 @pulumi.output_type
 class GetFirewallFirewallStatusSyncStateResult(dict):
     def __init__(__self__, *,
-                 attachments: Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult'],
-                 availability_zone: str):
+                 attachments: Optional[Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult']] = None,
+                 availability_zone: Optional[str] = None):
         """
         :param Sequence['GetFirewallFirewallStatusSyncStateAttachmentArgs'] attachments: Nested list describing the attachment status of the firewall's association with a single VPC subnet.
         :param str availability_zone: The Availability Zone where the subnet is configured.
         """
-        pulumi.set(__self__, "attachments", attachments)
-        pulumi.set(__self__, "availability_zone", availability_zone)
+        if attachments is not None:
+            pulumi.set(__self__, "attachments", attachments)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
 
     @property
     @pulumi.getter
-    def attachments(self) -> Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult']:
+    def attachments(self) -> Optional[Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult']]:
         """
         Nested list describing the attachment status of the firewall's association with a single VPC subnet.
         """
@@ -2483,7 +2496,7 @@ class GetFirewallFirewallStatusSyncStateResult(dict):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         """
         The Availability Zone where the subnet is configured.
         """
@@ -2493,20 +2506,23 @@ class GetFirewallFirewallStatusSyncStateResult(dict):
 @pulumi.output_type
 class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
     def __init__(__self__, *,
-                 endpoint_id: str,
-                 status: str,
-                 subnet_id: str):
+                 endpoint_id: Optional[str] = None,
+                 status: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
         """
         :param str endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
         :param str subnet_id: The unique identifier for the subnet.
         """
-        pulumi.set(__self__, "endpoint_id", endpoint_id)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        if endpoint_id is not None:
+            pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="endpointId")
-    def endpoint_id(self) -> str:
+    def endpoint_id(self) -> Optional[str]:
         """
         The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
         """
@@ -2514,12 +2530,12 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> Optional[str]:
         """
         The unique identifier for the subnet.
         """
@@ -2529,101 +2545,112 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyResult(dict):
     def __init__(__self__, *,
-                 stateful_default_actions: Sequence[str],
-                 stateful_engine_options: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult'],
-                 stateful_rule_group_references: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult'],
-                 stateless_custom_actions: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionResult'],
-                 stateless_default_actions: Sequence[str],
-                 stateless_fragment_default_actions: Sequence[str],
-                 stateless_rule_group_references: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult']):
-        pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
-        pulumi.set(__self__, "stateful_engine_options", stateful_engine_options)
-        pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
-        pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
-        pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
-        pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
-        pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+                 stateful_default_actions: Optional[Sequence[str]] = None,
+                 stateful_engine_options: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult']] = None,
+                 stateful_rule_group_references: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult']] = None,
+                 stateless_custom_actions: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionResult']] = None,
+                 stateless_default_actions: Optional[Sequence[str]] = None,
+                 stateless_fragment_default_actions: Optional[Sequence[str]] = None,
+                 stateless_rule_group_references: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult']] = None):
+        if stateful_default_actions is not None:
+            pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
+        if stateful_engine_options is not None:
+            pulumi.set(__self__, "stateful_engine_options", stateful_engine_options)
+        if stateful_rule_group_references is not None:
+            pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
+        if stateless_custom_actions is not None:
+            pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
+        if stateless_default_actions is not None:
+            pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
+        if stateless_fragment_default_actions is not None:
+            pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if stateless_rule_group_references is not None:
+            pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
 
     @property
     @pulumi.getter(name="statefulDefaultActions")
-    def stateful_default_actions(self) -> Sequence[str]:
+    def stateful_default_actions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "stateful_default_actions")
 
     @property
     @pulumi.getter(name="statefulEngineOptions")
-    def stateful_engine_options(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult']:
+    def stateful_engine_options(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult']]:
         return pulumi.get(self, "stateful_engine_options")
 
     @property
     @pulumi.getter(name="statefulRuleGroupReferences")
-    def stateful_rule_group_references(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult']:
+    def stateful_rule_group_references(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult']]:
         return pulumi.get(self, "stateful_rule_group_references")
 
     @property
     @pulumi.getter(name="statelessCustomActions")
-    def stateless_custom_actions(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionResult']:
+    def stateless_custom_actions(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionResult']]:
         return pulumi.get(self, "stateless_custom_actions")
 
     @property
     @pulumi.getter(name="statelessDefaultActions")
-    def stateless_default_actions(self) -> Sequence[str]:
+    def stateless_default_actions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "stateless_default_actions")
 
     @property
     @pulumi.getter(name="statelessFragmentDefaultActions")
-    def stateless_fragment_default_actions(self) -> Sequence[str]:
+    def stateless_fragment_default_actions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "stateless_fragment_default_actions")
 
     @property
     @pulumi.getter(name="statelessRuleGroupReferences")
-    def stateless_rule_group_references(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult']:
+    def stateless_rule_group_references(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult']]:
         return pulumi.get(self, "stateless_rule_group_references")
 
 
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult(dict):
     def __init__(__self__, *,
-                 rule_order: str,
-                 stream_exception_policy: str):
-        pulumi.set(__self__, "rule_order", rule_order)
-        pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
+                 rule_order: Optional[str] = None,
+                 stream_exception_policy: Optional[str] = None):
+        if rule_order is not None:
+            pulumi.set(__self__, "rule_order", rule_order)
+        if stream_exception_policy is not None:
+            pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
 
     @property
     @pulumi.getter(name="ruleOrder")
-    def rule_order(self) -> str:
+    def rule_order(self) -> Optional[str]:
         return pulumi.get(self, "rule_order")
 
     @property
     @pulumi.getter(name="streamExceptionPolicy")
-    def stream_exception_policy(self) -> str:
+    def stream_exception_policy(self) -> Optional[str]:
         return pulumi.get(self, "stream_exception_policy")
 
 
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult(dict):
     def __init__(__self__, *,
-                 priority: int,
-                 resource_arn: str,
-                 overrides: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult']] = None):
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+                 overrides: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult']] = None,
+                 priority: Optional[int] = None,
+                 resource_arn: Optional[str] = None):
         if overrides is not None:
             pulumi.set(__self__, "overrides", overrides)
-
-    @property
-    @pulumi.getter
-    def priority(self) -> int:
-        return pulumi.get(self, "priority")
-
-    @property
-    @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
-        return pulumi.get(self, "resource_arn")
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter
     def overrides(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult']]:
         return pulumi.get(self, "overrides")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[str]:
+        return pulumi.get(self, "resource_arn")
 
 
 @pulumi.output_type
@@ -2642,74 +2669,81 @@ class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult(di
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatelessCustomActionResult(dict):
     def __init__(__self__, *,
-                 action_definitions: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult'],
-                 action_name: str):
-        pulumi.set(__self__, "action_definitions", action_definitions)
-        pulumi.set(__self__, "action_name", action_name)
+                 action_definitions: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult']] = None,
+                 action_name: Optional[str] = None):
+        if action_definitions is not None:
+            pulumi.set(__self__, "action_definitions", action_definitions)
+        if action_name is not None:
+            pulumi.set(__self__, "action_name", action_name)
 
     @property
     @pulumi.getter(name="actionDefinitions")
-    def action_definitions(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult']:
+    def action_definitions(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult']]:
         return pulumi.get(self, "action_definitions")
 
     @property
     @pulumi.getter(name="actionName")
-    def action_name(self) -> str:
+    def action_name(self) -> Optional[str]:
         return pulumi.get(self, "action_name")
 
 
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult(dict):
     def __init__(__self__, *,
-                 publish_metric_actions: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult']):
-        pulumi.set(__self__, "publish_metric_actions", publish_metric_actions)
+                 publish_metric_actions: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult']] = None):
+        if publish_metric_actions is not None:
+            pulumi.set(__self__, "publish_metric_actions", publish_metric_actions)
 
     @property
     @pulumi.getter(name="publishMetricActions")
-    def publish_metric_actions(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult']:
+    def publish_metric_actions(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult']]:
         return pulumi.get(self, "publish_metric_actions")
 
 
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult(dict):
     def __init__(__self__, *,
-                 dimensions: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionResult']):
-        pulumi.set(__self__, "dimensions", dimensions)
+                 dimensions: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionResult']] = None):
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionResult']:
+    def dimensions(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionResult']]:
         return pulumi.get(self, "dimensions")
 
 
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionResult(dict):
     def __init__(__self__, *,
-                 value: str):
-        pulumi.set(__self__, "value", value)
+                 value: Optional[str] = None):
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult(dict):
     def __init__(__self__, *,
-                 priority: int,
-                 resource_arn: str):
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+                 priority: Optional[int] = None,
+                 resource_arn: Optional[str] = None):
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter
-    def priority(self) -> int:
+    def priority(self) -> Optional[int]:
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
+    def resource_arn(self) -> Optional[str]:
         return pulumi.get(self, "resource_arn")
 
 

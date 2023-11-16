@@ -417,7 +417,7 @@ class AssessmentDelegation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="delegationId")
-    def delegation_id(self) -> pulumi.Output[str]:
+    def delegation_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique identifier for the delegation.
         """
@@ -443,7 +443,7 @@ class AssessmentDelegation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the delegation.
         """

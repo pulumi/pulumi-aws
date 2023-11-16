@@ -53,7 +53,7 @@ class GetResourcesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -71,7 +71,7 @@ class GetResourcesResult:
 
     @property
     @pulumi.getter(name="resourceTagMappingLists")
-    def resource_tag_mapping_lists(self) -> Sequence['outputs.GetResourcesResourceTagMappingListResult']:
+    def resource_tag_mapping_lists(self) -> Optional[Sequence['outputs.GetResourcesResourceTagMappingListResult']]:
         """
         List of objects matching the search criteria.
         """

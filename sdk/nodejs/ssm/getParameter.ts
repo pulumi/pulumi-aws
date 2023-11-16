@@ -49,16 +49,16 @@ export interface GetParameterArgs {
  * A collection of values returned by getParameter.
  */
 export interface GetParameterResult {
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly insecureValue: string;
+    readonly id?: string;
+    readonly insecureValue?: string;
     readonly name: string;
-    readonly type: string;
-    readonly value: string;
-    readonly version: number;
+    readonly type?: string;
+    readonly value?: string;
+    readonly version?: number;
     readonly withDecryption?: boolean;
 }
 /**

@@ -6,34 +6,36 @@ package com.pulumi.aws.dms.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointMongodbSetting {
-    private String authMechanism;
-    private String authSource;
-    private String authType;
-    private String docsToInvestigate;
-    private String extractDocId;
-    private String nestingLevel;
+    private @Nullable String authMechanism;
+    private @Nullable String authSource;
+    private @Nullable String authType;
+    private @Nullable String docsToInvestigate;
+    private @Nullable String extractDocId;
+    private @Nullable String nestingLevel;
 
     private GetEndpointMongodbSetting() {}
-    public String authMechanism() {
-        return this.authMechanism;
+    public Optional<String> authMechanism() {
+        return Optional.ofNullable(this.authMechanism);
     }
-    public String authSource() {
-        return this.authSource;
+    public Optional<String> authSource() {
+        return Optional.ofNullable(this.authSource);
     }
-    public String authType() {
-        return this.authType;
+    public Optional<String> authType() {
+        return Optional.ofNullable(this.authType);
     }
-    public String docsToInvestigate() {
-        return this.docsToInvestigate;
+    public Optional<String> docsToInvestigate() {
+        return Optional.ofNullable(this.docsToInvestigate);
     }
-    public String extractDocId() {
-        return this.extractDocId;
+    public Optional<String> extractDocId() {
+        return Optional.ofNullable(this.extractDocId);
     }
-    public String nestingLevel() {
-        return this.nestingLevel;
+    public Optional<String> nestingLevel() {
+        return Optional.ofNullable(this.nestingLevel);
     }
 
     public static Builder builder() {
@@ -45,12 +47,12 @@ public final class GetEndpointMongodbSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String authMechanism;
-        private String authSource;
-        private String authType;
-        private String docsToInvestigate;
-        private String extractDocId;
-        private String nestingLevel;
+        private @Nullable String authMechanism;
+        private @Nullable String authSource;
+        private @Nullable String authType;
+        private @Nullable String docsToInvestigate;
+        private @Nullable String extractDocId;
+        private @Nullable String nestingLevel;
         public Builder() {}
         public Builder(GetEndpointMongodbSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -63,33 +65,33 @@ public final class GetEndpointMongodbSetting {
         }
 
         @CustomType.Setter
-        public Builder authMechanism(String authMechanism) {
-            this.authMechanism = Objects.requireNonNull(authMechanism);
+        public Builder authMechanism(@Nullable String authMechanism) {
+            this.authMechanism = authMechanism;
             return this;
         }
         @CustomType.Setter
-        public Builder authSource(String authSource) {
-            this.authSource = Objects.requireNonNull(authSource);
+        public Builder authSource(@Nullable String authSource) {
+            this.authSource = authSource;
             return this;
         }
         @CustomType.Setter
-        public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+        public Builder authType(@Nullable String authType) {
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
-        public Builder docsToInvestigate(String docsToInvestigate) {
-            this.docsToInvestigate = Objects.requireNonNull(docsToInvestigate);
+        public Builder docsToInvestigate(@Nullable String docsToInvestigate) {
+            this.docsToInvestigate = docsToInvestigate;
             return this;
         }
         @CustomType.Setter
-        public Builder extractDocId(String extractDocId) {
-            this.extractDocId = Objects.requireNonNull(extractDocId);
+        public Builder extractDocId(@Nullable String extractDocId) {
+            this.extractDocId = extractDocId;
             return this;
         }
         @CustomType.Setter
-        public Builder nestingLevel(String nestingLevel) {
-            this.nestingLevel = Objects.requireNonNull(nestingLevel);
+        public Builder nestingLevel(@Nullable String nestingLevel) {
+            this.nestingLevel = nestingLevel;
             return this;
         }
         public GetEndpointMongodbSetting build() {

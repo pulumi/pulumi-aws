@@ -372,7 +372,7 @@ class Partner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         (Optional) The partner integration status.
         """
@@ -380,7 +380,7 @@ class Partner(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> pulumi.Output[str]:
+    def status_message(self) -> pulumi.Output[Optional[str]]:
         """
         (Optional) The status message provided by the partner.
         """

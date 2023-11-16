@@ -334,7 +334,7 @@ type Policy struct {
 	// List of CloudWatch alarm ARNs associated with the scaling policy.
 	AlarmArns pulumi.StringArrayOutput `pulumi:"alarmArns"`
 	// ARN assigned by AWS to the scaling policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Name of the policy. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
@@ -563,8 +563,8 @@ func (o PolicyOutput) AlarmArns() pulumi.StringArrayOutput {
 }
 
 // ARN assigned by AWS to the scaling policy.
-func (o PolicyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PolicyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Name of the policy. Must be between 1 and 255 characters in length.

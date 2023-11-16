@@ -53,11 +53,11 @@ type HsmClientCertificate struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier pulumi.StringOutput `pulumi:"hsmClientCertificateIdentifier"`
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-	HsmClientCertificatePublicKey pulumi.StringOutput `pulumi:"hsmClientCertificatePublicKey"`
+	HsmClientCertificatePublicKey pulumi.StringPtrOutput `pulumi:"hsmClientCertificatePublicKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -239,8 +239,8 @@ func (o HsmClientCertificateOutput) ToHsmClientCertificateOutputWithContext(ctx 
 }
 
 // Amazon Resource Name (ARN) of the Hsm Client Certificate.
-func (o HsmClientCertificateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HsmClientCertificateOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the HSM client certificate.
@@ -249,8 +249,8 @@ func (o HsmClientCertificateOutput) HsmClientCertificateIdentifier() pulumi.Stri
 }
 
 // The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-func (o HsmClientCertificateOutput) HsmClientCertificatePublicKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.HsmClientCertificatePublicKey }).(pulumi.StringOutput)
+func (o HsmClientCertificateOutput) HsmClientCertificatePublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringPtrOutput { return v.HsmClientCertificatePublicKey }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

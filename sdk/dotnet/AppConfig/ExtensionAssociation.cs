@@ -105,7 +105,7 @@ namespace Pulumi.Aws.AppConfig
         /// ARN of the AppConfig Extension Association.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the extension defined in the association.
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.AppConfig
         /// The version number for the extension defined in the association.
         /// </summary>
         [Output("extensionVersion")]
-        public Output<int> ExtensionVersion { get; private set; } = null!;
+        public Output<int?> ExtensionVersion { get; private set; } = null!;
 
         /// <summary>
         /// The parameter names and values defined for the association.

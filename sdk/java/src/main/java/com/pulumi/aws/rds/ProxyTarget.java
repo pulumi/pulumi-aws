@@ -158,56 +158,56 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * Port for the target RDS DB Instance or Aurora DB Cluster.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
-    private Output<Integer> port;
+    private Output</* @Nullable */ Integer> port;
 
     /**
      * @return Port for the target RDS DB Instance or Aurora DB Cluster.
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Output<Optional<Integer>> port() {
+        return Codegen.optional(this.port);
     }
     /**
      * Identifier representing the DB Instance or DB Cluster target.
      * 
      */
     @Export(name="rdsResourceId", refs={String.class}, tree="[0]")
-    private Output<String> rdsResourceId;
+    private Output</* @Nullable */ String> rdsResourceId;
 
     /**
      * @return Identifier representing the DB Instance or DB Cluster target.
      * 
      */
-    public Output<String> rdsResourceId() {
-        return this.rdsResourceId;
+    public Output<Optional<String>> rdsResourceId() {
+        return Codegen.optional(this.rdsResourceId);
     }
     /**
      * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
-    private Output<String> targetArn;
+    private Output</* @Nullable */ String> targetArn;
 
     /**
      * @return Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
-    public Output<String> targetArn() {
-        return this.targetArn;
+    public Output<Optional<String>> targetArn() {
+        return Codegen.optional(this.targetArn);
     }
     /**
      * The name of the target group.
@@ -228,28 +228,28 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="trackedClusterId", refs={String.class}, tree="[0]")
-    private Output<String> trackedClusterId;
+    private Output</* @Nullable */ String> trackedClusterId;
 
     /**
      * @return DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
      * 
      */
-    public Output<String> trackedClusterId() {
-        return this.trackedClusterId;
+    public Output<Optional<String>> trackedClusterId() {
+        return Codegen.optional(this.trackedClusterId);
     }
     /**
      * Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

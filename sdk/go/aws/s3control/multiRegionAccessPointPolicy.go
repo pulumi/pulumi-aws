@@ -62,7 +62,7 @@ import (
 //			_, err = s3control.NewMultiRegionAccessPointPolicy(ctx, "exampleMultiRegionAccessPointPolicy", &s3control.MultiRegionAccessPointPolicyArgs{
 //				Details: &s3control.MultiRegionAccessPointPolicyDetailsArgs{
 //					Name: "TODO: element",
-//					Policy: exampleMultiRegionAccessPoint.Alias.ApplyT(func(alias string) (pulumi.String, error) {
+//					Policy: exampleMultiRegionAccessPoint.Alias.ApplyT(func(alias *string) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON0, err := json.Marshal(map[string]interface{}{
 //							"Version": "2012-10-17",
@@ -111,13 +111,13 @@ type MultiRegionAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
 	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
 	Details MultiRegionAccessPointPolicyDetailsOutput `pulumi:"details"`
 	// The last established policy for the Multi-Region Access Point.
-	Established pulumi.StringOutput `pulumi:"established"`
+	Established pulumi.StringPtrOutput `pulumi:"established"`
 	// The proposed policy for the Multi-Region Access Point.
-	Proposed pulumi.StringOutput `pulumi:"proposed"`
+	Proposed pulumi.StringPtrOutput `pulumi:"proposed"`
 }
 
 // NewMultiRegionAccessPointPolicy registers a new resource with the given unique name, arguments, and options.
@@ -281,8 +281,8 @@ func (o MultiRegionAccessPointPolicyOutput) ToMultiRegionAccessPointPolicyOutput
 }
 
 // The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-func (o MultiRegionAccessPointPolicyOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+func (o MultiRegionAccessPointPolicyOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
@@ -291,13 +291,13 @@ func (o MultiRegionAccessPointPolicyOutput) Details() MultiRegionAccessPointPoli
 }
 
 // The last established policy for the Multi-Region Access Point.
-func (o MultiRegionAccessPointPolicyOutput) Established() pulumi.StringOutput {
-	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Established }).(pulumi.StringOutput)
+func (o MultiRegionAccessPointPolicyOutput) Established() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringPtrOutput { return v.Established }).(pulumi.StringPtrOutput)
 }
 
 // The proposed policy for the Multi-Region Access Point.
-func (o MultiRegionAccessPointPolicyOutput) Proposed() pulumi.StringOutput {
-	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Proposed }).(pulumi.StringOutput)
+func (o MultiRegionAccessPointPolicyOutput) Proposed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringPtrOutput { return v.Proposed }).(pulumi.StringPtrOutput)
 }
 
 type MultiRegionAccessPointPolicyArrayOutput struct{ *pulumi.OutputState }

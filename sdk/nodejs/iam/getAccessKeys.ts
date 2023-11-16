@@ -47,11 +47,11 @@ export interface GetAccessKeysResult {
     /**
      * List of the IAM access keys associated with the specified user. See below.
      */
-    readonly accessKeys: outputs.iam.GetAccessKeysAccessKey[];
+    readonly accessKeys?: outputs.iam.GetAccessKeysAccessKey[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly user: string;
 }
 /**

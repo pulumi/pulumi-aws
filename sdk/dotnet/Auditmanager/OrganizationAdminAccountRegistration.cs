@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Auditmanager
         /// Identifier for the organization.
         /// </summary>
         [Output("organizationId")]
-        public Output<string> OrganizationId { get; private set; } = null!;
+        public Output<string?> OrganizationId { get; private set; } = null!;
 
 
         /// <summary>

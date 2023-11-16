@@ -78,14 +78,14 @@ public class VpcIpamResourceDiscovery extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of IPAM Resource Discovery
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A description for the IPAM Resource Discovery.
@@ -106,28 +106,28 @@ public class VpcIpamResourceDiscovery extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="ipamResourceDiscoveryRegion", refs={String.class}, tree="[0]")
-    private Output<String> ipamResourceDiscoveryRegion;
+    private Output</* @Nullable */ String> ipamResourceDiscoveryRegion;
 
     /**
      * @return The home region of the Resource Discovery
      * 
      */
-    public Output<String> ipamResourceDiscoveryRegion() {
-        return this.ipamResourceDiscoveryRegion;
+    public Output<Optional<String>> ipamResourceDiscoveryRegion() {
+        return Codegen.optional(this.ipamResourceDiscoveryRegion);
     }
     /**
      * A boolean to identify if the Resource Discovery is the accounts default resource discovery
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> isDefault;
+    private Output</* @Nullable */ Boolean> isDefault;
 
     /**
      * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery
      * 
      */
-    public Output<Boolean> isDefault() {
-        return this.isDefault;
+    public Output<Optional<Boolean>> isDefault() {
+        return Codegen.optional(this.isDefault);
     }
     /**
      * Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
@@ -148,14 +148,14 @@ public class VpcIpamResourceDiscovery extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The account ID for the account that manages the Resource Discovery
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

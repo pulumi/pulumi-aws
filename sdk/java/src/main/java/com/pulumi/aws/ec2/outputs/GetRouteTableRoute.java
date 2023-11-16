@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteTableRoute {
@@ -13,171 +15,171 @@ public final class GetRouteTableRoute {
      * @return ID of the Carrier Gateway.
      * 
      */
-    private String carrierGatewayId;
+    private @Nullable String carrierGatewayId;
     /**
      * @return CIDR block of the route.
      * 
      */
-    private String cidrBlock;
+    private @Nullable String cidrBlock;
     /**
      * @return ARN of the core network.
      * 
      */
-    private String coreNetworkArn;
+    private @Nullable String coreNetworkArn;
     /**
      * @return The ID of a managed prefix list destination of the route.
      * 
      */
-    private String destinationPrefixListId;
+    private @Nullable String destinationPrefixListId;
     /**
      * @return ID of the Egress Only Internet Gateway.
      * 
      */
-    private String egressOnlyGatewayId;
+    private @Nullable String egressOnlyGatewayId;
     /**
      * @return ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      * 
      */
-    private String gatewayId;
+    private @Nullable String gatewayId;
     /**
      * @return EC2 instance ID.
      * 
      */
-    private String instanceId;
+    private @Nullable String instanceId;
     /**
      * @return IPv6 CIDR block of the route.
      * 
      */
-    private String ipv6CidrBlock;
+    private @Nullable String ipv6CidrBlock;
     /**
      * @return Local Gateway ID.
      * 
      */
-    private String localGatewayId;
+    private @Nullable String localGatewayId;
     /**
      * @return NAT Gateway ID.
      * 
      */
-    private String natGatewayId;
+    private @Nullable String natGatewayId;
     /**
      * @return ID of the elastic network interface (eni) to use.
      * 
      */
-    private String networkInterfaceId;
+    private @Nullable String networkInterfaceId;
     /**
      * @return EC2 Transit Gateway ID.
      * 
      */
-    private String transitGatewayId;
+    private @Nullable String transitGatewayId;
     /**
      * @return VPC Endpoint ID.
      * 
      */
-    private String vpcEndpointId;
+    private @Nullable String vpcEndpointId;
     /**
      * @return VPC Peering ID.
      * 
      */
-    private String vpcPeeringConnectionId;
+    private @Nullable String vpcPeeringConnectionId;
 
     private GetRouteTableRoute() {}
     /**
      * @return ID of the Carrier Gateway.
      * 
      */
-    public String carrierGatewayId() {
-        return this.carrierGatewayId;
+    public Optional<String> carrierGatewayId() {
+        return Optional.ofNullable(this.carrierGatewayId);
     }
     /**
      * @return CIDR block of the route.
      * 
      */
-    public String cidrBlock() {
-        return this.cidrBlock;
+    public Optional<String> cidrBlock() {
+        return Optional.ofNullable(this.cidrBlock);
     }
     /**
      * @return ARN of the core network.
      * 
      */
-    public String coreNetworkArn() {
-        return this.coreNetworkArn;
+    public Optional<String> coreNetworkArn() {
+        return Optional.ofNullable(this.coreNetworkArn);
     }
     /**
      * @return The ID of a managed prefix list destination of the route.
      * 
      */
-    public String destinationPrefixListId() {
-        return this.destinationPrefixListId;
+    public Optional<String> destinationPrefixListId() {
+        return Optional.ofNullable(this.destinationPrefixListId);
     }
     /**
      * @return ID of the Egress Only Internet Gateway.
      * 
      */
-    public String egressOnlyGatewayId() {
-        return this.egressOnlyGatewayId;
+    public Optional<String> egressOnlyGatewayId() {
+        return Optional.ofNullable(this.egressOnlyGatewayId);
     }
     /**
      * @return ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      * 
      */
-    public String gatewayId() {
-        return this.gatewayId;
+    public Optional<String> gatewayId() {
+        return Optional.ofNullable(this.gatewayId);
     }
     /**
      * @return EC2 instance ID.
      * 
      */
-    public String instanceId() {
-        return this.instanceId;
+    public Optional<String> instanceId() {
+        return Optional.ofNullable(this.instanceId);
     }
     /**
      * @return IPv6 CIDR block of the route.
      * 
      */
-    public String ipv6CidrBlock() {
-        return this.ipv6CidrBlock;
+    public Optional<String> ipv6CidrBlock() {
+        return Optional.ofNullable(this.ipv6CidrBlock);
     }
     /**
      * @return Local Gateway ID.
      * 
      */
-    public String localGatewayId() {
-        return this.localGatewayId;
+    public Optional<String> localGatewayId() {
+        return Optional.ofNullable(this.localGatewayId);
     }
     /**
      * @return NAT Gateway ID.
      * 
      */
-    public String natGatewayId() {
-        return this.natGatewayId;
+    public Optional<String> natGatewayId() {
+        return Optional.ofNullable(this.natGatewayId);
     }
     /**
      * @return ID of the elastic network interface (eni) to use.
      * 
      */
-    public String networkInterfaceId() {
-        return this.networkInterfaceId;
+    public Optional<String> networkInterfaceId() {
+        return Optional.ofNullable(this.networkInterfaceId);
     }
     /**
      * @return EC2 Transit Gateway ID.
      * 
      */
-    public String transitGatewayId() {
-        return this.transitGatewayId;
+    public Optional<String> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
     }
     /**
      * @return VPC Endpoint ID.
      * 
      */
-    public String vpcEndpointId() {
-        return this.vpcEndpointId;
+    public Optional<String> vpcEndpointId() {
+        return Optional.ofNullable(this.vpcEndpointId);
     }
     /**
      * @return VPC Peering ID.
      * 
      */
-    public String vpcPeeringConnectionId() {
-        return this.vpcPeeringConnectionId;
+    public Optional<String> vpcPeeringConnectionId() {
+        return Optional.ofNullable(this.vpcPeeringConnectionId);
     }
 
     public static Builder builder() {
@@ -189,20 +191,20 @@ public final class GetRouteTableRoute {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String carrierGatewayId;
-        private String cidrBlock;
-        private String coreNetworkArn;
-        private String destinationPrefixListId;
-        private String egressOnlyGatewayId;
-        private String gatewayId;
-        private String instanceId;
-        private String ipv6CidrBlock;
-        private String localGatewayId;
-        private String natGatewayId;
-        private String networkInterfaceId;
-        private String transitGatewayId;
-        private String vpcEndpointId;
-        private String vpcPeeringConnectionId;
+        private @Nullable String carrierGatewayId;
+        private @Nullable String cidrBlock;
+        private @Nullable String coreNetworkArn;
+        private @Nullable String destinationPrefixListId;
+        private @Nullable String egressOnlyGatewayId;
+        private @Nullable String gatewayId;
+        private @Nullable String instanceId;
+        private @Nullable String ipv6CidrBlock;
+        private @Nullable String localGatewayId;
+        private @Nullable String natGatewayId;
+        private @Nullable String networkInterfaceId;
+        private @Nullable String transitGatewayId;
+        private @Nullable String vpcEndpointId;
+        private @Nullable String vpcPeeringConnectionId;
         public Builder() {}
         public Builder(GetRouteTableRoute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -223,73 +225,73 @@ public final class GetRouteTableRoute {
         }
 
         @CustomType.Setter
-        public Builder carrierGatewayId(String carrierGatewayId) {
-            this.carrierGatewayId = Objects.requireNonNull(carrierGatewayId);
+        public Builder carrierGatewayId(@Nullable String carrierGatewayId) {
+            this.carrierGatewayId = carrierGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+        public Builder cidrBlock(@Nullable String cidrBlock) {
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder coreNetworkArn(String coreNetworkArn) {
-            this.coreNetworkArn = Objects.requireNonNull(coreNetworkArn);
+        public Builder coreNetworkArn(@Nullable String coreNetworkArn) {
+            this.coreNetworkArn = coreNetworkArn;
             return this;
         }
         @CustomType.Setter
-        public Builder destinationPrefixListId(String destinationPrefixListId) {
-            this.destinationPrefixListId = Objects.requireNonNull(destinationPrefixListId);
+        public Builder destinationPrefixListId(@Nullable String destinationPrefixListId) {
+            this.destinationPrefixListId = destinationPrefixListId;
             return this;
         }
         @CustomType.Setter
-        public Builder egressOnlyGatewayId(String egressOnlyGatewayId) {
-            this.egressOnlyGatewayId = Objects.requireNonNull(egressOnlyGatewayId);
+        public Builder egressOnlyGatewayId(@Nullable String egressOnlyGatewayId) {
+            this.egressOnlyGatewayId = egressOnlyGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder gatewayId(String gatewayId) {
-            this.gatewayId = Objects.requireNonNull(gatewayId);
+        public Builder gatewayId(@Nullable String gatewayId) {
+            this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+        public Builder instanceId(@Nullable String instanceId) {
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6CidrBlock(String ipv6CidrBlock) {
-            this.ipv6CidrBlock = Objects.requireNonNull(ipv6CidrBlock);
+        public Builder ipv6CidrBlock(@Nullable String ipv6CidrBlock) {
+            this.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
         @CustomType.Setter
-        public Builder localGatewayId(String localGatewayId) {
-            this.localGatewayId = Objects.requireNonNull(localGatewayId);
+        public Builder localGatewayId(@Nullable String localGatewayId) {
+            this.localGatewayId = localGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder natGatewayId(String natGatewayId) {
-            this.natGatewayId = Objects.requireNonNull(natGatewayId);
+        public Builder natGatewayId(@Nullable String natGatewayId) {
+            this.natGatewayId = natGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+        public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+        public Builder transitGatewayId(@Nullable String transitGatewayId) {
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcEndpointId(String vpcEndpointId) {
-            this.vpcEndpointId = Objects.requireNonNull(vpcEndpointId);
+        public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
+            this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcPeeringConnectionId(String vpcPeeringConnectionId) {
-            this.vpcPeeringConnectionId = Objects.requireNonNull(vpcPeeringConnectionId);
+        public Builder vpcPeeringConnectionId(@Nullable String vpcPeeringConnectionId) {
+            this.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
         }
         public GetRouteTableRoute build() {

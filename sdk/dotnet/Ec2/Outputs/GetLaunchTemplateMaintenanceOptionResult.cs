@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateMaintenanceOptionResult
     {
-        public readonly string AutoRecovery;
+        public readonly string? AutoRecovery;
 
         [OutputConstructor]
-        private GetLaunchTemplateMaintenanceOptionResult(string autoRecovery)
+        private GetLaunchTemplateMaintenanceOptionResult(string? autoRecovery)
         {
             AutoRecovery = autoRecovery;
         }

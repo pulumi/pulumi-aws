@@ -19,23 +19,23 @@ public final class GetKeyPairResult {
      * @return ARN of the Key Pair.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Timestamp for when the key pair was created in ISO 8601 format.
      * 
      */
-    private String createTime;
+    private @Nullable String createTime;
     private @Nullable List<GetKeyPairFilter> filters;
     /**
      * @return SHA-1 digest of the DER encoded private key.
      * 
      */
-    private String fingerprint;
+    private @Nullable String fingerprint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable Boolean includePublicKey;
     private @Nullable String keyName;
     private @Nullable String keyPairId;
@@ -43,32 +43,32 @@ public final class GetKeyPairResult {
      * @return Type of key pair.
      * 
      */
-    private String keyType;
+    private @Nullable String keyType;
     /**
      * @return Public key material.
      * 
      */
-    private String publicKey;
+    private @Nullable String publicKey;
     /**
      * @return Any tags assigned to the Key Pair.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetKeyPairResult() {}
     /**
      * @return ARN of the Key Pair.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Timestamp for when the key pair was created in ISO 8601 format.
      * 
      */
-    public String createTime() {
-        return this.createTime;
+    public Optional<String> createTime() {
+        return Optional.ofNullable(this.createTime);
     }
     public List<GetKeyPairFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -77,15 +77,15 @@ public final class GetKeyPairResult {
      * @return SHA-1 digest of the DER encoded private key.
      * 
      */
-    public String fingerprint() {
-        return this.fingerprint;
+    public Optional<String> fingerprint() {
+        return Optional.ofNullable(this.fingerprint);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<Boolean> includePublicKey() {
         return Optional.ofNullable(this.includePublicKey);
@@ -100,22 +100,22 @@ public final class GetKeyPairResult {
      * @return Type of key pair.
      * 
      */
-    public String keyType() {
-        return this.keyType;
+    public Optional<String> keyType() {
+        return Optional.ofNullable(this.keyType);
     }
     /**
      * @return Public key material.
      * 
      */
-    public String publicKey() {
-        return this.publicKey;
+    public Optional<String> publicKey() {
+        return Optional.ofNullable(this.publicKey);
     }
     /**
      * @return Any tags assigned to the Key Pair.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -127,17 +127,17 @@ public final class GetKeyPairResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String createTime;
+        private @Nullable String arn;
+        private @Nullable String createTime;
         private @Nullable List<GetKeyPairFilter> filters;
-        private String fingerprint;
-        private String id;
+        private @Nullable String fingerprint;
+        private @Nullable String id;
         private @Nullable Boolean includePublicKey;
         private @Nullable String keyName;
         private @Nullable String keyPairId;
-        private String keyType;
-        private String publicKey;
-        private Map<String,String> tags;
+        private @Nullable String keyType;
+        private @Nullable String publicKey;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetKeyPairResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -155,13 +155,13 @@ public final class GetKeyPairResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+        public Builder createTime(@Nullable String createTime) {
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
@@ -173,13 +173,13 @@ public final class GetKeyPairResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder fingerprint(String fingerprint) {
-            this.fingerprint = Objects.requireNonNull(fingerprint);
+        public Builder fingerprint(@Nullable String fingerprint) {
+            this.fingerprint = fingerprint;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -198,18 +198,18 @@ public final class GetKeyPairResult {
             return this;
         }
         @CustomType.Setter
-        public Builder keyType(String keyType) {
-            this.keyType = Objects.requireNonNull(keyType);
+        public Builder keyType(@Nullable String keyType) {
+            this.keyType = keyType;
             return this;
         }
         @CustomType.Setter
-        public Builder publicKey(String publicKey) {
-            this.publicKey = Objects.requireNonNull(publicKey);
+        public Builder publicKey(@Nullable String publicKey) {
+            this.publicKey = publicKey;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetKeyPairResult build() {

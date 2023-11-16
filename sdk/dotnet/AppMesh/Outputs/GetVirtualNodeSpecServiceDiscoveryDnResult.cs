@@ -13,17 +13,17 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecServiceDiscoveryDnResult
     {
-        public readonly string Hostname;
-        public readonly string IpPreference;
-        public readonly string ResponseType;
+        public readonly string? Hostname;
+        public readonly string? IpPreference;
+        public readonly string? ResponseType;
 
         [OutputConstructor]
         private GetVirtualNodeSpecServiceDiscoveryDnResult(
-            string hostname,
+            string? hostname,
 
-            string ipPreference,
+            string? ipPreference,
 
-            string responseType)
+            string? responseType)
         {
             Hostname = hostname;
             IpPreference = ipPreference;

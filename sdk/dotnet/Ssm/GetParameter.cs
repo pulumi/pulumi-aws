@@ -121,33 +121,33 @@ namespace Pulumi.Aws.Ssm
     [OutputType]
     public sealed class GetParameterResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string InsecureValue;
+        public readonly string? Id;
+        public readonly string? InsecureValue;
         public readonly string Name;
-        public readonly string Type;
-        public readonly string Value;
-        public readonly int Version;
+        public readonly string? Type;
+        public readonly string? Value;
+        public readonly int? Version;
         public readonly bool? WithDecryption;
 
         [OutputConstructor]
         private GetParameterResult(
-            string arn,
+            string? arn,
 
-            string id,
+            string? id,
 
-            string insecureValue,
+            string? insecureValue,
 
             string name,
 
-            string type,
+            string? type,
 
-            string value,
+            string? value,
 
-            int version,
+            int? version,
 
             bool? withDecryption)
         {

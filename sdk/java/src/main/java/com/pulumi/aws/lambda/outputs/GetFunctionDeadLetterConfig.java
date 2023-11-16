@@ -6,14 +6,16 @@ package com.pulumi.aws.lambda.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFunctionDeadLetterConfig {
-    private String targetArn;
+    private @Nullable String targetArn;
 
     private GetFunctionDeadLetterConfig() {}
-    public String targetArn() {
-        return this.targetArn;
+    public Optional<String> targetArn() {
+        return Optional.ofNullable(this.targetArn);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetFunctionDeadLetterConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String targetArn;
+        private @Nullable String targetArn;
         public Builder() {}
         public Builder(GetFunctionDeadLetterConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetFunctionDeadLetterConfig {
         }
 
         @CustomType.Setter
-        public Builder targetArn(String targetArn) {
-            this.targetArn = Objects.requireNonNull(targetArn);
+        public Builder targetArn(@Nullable String targetArn) {
+            this.targetArn = targetArn;
             return this;
         }
         public GetFunctionDeadLetterConfig build() {

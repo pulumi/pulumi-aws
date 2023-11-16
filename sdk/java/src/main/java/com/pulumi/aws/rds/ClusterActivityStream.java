@@ -121,14 +121,14 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kinesisStreamName", refs={String.class}, tree="[0]")
-    private Output<String> kinesisStreamName;
+    private Output</* @Nullable */ String> kinesisStreamName;
 
     /**
      * @return The name of the Amazon Kinesis data stream to be used for the database activity stream.
      * 
      */
-    public Output<String> kinesisStreamName() {
-        return this.kinesisStreamName;
+    public Output<Optional<String>> kinesisStreamName() {
+        return Codegen.optional(this.kinesisStreamName);
     }
     /**
      * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.

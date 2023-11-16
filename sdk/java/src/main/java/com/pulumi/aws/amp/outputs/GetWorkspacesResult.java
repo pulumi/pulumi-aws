@@ -17,22 +17,22 @@ public final class GetWorkspacesResult {
      * @return List of aliases of the matched Prometheus workspaces.
      * 
      */
-    private List<String> aliases;
+    private @Nullable List<String> aliases;
     /**
      * @return List of ARNs of the matched Prometheus workspaces.
      * 
      */
-    private List<String> arns;
+    private @Nullable List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of workspace IDs of the matched Prometheus workspaces.
      * 
      */
-    private List<String> workspaceIds;
+    private @Nullable List<String> workspaceIds;
 
     private GetWorkspacesResult() {}
     public Optional<String> aliasPrefix() {
@@ -43,28 +43,28 @@ public final class GetWorkspacesResult {
      * 
      */
     public List<String> aliases() {
-        return this.aliases;
+        return this.aliases == null ? List.of() : this.aliases;
     }
     /**
      * @return List of ARNs of the matched Prometheus workspaces.
      * 
      */
     public List<String> arns() {
-        return this.arns;
+        return this.arns == null ? List.of() : this.arns;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of workspace IDs of the matched Prometheus workspaces.
      * 
      */
     public List<String> workspaceIds() {
-        return this.workspaceIds;
+        return this.workspaceIds == null ? List.of() : this.workspaceIds;
     }
 
     public static Builder builder() {
@@ -77,10 +77,10 @@ public final class GetWorkspacesResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aliasPrefix;
-        private List<String> aliases;
-        private List<String> arns;
-        private String id;
-        private List<String> workspaceIds;
+        private @Nullable List<String> aliases;
+        private @Nullable List<String> arns;
+        private @Nullable String id;
+        private @Nullable List<String> workspaceIds;
         public Builder() {}
         public Builder(GetWorkspacesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,29 +97,29 @@ public final class GetWorkspacesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder aliases(List<String> aliases) {
-            this.aliases = Objects.requireNonNull(aliases);
+        public Builder aliases(@Nullable List<String> aliases) {
+            this.aliases = aliases;
             return this;
         }
         public Builder aliases(String... aliases) {
             return aliases(List.of(aliases));
         }
         @CustomType.Setter
-        public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+        public Builder arns(@Nullable List<String> arns) {
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
             return arns(List.of(arns));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder workspaceIds(List<String> workspaceIds) {
-            this.workspaceIds = Objects.requireNonNull(workspaceIds);
+        public Builder workspaceIds(@Nullable List<String> workspaceIds) {
+            this.workspaceIds = workspaceIds;
             return this;
         }
         public Builder workspaceIds(String... workspaceIds) {

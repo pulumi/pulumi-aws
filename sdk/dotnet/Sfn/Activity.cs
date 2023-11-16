@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Sfn
         /// The date the activity was created.
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the activity to create.

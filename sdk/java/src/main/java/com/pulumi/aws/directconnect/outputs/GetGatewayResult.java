@@ -6,6 +6,8 @@ package com.pulumi.aws.directconnect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGatewayResult {
@@ -13,33 +15,33 @@ public final class GetGatewayResult {
      * @return ASN on the Amazon side of the connection.
      * 
      */
-    private String amazonSideAsn;
+    private @Nullable String amazonSideAsn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String name;
     /**
      * @return AWS Account ID of the gateway.
      * 
      */
-    private String ownerAccountId;
+    private @Nullable String ownerAccountId;
 
     private GetGatewayResult() {}
     /**
      * @return ASN on the Amazon side of the connection.
      * 
      */
-    public String amazonSideAsn() {
-        return this.amazonSideAsn;
+    public Optional<String> amazonSideAsn() {
+        return Optional.ofNullable(this.amazonSideAsn);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String name() {
         return this.name;
@@ -48,8 +50,8 @@ public final class GetGatewayResult {
      * @return AWS Account ID of the gateway.
      * 
      */
-    public String ownerAccountId() {
-        return this.ownerAccountId;
+    public Optional<String> ownerAccountId() {
+        return Optional.ofNullable(this.ownerAccountId);
     }
 
     public static Builder builder() {
@@ -61,10 +63,10 @@ public final class GetGatewayResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String amazonSideAsn;
-        private String id;
+        private @Nullable String amazonSideAsn;
+        private @Nullable String id;
         private String name;
-        private String ownerAccountId;
+        private @Nullable String ownerAccountId;
         public Builder() {}
         public Builder(GetGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -75,13 +77,13 @@ public final class GetGatewayResult {
         }
 
         @CustomType.Setter
-        public Builder amazonSideAsn(String amazonSideAsn) {
-            this.amazonSideAsn = Objects.requireNonNull(amazonSideAsn);
+        public Builder amazonSideAsn(@Nullable String amazonSideAsn) {
+            this.amazonSideAsn = amazonSideAsn;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -90,8 +92,8 @@ public final class GetGatewayResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ownerAccountId(String ownerAccountId) {
-            this.ownerAccountId = Objects.requireNonNull(ownerAccountId);
+        public Builder ownerAccountId(@Nullable String ownerAccountId) {
+            this.ownerAccountId = ownerAccountId;
             return this;
         }
         public GetGatewayResult build() {

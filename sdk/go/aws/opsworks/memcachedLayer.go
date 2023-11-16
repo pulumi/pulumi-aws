@@ -45,7 +45,7 @@ type MemcachedLayer struct {
 	// Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
 	AllocatedMemory pulumi.IntPtrOutput `pulumi:"allocatedMemory"`
 	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -73,8 +73,8 @@ type MemcachedLayer struct {
 	// Whether to install OS and package updates on each instance when it boots.
 	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput                      `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    MemcachedLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	InstanceShutdownTimeout pulumi.IntPtrOutput                         `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling    MemcachedLayerLoadBasedAutoScalingPtrOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the stack the layer will belong to.
@@ -433,8 +433,8 @@ func (o MemcachedLayerOutput) AllocatedMemory() pulumi.IntPtrOutput {
 }
 
 // The Amazon Resource Name(ARN) of the layer.
-func (o MemcachedLayerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *MemcachedLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o MemcachedLayerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
@@ -518,8 +518,8 @@ func (o MemcachedLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MemcachedLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o MemcachedLayerOutput) LoadBasedAutoScaling() MemcachedLayerLoadBasedAutoScalingOutput {
-	return o.ApplyT(func(v *MemcachedLayer) MemcachedLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(MemcachedLayerLoadBasedAutoScalingOutput)
+func (o MemcachedLayerOutput) LoadBasedAutoScaling() MemcachedLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *MemcachedLayer) MemcachedLayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(MemcachedLayerLoadBasedAutoScalingPtrOutput)
 }
 
 // A human-readable name for the layer.

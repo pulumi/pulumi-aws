@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRealtimeLogConfigEndpoint {
@@ -15,12 +17,12 @@ public final class GetRealtimeLogConfigEndpoint {
      * @return (Required) Amazon Kinesis data stream configuration.
      * 
      */
-    private List<GetRealtimeLogConfigEndpointKinesisStreamConfig> kinesisStreamConfigs;
+    private @Nullable List<GetRealtimeLogConfigEndpointKinesisStreamConfig> kinesisStreamConfigs;
     /**
      * @return (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
      * 
      */
-    private String streamType;
+    private @Nullable String streamType;
 
     private GetRealtimeLogConfigEndpoint() {}
     /**
@@ -28,14 +30,14 @@ public final class GetRealtimeLogConfigEndpoint {
      * 
      */
     public List<GetRealtimeLogConfigEndpointKinesisStreamConfig> kinesisStreamConfigs() {
-        return this.kinesisStreamConfigs;
+        return this.kinesisStreamConfigs == null ? List.of() : this.kinesisStreamConfigs;
     }
     /**
      * @return (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
      * 
      */
-    public String streamType() {
-        return this.streamType;
+    public Optional<String> streamType() {
+        return Optional.ofNullable(this.streamType);
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetRealtimeLogConfigEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRealtimeLogConfigEndpointKinesisStreamConfig> kinesisStreamConfigs;
-        private String streamType;
+        private @Nullable List<GetRealtimeLogConfigEndpointKinesisStreamConfig> kinesisStreamConfigs;
+        private @Nullable String streamType;
         public Builder() {}
         public Builder(GetRealtimeLogConfigEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +59,16 @@ public final class GetRealtimeLogConfigEndpoint {
         }
 
         @CustomType.Setter
-        public Builder kinesisStreamConfigs(List<GetRealtimeLogConfigEndpointKinesisStreamConfig> kinesisStreamConfigs) {
-            this.kinesisStreamConfigs = Objects.requireNonNull(kinesisStreamConfigs);
+        public Builder kinesisStreamConfigs(@Nullable List<GetRealtimeLogConfigEndpointKinesisStreamConfig> kinesisStreamConfigs) {
+            this.kinesisStreamConfigs = kinesisStreamConfigs;
             return this;
         }
         public Builder kinesisStreamConfigs(GetRealtimeLogConfigEndpointKinesisStreamConfig... kinesisStreamConfigs) {
             return kinesisStreamConfigs(List.of(kinesisStreamConfigs));
         }
         @CustomType.Setter
-        public Builder streamType(String streamType) {
-            this.streamType = Objects.requireNonNull(streamType);
+        public Builder streamType(@Nullable String streamType) {
+            this.streamType = streamType;
             return this;
         }
         public GetRealtimeLogConfigEndpoint build() {

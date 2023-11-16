@@ -51,12 +51,12 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="complianceType")
-    def compliance_type(self) -> str:
+    def compliance_type(self) -> Optional[str]:
         return pulumi.get(self, "compliance_type")
 
     @property
@@ -66,7 +66,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
 
     @property
@@ -76,7 +76,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
@@ -86,7 +86,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

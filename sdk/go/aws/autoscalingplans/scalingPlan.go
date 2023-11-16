@@ -40,7 +40,7 @@ type ScalingPlan struct {
 	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
 	ScalingInstructions ScalingPlanScalingInstructionArrayOutput `pulumi:"scalingInstructions"`
 	// The version number of the scaling plan. This value is always 1.
-	ScalingPlanVersion pulumi.IntOutput `pulumi:"scalingPlanVersion"`
+	ScalingPlanVersion pulumi.IntPtrOutput `pulumi:"scalingPlanVersion"`
 }
 
 // NewScalingPlan registers a new resource with the given unique name, arguments, and options.
@@ -226,8 +226,8 @@ func (o ScalingPlanOutput) ScalingInstructions() ScalingPlanScalingInstructionAr
 }
 
 // The version number of the scaling plan. This value is always 1.
-func (o ScalingPlanOutput) ScalingPlanVersion() pulumi.IntOutput {
-	return o.ApplyT(func(v *ScalingPlan) pulumi.IntOutput { return v.ScalingPlanVersion }).(pulumi.IntOutput)
+func (o ScalingPlanOutput) ScalingPlanVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.IntPtrOutput { return v.ScalingPlanVersion }).(pulumi.IntPtrOutput)
 }
 
 type ScalingPlanArrayOutput struct{ *pulumi.OutputState }

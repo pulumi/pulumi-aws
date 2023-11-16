@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstanceTypeInstanceDisk {
-    private Integer count;
-    private Integer size;
-    private String type;
+    private @Nullable Integer count;
+    private @Nullable Integer size;
+    private @Nullable String type;
 
     private GetInstanceTypeInstanceDisk() {}
-    public Integer count() {
-        return this.count;
+    public Optional<Integer> count() {
+        return Optional.ofNullable(this.count);
     }
-    public Integer size() {
-        return this.size;
+    public Optional<Integer> size() {
+        return Optional.ofNullable(this.size);
     }
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetInstanceTypeInstanceDisk {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer count;
-        private Integer size;
-        private String type;
+        private @Nullable Integer count;
+        private @Nullable Integer size;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetInstanceTypeInstanceDisk defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,18 +48,18 @@ public final class GetInstanceTypeInstanceDisk {
         }
 
         @CustomType.Setter
-        public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+        public Builder count(@Nullable Integer count) {
+            this.count = count;
             return this;
         }
         @CustomType.Setter
-        public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+        public Builder size(@Nullable Integer size) {
+            this.size = size;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetInstanceTypeInstanceDisk build() {

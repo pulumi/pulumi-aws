@@ -992,15 +992,16 @@ class FunctionVpcConfig(dict):
 @pulumi.output_type
 class GetCodeSigningConfigAllowedPublisherResult(dict):
     def __init__(__self__, *,
-                 signing_profile_version_arns: Sequence[str]):
+                 signing_profile_version_arns: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] signing_profile_version_arns: The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
         """
-        pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
+        if signing_profile_version_arns is not None:
+            pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
     @property
     @pulumi.getter(name="signingProfileVersionArns")
-    def signing_profile_version_arns(self) -> Sequence[str]:
+    def signing_profile_version_arns(self) -> Optional[Sequence[str]]:
         """
         The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
         """
@@ -1010,15 +1011,16 @@ class GetCodeSigningConfigAllowedPublisherResult(dict):
 @pulumi.output_type
 class GetCodeSigningConfigPolicyResult(dict):
     def __init__(__self__, *,
-                 untrusted_artifact_on_deployment: str):
+                 untrusted_artifact_on_deployment: Optional[str] = None):
         """
         :param str untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure.
         """
-        pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
+        if untrusted_artifact_on_deployment is not None:
+            pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
-    def untrusted_artifact_on_deployment(self) -> str:
+    def untrusted_artifact_on_deployment(self) -> Optional[str]:
         """
         Code signing configuration policy for deployment validation failure.
         """
@@ -1028,53 +1030,58 @@ class GetCodeSigningConfigPolicyResult(dict):
 @pulumi.output_type
 class GetFunctionDeadLetterConfigResult(dict):
     def __init__(__self__, *,
-                 target_arn: str):
-        pulumi.set(__self__, "target_arn", target_arn)
+                 target_arn: Optional[str] = None):
+        if target_arn is not None:
+            pulumi.set(__self__, "target_arn", target_arn)
 
     @property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> str:
+    def target_arn(self) -> Optional[str]:
         return pulumi.get(self, "target_arn")
 
 
 @pulumi.output_type
 class GetFunctionEnvironmentResult(dict):
     def __init__(__self__, *,
-                 variables: Mapping[str, str]):
-        pulumi.set(__self__, "variables", variables)
+                 variables: Optional[Mapping[str, str]] = None):
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
-    def variables(self) -> Mapping[str, str]:
+    def variables(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "variables")
 
 
 @pulumi.output_type
 class GetFunctionEphemeralStorageResult(dict):
     def __init__(__self__, *,
-                 size: int):
-        pulumi.set(__self__, "size", size)
+                 size: Optional[int] = None):
+        if size is not None:
+            pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
-    def size(self) -> int:
+    def size(self) -> Optional[int]:
         return pulumi.get(self, "size")
 
 
 @pulumi.output_type
 class GetFunctionFileSystemConfigResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 local_mount_path: str):
+                 arn: Optional[str] = None,
+                 local_mount_path: Optional[str] = None):
         """
         :param str arn: Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "local_mount_path", local_mount_path)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if local_mount_path is not None:
+            pulumi.set(__self__, "local_mount_path", local_mount_path)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         """
@@ -1082,99 +1089,110 @@ class GetFunctionFileSystemConfigResult(dict):
 
     @property
     @pulumi.getter(name="localMountPath")
-    def local_mount_path(self) -> str:
+    def local_mount_path(self) -> Optional[str]:
         return pulumi.get(self, "local_mount_path")
 
 
 @pulumi.output_type
 class GetFunctionTracingConfigResult(dict):
     def __init__(__self__, *,
-                 mode: str):
-        pulumi.set(__self__, "mode", mode)
+                 mode: Optional[str] = None):
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
-    def mode(self) -> str:
+    def mode(self) -> Optional[str]:
         return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
 class GetFunctionUrlCorResult(dict):
     def __init__(__self__, *,
-                 allow_credentials: bool,
-                 allow_headers: Sequence[str],
-                 allow_methods: Sequence[str],
-                 allow_origins: Sequence[str],
-                 expose_headers: Sequence[str],
-                 max_age: int):
-        pulumi.set(__self__, "allow_credentials", allow_credentials)
-        pulumi.set(__self__, "allow_headers", allow_headers)
-        pulumi.set(__self__, "allow_methods", allow_methods)
-        pulumi.set(__self__, "allow_origins", allow_origins)
-        pulumi.set(__self__, "expose_headers", expose_headers)
-        pulumi.set(__self__, "max_age", max_age)
+                 allow_credentials: Optional[bool] = None,
+                 allow_headers: Optional[Sequence[str]] = None,
+                 allow_methods: Optional[Sequence[str]] = None,
+                 allow_origins: Optional[Sequence[str]] = None,
+                 expose_headers: Optional[Sequence[str]] = None,
+                 max_age: Optional[int] = None):
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if allow_headers is not None:
+            pulumi.set(__self__, "allow_headers", allow_headers)
+        if allow_methods is not None:
+            pulumi.set(__self__, "allow_methods", allow_methods)
+        if allow_origins is not None:
+            pulumi.set(__self__, "allow_origins", allow_origins)
+        if expose_headers is not None:
+            pulumi.set(__self__, "expose_headers", expose_headers)
+        if max_age is not None:
+            pulumi.set(__self__, "max_age", max_age)
 
     @property
     @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> bool:
+    def allow_credentials(self) -> Optional[bool]:
         return pulumi.get(self, "allow_credentials")
 
     @property
     @pulumi.getter(name="allowHeaders")
-    def allow_headers(self) -> Sequence[str]:
+    def allow_headers(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "allow_headers")
 
     @property
     @pulumi.getter(name="allowMethods")
-    def allow_methods(self) -> Sequence[str]:
+    def allow_methods(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "allow_methods")
 
     @property
     @pulumi.getter(name="allowOrigins")
-    def allow_origins(self) -> Sequence[str]:
+    def allow_origins(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "allow_origins")
 
     @property
     @pulumi.getter(name="exposeHeaders")
-    def expose_headers(self) -> Sequence[str]:
+    def expose_headers(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "expose_headers")
 
     @property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> int:
+    def max_age(self) -> Optional[int]:
         return pulumi.get(self, "max_age")
 
 
 @pulumi.output_type
 class GetFunctionVpcConfigResult(dict):
     def __init__(__self__, *,
-                 ipv6_allowed_for_dual_stack: bool,
-                 security_group_ids: Sequence[str],
-                 subnet_ids: Sequence[str],
-                 vpc_id: str):
-        pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+                 ipv6_allowed_for_dual_stack: Optional[bool] = None,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 subnet_ids: Optional[Sequence[str]] = None,
+                 vpc_id: Optional[str] = None):
+        if ipv6_allowed_for_dual_stack is not None:
+            pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="ipv6AllowedForDualStack")
-    def ipv6_allowed_for_dual_stack(self) -> bool:
+    def ipv6_allowed_for_dual_stack(self) -> Optional[bool]:
         return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
 
 

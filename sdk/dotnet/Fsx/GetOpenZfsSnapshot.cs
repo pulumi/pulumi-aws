@@ -214,16 +214,16 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Amazon Resource Name of the snapshot.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Time that the resource was created.
         /// </summary>
-        public readonly string CreationTime;
+        public readonly string? CreationTime;
         public readonly ImmutableArray<Outputs.GetOpenZfsSnapshotFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly bool? MostRecent;
         /// <summary>
         /// Name of the snapshot.
@@ -232,38 +232,38 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// ID of the snapshot.
         /// </summary>
-        public readonly string SnapshotId;
+        public readonly string? SnapshotId;
         public readonly ImmutableArray<string> SnapshotIds;
         /// <summary>
         /// List of Tag values, with a maximum of 50 elements.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// ID of the volume that the snapshot is of.
         /// </summary>
-        public readonly string VolumeId;
+        public readonly string? VolumeId;
 
         [OutputConstructor]
         private GetOpenZfsSnapshotResult(
-            string arn,
+            string? arn,
 
-            string creationTime,
+            string? creationTime,
 
             ImmutableArray<Outputs.GetOpenZfsSnapshotFilterResult> filters,
 
-            string id,
+            string? id,
 
             bool? mostRecent,
 
             string? name,
 
-            string snapshotId,
+            string? snapshotId,
 
             ImmutableArray<string> snapshotIds,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string volumeId)
+            string? volumeId)
         {
             Arn = arn;
             CreationTime = creationTime;

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Kms.Outputs
         /// <summary>
         /// Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
         /// </summary>
-        public readonly string MultiRegionKeyType;
+        public readonly string? MultiRegionKeyType;
         /// <summary>
         /// The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Kms.Outputs
 
         [OutputConstructor]
         private GetKeyMultiRegionConfigurationResult(
-            string multiRegionKeyType,
+            string? multiRegionKeyType,
 
             ImmutableArray<Outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult> primaryKeys,
 

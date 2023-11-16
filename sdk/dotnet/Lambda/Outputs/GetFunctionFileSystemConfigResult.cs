@@ -16,14 +16,14 @@ namespace Pulumi.Aws.Lambda.Outputs
         /// <summary>
         /// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         /// </summary>
-        public readonly string Arn;
-        public readonly string LocalMountPath;
+        public readonly string? Arn;
+        public readonly string? LocalMountPath;
 
         [OutputConstructor]
         private GetFunctionFileSystemConfigResult(
-            string arn,
+            string? arn,
 
-            string localMountPath)
+            string? localMountPath)
         {
             Arn = arn;
             LocalMountPath = localMountPath;

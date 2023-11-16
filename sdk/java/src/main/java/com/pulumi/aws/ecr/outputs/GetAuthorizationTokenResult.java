@@ -15,69 +15,69 @@ public final class GetAuthorizationTokenResult {
      * @return Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
      * 
      */
-    private String authorizationToken;
+    private @Nullable String authorizationToken;
     /**
      * @return Time in UTC RFC3339 format when the authorization token expires.
      * 
      */
-    private String expiresAt;
+    private @Nullable String expiresAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Password decoded from the authorization token.
      * 
      */
-    private String password;
+    private @Nullable String password;
     /**
      * @return Registry URL to use in the docker login command.
      * 
      */
-    private String proxyEndpoint;
+    private @Nullable String proxyEndpoint;
     private @Nullable String registryId;
     /**
      * @return User name decoded from the authorization token.
      * 
      */
-    private String userName;
+    private @Nullable String userName;
 
     private GetAuthorizationTokenResult() {}
     /**
      * @return Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
      * 
      */
-    public String authorizationToken() {
-        return this.authorizationToken;
+    public Optional<String> authorizationToken() {
+        return Optional.ofNullable(this.authorizationToken);
     }
     /**
      * @return Time in UTC RFC3339 format when the authorization token expires.
      * 
      */
-    public String expiresAt() {
-        return this.expiresAt;
+    public Optional<String> expiresAt() {
+        return Optional.ofNullable(this.expiresAt);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Password decoded from the authorization token.
      * 
      */
-    public String password() {
-        return this.password;
+    public Optional<String> password() {
+        return Optional.ofNullable(this.password);
     }
     /**
      * @return Registry URL to use in the docker login command.
      * 
      */
-    public String proxyEndpoint() {
-        return this.proxyEndpoint;
+    public Optional<String> proxyEndpoint() {
+        return Optional.ofNullable(this.proxyEndpoint);
     }
     public Optional<String> registryId() {
         return Optional.ofNullable(this.registryId);
@@ -86,8 +86,8 @@ public final class GetAuthorizationTokenResult {
      * @return User name decoded from the authorization token.
      * 
      */
-    public String userName() {
-        return this.userName;
+    public Optional<String> userName() {
+        return Optional.ofNullable(this.userName);
     }
 
     public static Builder builder() {
@@ -99,13 +99,13 @@ public final class GetAuthorizationTokenResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String authorizationToken;
-        private String expiresAt;
-        private String id;
-        private String password;
-        private String proxyEndpoint;
+        private @Nullable String authorizationToken;
+        private @Nullable String expiresAt;
+        private @Nullable String id;
+        private @Nullable String password;
+        private @Nullable String proxyEndpoint;
         private @Nullable String registryId;
-        private String userName;
+        private @Nullable String userName;
         public Builder() {}
         public Builder(GetAuthorizationTokenResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -119,28 +119,28 @@ public final class GetAuthorizationTokenResult {
         }
 
         @CustomType.Setter
-        public Builder authorizationToken(String authorizationToken) {
-            this.authorizationToken = Objects.requireNonNull(authorizationToken);
+        public Builder authorizationToken(@Nullable String authorizationToken) {
+            this.authorizationToken = authorizationToken;
             return this;
         }
         @CustomType.Setter
-        public Builder expiresAt(String expiresAt) {
-            this.expiresAt = Objects.requireNonNull(expiresAt);
+        public Builder expiresAt(@Nullable String expiresAt) {
+            this.expiresAt = expiresAt;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+        public Builder password(@Nullable String password) {
+            this.password = password;
             return this;
         }
         @CustomType.Setter
-        public Builder proxyEndpoint(String proxyEndpoint) {
-            this.proxyEndpoint = Objects.requireNonNull(proxyEndpoint);
+        public Builder proxyEndpoint(@Nullable String proxyEndpoint) {
+            this.proxyEndpoint = proxyEndpoint;
             return this;
         }
         @CustomType.Setter
@@ -149,8 +149,8 @@ public final class GetAuthorizationTokenResult {
             return this;
         }
         @CustomType.Setter
-        public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+        public Builder userName(@Nullable String userName) {
+            this.userName = userName;
             return this;
         }
         public GetAuthorizationTokenResult build() {

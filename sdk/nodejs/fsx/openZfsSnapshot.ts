@@ -78,8 +78,8 @@ export class OpenZfsSnapshot extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the snapshot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      */

@@ -6,6 +6,8 @@ package com.pulumi.aws.appconfig.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEnvironmentMonitor {
@@ -13,27 +15,27 @@ public final class GetEnvironmentMonitor {
      * @return ARN of the Amazon CloudWatch alarm.
      * 
      */
-    private String alarmArn;
+    private @Nullable String alarmArn;
     /**
      * @return ARN of an IAM role for AWS AppConfig to monitor.
      * 
      */
-    private String alarmRoleArn;
+    private @Nullable String alarmRoleArn;
 
     private GetEnvironmentMonitor() {}
     /**
      * @return ARN of the Amazon CloudWatch alarm.
      * 
      */
-    public String alarmArn() {
-        return this.alarmArn;
+    public Optional<String> alarmArn() {
+        return Optional.ofNullable(this.alarmArn);
     }
     /**
      * @return ARN of an IAM role for AWS AppConfig to monitor.
      * 
      */
-    public String alarmRoleArn() {
-        return this.alarmRoleArn;
+    public Optional<String> alarmRoleArn() {
+        return Optional.ofNullable(this.alarmRoleArn);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetEnvironmentMonitor {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String alarmArn;
-        private String alarmRoleArn;
+        private @Nullable String alarmArn;
+        private @Nullable String alarmRoleArn;
         public Builder() {}
         public Builder(GetEnvironmentMonitor defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetEnvironmentMonitor {
         }
 
         @CustomType.Setter
-        public Builder alarmArn(String alarmArn) {
-            this.alarmArn = Objects.requireNonNull(alarmArn);
+        public Builder alarmArn(@Nullable String alarmArn) {
+            this.alarmArn = alarmArn;
             return this;
         }
         @CustomType.Setter
-        public Builder alarmRoleArn(String alarmRoleArn) {
-            this.alarmRoleArn = Objects.requireNonNull(alarmRoleArn);
+        public Builder alarmRoleArn(@Nullable String alarmRoleArn) {
+            this.alarmRoleArn = alarmRoleArn;
             return this;
         }
         public GetEnvironmentMonitor build() {

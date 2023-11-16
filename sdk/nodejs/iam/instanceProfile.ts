@@ -71,11 +71,11 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * ARN assigned by AWS to the instance profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Creation timestamp of the instance profile.
      */
-    public /*out*/ readonly createDate!: pulumi.Output<string>;
+    public /*out*/ readonly createDate!: pulumi.Output<string | undefined>;
     /**
      * Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
      */
@@ -83,7 +83,7 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
      */
@@ -105,7 +105,7 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * [Unique ID][1] assigned by AWS.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a InstanceProfile resource with the given unique name, arguments, and options.

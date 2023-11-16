@@ -7,24 +7,26 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetControlControlMappingSourceSourceKeywordArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetControlControlMappingSourceSourceKeywordArgs Empty = new GetControlControlMappingSourceSourceKeywordArgs();
 
-    @Import(name="keywordInputType", required=true)
-    private Output<String> keywordInputType;
+    @Import(name="keywordInputType")
+    private @Nullable Output<String> keywordInputType;
 
-    public Output<String> keywordInputType() {
-        return this.keywordInputType;
+    public Optional<Output<String>> keywordInputType() {
+        return Optional.ofNullable(this.keywordInputType);
     }
 
-    @Import(name="keywordValue", required=true)
-    private Output<String> keywordValue;
+    @Import(name="keywordValue")
+    private @Nullable Output<String> keywordValue;
 
-    public Output<String> keywordValue() {
-        return this.keywordValue;
+    public Optional<Output<String>> keywordValue() {
+        return Optional.ofNullable(this.keywordValue);
     }
 
     private GetControlControlMappingSourceSourceKeywordArgs() {}
@@ -52,7 +54,7 @@ public final class GetControlControlMappingSourceSourceKeywordArgs extends com.p
             $ = new GetControlControlMappingSourceSourceKeywordArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder keywordInputType(Output<String> keywordInputType) {
+        public Builder keywordInputType(@Nullable Output<String> keywordInputType) {
             $.keywordInputType = keywordInputType;
             return this;
         }
@@ -61,7 +63,7 @@ public final class GetControlControlMappingSourceSourceKeywordArgs extends com.p
             return keywordInputType(Output.of(keywordInputType));
         }
 
-        public Builder keywordValue(Output<String> keywordValue) {
+        public Builder keywordValue(@Nullable Output<String> keywordValue) {
             $.keywordValue = keywordValue;
             return this;
         }
@@ -71,8 +73,6 @@ public final class GetControlControlMappingSourceSourceKeywordArgs extends com.p
         }
 
         public GetControlControlMappingSourceSourceKeywordArgs build() {
-            $.keywordInputType = Objects.requireNonNull($.keywordInputType, "expected parameter 'keywordInputType' to be non-null");
-            $.keywordValue = Objects.requireNonNull($.keywordValue, "expected parameter 'keywordValue' to be non-null");
             return $;
         }
     }

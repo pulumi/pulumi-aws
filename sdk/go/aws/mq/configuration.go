@@ -100,9 +100,9 @@ type Configuration struct {
 	pulumi.CustomResourceState
 
 	// ARN of the configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
-	AuthenticationStrategy pulumi.StringOutput `pulumi:"authenticationStrategy"`
+	AuthenticationStrategy pulumi.StringPtrOutput `pulumi:"authenticationStrategy"`
 	// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data pulumi.StringOutput `pulumi:"data"`
 	// Description of the configuration.
@@ -112,7 +112,7 @@ type Configuration struct {
 	// Version of the broker engine.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Latest revision of the configuration.
-	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
+	LatestRevision pulumi.IntPtrOutput `pulumi:"latestRevision"`
 	// Name of the configuration.
 	//
 	// The following arguments are optional:
@@ -352,13 +352,13 @@ func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Contex
 }
 
 // ARN of the configuration.
-func (o ConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
-func (o ConfigurationOutput) AuthenticationStrategy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.AuthenticationStrategy }).(pulumi.StringOutput)
+func (o ConfigurationOutput) AuthenticationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.AuthenticationStrategy }).(pulumi.StringPtrOutput)
 }
 
 // Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
@@ -382,8 +382,8 @@ func (o ConfigurationOutput) EngineVersion() pulumi.StringOutput {
 }
 
 // Latest revision of the configuration.
-func (o ConfigurationOutput) LatestRevision() pulumi.IntOutput {
-	return o.ApplyT(func(v *Configuration) pulumi.IntOutput { return v.LatestRevision }).(pulumi.IntOutput)
+func (o ConfigurationOutput) LatestRevision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.IntPtrOutput { return v.LatestRevision }).(pulumi.IntPtrOutput)
 }
 
 // Name of the configuration.

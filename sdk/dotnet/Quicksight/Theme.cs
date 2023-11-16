@@ -29,13 +29,13 @@ namespace Pulumi.Aws.Quicksight
         /// ARN of the theme.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
@@ -55,13 +55,13 @@ namespace Pulumi.Aws.Quicksight
         /// The time that the theme was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// The time that the theme was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Display name of the theme.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Quicksight
         /// The theme creation status.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Quicksight
         /// The version number of the theme version.
         /// </summary>
         [Output("versionNumber")]
-        public Output<int> VersionNumber { get; private set; } = null!;
+        public Output<int?> VersionNumber { get; private set; } = null!;
 
 
         /// <summary>

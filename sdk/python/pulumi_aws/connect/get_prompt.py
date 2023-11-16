@@ -40,7 +40,7 @@ class GetPromptResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Prompt.
         """
@@ -48,7 +48,7 @@ class GetPromptResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -66,7 +66,7 @@ class GetPromptResult:
 
     @property
     @pulumi.getter(name="promptId")
-    def prompt_id(self) -> str:
+    def prompt_id(self) -> Optional[str]:
         """
         Identifier for the prompt.
         """

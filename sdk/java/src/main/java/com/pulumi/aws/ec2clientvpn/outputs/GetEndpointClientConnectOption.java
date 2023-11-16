@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointClientConnectOption {
-    private Boolean enabled;
-    private String lambdaFunctionArn;
+    private @Nullable Boolean enabled;
+    private @Nullable String lambdaFunctionArn;
 
     private GetEndpointClientConnectOption() {}
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
-    public String lambdaFunctionArn() {
-        return this.lambdaFunctionArn;
+    public Optional<String> lambdaFunctionArn() {
+        return Optional.ofNullable(this.lambdaFunctionArn);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetEndpointClientConnectOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
-        private String lambdaFunctionArn;
+        private @Nullable Boolean enabled;
+        private @Nullable String lambdaFunctionArn;
         public Builder() {}
         public Builder(GetEndpointClientConnectOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetEndpointClientConnectOption {
         }
 
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder lambdaFunctionArn(String lambdaFunctionArn) {
-            this.lambdaFunctionArn = Objects.requireNonNull(lambdaFunctionArn);
+        public Builder lambdaFunctionArn(@Nullable String lambdaFunctionArn) {
+            this.lambdaFunctionArn = lambdaFunctionArn;
             return this;
         }
         public GetEndpointClientConnectOption build() {

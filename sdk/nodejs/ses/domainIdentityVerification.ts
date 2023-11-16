@@ -63,7 +63,7 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
     /**
      * The ARN of the domain identity.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The domain name of the SES domain identity to verify.
      */

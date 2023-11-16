@@ -72,11 +72,11 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) identifying your state machine alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date the state machine alias was created.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * Description of the alias.
      */

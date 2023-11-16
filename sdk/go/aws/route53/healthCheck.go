@@ -167,7 +167,7 @@ type HealthCheck struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the Health Check.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
 	ChildHealthThreshold pulumi.IntPtrOutput `pulumi:"childHealthThreshold"`
 	// For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
@@ -184,9 +184,9 @@ type HealthCheck struct {
 	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
-	EnableSni pulumi.BoolOutput `pulumi:"enableSni"`
+	EnableSni pulumi.BoolPtrOutput `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
-	FailureThreshold pulumi.IntOutput `pulumi:"failureThreshold"`
+	FailureThreshold pulumi.IntPtrOutput `pulumi:"failureThreshold"`
 	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
@@ -567,8 +567,8 @@ func (o HealthCheckOutput) ToHealthCheckOutputWithContext(ctx context.Context) H
 }
 
 // The Amazon Resource Name (ARN) of the Health Check.
-func (o HealthCheckOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HealthCheck) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HealthCheckOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheck) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
@@ -602,13 +602,13 @@ func (o HealthCheckOutput) Disabled() pulumi.BoolPtrOutput {
 }
 
 // A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
-func (o HealthCheckOutput) EnableSni() pulumi.BoolOutput {
-	return o.ApplyT(func(v *HealthCheck) pulumi.BoolOutput { return v.EnableSni }).(pulumi.BoolOutput)
+func (o HealthCheckOutput) EnableSni() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HealthCheck) pulumi.BoolPtrOutput { return v.EnableSni }).(pulumi.BoolPtrOutput)
 }
 
 // The number of consecutive health checks that an endpoint must pass or fail.
-func (o HealthCheckOutput) FailureThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v *HealthCheck) pulumi.IntOutput { return v.FailureThreshold }).(pulumi.IntOutput)
+func (o HealthCheckOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthCheck) pulumi.IntPtrOutput { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
 // The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.

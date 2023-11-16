@@ -928,7 +928,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the appstream fleet.
         """
@@ -944,7 +944,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> pulumi.Output[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
         """
@@ -952,7 +952,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description to display.
         """
@@ -960,7 +960,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disconnectTimeoutInSeconds")
-    def disconnect_timeout_in_seconds(self) -> pulumi.Output[int]:
+    def disconnect_timeout_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         Amount of time that a streaming session remains active after users disconnect.
         """
@@ -968,7 +968,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         Human-readable friendly name for the AppStream fleet.
         """
@@ -976,7 +976,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainJoinInfo")
-    def domain_join_info(self) -> pulumi.Output['outputs.FleetDomainJoinInfo']:
+    def domain_join_info(self) -> pulumi.Output[Optional['outputs.FleetDomainJoinInfo']]:
         """
         Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
         """
@@ -984,7 +984,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
-    def enable_default_internet_access(self) -> pulumi.Output[bool]:
+    def enable_default_internet_access(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables or disables default internet access for the fleet.
         """
@@ -992,7 +992,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fleetType")
-    def fleet_type(self) -> pulumi.Output[str]:
+    def fleet_type(self) -> pulumi.Output[Optional[str]]:
         """
         Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         """
@@ -1000,7 +1000,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> pulumi.Output[str]:
+    def iam_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the IAM role to apply to the fleet.
         """
@@ -1016,7 +1016,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageArn")
-    def image_arn(self) -> pulumi.Output[str]:
+    def image_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the public, private, or shared image to use.
         """
@@ -1024,7 +1024,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> pulumi.Output[str]:
+    def image_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the image used to create the fleet.
         """
@@ -1040,7 +1040,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxUserDurationInSeconds")
-    def max_user_duration_in_seconds(self) -> pulumi.Output[int]:
+    def max_user_duration_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum amount of time that a streaming session can remain active, in seconds.
         """
@@ -1058,7 +1058,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
         """
@@ -1066,7 +1066,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamView")
-    def stream_view(self) -> pulumi.Output[str]:
+    def stream_view(self) -> pulumi.Output[Optional[str]]:
         """
         AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         """
@@ -1090,7 +1090,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> pulumi.Output['outputs.FleetVpcConfig']:
+    def vpc_config(self) -> pulumi.Output[Optional['outputs.FleetVpcConfig']]:
         """
         Configuration block for the VPC configuration for the image builder. See below.
         """

@@ -253,11 +253,11 @@ type GetServiceQuotaUsageMetric struct {
 	// The metric dimensions.
 	MetricDimensions []GetServiceQuotaUsageMetricMetricDimension `pulumi:"metricDimensions"`
 	// The name of the metric.
-	MetricName string `pulumi:"metricName"`
+	MetricName *string `pulumi:"metricName"`
 	// The namespace of the metric.
-	MetricNamespace string `pulumi:"metricNamespace"`
+	MetricNamespace *string `pulumi:"metricNamespace"`
 	// The metric statistic that AWS recommend you use when determining quota usage.
-	MetricStatisticRecommendation string `pulumi:"metricStatisticRecommendation"`
+	MetricStatisticRecommendation *string `pulumi:"metricStatisticRecommendation"`
 }
 
 // GetServiceQuotaUsageMetricInput is an input type that accepts GetServiceQuotaUsageMetricArgs and GetServiceQuotaUsageMetricOutput values.
@@ -275,11 +275,11 @@ type GetServiceQuotaUsageMetricArgs struct {
 	// The metric dimensions.
 	MetricDimensions GetServiceQuotaUsageMetricMetricDimensionArrayInput `pulumi:"metricDimensions"`
 	// The name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
+	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// The namespace of the metric.
-	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
 	// The metric statistic that AWS recommend you use when determining quota usage.
-	MetricStatisticRecommendation pulumi.StringInput `pulumi:"metricStatisticRecommendation"`
+	MetricStatisticRecommendation pulumi.StringPtrInput `pulumi:"metricStatisticRecommendation"`
 }
 
 func (GetServiceQuotaUsageMetricArgs) ElementType() reflect.Type {
@@ -341,18 +341,18 @@ func (o GetServiceQuotaUsageMetricOutput) MetricDimensions() GetServiceQuotaUsag
 }
 
 // The name of the metric.
-func (o GetServiceQuotaUsageMetricOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceQuotaUsageMetric) string { return v.MetricName }).(pulumi.StringOutput)
+func (o GetServiceQuotaUsageMetricOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceQuotaUsageMetric) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
 // The namespace of the metric.
-func (o GetServiceQuotaUsageMetricOutput) MetricNamespace() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceQuotaUsageMetric) string { return v.MetricNamespace }).(pulumi.StringOutput)
+func (o GetServiceQuotaUsageMetricOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceQuotaUsageMetric) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
 // The metric statistic that AWS recommend you use when determining quota usage.
-func (o GetServiceQuotaUsageMetricOutput) MetricStatisticRecommendation() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceQuotaUsageMetric) string { return v.MetricStatisticRecommendation }).(pulumi.StringOutput)
+func (o GetServiceQuotaUsageMetricOutput) MetricStatisticRecommendation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceQuotaUsageMetric) *string { return v.MetricStatisticRecommendation }).(pulumi.StringPtrOutput)
 }
 
 type GetServiceQuotaUsageMetricArrayOutput struct{ *pulumi.OutputState }
@@ -376,10 +376,10 @@ func (o GetServiceQuotaUsageMetricArrayOutput) Index(i pulumi.IntInput) GetServi
 }
 
 type GetServiceQuotaUsageMetricMetricDimension struct {
-	Class    string `pulumi:"class"`
-	Resource string `pulumi:"resource"`
-	Service  string `pulumi:"service"`
-	Type     string `pulumi:"type"`
+	Class    *string `pulumi:"class"`
+	Resource *string `pulumi:"resource"`
+	Service  *string `pulumi:"service"`
+	Type     *string `pulumi:"type"`
 }
 
 // GetServiceQuotaUsageMetricMetricDimensionInput is an input type that accepts GetServiceQuotaUsageMetricMetricDimensionArgs and GetServiceQuotaUsageMetricMetricDimensionOutput values.
@@ -394,10 +394,10 @@ type GetServiceQuotaUsageMetricMetricDimensionInput interface {
 }
 
 type GetServiceQuotaUsageMetricMetricDimensionArgs struct {
-	Class    pulumi.StringInput `pulumi:"class"`
-	Resource pulumi.StringInput `pulumi:"resource"`
-	Service  pulumi.StringInput `pulumi:"service"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	Class    pulumi.StringPtrInput `pulumi:"class"`
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+	Service  pulumi.StringPtrInput `pulumi:"service"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetServiceQuotaUsageMetricMetricDimensionArgs) ElementType() reflect.Type {
@@ -451,20 +451,20 @@ func (o GetServiceQuotaUsageMetricMetricDimensionOutput) ToGetServiceQuotaUsageM
 	return o
 }
 
-func (o GetServiceQuotaUsageMetricMetricDimensionOutput) Class() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceQuotaUsageMetricMetricDimension) string { return v.Class }).(pulumi.StringOutput)
+func (o GetServiceQuotaUsageMetricMetricDimensionOutput) Class() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceQuotaUsageMetricMetricDimension) *string { return v.Class }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceQuotaUsageMetricMetricDimensionOutput) Resource() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceQuotaUsageMetricMetricDimension) string { return v.Resource }).(pulumi.StringOutput)
+func (o GetServiceQuotaUsageMetricMetricDimensionOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceQuotaUsageMetricMetricDimension) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceQuotaUsageMetricMetricDimensionOutput) Service() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceQuotaUsageMetricMetricDimension) string { return v.Service }).(pulumi.StringOutput)
+func (o GetServiceQuotaUsageMetricMetricDimensionOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceQuotaUsageMetricMetricDimension) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
 
-func (o GetServiceQuotaUsageMetricMetricDimensionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceQuotaUsageMetricMetricDimension) string { return v.Type }).(pulumi.StringOutput)
+func (o GetServiceQuotaUsageMetricMetricDimensionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceQuotaUsageMetricMetricDimension) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetServiceQuotaUsageMetricMetricDimensionArrayOutput struct{ *pulumi.OutputState }
@@ -489,21 +489,21 @@ func (o GetServiceQuotaUsageMetricMetricDimensionArrayOutput) Index(i pulumi.Int
 
 type GetTemplatesTemplate struct {
 	// Indicates whether the quota is global.
-	GlobalQuota bool `pulumi:"globalQuota"`
+	GlobalQuota *bool `pulumi:"globalQuota"`
 	// Quota identifier.
-	QuotaCode string `pulumi:"quotaCode"`
+	QuotaCode *string `pulumi:"quotaCode"`
 	// Quota name.
-	QuotaName string `pulumi:"quotaName"`
+	QuotaName *string `pulumi:"quotaName"`
 	// AWS Region to which the quota increases apply.
-	Region string `pulumi:"region"`
+	Region *string `pulumi:"region"`
 	// (Required) Service identifier.
-	ServiceCode string `pulumi:"serviceCode"`
+	ServiceCode *string `pulumi:"serviceCode"`
 	// Service name.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName *string `pulumi:"serviceName"`
 	// Unit of measurement.
-	Unit string `pulumi:"unit"`
+	Unit *string `pulumi:"unit"`
 	// (Required) The new, increased value for the quota.
-	Value float64 `pulumi:"value"`
+	Value *float64 `pulumi:"value"`
 }
 
 // GetTemplatesTemplateInput is an input type that accepts GetTemplatesTemplateArgs and GetTemplatesTemplateOutput values.
@@ -519,21 +519,21 @@ type GetTemplatesTemplateInput interface {
 
 type GetTemplatesTemplateArgs struct {
 	// Indicates whether the quota is global.
-	GlobalQuota pulumi.BoolInput `pulumi:"globalQuota"`
+	GlobalQuota pulumi.BoolPtrInput `pulumi:"globalQuota"`
 	// Quota identifier.
-	QuotaCode pulumi.StringInput `pulumi:"quotaCode"`
+	QuotaCode pulumi.StringPtrInput `pulumi:"quotaCode"`
 	// Quota name.
-	QuotaName pulumi.StringInput `pulumi:"quotaName"`
+	QuotaName pulumi.StringPtrInput `pulumi:"quotaName"`
 	// AWS Region to which the quota increases apply.
-	Region pulumi.StringInput `pulumi:"region"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// (Required) Service identifier.
-	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
+	ServiceCode pulumi.StringPtrInput `pulumi:"serviceCode"`
 	// Service name.
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 	// Unit of measurement.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 	// (Required) The new, increased value for the quota.
-	Value pulumi.Float64Input `pulumi:"value"`
+	Value pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (GetTemplatesTemplateArgs) ElementType() reflect.Type {
@@ -588,43 +588,43 @@ func (o GetTemplatesTemplateOutput) ToGetTemplatesTemplateOutputWithContext(ctx 
 }
 
 // Indicates whether the quota is global.
-func (o GetTemplatesTemplateOutput) GlobalQuota() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTemplatesTemplate) bool { return v.GlobalQuota }).(pulumi.BoolOutput)
+func (o GetTemplatesTemplateOutput) GlobalQuota() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) *bool { return v.GlobalQuota }).(pulumi.BoolPtrOutput)
 }
 
 // Quota identifier.
-func (o GetTemplatesTemplateOutput) QuotaCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.QuotaCode }).(pulumi.StringOutput)
+func (o GetTemplatesTemplateOutput) QuotaCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) *string { return v.QuotaCode }).(pulumi.StringPtrOutput)
 }
 
 // Quota name.
-func (o GetTemplatesTemplateOutput) QuotaName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.QuotaName }).(pulumi.StringOutput)
+func (o GetTemplatesTemplateOutput) QuotaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) *string { return v.QuotaName }).(pulumi.StringPtrOutput)
 }
 
 // AWS Region to which the quota increases apply.
-func (o GetTemplatesTemplateOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.Region }).(pulumi.StringOutput)
+func (o GetTemplatesTemplateOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // (Required) Service identifier.
-func (o GetTemplatesTemplateOutput) ServiceCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.ServiceCode }).(pulumi.StringOutput)
+func (o GetTemplatesTemplateOutput) ServiceCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) *string { return v.ServiceCode }).(pulumi.StringPtrOutput)
 }
 
 // Service name.
-func (o GetTemplatesTemplateOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.ServiceName }).(pulumi.StringOutput)
+func (o GetTemplatesTemplateOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 // Unit of measurement.
-func (o GetTemplatesTemplateOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetTemplatesTemplateOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
 // (Required) The new, increased value for the quota.
-func (o GetTemplatesTemplateOutput) Value() pulumi.Float64Output {
-	return o.ApplyT(func(v GetTemplatesTemplate) float64 { return v.Value }).(pulumi.Float64Output)
+func (o GetTemplatesTemplateOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
 type GetTemplatesTemplateArrayOutput struct{ *pulumi.OutputState }

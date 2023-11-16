@@ -134,11 +134,11 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Source of the API key for requests.
         /// </summary>
-        public readonly string ApiKeySource;
+        public readonly string? ApiKeySource;
         /// <summary>
         /// ARN of the REST API.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// List of binary media types supported by the REST API.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Description of the REST API.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// The endpoint configuration of this RestApi showing the endpoint types of the API.
         /// </summary>
@@ -154,54 +154,54 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Execution ARN part to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         /// </summary>
-        public readonly string ExecutionArn;
+        public readonly string? ExecutionArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Minimum response size to compress for the REST API.
         /// </summary>
-        public readonly string MinimumCompressionSize;
+        public readonly string? MinimumCompressionSize;
         public readonly string Name;
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway.
         /// </summary>
-        public readonly string Policy;
+        public readonly string? Policy;
         /// <summary>
         /// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
         /// </summary>
-        public readonly string RootResourceId;
+        public readonly string? RootResourceId;
         /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetRestApiResult(
-            string apiKeySource,
+            string? apiKeySource,
 
-            string arn,
+            string? arn,
 
             ImmutableArray<string> binaryMediaTypes,
 
-            string description,
+            string? description,
 
             ImmutableArray<Outputs.GetRestApiEndpointConfigurationResult> endpointConfigurations,
 
-            string executionArn,
+            string? executionArn,
 
-            string id,
+            string? id,
 
-            string minimumCompressionSize,
+            string? minimumCompressionSize,
 
             string name,
 
-            string policy,
+            string? policy,
 
-            string rootResourceId,
+            string? rootResourceId,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             ApiKeySource = apiKeySource;
             Arn = arn;

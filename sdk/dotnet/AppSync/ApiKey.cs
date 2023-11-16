@@ -69,7 +69,7 @@ namespace Pulumi.Aws.AppSync
         /// API key
         /// </summary>
         [Output("key")]
-        public Output<string> Key { get; private set; } = null!;
+        public Output<string?> Key { get; private set; } = null!;
 
 
         /// <summary>

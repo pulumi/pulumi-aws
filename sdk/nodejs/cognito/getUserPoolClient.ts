@@ -52,87 +52,87 @@ export interface GetUserPoolClientResult {
     /**
      * (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
      */
-    readonly accessTokenValidity: number;
+    readonly accessTokenValidity?: number;
     /**
      * (Optional) List of allowed OAuth flows (code, implicit, client_credentials).
      */
-    readonly allowedOauthFlows: string[];
+    readonly allowedOauthFlows?: string[];
     /**
      * (Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
      */
-    readonly allowedOauthFlowsUserPoolClient: boolean;
+    readonly allowedOauthFlowsUserPoolClient?: boolean;
     /**
      * (Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
      */
-    readonly allowedOauthScopes: string[];
+    readonly allowedOauthScopes?: string[];
     /**
      * (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
-    readonly analyticsConfigurations: outputs.cognito.GetUserPoolClientAnalyticsConfiguration[];
+    readonly analyticsConfigurations?: outputs.cognito.GetUserPoolClientAnalyticsConfiguration[];
     /**
      * (Optional) List of allowed callback URLs for the identity providers.
      */
-    readonly callbackUrls: string[];
+    readonly callbackUrls?: string[];
     readonly clientId: string;
     /**
      * Client secret of the user pool client.
      */
-    readonly clientSecret: string;
+    readonly clientSecret?: string;
     /**
      * (Optional) Default redirect URI. Must be in the list of callback URLs.
      */
-    readonly defaultRedirectUri: string;
-    readonly enablePropagateAdditionalUserContextData: boolean;
+    readonly defaultRedirectUri?: string;
+    readonly enablePropagateAdditionalUserContextData?: boolean;
     /**
      * (Optional) Enables or disables token revocation.
      */
-    readonly enableTokenRevocation: boolean;
+    readonly enableTokenRevocation?: boolean;
     /**
      * (Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
-    readonly explicitAuthFlows: string[];
+    readonly explicitAuthFlows?: string[];
     /**
      * (Optional) Should an application secret be generated.
      */
-    readonly generateSecret: boolean;
+    readonly generateSecret?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * (Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
      */
-    readonly idTokenValidity: number;
+    readonly idTokenValidity?: number;
     /**
      * (Optional) List of allowed logout URLs for the identity providers.
      */
-    readonly logoutUrls: string[];
-    readonly name: string;
+    readonly logoutUrls?: string[];
+    readonly name?: string;
     /**
      * (Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
      */
-    readonly preventUserExistenceErrors: string;
+    readonly preventUserExistenceErrors?: string;
     /**
      * (Optional) List of user pool attributes the application client can read from.
      */
-    readonly readAttributes: string[];
+    readonly readAttributes?: string[];
     /**
      * (Optional) Time limit in days refresh tokens are valid for.
      */
-    readonly refreshTokenValidity: number;
+    readonly refreshTokenValidity?: number;
     /**
      * (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
-    readonly supportedIdentityProviders: string[];
+    readonly supportedIdentityProviders?: string[];
     /**
      * (Optional) Configuration block for units in which the validity times are represented in. Detailed below.
      */
-    readonly tokenValidityUnits: outputs.cognito.GetUserPoolClientTokenValidityUnit[];
+    readonly tokenValidityUnits?: outputs.cognito.GetUserPoolClientTokenValidityUnit[];
     readonly userPoolId: string;
     /**
      * (Optional) List of user pool attributes the application client can write to.
      */
-    readonly writeAttributes: string[];
+    readonly writeAttributes?: string[];
 }
 /**
  * Provides a Cognito User Pool Client resource.

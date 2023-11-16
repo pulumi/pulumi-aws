@@ -67,15 +67,15 @@ type Experience struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Experience.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-	Configuration ExperienceConfigurationOutput `pulumi:"configuration"`
+	Configuration ExperienceConfigurationPtrOutput `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
 	Endpoints ExperienceEndpointArrayOutput `pulumi:"endpoints"`
 	// The unique identifier of the experience.
-	ExperienceId pulumi.StringOutput `pulumi:"experienceId"`
+	ExperienceId pulumi.StringPtrOutput `pulumi:"experienceId"`
 	// The identifier of the index for your Amazon Kendra experience.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// A name for your Amazon Kendra experience.
@@ -85,7 +85,7 @@ type Experience struct {
 	// The following arguments are optional:
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The current processing status of your Amazon Kendra experience.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewExperience registers a new resource with the given unique name, arguments, and options.
@@ -292,13 +292,13 @@ func (o ExperienceOutput) ToExperienceOutputWithContext(ctx context.Context) Exp
 }
 
 // ARN of the Experience.
-func (o ExperienceOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ExperienceOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Experience) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-func (o ExperienceOutput) Configuration() ExperienceConfigurationOutput {
-	return o.ApplyT(func(v *Experience) ExperienceConfigurationOutput { return v.Configuration }).(ExperienceConfigurationOutput)
+func (o ExperienceOutput) Configuration() ExperienceConfigurationPtrOutput {
+	return o.ApplyT(func(v *Experience) ExperienceConfigurationPtrOutput { return v.Configuration }).(ExperienceConfigurationPtrOutput)
 }
 
 // A description for your Amazon Kendra experience.
@@ -312,8 +312,8 @@ func (o ExperienceOutput) Endpoints() ExperienceEndpointArrayOutput {
 }
 
 // The unique identifier of the experience.
-func (o ExperienceOutput) ExperienceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.ExperienceId }).(pulumi.StringOutput)
+func (o ExperienceOutput) ExperienceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Experience) pulumi.StringPtrOutput { return v.ExperienceId }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the index for your Amazon Kendra experience.
@@ -334,8 +334,8 @@ func (o ExperienceOutput) RoleArn() pulumi.StringOutput {
 }
 
 // The current processing status of your Amazon Kendra experience.
-func (o ExperienceOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ExperienceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Experience) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type ExperienceArrayOutput struct{ *pulumi.OutputState }

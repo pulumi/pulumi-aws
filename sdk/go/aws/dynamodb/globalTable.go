@@ -112,7 +112,7 @@ type GlobalTable struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the DynamoDB Global Table
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the global table. Must match underlying DynamoDB Table names in all regions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
@@ -276,8 +276,8 @@ func (o GlobalTableOutput) ToGlobalTableOutputWithContext(ctx context.Context) G
 }
 
 // The ARN of the DynamoDB Global Table
-func (o GlobalTableOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o GlobalTableOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the global table. Must match underlying DynamoDB Table names in all regions.

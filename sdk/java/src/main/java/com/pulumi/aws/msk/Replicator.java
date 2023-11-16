@@ -39,20 +39,20 @@ public class Replicator extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Replicator. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     @Export(name="currentVersion", refs={String.class}, tree="[0]")
-    private Output<String> currentVersion;
+    private Output</* @Nullable */ String> currentVersion;
 
-    public Output<String> currentVersion() {
-        return this.currentVersion;
+    public Output<Optional<String>> currentVersion() {
+        return Codegen.optional(this.currentVersion);
     }
     /**
      * A summary description of the replicator.

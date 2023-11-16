@@ -140,10 +140,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssm/document:Document")
 public class Document extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
@@ -178,42 +178,42 @@ public class Document extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
-    private Output<String> createdDate;
+    private Output</* @Nullable */ String> createdDate;
 
     /**
      * @return The date the document was created.
      * 
      */
-    public Output<String> createdDate() {
-        return this.createdDate;
+    public Output<Optional<String>> createdDate() {
+        return Codegen.optional(this.createdDate);
     }
     /**
      * The default version of the document.
      * 
      */
     @Export(name="defaultVersion", refs={String.class}, tree="[0]")
-    private Output<String> defaultVersion;
+    private Output</* @Nullable */ String> defaultVersion;
 
     /**
      * @return The default version of the document.
      * 
      */
-    public Output<String> defaultVersion() {
-        return this.defaultVersion;
+    public Output<Optional<String>> defaultVersion() {
+        return Codegen.optional(this.defaultVersion);
     }
     /**
      * The description of the document.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return The description of the document.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * The format of the document. Valid document types include: `JSON` and `YAML`
@@ -248,56 +248,56 @@ public class Document extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="documentVersion", refs={String.class}, tree="[0]")
-    private Output<String> documentVersion;
+    private Output</* @Nullable */ String> documentVersion;
 
     /**
      * @return The document version.
      * 
      */
-    public Output<String> documentVersion() {
-        return this.documentVersion;
+    public Output<Optional<String>> documentVersion() {
+        return Codegen.optional(this.documentVersion);
     }
     /**
      * The sha1 or sha256 of the document content
      * 
      */
     @Export(name="hash", refs={String.class}, tree="[0]")
-    private Output<String> hash;
+    private Output</* @Nullable */ String> hash;
 
     /**
      * @return The sha1 or sha256 of the document content
      * 
      */
-    public Output<String> hash() {
-        return this.hash;
+    public Output<Optional<String>> hash() {
+        return Codegen.optional(this.hash);
     }
     /**
      * &#34;Sha1&#34; &#34;Sha256&#34;. The hashing algorithm used when hashing the content.
      * 
      */
     @Export(name="hashType", refs={String.class}, tree="[0]")
-    private Output<String> hashType;
+    private Output</* @Nullable */ String> hashType;
 
     /**
      * @return &#34;Sha1&#34; &#34;Sha256&#34;. The hashing algorithm used when hashing the content.
      * 
      */
-    public Output<String> hashType() {
-        return this.hashType;
+    public Output<Optional<String>> hashType() {
+        return Codegen.optional(this.hashType);
     }
     /**
      * The latest version of the document.
      * 
      */
     @Export(name="latestVersion", refs={String.class}, tree="[0]")
-    private Output<String> latestVersion;
+    private Output</* @Nullable */ String> latestVersion;
 
     /**
      * @return The latest version of the document.
      * 
      */
-    public Output<String> latestVersion() {
-        return this.latestVersion;
+    public Output<Optional<String>> latestVersion() {
+        return Codegen.optional(this.latestVersion);
     }
     /**
      * The name of the document.
@@ -318,28 +318,28 @@ public class Document extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
-    private Output<String> owner;
+    private Output</* @Nullable */ String> owner;
 
     /**
      * @return The AWS user account of the person who created the document.
      * 
      */
-    public Output<String> owner() {
-        return this.owner;
+    public Output<Optional<String>> owner() {
+        return Codegen.optional(this.owner);
     }
     /**
      * The parameters that are available to this document.
      * 
      */
     @Export(name="parameters", refs={List.class,DocumentParameter.class}, tree="[0,1]")
-    private Output<List<DocumentParameter>> parameters;
+    private Output</* @Nullable */ List<DocumentParameter>> parameters;
 
     /**
      * @return The parameters that are available to this document.
      * 
      */
-    public Output<List<DocumentParameter>> parameters() {
-        return this.parameters;
+    public Output<Optional<List<DocumentParameter>>> parameters() {
+        return Codegen.optional(this.parameters);
     }
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
@@ -360,42 +360,42 @@ public class Document extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="platformTypes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> platformTypes;
+    private Output</* @Nullable */ List<String>> platformTypes;
 
     /**
      * @return A list of OS platforms compatible with this SSM document, either &#34;Windows&#34; or &#34;Linux&#34;.
      * 
      */
-    public Output<List<String>> platformTypes() {
-        return this.platformTypes;
+    public Output<Optional<List<String>>> platformTypes() {
+        return Codegen.optional(this.platformTypes);
     }
     /**
      * The schema version of the document.
      * 
      */
     @Export(name="schemaVersion", refs={String.class}, tree="[0]")
-    private Output<String> schemaVersion;
+    private Output</* @Nullable */ String> schemaVersion;
 
     /**
      * @return The schema version of the document.
      * 
      */
-    public Output<String> schemaVersion() {
-        return this.schemaVersion;
+    public Output<Optional<String>> schemaVersion() {
+        return Codegen.optional(this.schemaVersion);
     }
     /**
      * &#34;Creating&#34;, &#34;Active&#34; or &#34;Deleting&#34;. The current status of the document.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return &#34;Creating&#34;, &#34;Active&#34; or &#34;Deleting&#34;. The current status of the document.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

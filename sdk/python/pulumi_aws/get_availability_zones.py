@@ -74,7 +74,7 @@ class GetAvailabilityZonesResult:
 
     @property
     @pulumi.getter(name="groupNames")
-    def group_names(self) -> Sequence[str]:
+    def group_names(self) -> Optional[Sequence[str]]:
         """
         A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
         """
@@ -82,7 +82,7 @@ class GetAvailabilityZonesResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -90,7 +90,7 @@ class GetAvailabilityZonesResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         List of the Availability Zone names available to the account.
         """
@@ -103,7 +103,7 @@ class GetAvailabilityZonesResult:
 
     @property
     @pulumi.getter(name="zoneIds")
-    def zone_ids(self) -> Sequence[str]:
+    def zone_ids(self) -> Optional[Sequence[str]]:
         """
         List of the Availability Zone IDs available to the account.
         """

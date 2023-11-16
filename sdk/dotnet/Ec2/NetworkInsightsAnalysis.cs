@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ec2
         /// ARN of the Network Insights Analysis.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ec2
         /// Set to `true` if the destination was reachable.
         /// </summary>
         [Output("pathFound")]
-        public Output<bool> PathFound { get; private set; } = null!;
+        public Output<bool?> PathFound { get; private set; } = null!;
 
         /// <summary>
         /// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
@@ -102,19 +102,19 @@ namespace Pulumi.Aws.Ec2
         /// The date/time the analysis was started.
         /// </summary>
         [Output("startDate")]
-        public Output<string> StartDate { get; private set; } = null!;
+        public Output<string?> StartDate { get; private set; } = null!;
 
         /// <summary>
         /// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A message to provide more context when the `status` is `failed`.
         /// </summary>
         [Output("statusMessage")]
-        public Output<string> StatusMessage { get; private set; } = null!;
+        public Output<string?> StatusMessage { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ec2
         /// The warning message.
         /// </summary>
         [Output("warningMessage")]
-        public Output<string> WarningMessage { get; private set; } = null!;
+        public Output<string?> WarningMessage { get; private set; } = null!;
 
 
         /// <summary>

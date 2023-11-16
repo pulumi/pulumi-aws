@@ -8,6 +8,7 @@ import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationSheetTileLayoutMar
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetThemeConfigurationSheetTileLayout {
@@ -15,12 +16,12 @@ public final class GetThemeConfigurationSheetTileLayout {
      * @return The gutter settings that apply between tiles. See gutter.
      * 
      */
-    private List<GetThemeConfigurationSheetTileLayoutGutter> gutters;
+    private @Nullable List<GetThemeConfigurationSheetTileLayoutGutter> gutters;
     /**
      * @return The margin settings that apply around the outside edge of sheets. See margin.
      * 
      */
-    private List<GetThemeConfigurationSheetTileLayoutMargin> margins;
+    private @Nullable List<GetThemeConfigurationSheetTileLayoutMargin> margins;
 
     private GetThemeConfigurationSheetTileLayout() {}
     /**
@@ -28,14 +29,14 @@ public final class GetThemeConfigurationSheetTileLayout {
      * 
      */
     public List<GetThemeConfigurationSheetTileLayoutGutter> gutters() {
-        return this.gutters;
+        return this.gutters == null ? List.of() : this.gutters;
     }
     /**
      * @return The margin settings that apply around the outside edge of sheets. See margin.
      * 
      */
     public List<GetThemeConfigurationSheetTileLayoutMargin> margins() {
-        return this.margins;
+        return this.margins == null ? List.of() : this.margins;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class GetThemeConfigurationSheetTileLayout {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetThemeConfigurationSheetTileLayoutGutter> gutters;
-        private List<GetThemeConfigurationSheetTileLayoutMargin> margins;
+        private @Nullable List<GetThemeConfigurationSheetTileLayoutGutter> gutters;
+        private @Nullable List<GetThemeConfigurationSheetTileLayoutMargin> margins;
         public Builder() {}
         public Builder(GetThemeConfigurationSheetTileLayout defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class GetThemeConfigurationSheetTileLayout {
         }
 
         @CustomType.Setter
-        public Builder gutters(List<GetThemeConfigurationSheetTileLayoutGutter> gutters) {
-            this.gutters = Objects.requireNonNull(gutters);
+        public Builder gutters(@Nullable List<GetThemeConfigurationSheetTileLayoutGutter> gutters) {
+            this.gutters = gutters;
             return this;
         }
         public Builder gutters(GetThemeConfigurationSheetTileLayoutGutter... gutters) {
             return gutters(List.of(gutters));
         }
         @CustomType.Setter
-        public Builder margins(List<GetThemeConfigurationSheetTileLayoutMargin> margins) {
-            this.margins = Objects.requireNonNull(margins);
+        public Builder margins(@Nullable List<GetThemeConfigurationSheetTileLayoutMargin> margins) {
+            this.margins = margins;
             return this;
         }
         public Builder margins(GetThemeConfigurationSheetTileLayoutMargin... margins) {

@@ -98,7 +98,7 @@ type SafetyRule struct {
 	pulumi.CustomResourceState
 
 	// ARN of the safety rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
 	AssertedControls pulumi.StringArrayOutput `pulumi:"assertedControls"`
 	// ARN of the control panel in which this safety rule will reside.
@@ -110,7 +110,7 @@ type SafetyRule struct {
 	// Configuration block for safety rule criteria. See below.
 	RuleConfig SafetyRuleRuleConfigOutput `pulumi:"ruleConfig"`
 	// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayOutput `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -334,8 +334,8 @@ func (o SafetyRuleOutput) ToSafetyRuleOutputWithContext(ctx context.Context) Saf
 }
 
 // ARN of the safety rule.
-func (o SafetyRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SafetyRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SafetyRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SafetyRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
@@ -364,8 +364,8 @@ func (o SafetyRuleOutput) RuleConfig() SafetyRuleRuleConfigOutput {
 }
 
 // Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-func (o SafetyRuleOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *SafetyRule) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o SafetyRuleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SafetyRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.

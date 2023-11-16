@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerConnectionPoolHttp2Result
     {
-        public readonly int MaxRequests;
+        public readonly int? MaxRequests;
 
         [OutputConstructor]
-        private GetVirtualNodeSpecListenerConnectionPoolHttp2Result(int maxRequests)
+        private GetVirtualNodeSpecListenerConnectionPoolHttp2Result(int? maxRequests)
         {
             MaxRequests = maxRequests;
         }

@@ -93,23 +93,23 @@ type LookupHoursOfOperationArgs struct {
 // A collection of values returned by getHoursOfOperation.
 type LookupHoursOfOperationResult struct {
 	// ARN of the Hours of Operation.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
 	Configs []GetHoursOfOperationConfig `pulumi:"configs"`
 	// Description of the Hours of Operation.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The identifier for the hours of operation.
-	HoursOfOperationId string `pulumi:"hoursOfOperationId"`
+	HoursOfOperationId *string `pulumi:"hoursOfOperationId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Identifier of the hosting Amazon Connect Instance.
 	InstanceId string `pulumi:"instanceId"`
 	// Name of the Hours of Operation.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Map of tags to assign to the Hours of Operation.
 	Tags map[string]string `pulumi:"tags"`
 	// Time zone of the Hours of Operation.
-	TimeZone string `pulumi:"timeZone"`
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 func LookupHoursOfOperationOutput(ctx *pulumi.Context, args LookupHoursOfOperationOutputArgs, opts ...pulumi.InvokeOption) LookupHoursOfOperationResultOutput {
@@ -157,8 +157,8 @@ func (o LookupHoursOfOperationResultOutput) ToLookupHoursOfOperationResultOutput
 }
 
 // ARN of the Hours of Operation.
-func (o LookupHoursOfOperationResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupHoursOfOperationResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
@@ -167,18 +167,18 @@ func (o LookupHoursOfOperationResultOutput) Configs() GetHoursOfOperationConfigA
 }
 
 // Description of the Hours of Operation.
-func (o LookupHoursOfOperationResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupHoursOfOperationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The identifier for the hours of operation.
-func (o LookupHoursOfOperationResultOutput) HoursOfOperationId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.HoursOfOperationId }).(pulumi.StringOutput)
+func (o LookupHoursOfOperationResultOutput) HoursOfOperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) *string { return v.HoursOfOperationId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupHoursOfOperationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupHoursOfOperationResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the hosting Amazon Connect Instance.
@@ -187,8 +187,8 @@ func (o LookupHoursOfOperationResultOutput) InstanceId() pulumi.StringOutput {
 }
 
 // Name of the Hours of Operation.
-func (o LookupHoursOfOperationResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupHoursOfOperationResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags to assign to the Hours of Operation.
@@ -197,8 +197,8 @@ func (o LookupHoursOfOperationResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Time zone of the Hours of Operation.
-func (o LookupHoursOfOperationResultOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.TimeZone }).(pulumi.StringOutput)
+func (o LookupHoursOfOperationResultOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -9,6 +9,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLinkResult {
@@ -16,66 +18,66 @@ public final class GetLinkResult {
      * @return ARN of the link.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return Upload speed and download speed of the link as documented below
      * 
      */
-    private List<GetLinkBandwidth> bandwidths;
+    private @Nullable List<GetLinkBandwidth> bandwidths;
     /**
      * @return Description of the link.
      * 
      */
-    private String description;
+    private @Nullable String description;
     private String globalNetworkId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String linkId;
     /**
      * @return Provider of the link.
      * 
      */
-    private String providerName;
+    private @Nullable String providerName;
     /**
      * @return ID of the site.
      * 
      */
-    private String siteId;
+    private @Nullable String siteId;
     /**
      * @return Key-value tags for the link.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Type of the link.
      * 
      */
-    private String type;
+    private @Nullable String type;
 
     private GetLinkResult() {}
     /**
      * @return ARN of the link.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return Upload speed and download speed of the link as documented below
      * 
      */
     public List<GetLinkBandwidth> bandwidths() {
-        return this.bandwidths;
+        return this.bandwidths == null ? List.of() : this.bandwidths;
     }
     /**
      * @return Description of the link.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     public String globalNetworkId() {
         return this.globalNetworkId;
@@ -84,8 +86,8 @@ public final class GetLinkResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String linkId() {
         return this.linkId;
@@ -94,29 +96,29 @@ public final class GetLinkResult {
      * @return Provider of the link.
      * 
      */
-    public String providerName() {
-        return this.providerName;
+    public Optional<String> providerName() {
+        return Optional.ofNullable(this.providerName);
     }
     /**
      * @return ID of the site.
      * 
      */
-    public String siteId() {
-        return this.siteId;
+    public Optional<String> siteId() {
+        return Optional.ofNullable(this.siteId);
     }
     /**
      * @return Key-value tags for the link.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Type of the link.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -128,16 +130,16 @@ public final class GetLinkResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetLinkBandwidth> bandwidths;
-        private String description;
+        private @Nullable String arn;
+        private @Nullable List<GetLinkBandwidth> bandwidths;
+        private @Nullable String description;
         private String globalNetworkId;
-        private String id;
+        private @Nullable String id;
         private String linkId;
-        private String providerName;
-        private String siteId;
-        private Map<String,String> tags;
-        private String type;
+        private @Nullable String providerName;
+        private @Nullable String siteId;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String type;
         public Builder() {}
         public Builder(GetLinkResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -154,21 +156,21 @@ public final class GetLinkResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder bandwidths(List<GetLinkBandwidth> bandwidths) {
-            this.bandwidths = Objects.requireNonNull(bandwidths);
+        public Builder bandwidths(@Nullable List<GetLinkBandwidth> bandwidths) {
+            this.bandwidths = bandwidths;
             return this;
         }
         public Builder bandwidths(GetLinkBandwidth... bandwidths) {
             return bandwidths(List.of(bandwidths));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -177,8 +179,8 @@ public final class GetLinkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -187,23 +189,23 @@ public final class GetLinkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+        public Builder providerName(@Nullable String providerName) {
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
-        public Builder siteId(String siteId) {
-            this.siteId = Objects.requireNonNull(siteId);
+        public Builder siteId(@Nullable String siteId) {
+            this.siteId = siteId;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
         public GetLinkResult build() {

@@ -61,7 +61,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// ARN of the stage.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
         /// </summary>
         [Output("deploymentId")]
-        public Output<string> DeploymentId { get; private set; } = null!;
+        public Output<string?> DeploymentId { get; private set; } = null!;
 
         /// <summary>
         /// Description for the stage. Must be less than or equal to 1024 characters in length.
@@ -100,14 +100,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
         [Output("executionArn")]
-        public Output<string> ExecutionArn { get; private set; } = null!;
+        public Output<string?> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
         /// URL to invoke the API pointing to the stage,
         /// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         /// </summary>
         [Output("invokeUrl")]
-        public Output<string> InvokeUrl { get; private set; } = null!;
+        public Output<string?> InvokeUrl { get; private set; } = null!;
 
         /// <summary>
         /// Name of the stage. Must be between 1 and 128 characters in length.

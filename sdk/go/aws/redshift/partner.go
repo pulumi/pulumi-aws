@@ -64,9 +64,9 @@ type Partner struct {
 	// The name of the partner that is authorized to send data.
 	PartnerName pulumi.StringOutput `pulumi:"partnerName"`
 	// (Optional) The partner integration status.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// (Optional) The status message provided by the partner.
-	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	StatusMessage pulumi.StringPtrOutput `pulumi:"statusMessage"`
 }
 
 // NewPartner registers a new resource with the given unique name, arguments, and options.
@@ -275,13 +275,13 @@ func (o PartnerOutput) PartnerName() pulumi.StringOutput {
 }
 
 // (Optional) The partner integration status.
-func (o PartnerOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o PartnerOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) The status message provided by the partner.
-func (o PartnerOutput) StatusMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+func (o PartnerOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringPtrOutput { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
 type PartnerArrayOutput struct{ *pulumi.OutputState }

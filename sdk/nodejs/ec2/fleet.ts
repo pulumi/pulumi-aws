@@ -69,7 +69,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The ARN of the fleet
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Reserved.
      */
@@ -81,19 +81,19 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
      */
-    public readonly fleetInstanceSets!: pulumi.Output<outputs.ec2.FleetFleetInstanceSet[]>;
+    public readonly fleetInstanceSets!: pulumi.Output<outputs.ec2.FleetFleetInstanceSet[] | undefined>;
     /**
      * The state of the EC2 Fleet.
      */
-    public readonly fleetState!: pulumi.Output<string>;
+    public readonly fleetState!: pulumi.Output<string | undefined>;
     /**
      * The number of units fulfilled by this request compared to the set target capacity.
      */
-    public readonly fulfilledCapacity!: pulumi.Output<number>;
+    public readonly fulfilledCapacity!: pulumi.Output<number | undefined>;
     /**
      * The number of units fulfilled by this request compared to the set target On-Demand capacity.
      */
-    public readonly fulfilledOnDemandCapacity!: pulumi.Output<number>;
+    public readonly fulfilledOnDemandCapacity!: pulumi.Output<number | undefined>;
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */

@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatelessCustomAction {
-    private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition> actionDefinitions;
-    private String actionName;
+    private @Nullable List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition> actionDefinitions;
+    private @Nullable String actionName;
 
     private GetFirewallPolicyFirewallPolicyStatelessCustomAction() {}
     public List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition> actionDefinitions() {
-        return this.actionDefinitions;
+        return this.actionDefinitions == null ? List.of() : this.actionDefinitions;
     }
-    public String actionName() {
-        return this.actionName;
+    public Optional<String> actionName() {
+        return Optional.ofNullable(this.actionName);
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition> actionDefinitions;
-        private String actionName;
+        private @Nullable List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition> actionDefinitions;
+        private @Nullable String actionName;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatelessCustomAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +43,16 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomAction {
         }
 
         @CustomType.Setter
-        public Builder actionDefinitions(List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition> actionDefinitions) {
-            this.actionDefinitions = Objects.requireNonNull(actionDefinitions);
+        public Builder actionDefinitions(@Nullable List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition> actionDefinitions) {
+            this.actionDefinitions = actionDefinitions;
             return this;
         }
         public Builder actionDefinitions(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition... actionDefinitions) {
             return actionDefinitions(List.of(actionDefinitions));
         }
         @CustomType.Setter
-        public Builder actionName(String actionName) {
-            this.actionName = Objects.requireNonNull(actionName);
+        public Builder actionName(@Nullable String actionName) {
+            this.actionName = actionName;
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatelessCustomAction build() {

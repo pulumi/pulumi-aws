@@ -65,14 +65,14 @@ public class SamlProvider extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN assigned by AWS for this provider.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the provider to create.
@@ -139,14 +139,14 @@ public class SamlProvider extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="validUntil", refs={String.class}, tree="[0]")
-    private Output<String> validUntil;
+    private Output</* @Nullable */ String> validUntil;
 
     /**
      * @return The expiration date and time for the SAML provider in RFC1123 format, e.g., `Mon, 02 Jan 2006 15:04:05 MST`.
      * 
      */
-    public Output<String> validUntil() {
-        return this.validUntil;
+    public Output<Optional<String>> validUntil() {
+        return Codegen.optional(this.validUntil);
     }
 
     /**

@@ -167,7 +167,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * ARN of the certificate
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN of an ACM PCA
      */
@@ -184,13 +184,13 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Fully qualified domain name (FQDN) in the certificate.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string | undefined>;
     /**
      * Set of domain validation objects which can be used to complete certificate validation.
      * Can have more than one element, e.g., if SANs are defined.
      * Only set if `DNS`-validation was used.
      */
-    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
+    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[] | undefined>;
     /**
      * Amount of time to start automatic renewal process before expiration.
      * Has no effect if less than 60 days.
@@ -202,23 +202,23 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
      */
-    public readonly keyAlgorithm!: pulumi.Output<string>;
+    public readonly keyAlgorithm!: pulumi.Output<string | undefined>;
     /**
      * Expiration date and time of the certificate.
      */
-    public /*out*/ readonly notAfter!: pulumi.Output<string>;
+    public /*out*/ readonly notAfter!: pulumi.Output<string | undefined>;
     /**
      * Start of the validity period of the certificate.
      */
-    public /*out*/ readonly notBefore!: pulumi.Output<string>;
+    public /*out*/ readonly notBefore!: pulumi.Output<string | undefined>;
     /**
      * Configuration block used to set certificate options. Detailed below.
      */
-    public readonly options!: pulumi.Output<outputs.acm.CertificateOptions>;
+    public readonly options!: pulumi.Output<outputs.acm.CertificateOptions | undefined>;
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      */
-    public /*out*/ readonly pendingRenewal!: pulumi.Output<boolean>;
+    public /*out*/ readonly pendingRenewal!: pulumi.Output<boolean | undefined>;
     /**
      * Certificate's PEM-formatted private key
      */
@@ -226,20 +226,20 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Whether the certificate is eligible for managed renewal.
      */
-    public /*out*/ readonly renewalEligibility!: pulumi.Output<string>;
+    public /*out*/ readonly renewalEligibility!: pulumi.Output<string | undefined>;
     /**
      * Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
      */
-    public /*out*/ readonly renewalSummaries!: pulumi.Output<outputs.acm.CertificateRenewalSummary[]>;
+    public /*out*/ readonly renewalSummaries!: pulumi.Output<outputs.acm.CertificateRenewalSummary[] | undefined>;
     /**
      * Status of the certificate.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Set of domains that should be SANs in the issued certificate.
      * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      */
-    public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
+    public readonly subjectAlternativeNames!: pulumi.Output<string[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -253,15 +253,15 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Source of the certificate.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
     /**
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      */
-    public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
+    public /*out*/ readonly validationEmails!: pulumi.Output<string[] | undefined>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      */
-    public readonly validationMethod!: pulumi.Output<string>;
+    public readonly validationMethod!: pulumi.Output<string | undefined>;
     /**
      * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
      * * Importing an existing certificate

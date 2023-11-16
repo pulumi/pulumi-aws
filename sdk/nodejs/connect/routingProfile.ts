@@ -76,7 +76,7 @@ export class RoutingProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Routing Profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies the default outbound queue for the Routing Profile.
      */
@@ -104,7 +104,7 @@ export class RoutingProfile extends pulumi.CustomResource {
     /**
      * The identifier for the Routing Profile.
      */
-    public /*out*/ readonly routingProfileId!: pulumi.Output<string>;
+    public /*out*/ readonly routingProfileId!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the Routing Profile. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

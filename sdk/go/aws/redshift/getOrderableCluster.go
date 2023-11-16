@@ -68,11 +68,11 @@ type GetOrderableClusterArgs struct {
 type GetOrderableClusterResult struct {
 	// List of Availability Zone names where the Redshift Cluster is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	ClusterType       string   `pulumi:"clusterType"`
-	ClusterVersion    string   `pulumi:"clusterVersion"`
+	ClusterType       *string  `pulumi:"clusterType"`
+	ClusterVersion    *string  `pulumi:"clusterVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string   `pulumi:"id"`
-	NodeType           string   `pulumi:"nodeType"`
+	Id                 *string  `pulumi:"id"`
+	NodeType           *string  `pulumi:"nodeType"`
 	PreferredNodeTypes []string `pulumi:"preferredNodeTypes"`
 }
 
@@ -125,21 +125,21 @@ func (o GetOrderableClusterResultOutput) AvailabilityZones() pulumi.StringArrayO
 	return o.ApplyT(func(v GetOrderableClusterResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-func (o GetOrderableClusterResultOutput) ClusterType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableClusterResult) string { return v.ClusterType }).(pulumi.StringOutput)
+func (o GetOrderableClusterResultOutput) ClusterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableClusterResult) *string { return v.ClusterType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOrderableClusterResultOutput) ClusterVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableClusterResult) string { return v.ClusterVersion }).(pulumi.StringOutput)
+func (o GetOrderableClusterResultOutput) ClusterVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableClusterResult) *string { return v.ClusterVersion }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetOrderableClusterResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableClusterResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetOrderableClusterResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOrderableClusterResultOutput) NodeType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOrderableClusterResult) string { return v.NodeType }).(pulumi.StringOutput)
+func (o GetOrderableClusterResultOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOrderableClusterResult) *string { return v.NodeType }).(pulumi.StringPtrOutput)
 }
 
 func (o GetOrderableClusterResultOutput) PreferredNodeTypes() pulumi.StringArrayOutput {

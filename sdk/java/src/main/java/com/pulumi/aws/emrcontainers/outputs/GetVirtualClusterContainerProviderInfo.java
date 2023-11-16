@@ -7,6 +7,7 @@ import com.pulumi.aws.emrcontainers.outputs.GetVirtualClusterContainerProviderIn
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualClusterContainerProviderInfo {
@@ -14,7 +15,7 @@ public final class GetVirtualClusterContainerProviderInfo {
      * @return Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
      * 
      */
-    private List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos;
+    private @Nullable List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos;
 
     private GetVirtualClusterContainerProviderInfo() {}
     /**
@@ -22,7 +23,7 @@ public final class GetVirtualClusterContainerProviderInfo {
      * 
      */
     public List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos() {
-        return this.eksInfos;
+        return this.eksInfos == null ? List.of() : this.eksInfos;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class GetVirtualClusterContainerProviderInfo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos;
+        private @Nullable List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos;
         public Builder() {}
         public Builder(GetVirtualClusterContainerProviderInfo defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class GetVirtualClusterContainerProviderInfo {
         }
 
         @CustomType.Setter
-        public Builder eksInfos(List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos) {
-            this.eksInfos = Objects.requireNonNull(eksInfos);
+        public Builder eksInfos(@Nullable List<GetVirtualClusterContainerProviderInfoEksInfo> eksInfos) {
+            this.eksInfos = eksInfos;
             return this;
         }
         public Builder eksInfos(GetVirtualClusterContainerProviderInfoEksInfo... eksInfos) {

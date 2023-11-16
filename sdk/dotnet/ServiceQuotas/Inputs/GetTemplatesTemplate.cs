@@ -15,50 +15,50 @@ namespace Pulumi.Aws.ServiceQuotas.Inputs
         /// <summary>
         /// Indicates whether the quota is global.
         /// </summary>
-        [Input("globalQuota", required: true)]
-        public bool GlobalQuota { get; set; }
+        [Input("globalQuota")]
+        public bool? GlobalQuota { get; set; }
 
         /// <summary>
         /// Quota identifier.
         /// </summary>
-        [Input("quotaCode", required: true)]
-        public string QuotaCode { get; set; } = null!;
+        [Input("quotaCode")]
+        public string? QuotaCode { get; set; }
 
         /// <summary>
         /// Quota name.
         /// </summary>
-        [Input("quotaName", required: true)]
-        public string QuotaName { get; set; } = null!;
+        [Input("quotaName")]
+        public string? QuotaName { get; set; }
 
         /// <summary>
         /// AWS Region to which the quota increases apply.
         /// </summary>
-        [Input("region", required: true)]
-        public string Region { get; set; } = null!;
+        [Input("region")]
+        public string? Region { get; set; }
 
         /// <summary>
         /// (Required) Service identifier.
         /// </summary>
-        [Input("serviceCode", required: true)]
-        public string ServiceCode { get; set; } = null!;
+        [Input("serviceCode")]
+        public string? ServiceCode { get; set; }
 
         /// <summary>
         /// Service name.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public string ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public string? ServiceName { get; set; }
 
         /// <summary>
         /// Unit of measurement.
         /// </summary>
-        [Input("unit", required: true)]
-        public string Unit { get; set; } = null!;
+        [Input("unit")]
+        public string? Unit { get; set; }
 
         /// <summary>
         /// (Required) The new, increased value for the quota.
         /// </summary>
-        [Input("value", required: true)]
-        public double Value { get; set; }
+        [Input("value")]
+        public double? Value { get; set; }
 
         public GetTemplatesTemplateArgs()
         {

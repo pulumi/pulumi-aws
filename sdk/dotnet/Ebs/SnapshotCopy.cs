@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Ebs
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
         [Output("dataEncryptionKeyId")]
-        public Output<string> DataEncryptionKeyId { get; private set; } = null!;
+        public Output<string?> DataEncryptionKeyId { get; private set; } = null!;
 
         /// <summary>
         /// A description of what the snapshot is.
@@ -88,19 +88,19 @@ namespace Pulumi.Aws.Ebs
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         [Output("outpostArn")]
-        public Output<string> OutpostArn { get; private set; } = null!;
+        public Output<string?> OutpostArn { get; private set; } = null!;
 
         /// <summary>
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
         [Output("ownerAlias")]
-        public Output<string> OwnerAlias { get; private set; } = null!;
+        public Output<string?> OwnerAlias { get; private set; } = null!;
 
         /// <summary>
         /// The AWS account ID of the snapshot owner.
         /// </summary>
         [Output("ownerId")]
-        public Output<string> OwnerId { get; private set; } = null!;
+        public Output<string?> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether to permanently restore an archived snapshot.
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Ebs
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         /// </summary>
         [Output("storageTier")]
-        public Output<string> StorageTier { get; private set; } = null!;
+        public Output<string?> StorageTier { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags for the snapshot.
@@ -145,13 +145,13 @@ namespace Pulumi.Aws.Ebs
         public Output<int?> TemporaryRestoreDays { get; private set; } = null!;
 
         [Output("volumeId")]
-        public Output<string> VolumeId { get; private set; } = null!;
+        public Output<string?> VolumeId { get; private set; } = null!;
 
         /// <summary>
         /// The size of the drive in GiBs.
         /// </summary>
         [Output("volumeSize")]
-        public Output<int> VolumeSize { get; private set; } = null!;
+        public Output<int?> VolumeSize { get; private set; } = null!;
 
 
         /// <summary>

@@ -173,7 +173,7 @@ type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The account ID of the destination registry to replicate to.
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	RegistryId pulumi.StringPtrOutput `pulumi:"registryId"`
 	// Replication configuration for a registry. See Replication Configuration.
 	ReplicationConfiguration ReplicationConfigurationReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
 }
@@ -324,8 +324,8 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithCont
 }
 
 // The account ID of the destination registry to replicate to.
-func (o ReplicationConfigurationOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+func (o ReplicationConfigurationOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringPtrOutput { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 // Replication configuration for a registry. See Replication Configuration.

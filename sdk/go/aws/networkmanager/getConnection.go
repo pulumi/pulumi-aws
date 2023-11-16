@@ -62,21 +62,21 @@ type LookupConnectionArgs struct {
 // A collection of values returned by getConnection.
 type LookupConnectionResult struct {
 	// ARN of the connection.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// ID of the second device in the connection.
-	ConnectedDeviceId string `pulumi:"connectedDeviceId"`
+	ConnectedDeviceId *string `pulumi:"connectedDeviceId"`
 	// ID of the link for the second device.
-	ConnectedLinkId string `pulumi:"connectedLinkId"`
-	ConnectionId    string `pulumi:"connectionId"`
+	ConnectedLinkId *string `pulumi:"connectedLinkId"`
+	ConnectionId    string  `pulumi:"connectionId"`
 	// Description of the connection.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// ID of the first device in the connection.
-	DeviceId        string `pulumi:"deviceId"`
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
+	DeviceId        *string `pulumi:"deviceId"`
+	GlobalNetworkId string  `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// ID of the link for the first device.
-	LinkId string `pulumi:"linkId"`
+	LinkId *string `pulumi:"linkId"`
 	// Key-value tags for the connection.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,18 +124,18 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(
 }
 
 // ARN of the connection.
-func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the second device in the connection.
-func (o LookupConnectionResultOutput) ConnectedDeviceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.ConnectedDeviceId }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) ConnectedDeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.ConnectedDeviceId }).(pulumi.StringPtrOutput)
 }
 
 // ID of the link for the second device.
-func (o LookupConnectionResultOutput) ConnectedLinkId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.ConnectedLinkId }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) ConnectedLinkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.ConnectedLinkId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupConnectionResultOutput) ConnectionId() pulumi.StringOutput {
@@ -143,13 +143,13 @@ func (o LookupConnectionResultOutput) ConnectionId() pulumi.StringOutput {
 }
 
 // Description of the connection.
-func (o LookupConnectionResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // ID of the first device in the connection.
-func (o LookupConnectionResultOutput) DeviceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.DeviceId }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) DeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.DeviceId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupConnectionResultOutput) GlobalNetworkId() pulumi.StringOutput {
@@ -157,13 +157,13 @@ func (o LookupConnectionResultOutput) GlobalNetworkId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupConnectionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // ID of the link for the first device.
-func (o LookupConnectionResultOutput) LinkId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupConnectionResult) string { return v.LinkId }).(pulumi.StringOutput)
+func (o LookupConnectionResultOutput) LinkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.LinkId }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the connection.

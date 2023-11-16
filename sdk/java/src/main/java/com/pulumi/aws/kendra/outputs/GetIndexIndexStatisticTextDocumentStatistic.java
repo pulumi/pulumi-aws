@@ -6,6 +6,8 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIndexIndexStatisticTextDocumentStatistic {
@@ -13,27 +15,27 @@ public final class GetIndexIndexStatisticTextDocumentStatistic {
      * @return Total size, in bytes, of the indexed documents.
      * 
      */
-    private Integer indexedTextBytes;
+    private @Nullable Integer indexedTextBytes;
     /**
      * @return The number of text documents indexed.
      * 
      */
-    private Integer indexedTextDocumentsCount;
+    private @Nullable Integer indexedTextDocumentsCount;
 
     private GetIndexIndexStatisticTextDocumentStatistic() {}
     /**
      * @return Total size, in bytes, of the indexed documents.
      * 
      */
-    public Integer indexedTextBytes() {
-        return this.indexedTextBytes;
+    public Optional<Integer> indexedTextBytes() {
+        return Optional.ofNullable(this.indexedTextBytes);
     }
     /**
      * @return The number of text documents indexed.
      * 
      */
-    public Integer indexedTextDocumentsCount() {
-        return this.indexedTextDocumentsCount;
+    public Optional<Integer> indexedTextDocumentsCount() {
+        return Optional.ofNullable(this.indexedTextDocumentsCount);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetIndexIndexStatisticTextDocumentStatistic {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer indexedTextBytes;
-        private Integer indexedTextDocumentsCount;
+        private @Nullable Integer indexedTextBytes;
+        private @Nullable Integer indexedTextDocumentsCount;
         public Builder() {}
         public Builder(GetIndexIndexStatisticTextDocumentStatistic defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetIndexIndexStatisticTextDocumentStatistic {
         }
 
         @CustomType.Setter
-        public Builder indexedTextBytes(Integer indexedTextBytes) {
-            this.indexedTextBytes = Objects.requireNonNull(indexedTextBytes);
+        public Builder indexedTextBytes(@Nullable Integer indexedTextBytes) {
+            this.indexedTextBytes = indexedTextBytes;
             return this;
         }
         @CustomType.Setter
-        public Builder indexedTextDocumentsCount(Integer indexedTextDocumentsCount) {
-            this.indexedTextDocumentsCount = Objects.requireNonNull(indexedTextDocumentsCount);
+        public Builder indexedTextDocumentsCount(@Nullable Integer indexedTextDocumentsCount) {
+            this.indexedTextDocumentsCount = indexedTextDocumentsCount;
             return this;
         }
         public GetIndexIndexStatisticTextDocumentStatistic build() {

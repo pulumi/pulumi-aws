@@ -54,7 +54,7 @@ type TapePool struct {
 	pulumi.CustomResourceState
 
 	// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the new custom tape pool.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
@@ -267,8 +267,8 @@ func (o TapePoolOutput) ToTapePoolOutputWithContext(ctx context.Context) TapePoo
 }
 
 // Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
-func (o TapePoolOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TapePoolOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TapePool) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the new custom tape pool.

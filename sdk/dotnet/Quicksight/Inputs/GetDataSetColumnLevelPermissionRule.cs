@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class GetDataSetColumnLevelPermissionRuleArgs : global::Pulumi.InvokeArgs
     {
-        [Input("columnNames", required: true)]
+        [Input("columnNames")]
         private List<string>? _columnNames;
         public List<string> ColumnNames
         {
@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
             set => _columnNames = value;
         }
 
-        [Input("principals", required: true)]
+        [Input("principals")]
         private List<string>? _principals;
         public List<string> Principals
         {

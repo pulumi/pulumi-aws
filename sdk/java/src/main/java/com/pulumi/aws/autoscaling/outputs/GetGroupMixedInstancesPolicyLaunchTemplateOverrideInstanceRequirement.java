@@ -18,278 +18,280 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement {
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts;
     /**
      * @return List of accelerator manufacturer names.
      * 
      */
-    private List<String> acceleratorManufacturers;
+    private @Nullable List<String> acceleratorManufacturers;
     /**
      * @return List of accelerator names.
      * 
      */
-    private List<String> acceleratorNames;
+    private @Nullable List<String> acceleratorNames;
     /**
      * @return List of objects describing the minimum and maximum total memory of the accelerators.
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs;
     /**
      * @return List of accelerator types.
      * 
      */
-    private List<String> acceleratorTypes;
+    private @Nullable List<String> acceleratorTypes;
     /**
      * @return List of instance types to apply the specified attributes against.
      * 
      */
-    private List<String> allowedInstanceTypes;
+    private @Nullable List<String> allowedInstanceTypes;
     /**
      * @return Indicates whether bare metal instances are included, excluded, or required.
      * 
      */
-    private String bareMetal;
+    private @Nullable String bareMetal;
     /**
      * @return List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
     /**
      * @return Indicates whether burstable performance instance types are included, excluded, or required.
      * 
      */
-    private String burstablePerformance;
+    private @Nullable String burstablePerformance;
     /**
      * @return List of CPU manufacturer names.
      * 
      */
-    private List<String> cpuManufacturers;
+    private @Nullable List<String> cpuManufacturers;
     /**
      * @return List of excluded instance types.
      * 
      */
-    private List<String> excludedInstanceTypes;
+    private @Nullable List<String> excludedInstanceTypes;
     /**
      * @return List of instance generation names.
      * 
      */
-    private List<String> instanceGenerations;
+    private @Nullable List<String> instanceGenerations;
     /**
      * @return Indicates whether instance types with instance store volumes are included, excluded, or required.
      * 
      */
-    private String localStorage;
+    private @Nullable String localStorage;
     /**
      * @return List of local storage type names.
      * 
      */
-    private List<String> localStorageTypes;
+    private @Nullable List<String> localStorageTypes;
     /**
      * @return List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
     /**
      * @return List of objects describing the minimum and maximum amount of memory (MiB).
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs;
     /**
      * @return List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
     /**
      * @return List of objects describing the minimum and maximum amount of network interfaces.
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts;
     /**
      * @return Price protection threshold for On-Demand Instances.
      * 
      */
-    private Integer onDemandMaxPricePercentageOverLowestPrice;
+    private @Nullable Integer onDemandMaxPricePercentageOverLowestPrice;
     /**
      * @return Indicates whether instance types must support On-Demand Instance Hibernation.
      * 
      */
-    private Boolean requireHibernateSupport;
+    private @Nullable Boolean requireHibernateSupport;
     /**
      * @return Price protection threshold for Spot Instances.
      * 
      */
-    private Integer spotMaxPricePercentageOverLowestPrice;
+    private @Nullable Integer spotMaxPricePercentageOverLowestPrice;
     /**
      * @return List of objects describing the minimum and maximum total storage (GB).
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs;
     /**
      * @return List of objects describing the minimum and maximum number of vCPUs.
      * 
      */
-    private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts;
+    private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement() {}
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts() {
-        return this.acceleratorCounts;
+        return this.acceleratorCounts == null ? List.of() : this.acceleratorCounts;
     }
     /**
      * @return List of accelerator manufacturer names.
      * 
      */
     public List<String> acceleratorManufacturers() {
-        return this.acceleratorManufacturers;
+        return this.acceleratorManufacturers == null ? List.of() : this.acceleratorManufacturers;
     }
     /**
      * @return List of accelerator names.
      * 
      */
     public List<String> acceleratorNames() {
-        return this.acceleratorNames;
+        return this.acceleratorNames == null ? List.of() : this.acceleratorNames;
     }
     /**
      * @return List of objects describing the minimum and maximum total memory of the accelerators.
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs() {
-        return this.acceleratorTotalMemoryMibs;
+        return this.acceleratorTotalMemoryMibs == null ? List.of() : this.acceleratorTotalMemoryMibs;
     }
     /**
      * @return List of accelerator types.
      * 
      */
     public List<String> acceleratorTypes() {
-        return this.acceleratorTypes;
+        return this.acceleratorTypes == null ? List.of() : this.acceleratorTypes;
     }
     /**
      * @return List of instance types to apply the specified attributes against.
      * 
      */
     public List<String> allowedInstanceTypes() {
-        return this.allowedInstanceTypes;
+        return this.allowedInstanceTypes == null ? List.of() : this.allowedInstanceTypes;
     }
     /**
      * @return Indicates whether bare metal instances are included, excluded, or required.
      * 
      */
-    public String bareMetal() {
-        return this.bareMetal;
+    public Optional<String> bareMetal() {
+        return Optional.ofNullable(this.bareMetal);
     }
     /**
      * @return List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps() {
-        return this.baselineEbsBandwidthMbps;
+        return this.baselineEbsBandwidthMbps == null ? List.of() : this.baselineEbsBandwidthMbps;
     }
     /**
      * @return Indicates whether burstable performance instance types are included, excluded, or required.
      * 
      */
-    public String burstablePerformance() {
-        return this.burstablePerformance;
+    public Optional<String> burstablePerformance() {
+        return Optional.ofNullable(this.burstablePerformance);
     }
     /**
      * @return List of CPU manufacturer names.
      * 
      */
     public List<String> cpuManufacturers() {
-        return this.cpuManufacturers;
+        return this.cpuManufacturers == null ? List.of() : this.cpuManufacturers;
     }
     /**
      * @return List of excluded instance types.
      * 
      */
     public List<String> excludedInstanceTypes() {
-        return this.excludedInstanceTypes;
+        return this.excludedInstanceTypes == null ? List.of() : this.excludedInstanceTypes;
     }
     /**
      * @return List of instance generation names.
      * 
      */
     public List<String> instanceGenerations() {
-        return this.instanceGenerations;
+        return this.instanceGenerations == null ? List.of() : this.instanceGenerations;
     }
     /**
      * @return Indicates whether instance types with instance store volumes are included, excluded, or required.
      * 
      */
-    public String localStorage() {
-        return this.localStorage;
+    public Optional<String> localStorage() {
+        return Optional.ofNullable(this.localStorage);
     }
     /**
      * @return List of local storage type names.
      * 
      */
     public List<String> localStorageTypes() {
-        return this.localStorageTypes;
+        return this.localStorageTypes == null ? List.of() : this.localStorageTypes;
     }
     /**
      * @return List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus() {
-        return this.memoryGibPerVcpus;
+        return this.memoryGibPerVcpus == null ? List.of() : this.memoryGibPerVcpus;
     }
     /**
      * @return List of objects describing the minimum and maximum amount of memory (MiB).
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs() {
-        return this.memoryMibs;
+        return this.memoryMibs == null ? List.of() : this.memoryMibs;
     }
     /**
      * @return List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps() {
-        return this.networkBandwidthGbps;
+        return this.networkBandwidthGbps == null ? List.of() : this.networkBandwidthGbps;
     }
     /**
      * @return List of objects describing the minimum and maximum amount of network interfaces.
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts() {
-        return this.networkInterfaceCounts;
+        return this.networkInterfaceCounts == null ? List.of() : this.networkInterfaceCounts;
     }
     /**
      * @return Price protection threshold for On-Demand Instances.
      * 
      */
-    public Integer onDemandMaxPricePercentageOverLowestPrice() {
-        return this.onDemandMaxPricePercentageOverLowestPrice;
+    public Optional<Integer> onDemandMaxPricePercentageOverLowestPrice() {
+        return Optional.ofNullable(this.onDemandMaxPricePercentageOverLowestPrice);
     }
     /**
      * @return Indicates whether instance types must support On-Demand Instance Hibernation.
      * 
      */
-    public Boolean requireHibernateSupport() {
-        return this.requireHibernateSupport;
+    public Optional<Boolean> requireHibernateSupport() {
+        return Optional.ofNullable(this.requireHibernateSupport);
     }
     /**
      * @return Price protection threshold for Spot Instances.
      * 
      */
-    public Integer spotMaxPricePercentageOverLowestPrice() {
-        return this.spotMaxPricePercentageOverLowestPrice;
+    public Optional<Integer> spotMaxPricePercentageOverLowestPrice() {
+        return Optional.ofNullable(this.spotMaxPricePercentageOverLowestPrice);
     }
     /**
      * @return List of objects describing the minimum and maximum total storage (GB).
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs() {
-        return this.totalLocalStorageGbs;
+        return this.totalLocalStorageGbs == null ? List.of() : this.totalLocalStorageGbs;
     }
     /**
      * @return List of objects describing the minimum and maximum number of vCPUs.
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts() {
-        return this.vcpuCounts;
+        return this.vcpuCounts == null ? List.of() : this.vcpuCounts;
     }
 
     public static Builder builder() {
@@ -301,29 +303,29 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts;
-        private List<String> acceleratorManufacturers;
-        private List<String> acceleratorNames;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs;
-        private List<String> acceleratorTypes;
-        private List<String> allowedInstanceTypes;
-        private String bareMetal;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
-        private String burstablePerformance;
-        private List<String> cpuManufacturers;
-        private List<String> excludedInstanceTypes;
-        private List<String> instanceGenerations;
-        private String localStorage;
-        private List<String> localStorageTypes;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts;
-        private Integer onDemandMaxPricePercentageOverLowestPrice;
-        private Boolean requireHibernateSupport;
-        private Integer spotMaxPricePercentageOverLowestPrice;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs;
-        private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts;
+        private @Nullable List<String> acceleratorManufacturers;
+        private @Nullable List<String> acceleratorNames;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs;
+        private @Nullable List<String> acceleratorTypes;
+        private @Nullable List<String> allowedInstanceTypes;
+        private @Nullable String bareMetal;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
+        private @Nullable String burstablePerformance;
+        private @Nullable List<String> cpuManufacturers;
+        private @Nullable List<String> excludedInstanceTypes;
+        private @Nullable List<String> instanceGenerations;
+        private @Nullable String localStorage;
+        private @Nullable List<String> localStorageTypes;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts;
+        private @Nullable Integer onDemandMaxPricePercentageOverLowestPrice;
+        private @Nullable Boolean requireHibernateSupport;
+        private @Nullable Integer spotMaxPricePercentageOverLowestPrice;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs;
+        private @Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts;
         public Builder() {}
         public Builder(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -353,166 +355,166 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
 
         @CustomType.Setter
-        public Builder acceleratorCounts(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts) {
-            this.acceleratorCounts = Objects.requireNonNull(acceleratorCounts);
+        public Builder acceleratorCounts(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts) {
+            this.acceleratorCounts = acceleratorCounts;
             return this;
         }
         public Builder acceleratorCounts(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount... acceleratorCounts) {
             return acceleratorCounts(List.of(acceleratorCounts));
         }
         @CustomType.Setter
-        public Builder acceleratorManufacturers(List<String> acceleratorManufacturers) {
-            this.acceleratorManufacturers = Objects.requireNonNull(acceleratorManufacturers);
+        public Builder acceleratorManufacturers(@Nullable List<String> acceleratorManufacturers) {
+            this.acceleratorManufacturers = acceleratorManufacturers;
             return this;
         }
         public Builder acceleratorManufacturers(String... acceleratorManufacturers) {
             return acceleratorManufacturers(List.of(acceleratorManufacturers));
         }
         @CustomType.Setter
-        public Builder acceleratorNames(List<String> acceleratorNames) {
-            this.acceleratorNames = Objects.requireNonNull(acceleratorNames);
+        public Builder acceleratorNames(@Nullable List<String> acceleratorNames) {
+            this.acceleratorNames = acceleratorNames;
             return this;
         }
         public Builder acceleratorNames(String... acceleratorNames) {
             return acceleratorNames(List.of(acceleratorNames));
         }
         @CustomType.Setter
-        public Builder acceleratorTotalMemoryMibs(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs) {
-            this.acceleratorTotalMemoryMibs = Objects.requireNonNull(acceleratorTotalMemoryMibs);
+        public Builder acceleratorTotalMemoryMibs(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs) {
+            this.acceleratorTotalMemoryMibs = acceleratorTotalMemoryMibs;
             return this;
         }
         public Builder acceleratorTotalMemoryMibs(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib... acceleratorTotalMemoryMibs) {
             return acceleratorTotalMemoryMibs(List.of(acceleratorTotalMemoryMibs));
         }
         @CustomType.Setter
-        public Builder acceleratorTypes(List<String> acceleratorTypes) {
-            this.acceleratorTypes = Objects.requireNonNull(acceleratorTypes);
+        public Builder acceleratorTypes(@Nullable List<String> acceleratorTypes) {
+            this.acceleratorTypes = acceleratorTypes;
             return this;
         }
         public Builder acceleratorTypes(String... acceleratorTypes) {
             return acceleratorTypes(List.of(acceleratorTypes));
         }
         @CustomType.Setter
-        public Builder allowedInstanceTypes(List<String> allowedInstanceTypes) {
-            this.allowedInstanceTypes = Objects.requireNonNull(allowedInstanceTypes);
+        public Builder allowedInstanceTypes(@Nullable List<String> allowedInstanceTypes) {
+            this.allowedInstanceTypes = allowedInstanceTypes;
             return this;
         }
         public Builder allowedInstanceTypes(String... allowedInstanceTypes) {
             return allowedInstanceTypes(List.of(allowedInstanceTypes));
         }
         @CustomType.Setter
-        public Builder bareMetal(String bareMetal) {
-            this.bareMetal = Objects.requireNonNull(bareMetal);
+        public Builder bareMetal(@Nullable String bareMetal) {
+            this.bareMetal = bareMetal;
             return this;
         }
         @CustomType.Setter
-        public Builder baselineEbsBandwidthMbps(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps) {
-            this.baselineEbsBandwidthMbps = Objects.requireNonNull(baselineEbsBandwidthMbps);
+        public Builder baselineEbsBandwidthMbps(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps) {
+            this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             return this;
         }
         public Builder baselineEbsBandwidthMbps(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp... baselineEbsBandwidthMbps) {
             return baselineEbsBandwidthMbps(List.of(baselineEbsBandwidthMbps));
         }
         @CustomType.Setter
-        public Builder burstablePerformance(String burstablePerformance) {
-            this.burstablePerformance = Objects.requireNonNull(burstablePerformance);
+        public Builder burstablePerformance(@Nullable String burstablePerformance) {
+            this.burstablePerformance = burstablePerformance;
             return this;
         }
         @CustomType.Setter
-        public Builder cpuManufacturers(List<String> cpuManufacturers) {
-            this.cpuManufacturers = Objects.requireNonNull(cpuManufacturers);
+        public Builder cpuManufacturers(@Nullable List<String> cpuManufacturers) {
+            this.cpuManufacturers = cpuManufacturers;
             return this;
         }
         public Builder cpuManufacturers(String... cpuManufacturers) {
             return cpuManufacturers(List.of(cpuManufacturers));
         }
         @CustomType.Setter
-        public Builder excludedInstanceTypes(List<String> excludedInstanceTypes) {
-            this.excludedInstanceTypes = Objects.requireNonNull(excludedInstanceTypes);
+        public Builder excludedInstanceTypes(@Nullable List<String> excludedInstanceTypes) {
+            this.excludedInstanceTypes = excludedInstanceTypes;
             return this;
         }
         public Builder excludedInstanceTypes(String... excludedInstanceTypes) {
             return excludedInstanceTypes(List.of(excludedInstanceTypes));
         }
         @CustomType.Setter
-        public Builder instanceGenerations(List<String> instanceGenerations) {
-            this.instanceGenerations = Objects.requireNonNull(instanceGenerations);
+        public Builder instanceGenerations(@Nullable List<String> instanceGenerations) {
+            this.instanceGenerations = instanceGenerations;
             return this;
         }
         public Builder instanceGenerations(String... instanceGenerations) {
             return instanceGenerations(List.of(instanceGenerations));
         }
         @CustomType.Setter
-        public Builder localStorage(String localStorage) {
-            this.localStorage = Objects.requireNonNull(localStorage);
+        public Builder localStorage(@Nullable String localStorage) {
+            this.localStorage = localStorage;
             return this;
         }
         @CustomType.Setter
-        public Builder localStorageTypes(List<String> localStorageTypes) {
-            this.localStorageTypes = Objects.requireNonNull(localStorageTypes);
+        public Builder localStorageTypes(@Nullable List<String> localStorageTypes) {
+            this.localStorageTypes = localStorageTypes;
             return this;
         }
         public Builder localStorageTypes(String... localStorageTypes) {
             return localStorageTypes(List.of(localStorageTypes));
         }
         @CustomType.Setter
-        public Builder memoryGibPerVcpus(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus) {
-            this.memoryGibPerVcpus = Objects.requireNonNull(memoryGibPerVcpus);
+        public Builder memoryGibPerVcpus(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus) {
+            this.memoryGibPerVcpus = memoryGibPerVcpus;
             return this;
         }
         public Builder memoryGibPerVcpus(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus... memoryGibPerVcpus) {
             return memoryGibPerVcpus(List.of(memoryGibPerVcpus));
         }
         @CustomType.Setter
-        public Builder memoryMibs(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs) {
-            this.memoryMibs = Objects.requireNonNull(memoryMibs);
+        public Builder memoryMibs(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs) {
+            this.memoryMibs = memoryMibs;
             return this;
         }
         public Builder memoryMibs(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib... memoryMibs) {
             return memoryMibs(List.of(memoryMibs));
         }
         @CustomType.Setter
-        public Builder networkBandwidthGbps(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps) {
-            this.networkBandwidthGbps = Objects.requireNonNull(networkBandwidthGbps);
+        public Builder networkBandwidthGbps(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps) {
+            this.networkBandwidthGbps = networkBandwidthGbps;
             return this;
         }
         public Builder networkBandwidthGbps(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp... networkBandwidthGbps) {
             return networkBandwidthGbps(List.of(networkBandwidthGbps));
         }
         @CustomType.Setter
-        public Builder networkInterfaceCounts(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts) {
-            this.networkInterfaceCounts = Objects.requireNonNull(networkInterfaceCounts);
+        public Builder networkInterfaceCounts(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts) {
+            this.networkInterfaceCounts = networkInterfaceCounts;
             return this;
         }
         public Builder networkInterfaceCounts(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount... networkInterfaceCounts) {
             return networkInterfaceCounts(List.of(networkInterfaceCounts));
         }
         @CustomType.Setter
-        public Builder onDemandMaxPricePercentageOverLowestPrice(Integer onDemandMaxPricePercentageOverLowestPrice) {
-            this.onDemandMaxPricePercentageOverLowestPrice = Objects.requireNonNull(onDemandMaxPricePercentageOverLowestPrice);
+        public Builder onDemandMaxPricePercentageOverLowestPrice(@Nullable Integer onDemandMaxPricePercentageOverLowestPrice) {
+            this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
-        public Builder requireHibernateSupport(Boolean requireHibernateSupport) {
-            this.requireHibernateSupport = Objects.requireNonNull(requireHibernateSupport);
+        public Builder requireHibernateSupport(@Nullable Boolean requireHibernateSupport) {
+            this.requireHibernateSupport = requireHibernateSupport;
             return this;
         }
         @CustomType.Setter
-        public Builder spotMaxPricePercentageOverLowestPrice(Integer spotMaxPricePercentageOverLowestPrice) {
-            this.spotMaxPricePercentageOverLowestPrice = Objects.requireNonNull(spotMaxPricePercentageOverLowestPrice);
+        public Builder spotMaxPricePercentageOverLowestPrice(@Nullable Integer spotMaxPricePercentageOverLowestPrice) {
+            this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
-        public Builder totalLocalStorageGbs(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs) {
-            this.totalLocalStorageGbs = Objects.requireNonNull(totalLocalStorageGbs);
+        public Builder totalLocalStorageGbs(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs) {
+            this.totalLocalStorageGbs = totalLocalStorageGbs;
             return this;
         }
         public Builder totalLocalStorageGbs(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb... totalLocalStorageGbs) {
             return totalLocalStorageGbs(List.of(totalLocalStorageGbs));
         }
         @CustomType.Setter
-        public Builder vcpuCounts(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts) {
-            this.vcpuCounts = Objects.requireNonNull(vcpuCounts);
+        public Builder vcpuCounts(@Nullable List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts) {
+            this.vcpuCounts = vcpuCounts;
             return this;
         }
         public Builder vcpuCounts(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount... vcpuCounts) {

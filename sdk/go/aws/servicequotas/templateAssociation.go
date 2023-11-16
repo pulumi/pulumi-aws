@@ -54,7 +54,7 @@ type TemplateAssociation struct {
 
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewTemplateAssociation registers a new resource with the given unique name, arguments, and options.
@@ -203,8 +203,8 @@ func (o TemplateAssociationOutput) SkipDestroy() pulumi.BoolPtrOutput {
 }
 
 // Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
-func (o TemplateAssociationOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *TemplateAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o TemplateAssociationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateAssociation) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type TemplateAssociationArrayOutput struct{ *pulumi.OutputState }

@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         ClusterIdentifier = "test-primary-cluster",
     ///         MasterUsername = "username",
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         ClusterIdentifier = "test-secondary-cluster",
     ///         GlobalClusterIdentifier = example.Id,
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         ClusterIdentifier = "test-primary-cluster",
     ///         MasterUsername = "username",
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         ClusterIdentifier = "test-secondary-cluster",
     ///         GlobalClusterIdentifier = example.Id,
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Rds
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = "odessadnipro",
     ///         DatabaseName = "totoro",
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         GlobalClusterIdentifier = example.Id,
     ///         MasterPassword = "satsukimae",
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Rds
         /// RDS Global Cluster Amazon Resource Name (ARN)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name for an automatically created database on cluster creation.
@@ -284,16 +284,16 @@ namespace Pulumi.Aws.Rds
         /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         [Output("engineVersionActual")]
-        public Output<string> EngineVersionActual { get; private set; } = null!;
+        public Output<string?> EngineVersionActual { get; private set; } = null!;
 
         /// <summary>
         /// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
@@ -317,19 +317,19 @@ namespace Pulumi.Aws.Rds
         /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
         /// </summary>
         [Output("globalClusterResourceId")]
-        public Output<string> GlobalClusterResourceId { get; private set; } = null!;
+        public Output<string?> GlobalClusterResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         /// </summary>
         [Output("sourceDbClusterIdentifier")]
-        public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
+        public Output<string?> SourceDbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
-        public Output<bool> StorageEncrypted { get; private set; } = null!;
+        public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
 
         /// <summary>

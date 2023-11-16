@@ -67,7 +67,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DMS Event Subscription.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Whether the event subscription should be enabled.
      */

@@ -71,19 +71,19 @@ export class Mesh extends pulumi.CustomResource {
     /**
      * ARN of the service mesh.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Creation date of the service mesh.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string | undefined>;
     /**
      * Last update date of the service mesh.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID of the service mesh's owner.
      */
-    public /*out*/ readonly meshOwner!: pulumi.Output<string>;
+    public /*out*/ readonly meshOwner!: pulumi.Output<string | undefined>;
     /**
      * Name to use for the service mesh. Must be between 1 and 255 characters in length.
      */
@@ -91,7 +91,7 @@ export class Mesh extends pulumi.CustomResource {
     /**
      * Resource owner's AWS account ID.
      */
-    public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
+    public /*out*/ readonly resourceOwner!: pulumi.Output<string | undefined>;
     /**
      * Service mesh specification to apply.
      */

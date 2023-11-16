@@ -302,7 +302,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardArn")
-    def dashboard_arn(self) -> pulumi.Output[str]:
+    def dashboard_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the dashboard.
         """

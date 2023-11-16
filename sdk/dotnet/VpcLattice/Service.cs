@@ -47,13 +47,13 @@ namespace Pulumi.Aws.VpcLattice
         /// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Type of IAM policy. Either `NONE` or `AWS_IAM`.
         /// </summary>
         [Output("authType")]
-        public Output<string> AuthType { get; private set; } = null!;
+        public Output<string?> AuthType { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate.
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.VpcLattice
         /// Status of the service.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

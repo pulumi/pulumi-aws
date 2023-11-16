@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchConfigurationRootBlockDevice {
@@ -15,75 +17,75 @@ public final class GetLaunchConfigurationRootBlockDevice {
      * @return Whether the EBS Volume will be deleted on instance termination.
      * 
      */
-    private Boolean deleteOnTermination;
+    private @Nullable Boolean deleteOnTermination;
     /**
      * @return Whether the volume is Encrypted.
      * 
      */
-    private Boolean encrypted;
+    private @Nullable Boolean encrypted;
     /**
      * @return Provisioned IOPs of the volume.
      * 
      */
-    private Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return Throughput of the volume.
      * 
      */
-    private Integer throughput;
+    private @Nullable Integer throughput;
     /**
      * @return Size of the volume.
      * 
      */
-    private Integer volumeSize;
+    private @Nullable Integer volumeSize;
     /**
      * @return Type of the volume.
      * 
      */
-    private String volumeType;
+    private @Nullable String volumeType;
 
     private GetLaunchConfigurationRootBlockDevice() {}
     /**
      * @return Whether the EBS Volume will be deleted on instance termination.
      * 
      */
-    public Boolean deleteOnTermination() {
-        return this.deleteOnTermination;
+    public Optional<Boolean> deleteOnTermination() {
+        return Optional.ofNullable(this.deleteOnTermination);
     }
     /**
      * @return Whether the volume is Encrypted.
      * 
      */
-    public Boolean encrypted() {
-        return this.encrypted;
+    public Optional<Boolean> encrypted() {
+        return Optional.ofNullable(this.encrypted);
     }
     /**
      * @return Provisioned IOPs of the volume.
      * 
      */
-    public Integer iops() {
-        return this.iops;
+    public Optional<Integer> iops() {
+        return Optional.ofNullable(this.iops);
     }
     /**
      * @return Throughput of the volume.
      * 
      */
-    public Integer throughput() {
-        return this.throughput;
+    public Optional<Integer> throughput() {
+        return Optional.ofNullable(this.throughput);
     }
     /**
      * @return Size of the volume.
      * 
      */
-    public Integer volumeSize() {
-        return this.volumeSize;
+    public Optional<Integer> volumeSize() {
+        return Optional.ofNullable(this.volumeSize);
     }
     /**
      * @return Type of the volume.
      * 
      */
-    public String volumeType() {
-        return this.volumeType;
+    public Optional<String> volumeType() {
+        return Optional.ofNullable(this.volumeType);
     }
 
     public static Builder builder() {
@@ -95,12 +97,12 @@ public final class GetLaunchConfigurationRootBlockDevice {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean deleteOnTermination;
-        private Boolean encrypted;
-        private Integer iops;
-        private Integer throughput;
-        private Integer volumeSize;
-        private String volumeType;
+        private @Nullable Boolean deleteOnTermination;
+        private @Nullable Boolean encrypted;
+        private @Nullable Integer iops;
+        private @Nullable Integer throughput;
+        private @Nullable Integer volumeSize;
+        private @Nullable String volumeType;
         public Builder() {}
         public Builder(GetLaunchConfigurationRootBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,33 +115,33 @@ public final class GetLaunchConfigurationRootBlockDevice {
         }
 
         @CustomType.Setter
-        public Builder deleteOnTermination(Boolean deleteOnTermination) {
-            this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
+        public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+            this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+        public Builder encrypted(@Nullable Boolean encrypted) {
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+        public Builder iops(@Nullable Integer iops) {
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
-        public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+        public Builder throughput(@Nullable Integer throughput) {
+            this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+        public Builder volumeSize(@Nullable Integer volumeSize) {
+            this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeType(String volumeType) {
-            this.volumeType = Objects.requireNonNull(volumeType);
+        public Builder volumeType(@Nullable String volumeType) {
+            this.volumeType = volumeType;
             return this;
         }
         public GetLaunchConfigurationRootBlockDevice build() {

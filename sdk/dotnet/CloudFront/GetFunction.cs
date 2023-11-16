@@ -120,59 +120,59 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// ARN identifying your CloudFront Function.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Source code of the function
         /// </summary>
-        public readonly string Code;
+        public readonly string? Code;
         /// <summary>
         /// Comment.
         /// </summary>
-        public readonly string Comment;
+        public readonly string? Comment;
         /// <summary>
         /// ETag hash of the function
         /// </summary>
-        public readonly string Etag;
+        public readonly string? Etag;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// When this resource was last modified.
         /// </summary>
-        public readonly string LastModifiedTime;
+        public readonly string? LastModifiedTime;
         public readonly string Name;
         /// <summary>
         /// Identifier of the function's runtime.
         /// </summary>
-        public readonly string Runtime;
+        public readonly string? Runtime;
         public readonly string Stage;
         /// <summary>
         /// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetFunctionResult(
-            string arn,
+            string? arn,
 
-            string code,
+            string? code,
 
-            string comment,
+            string? comment,
 
-            string etag,
+            string? etag,
 
-            string id,
+            string? id,
 
-            string lastModifiedTime,
+            string? lastModifiedTime,
 
             string name,
 
-            string runtime,
+            string? runtime,
 
             string stage,
 
-            string status)
+            string? status)
         {
             Arn = arn;
             Code = code;

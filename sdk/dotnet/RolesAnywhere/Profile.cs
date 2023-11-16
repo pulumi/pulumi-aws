@@ -76,13 +76,13 @@ namespace Pulumi.Aws.RolesAnywhere
         /// Amazon Resource Name (ARN) of the Profile
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
         /// </summary>
         [Output("durationSeconds")]
-        public Output<int> DurationSeconds { get; private set; } = null!;
+        public Output<int?> DurationSeconds { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not the Profile is enabled.

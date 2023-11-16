@@ -64,19 +64,19 @@ export interface GetSdkResult {
     /**
      * SDK as a string.
      */
-    readonly body: string;
+    readonly body?: string;
     /**
      * Content-disposition header value in the HTTP response.
      */
-    readonly contentDisposition: string;
+    readonly contentDisposition?: string;
     /**
      * Content-type header value in the HTTP response.
      */
-    readonly contentType: string;
+    readonly contentType?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly parameters?: {[key: string]: string};
     readonly restApiId: string;
     readonly sdkType: string;

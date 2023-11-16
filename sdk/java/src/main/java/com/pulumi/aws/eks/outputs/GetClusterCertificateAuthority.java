@@ -6,6 +6,8 @@ package com.pulumi.aws.eks.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterCertificateAuthority {
@@ -13,15 +15,15 @@ public final class GetClusterCertificateAuthority {
      * @return The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
      * 
      */
-    private String data;
+    private @Nullable String data;
 
     private GetClusterCertificateAuthority() {}
     /**
      * @return The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
      * 
      */
-    public String data() {
-        return this.data;
+    public Optional<String> data() {
+        return Optional.ofNullable(this.data);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetClusterCertificateAuthority {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String data;
+        private @Nullable String data;
         public Builder() {}
         public Builder(GetClusterCertificateAuthority defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetClusterCertificateAuthority {
         }
 
         @CustomType.Setter
-        public Builder data(String data) {
-            this.data = Objects.requireNonNull(data);
+        public Builder data(@Nullable String data) {
+            this.data = data;
             return this;
         }
         public GetClusterCertificateAuthority build() {

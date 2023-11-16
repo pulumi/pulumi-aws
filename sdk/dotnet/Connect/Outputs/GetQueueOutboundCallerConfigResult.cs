@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// Specifies the caller ID name.
         /// </summary>
-        public readonly string OutboundCallerIdName;
+        public readonly string? OutboundCallerIdName;
         /// <summary>
         /// Specifies the caller ID number.
         /// </summary>
-        public readonly string OutboundCallerIdNumberId;
+        public readonly string? OutboundCallerIdNumberId;
         /// <summary>
         /// Outbound whisper flow to be used during an outbound call.
         /// </summary>
-        public readonly string OutboundFlowId;
+        public readonly string? OutboundFlowId;
 
         [OutputConstructor]
         private GetQueueOutboundCallerConfigResult(
-            string outboundCallerIdName,
+            string? outboundCallerIdName,
 
-            string outboundCallerIdNumberId,
+            string? outboundCallerIdNumberId,
 
-            string outboundFlowId)
+            string? outboundFlowId)
         {
             OutboundCallerIdName = outboundCallerIdName;
             OutboundCallerIdNumberId = outboundCallerIdNumberId;

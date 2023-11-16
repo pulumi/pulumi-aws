@@ -86,7 +86,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
     /**
      * The AWS account ID for the user pool owner.
      */
-    public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      */
@@ -94,15 +94,15 @@ export class UserPoolDomain extends pulumi.CustomResource {
     /**
      * The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
      */
-    public /*out*/ readonly cloudfrontDistribution!: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDistribution!: pulumi.Output<string | undefined>;
     /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
-    public /*out*/ readonly cloudfrontDistributionArn!: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDistributionArn!: pulumi.Output<string | undefined>;
     /**
      * The Route 53 hosted zone ID of the CloudFront distribution.
      */
-    public /*out*/ readonly cloudfrontDistributionZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDistributionZoneId!: pulumi.Output<string | undefined>;
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */
@@ -110,7 +110,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
     /**
      * The S3 bucket where the static files for this domain are stored.
      */
-    public /*out*/ readonly s3Bucket!: pulumi.Output<string>;
+    public /*out*/ readonly s3Bucket!: pulumi.Output<string | undefined>;
     /**
      * The user pool ID.
      */
@@ -118,7 +118,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
     /**
      * The app version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a UserPoolDomain resource with the given unique name, arguments, and options.

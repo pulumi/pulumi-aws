@@ -39,7 +39,7 @@ class GetAmiIdsResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         List of the Autoscaling Groups Arns in the current region.
         """
@@ -52,7 +52,7 @@ class GetAmiIdsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -60,7 +60,7 @@ class GetAmiIdsResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         List of the Autoscaling Groups in the current region.
         """

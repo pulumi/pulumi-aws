@@ -17,14 +17,14 @@ public final class GetAddonVersionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String kubernetesVersion;
     private @Nullable Boolean mostRecent;
     /**
      * @return Version of the EKS add-on.
      * 
      */
-    private String version;
+    private @Nullable String version;
 
     private GetAddonVersionResult() {}
     public String addonName() {
@@ -34,8 +34,8 @@ public final class GetAddonVersionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String kubernetesVersion() {
         return this.kubernetesVersion;
@@ -47,8 +47,8 @@ public final class GetAddonVersionResult {
      * @return Version of the EKS add-on.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -61,10 +61,10 @@ public final class GetAddonVersionResult {
     @CustomType.Builder
     public static final class Builder {
         private String addonName;
-        private String id;
+        private @Nullable String id;
         private String kubernetesVersion;
         private @Nullable Boolean mostRecent;
-        private String version;
+        private @Nullable String version;
         public Builder() {}
         public Builder(GetAddonVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -81,8 +81,8 @@ public final class GetAddonVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -96,8 +96,8 @@ public final class GetAddonVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         public GetAddonVersionResult build() {

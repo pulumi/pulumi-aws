@@ -70,10 +70,10 @@ type GetExportArgs struct {
 type GetExportResult struct {
 	ApiId string `pulumi:"apiId"`
 	// ID of the API.
-	Body          string  `pulumi:"body"`
+	Body          *string `pulumi:"body"`
 	ExportVersion *string `pulumi:"exportVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string  `pulumi:"id"`
+	Id                *string `pulumi:"id"`
 	IncludeExtensions *bool   `pulumi:"includeExtensions"`
 	OutputType        string  `pulumi:"outputType"`
 	Specification     string  `pulumi:"specification"`
@@ -133,8 +133,8 @@ func (o GetExportResultOutput) ApiId() pulumi.StringOutput {
 }
 
 // ID of the API.
-func (o GetExportResultOutput) Body() pulumi.StringOutput {
-	return o.ApplyT(func(v GetExportResult) string { return v.Body }).(pulumi.StringOutput)
+func (o GetExportResultOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetExportResult) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
 func (o GetExportResultOutput) ExportVersion() pulumi.StringPtrOutput {
@@ -142,8 +142,8 @@ func (o GetExportResultOutput) ExportVersion() pulumi.StringPtrOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetExportResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetExportResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetExportResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetExportResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetExportResultOutput) IncludeExtensions() pulumi.BoolPtrOutput {

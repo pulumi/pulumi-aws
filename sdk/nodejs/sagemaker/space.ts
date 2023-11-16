@@ -62,7 +62,7 @@ export class Space extends pulumi.CustomResource {
     /**
      * The space's Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the associated Domain.
      */
@@ -70,7 +70,7 @@ export class Space extends pulumi.CustomResource {
     /**
      * The ID of the space's profile in the Amazon Elastic File System volume.
      */
-    public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string>;
+    public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string | undefined>;
     /**
      * The name of the space.
      */

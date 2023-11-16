@@ -209,7 +209,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of the Autoscaling Groups in the current region.
         /// </summary>
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.AutoScaling
 
             ImmutableArray<Outputs.GetAmiIdsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> names)
         {

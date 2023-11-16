@@ -106,11 +106,11 @@ type Preset struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Audio parameters object (documented below).
 	Audio PresetAudioPtrOutput `pulumi:"audio"`
 	// Codec options for the audio parameters (documented below)
-	AudioCodecOptions PresetAudioCodecOptionsOutput `pulumi:"audioCodecOptions"`
+	AudioCodecOptions PresetAudioCodecOptionsPtrOutput `pulumi:"audioCodecOptions"`
 	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
 	Container pulumi.StringOutput `pulumi:"container"`
 	// A description of the preset (maximum 255 characters)
@@ -119,7 +119,7 @@ type Preset struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrOutput `pulumi:"thumbnails"`
-	Type       pulumi.StringOutput       `pulumi:"type"`
+	Type       pulumi.StringPtrOutput    `pulumi:"type"`
 	// Video parameters object (documented below)
 	Video PresetVideoPtrOutput `pulumi:"video"`
 	// Codec options for the video parameters
@@ -345,8 +345,8 @@ func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutpu
 }
 
 // Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-func (o PresetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o PresetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Preset) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Audio parameters object (documented below).
@@ -355,8 +355,8 @@ func (o PresetOutput) Audio() PresetAudioPtrOutput {
 }
 
 // Codec options for the audio parameters (documented below)
-func (o PresetOutput) AudioCodecOptions() PresetAudioCodecOptionsOutput {
-	return o.ApplyT(func(v *Preset) PresetAudioCodecOptionsOutput { return v.AudioCodecOptions }).(PresetAudioCodecOptionsOutput)
+func (o PresetOutput) AudioCodecOptions() PresetAudioCodecOptionsPtrOutput {
+	return o.ApplyT(func(v *Preset) PresetAudioCodecOptionsPtrOutput { return v.AudioCodecOptions }).(PresetAudioCodecOptionsPtrOutput)
 }
 
 // The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
@@ -379,8 +379,8 @@ func (o PresetOutput) Thumbnails() PresetThumbnailsPtrOutput {
 	return o.ApplyT(func(v *Preset) PresetThumbnailsPtrOutput { return v.Thumbnails }).(PresetThumbnailsPtrOutput)
 }
 
-func (o PresetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o PresetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Preset) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Video parameters object (documented below)

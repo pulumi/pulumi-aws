@@ -48,13 +48,13 @@ namespace Pulumi.Aws.Detective
         /// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the Detective Graph.
         /// </summary>
         [Output("graphArn")]
-        public Output<string> GraphArn { get; private set; } = null!;
+        public Output<string?> GraphArn { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

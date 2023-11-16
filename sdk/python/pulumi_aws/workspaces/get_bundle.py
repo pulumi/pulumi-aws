@@ -58,7 +58,7 @@ class GetBundleResult:
 
     @property
     @pulumi.getter(name="computeTypes")
-    def compute_types(self) -> Sequence['outputs.GetBundleComputeTypeResult']:
+    def compute_types(self) -> Optional[Sequence['outputs.GetBundleComputeTypeResult']]:
         """
         The compute type. See supported fields below.
         """
@@ -66,7 +66,7 @@ class GetBundleResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         The description of the bundle.
         """
@@ -74,7 +74,7 @@ class GetBundleResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -98,7 +98,7 @@ class GetBundleResult:
 
     @property
     @pulumi.getter(name="rootStorages")
-    def root_storages(self) -> Sequence['outputs.GetBundleRootStorageResult']:
+    def root_storages(self) -> Optional[Sequence['outputs.GetBundleRootStorageResult']]:
         """
         The root volume. See supported fields below.
         """
@@ -106,7 +106,7 @@ class GetBundleResult:
 
     @property
     @pulumi.getter(name="userStorages")
-    def user_storages(self) -> Sequence['outputs.GetBundleUserStorageResult']:
+    def user_storages(self) -> Optional[Sequence['outputs.GetBundleUserStorageResult']]:
         """
         The user storage. See supported fields below.
         """

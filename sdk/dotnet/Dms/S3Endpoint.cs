@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Dms
         /// ARN for the certificate.
         /// </summary>
         [Output("certificateArn")]
-        public Output<string> CertificateArn { get; private set; } = null!;
+        public Output<string?> CertificateArn { get; private set; } = null!;
 
         /// <summary>
         /// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Dms
         /// ARN for the endpoint.
         /// </summary>
         [Output("endpointArn")]
-        public Output<string> EndpointArn { get; private set; } = null!;
+        public Output<string?> EndpointArn { get; private set; } = null!;
 
         /// <summary>
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Dms
         /// Expanded name for the engine name.
         /// </summary>
         [Output("engineDisplayName")]
-        public Output<string> EngineDisplayName { get; private set; } = null!;
+        public Output<string?> EngineDisplayName { get; private set; } = null!;
 
         /// <summary>
         /// Bucket owner to prevent sniping. Value is an AWS account ID.
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.Dms
         /// Can be used for cross-account validation. Use it in another account with `aws.dms.S3Endpoint` to create the endpoint cross-account.
         /// </summary>
         [Output("externalId")]
-        public Output<string> ExternalId { get; private set; } = null!;
+        public Output<string?> ExternalId { get; private set; } = null!;
 
         /// <summary>
         /// JSON document that describes how AWS DMS should interpret the data.
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.Dms
         /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Output("kmsKeyArn")]
-        public Output<string> KmsKeyArn { get; private set; } = null!;
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
@@ -411,13 +411,13 @@ namespace Pulumi.Aws.Dms
         /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         /// </summary>
         [Output("sslMode")]
-        public Output<string> SslMode { get; private set; } = null!;
+        public Output<string?> SslMode { get; private set; } = null!;
 
         /// <summary>
         /// Status of the endpoint.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

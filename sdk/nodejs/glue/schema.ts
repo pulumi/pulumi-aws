@@ -61,7 +61,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the schema.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      */
@@ -77,23 +77,23 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The latest version of the schema associated with the returned schema definition.
      */
-    public /*out*/ readonly latestSchemaVersion!: pulumi.Output<number>;
+    public /*out*/ readonly latestSchemaVersion!: pulumi.Output<number | undefined>;
     /**
      * The next version of the schema associated with the returned schema definition.
      */
-    public /*out*/ readonly nextSchemaVersion!: pulumi.Output<number>;
+    public /*out*/ readonly nextSchemaVersion!: pulumi.Output<number | undefined>;
     /**
      * The ARN of the Glue Registry to create the schema in.
      */
-    public readonly registryArn!: pulumi.Output<string>;
+    public readonly registryArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the Glue Registry.
      */
-    public /*out*/ readonly registryName!: pulumi.Output<string>;
+    public /*out*/ readonly registryName!: pulumi.Output<string | undefined>;
     /**
      * The version number of the checkpoint (the last time the compatibility mode was changed).
      */
-    public /*out*/ readonly schemaCheckpoint!: pulumi.Output<number>;
+    public /*out*/ readonly schemaCheckpoint!: pulumi.Output<number | undefined>;
     /**
      * The schema definition using the `dataFormat` setting for `schemaName`.
      */

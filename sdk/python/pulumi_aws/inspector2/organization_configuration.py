@@ -206,7 +206,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxAccountLimitReached")
-    def max_account_limit_reached(self) -> pulumi.Output[bool]:
+    def max_account_limit_reached(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether your configuration reached the max account limit.
         """

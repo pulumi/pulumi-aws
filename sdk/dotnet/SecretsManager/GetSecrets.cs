@@ -141,7 +141,7 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of names of the matched Secrets Manager secrets.
         /// </summary>
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.SecretsManager
 
             ImmutableArray<Outputs.GetSecretsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> names)
         {

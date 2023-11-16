@@ -116,53 +116,53 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// ARN of the certificate.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Type of certificate. For example, `CA`.
         /// </summary>
-        public readonly string CertificateType;
+        public readonly string? CertificateType;
         /// <summary>
         /// Boolean whether there is an override for the default certificate identifier.
         /// </summary>
-        public readonly bool CustomerOverride;
+        public readonly bool? CustomerOverride;
         /// <summary>
         /// If there is an override for the default certificate identifier, when the override expires.
         /// </summary>
-        public readonly string CustomerOverrideValidTill;
-        public readonly string Id;
+        public readonly string? CustomerOverrideValidTill;
+        public readonly string? Id;
         public readonly bool? LatestValidTill;
         /// <summary>
         /// Thumbprint of the certificate.
         /// </summary>
-        public readonly string Thumbprint;
+        public readonly string? Thumbprint;
         /// <summary>
         /// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
         /// </summary>
-        public readonly string ValidFrom;
+        public readonly string? ValidFrom;
         /// <summary>
         /// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
         /// </summary>
-        public readonly string ValidTill;
+        public readonly string? ValidTill;
 
         [OutputConstructor]
         private GetCertificateResult(
-            string arn,
+            string? arn,
 
-            string certificateType,
+            string? certificateType,
 
-            bool customerOverride,
+            bool? customerOverride,
 
-            string customerOverrideValidTill,
+            string? customerOverrideValidTill,
 
-            string id,
+            string? id,
 
             bool? latestValidTill,
 
-            string thumbprint,
+            string? thumbprint,
 
-            string validFrom,
+            string? validFrom,
 
-            string validTill)
+            string? validTill)
         {
             Arn = arn;
             CertificateType = certificateType;

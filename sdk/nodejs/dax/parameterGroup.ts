@@ -75,7 +75,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * The parameters of the parameter group.
      */
-    public readonly parameters!: pulumi.Output<outputs.dax.ParameterGroupParameter[]>;
+    public readonly parameters!: pulumi.Output<outputs.dax.ParameterGroupParameter[] | undefined>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.

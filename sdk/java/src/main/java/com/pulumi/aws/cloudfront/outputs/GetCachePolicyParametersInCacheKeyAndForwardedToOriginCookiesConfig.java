@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
@@ -15,27 +17,27 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookies
      * @return Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
      * 
      */
-    private String cookieBehavior;
+    private @Nullable String cookieBehavior;
     /**
      * @return Object that contains a list of cookie names. See Items for more information.
      * 
      */
-    private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie> cookies;
+    private @Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie> cookies;
 
     private GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig() {}
     /**
      * @return Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
      * 
      */
-    public String cookieBehavior() {
-        return this.cookieBehavior;
+    public Optional<String> cookieBehavior() {
+        return Optional.ofNullable(this.cookieBehavior);
     }
     /**
      * @return Object that contains a list of cookie names. See Items for more information.
      * 
      */
     public List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie> cookies() {
-        return this.cookies;
+        return this.cookies == null ? List.of() : this.cookies;
     }
 
     public static Builder builder() {
@@ -47,8 +49,8 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookies
     }
     @CustomType.Builder
     public static final class Builder {
-        private String cookieBehavior;
-        private List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie> cookies;
+        private @Nullable String cookieBehavior;
+        private @Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie> cookies;
         public Builder() {}
         public Builder(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,13 +59,13 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookies
         }
 
         @CustomType.Setter
-        public Builder cookieBehavior(String cookieBehavior) {
-            this.cookieBehavior = Objects.requireNonNull(cookieBehavior);
+        public Builder cookieBehavior(@Nullable String cookieBehavior) {
+            this.cookieBehavior = cookieBehavior;
             return this;
         }
         @CustomType.Setter
-        public Builder cookies(List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie> cookies) {
-            this.cookies = Objects.requireNonNull(cookies);
+        public Builder cookies(@Nullable List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie> cookies) {
+            this.cookies = cookies;
             return this;
         }
         public Builder cookies(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie... cookies) {

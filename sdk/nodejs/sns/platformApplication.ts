@@ -93,7 +93,7 @@ export class PlatformApplication extends pulumi.CustomResource {
     /**
      * The ARN of the SNS platform application
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */

@@ -166,16 +166,16 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? InstanceType;
         /// <summary>
         /// Most recent Spot Price value for the given instance type and AZ.
         /// </summary>
-        public readonly string SpotPrice;
+        public readonly string? SpotPrice;
         /// <summary>
         /// The timestamp at which the Spot Price value was published.
         /// </summary>
-        public readonly string SpotPriceTimestamp;
+        public readonly string? SpotPriceTimestamp;
 
         [OutputConstructor]
         private GetSpotPriceResult(
@@ -183,13 +183,13 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetSpotPriceFilterResult> filters,
 
-            string id,
+            string? id,
 
             string? instanceType,
 
-            string spotPrice,
+            string? spotPrice,
 
-            string spotPriceTimestamp)
+            string? spotPriceTimestamp)
         {
             AvailabilityZone = availabilityZone;
             Filters = filters;

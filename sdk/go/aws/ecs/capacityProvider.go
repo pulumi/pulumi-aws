@@ -77,7 +77,7 @@ type CapacityProvider struct {
 	pulumi.CustomResourceState
 
 	// ARN that identifies the capacity provider.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
 	// Name of the capacity provider.
@@ -267,8 +267,8 @@ func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.
 }
 
 // ARN that identifies the capacity provider.
-func (o CapacityProviderOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CapacityProviderOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the provider for the ECS auto scaling group. Detailed below.

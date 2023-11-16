@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// Whether to use documents you indexed directly using the `BatchPutDocument API`.
         /// </summary>
-        public readonly bool DirectPutContent;
+        public readonly bool? DirectPutContent;
         /// <summary>
         /// Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         private GetExperienceConfigurationContentSourceConfigurationResult(
             ImmutableArray<string> dataSourceIds,
 
-            bool directPutContent,
+            bool? directPutContent,
 
             ImmutableArray<string> faqIds)
         {

@@ -188,7 +188,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Integration's cache namespace.
         /// </summary>
         [Output("cacheNamespace")]
-        public Output<string> CacheNamespace { get; private set; } = null!;
+        public Output<string?> CacheNamespace { get; private set; } = null!;
 
         /// <summary>
         /// ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         /// </summary>
         [Output("passthroughBehavior")]
-        public Output<string> PassthroughBehavior { get; private set; } = null!;
+        public Output<string?> PassthroughBehavior { get; private set; } = null!;
 
         /// <summary>
         /// Map of request query string parameters and headers that should be passed to the backend responder.

@@ -59,11 +59,11 @@ export interface GetRouteTableRoutesResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * List of Transit Gateway Routes.
      */
-    readonly routes: outputs.ec2transitgateway.GetRouteTableRoutesRoute[];
+    readonly routes?: outputs.ec2transitgateway.GetRouteTableRoutesRoute[];
     readonly transitGatewayRouteTableId: string;
 }
 /**

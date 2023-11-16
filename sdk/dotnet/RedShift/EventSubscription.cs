@@ -71,13 +71,13 @@ namespace Pulumi.Aws.RedShift
         /// Amazon Resource Name (ARN) of the Redshift event notification subscription
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS customer account associated with the Redshift event notification subscription
         /// </summary>
         [Output("customerAwsId")]
-        public Output<string> CustomerAwsId { get; private set; } = null!;
+        public Output<string?> CustomerAwsId { get; private set; } = null!;
 
         /// <summary>
         /// A boolean flag to enable/disable the subscription. Defaults to `true`.
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> SourceType { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

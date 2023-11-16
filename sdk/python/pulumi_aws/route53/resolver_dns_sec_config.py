@@ -244,7 +244,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for a configuration for DNSSEC validation.
         """
@@ -252,7 +252,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
         """
@@ -268,7 +268,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationStatus")
-    def validation_status(self) -> pulumi.Output[str]:
+    def validation_status(self) -> pulumi.Output[Optional[str]]:
         """
         The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         """

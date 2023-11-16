@@ -16,17 +16,17 @@ namespace Pulumi.Aws.DataPipeline.Outputs
         /// <summary>
         /// Field identifier.
         /// </summary>
-        public readonly string Key;
+        public readonly string? Key;
         /// <summary>
         /// Field value, expressed as a String.
         /// </summary>
-        public readonly string StringValue;
+        public readonly string? StringValue;
 
         [OutputConstructor]
         private GetPipelineDefinitionParameterObjectAttributeResult(
-            string key,
+            string? key,
 
-            string stringValue)
+            string? stringValue)
         {
             Key = key;
             StringValue = stringValue;

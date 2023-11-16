@@ -48,23 +48,23 @@ export class Group extends pulumi.CustomResource {
     /**
      * Timestamp when the access group was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * Timestamp when the access group was deleted.
      */
-    public /*out*/ readonly deletionTime!: pulumi.Output<string>;
+    public /*out*/ readonly deletionTime!: pulumi.Output<string | undefined>;
     /**
      * Description of the verified access group.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Timestamp when the access group was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * AWS account number owning this resource.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string | undefined>;
     public readonly policyDocument!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -77,11 +77,11 @@ export class Group extends pulumi.CustomResource {
     /**
      * ARN of this verified acess group.
      */
-    public /*out*/ readonly verifiedaccessGroupArn!: pulumi.Output<string>;
+    public /*out*/ readonly verifiedaccessGroupArn!: pulumi.Output<string | undefined>;
     /**
      * ID of this verified access group.
      */
-    public /*out*/ readonly verifiedaccessGroupId!: pulumi.Output<string>;
+    public /*out*/ readonly verifiedaccessGroupId!: pulumi.Output<string | undefined>;
     /**
      * The id of the verified access instance this group is associated with.
      *

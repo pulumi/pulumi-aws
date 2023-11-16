@@ -1086,7 +1086,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the network interface.
         """
@@ -1094,7 +1094,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attachments(self) -> pulumi.Output[Sequence['outputs.NetworkInterfaceAttachment']]:
+    def attachments(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInterfaceAttachment']]]:
         """
         Configuration block to define the attachment of the ENI. See Attachment below for more details!
         """
@@ -1110,7 +1110,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="interfaceType")
-    def interface_type(self) -> pulumi.Output[str]:
+    def interface_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         """
@@ -1118,7 +1118,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv4PrefixCount")
-    def ipv4_prefix_count(self) -> pulumi.Output[int]:
+    def ipv4_prefix_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         """
@@ -1126,7 +1126,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv4Prefixes")
-    def ipv4_prefixes(self) -> pulumi.Output[Sequence[str]]:
+    def ipv4_prefixes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         One or more IPv4 prefixes assigned to the network interface.
         """
@@ -1134,7 +1134,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6AddressCount")
-    def ipv6_address_count(self) -> pulumi.Output[int]:
+    def ipv6_address_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         """
@@ -1150,7 +1150,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6AddressLists")
-    def ipv6_address_lists(self) -> pulumi.Output[Sequence[str]]:
+    def ipv6_address_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of private IPs to assign to the ENI in sequential order.
         """
@@ -1158,7 +1158,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> pulumi.Output[Sequence[str]]:
+    def ipv6_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         """
@@ -1166,7 +1166,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6PrefixCount")
-    def ipv6_prefix_count(self) -> pulumi.Output[int]:
+    def ipv6_prefix_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         """
@@ -1174,7 +1174,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Prefixes")
-    def ipv6_prefixes(self) -> pulumi.Output[Sequence[str]]:
+    def ipv6_prefixes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         One or more IPv6 prefixes assigned to the network interface.
         """
@@ -1182,7 +1182,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> pulumi.Output[str]:
+    def mac_address(self) -> pulumi.Output[Optional[str]]:
         """
         MAC address of the network interface.
         """
@@ -1190,12 +1190,12 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> pulumi.Output[str]:
+    def outpost_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> pulumi.Output[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID of the owner of the network interface.
         """
@@ -1203,7 +1203,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsName")
-    def private_dns_name(self) -> pulumi.Output[str]:
+    def private_dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         Private DNS name of the network interface (IPv4).
         """
@@ -1211,7 +1211,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> pulumi.Output[str]:
+    def private_ip(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "private_ip")
 
     @property
@@ -1224,7 +1224,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpLists")
-    def private_ip_lists(self) -> pulumi.Output[Sequence[str]]:
+    def private_ip_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         """
@@ -1232,7 +1232,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIps")
-    def private_ips(self) -> pulumi.Output[Sequence[str]]:
+    def private_ips(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of private IPs to assign to the ENI without regard to order.
         """
@@ -1240,7 +1240,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpsCount")
-    def private_ips_count(self) -> pulumi.Output[int]:
+    def private_ips_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         """
@@ -1248,7 +1248,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> pulumi.Output[Sequence[str]]:
+    def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of security group IDs to assign to the ENI.
         """

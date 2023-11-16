@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -81,14 +82,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN assigned by AWS to the autoscaling schedule.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The name of the Auto Scaling group.
@@ -109,70 +110,70 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="desiredCapacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> desiredCapacity;
+    private Output</* @Nullable */ Integer> desiredCapacity;
 
     /**
      * @return The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don&#39;t want to change the desired capacity at the scheduled time. Defaults to `0`.
      * 
      */
-    public Output<Integer> desiredCapacity() {
-        return this.desiredCapacity;
+    public Output<Optional<Integer>> desiredCapacity() {
+        return Codegen.optional(this.desiredCapacity);
     }
     /**
      * The date and time for the recurring schedule to end, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
      * 
      */
     @Export(name="endTime", refs={String.class}, tree="[0]")
-    private Output<String> endTime;
+    private Output</* @Nullable */ String> endTime;
 
     /**
      * @return The date and time for the recurring schedule to end, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
      * 
      */
-    public Output<String> endTime() {
-        return this.endTime;
+    public Output<Optional<String>> endTime() {
+        return Codegen.optional(this.endTime);
     }
     /**
      * The maximum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the maximum size at the scheduled time. Defaults to `0`.
      * 
      */
     @Export(name="maxSize", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maxSize;
+    private Output</* @Nullable */ Integer> maxSize;
 
     /**
      * @return The maximum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the maximum size at the scheduled time. Defaults to `0`.
      * 
      */
-    public Output<Integer> maxSize() {
-        return this.maxSize;
+    public Output<Optional<Integer>> maxSize() {
+        return Codegen.optional(this.maxSize);
     }
     /**
      * The minimum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the minimum size at the scheduled time. Defaults to `0`.
      * 
      */
     @Export(name="minSize", refs={Integer.class}, tree="[0]")
-    private Output<Integer> minSize;
+    private Output</* @Nullable */ Integer> minSize;
 
     /**
      * @return The minimum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the minimum size at the scheduled time. Defaults to `0`.
      * 
      */
-    public Output<Integer> minSize() {
-        return this.minSize;
+    public Output<Optional<Integer>> minSize() {
+        return Codegen.optional(this.minSize);
     }
     /**
      * The recurring schedule for this action specified using the Unix cron syntax format.
      * 
      */
     @Export(name="recurrence", refs={String.class}, tree="[0]")
-    private Output<String> recurrence;
+    private Output</* @Nullable */ String> recurrence;
 
     /**
      * @return The recurring schedule for this action specified using the Unix cron syntax format.
      * 
      */
-    public Output<String> recurrence() {
-        return this.recurrence;
+    public Output<Optional<String>> recurrence() {
+        return Codegen.optional(this.recurrence);
     }
     /**
      * The name of this scaling action.
@@ -197,14 +198,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="startTime", refs={String.class}, tree="[0]")
-    private Output<String> startTime;
+    private Output</* @Nullable */ String> startTime;
 
     /**
      * @return The date and time for the recurring schedule to start, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
      * 
      */
-    public Output<String> startTime() {
-        return this.startTime;
+    public Output<Optional<String>> startTime() {
+        return Codegen.optional(this.startTime);
     }
     /**
      * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
@@ -213,7 +214,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="timeZone", refs={String.class}, tree="[0]")
-    private Output<String> timeZone;
+    private Output</* @Nullable */ String> timeZone;
 
     /**
      * @return Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
@@ -221,8 +222,8 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
      * 
      */
-    public Output<String> timeZone() {
-        return this.timeZone;
+    public Output<Optional<String>> timeZone() {
+        return Codegen.optional(this.timeZone);
     }
 
     /**

@@ -20,13 +20,13 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
         /// </summary>
-        public readonly bool ImageScanningEnabled;
+        public readonly bool? ImageScanningEnabled;
 
         [OutputConstructor]
         private GetImageImageScanningConfigurationResult(
             ImmutableArray<Outputs.GetImageImageScanningConfigurationEcrConfigurationResult> ecrConfigurations,
 
-            bool imageScanningEnabled)
+            bool? imageScanningEnabled)
         {
             EcrConfigurations = ecrConfigurations;
             ImageScanningEnabled = imageScanningEnabled;

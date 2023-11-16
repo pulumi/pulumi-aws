@@ -50,7 +50,7 @@ class GetQuickConnectResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the Quick Connect.
         """
@@ -58,7 +58,7 @@ class GetQuickConnectResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the Quick Connect.
         """
@@ -66,7 +66,7 @@ class GetQuickConnectResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -79,12 +79,12 @@ class GetQuickConnectResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="quickConnectConfigs")
-    def quick_connect_configs(self) -> Sequence['outputs.GetQuickConnectQuickConnectConfigResult']:
+    def quick_connect_configs(self) -> Optional[Sequence['outputs.GetQuickConnectQuickConnectConfigResult']]:
         """
         A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         """
@@ -92,7 +92,7 @@ class GetQuickConnectResult:
 
     @property
     @pulumi.getter(name="quickConnectId")
-    def quick_connect_id(self) -> str:
+    def quick_connect_id(self) -> Optional[str]:
         """
         Identifier for the Quick Connect.
         """
@@ -100,7 +100,7 @@ class GetQuickConnectResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assign to the Quick Connect.
         """

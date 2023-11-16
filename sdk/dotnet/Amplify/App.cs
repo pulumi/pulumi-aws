@@ -215,13 +215,13 @@ namespace Pulumi.Aws.Amplify
         /// ARN of the Amplify app.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
         /// </summary>
         [Output("autoBranchCreationConfig")]
-        public Output<Outputs.AppAutoBranchCreationConfig> AutoBranchCreationConfig { get; private set; } = null!;
+        public Output<Outputs.AppAutoBranchCreationConfig?> AutoBranchCreationConfig { get; private set; } = null!;
 
         /// <summary>
         /// Automated branch creation glob patterns for an Amplify app.
@@ -239,13 +239,13 @@ namespace Pulumi.Aws.Amplify
         /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         /// </summary>
         [Output("buildSpec")]
-        public Output<string> BuildSpec { get; private set; } = null!;
+        public Output<string?> BuildSpec { get; private set; } = null!;
 
         /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         /// </summary>
         [Output("customHeaders")]
-        public Output<string> CustomHeaders { get; private set; } = null!;
+        public Output<string?> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
         /// Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Amplify
         /// Default domain for the Amplify app.
         /// </summary>
         [Output("defaultDomain")]
-        public Output<string> DefaultDomain { get; private set; } = null!;
+        public Output<string?> DefaultDomain { get; private set; } = null!;
 
         /// <summary>
         /// Description for an Amplify app.

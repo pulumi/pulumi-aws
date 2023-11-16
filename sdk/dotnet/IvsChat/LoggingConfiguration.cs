@@ -133,7 +133,7 @@ namespace Pulumi.Aws.IvsChat
         /// ARN of the Logging Configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.IvsChat
         /// State of the Logging Configuration.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

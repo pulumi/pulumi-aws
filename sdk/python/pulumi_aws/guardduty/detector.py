@@ -400,7 +400,7 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS account ID of the GuardDuty detector
         """
@@ -408,7 +408,7 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the GuardDuty detector
         """
@@ -416,7 +416,7 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def datasources(self) -> pulumi.Output['outputs.DetectorDatasources']:
+    def datasources(self) -> pulumi.Output[Optional['outputs.DetectorDatasources']]:
         """
         Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
         """
@@ -432,7 +432,7 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
-    def finding_publishing_frequency(self) -> pulumi.Output[str]:
+    def finding_publishing_frequency(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         """

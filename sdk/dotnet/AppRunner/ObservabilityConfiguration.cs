@@ -53,13 +53,13 @@ namespace Pulumi.Aws.AppRunner
         /// ARN of this observability configuration.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
         /// </summary>
         [Output("latest")]
-        public Output<bool> Latest { get; private set; } = null!;
+        public Output<bool?> Latest { get; private set; } = null!;
 
         /// <summary>
         /// Name of the observability configuration.
@@ -71,13 +71,13 @@ namespace Pulumi.Aws.AppRunner
         /// The revision of this observability configuration.
         /// </summary>
         [Output("observabilityConfigurationRevision")]
-        public Output<int> ObservabilityConfigurationRevision { get; private set; } = null!;
+        public Output<int?> ObservabilityConfigurationRevision { get; private set; } = null!;
 
         /// <summary>
         /// Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

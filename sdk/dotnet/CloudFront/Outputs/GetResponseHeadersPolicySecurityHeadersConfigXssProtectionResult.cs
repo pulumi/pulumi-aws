@@ -16,29 +16,29 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// Whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
         /// </summary>
-        public readonly bool ModeBlock;
+        public readonly bool? ModeBlock;
         /// <summary>
         /// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        public readonly bool Override;
+        public readonly bool? Override;
         /// <summary>
         /// Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
         /// </summary>
-        public readonly bool Protection;
+        public readonly bool? Protection;
         /// <summary>
         /// Whether CloudFront sets a reporting URI in the X-XSS-Protection header.
         /// </summary>
-        public readonly string ReportUri;
+        public readonly string? ReportUri;
 
         [OutputConstructor]
         private GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(
-            bool modeBlock,
+            bool? modeBlock,
 
-            bool @override,
+            bool? @override,
 
-            bool protection,
+            bool? protection,
 
-            string reportUri)
+            string? reportUri)
         {
             ModeBlock = modeBlock;
             Override = @override;

@@ -74,14 +74,14 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the block list.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description for a block list.
@@ -130,14 +130,14 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="querySuggestionsBlockListId", refs={String.class}, tree="[0]")
-    private Output<String> querySuggestionsBlockListId;
+    private Output</* @Nullable */ String> querySuggestionsBlockListId;
 
     /**
      * @return Unique identifier of the block list.
      * 
      */
-    public Output<String> querySuggestionsBlockListId() {
-        return this.querySuggestionsBlockListId;
+    public Output<Optional<String>> querySuggestionsBlockListId() {
+        return Codegen.optional(this.querySuggestionsBlockListId);
     }
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
@@ -172,10 +172,10 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
         return this.sourceS3Path;
     }
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.

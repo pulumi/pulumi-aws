@@ -37,12 +37,12 @@ export interface GetClusterAuthResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly name: string;
     /**
      * Token to use to authenticate with the cluster.
      */
-    readonly token: string;
+    readonly token?: string;
 }
 /**
  * Get an authentication token to communicate with an EKS cluster.

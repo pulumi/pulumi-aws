@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the map resource was created in ISO 8601 format.
         /// </summary>
         [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        public Output<string?> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// An optional description for the map resource.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Location
         /// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
         /// </summary>
         [Output("mapArn")]
-        public Output<string> MapArn { get; private set; } = null!;
+        public Output<string?> MapArn { get; private set; } = null!;
 
         /// <summary>
         /// The name for the map resource.
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Location
         /// The timestamp for when the map resource was last updated in ISO 8601 format.
         /// </summary>
         [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        public Output<string?> UpdateTime { get; private set; } = null!;
 
 
         /// <summary>

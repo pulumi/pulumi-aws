@@ -106,7 +106,7 @@ export class ProtectionGroup extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) of the protection group.
      */
-    public /*out*/ readonly protectionGroupArn!: pulumi.Output<string>;
+    public /*out*/ readonly protectionGroupArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the protection group.
      */

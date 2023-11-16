@@ -12,6 +12,8 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResponseHeadersPolicyCorsConfig {
@@ -19,79 +21,79 @@ public final class GetResponseHeadersPolicyCorsConfig {
      * @return A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
      * 
      */
-    private Boolean accessControlAllowCredentials;
+    private @Nullable Boolean accessControlAllowCredentials;
     /**
      * @return Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
      * 
      */
-    private List<GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader> accessControlAllowHeaders;
+    private @Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader> accessControlAllowHeaders;
     /**
      * @return Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
      * 
      */
-    private List<GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod> accessControlAllowMethods;
+    private @Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod> accessControlAllowMethods;
     /**
      * @return Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
      * 
      */
-    private List<GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin> accessControlAllowOrigins;
+    private @Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin> accessControlAllowOrigins;
     /**
      * @return Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
      * 
      */
-    private List<GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader> accessControlExposeHeaders;
+    private @Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader> accessControlExposeHeaders;
     /**
      * @return A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    private Integer accessControlMaxAgeSec;
-    private Boolean originOverride;
+    private @Nullable Integer accessControlMaxAgeSec;
+    private @Nullable Boolean originOverride;
 
     private GetResponseHeadersPolicyCorsConfig() {}
     /**
      * @return A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
      * 
      */
-    public Boolean accessControlAllowCredentials() {
-        return this.accessControlAllowCredentials;
+    public Optional<Boolean> accessControlAllowCredentials() {
+        return Optional.ofNullable(this.accessControlAllowCredentials);
     }
     /**
      * @return Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
      * 
      */
     public List<GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader> accessControlAllowHeaders() {
-        return this.accessControlAllowHeaders;
+        return this.accessControlAllowHeaders == null ? List.of() : this.accessControlAllowHeaders;
     }
     /**
      * @return Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
      * 
      */
     public List<GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod> accessControlAllowMethods() {
-        return this.accessControlAllowMethods;
+        return this.accessControlAllowMethods == null ? List.of() : this.accessControlAllowMethods;
     }
     /**
      * @return Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
      * 
      */
     public List<GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin> accessControlAllowOrigins() {
-        return this.accessControlAllowOrigins;
+        return this.accessControlAllowOrigins == null ? List.of() : this.accessControlAllowOrigins;
     }
     /**
      * @return Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
      * 
      */
     public List<GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader> accessControlExposeHeaders() {
-        return this.accessControlExposeHeaders;
+        return this.accessControlExposeHeaders == null ? List.of() : this.accessControlExposeHeaders;
     }
     /**
      * @return A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
      * 
      */
-    public Integer accessControlMaxAgeSec() {
-        return this.accessControlMaxAgeSec;
+    public Optional<Integer> accessControlMaxAgeSec() {
+        return Optional.ofNullable(this.accessControlMaxAgeSec);
     }
-    public Boolean originOverride() {
-        return this.originOverride;
+    public Optional<Boolean> originOverride() {
+        return Optional.ofNullable(this.originOverride);
     }
 
     public static Builder builder() {
@@ -103,13 +105,13 @@ public final class GetResponseHeadersPolicyCorsConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean accessControlAllowCredentials;
-        private List<GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader> accessControlAllowHeaders;
-        private List<GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod> accessControlAllowMethods;
-        private List<GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin> accessControlAllowOrigins;
-        private List<GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader> accessControlExposeHeaders;
-        private Integer accessControlMaxAgeSec;
-        private Boolean originOverride;
+        private @Nullable Boolean accessControlAllowCredentials;
+        private @Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader> accessControlAllowHeaders;
+        private @Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod> accessControlAllowMethods;
+        private @Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin> accessControlAllowOrigins;
+        private @Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader> accessControlExposeHeaders;
+        private @Nullable Integer accessControlMaxAgeSec;
+        private @Nullable Boolean originOverride;
         public Builder() {}
         public Builder(GetResponseHeadersPolicyCorsConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -123,50 +125,50 @@ public final class GetResponseHeadersPolicyCorsConfig {
         }
 
         @CustomType.Setter
-        public Builder accessControlAllowCredentials(Boolean accessControlAllowCredentials) {
-            this.accessControlAllowCredentials = Objects.requireNonNull(accessControlAllowCredentials);
+        public Builder accessControlAllowCredentials(@Nullable Boolean accessControlAllowCredentials) {
+            this.accessControlAllowCredentials = accessControlAllowCredentials;
             return this;
         }
         @CustomType.Setter
-        public Builder accessControlAllowHeaders(List<GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader> accessControlAllowHeaders) {
-            this.accessControlAllowHeaders = Objects.requireNonNull(accessControlAllowHeaders);
+        public Builder accessControlAllowHeaders(@Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader> accessControlAllowHeaders) {
+            this.accessControlAllowHeaders = accessControlAllowHeaders;
             return this;
         }
         public Builder accessControlAllowHeaders(GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader... accessControlAllowHeaders) {
             return accessControlAllowHeaders(List.of(accessControlAllowHeaders));
         }
         @CustomType.Setter
-        public Builder accessControlAllowMethods(List<GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod> accessControlAllowMethods) {
-            this.accessControlAllowMethods = Objects.requireNonNull(accessControlAllowMethods);
+        public Builder accessControlAllowMethods(@Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod> accessControlAllowMethods) {
+            this.accessControlAllowMethods = accessControlAllowMethods;
             return this;
         }
         public Builder accessControlAllowMethods(GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod... accessControlAllowMethods) {
             return accessControlAllowMethods(List.of(accessControlAllowMethods));
         }
         @CustomType.Setter
-        public Builder accessControlAllowOrigins(List<GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin> accessControlAllowOrigins) {
-            this.accessControlAllowOrigins = Objects.requireNonNull(accessControlAllowOrigins);
+        public Builder accessControlAllowOrigins(@Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin> accessControlAllowOrigins) {
+            this.accessControlAllowOrigins = accessControlAllowOrigins;
             return this;
         }
         public Builder accessControlAllowOrigins(GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin... accessControlAllowOrigins) {
             return accessControlAllowOrigins(List.of(accessControlAllowOrigins));
         }
         @CustomType.Setter
-        public Builder accessControlExposeHeaders(List<GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader> accessControlExposeHeaders) {
-            this.accessControlExposeHeaders = Objects.requireNonNull(accessControlExposeHeaders);
+        public Builder accessControlExposeHeaders(@Nullable List<GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader> accessControlExposeHeaders) {
+            this.accessControlExposeHeaders = accessControlExposeHeaders;
             return this;
         }
         public Builder accessControlExposeHeaders(GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader... accessControlExposeHeaders) {
             return accessControlExposeHeaders(List.of(accessControlExposeHeaders));
         }
         @CustomType.Setter
-        public Builder accessControlMaxAgeSec(Integer accessControlMaxAgeSec) {
-            this.accessControlMaxAgeSec = Objects.requireNonNull(accessControlMaxAgeSec);
+        public Builder accessControlMaxAgeSec(@Nullable Integer accessControlMaxAgeSec) {
+            this.accessControlMaxAgeSec = accessControlMaxAgeSec;
             return this;
         }
         @CustomType.Setter
-        public Builder originOverride(Boolean originOverride) {
-            this.originOverride = Objects.requireNonNull(originOverride);
+        public Builder originOverride(@Nullable Boolean originOverride) {
+            this.originOverride = originOverride;
             return this;
         }
         public GetResponseHeadersPolicyCorsConfig build() {

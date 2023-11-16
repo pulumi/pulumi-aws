@@ -61,42 +61,42 @@ type LookupNetworkInterfaceArgs struct {
 // A collection of values returned by getNetworkInterface.
 type LookupNetworkInterfaceResult struct {
 	// ARN of the network interface.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
 	Associations []GetNetworkInterfaceAssociation    `pulumi:"associations"`
 	Attachments  []GetNetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// Availability Zone.
-	AvailabilityZone string `pulumi:"availabilityZone"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Description of the network interface.
-	Description string                      `pulumi:"description"`
+	Description *string                     `pulumi:"description"`
 	Filters     []GetNetworkInterfaceFilter `pulumi:"filters"`
-	Id          string                      `pulumi:"id"`
+	Id          *string                     `pulumi:"id"`
 	// Type of interface.
-	InterfaceType string `pulumi:"interfaceType"`
+	InterfaceType *string `pulumi:"interfaceType"`
 	// List of IPv6 addresses to assign to the ENI.
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// MAC address.
-	MacAddress string `pulumi:"macAddress"`
+	MacAddress *string `pulumi:"macAddress"`
 	// ARN of the Outpost.
-	OutpostArn string `pulumi:"outpostArn"`
+	OutpostArn *string `pulumi:"outpostArn"`
 	// AWS account ID of the owner of the network interface.
-	OwnerId string `pulumi:"ownerId"`
+	OwnerId *string `pulumi:"ownerId"`
 	// Private DNS name.
-	PrivateDnsName string `pulumi:"privateDnsName"`
+	PrivateDnsName *string `pulumi:"privateDnsName"`
 	// Private IPv4 address of the network interface within the subnet.
-	PrivateIp string `pulumi:"privateIp"`
+	PrivateIp *string `pulumi:"privateIp"`
 	// Private IPv4 addresses associated with the network interface.
 	PrivateIps []string `pulumi:"privateIps"`
 	// ID of the entity that launched the instance on your behalf.
-	RequesterId string `pulumi:"requesterId"`
+	RequesterId *string `pulumi:"requesterId"`
 	// List of security groups for the network interface.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// ID of the subnet.
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 	// Any tags assigned to the network interface.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the VPC.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceResultOutput {
@@ -142,8 +142,8 @@ func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput
 }
 
 // ARN of the network interface.
-func (o LookupNetworkInterfaceResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
@@ -156,26 +156,26 @@ func (o LookupNetworkInterfaceResultOutput) Attachments() GetNetworkInterfaceAtt
 }
 
 // Availability Zone.
-func (o LookupNetworkInterfaceResultOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // Description of the network interface.
-func (o LookupNetworkInterfaceResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNetworkInterfaceResultOutput) Filters() GetNetworkInterfaceFilterArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []GetNetworkInterfaceFilter { return v.Filters }).(GetNetworkInterfaceFilterArrayOutput)
 }
 
-func (o LookupNetworkInterfaceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Type of interface.
-func (o LookupNetworkInterfaceResultOutput) InterfaceType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.InterfaceType }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) InterfaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
 }
 
 // List of IPv6 addresses to assign to the ENI.
@@ -184,28 +184,28 @@ func (o LookupNetworkInterfaceResultOutput) Ipv6Addresses() pulumi.StringArrayOu
 }
 
 // MAC address.
-func (o LookupNetworkInterfaceResultOutput) MacAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.MacAddress }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) MacAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the Outpost.
-func (o LookupNetworkInterfaceResultOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID of the owner of the network interface.
-func (o LookupNetworkInterfaceResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
 // Private DNS name.
-func (o LookupNetworkInterfaceResultOutput) PrivateDnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.PrivateDnsName }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) PrivateDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.PrivateDnsName }).(pulumi.StringPtrOutput)
 }
 
 // Private IPv4 address of the network interface within the subnet.
-func (o LookupNetworkInterfaceResultOutput) PrivateIp() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.PrivateIp }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) PrivateIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.PrivateIp }).(pulumi.StringPtrOutput)
 }
 
 // Private IPv4 addresses associated with the network interface.
@@ -214,8 +214,8 @@ func (o LookupNetworkInterfaceResultOutput) PrivateIps() pulumi.StringArrayOutpu
 }
 
 // ID of the entity that launched the instance on your behalf.
-func (o LookupNetworkInterfaceResultOutput) RequesterId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.RequesterId }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) RequesterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.RequesterId }).(pulumi.StringPtrOutput)
 }
 
 // List of security groups for the network interface.
@@ -224,8 +224,8 @@ func (o LookupNetworkInterfaceResultOutput) SecurityGroups() pulumi.StringArrayO
 }
 
 // ID of the subnet.
-func (o LookupNetworkInterfaceResultOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // Any tags assigned to the network interface.
@@ -234,8 +234,8 @@ func (o LookupNetworkInterfaceResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // ID of the VPC.
-func (o LookupNetworkInterfaceResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupNetworkInterfaceResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

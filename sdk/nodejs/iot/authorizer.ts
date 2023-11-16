@@ -64,7 +64,7 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * The ARN of the authorizer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the authorizer's Lambda function.
      */

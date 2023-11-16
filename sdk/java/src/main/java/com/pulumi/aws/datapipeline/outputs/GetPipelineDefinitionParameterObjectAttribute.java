@@ -6,6 +6,8 @@ package com.pulumi.aws.datapipeline.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPipelineDefinitionParameterObjectAttribute {
@@ -13,27 +15,27 @@ public final class GetPipelineDefinitionParameterObjectAttribute {
      * @return Field identifier.
      * 
      */
-    private String key;
+    private @Nullable String key;
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    private String stringValue;
+    private @Nullable String stringValue;
 
     private GetPipelineDefinitionParameterObjectAttribute() {}
     /**
      * @return Field identifier.
      * 
      */
-    public String key() {
-        return this.key;
+    public Optional<String> key() {
+        return Optional.ofNullable(this.key);
     }
     /**
      * @return Field value, expressed as a String.
      * 
      */
-    public String stringValue() {
-        return this.stringValue;
+    public Optional<String> stringValue() {
+        return Optional.ofNullable(this.stringValue);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetPipelineDefinitionParameterObjectAttribute {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String key;
-        private String stringValue;
+        private @Nullable String key;
+        private @Nullable String stringValue;
         public Builder() {}
         public Builder(GetPipelineDefinitionParameterObjectAttribute defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetPipelineDefinitionParameterObjectAttribute {
         }
 
         @CustomType.Setter
-        public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+        public Builder key(@Nullable String key) {
+            this.key = key;
             return this;
         }
         @CustomType.Setter
-        public Builder stringValue(String stringValue) {
-            this.stringValue = Objects.requireNonNull(stringValue);
+        public Builder stringValue(@Nullable String stringValue) {
+            this.stringValue = stringValue;
             return this;
         }
         public GetPipelineDefinitionParameterObjectAttribute build() {

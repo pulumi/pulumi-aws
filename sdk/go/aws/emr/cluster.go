@@ -391,14 +391,14 @@ type Cluster struct {
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
 	// ARN of the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
 	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrOutput `pulumi:"autoTerminationPolicy"`
 	// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrOutput `pulumi:"autoscalingRole"`
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions ClusterBootstrapActionArrayOutput `pulumi:"bootstrapActions"`
-	ClusterState     pulumi.StringOutput               `pulumi:"clusterState"`
+	ClusterState     pulumi.StringPtrOutput            `pulumi:"clusterState"`
 	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrOutput `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
@@ -442,9 +442,9 @@ type Cluster struct {
 	// ```
 	ConfigurationsJson pulumi.StringPtrOutput `pulumi:"configurationsJson"`
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
-	CoreInstanceFleet ClusterCoreInstanceFleetOutput `pulumi:"coreInstanceFleet"`
+	CoreInstanceFleet ClusterCoreInstanceFleetPtrOutput `pulumi:"coreInstanceFleet"`
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
-	CoreInstanceGroup ClusterCoreInstanceGroupOutput `pulumi:"coreInstanceGroup"`
+	CoreInstanceGroup ClusterCoreInstanceGroupPtrOutput `pulumi:"coreInstanceGroup"`
 	// Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
 	CustomAmiId pulumi.StringPtrOutput `pulumi:"customAmiId"`
 	// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
@@ -452,7 +452,7 @@ type Cluster struct {
 	// Attributes for the EC2 instances running the job flow. See below.
 	Ec2Attributes ClusterEc2AttributesPtrOutput `pulumi:"ec2Attributes"`
 	// Switch on/off run cluster with no steps or when all steps are complete (default is on)
-	KeepJobFlowAliveWhenNoSteps pulumi.BoolOutput `pulumi:"keepJobFlowAliveWhenNoSteps"`
+	KeepJobFlowAliveWhenNoSteps pulumi.BoolPtrOutput `pulumi:"keepJobFlowAliveWhenNoSteps"`
 	// Kerberos configuration for the cluster. See below.
 	KerberosAttributes ClusterKerberosAttributesPtrOutput `pulumi:"kerberosAttributes"`
 	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
@@ -462,11 +462,11 @@ type Cluster struct {
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
 	LogUri pulumi.StringPtrOutput `pulumi:"logUri"`
 	// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
-	MasterInstanceFleet ClusterMasterInstanceFleetOutput `pulumi:"masterInstanceFleet"`
+	MasterInstanceFleet ClusterMasterInstanceFleetPtrOutput `pulumi:"masterInstanceFleet"`
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
-	MasterInstanceGroup ClusterMasterInstanceGroupOutput `pulumi:"masterInstanceGroup"`
+	MasterInstanceGroup ClusterMasterInstanceGroupPtrOutput `pulumi:"masterInstanceGroup"`
 	// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
-	MasterPublicDns pulumi.StringOutput `pulumi:"masterPublicDns"`
+	MasterPublicDns pulumi.StringPtrOutput `pulumi:"masterPublicDns"`
 	// Name of the job flow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The specified placement group configuration for an Amazon EMR cluster.
@@ -474,7 +474,7 @@ type Cluster struct {
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
-	ScaleDownBehavior pulumi.StringOutput `pulumi:"scaleDownBehavior"`
+	ScaleDownBehavior pulumi.StringPtrOutput `pulumi:"scaleDownBehavior"`
 	// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
@@ -492,7 +492,7 @@ type Cluster struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
-	TerminationProtection pulumi.BoolOutput `pulumi:"terminationProtection"`
+	TerminationProtection pulumi.BoolPtrOutput `pulumi:"terminationProtection"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
 	VisibleToAllUsers pulumi.BoolPtrOutput `pulumi:"visibleToAllUsers"`
 }
@@ -1069,8 +1069,8 @@ func (o ClusterOutput) Applications() pulumi.StringArrayOutput {
 }
 
 // ARN of the cluster.
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
@@ -1088,8 +1088,8 @@ func (o ClusterOutput) BootstrapActions() ClusterBootstrapActionArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterBootstrapActionArrayOutput { return v.BootstrapActions }).(ClusterBootstrapActionArrayOutput)
 }
 
-func (o ClusterOutput) ClusterState() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterState }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterState }).(pulumi.StringPtrOutput)
 }
 
 // List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
@@ -1146,13 +1146,13 @@ func (o ClusterOutput) ConfigurationsJson() pulumi.StringPtrOutput {
 }
 
 // Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
-func (o ClusterOutput) CoreInstanceFleet() ClusterCoreInstanceFleetOutput {
-	return o.ApplyT(func(v *Cluster) ClusterCoreInstanceFleetOutput { return v.CoreInstanceFleet }).(ClusterCoreInstanceFleetOutput)
+func (o ClusterOutput) CoreInstanceFleet() ClusterCoreInstanceFleetPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCoreInstanceFleetPtrOutput { return v.CoreInstanceFleet }).(ClusterCoreInstanceFleetPtrOutput)
 }
 
 // Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
-func (o ClusterOutput) CoreInstanceGroup() ClusterCoreInstanceGroupOutput {
-	return o.ApplyT(func(v *Cluster) ClusterCoreInstanceGroupOutput { return v.CoreInstanceGroup }).(ClusterCoreInstanceGroupOutput)
+func (o ClusterOutput) CoreInstanceGroup() ClusterCoreInstanceGroupPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCoreInstanceGroupPtrOutput { return v.CoreInstanceGroup }).(ClusterCoreInstanceGroupPtrOutput)
 }
 
 // Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -1171,8 +1171,8 @@ func (o ClusterOutput) Ec2Attributes() ClusterEc2AttributesPtrOutput {
 }
 
 // Switch on/off run cluster with no steps or when all steps are complete (default is on)
-func (o ClusterOutput) KeepJobFlowAliveWhenNoSteps() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.KeepJobFlowAliveWhenNoSteps }).(pulumi.BoolOutput)
+func (o ClusterOutput) KeepJobFlowAliveWhenNoSteps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.KeepJobFlowAliveWhenNoSteps }).(pulumi.BoolPtrOutput)
 }
 
 // Kerberos configuration for the cluster. See below.
@@ -1196,18 +1196,18 @@ func (o ClusterOutput) LogUri() pulumi.StringPtrOutput {
 }
 
 // Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
-func (o ClusterOutput) MasterInstanceFleet() ClusterMasterInstanceFleetOutput {
-	return o.ApplyT(func(v *Cluster) ClusterMasterInstanceFleetOutput { return v.MasterInstanceFleet }).(ClusterMasterInstanceFleetOutput)
+func (o ClusterOutput) MasterInstanceFleet() ClusterMasterInstanceFleetPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterMasterInstanceFleetPtrOutput { return v.MasterInstanceFleet }).(ClusterMasterInstanceFleetPtrOutput)
 }
 
 // Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
-func (o ClusterOutput) MasterInstanceGroup() ClusterMasterInstanceGroupOutput {
-	return o.ApplyT(func(v *Cluster) ClusterMasterInstanceGroupOutput { return v.MasterInstanceGroup }).(ClusterMasterInstanceGroupOutput)
+func (o ClusterOutput) MasterInstanceGroup() ClusterMasterInstanceGroupPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterMasterInstanceGroupPtrOutput { return v.MasterInstanceGroup }).(ClusterMasterInstanceGroupPtrOutput)
 }
 
 // The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
-func (o ClusterOutput) MasterPublicDns() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPublicDns }).(pulumi.StringOutput)
+func (o ClusterOutput) MasterPublicDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPublicDns }).(pulumi.StringPtrOutput)
 }
 
 // Name of the job flow.
@@ -1226,8 +1226,8 @@ func (o ClusterOutput) ReleaseLabel() pulumi.StringOutput {
 }
 
 // Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
-func (o ClusterOutput) ScaleDownBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ScaleDownBehavior }).(pulumi.StringOutput)
+func (o ClusterOutput) ScaleDownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ScaleDownBehavior }).(pulumi.StringPtrOutput)
 }
 
 // Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
@@ -1265,8 +1265,8 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
-func (o ClusterOutput) TerminationProtection() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.TerminationProtection }).(pulumi.BoolOutput)
+func (o ClusterOutput) TerminationProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.TerminationProtection }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.

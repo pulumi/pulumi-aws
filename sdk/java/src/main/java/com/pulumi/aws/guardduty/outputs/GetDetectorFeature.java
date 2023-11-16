@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDetectorFeature {
@@ -15,17 +17,17 @@ public final class GetDetectorFeature {
      * @return Additional feature configuration.
      * 
      */
-    private List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations;
+    private @Nullable List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations;
     /**
      * @return The name of the detector feature.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Current status of the detector.
      * 
      */
-    private String status;
+    private @Nullable String status;
 
     private GetDetectorFeature() {}
     /**
@@ -33,21 +35,21 @@ public final class GetDetectorFeature {
      * 
      */
     public List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations() {
-        return this.additionalConfigurations;
+        return this.additionalConfigurations == null ? List.of() : this.additionalConfigurations;
     }
     /**
      * @return The name of the detector feature.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Current status of the detector.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -59,9 +61,9 @@ public final class GetDetectorFeature {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations;
-        private String name;
-        private String status;
+        private @Nullable List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations;
+        private @Nullable String name;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetDetectorFeature defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +73,21 @@ public final class GetDetectorFeature {
         }
 
         @CustomType.Setter
-        public Builder additionalConfigurations(List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations) {
-            this.additionalConfigurations = Objects.requireNonNull(additionalConfigurations);
+        public Builder additionalConfigurations(@Nullable List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations) {
+            this.additionalConfigurations = additionalConfigurations;
             return this;
         }
         public Builder additionalConfigurations(GetDetectorFeatureAdditionalConfiguration... additionalConfigurations) {
             return additionalConfigurations(List.of(additionalConfigurations));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetDetectorFeature build() {

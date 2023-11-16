@@ -65,12 +65,12 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="bundleId")
-    def bundle_id(self) -> str:
+    def bundle_id(self) -> Optional[str]:
         return pulumi.get(self, "bundle_id")
 
     @property
     @pulumi.getter(name="computerName")
-    def computer_name(self) -> str:
+    def computer_name(self) -> Optional[str]:
         """
         Name of the WorkSpace, as seen by the operating system.
         """
@@ -78,12 +78,12 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> str:
+    def directory_id(self) -> Optional[str]:
         return pulumi.get(self, "directory_id")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -91,7 +91,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
+    def ip_address(self) -> Optional[str]:
         """
         IP address of the WorkSpace.
         """
@@ -99,12 +99,12 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
-    def root_volume_encryption_enabled(self) -> bool:
+    def root_volume_encryption_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "root_volume_encryption_enabled")
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         Operational state of the WorkSpace.
         """
@@ -112,32 +112,32 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> Optional[str]:
         return pulumi.get(self, "user_name")
 
     @property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
-    def user_volume_encryption_enabled(self) -> bool:
+    def user_volume_encryption_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "user_volume_encryption_enabled")
 
     @property
     @pulumi.getter(name="volumeEncryptionKey")
-    def volume_encryption_key(self) -> str:
+    def volume_encryption_key(self) -> Optional[str]:
         return pulumi.get(self, "volume_encryption_key")
 
     @property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> str:
+    def workspace_id(self) -> Optional[str]:
         return pulumi.get(self, "workspace_id")
 
     @property
     @pulumi.getter(name="workspaceProperties")
-    def workspace_properties(self) -> Sequence['outputs.GetWorkspaceWorkspacePropertyResult']:
+    def workspace_properties(self) -> Optional[Sequence['outputs.GetWorkspaceWorkspacePropertyResult']]:
         return pulumi.get(self, "workspace_properties")
 
 

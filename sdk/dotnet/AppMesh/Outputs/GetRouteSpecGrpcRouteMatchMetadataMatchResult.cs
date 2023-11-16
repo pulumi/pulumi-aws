@@ -13,23 +13,23 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecGrpcRouteMatchMetadataMatchResult
     {
-        public readonly string Exact;
-        public readonly string Prefix;
+        public readonly string? Exact;
+        public readonly string? Prefix;
         public readonly ImmutableArray<Outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult> Ranges;
-        public readonly string Regex;
-        public readonly string Suffix;
+        public readonly string? Regex;
+        public readonly string? Suffix;
 
         [OutputConstructor]
         private GetRouteSpecGrpcRouteMatchMetadataMatchResult(
-            string exact,
+            string? exact,
 
-            string prefix,
+            string? prefix,
 
             ImmutableArray<Outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult> ranges,
 
-            string regex,
+            string? regex,
 
-            string suffix)
+            string? suffix)
         {
             Exact = exact;
             Prefix = prefix;

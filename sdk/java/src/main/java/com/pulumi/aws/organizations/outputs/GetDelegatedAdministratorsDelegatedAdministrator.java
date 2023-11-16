@@ -6,6 +6,8 @@ package com.pulumi.aws.organizations.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDelegatedAdministratorsDelegatedAdministrator {
@@ -13,99 +15,99 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
      * @return The ARN of the delegated administrator&#39;s account.
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return The date when the account was made a delegated administrator.
      * 
      */
-    private String delegationEnabledDate;
+    private @Nullable String delegationEnabledDate;
     /**
      * @return The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
-    private String email;
+    private @Nullable String email;
     /**
      * @return The unique identifier (ID) of the delegated administrator&#39;s account.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return The method by which the delegated administrator&#39;s account joined the organization.
      * 
      */
-    private String joinedMethod;
+    private @Nullable String joinedMethod;
     /**
      * @return The date when the delegated administrator&#39;s account became a part of the organization.
      * 
      */
-    private String joinedTimestamp;
+    private @Nullable String joinedTimestamp;
     /**
      * @return The friendly name of the delegated administrator&#39;s account.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The status of the delegated administrator&#39;s account in the organization.
      * 
      */
-    private String status;
+    private @Nullable String status;
 
     private GetDelegatedAdministratorsDelegatedAdministrator() {}
     /**
      * @return The ARN of the delegated administrator&#39;s account.
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return The date when the account was made a delegated administrator.
      * 
      */
-    public String delegationEnabledDate() {
-        return this.delegationEnabledDate;
+    public Optional<String> delegationEnabledDate() {
+        return Optional.ofNullable(this.delegationEnabledDate);
     }
     /**
      * @return The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
-    public String email() {
-        return this.email;
+    public Optional<String> email() {
+        return Optional.ofNullable(this.email);
     }
     /**
      * @return The unique identifier (ID) of the delegated administrator&#39;s account.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The method by which the delegated administrator&#39;s account joined the organization.
      * 
      */
-    public String joinedMethod() {
-        return this.joinedMethod;
+    public Optional<String> joinedMethod() {
+        return Optional.ofNullable(this.joinedMethod);
     }
     /**
      * @return The date when the delegated administrator&#39;s account became a part of the organization.
      * 
      */
-    public String joinedTimestamp() {
-        return this.joinedTimestamp;
+    public Optional<String> joinedTimestamp() {
+        return Optional.ofNullable(this.joinedTimestamp);
     }
     /**
      * @return The friendly name of the delegated administrator&#39;s account.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The status of the delegated administrator&#39;s account in the organization.
      * 
      */
-    public String status() {
-        return this.status;
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -117,14 +119,14 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String delegationEnabledDate;
-        private String email;
-        private String id;
-        private String joinedMethod;
-        private String joinedTimestamp;
-        private String name;
-        private String status;
+        private @Nullable String arn;
+        private @Nullable String delegationEnabledDate;
+        private @Nullable String email;
+        private @Nullable String id;
+        private @Nullable String joinedMethod;
+        private @Nullable String joinedTimestamp;
+        private @Nullable String name;
+        private @Nullable String status;
         public Builder() {}
         public Builder(GetDelegatedAdministratorsDelegatedAdministrator defaults) {
     	      Objects.requireNonNull(defaults);
@@ -139,43 +141,43 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder delegationEnabledDate(String delegationEnabledDate) {
-            this.delegationEnabledDate = Objects.requireNonNull(delegationEnabledDate);
+        public Builder delegationEnabledDate(@Nullable String delegationEnabledDate) {
+            this.delegationEnabledDate = delegationEnabledDate;
             return this;
         }
         @CustomType.Setter
-        public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+        public Builder email(@Nullable String email) {
+            this.email = email;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder joinedMethod(String joinedMethod) {
-            this.joinedMethod = Objects.requireNonNull(joinedMethod);
+        public Builder joinedMethod(@Nullable String joinedMethod) {
+            this.joinedMethod = joinedMethod;
             return this;
         }
         @CustomType.Setter
-        public Builder joinedTimestamp(String joinedTimestamp) {
-            this.joinedTimestamp = Objects.requireNonNull(joinedTimestamp);
+        public Builder joinedTimestamp(@Nullable String joinedTimestamp) {
+            this.joinedTimestamp = joinedTimestamp;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+        public Builder status(@Nullable String status) {
+            this.status = status;
             return this;
         }
         public GetDelegatedAdministratorsDelegatedAdministrator build() {

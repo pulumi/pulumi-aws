@@ -70,14 +70,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the schema.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
@@ -126,70 +126,70 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="latestSchemaVersion", refs={Integer.class}, tree="[0]")
-    private Output<Integer> latestSchemaVersion;
+    private Output</* @Nullable */ Integer> latestSchemaVersion;
 
     /**
      * @return The latest version of the schema associated with the returned schema definition.
      * 
      */
-    public Output<Integer> latestSchemaVersion() {
-        return this.latestSchemaVersion;
+    public Output<Optional<Integer>> latestSchemaVersion() {
+        return Codegen.optional(this.latestSchemaVersion);
     }
     /**
      * The next version of the schema associated with the returned schema definition.
      * 
      */
     @Export(name="nextSchemaVersion", refs={Integer.class}, tree="[0]")
-    private Output<Integer> nextSchemaVersion;
+    private Output</* @Nullable */ Integer> nextSchemaVersion;
 
     /**
      * @return The next version of the schema associated with the returned schema definition.
      * 
      */
-    public Output<Integer> nextSchemaVersion() {
-        return this.nextSchemaVersion;
+    public Output<Optional<Integer>> nextSchemaVersion() {
+        return Codegen.optional(this.nextSchemaVersion);
     }
     /**
      * The ARN of the Glue Registry to create the schema in.
      * 
      */
     @Export(name="registryArn", refs={String.class}, tree="[0]")
-    private Output<String> registryArn;
+    private Output</* @Nullable */ String> registryArn;
 
     /**
      * @return The ARN of the Glue Registry to create the schema in.
      * 
      */
-    public Output<String> registryArn() {
-        return this.registryArn;
+    public Output<Optional<String>> registryArn() {
+        return Codegen.optional(this.registryArn);
     }
     /**
      * The name of the Glue Registry.
      * 
      */
     @Export(name="registryName", refs={String.class}, tree="[0]")
-    private Output<String> registryName;
+    private Output</* @Nullable */ String> registryName;
 
     /**
      * @return The name of the Glue Registry.
      * 
      */
-    public Output<String> registryName() {
-        return this.registryName;
+    public Output<Optional<String>> registryName() {
+        return Codegen.optional(this.registryName);
     }
     /**
      * The version number of the checkpoint (the last time the compatibility mode was changed).
      * 
      */
     @Export(name="schemaCheckpoint", refs={Integer.class}, tree="[0]")
-    private Output<Integer> schemaCheckpoint;
+    private Output</* @Nullable */ Integer> schemaCheckpoint;
 
     /**
      * @return The version number of the checkpoint (the last time the compatibility mode was changed).
      * 
      */
-    public Output<Integer> schemaCheckpoint() {
-        return this.schemaCheckpoint;
+    public Output<Optional<Integer>> schemaCheckpoint() {
+        return Codegen.optional(this.schemaCheckpoint);
     }
     /**
      * The schema definition using the `data_format` setting for `schema_name`.

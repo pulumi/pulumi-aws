@@ -16,17 +16,17 @@ namespace Pulumi.Aws.AppConfig.Outputs
         /// <summary>
         /// Either the JSON Schema content or the ARN of an AWS Lambda function.
         /// </summary>
-        public readonly string Content;
+        public readonly string? Content;
         /// <summary>
         /// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetConfigurationProfileValidatorResult(
-            string content,
+            string? content,
 
-            string type)
+            string? type)
         {
             Content = content;
             Type = type;

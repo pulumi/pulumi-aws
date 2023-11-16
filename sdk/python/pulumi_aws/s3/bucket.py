@@ -1622,7 +1622,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accelerationStatus")
-    def acceleration_status(self) -> pulumi.Output[str]:
+    def acceleration_status(self) -> pulumi.Output[Optional[str]]:
         """
         Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
         """
@@ -1638,7 +1638,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         """
@@ -1654,7 +1654,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketDomainName")
-    def bucket_domain_name(self) -> pulumi.Output[str]:
+    def bucket_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         """
@@ -1670,7 +1670,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketRegionalDomainName")
-    def bucket_regional_domain_name(self) -> pulumi.Output[str]:
+    def bucket_regional_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
         """
@@ -1702,7 +1702,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> pulumi.Output[str]:
+    def hosted_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         """
@@ -1744,7 +1744,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[str]:
+    def region(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS region this bucket resides in.
         """
@@ -1760,7 +1760,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestPayer")
-    def request_payer(self) -> pulumi.Output[str]:
+    def request_payer(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies who should bear the cost of Amazon S3 data transfer.
         Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -1771,7 +1771,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> pulumi.Output['outputs.BucketServerSideEncryptionConfiguration']:
+    def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.BucketServerSideEncryptionConfiguration']]:
         """
         A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         """
@@ -1798,7 +1798,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def versioning(self) -> pulumi.Output['outputs.BucketVersioning']:
+    def versioning(self) -> pulumi.Output[Optional['outputs.BucketVersioning']]:
         """
         A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
         """
@@ -1814,7 +1814,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteDomain")
-    def website_domain(self) -> pulumi.Output[str]:
+    def website_domain(self) -> pulumi.Output[Optional[str]]:
         """
         The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         """
@@ -1822,7 +1822,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteEndpoint")
-    def website_endpoint(self) -> pulumi.Output[str]:
+    def website_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """

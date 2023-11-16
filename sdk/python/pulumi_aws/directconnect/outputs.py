@@ -16,12 +16,12 @@ __all__ = [
 @pulumi.output_type
 class GetRouterConfigurationRouterResult(dict):
     def __init__(__self__, *,
-                 platform: str,
-                 router_type_identifier: str,
-                 software: str,
-                 vendor: str,
-                 xslt_template_name: str,
-                 xslt_template_name_for_mac_sec: str):
+                 platform: Optional[str] = None,
+                 router_type_identifier: Optional[str] = None,
+                 software: Optional[str] = None,
+                 vendor: Optional[str] = None,
+                 xslt_template_name: Optional[str] = None,
+                 xslt_template_name_for_mac_sec: Optional[str] = None):
         """
         :param str platform: Router platform
         :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
@@ -35,16 +35,22 @@ class GetRouterConfigurationRouterResult(dict):
         :param str vendor: Router vendor
         :param str xslt_template_name: Router XSLT Template Name
         """
-        pulumi.set(__self__, "platform", platform)
-        pulumi.set(__self__, "router_type_identifier", router_type_identifier)
-        pulumi.set(__self__, "software", software)
-        pulumi.set(__self__, "vendor", vendor)
-        pulumi.set(__self__, "xslt_template_name", xslt_template_name)
-        pulumi.set(__self__, "xslt_template_name_for_mac_sec", xslt_template_name_for_mac_sec)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if router_type_identifier is not None:
+            pulumi.set(__self__, "router_type_identifier", router_type_identifier)
+        if software is not None:
+            pulumi.set(__self__, "software", software)
+        if vendor is not None:
+            pulumi.set(__self__, "vendor", vendor)
+        if xslt_template_name is not None:
+            pulumi.set(__self__, "xslt_template_name", xslt_template_name)
+        if xslt_template_name_for_mac_sec is not None:
+            pulumi.set(__self__, "xslt_template_name_for_mac_sec", xslt_template_name_for_mac_sec)
 
     @property
     @pulumi.getter
-    def platform(self) -> str:
+    def platform(self) -> Optional[str]:
         """
         Router platform
         """
@@ -52,7 +58,7 @@ class GetRouterConfigurationRouterResult(dict):
 
     @property
     @pulumi.getter(name="routerTypeIdentifier")
-    def router_type_identifier(self) -> str:
+    def router_type_identifier(self) -> Optional[str]:
         """
         ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 
@@ -66,7 +72,7 @@ class GetRouterConfigurationRouterResult(dict):
 
     @property
     @pulumi.getter
-    def software(self) -> str:
+    def software(self) -> Optional[str]:
         """
         Router operating system
         """
@@ -74,7 +80,7 @@ class GetRouterConfigurationRouterResult(dict):
 
     @property
     @pulumi.getter
-    def vendor(self) -> str:
+    def vendor(self) -> Optional[str]:
         """
         Router vendor
         """
@@ -82,7 +88,7 @@ class GetRouterConfigurationRouterResult(dict):
 
     @property
     @pulumi.getter(name="xsltTemplateName")
-    def xslt_template_name(self) -> str:
+    def xslt_template_name(self) -> Optional[str]:
         """
         Router XSLT Template Name
         """
@@ -90,7 +96,7 @@ class GetRouterConfigurationRouterResult(dict):
 
     @property
     @pulumi.getter(name="xsltTemplateNameForMacSec")
-    def xslt_template_name_for_mac_sec(self) -> str:
+    def xslt_template_name_for_mac_sec(self) -> Optional[str]:
         return pulumi.get(self, "xslt_template_name_for_mac_sec")
 
 

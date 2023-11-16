@@ -143,15 +143,15 @@ export class Feature extends pulumi.CustomResource {
     /**
      * The ARN of the feature.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time that the feature is created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
     /**
      * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
      */
-    public readonly defaultVariation!: pulumi.Output<string>;
+    public readonly defaultVariation!: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the feature.
      */
@@ -163,15 +163,15 @@ export class Feature extends pulumi.CustomResource {
     /**
      * One or more blocks that define the evaluation rules for the feature. Detailed below
      */
-    public /*out*/ readonly evaluationRules!: pulumi.Output<outputs.evidently.FeatureEvaluationRule[]>;
+    public /*out*/ readonly evaluationRules!: pulumi.Output<outputs.evidently.FeatureEvaluationRule[] | undefined>;
     /**
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      */
-    public readonly evaluationStrategy!: pulumi.Output<string>;
+    public readonly evaluationStrategy!: pulumi.Output<string | undefined>;
     /**
      * The date and time that the feature was most recently updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
     /**
      * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
      */
@@ -183,7 +183,7 @@ export class Feature extends pulumi.CustomResource {
     /**
      * The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -197,7 +197,7 @@ export class Feature extends pulumi.CustomResource {
     /**
      * Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
      */
-    public /*out*/ readonly valueType!: pulumi.Output<string>;
+    public /*out*/ readonly valueType!: pulumi.Output<string | undefined>;
     /**
      * One or more blocks that contain the configuration of the feature's different variations. Detailed below
      */

@@ -83,13 +83,13 @@ type FieldLevelEncryptionProfile struct {
 	pulumi.CustomResourceState
 
 	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
+	CallerReference pulumi.StringPtrOutput `pulumi:"callerReference"`
 	// An optional comment about the Field Level Encryption Profile.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
 	EncryptionEntities FieldLevelEncryptionProfileEncryptionEntitiesOutput `pulumi:"encryptionEntities"`
 	// The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The name of the Field Level Encryption Profile.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -263,8 +263,8 @@ func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfileOutputWi
 }
 
 // Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-func (o FieldLevelEncryptionProfileOutput) CallerReference() pulumi.StringOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringOutput { return v.CallerReference }).(pulumi.StringOutput)
+func (o FieldLevelEncryptionProfileOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringPtrOutput { return v.CallerReference }).(pulumi.StringPtrOutput)
 }
 
 // An optional comment about the Field Level Encryption Profile.
@@ -280,8 +280,8 @@ func (o FieldLevelEncryptionProfileOutput) EncryptionEntities() FieldLevelEncryp
 }
 
 // The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-func (o FieldLevelEncryptionProfileOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o FieldLevelEncryptionProfileOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Field Level Encryption Profile.

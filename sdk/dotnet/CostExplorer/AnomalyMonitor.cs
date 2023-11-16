@@ -84,7 +84,7 @@ namespace Pulumi.Aws.CostExplorer
         /// ARN of the anomaly monitor.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The dimensions to evaluate. Valid values: `SERVICE`.

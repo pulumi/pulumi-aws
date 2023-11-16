@@ -196,65 +196,65 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Vocabulary.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
         /// </summary>
-        public readonly string Content;
+        public readonly string? Content;
         /// <summary>
         /// The reason why the custom vocabulary was not created.
         /// </summary>
-        public readonly string FailureReason;
+        public readonly string? FailureReason;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string InstanceId;
         /// <summary>
         /// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
         /// </summary>
-        public readonly string LanguageCode;
+        public readonly string? LanguageCode;
         /// <summary>
         /// The timestamp when the custom vocabulary was last modified.
         /// </summary>
-        public readonly string LastModifiedTime;
-        public readonly string Name;
+        public readonly string? LastModifiedTime;
+        public readonly string? Name;
         /// <summary>
         /// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
         /// <summary>
         /// A map of tags to assign to the Vocabulary.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The identifier of the custom vocabulary.
         /// </summary>
-        public readonly string VocabularyId;
+        public readonly string? VocabularyId;
 
         [OutputConstructor]
         private GetVocabularyResult(
-            string arn,
+            string? arn,
 
-            string content,
+            string? content,
 
-            string failureReason,
+            string? failureReason,
 
-            string id,
+            string? id,
 
             string instanceId,
 
-            string languageCode,
+            string? languageCode,
 
-            string lastModifiedTime,
+            string? lastModifiedTime,
 
-            string name,
+            string? name,
 
-            string state,
+            string? state,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string vocabularyId)
+            string? vocabularyId)
         {
             Arn = arn;
             Content = content;

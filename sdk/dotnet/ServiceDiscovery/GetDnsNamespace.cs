@@ -142,39 +142,39 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <summary>
         /// ARN of the namespace.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Description of the namespace.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
         /// </summary>
-        public readonly string HostedZone;
+        public readonly string? HostedZone;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string Name;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string Type;
 
         [OutputConstructor]
         private GetDnsNamespaceResult(
-            string arn,
+            string? arn,
 
-            string description,
+            string? description,
 
-            string hostedZone,
+            string? hostedZone,
 
-            string id,
+            string? id,
 
             string name,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {

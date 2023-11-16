@@ -47,7 +47,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The Amazon Resource Name (ARN) specifying the log stream.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the log group under which the log stream is to be created.

@@ -403,7 +403,7 @@ namespace Pulumi.Aws.Emr
         /// ARN of the cluster.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.Emr
         public Output<ImmutableArray<Outputs.ClusterBootstrapAction>> BootstrapActions { get; private set; } = null!;
 
         [Output("clusterState")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
@@ -475,13 +475,13 @@ namespace Pulumi.Aws.Emr
         /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         /// </summary>
         [Output("coreInstanceFleet")]
-        public Output<Outputs.ClusterCoreInstanceFleet> CoreInstanceFleet { get; private set; } = null!;
+        public Output<Outputs.ClusterCoreInstanceFleet?> CoreInstanceFleet { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         /// </summary>
         [Output("coreInstanceGroup")]
-        public Output<Outputs.ClusterCoreInstanceGroup> CoreInstanceGroup { get; private set; } = null!;
+        public Output<Outputs.ClusterCoreInstanceGroup?> CoreInstanceGroup { get; private set; } = null!;
 
         /// <summary>
         /// Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -505,7 +505,7 @@ namespace Pulumi.Aws.Emr
         /// Switch on/off run cluster with no steps or when all steps are complete (default is on)
         /// </summary>
         [Output("keepJobFlowAliveWhenNoSteps")]
-        public Output<bool> KeepJobFlowAliveWhenNoSteps { get; private set; } = null!;
+        public Output<bool?> KeepJobFlowAliveWhenNoSteps { get; private set; } = null!;
 
         /// <summary>
         /// Kerberos configuration for the cluster. See below.
@@ -535,19 +535,19 @@ namespace Pulumi.Aws.Emr
         /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         /// </summary>
         [Output("masterInstanceFleet")]
-        public Output<Outputs.ClusterMasterInstanceFleet> MasterInstanceFleet { get; private set; } = null!;
+        public Output<Outputs.ClusterMasterInstanceFleet?> MasterInstanceFleet { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         /// </summary>
         [Output("masterInstanceGroup")]
-        public Output<Outputs.ClusterMasterInstanceGroup> MasterInstanceGroup { get; private set; } = null!;
+        public Output<Outputs.ClusterMasterInstanceGroup?> MasterInstanceGroup { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         /// </summary>
         [Output("masterPublicDns")]
-        public Output<string> MasterPublicDns { get; private set; } = null!;
+        public Output<string?> MasterPublicDns { get; private set; } = null!;
 
         /// <summary>
         /// Name of the job flow.
@@ -571,7 +571,7 @@ namespace Pulumi.Aws.Emr
         /// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         /// </summary>
         [Output("scaleDownBehavior")]
-        public Output<string> ScaleDownBehavior { get; private set; } = null!;
+        public Output<string?> ScaleDownBehavior { get; private set; } = null!;
 
         /// <summary>
         /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
@@ -615,7 +615,7 @@ namespace Pulumi.Aws.Emr
         /// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         /// </summary>
         [Output("terminationProtection")]
-        public Output<bool> TerminationProtection { get; private set; } = null!;
+        public Output<bool?> TerminationProtection { get; private set; } = null!;
 
         /// <summary>
         /// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.

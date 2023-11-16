@@ -246,11 +246,11 @@ type Database struct {
 	pulumi.CustomResourceState
 
 	// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
-	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// The ARN of the Lightsail instance (matches `id`).
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
 	BackupRetentionEnabled pulumi.BoolPtrOutput `pulumi:"backupRetentionEnabled"`
 	// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
@@ -258,45 +258,45 @@ type Database struct {
 	// The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// The certificate associated with the database.
-	CaCertificateIdentifier pulumi.StringOutput `pulumi:"caCertificateIdentifier"`
+	CaCertificateIdentifier pulumi.StringPtrOutput `pulumi:"caCertificateIdentifier"`
 	// The number of vCPUs for the database.
-	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
+	CpuCount pulumi.IntPtrOutput `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The size of the disk for the database.
-	DiskSize pulumi.Float64Output `pulumi:"diskSize"`
+	DiskSize pulumi.Float64PtrOutput `pulumi:"diskSize"`
 	// The database software (for example, MySQL).
-	Engine pulumi.StringOutput `pulumi:"engine"`
+	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version (for example, 5.7.23).
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
 	FinalSnapshotName pulumi.StringPtrOutput `pulumi:"finalSnapshotName"`
 	// The name of the master database created when the Lightsail database resource is created.
 	MasterDatabaseName pulumi.StringOutput `pulumi:"masterDatabaseName"`
 	// The master endpoint fqdn for the database.
-	MasterEndpointAddress pulumi.StringOutput `pulumi:"masterEndpointAddress"`
+	MasterEndpointAddress pulumi.StringPtrOutput `pulumi:"masterEndpointAddress"`
 	// The master endpoint network port for the database.
-	MasterEndpointPort pulumi.IntOutput `pulumi:"masterEndpointPort"`
+	MasterEndpointPort pulumi.IntPtrOutput `pulumi:"masterEndpointPort"`
 	// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
 	MasterPassword pulumi.StringOutput `pulumi:"masterPassword"`
 	// The master user name for your new database.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
 	// The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
-	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
+	PreferredBackupWindow pulumi.StringPtrOutput `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
-	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// The amount of RAM in GB for the database.
-	RamSize pulumi.Float64Output `pulumi:"ramSize"`
+	RamSize pulumi.Float64PtrOutput `pulumi:"ramSize"`
 	// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
 	RelationalDatabaseName pulumi.StringOutput `pulumi:"relationalDatabaseName"`
 	// Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
-	SecondaryAvailabilityZone pulumi.StringOutput `pulumi:"secondaryAvailabilityZone"`
+	SecondaryAvailabilityZone pulumi.StringPtrOutput `pulumi:"secondaryAvailabilityZone"`
 	// Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
 	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
 	// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
+	SupportCode pulumi.StringPtrOutput `pulumi:"supportCode"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -641,18 +641,18 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 }
 
 // When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
-func (o DatabaseOutput) ApplyImmediately() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Database) pulumi.BoolOutput { return v.ApplyImmediately }).(pulumi.BoolOutput)
+func (o DatabaseOutput) ApplyImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
 
 // The ARN of the Lightsail instance (matches `id`).
-func (o DatabaseOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DatabaseOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
-func (o DatabaseOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o DatabaseOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
@@ -671,33 +671,33 @@ func (o DatabaseOutput) BundleId() pulumi.StringOutput {
 }
 
 // The certificate associated with the database.
-func (o DatabaseOutput) CaCertificateIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.CaCertificateIdentifier }).(pulumi.StringOutput)
+func (o DatabaseOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The number of vCPUs for the database.
-func (o DatabaseOutput) CpuCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.CpuCount }).(pulumi.IntOutput)
+func (o DatabaseOutput) CpuCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.IntPtrOutput { return v.CpuCount }).(pulumi.IntPtrOutput)
 }
 
 // The timestamp when the instance was created.
-func (o DatabaseOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+func (o DatabaseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The size of the disk for the database.
-func (o DatabaseOutput) DiskSize() pulumi.Float64Output {
-	return o.ApplyT(func(v *Database) pulumi.Float64Output { return v.DiskSize }).(pulumi.Float64Output)
+func (o DatabaseOutput) DiskSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.Float64PtrOutput { return v.DiskSize }).(pulumi.Float64PtrOutput)
 }
 
 // The database software (for example, MySQL).
-func (o DatabaseOutput) Engine() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
+func (o DatabaseOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
 // The database engine version (for example, 5.7.23).
-func (o DatabaseOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+func (o DatabaseOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
@@ -711,13 +711,13 @@ func (o DatabaseOutput) MasterDatabaseName() pulumi.StringOutput {
 }
 
 // The master endpoint fqdn for the database.
-func (o DatabaseOutput) MasterEndpointAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.MasterEndpointAddress }).(pulumi.StringOutput)
+func (o DatabaseOutput) MasterEndpointAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.MasterEndpointAddress }).(pulumi.StringPtrOutput)
 }
 
 // The master endpoint network port for the database.
-func (o DatabaseOutput) MasterEndpointPort() pulumi.IntOutput {
-	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.MasterEndpointPort }).(pulumi.IntOutput)
+func (o DatabaseOutput) MasterEndpointPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.IntPtrOutput { return v.MasterEndpointPort }).(pulumi.IntPtrOutput)
 }
 
 // The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
@@ -731,13 +731,13 @@ func (o DatabaseOutput) MasterUsername() pulumi.StringOutput {
 }
 
 // The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
-func (o DatabaseOutput) PreferredBackupWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.PreferredBackupWindow }).(pulumi.StringOutput)
+func (o DatabaseOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
 // The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
-func (o DatabaseOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+func (o DatabaseOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
@@ -746,8 +746,8 @@ func (o DatabaseOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 }
 
 // The amount of RAM in GB for the database.
-func (o DatabaseOutput) RamSize() pulumi.Float64Output {
-	return o.ApplyT(func(v *Database) pulumi.Float64Output { return v.RamSize }).(pulumi.Float64Output)
+func (o DatabaseOutput) RamSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.Float64PtrOutput { return v.RamSize }).(pulumi.Float64PtrOutput)
 }
 
 // The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
@@ -756,8 +756,8 @@ func (o DatabaseOutput) RelationalDatabaseName() pulumi.StringOutput {
 }
 
 // Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
-func (o DatabaseOutput) SecondaryAvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.SecondaryAvailabilityZone }).(pulumi.StringOutput)
+func (o DatabaseOutput) SecondaryAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.SecondaryAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
@@ -766,8 +766,8 @@ func (o DatabaseOutput) SkipFinalSnapshot() pulumi.BoolPtrOutput {
 }
 
 // The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-func (o DatabaseOutput) SupportCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
+func (o DatabaseOutput) SupportCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.SupportCode }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.

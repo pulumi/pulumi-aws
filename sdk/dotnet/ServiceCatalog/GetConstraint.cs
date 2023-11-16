@@ -137,52 +137,52 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Description of the constraint.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         public readonly string Id;
         /// <summary>
         /// Owner of the constraint.
         /// </summary>
-        public readonly string Owner;
+        public readonly string? Owner;
         /// <summary>
         /// Constraint parameters in JSON format.
         /// </summary>
-        public readonly string Parameters;
+        public readonly string? Parameters;
         /// <summary>
         /// Portfolio identifier.
         /// </summary>
-        public readonly string PortfolioId;
+        public readonly string? PortfolioId;
         /// <summary>
         /// Product identifier.
         /// </summary>
-        public readonly string ProductId;
+        public readonly string? ProductId;
         /// <summary>
         /// Constraint status.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetConstraintResult(
             string? acceptLanguage,
 
-            string description,
+            string? description,
 
             string id,
 
-            string owner,
+            string? owner,
 
-            string parameters,
+            string? parameters,
 
-            string portfolioId,
+            string? portfolioId,
 
-            string productId,
+            string? productId,
 
-            string status,
+            string? status,
 
-            string type)
+            string? type)
         {
             AcceptLanguage = acceptLanguage;
             Description = description;

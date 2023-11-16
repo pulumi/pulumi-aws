@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -84,14 +85,14 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="path", refs={String.class}, tree="[0]")
-    private Output<String> path;
+    private Output</* @Nullable */ String> path;
 
     /**
      * @return Complete path for this API resource, including all parent paths.
      * 
      */
-    public Output<String> path() {
-        return this.path;
+    public Output<Optional<String>> path() {
+        return Codegen.optional(this.path);
     }
     /**
      * Last path segment of this API resource.

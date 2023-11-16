@@ -60,13 +60,13 @@ type LookupWebAclArgs struct {
 // A collection of values returned by getWebAcl.
 type LookupWebAclResult struct {
 	// ARN of the entity.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the WebACL that helps with identification.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id    string `pulumi:"id"`
-	Name  string `pulumi:"name"`
-	Scope string `pulumi:"scope"`
+	Id    *string `pulumi:"id"`
+	Name  string  `pulumi:"name"`
+	Scope string  `pulumi:"scope"`
 }
 
 func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts ...pulumi.InvokeOption) LookupWebAclResultOutput {
@@ -110,18 +110,18 @@ func (o LookupWebAclResultOutput) ToLookupWebAclResultOutputWithContext(ctx cont
 }
 
 // ARN of the entity.
-func (o LookupWebAclResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWebAclResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupWebAclResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAclResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the WebACL that helps with identification.
-func (o LookupWebAclResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWebAclResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupWebAclResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAclResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupWebAclResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupWebAclResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupWebAclResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWebAclResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupWebAclResultOutput) Name() pulumi.StringOutput {

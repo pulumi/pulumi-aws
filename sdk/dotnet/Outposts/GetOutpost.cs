@@ -161,68 +161,68 @@ namespace Pulumi.Aws.Outposts
     [OutputType]
     public sealed class GetOutpostResult
     {
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Availability Zone name.
         /// </summary>
-        public readonly string AvailabilityZone;
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// Availability Zone identifier.
         /// </summary>
-        public readonly string AvailabilityZoneId;
+        public readonly string? AvailabilityZoneId;
         /// <summary>
         /// The description of the Outpost.
         /// </summary>
-        public readonly string Description;
-        public readonly string Id;
+        public readonly string? Description;
+        public readonly string? Id;
         /// <summary>
         /// The life cycle status.
         /// </summary>
-        public readonly string LifecycleStatus;
-        public readonly string Name;
+        public readonly string? LifecycleStatus;
+        public readonly string? Name;
         public readonly string? OwnerId;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the site.
         /// </summary>
-        public readonly string SiteArn;
+        public readonly string? SiteArn;
         /// <summary>
         /// The ID of the site.
         /// </summary>
-        public readonly string SiteId;
+        public readonly string? SiteId;
         /// <summary>
         /// The hardware type.
         /// </summary>
-        public readonly string SupportedHardwareType;
+        public readonly string? SupportedHardwareType;
         /// <summary>
         /// The Outpost tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetOutpostResult(
-            string arn,
+            string? arn,
 
-            string availabilityZone,
+            string? availabilityZone,
 
-            string availabilityZoneId,
+            string? availabilityZoneId,
 
-            string description,
+            string? description,
 
-            string id,
+            string? id,
 
-            string lifecycleStatus,
+            string? lifecycleStatus,
 
-            string name,
+            string? name,
 
             string? ownerId,
 
-            string siteArn,
+            string? siteArn,
 
-            string siteId,
+            string? siteId,
 
-            string supportedHardwareType,
+            string? supportedHardwareType,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             AvailabilityZone = availabilityZone;

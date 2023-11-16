@@ -8,24 +8,26 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTableServerSideEncryptionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetTableServerSideEncryptionArgs Empty = new GetTableServerSideEncryptionArgs();
 
-    @Import(name="enabled", required=true)
-    private Output<Boolean> enabled;
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
 
-    public Output<Boolean> enabled() {
-        return this.enabled;
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
-    @Import(name="kmsKeyArn", required=true)
-    private Output<String> kmsKeyArn;
+    @Import(name="kmsKeyArn")
+    private @Nullable Output<String> kmsKeyArn;
 
-    public Output<String> kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Optional<Output<String>> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
     }
 
     private GetTableServerSideEncryptionArgs() {}
@@ -53,7 +55,7 @@ public final class GetTableServerSideEncryptionArgs extends com.pulumi.resources
             $ = new GetTableServerSideEncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder enabled(Output<Boolean> enabled) {
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
@@ -62,7 +64,7 @@ public final class GetTableServerSideEncryptionArgs extends com.pulumi.resources
             return enabled(Output.of(enabled));
         }
 
-        public Builder kmsKeyArn(Output<String> kmsKeyArn) {
+        public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
@@ -72,8 +74,6 @@ public final class GetTableServerSideEncryptionArgs extends com.pulumi.resources
         }
 
         public GetTableServerSideEncryptionArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.kmsKeyArn = Objects.requireNonNull($.kmsKeyArn, "expected parameter 'kmsKeyArn' to be non-null");
             return $;
         }
     }

@@ -275,23 +275,23 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// List of all the network ACL ids found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? VpcId;
 
         [OutputConstructor]
         private GetNetworkAclsResult(
             ImmutableArray<Outputs.GetNetworkAclsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? vpcId)
         {

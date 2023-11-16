@@ -17,12 +17,12 @@ public final class GetTableItemResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
      * 
      */
-    private String item;
+    private @Nullable String item;
     private String key;
     private @Nullable String projectionExpression;
     private String tableName;
@@ -35,15 +35,15 @@ public final class GetTableItemResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
      * 
      */
-    public String item() {
-        return this.item;
+    public Optional<String> item() {
+        return Optional.ofNullable(this.item);
     }
     public String key() {
         return this.key;
@@ -65,8 +65,8 @@ public final class GetTableItemResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> expressionAttributeNames;
-        private String id;
-        private String item;
+        private @Nullable String id;
+        private @Nullable String item;
         private String key;
         private @Nullable String projectionExpression;
         private String tableName;
@@ -87,13 +87,13 @@ public final class GetTableItemResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder item(String item) {
-            this.item = Objects.requireNonNull(item);
+        public Builder item(@Nullable String item) {
+            this.item = item;
             return this;
         }
         @CustomType.Setter

@@ -10,6 +10,8 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPublicIpv4PoolResult {
@@ -17,61 +19,61 @@ public final class GetPublicIpv4PoolResult {
      * @return Description of the pool, if any.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Name of the location from which the address pool is advertised.
      * * pool_address_ranges` - List of Address Ranges in the Pool; each address range record contains:
      * 
      */
-    private String networkBorderGroup;
-    private List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges;
+    private @Nullable String networkBorderGroup;
+    private @Nullable List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges;
     private String poolId;
     /**
      * @return Any tags for the address pool.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Total number of addresses in the pool.
      * 
      */
-    private Integer totalAddressCount;
+    private @Nullable Integer totalAddressCount;
     /**
      * @return Total number of available addresses in the pool.
      * 
      */
-    private Integer totalAvailableAddressCount;
+    private @Nullable Integer totalAvailableAddressCount;
 
     private GetPublicIpv4PoolResult() {}
     /**
      * @return Description of the pool, if any.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Name of the location from which the address pool is advertised.
      * * pool_address_ranges` - List of Address Ranges in the Pool; each address range record contains:
      * 
      */
-    public String networkBorderGroup() {
-        return this.networkBorderGroup;
+    public Optional<String> networkBorderGroup() {
+        return Optional.ofNullable(this.networkBorderGroup);
     }
     public List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges() {
-        return this.poolAddressRanges;
+        return this.poolAddressRanges == null ? List.of() : this.poolAddressRanges;
     }
     public String poolId() {
         return this.poolId;
@@ -81,21 +83,21 @@ public final class GetPublicIpv4PoolResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Total number of addresses in the pool.
      * 
      */
-    public Integer totalAddressCount() {
-        return this.totalAddressCount;
+    public Optional<Integer> totalAddressCount() {
+        return Optional.ofNullable(this.totalAddressCount);
     }
     /**
      * @return Total number of available addresses in the pool.
      * 
      */
-    public Integer totalAvailableAddressCount() {
-        return this.totalAvailableAddressCount;
+    public Optional<Integer> totalAvailableAddressCount() {
+        return Optional.ofNullable(this.totalAvailableAddressCount);
     }
 
     public static Builder builder() {
@@ -107,14 +109,14 @@ public final class GetPublicIpv4PoolResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String description;
-        private String id;
-        private String networkBorderGroup;
-        private List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges;
+        private @Nullable String description;
+        private @Nullable String id;
+        private @Nullable String networkBorderGroup;
+        private @Nullable List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges;
         private String poolId;
-        private Map<String,String> tags;
-        private Integer totalAddressCount;
-        private Integer totalAvailableAddressCount;
+        private @Nullable Map<String,String> tags;
+        private @Nullable Integer totalAddressCount;
+        private @Nullable Integer totalAvailableAddressCount;
         public Builder() {}
         public Builder(GetPublicIpv4PoolResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -129,23 +131,23 @@ public final class GetPublicIpv4PoolResult {
         }
 
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder networkBorderGroup(String networkBorderGroup) {
-            this.networkBorderGroup = Objects.requireNonNull(networkBorderGroup);
+        public Builder networkBorderGroup(@Nullable String networkBorderGroup) {
+            this.networkBorderGroup = networkBorderGroup;
             return this;
         }
         @CustomType.Setter
-        public Builder poolAddressRanges(List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges) {
-            this.poolAddressRanges = Objects.requireNonNull(poolAddressRanges);
+        public Builder poolAddressRanges(@Nullable List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges) {
+            this.poolAddressRanges = poolAddressRanges;
             return this;
         }
         public Builder poolAddressRanges(GetPublicIpv4PoolPoolAddressRange... poolAddressRanges) {
@@ -157,18 +159,18 @@ public final class GetPublicIpv4PoolResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder totalAddressCount(Integer totalAddressCount) {
-            this.totalAddressCount = Objects.requireNonNull(totalAddressCount);
+        public Builder totalAddressCount(@Nullable Integer totalAddressCount) {
+            this.totalAddressCount = totalAddressCount;
             return this;
         }
         @CustomType.Setter
-        public Builder totalAvailableAddressCount(Integer totalAvailableAddressCount) {
-            this.totalAvailableAddressCount = Objects.requireNonNull(totalAvailableAddressCount);
+        public Builder totalAvailableAddressCount(@Nullable Integer totalAvailableAddressCount) {
+            this.totalAvailableAddressCount = totalAvailableAddressCount;
             return this;
         }
         public GetPublicIpv4PoolResult build() {

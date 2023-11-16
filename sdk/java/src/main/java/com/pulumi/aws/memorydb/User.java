@@ -96,14 +96,14 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the user.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Denotes the user&#39;s authentication properties. Detailed below.
@@ -124,14 +124,14 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="minimumEngineVersion", refs={String.class}, tree="[0]")
-    private Output<String> minimumEngineVersion;
+    private Output</* @Nullable */ String> minimumEngineVersion;
 
     /**
      * @return The minimum engine version supported for the user.
      * 
      */
-    public Output<String> minimumEngineVersion() {
-        return this.minimumEngineVersion;
+    public Output<Optional<String>> minimumEngineVersion() {
+        return Codegen.optional(this.minimumEngineVersion);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

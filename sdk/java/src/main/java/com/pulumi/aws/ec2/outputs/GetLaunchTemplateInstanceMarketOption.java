@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchTemplateInstanceMarketOption {
-    private String marketType;
-    private List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions;
+    private @Nullable String marketType;
+    private @Nullable List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions;
 
     private GetLaunchTemplateInstanceMarketOption() {}
-    public String marketType() {
-        return this.marketType;
+    public Optional<String> marketType() {
+        return Optional.ofNullable(this.marketType);
     }
     public List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions() {
-        return this.spotOptions;
+        return this.spotOptions == null ? List.of() : this.spotOptions;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetLaunchTemplateInstanceMarketOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String marketType;
-        private List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions;
+        private @Nullable String marketType;
+        private @Nullable List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions;
         public Builder() {}
         public Builder(GetLaunchTemplateInstanceMarketOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetLaunchTemplateInstanceMarketOption {
         }
 
         @CustomType.Setter
-        public Builder marketType(String marketType) {
-            this.marketType = Objects.requireNonNull(marketType);
+        public Builder marketType(@Nullable String marketType) {
+            this.marketType = marketType;
             return this;
         }
         @CustomType.Setter
-        public Builder spotOptions(List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions) {
-            this.spotOptions = Objects.requireNonNull(spotOptions);
+        public Builder spotOptions(@Nullable List<GetLaunchTemplateInstanceMarketOptionSpotOption> spotOptions) {
+            this.spotOptions = spotOptions;
             return this;
         }
         public Builder spotOptions(GetLaunchTemplateInstanceMarketOptionSpotOption... spotOptions) {

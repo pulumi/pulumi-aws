@@ -39,7 +39,7 @@ class GetClustersResult:
 
     @property
     @pulumi.getter(name="clusterArns")
-    def cluster_arns(self) -> Sequence[str]:
+    def cluster_arns(self) -> Optional[Sequence[str]]:
         """
         Set of cluster ARNs of the matched RDS clusters.
         """
@@ -47,7 +47,7 @@ class GetClustersResult:
 
     @property
     @pulumi.getter(name="clusterIdentifiers")
-    def cluster_identifiers(self) -> Sequence[str]:
+    def cluster_identifiers(self) -> Optional[Sequence[str]]:
         """
         Set of ARNs of cluster identifiers of the matched RDS clusters.
         """
@@ -60,7 +60,7 @@ class GetClustersResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

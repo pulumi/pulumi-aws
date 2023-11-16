@@ -48,25 +48,25 @@ export interface GetCustomKeyStoreArgs {
  * A collection of values returned by getCustomKeyStore.
  */
 export interface GetCustomKeyStoreResult {
-    readonly cloudHsmClusterId: string;
+    readonly cloudHsmClusterId?: string;
     /**
      * Indicates whether the custom key store is connected to its CloudHSM cluster.
      */
-    readonly connectionState: string;
+    readonly connectionState?: string;
     /**
      * The date and time when the custom key store was created.
      */
-    readonly creationDate: string;
-    readonly customKeyStoreId: string;
-    readonly customKeyStoreName: string;
+    readonly creationDate?: string;
+    readonly customKeyStoreId?: string;
+    readonly customKeyStoreName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The trust anchor certificate of the associated CloudHSM cluster.
      */
-    readonly trustAnchorCertificate: string;
+    readonly trustAnchorCertificate?: string;
 }
 /**
  * Use this data source to get the metadata KMS custom key store.

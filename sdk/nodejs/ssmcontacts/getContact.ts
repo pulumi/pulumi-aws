@@ -49,24 +49,24 @@ export interface GetContactResult {
     /**
      * A unique and identifiable alias of the contact or escalation plan.
      */
-    readonly alias: string;
+    readonly alias?: string;
     readonly arn: string;
     /**
      * Full friendly name of the contact or escalation plan.
      */
-    readonly displayName: string;
+    readonly displayName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Map of tags to assign to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
      */
-    readonly type: string;
+    readonly type?: string;
 }
 /**
  * Data source for managing an AWS SSM Contact.

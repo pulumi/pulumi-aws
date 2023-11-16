@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Schemas
         /// The Amazon Resource Name (ARN) of the discoverer.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description of the discoverer. Maximum of 256 characters.

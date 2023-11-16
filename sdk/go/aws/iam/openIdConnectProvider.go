@@ -59,7 +59,7 @@ type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
 
 	// The ARN assigned by AWS for this provider.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists pulumi.StringArrayOutput `pulumi:"clientIdLists"`
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -265,8 +265,8 @@ func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutputWithContext(ct
 }
 
 // The ARN assigned by AWS for this provider.
-func (o OpenIdConnectProviderOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OpenIdConnectProviderOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)

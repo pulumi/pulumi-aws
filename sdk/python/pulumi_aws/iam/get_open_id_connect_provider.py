@@ -43,12 +43,12 @@ class GetOpenIdConnectProviderResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="clientIdLists")
-    def client_id_lists(self) -> Sequence[str]:
+    def client_id_lists(self) -> Optional[Sequence[str]]:
         """
         List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
         """
@@ -56,7 +56,7 @@ class GetOpenIdConnectProviderResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -64,7 +64,7 @@ class GetOpenIdConnectProviderResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of resource tags for the IAM OIDC provider.
         """
@@ -72,7 +72,7 @@ class GetOpenIdConnectProviderResult:
 
     @property
     @pulumi.getter(name="thumbprintLists")
-    def thumbprint_lists(self) -> Sequence[str]:
+    def thumbprint_lists(self) -> Optional[Sequence[str]]:
         """
         List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         """
@@ -80,7 +80,7 @@ class GetOpenIdConnectProviderResult:
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> Optional[str]:
         return pulumi.get(self, "url")
 
 

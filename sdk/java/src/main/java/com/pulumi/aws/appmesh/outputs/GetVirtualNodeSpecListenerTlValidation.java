@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlValidationTrus
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTlValidation {
-    private List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames;
-    private List<GetVirtualNodeSpecListenerTlValidationTrust> trusts;
+    private @Nullable List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames;
+    private @Nullable List<GetVirtualNodeSpecListenerTlValidationTrust> trusts;
 
     private GetVirtualNodeSpecListenerTlValidation() {}
     public List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames() {
-        return this.subjectAlternativeNames;
+        return this.subjectAlternativeNames == null ? List.of() : this.subjectAlternativeNames;
     }
     public List<GetVirtualNodeSpecListenerTlValidationTrust> trusts() {
-        return this.trusts;
+        return this.trusts == null ? List.of() : this.trusts;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualNodeSpecListenerTlValidation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames;
-        private List<GetVirtualNodeSpecListenerTlValidationTrust> trusts;
+        private @Nullable List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames;
+        private @Nullable List<GetVirtualNodeSpecListenerTlValidationTrust> trusts;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTlValidation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualNodeSpecListenerTlValidation {
         }
 
         @CustomType.Setter
-        public Builder subjectAlternativeNames(List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+        public Builder subjectAlternativeNames(@Nullable List<GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames) {
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
         @CustomType.Setter
-        public Builder trusts(List<GetVirtualNodeSpecListenerTlValidationTrust> trusts) {
-            this.trusts = Objects.requireNonNull(trusts);
+        public Builder trusts(@Nullable List<GetVirtualNodeSpecListenerTlValidationTrust> trusts) {
+            this.trusts = trusts;
             return this;
         }
         public Builder trusts(GetVirtualNodeSpecListenerTlValidationTrust... trusts) {

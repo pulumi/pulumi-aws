@@ -13,32 +13,32 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GetTableGlobalSecondaryIndexResult
     {
-        public readonly string HashKey;
+        public readonly string? HashKey;
         /// <summary>
         /// Name of the DynamoDB table.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         public readonly ImmutableArray<string> NonKeyAttributes;
-        public readonly string ProjectionType;
-        public readonly string RangeKey;
-        public readonly int ReadCapacity;
-        public readonly int WriteCapacity;
+        public readonly string? ProjectionType;
+        public readonly string? RangeKey;
+        public readonly int? ReadCapacity;
+        public readonly int? WriteCapacity;
 
         [OutputConstructor]
         private GetTableGlobalSecondaryIndexResult(
-            string hashKey,
+            string? hashKey,
 
-            string name,
+            string? name,
 
             ImmutableArray<string> nonKeyAttributes,
 
-            string projectionType,
+            string? projectionType,
 
-            string rangeKey,
+            string? rangeKey,
 
-            int readCapacity,
+            int? readCapacity,
 
-            int writeCapacity)
+            int? writeCapacity)
         {
             HashKey = hashKey;
             Name = name;

@@ -77,12 +77,12 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultVersionId")
-    def default_version_id(self) -> str:
+    def default_version_id(self) -> Optional[str]:
         """
         Identifier of the CloudFormation Type default version.
         """
@@ -90,7 +90,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter(name="deprecatedStatus")
-    def deprecated_status(self) -> str:
+    def deprecated_status(self) -> Optional[str]:
         """
         Deprecation status of the CloudFormation Type.
         """
@@ -98,7 +98,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the CloudFormation Type.
         """
@@ -106,7 +106,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter(name="documentationUrl")
-    def documentation_url(self) -> str:
+    def documentation_url(self) -> Optional[str]:
         """
         URL of the documentation for the CloudFormation Type.
         """
@@ -114,7 +114,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> str:
+    def execution_role_arn(self) -> Optional[str]:
         """
         ARN of the IAM Role used to register the CloudFormation Type.
         """
@@ -122,7 +122,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -130,7 +130,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter(name="isDefaultVersion")
-    def is_default_version(self) -> bool:
+    def is_default_version(self) -> Optional[bool]:
         """
         Whether the CloudFormation Type version is the default version.
         """
@@ -138,7 +138,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter(name="loggingConfigs")
-    def logging_configs(self) -> Sequence['outputs.GetCloudFormationTypeLoggingConfigResult']:
+    def logging_configs(self) -> Optional[Sequence['outputs.GetCloudFormationTypeLoggingConfigResult']]:
         """
         List of objects containing logging configuration.
         """
@@ -146,7 +146,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter(name="provisioningType")
-    def provisioning_type(self) -> str:
+    def provisioning_type(self) -> Optional[str]:
         """
         Provisioning behavior of the CloudFormation Type.
         """
@@ -154,7 +154,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter
-    def schema(self) -> str:
+    def schema(self) -> Optional[str]:
         """
         JSON document of the CloudFormation Type schema.
         """
@@ -162,7 +162,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter(name="sourceUrl")
-    def source_url(self) -> str:
+    def source_url(self) -> Optional[str]:
         """
         URL of the source code for the CloudFormation Type.
         """
@@ -170,17 +170,17 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="typeArn")
-    def type_arn(self) -> str:
+    def type_arn(self) -> Optional[str]:
         return pulumi.get(self, "type_arn")
 
     @property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> str:
+    def type_name(self) -> Optional[str]:
         return pulumi.get(self, "type_name")
 
     @property
@@ -190,7 +190,7 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter
-    def visibility(self) -> str:
+    def visibility(self) -> Optional[str]:
         """
         Scope of the CloudFormation Type.
         """

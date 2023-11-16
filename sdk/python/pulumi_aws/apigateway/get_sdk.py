@@ -49,7 +49,7 @@ class GetSdkResult:
 
     @property
     @pulumi.getter
-    def body(self) -> str:
+    def body(self) -> Optional[str]:
         """
         SDK as a string.
         """
@@ -57,7 +57,7 @@ class GetSdkResult:
 
     @property
     @pulumi.getter(name="contentDisposition")
-    def content_disposition(self) -> str:
+    def content_disposition(self) -> Optional[str]:
         """
         Content-disposition header value in the HTTP response.
         """
@@ -65,7 +65,7 @@ class GetSdkResult:
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> str:
+    def content_type(self) -> Optional[str]:
         """
         Content-type header value in the HTTP response.
         """
@@ -73,7 +73,7 @@ class GetSdkResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

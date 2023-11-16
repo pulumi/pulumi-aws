@@ -761,7 +761,7 @@ class AccountSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountSubscriptionStatus")
-    def account_subscription_status(self) -> pulumi.Output[str]:
+    def account_subscription_status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the Amazon QuickSight account's subscription.
         """
@@ -801,7 +801,7 @@ class AccountSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> pulumi.Output[str]:
+    def aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         AWS account ID hosting the QuickSight account. Default to provider account.
         """

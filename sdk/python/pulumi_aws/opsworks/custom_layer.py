@@ -1098,7 +1098,7 @@ class CustomLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name(ARN) of the layer.
         """
@@ -1195,7 +1195,7 @@ class CustomLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.CustomLayerEbsVolume']]:
+    def ebs_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.CustomLayerEbsVolume']]]:
         """
         Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         """
@@ -1227,7 +1227,7 @@ class CustomLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> pulumi.Output['outputs.CustomLayerLoadBasedAutoScaling']:
+    def load_based_auto_scaling(self) -> pulumi.Output[Optional['outputs.CustomLayerLoadBasedAutoScaling']]:
         """
         Load-based auto scaling configuration. See Load Based AutoScaling
         """

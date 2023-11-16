@@ -428,14 +428,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the cluster.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
@@ -480,10 +480,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bootstrapActions);
     }
     @Export(name="clusterState", refs={String.class}, tree="[0]")
-    private Output<String> clusterState;
+    private Output</* @Nullable */ String> clusterState;
 
-    public Output<String> clusterState() {
-        return this.clusterState;
+    public Output<Optional<String>> clusterState() {
+        return Codegen.optional(this.clusterState);
     }
     /**
      * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
@@ -610,28 +610,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="coreInstanceFleet", refs={ClusterCoreInstanceFleet.class}, tree="[0]")
-    private Output<ClusterCoreInstanceFleet> coreInstanceFleet;
+    private Output</* @Nullable */ ClusterCoreInstanceFleet> coreInstanceFleet;
 
     /**
      * @return Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
      * 
      */
-    public Output<ClusterCoreInstanceFleet> coreInstanceFleet() {
-        return this.coreInstanceFleet;
+    public Output<Optional<ClusterCoreInstanceFleet>> coreInstanceFleet() {
+        return Codegen.optional(this.coreInstanceFleet);
     }
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      * 
      */
     @Export(name="coreInstanceGroup", refs={ClusterCoreInstanceGroup.class}, tree="[0]")
-    private Output<ClusterCoreInstanceGroup> coreInstanceGroup;
+    private Output</* @Nullable */ ClusterCoreInstanceGroup> coreInstanceGroup;
 
     /**
      * @return Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      * 
      */
-    public Output<ClusterCoreInstanceGroup> coreInstanceGroup() {
-        return this.coreInstanceGroup;
+    public Output<Optional<ClusterCoreInstanceGroup>> coreInstanceGroup() {
+        return Codegen.optional(this.coreInstanceGroup);
     }
     /**
      * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
@@ -680,14 +680,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keepJobFlowAliveWhenNoSteps", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> keepJobFlowAliveWhenNoSteps;
+    private Output</* @Nullable */ Boolean> keepJobFlowAliveWhenNoSteps;
 
     /**
      * @return Switch on/off run cluster with no steps or when all steps are complete (default is on)
      * 
      */
-    public Output<Boolean> keepJobFlowAliveWhenNoSteps() {
-        return this.keepJobFlowAliveWhenNoSteps;
+    public Output<Optional<Boolean>> keepJobFlowAliveWhenNoSteps() {
+        return Codegen.optional(this.keepJobFlowAliveWhenNoSteps);
     }
     /**
      * Kerberos configuration for the cluster. See below.
@@ -750,42 +750,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="masterInstanceFleet", refs={ClusterMasterInstanceFleet.class}, tree="[0]")
-    private Output<ClusterMasterInstanceFleet> masterInstanceFleet;
+    private Output</* @Nullable */ ClusterMasterInstanceFleet> masterInstanceFleet;
 
     /**
      * @return Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
      * 
      */
-    public Output<ClusterMasterInstanceFleet> masterInstanceFleet() {
-        return this.masterInstanceFleet;
+    public Output<Optional<ClusterMasterInstanceFleet>> masterInstanceFleet() {
+        return Codegen.optional(this.masterInstanceFleet);
     }
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      * 
      */
     @Export(name="masterInstanceGroup", refs={ClusterMasterInstanceGroup.class}, tree="[0]")
-    private Output<ClusterMasterInstanceGroup> masterInstanceGroup;
+    private Output</* @Nullable */ ClusterMasterInstanceGroup> masterInstanceGroup;
 
     /**
      * @return Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      * 
      */
-    public Output<ClusterMasterInstanceGroup> masterInstanceGroup() {
-        return this.masterInstanceGroup;
+    public Output<Optional<ClusterMasterInstanceGroup>> masterInstanceGroup() {
+        return Codegen.optional(this.masterInstanceGroup);
     }
     /**
      * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
      * 
      */
     @Export(name="masterPublicDns", refs={String.class}, tree="[0]")
-    private Output<String> masterPublicDns;
+    private Output</* @Nullable */ String> masterPublicDns;
 
     /**
      * @return The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
      * 
      */
-    public Output<String> masterPublicDns() {
-        return this.masterPublicDns;
+    public Output<Optional<String>> masterPublicDns() {
+        return Codegen.optional(this.masterPublicDns);
     }
     /**
      * Name of the job flow.
@@ -834,14 +834,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="scaleDownBehavior", refs={String.class}, tree="[0]")
-    private Output<String> scaleDownBehavior;
+    private Output</* @Nullable */ String> scaleDownBehavior;
 
     /**
      * @return Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      * 
      */
-    public Output<String> scaleDownBehavior() {
-        return this.scaleDownBehavior;
+    public Output<Optional<String>> scaleDownBehavior() {
+        return Codegen.optional(this.scaleDownBehavior);
     }
     /**
      * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
@@ -894,14 +894,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="steps", refs={List.class,ClusterStep.class}, tree="[0,1]")
-    private Output<List<ClusterStep>> steps;
+    private Output</* @Nullable */ List<ClusterStep>> steps;
 
     /**
      * @return List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      * 
      */
-    public Output<List<ClusterStep>> steps() {
-        return this.steps;
+    public Output<Optional<List<ClusterStep>>> steps() {
+        return Codegen.optional(this.steps);
     }
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -940,14 +940,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="terminationProtection", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> terminationProtection;
+    private Output</* @Nullable */ Boolean> terminationProtection;
 
     /**
      * @return Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      * 
      */
-    public Output<Boolean> terminationProtection() {
-        return this.terminationProtection;
+    public Output<Optional<Boolean>> terminationProtection() {
+        return Codegen.optional(this.terminationProtection);
     }
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.

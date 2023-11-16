@@ -11,58 +11,60 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCustomRoutingAcceleratorResult {
-    private String arn;
-    private List<GetCustomRoutingAcceleratorAttribute> attributes;
-    private String dnsName;
-    private Boolean enabled;
-    private String hostedZoneId;
+    private @Nullable String arn;
+    private @Nullable List<GetCustomRoutingAcceleratorAttribute> attributes;
+    private @Nullable String dnsName;
+    private @Nullable Boolean enabled;
+    private @Nullable String hostedZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
-    private String ipAddressType;
-    private List<GetCustomRoutingAcceleratorIpSet> ipSets;
-    private String name;
-    private Map<String,String> tags;
+    private @Nullable String id;
+    private @Nullable String ipAddressType;
+    private @Nullable List<GetCustomRoutingAcceleratorIpSet> ipSets;
+    private @Nullable String name;
+    private @Nullable Map<String,String> tags;
 
     private GetCustomRoutingAcceleratorResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     public List<GetCustomRoutingAcceleratorAttribute> attributes() {
-        return this.attributes;
+        return this.attributes == null ? List.of() : this.attributes;
     }
-    public String dnsName() {
-        return this.dnsName;
+    public Optional<String> dnsName() {
+        return Optional.ofNullable(this.dnsName);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
-    public String hostedZoneId() {
-        return this.hostedZoneId;
+    public Optional<String> hostedZoneId() {
+        return Optional.ofNullable(this.hostedZoneId);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String ipAddressType() {
-        return this.ipAddressType;
+    public Optional<String> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
     }
     public List<GetCustomRoutingAcceleratorIpSet> ipSets() {
-        return this.ipSets;
+        return this.ipSets == null ? List.of() : this.ipSets;
     }
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -74,16 +76,16 @@ public final class GetCustomRoutingAcceleratorResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private List<GetCustomRoutingAcceleratorAttribute> attributes;
-        private String dnsName;
-        private Boolean enabled;
-        private String hostedZoneId;
-        private String id;
-        private String ipAddressType;
-        private List<GetCustomRoutingAcceleratorIpSet> ipSets;
-        private String name;
-        private Map<String,String> tags;
+        private @Nullable String arn;
+        private @Nullable List<GetCustomRoutingAcceleratorAttribute> attributes;
+        private @Nullable String dnsName;
+        private @Nullable Boolean enabled;
+        private @Nullable String hostedZoneId;
+        private @Nullable String id;
+        private @Nullable String ipAddressType;
+        private @Nullable List<GetCustomRoutingAcceleratorIpSet> ipSets;
+        private @Nullable String name;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetCustomRoutingAcceleratorResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -100,59 +102,59 @@ public final class GetCustomRoutingAcceleratorResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder attributes(List<GetCustomRoutingAcceleratorAttribute> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+        public Builder attributes(@Nullable List<GetCustomRoutingAcceleratorAttribute> attributes) {
+            this.attributes = attributes;
             return this;
         }
         public Builder attributes(GetCustomRoutingAcceleratorAttribute... attributes) {
             return attributes(List.of(attributes));
         }
         @CustomType.Setter
-        public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+        public Builder dnsName(@Nullable String dnsName) {
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
-        public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+        public Builder hostedZoneId(@Nullable String hostedZoneId) {
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddressType(String ipAddressType) {
-            this.ipAddressType = Objects.requireNonNull(ipAddressType);
+        public Builder ipAddressType(@Nullable String ipAddressType) {
+            this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
-        public Builder ipSets(List<GetCustomRoutingAcceleratorIpSet> ipSets) {
-            this.ipSets = Objects.requireNonNull(ipSets);
+        public Builder ipSets(@Nullable List<GetCustomRoutingAcceleratorIpSet> ipSets) {
+            this.ipSets = ipSets;
             return this;
         }
         public Builder ipSets(GetCustomRoutingAcceleratorIpSet... ipSets) {
             return ipSets(List.of(ipSets));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetCustomRoutingAcceleratorResult build() {

@@ -62,7 +62,7 @@ type VpcIpv6CidrBlockAssociation struct {
 	pulumi.CustomResourceState
 
 	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set.
-	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
 	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
 	Ipv6IpamPoolId pulumi.StringOutput `pulumi:"ipv6IpamPoolId"`
 	// The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `cidrBlock` are required
@@ -243,8 +243,8 @@ func (o VpcIpv6CidrBlockAssociationOutput) ToVpcIpv6CidrBlockAssociationOutputWi
 }
 
 // The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set.
-func (o VpcIpv6CidrBlockAssociationOutput) Ipv6CidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+func (o VpcIpv6CidrBlockAssociationOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
 // The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.

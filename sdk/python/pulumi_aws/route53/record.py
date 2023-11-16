@@ -966,7 +966,7 @@ class Record(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowOverwrite")
-    def allow_overwrite(self) -> pulumi.Output[bool]:
+    def allow_overwrite(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 
@@ -992,7 +992,7 @@ class Record(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> pulumi.Output[str]:
+    def fqdn(self) -> pulumi.Output[Optional[str]]:
         """
         [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
         """

@@ -40,7 +40,7 @@ type GetRouteTablesArgs struct {
 type GetRouteTablesResult struct {
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// List of all the route table ids found.
 	Ids   []string          `pulumi:"ids"`
 	Tags  map[string]string `pulumi:"tags"`
@@ -98,8 +98,8 @@ func (o GetRouteTablesResultOutput) Filters() GetRouteTablesFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetRouteTablesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteTablesResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetRouteTablesResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteTablesResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // List of all the route table ids found.

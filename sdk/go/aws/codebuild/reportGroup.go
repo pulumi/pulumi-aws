@@ -110,9 +110,9 @@ type ReportGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of Report Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date and time this Report Group was created.
-	Created pulumi.StringOutput `pulumi:"created"`
+	Created pulumi.StringPtrOutput `pulumi:"created"`
 	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
 	DeleteReports pulumi.BoolPtrOutput `pulumi:"deleteReports"`
 	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
@@ -329,13 +329,13 @@ func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) R
 }
 
 // The ARN of Report Group.
-func (o ReportGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ReportGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time this Report Group was created.
-func (o ReportGroupOutput) Created() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+func (o ReportGroupOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroup) pulumi.StringPtrOutput { return v.Created }).(pulumi.StringPtrOutput)
 }
 
 // If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.

@@ -432,7 +432,7 @@ class Vocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Vocabulary.
         """
@@ -440,7 +440,7 @@ class Vocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="downloadUri")
-    def download_uri(self) -> pulumi.Output[str]:
+    def download_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Generated download URI.
         """
@@ -480,7 +480,7 @@ class Vocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vocabularyFileUri")
-    def vocabulary_file_uri(self) -> pulumi.Output[str]:
+    def vocabulary_file_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         """

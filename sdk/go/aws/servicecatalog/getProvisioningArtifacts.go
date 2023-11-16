@@ -63,8 +63,8 @@ type GetProvisioningArtifactsArgs struct {
 type GetProvisioningArtifactsResult struct {
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	ProductId string `pulumi:"productId"`
+	Id        *string `pulumi:"id"`
+	ProductId string  `pulumi:"productId"`
 	// List with information about the provisioning artifacts. See details below.
 	ProvisioningArtifactDetails []GetProvisioningArtifactsProvisioningArtifactDetail `pulumi:"provisioningArtifactDetails"`
 }
@@ -116,8 +116,8 @@ func (o GetProvisioningArtifactsResultOutput) AcceptLanguage() pulumi.StringPtrO
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetProvisioningArtifactsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProvisioningArtifactsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetProvisioningArtifactsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetProvisioningArtifactsResultOutput) ProductId() pulumi.StringOutput {

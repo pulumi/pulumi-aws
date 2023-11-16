@@ -6,6 +6,8 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQuickConnectQuickConnectConfigQueueConfig {
@@ -13,27 +15,27 @@ public final class GetQuickConnectQuickConnectConfigQueueConfig {
      * @return Identifier of the contact flow.
      * 
      */
-    private String contactFlowId;
+    private @Nullable String contactFlowId;
     /**
      * @return Identifier for the queue.
      * 
      */
-    private String queueId;
+    private @Nullable String queueId;
 
     private GetQuickConnectQuickConnectConfigQueueConfig() {}
     /**
      * @return Identifier of the contact flow.
      * 
      */
-    public String contactFlowId() {
-        return this.contactFlowId;
+    public Optional<String> contactFlowId() {
+        return Optional.ofNullable(this.contactFlowId);
     }
     /**
      * @return Identifier for the queue.
      * 
      */
-    public String queueId() {
-        return this.queueId;
+    public Optional<String> queueId() {
+        return Optional.ofNullable(this.queueId);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetQuickConnectQuickConnectConfigQueueConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String contactFlowId;
-        private String queueId;
+        private @Nullable String contactFlowId;
+        private @Nullable String queueId;
         public Builder() {}
         public Builder(GetQuickConnectQuickConnectConfigQueueConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetQuickConnectQuickConnectConfigQueueConfig {
         }
 
         @CustomType.Setter
-        public Builder contactFlowId(String contactFlowId) {
-            this.contactFlowId = Objects.requireNonNull(contactFlowId);
+        public Builder contactFlowId(@Nullable String contactFlowId) {
+            this.contactFlowId = contactFlowId;
             return this;
         }
         @CustomType.Setter
-        public Builder queueId(String queueId) {
-            this.queueId = Objects.requireNonNull(queueId);
+        public Builder queueId(@Nullable String queueId) {
+            this.queueId = queueId;
             return this;
         }
         public GetQuickConnectQuickConnectConfigQueueConfig build() {

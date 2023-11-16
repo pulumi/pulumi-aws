@@ -92,7 +92,7 @@ type TrafficMirrorFilterRule struct {
 	pulumi.CustomResourceState
 
 	// ARN of the traffic mirror filter rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the traffic mirror filter rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Destination CIDR block to assign to the Traffic Mirror rule.
@@ -361,8 +361,8 @@ func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutputWithContex
 }
 
 // ARN of the traffic mirror filter rule.
-func (o TrafficMirrorFilterRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TrafficMirrorFilterRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the traffic mirror filter rule.

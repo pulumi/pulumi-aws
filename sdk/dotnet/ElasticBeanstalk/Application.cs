@@ -59,7 +59,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// The ARN assigned by AWS for this Elastic Beanstalk Application.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Short description of the application

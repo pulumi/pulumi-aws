@@ -59,20 +59,20 @@ type LookupLinkArgs struct {
 // A collection of values returned by getLink.
 type LookupLinkResult struct {
 	// ARN of the link.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Label that is assigned to this link.
-	Label string `pulumi:"label"`
+	Label *string `pulumi:"label"`
 	// Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
-	LabelTemplate string `pulumi:"labelTemplate"`
+	LabelTemplate *string `pulumi:"labelTemplate"`
 	// ID string that AWS generated as part of the link ARN.
-	LinkId         string `pulumi:"linkId"`
-	LinkIdentifier string `pulumi:"linkIdentifier"`
+	LinkId         *string `pulumi:"linkId"`
+	LinkIdentifier string  `pulumi:"linkIdentifier"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// ARN of the sink that is used for this link.
-	SinkArn string            `pulumi:"sinkArn"`
+	SinkArn *string           `pulumi:"sinkArn"`
 	Tags    map[string]string `pulumi:"tags"`
 }
 
@@ -116,28 +116,28 @@ func (o LookupLinkResultOutput) ToLookupLinkResultOutputWithContext(ctx context.
 }
 
 // ARN of the link.
-func (o LookupLinkResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupLinkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Label that is assigned to this link.
-func (o LookupLinkResultOutput) Label() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.Label }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
 // Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
-func (o LookupLinkResultOutput) LabelTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.LabelTemplate }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) LabelTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.LabelTemplate }).(pulumi.StringPtrOutput)
 }
 
 // ID string that AWS generated as part of the link ARN.
-func (o LookupLinkResultOutput) LinkId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.LinkId }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) LinkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.LinkId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLinkResultOutput) LinkIdentifier() pulumi.StringOutput {
@@ -150,8 +150,8 @@ func (o LookupLinkResultOutput) ResourceTypes() pulumi.StringArrayOutput {
 }
 
 // ARN of the sink that is used for this link.
-func (o LookupLinkResultOutput) SinkArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLinkResult) string { return v.SinkArn }).(pulumi.StringOutput)
+func (o LookupLinkResultOutput) SinkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *string { return v.SinkArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLinkResultOutput) Tags() pulumi.StringMapOutput {

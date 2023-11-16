@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Dax
         /// The ARN of the DAX cluster
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// List of Availability Zones in which the
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Dax
         /// The DNS name of the DAX cluster without the port appended
         /// </summary>
         [Output("clusterAddress")]
-        public Output<string> ClusterAddress { get; private set; } = null!;
+        public Output<string?> ClusterAddress { get; private set; } = null!;
 
         /// <summary>
         /// The type of encryption the
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Dax
         /// consisting of a DNS name and a port number
         /// </summary>
         [Output("configurationEndpoint")]
-        public Output<string> ConfigurationEndpoint { get; private set; } = null!;
+        public Output<string?> ConfigurationEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Description for the cluster
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Dax
         /// `sun:05:00-sun:09:00`
         /// </summary>
         [Output("maintenanceWindow")]
-        public Output<string> MaintenanceWindow { get; private set; } = null!;
+        public Output<string?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// The compute and memory capacity of the nodes. See
@@ -136,13 +136,13 @@ namespace Pulumi.Aws.Dax
         /// with this DAX cluster
         /// </summary>
         [Output("parameterGroupName")]
-        public Output<string> ParameterGroupName { get; private set; } = null!;
+        public Output<string?> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The port used by the configuration endpoint
         /// </summary>
         [Output("port")]
-        public Output<int> Port { get; private set; } = null!;
+        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// The number of nodes in the DAX cluster. A
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Dax
         /// cluster
         /// </summary>
         [Output("subnetGroupName")]
-        public Output<string> SubnetGroupName { get; private set; } = null!;
+        public Output<string?> SubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

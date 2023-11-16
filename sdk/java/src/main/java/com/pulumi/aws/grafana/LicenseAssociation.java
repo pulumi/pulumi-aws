@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -91,28 +92,28 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="freeTrialExpiration", refs={String.class}, tree="[0]")
-    private Output<String> freeTrialExpiration;
+    private Output</* @Nullable */ String> freeTrialExpiration;
 
     /**
      * @return If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      * 
      */
-    public Output<String> freeTrialExpiration() {
-        return this.freeTrialExpiration;
+    public Output<Optional<String>> freeTrialExpiration() {
+        return Codegen.optional(this.freeTrialExpiration);
     }
     /**
      * If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
     @Export(name="licenseExpiration", refs={String.class}, tree="[0]")
-    private Output<String> licenseExpiration;
+    private Output</* @Nullable */ String> licenseExpiration;
 
     /**
      * @return If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
-    public Output<String> licenseExpiration() {
-        return this.licenseExpiration;
+    public Output<Optional<String>> licenseExpiration() {
+        return Codegen.optional(this.licenseExpiration);
     }
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.

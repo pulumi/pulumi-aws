@@ -77,12 +77,12 @@ export interface GetAssetsResult {
     /**
      * List of all the asset ids found. This data source will fail if none are found.
      */
-    readonly assetIds: string[];
+    readonly assetIds?: string[];
     readonly hostIdFilters?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     readonly statusIdFilters?: string[];
 }
 /**

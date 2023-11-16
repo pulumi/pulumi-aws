@@ -68,56 +68,56 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the Association.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The account that created the association.
      * 
      */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
-    private Output<String> createdBy;
+    private Output</* @Nullable */ String> createdBy;
 
     /**
      * @return The account that created the association.
      * 
      */
-    public Output<String> createdBy() {
-        return this.createdBy;
+    public Output<Optional<String>> createdBy() {
+        return Codegen.optional(this.createdBy);
     }
     /**
      * The custom domain name of the service.
      * 
      */
     @Export(name="customDomainName", refs={String.class}, tree="[0]")
-    private Output<String> customDomainName;
+    private Output</* @Nullable */ String> customDomainName;
 
     /**
      * @return The custom domain name of the service.
      * 
      */
-    public Output<String> customDomainName() {
-        return this.customDomainName;
+    public Output<Optional<String>> customDomainName() {
+        return Codegen.optional(this.customDomainName);
     }
     /**
      * The DNS name of the service.
      * 
      */
     @Export(name="dnsEntries", refs={List.class,ServiceNetworkServiceAssociationDnsEntry.class}, tree="[0,1]")
-    private Output<List<ServiceNetworkServiceAssociationDnsEntry>> dnsEntries;
+    private Output</* @Nullable */ List<ServiceNetworkServiceAssociationDnsEntry>> dnsEntries;
 
     /**
      * @return The DNS name of the service.
      * 
      */
-    public Output<List<ServiceNetworkServiceAssociationDnsEntry>> dnsEntries() {
-        return this.dnsEntries;
+    public Output<Optional<List<ServiceNetworkServiceAssociationDnsEntry>>> dnsEntries() {
+        return Codegen.optional(this.dnsEntries);
     }
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
@@ -154,14 +154,14 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

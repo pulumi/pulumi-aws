@@ -8,6 +8,8 @@ import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBudgetNotification {
@@ -15,75 +17,75 @@ public final class GetBudgetNotification {
      * @return (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
      * 
      */
-    private String comparisonOperator;
+    private @Nullable String comparisonOperator;
     /**
      * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
      * 
      */
-    private String notificationType;
+    private @Nullable String notificationType;
     /**
      * @return (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
      * 
      */
-    private List<String> subscriberEmailAddresses;
+    private @Nullable List<String> subscriberEmailAddresses;
     /**
      * @return (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
      * 
      */
-    private List<String> subscriberSnsTopicArns;
+    private @Nullable List<String> subscriberSnsTopicArns;
     /**
      * @return (Required) Threshold when the notification should be sent.
      * 
      */
-    private Double threshold;
+    private @Nullable Double threshold;
     /**
      * @return (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
      * 
      */
-    private String thresholdType;
+    private @Nullable String thresholdType;
 
     private GetBudgetNotification() {}
     /**
      * @return (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
      * 
      */
-    public String comparisonOperator() {
-        return this.comparisonOperator;
+    public Optional<String> comparisonOperator() {
+        return Optional.ofNullable(this.comparisonOperator);
     }
     /**
      * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
      * 
      */
-    public String notificationType() {
-        return this.notificationType;
+    public Optional<String> notificationType() {
+        return Optional.ofNullable(this.notificationType);
     }
     /**
      * @return (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
      * 
      */
     public List<String> subscriberEmailAddresses() {
-        return this.subscriberEmailAddresses;
+        return this.subscriberEmailAddresses == null ? List.of() : this.subscriberEmailAddresses;
     }
     /**
      * @return (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
      * 
      */
     public List<String> subscriberSnsTopicArns() {
-        return this.subscriberSnsTopicArns;
+        return this.subscriberSnsTopicArns == null ? List.of() : this.subscriberSnsTopicArns;
     }
     /**
      * @return (Required) Threshold when the notification should be sent.
      * 
      */
-    public Double threshold() {
-        return this.threshold;
+    public Optional<Double> threshold() {
+        return Optional.ofNullable(this.threshold);
     }
     /**
      * @return (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
      * 
      */
-    public String thresholdType() {
-        return this.thresholdType;
+    public Optional<String> thresholdType() {
+        return Optional.ofNullable(this.thresholdType);
     }
 
     public static Builder builder() {
@@ -95,12 +97,12 @@ public final class GetBudgetNotification {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comparisonOperator;
-        private String notificationType;
-        private List<String> subscriberEmailAddresses;
-        private List<String> subscriberSnsTopicArns;
-        private Double threshold;
-        private String thresholdType;
+        private @Nullable String comparisonOperator;
+        private @Nullable String notificationType;
+        private @Nullable List<String> subscriberEmailAddresses;
+        private @Nullable List<String> subscriberSnsTopicArns;
+        private @Nullable Double threshold;
+        private @Nullable String thresholdType;
         public Builder() {}
         public Builder(GetBudgetNotification defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,39 +115,39 @@ public final class GetBudgetNotification {
         }
 
         @CustomType.Setter
-        public Builder comparisonOperator(String comparisonOperator) {
-            this.comparisonOperator = Objects.requireNonNull(comparisonOperator);
+        public Builder comparisonOperator(@Nullable String comparisonOperator) {
+            this.comparisonOperator = comparisonOperator;
             return this;
         }
         @CustomType.Setter
-        public Builder notificationType(String notificationType) {
-            this.notificationType = Objects.requireNonNull(notificationType);
+        public Builder notificationType(@Nullable String notificationType) {
+            this.notificationType = notificationType;
             return this;
         }
         @CustomType.Setter
-        public Builder subscriberEmailAddresses(List<String> subscriberEmailAddresses) {
-            this.subscriberEmailAddresses = Objects.requireNonNull(subscriberEmailAddresses);
+        public Builder subscriberEmailAddresses(@Nullable List<String> subscriberEmailAddresses) {
+            this.subscriberEmailAddresses = subscriberEmailAddresses;
             return this;
         }
         public Builder subscriberEmailAddresses(String... subscriberEmailAddresses) {
             return subscriberEmailAddresses(List.of(subscriberEmailAddresses));
         }
         @CustomType.Setter
-        public Builder subscriberSnsTopicArns(List<String> subscriberSnsTopicArns) {
-            this.subscriberSnsTopicArns = Objects.requireNonNull(subscriberSnsTopicArns);
+        public Builder subscriberSnsTopicArns(@Nullable List<String> subscriberSnsTopicArns) {
+            this.subscriberSnsTopicArns = subscriberSnsTopicArns;
             return this;
         }
         public Builder subscriberSnsTopicArns(String... subscriberSnsTopicArns) {
             return subscriberSnsTopicArns(List.of(subscriberSnsTopicArns));
         }
         @CustomType.Setter
-        public Builder threshold(Double threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+        public Builder threshold(@Nullable Double threshold) {
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
-        public Builder thresholdType(String thresholdType) {
-            this.thresholdType = Objects.requireNonNull(thresholdType);
+        public Builder thresholdType(@Nullable String thresholdType) {
+            this.thresholdType = thresholdType;
             return this;
         }
         public GetBudgetNotification build() {

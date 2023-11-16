@@ -86,7 +86,7 @@ export class AppImageConfig extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */

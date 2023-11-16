@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of Transit Gateway Route Table Association identifiers.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private GetRouteTableAssociationsResult(
             ImmutableArray<Outputs.GetRouteTableAssociationsFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 

@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserPhoneConfig {
@@ -15,51 +17,51 @@ public final class GetUserPhoneConfig {
      * @return The After Call Work (ACW) timeout setting, in seconds.
      * 
      */
-    private Integer afterContactWorkTimeLimit;
+    private @Nullable Integer afterContactWorkTimeLimit;
     /**
      * @return When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
      * 
      */
-    private Boolean autoAccept;
+    private @Nullable Boolean autoAccept;
     /**
      * @return The phone number for the user&#39;s desk phone.
      * 
      */
-    private String deskPhoneNumber;
+    private @Nullable String deskPhoneNumber;
     /**
      * @return The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
      * 
      */
-    private String phoneType;
+    private @Nullable String phoneType;
 
     private GetUserPhoneConfig() {}
     /**
      * @return The After Call Work (ACW) timeout setting, in seconds.
      * 
      */
-    public Integer afterContactWorkTimeLimit() {
-        return this.afterContactWorkTimeLimit;
+    public Optional<Integer> afterContactWorkTimeLimit() {
+        return Optional.ofNullable(this.afterContactWorkTimeLimit);
     }
     /**
      * @return When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
      * 
      */
-    public Boolean autoAccept() {
-        return this.autoAccept;
+    public Optional<Boolean> autoAccept() {
+        return Optional.ofNullable(this.autoAccept);
     }
     /**
      * @return The phone number for the user&#39;s desk phone.
      * 
      */
-    public String deskPhoneNumber() {
-        return this.deskPhoneNumber;
+    public Optional<String> deskPhoneNumber() {
+        return Optional.ofNullable(this.deskPhoneNumber);
     }
     /**
      * @return The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
      * 
      */
-    public String phoneType() {
-        return this.phoneType;
+    public Optional<String> phoneType() {
+        return Optional.ofNullable(this.phoneType);
     }
 
     public static Builder builder() {
@@ -71,10 +73,10 @@ public final class GetUserPhoneConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer afterContactWorkTimeLimit;
-        private Boolean autoAccept;
-        private String deskPhoneNumber;
-        private String phoneType;
+        private @Nullable Integer afterContactWorkTimeLimit;
+        private @Nullable Boolean autoAccept;
+        private @Nullable String deskPhoneNumber;
+        private @Nullable String phoneType;
         public Builder() {}
         public Builder(GetUserPhoneConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,23 +87,23 @@ public final class GetUserPhoneConfig {
         }
 
         @CustomType.Setter
-        public Builder afterContactWorkTimeLimit(Integer afterContactWorkTimeLimit) {
-            this.afterContactWorkTimeLimit = Objects.requireNonNull(afterContactWorkTimeLimit);
+        public Builder afterContactWorkTimeLimit(@Nullable Integer afterContactWorkTimeLimit) {
+            this.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder autoAccept(Boolean autoAccept) {
-            this.autoAccept = Objects.requireNonNull(autoAccept);
+        public Builder autoAccept(@Nullable Boolean autoAccept) {
+            this.autoAccept = autoAccept;
             return this;
         }
         @CustomType.Setter
-        public Builder deskPhoneNumber(String deskPhoneNumber) {
-            this.deskPhoneNumber = Objects.requireNonNull(deskPhoneNumber);
+        public Builder deskPhoneNumber(@Nullable String deskPhoneNumber) {
+            this.deskPhoneNumber = deskPhoneNumber;
             return this;
         }
         @CustomType.Setter
-        public Builder phoneType(String phoneType) {
-            this.phoneType = Objects.requireNonNull(phoneType);
+        public Builder phoneType(@Nullable String phoneType) {
+            this.phoneType = phoneType;
             return this;
         }
         public GetUserPhoneConfig build() {

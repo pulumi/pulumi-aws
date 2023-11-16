@@ -126,7 +126,7 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * ARN of domain name.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
@@ -150,15 +150,15 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * Upload date associated with the domain certificate.
      */
-    public /*out*/ readonly certificateUploadDate!: pulumi.Output<string>;
+    public /*out*/ readonly certificateUploadDate!: pulumi.Output<string | undefined>;
     /**
      * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
      */
-    public /*out*/ readonly cloudfrontDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDomainName!: pulumi.Output<string | undefined>;
     /**
      * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
      */
-    public /*out*/ readonly cloudfrontZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontZoneId!: pulumi.Output<string | undefined>;
     /**
      * Fully-qualified domain name to register.
      */
@@ -166,7 +166,7 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * Configuration block defining API endpoint information including type. See below.
      */
-    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration>;
+    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration | undefined>;
     /**
      * Mutual TLS authentication configuration for the domain name. See below.
      */
@@ -174,7 +174,7 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      */
-    public readonly ownershipVerificationCertificateArn!: pulumi.Output<string>;
+    public readonly ownershipVerificationCertificateArn!: pulumi.Output<string | undefined>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      *
@@ -188,15 +188,15 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * Hostname for the custom domain's regional endpoint.
      */
-    public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly regionalDomainName!: pulumi.Output<string | undefined>;
     /**
      * Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      */
-    public /*out*/ readonly regionalZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly regionalZoneId!: pulumi.Output<string | undefined>;
     /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      */
-    public readonly securityPolicy!: pulumi.Output<string>;
+    public readonly securityPolicy!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *

@@ -99,19 +99,19 @@ namespace Pulumi.Aws.S3
         /// Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
         /// </summary>
         [Output("accelerationStatus")]
-        public Output<string> AccelerationStatus { get; private set; } = null!;
+        public Output<string?> AccelerationStatus { get; private set; } = null!;
 
         /// <summary>
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
         /// </summary>
         [Output("acl")]
-        public Output<string> Acl { get; private set; } = null!;
+        public Output<string?> Acl { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -123,19 +123,19 @@ namespace Pulumi.Aws.S3
         /// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         /// </summary>
         [Output("bucketDomainName")]
-        public Output<string> BucketDomainName { get; private set; } = null!;
+        public Output<string?> BucketDomainName { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
         [Output("bucketPrefix")]
-        public Output<string> BucketPrefix { get; private set; } = null!;
+        public Output<string?> BucketPrefix { get; private set; } = null!;
 
         /// <summary>
         /// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         /// </summary>
         [Output("bucketRegionalDomainName")]
-        public Output<string> BucketRegionalDomainName { get; private set; } = null!;
+        public Output<string?> BucketRegionalDomainName { get; private set; } = null!;
 
         /// <summary>
         /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.S3
         /// [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         /// </summary>
         [Output("hostedZoneId")]
-        public Output<string> HostedZoneId { get; private set; } = null!;
+        public Output<string?> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -181,13 +181,13 @@ namespace Pulumi.Aws.S3
         /// Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
         /// </summary>
         [Output("objectLockConfiguration")]
-        public Output<Outputs.BucketV2ObjectLockConfiguration> ObjectLockConfiguration { get; private set; } = null!;
+        public Output<Outputs.BucketV2ObjectLockConfiguration?> ObjectLockConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         /// </summary>
         [Output("objectLockEnabled")]
-        public Output<bool> ObjectLockEnabled { get; private set; } = null!;
+        public Output<bool?> ObjectLockEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
@@ -195,13 +195,13 @@ namespace Pulumi.Aws.S3
         /// Use the resource `aws.s3.BucketPolicy` instead.
         /// </summary>
         [Output("policy")]
-        public Output<string> Policy { get; private set; } = null!;
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// AWS region this bucket resides in.
         /// </summary>
         [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
+        public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.S3
         /// Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
         /// </summary>
         [Output("requestPayer")]
-        public Output<string> RequestPayer { get; private set; } = null!;
+        public Output<string?> RequestPayer { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
@@ -252,13 +252,13 @@ namespace Pulumi.Aws.S3
         /// (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         /// </summary>
         [Output("websiteDomain")]
-        public Output<string> WebsiteDomain { get; private set; } = null!;
+        public Output<string?> WebsiteDomain { get; private set; } = null!;
 
         /// <summary>
         /// (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         /// </summary>
         [Output("websiteEndpoint")]
-        public Output<string> WebsiteEndpoint { get; private set; } = null!;
+        public Output<string?> WebsiteEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.

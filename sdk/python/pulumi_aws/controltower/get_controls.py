@@ -34,7 +34,7 @@ class GetControlsResult:
 
     @property
     @pulumi.getter(name="enabledControls")
-    def enabled_controls(self) -> Sequence[str]:
+    def enabled_controls(self) -> Optional[Sequence[str]]:
         """
         List of all the ARNs for the controls applied to the `target_identifier`.
         """
@@ -42,7 +42,7 @@ class GetControlsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

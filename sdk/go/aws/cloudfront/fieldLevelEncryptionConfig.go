@@ -75,13 +75,13 @@ type FieldLevelEncryptionConfig struct {
 	pulumi.CustomResourceState
 
 	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
+	CallerReference pulumi.StringPtrOutput `pulumi:"callerReference"`
 	// An optional comment about the Field Level Encryption Config.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
 	ContentTypeProfileConfig FieldLevelEncryptionConfigContentTypeProfileConfigOutput `pulumi:"contentTypeProfileConfig"`
 	// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-	Etag pulumi.StringOutput `pulumi:"etag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
 	QueryArgProfileConfig FieldLevelEncryptionConfigQueryArgProfileConfigOutput `pulumi:"queryArgProfileConfig"`
 }
@@ -258,8 +258,8 @@ func (o FieldLevelEncryptionConfigOutput) ToFieldLevelEncryptionConfigOutputWith
 }
 
 // Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-func (o FieldLevelEncryptionConfigOutput) CallerReference() pulumi.StringOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfig) pulumi.StringOutput { return v.CallerReference }).(pulumi.StringOutput)
+func (o FieldLevelEncryptionConfigOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfig) pulumi.StringPtrOutput { return v.CallerReference }).(pulumi.StringPtrOutput)
 }
 
 // An optional comment about the Field Level Encryption Config.
@@ -275,8 +275,8 @@ func (o FieldLevelEncryptionConfigOutput) ContentTypeProfileConfig() FieldLevelE
 }
 
 // The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-func (o FieldLevelEncryptionConfigOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfig) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+func (o FieldLevelEncryptionConfigOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfig) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.

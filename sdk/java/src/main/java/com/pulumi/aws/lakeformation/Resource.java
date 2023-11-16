@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -76,14 +77,14 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
-    private Output<String> lastModified;
+    private Output</* @Nullable */ String> lastModified;
 
     /**
      * @return (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public Output<String> lastModified() {
-        return this.lastModified;
+    public Output<Optional<String>> lastModified() {
+        return Codegen.optional(this.lastModified);
     }
     /**
      * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
@@ -92,7 +93,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
-    private Output<String> roleArn;
+    private Output</* @Nullable */ String> roleArn;
 
     /**
      * @return Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
@@ -100,8 +101,8 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      * 
      */
-    public Output<String> roleArn() {
-        return this.roleArn;
+    public Output<Optional<String>> roleArn() {
+        return Codegen.optional(this.roleArn);
     }
 
     /**

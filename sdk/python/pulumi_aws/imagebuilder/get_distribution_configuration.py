@@ -55,7 +55,7 @@ class GetDistributionConfigurationResult:
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> str:
+    def date_created(self) -> Optional[str]:
         """
         Date the distribution configuration was created.
         """
@@ -63,7 +63,7 @@ class GetDistributionConfigurationResult:
 
     @property
     @pulumi.getter(name="dateUpdated")
-    def date_updated(self) -> str:
+    def date_updated(self) -> Optional[str]:
         """
         Date the distribution configuration was updated.
         """
@@ -71,7 +71,7 @@ class GetDistributionConfigurationResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the container distribution configuration.
         """
@@ -79,7 +79,7 @@ class GetDistributionConfigurationResult:
 
     @property
     @pulumi.getter
-    def distributions(self) -> Sequence['outputs.GetDistributionConfigurationDistributionResult']:
+    def distributions(self) -> Optional[Sequence['outputs.GetDistributionConfigurationDistributionResult']]:
         """
         Set of distributions.
         """
@@ -87,7 +87,7 @@ class GetDistributionConfigurationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -95,7 +95,7 @@ class GetDistributionConfigurationResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the distribution configuration.
         """
@@ -103,7 +103,7 @@ class GetDistributionConfigurationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the distribution configuration.
         """

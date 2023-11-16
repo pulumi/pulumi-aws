@@ -675,7 +675,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the config rule
         """
@@ -691,7 +691,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluationModes")
-    def evaluation_modes(self) -> pulumi.Output[Sequence['outputs.RuleEvaluationMode']]:
+    def evaluation_modes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleEvaluationMode']]]:
         """
         The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         """
@@ -723,7 +723,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> pulumi.Output[str]:
+    def rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the config rule
         """

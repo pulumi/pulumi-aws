@@ -67,112 +67,112 @@ public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Availability Zone of the EC2 Instance Connect Endpoint.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return The Availability Zone of the EC2 Instance Connect Endpoint.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * The DNS name of the EC2 Instance Connect Endpoint.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name of the EC2 Instance Connect Endpoint.
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * The DNS name of the EC2 Instance Connect FIPS Endpoint.
      * 
      */
     @Export(name="fipsDnsName", refs={String.class}, tree="[0]")
-    private Output<String> fipsDnsName;
+    private Output</* @Nullable */ String> fipsDnsName;
 
     /**
      * @return The DNS name of the EC2 Instance Connect FIPS Endpoint.
      * 
      */
-    public Output<String> fipsDnsName() {
-        return this.fipsDnsName;
+    public Output<Optional<String>> fipsDnsName() {
+        return Codegen.optional(this.fipsDnsName);
     }
     /**
      * The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
      * 
      */
     @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> networkInterfaceIds;
+    private Output</* @Nullable */ List<String>> networkInterfaceIds;
 
     /**
      * @return The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
      * 
      */
-    public Output<List<String>> networkInterfaceIds() {
-        return this.networkInterfaceIds;
+    public Output<Optional<List<String>>> networkInterfaceIds() {
+        return Codegen.optional(this.networkInterfaceIds);
     }
     /**
      * The ID of the AWS account that created the EC2 Instance Connect Endpoint.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The ID of the AWS account that created the EC2 Instance Connect Endpoint.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * Indicates whether your client&#39;s IP address is preserved as the source. Default: `true`.
      * 
      */
     @Export(name="preserveClientIp", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> preserveClientIp;
+    private Output</* @Nullable */ Boolean> preserveClientIp;
 
     /**
      * @return Indicates whether your client&#39;s IP address is preserved as the source. Default: `true`.
      * 
      */
-    public Output<Boolean> preserveClientIp() {
-        return this.preserveClientIp;
+    public Output<Optional<Boolean>> preserveClientIp() {
+        return Codegen.optional(this.preserveClientIp);
     }
     /**
      * One or more security groups to associate with the endpoint. If you don&#39;t specify a security group, the default security group for the VPC will be associated with the endpoint.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupIds;
+    private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
      * @return One or more security groups to associate with the endpoint. If you don&#39;t specify a security group, the default security group for the VPC will be associated with the endpoint.
      * 
      */
-    public Output<List<String>> securityGroupIds() {
-        return this.securityGroupIds;
+    public Output<Optional<List<String>>> securityGroupIds() {
+        return Codegen.optional(this.securityGroupIds);
     }
     /**
      * The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
@@ -231,14 +231,14 @@ public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
-    private Output<String> vpcId;
+    private Output</* @Nullable */ String> vpcId;
 
     /**
      * @return The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
      * 
      */
-    public Output<String> vpcId() {
-        return this.vpcId;
+    public Output<Optional<String>> vpcId() {
+        return Codegen.optional(this.vpcId);
     }
 
     /**

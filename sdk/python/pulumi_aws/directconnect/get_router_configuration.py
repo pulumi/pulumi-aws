@@ -44,7 +44,7 @@ class GetRouterConfigurationResult:
 
     @property
     @pulumi.getter(name="customerRouterConfig")
-    def customer_router_config(self) -> str:
+    def customer_router_config(self) -> Optional[str]:
         """
         Instructions for configuring your router
         """
@@ -52,7 +52,7 @@ class GetRouterConfigurationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -68,7 +68,7 @@ class GetRouterConfigurationResult:
 
     @property
     @pulumi.getter
-    def routers(self) -> Sequence['outputs.GetRouterConfigurationRouterResult']:
+    def routers(self) -> Optional[Sequence['outputs.GetRouterConfigurationRouterResult']]:
         """
         Block of the router type details
         """
@@ -81,7 +81,7 @@ class GetRouterConfigurationResult:
 
     @property
     @pulumi.getter(name="virtualInterfaceName")
-    def virtual_interface_name(self) -> str:
+    def virtual_interface_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_interface_name")
 
 

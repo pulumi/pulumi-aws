@@ -50,7 +50,7 @@ export class ServiceRegion extends pulumi.CustomResource {
     /**
      * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
      */
-    public readonly desiredNumberOfDomainControllers!: pulumi.Output<number>;
+    public readonly desiredNumberOfDomainControllers!: pulumi.Output<number | undefined>;
     /**
      * The identifier of the directory to which you want to add Region replication.
      */

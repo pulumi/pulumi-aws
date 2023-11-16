@@ -6,14 +6,16 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTlValidationTrustSd {
-    private String secretName;
+    private @Nullable String secretName;
 
     private GetVirtualNodeSpecListenerTlValidationTrustSd() {}
-    public String secretName() {
-        return this.secretName;
+    public Optional<String> secretName() {
+        return Optional.ofNullable(this.secretName);
     }
 
     public static Builder builder() {
@@ -25,7 +27,7 @@ public final class GetVirtualNodeSpecListenerTlValidationTrustSd {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String secretName;
+        private @Nullable String secretName;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTlValidationTrustSd defaults) {
     	      Objects.requireNonNull(defaults);
@@ -33,8 +35,8 @@ public final class GetVirtualNodeSpecListenerTlValidationTrustSd {
         }
 
         @CustomType.Setter
-        public Builder secretName(String secretName) {
-            this.secretName = Objects.requireNonNull(secretName);
+        public Builder secretName(@Nullable String secretName) {
+            this.secretName = secretName;
             return this;
         }
         public GetVirtualNodeSpecListenerTlValidationTrustSd build() {

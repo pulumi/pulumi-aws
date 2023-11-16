@@ -95,7 +95,7 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     /**
      * ARN of the Config Remediation Configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Remediation is triggered automatically if `true`.
      */

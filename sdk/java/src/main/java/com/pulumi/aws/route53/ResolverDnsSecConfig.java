@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -72,28 +73,28 @@ public class ResolverDnsSecConfig extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN for a configuration for DNSSEC validation.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
-    private Output<String> ownerId;
+    private Output</* @Nullable */ String> ownerId;
 
     /**
      * @return The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      * 
      */
-    public Output<String> ownerId() {
-        return this.ownerId;
+    public Output<Optional<String>> ownerId() {
+        return Codegen.optional(this.ownerId);
     }
     /**
      * The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
@@ -114,14 +115,14 @@ public class ResolverDnsSecConfig extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="validationStatus", refs={String.class}, tree="[0]")
-    private Output<String> validationStatus;
+    private Output</* @Nullable */ String> validationStatus;
 
     /**
      * @return The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
      * 
      */
-    public Output<String> validationStatus() {
-        return this.validationStatus;
+    public Output<Optional<String>> validationStatus() {
+        return Codegen.optional(this.validationStatus);
     }
 
     /**

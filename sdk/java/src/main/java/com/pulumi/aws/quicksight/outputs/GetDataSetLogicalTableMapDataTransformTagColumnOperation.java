@@ -8,18 +8,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetLogicalTableMapDataTransformTagColumnOperation {
-    private String columnName;
-    private List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTag> tags;
+    private @Nullable String columnName;
+    private @Nullable List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTag> tags;
 
     private GetDataSetLogicalTableMapDataTransformTagColumnOperation() {}
-    public String columnName() {
-        return this.columnName;
+    public Optional<String> columnName() {
+        return Optional.ofNullable(this.columnName);
     }
     public List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTag> tags() {
-        return this.tags;
+        return this.tags == null ? List.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -31,8 +33,8 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String columnName;
-        private List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTag> tags;
+        private @Nullable String columnName;
+        private @Nullable List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTag> tags;
         public Builder() {}
         public Builder(GetDataSetLogicalTableMapDataTransformTagColumnOperation defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,13 +43,13 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperation {
         }
 
         @CustomType.Setter
-        public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+        public Builder columnName(@Nullable String columnName) {
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTag> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable List<GetDataSetLogicalTableMapDataTransformTagColumnOperationTag> tags) {
+            this.tags = tags;
             return this;
         }
         public Builder tags(GetDataSetLogicalTableMapDataTransformTagColumnOperationTag... tags) {

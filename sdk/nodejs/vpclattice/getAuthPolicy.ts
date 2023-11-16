@@ -54,7 +54,7 @@ export interface GetAuthPolicyResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * The auth policy. The policy string in JSON must not contain newlines or blank lines.
      */

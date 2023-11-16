@@ -81,25 +81,25 @@ type ImageRecipe struct {
 	pulumi.CustomResourceState
 
 	// (Required) Amazon Resource Name (ARN) of the image recipe.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
 	// Ordered configuration block(s) with components for the image recipe. Detailed below.
 	Components ImageRecipeComponentArrayOutput `pulumi:"components"`
 	// Date the image recipe was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
+	DateCreated pulumi.StringPtrOutput `pulumi:"dateCreated"`
 	// Description of the image recipe.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the image recipe.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the image recipe.
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// Platform of the image recipe.
-	Platform pulumi.StringOutput `pulumi:"platform"`
+	Platform pulumi.StringPtrOutput `pulumi:"platform"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-	SystemsManagerAgent ImageRecipeSystemsManagerAgentOutput `pulumi:"systemsManagerAgent"`
+	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrOutput `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -107,7 +107,7 @@ type ImageRecipe struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
+	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 	//
 	// The following attributes are optional:
@@ -375,8 +375,8 @@ func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) I
 }
 
 // (Required) Amazon Resource Name (ARN) of the image recipe.
-func (o ImageRecipeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ImageRecipeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block(s) with block device mappings for the image recipe. Detailed below.
@@ -390,8 +390,8 @@ func (o ImageRecipeOutput) Components() ImageRecipeComponentArrayOutput {
 }
 
 // Date the image recipe was created.
-func (o ImageRecipeOutput) DateCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
+func (o ImageRecipeOutput) DateCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.DateCreated }).(pulumi.StringPtrOutput)
 }
 
 // Description of the image recipe.
@@ -405,8 +405,8 @@ func (o ImageRecipeOutput) Name() pulumi.StringOutput {
 }
 
 // Owner of the image recipe.
-func (o ImageRecipeOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o ImageRecipeOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
@@ -415,13 +415,13 @@ func (o ImageRecipeOutput) ParentImage() pulumi.StringOutput {
 }
 
 // Platform of the image recipe.
-func (o ImageRecipeOutput) Platform() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+func (o ImageRecipeOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-func (o ImageRecipeOutput) SystemsManagerAgent() ImageRecipeSystemsManagerAgentOutput {
-	return o.ApplyT(func(v *ImageRecipe) ImageRecipeSystemsManagerAgentOutput { return v.SystemsManagerAgent }).(ImageRecipeSystemsManagerAgentOutput)
+func (o ImageRecipeOutput) SystemsManagerAgent() ImageRecipeSystemsManagerAgentPtrOutput {
+	return o.ApplyT(func(v *ImageRecipe) ImageRecipeSystemsManagerAgentPtrOutput { return v.SystemsManagerAgent }).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
 // Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -437,8 +437,8 @@ func (o ImageRecipeOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-func (o ImageRecipeOutput) UserDataBase64() pulumi.StringOutput {
-	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.UserDataBase64 }).(pulumi.StringOutput)
+func (o ImageRecipeOutput) UserDataBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.UserDataBase64 }).(pulumi.StringPtrOutput)
 }
 
 // The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.

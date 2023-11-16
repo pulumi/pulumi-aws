@@ -67,7 +67,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
     /**
      * The current version of this Origin Access Control.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * A name that identifies the Origin Access Control.
      */

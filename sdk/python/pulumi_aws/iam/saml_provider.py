@@ -318,7 +318,7 @@ class SamlProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN assigned by AWS for this provider.
         """
@@ -361,7 +361,7 @@ class SamlProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validUntil")
-    def valid_until(self) -> pulumi.Output[str]:
+    def valid_until(self) -> pulumi.Output[Optional[str]]:
         """
         The expiration date and time for the SAML provider in RFC1123 format, e.g., `Mon, 02 Jan 2006 15:04:05 MST`.
         """

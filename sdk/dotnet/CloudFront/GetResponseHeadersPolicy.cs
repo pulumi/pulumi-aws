@@ -160,7 +160,7 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         /// </summary>
-        public readonly string Comment;
+        public readonly string? Comment;
         /// <summary>
         /// Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         /// </summary>
@@ -172,9 +172,9 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Current version of the response headers policy.
         /// </summary>
-        public readonly string Etag;
-        public readonly string Id;
-        public readonly string Name;
+        public readonly string? Etag;
+        public readonly string? Id;
+        public readonly string? Name;
         /// <summary>
         /// Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
         /// </summary>
@@ -190,17 +190,17 @@ namespace Pulumi.Aws.CloudFront
 
         [OutputConstructor]
         private GetResponseHeadersPolicyResult(
-            string comment,
+            string? comment,
 
             ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigResult> corsConfigs,
 
             ImmutableArray<Outputs.GetResponseHeadersPolicyCustomHeadersConfigResult> customHeadersConfigs,
 
-            string etag,
+            string? etag,
 
-            string id,
+            string? id,
 
-            string name,
+            string? name,
 
             ImmutableArray<Outputs.GetResponseHeadersPolicyRemoveHeadersConfigResult> removeHeadersConfigs,
 

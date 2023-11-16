@@ -256,86 +256,95 @@ class PlanStageTargetContactTargetInfo(dict):
 @pulumi.output_type
 class GetContactChannelDeliveryAddressResult(dict):
     def __init__(__self__, *,
-                 simple_address: str):
-        pulumi.set(__self__, "simple_address", simple_address)
+                 simple_address: Optional[str] = None):
+        if simple_address is not None:
+            pulumi.set(__self__, "simple_address", simple_address)
 
     @property
     @pulumi.getter(name="simpleAddress")
-    def simple_address(self) -> str:
+    def simple_address(self) -> Optional[str]:
         return pulumi.get(self, "simple_address")
 
 
 @pulumi.output_type
 class GetPlanStageResult(dict):
     def __init__(__self__, *,
-                 duration_in_minutes: int,
-                 targets: Sequence['outputs.GetPlanStageTargetResult']):
-        pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
-        pulumi.set(__self__, "targets", targets)
+                 duration_in_minutes: Optional[int] = None,
+                 targets: Optional[Sequence['outputs.GetPlanStageTargetResult']] = None):
+        if duration_in_minutes is not None:
+            pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> int:
+    def duration_in_minutes(self) -> Optional[int]:
         return pulumi.get(self, "duration_in_minutes")
 
     @property
     @pulumi.getter
-    def targets(self) -> Sequence['outputs.GetPlanStageTargetResult']:
+    def targets(self) -> Optional[Sequence['outputs.GetPlanStageTargetResult']]:
         return pulumi.get(self, "targets")
 
 
 @pulumi.output_type
 class GetPlanStageTargetResult(dict):
     def __init__(__self__, *,
-                 channel_target_infos: Sequence['outputs.GetPlanStageTargetChannelTargetInfoResult'],
-                 contact_target_infos: Sequence['outputs.GetPlanStageTargetContactTargetInfoResult']):
-        pulumi.set(__self__, "channel_target_infos", channel_target_infos)
-        pulumi.set(__self__, "contact_target_infos", contact_target_infos)
+                 channel_target_infos: Optional[Sequence['outputs.GetPlanStageTargetChannelTargetInfoResult']] = None,
+                 contact_target_infos: Optional[Sequence['outputs.GetPlanStageTargetContactTargetInfoResult']] = None):
+        if channel_target_infos is not None:
+            pulumi.set(__self__, "channel_target_infos", channel_target_infos)
+        if contact_target_infos is not None:
+            pulumi.set(__self__, "contact_target_infos", contact_target_infos)
 
     @property
     @pulumi.getter(name="channelTargetInfos")
-    def channel_target_infos(self) -> Sequence['outputs.GetPlanStageTargetChannelTargetInfoResult']:
+    def channel_target_infos(self) -> Optional[Sequence['outputs.GetPlanStageTargetChannelTargetInfoResult']]:
         return pulumi.get(self, "channel_target_infos")
 
     @property
     @pulumi.getter(name="contactTargetInfos")
-    def contact_target_infos(self) -> Sequence['outputs.GetPlanStageTargetContactTargetInfoResult']:
+    def contact_target_infos(self) -> Optional[Sequence['outputs.GetPlanStageTargetContactTargetInfoResult']]:
         return pulumi.get(self, "contact_target_infos")
 
 
 @pulumi.output_type
 class GetPlanStageTargetChannelTargetInfoResult(dict):
     def __init__(__self__, *,
-                 contact_channel_id: str,
-                 retry_interval_in_minutes: int):
-        pulumi.set(__self__, "contact_channel_id", contact_channel_id)
-        pulumi.set(__self__, "retry_interval_in_minutes", retry_interval_in_minutes)
+                 contact_channel_id: Optional[str] = None,
+                 retry_interval_in_minutes: Optional[int] = None):
+        if contact_channel_id is not None:
+            pulumi.set(__self__, "contact_channel_id", contact_channel_id)
+        if retry_interval_in_minutes is not None:
+            pulumi.set(__self__, "retry_interval_in_minutes", retry_interval_in_minutes)
 
     @property
     @pulumi.getter(name="contactChannelId")
-    def contact_channel_id(self) -> str:
+    def contact_channel_id(self) -> Optional[str]:
         return pulumi.get(self, "contact_channel_id")
 
     @property
     @pulumi.getter(name="retryIntervalInMinutes")
-    def retry_interval_in_minutes(self) -> int:
+    def retry_interval_in_minutes(self) -> Optional[int]:
         return pulumi.get(self, "retry_interval_in_minutes")
 
 
 @pulumi.output_type
 class GetPlanStageTargetContactTargetInfoResult(dict):
     def __init__(__self__, *,
-                 contact_id: str,
-                 is_essential: bool):
+                 contact_id: Optional[str] = None,
+                 is_essential: Optional[bool] = None):
         """
         :param str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
         """
-        pulumi.set(__self__, "contact_id", contact_id)
-        pulumi.set(__self__, "is_essential", is_essential)
+        if contact_id is not None:
+            pulumi.set(__self__, "contact_id", contact_id)
+        if is_essential is not None:
+            pulumi.set(__self__, "is_essential", is_essential)
 
     @property
     @pulumi.getter(name="contactId")
-    def contact_id(self) -> str:
+    def contact_id(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the contact or escalation plan.
         """
@@ -343,7 +352,7 @@ class GetPlanStageTargetContactTargetInfoResult(dict):
 
     @property
     @pulumi.getter(name="isEssential")
-    def is_essential(self) -> bool:
+    def is_essential(self) -> Optional[bool]:
         return pulumi.get(self, "is_essential")
 
 

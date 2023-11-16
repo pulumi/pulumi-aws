@@ -47,36 +47,36 @@ export interface GetWorkgroupResult {
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * The endpoint that is created from the workgroup. See `Endpoint` below.
      */
-    readonly endpoints: outputs.redshiftserverless.GetWorkgroupEndpoint[];
+    readonly endpoints?: outputs.redshiftserverless.GetWorkgroupEndpoint[];
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
-    readonly enhancedVpcRouting: boolean;
+    readonly enhancedVpcRouting?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly namespaceName: string;
+    readonly id?: string;
+    readonly namespaceName?: string;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */
-    readonly publiclyAccessible: boolean;
+    readonly publiclyAccessible?: boolean;
     /**
      * An array of security group IDs to associate with the workgroup.
      */
-    readonly securityGroupIds: string[];
+    readonly securityGroupIds?: string[];
     /**
      * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      */
-    readonly subnetIds: string[];
+    readonly subnetIds?: string[];
     /**
      * The Redshift Workgroup ID.
      */
-    readonly workgroupId: string;
+    readonly workgroupId?: string;
     readonly workgroupName: string;
 }
 /**

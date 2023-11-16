@@ -57,7 +57,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
@@ -69,7 +69,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.

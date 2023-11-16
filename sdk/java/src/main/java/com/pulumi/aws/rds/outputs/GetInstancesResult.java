@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,18 +19,18 @@ public final class GetInstancesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARNs of the matched RDS instances.
      * 
      */
-    private List<String> instanceArns;
+    private @Nullable List<String> instanceArns;
     /**
      * @return Identifiers of the matched RDS instances.
      * 
      */
-    private List<String> instanceIdentifiers;
-    private Map<String,String> tags;
+    private @Nullable List<String> instanceIdentifiers;
+    private @Nullable Map<String,String> tags;
 
     private GetInstancesResult() {}
     public List<GetInstancesFilter> filters() {
@@ -39,25 +40,25 @@ public final class GetInstancesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARNs of the matched RDS instances.
      * 
      */
     public List<String> instanceArns() {
-        return this.instanceArns;
+        return this.instanceArns == null ? List.of() : this.instanceArns;
     }
     /**
      * @return Identifiers of the matched RDS instances.
      * 
      */
     public List<String> instanceIdentifiers() {
-        return this.instanceIdentifiers;
+        return this.instanceIdentifiers == null ? List.of() : this.instanceIdentifiers;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -70,10 +71,10 @@ public final class GetInstancesResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetInstancesFilter> filters;
-        private String id;
-        private List<String> instanceArns;
-        private List<String> instanceIdentifiers;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable List<String> instanceArns;
+        private @Nullable List<String> instanceIdentifiers;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetInstancesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -93,29 +94,29 @@ public final class GetInstancesResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceArns(List<String> instanceArns) {
-            this.instanceArns = Objects.requireNonNull(instanceArns);
+        public Builder instanceArns(@Nullable List<String> instanceArns) {
+            this.instanceArns = instanceArns;
             return this;
         }
         public Builder instanceArns(String... instanceArns) {
             return instanceArns(List.of(instanceArns));
         }
         @CustomType.Setter
-        public Builder instanceIdentifiers(List<String> instanceIdentifiers) {
-            this.instanceIdentifiers = Objects.requireNonNull(instanceIdentifiers);
+        public Builder instanceIdentifiers(@Nullable List<String> instanceIdentifiers) {
+            this.instanceIdentifiers = instanceIdentifiers;
             return this;
         }
         public Builder instanceIdentifiers(String... instanceIdentifiers) {
             return instanceIdentifiers(List.of(instanceIdentifiers));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetInstancesResult build() {

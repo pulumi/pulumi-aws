@@ -133,7 +133,7 @@ export class PartitionIndex extends pulumi.CustomResource {
     /**
      * The catalog ID where the table resides.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */

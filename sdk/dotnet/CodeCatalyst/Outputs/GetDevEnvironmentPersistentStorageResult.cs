@@ -13,10 +13,10 @@ namespace Pulumi.Aws.CodeCatalyst.Outputs
     [OutputType]
     public sealed class GetDevEnvironmentPersistentStorageResult
     {
-        public readonly int Size;
+        public readonly int? Size;
 
         [OutputConstructor]
-        private GetDevEnvironmentPersistentStorageResult(int size)
+        private GetDevEnvironmentPersistentStorageResult(int? size)
         {
             Size = size;
         }

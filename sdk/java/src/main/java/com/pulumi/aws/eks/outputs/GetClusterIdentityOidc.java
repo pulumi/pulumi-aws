@@ -6,6 +6,8 @@ package com.pulumi.aws.eks.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterIdentityOidc {
@@ -13,15 +15,15 @@ public final class GetClusterIdentityOidc {
      * @return Issuer URL for the OpenID Connect identity provider.
      * 
      */
-    private String issuer;
+    private @Nullable String issuer;
 
     private GetClusterIdentityOidc() {}
     /**
      * @return Issuer URL for the OpenID Connect identity provider.
      * 
      */
-    public String issuer() {
-        return this.issuer;
+    public Optional<String> issuer() {
+        return Optional.ofNullable(this.issuer);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetClusterIdentityOidc {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String issuer;
+        private @Nullable String issuer;
         public Builder() {}
         public Builder(GetClusterIdentityOidc defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetClusterIdentityOidc {
         }
 
         @CustomType.Setter
-        public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+        public Builder issuer(@Nullable String issuer) {
+            this.issuer = issuer;
             return this;
         }
         public GetClusterIdentityOidc build() {

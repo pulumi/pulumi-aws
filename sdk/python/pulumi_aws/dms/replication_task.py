@@ -693,7 +693,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cdcStartPosition")
-    def cdc_start_position(self) -> pulumi.Output[str]:
+    def cdc_start_position(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         """
@@ -725,7 +725,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationTaskArn")
-    def replication_task_arn(self) -> pulumi.Output[str]:
+    def replication_task_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the replication task.
         """
@@ -770,7 +770,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Replication Task status.
         """

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcEndpointDnsOption {
@@ -14,27 +16,27 @@ public final class GetVpcEndpointDnsOption {
      * @return The DNS records created for the endpoint.
      * 
      */
-    private String dnsRecordIpType;
+    private @Nullable String dnsRecordIpType;
     /**
      * @return Indicates whether to enable private DNS only for inbound endpoints.
      * 
      */
-    private Boolean privateDnsOnlyForInboundResolverEndpoint;
+    private @Nullable Boolean privateDnsOnlyForInboundResolverEndpoint;
 
     private GetVpcEndpointDnsOption() {}
     /**
      * @return The DNS records created for the endpoint.
      * 
      */
-    public String dnsRecordIpType() {
-        return this.dnsRecordIpType;
+    public Optional<String> dnsRecordIpType() {
+        return Optional.ofNullable(this.dnsRecordIpType);
     }
     /**
      * @return Indicates whether to enable private DNS only for inbound endpoints.
      * 
      */
-    public Boolean privateDnsOnlyForInboundResolverEndpoint() {
-        return this.privateDnsOnlyForInboundResolverEndpoint;
+    public Optional<Boolean> privateDnsOnlyForInboundResolverEndpoint() {
+        return Optional.ofNullable(this.privateDnsOnlyForInboundResolverEndpoint);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetVpcEndpointDnsOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dnsRecordIpType;
-        private Boolean privateDnsOnlyForInboundResolverEndpoint;
+        private @Nullable String dnsRecordIpType;
+        private @Nullable Boolean privateDnsOnlyForInboundResolverEndpoint;
         public Builder() {}
         public Builder(GetVpcEndpointDnsOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetVpcEndpointDnsOption {
         }
 
         @CustomType.Setter
-        public Builder dnsRecordIpType(String dnsRecordIpType) {
-            this.dnsRecordIpType = Objects.requireNonNull(dnsRecordIpType);
+        public Builder dnsRecordIpType(@Nullable String dnsRecordIpType) {
+            this.dnsRecordIpType = dnsRecordIpType;
             return this;
         }
         @CustomType.Setter
-        public Builder privateDnsOnlyForInboundResolverEndpoint(Boolean privateDnsOnlyForInboundResolverEndpoint) {
-            this.privateDnsOnlyForInboundResolverEndpoint = Objects.requireNonNull(privateDnsOnlyForInboundResolverEndpoint);
+        public Builder privateDnsOnlyForInboundResolverEndpoint(@Nullable Boolean privateDnsOnlyForInboundResolverEndpoint) {
+            this.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
             return this;
         }
         public GetVpcEndpointDnsOption build() {

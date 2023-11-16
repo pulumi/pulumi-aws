@@ -129,14 +129,14 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the connector.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
@@ -157,14 +157,14 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="connectorId", refs={String.class}, tree="[0]")
-    private Output<String> connectorId;
+    private Output</* @Nullable */ String> connectorId;
 
     /**
      * @return The unique identifier for the AS2 profile or SFTP Profile.
      * 
      */
-    public Output<String> connectorId() {
-        return this.connectorId;
+    public Output<Optional<String>> connectorId() {
+        return Codegen.optional(this.connectorId);
     }
     /**
      * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.

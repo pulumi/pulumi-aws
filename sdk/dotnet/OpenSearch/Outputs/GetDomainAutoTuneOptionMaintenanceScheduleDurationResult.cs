@@ -16,17 +16,17 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// <summary>
         /// Unit of time.
         /// </summary>
-        public readonly string Unit;
+        public readonly string? Unit;
         /// <summary>
         /// Duration of an Auto-Tune maintenance window.
         /// </summary>
-        public readonly int Value;
+        public readonly int? Value;
 
         [OutputConstructor]
         private GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(
-            string unit,
+            string? unit,
 
-            int value)
+            int? value)
         {
             Unit = unit;
             Value = value;

@@ -62,12 +62,12 @@ type LookupSiteArgs struct {
 // A collection of values returned by getSite.
 type LookupSiteResult struct {
 	// ARN of the site.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// Description of the site.
-	Description     string `pulumi:"description"`
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
+	Description     *string `pulumi:"description"`
+	GlobalNetworkId string  `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Site location as documented below.
 	Locations []GetSiteLocation `pulumi:"locations"`
 	SiteId    string            `pulumi:"siteId"`
@@ -118,13 +118,13 @@ func (o LookupSiteResultOutput) ToLookupSiteResultOutputWithContext(ctx context.
 }
 
 // ARN of the site.
-func (o LookupSiteResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSiteResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupSiteResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the site.
-func (o LookupSiteResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSiteResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupSiteResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSiteResultOutput) GlobalNetworkId() pulumi.StringOutput {
@@ -132,8 +132,8 @@ func (o LookupSiteResultOutput) GlobalNetworkId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupSiteResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSiteResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSiteResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Site location as documented below.

@@ -22,19 +22,19 @@ public final class GetClusterCredentialsResult {
      * @return Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
      * 
      */
-    private String dbPassword;
+    private @Nullable String dbPassword;
     private String dbUser;
     private @Nullable Integer durationSeconds;
     /**
      * @return Date and time the password in `db_password` expires.
      * 
      */
-    private String expiration;
+    private @Nullable String expiration;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetClusterCredentialsResult() {}
     public Optional<Boolean> autoCreate() {
@@ -53,8 +53,8 @@ public final class GetClusterCredentialsResult {
      * @return Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
      * 
      */
-    public String dbPassword() {
-        return this.dbPassword;
+    public Optional<String> dbPassword() {
+        return Optional.ofNullable(this.dbPassword);
     }
     public String dbUser() {
         return this.dbUser;
@@ -66,15 +66,15 @@ public final class GetClusterCredentialsResult {
      * @return Date and time the password in `db_password` expires.
      * 
      */
-    public String expiration() {
-        return this.expiration;
+    public Optional<String> expiration() {
+        return Optional.ofNullable(this.expiration);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -90,11 +90,11 @@ public final class GetClusterCredentialsResult {
         private String clusterIdentifier;
         private @Nullable List<String> dbGroups;
         private @Nullable String dbName;
-        private String dbPassword;
+        private @Nullable String dbPassword;
         private String dbUser;
         private @Nullable Integer durationSeconds;
-        private String expiration;
-        private String id;
+        private @Nullable String expiration;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetClusterCredentialsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -133,8 +133,8 @@ public final class GetClusterCredentialsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dbPassword(String dbPassword) {
-            this.dbPassword = Objects.requireNonNull(dbPassword);
+        public Builder dbPassword(@Nullable String dbPassword) {
+            this.dbPassword = dbPassword;
             return this;
         }
         @CustomType.Setter
@@ -148,13 +148,13 @@ public final class GetClusterCredentialsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder expiration(String expiration) {
-            this.expiration = Objects.requireNonNull(expiration);
+        public Builder expiration(@Nullable String expiration) {
+            this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetClusterCredentialsResult build() {

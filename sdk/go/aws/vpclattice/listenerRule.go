@@ -132,7 +132,7 @@ type ListenerRule struct {
 	// The action for the listener rule.
 	Action ListenerRuleActionOutput `pulumi:"action"`
 	// The ARN for the listener rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier pulumi.StringOutput `pulumi:"listenerIdentifier"`
 	// The rule match.
@@ -144,7 +144,7 @@ type ListenerRule struct {
 	// The following arguments are optional:
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// Unique identifier for the listener rule.
-	RuleId pulumi.StringOutput `pulumi:"ruleId"`
+	RuleId pulumi.StringPtrOutput `pulumi:"ruleId"`
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -393,8 +393,8 @@ func (o ListenerRuleOutput) Action() ListenerRuleActionOutput {
 }
 
 // The ARN for the listener rule.
-func (o ListenerRuleOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ListenerRuleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRule) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The ID or Amazon Resource Name (ARN) of the listener.
@@ -420,8 +420,8 @@ func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 }
 
 // Unique identifier for the listener rule.
-func (o ListenerRuleOutput) RuleId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.RuleId }).(pulumi.StringOutput)
+func (o ListenerRuleOutput) RuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRule) pulumi.StringPtrOutput { return v.RuleId }).(pulumi.StringPtrOutput)
 }
 
 // The ID or Amazon Resource Identifier (ARN) of the service.

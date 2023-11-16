@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Rds
         /// Reason the export failed, if it failed.
         /// </summary>
         [Output("failureCause")]
-        public Output<string> FailureCause { get; private set; } = null!;
+        public Output<string?> FailureCause { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the IAM role to use for writing to the Amazon S3 bucket.
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Rds
         /// Progress of the snapshot export task as a percentage.
         /// </summary>
         [Output("percentProgress")]
-        public Output<int> PercentProgress { get; private set; } = null!;
+        public Output<int?> PercentProgress { get; private set; } = null!;
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.
@@ -230,13 +230,13 @@ namespace Pulumi.Aws.Rds
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         /// </summary>
         [Output("s3Prefix")]
-        public Output<string> S3Prefix { get; private set; } = null!;
+        public Output<string?> S3Prefix { get; private set; } = null!;
 
         /// <summary>
         /// Time that the snapshot was created.
         /// </summary>
         [Output("snapshotTime")]
-        public Output<string> SnapshotTime { get; private set; } = null!;
+        public Output<string?> SnapshotTime { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the snapshot to export.
@@ -250,25 +250,25 @@ namespace Pulumi.Aws.Rds
         /// Type of source for the export.
         /// </summary>
         [Output("sourceType")]
-        public Output<string> SourceType { get; private set; } = null!;
+        public Output<string?> SourceType { get; private set; } = null!;
 
         /// <summary>
         /// Status of the export task.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Time that the snapshot export task completed.
         /// </summary>
         [Output("taskEndTime")]
-        public Output<string> TaskEndTime { get; private set; } = null!;
+        public Output<string?> TaskEndTime { get; private set; } = null!;
 
         /// <summary>
         /// Time that the snapshot export task started.
         /// </summary>
         [Output("taskStartTime")]
-        public Output<string> TaskStartTime { get; private set; } = null!;
+        public Output<string?> TaskStartTime { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.ExportTaskTimeouts?> Timeouts { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Rds
         /// Warning about the snapshot export task, if any.
         /// </summary>
         [Output("warningMessage")]
-        public Output<string> WarningMessage { get; private set; } = null!;
+        public Output<string?> WarningMessage { get; private set; } = null!;
 
 
         /// <summary>

@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Fsx
         /// Amazon Resource Name of the volune.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -95,13 +95,13 @@ namespace Pulumi.Aws.Fsx
         /// Describes the file system for the volume, e.g. `fs-12345679`
         /// </summary>
         [Output("fileSystemId")]
-        public Output<string> FileSystemId { get; private set; } = null!;
+        public Output<string?> FileSystemId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
         /// </summary>
         [Output("flexcacheEndpointType")]
-        public Output<string> FlexcacheEndpointType { get; private set; } = null!;
+        public Output<string?> FlexcacheEndpointType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
@@ -119,13 +119,13 @@ namespace Pulumi.Aws.Fsx
         /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         /// </summary>
         [Output("ontapVolumeType")]
-        public Output<string> OntapVolumeType { get; private set; } = null!;
+        public Output<string?> OntapVolumeType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         /// </summary>
         [Output("securityStyle")]
-        public Output<string> SecurityStyle { get; private set; } = null!;
+        public Output<string?> SecurityStyle { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the size of the volume, in megabytes (MB), that you are creating.
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Fsx
         /// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         /// </summary>
         [Output("snapshotPolicy")]
-        public Output<string> SnapshotPolicy { get; private set; } = null!;
+        public Output<string?> SnapshotPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Fsx
         /// The Volume's UUID (universally unique identifier).
         /// </summary>
         [Output("uuid")]
-        public Output<string> Uuid { get; private set; } = null!;
+        public Output<string?> Uuid { get; private set; } = null!;
 
         /// <summary>
         /// The type of volume, currently the only valid value is `ONTAP`.

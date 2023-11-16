@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -72,29 +73,29 @@ public class BgpPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="amazonAddress", refs={String.class}, tree="[0]")
-    private Output<String> amazonAddress;
+    private Output</* @Nullable */ String> amazonAddress;
 
     /**
      * @return The IPv4 CIDR address to use to send traffic to Amazon.
      * Required for IPv4 BGP peers on public virtual interfaces.
      * 
      */
-    public Output<String> amazonAddress() {
-        return this.amazonAddress;
+    public Output<Optional<String>> amazonAddress() {
+        return Codegen.optional(this.amazonAddress);
     }
     /**
      * The Direct Connect endpoint on which the BGP peer terminates.
      * 
      */
     @Export(name="awsDevice", refs={String.class}, tree="[0]")
-    private Output<String> awsDevice;
+    private Output</* @Nullable */ String> awsDevice;
 
     /**
      * @return The Direct Connect endpoint on which the BGP peer terminates.
      * 
      */
-    public Output<String> awsDevice() {
-        return this.awsDevice;
+    public Output<Optional<String>> awsDevice() {
+        return Codegen.optional(this.awsDevice);
     }
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -115,42 +116,42 @@ public class BgpPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bgpAuthKey", refs={String.class}, tree="[0]")
-    private Output<String> bgpAuthKey;
+    private Output</* @Nullable */ String> bgpAuthKey;
 
     /**
      * @return The authentication key for BGP configuration.
      * 
      */
-    public Output<String> bgpAuthKey() {
-        return this.bgpAuthKey;
+    public Output<Optional<String>> bgpAuthKey() {
+        return Codegen.optional(this.bgpAuthKey);
     }
     /**
      * The ID of the BGP peer.
      * 
      */
     @Export(name="bgpPeerId", refs={String.class}, tree="[0]")
-    private Output<String> bgpPeerId;
+    private Output</* @Nullable */ String> bgpPeerId;
 
     /**
      * @return The ID of the BGP peer.
      * 
      */
-    public Output<String> bgpPeerId() {
-        return this.bgpPeerId;
+    public Output<Optional<String>> bgpPeerId() {
+        return Codegen.optional(this.bgpPeerId);
     }
     /**
      * The Up/Down state of the BGP peer.
      * 
      */
     @Export(name="bgpStatus", refs={String.class}, tree="[0]")
-    private Output<String> bgpStatus;
+    private Output</* @Nullable */ String> bgpStatus;
 
     /**
      * @return The Up/Down state of the BGP peer.
      * 
      */
-    public Output<String> bgpStatus() {
-        return this.bgpStatus;
+    public Output<Optional<String>> bgpStatus() {
+        return Codegen.optional(this.bgpStatus);
     }
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic.
@@ -158,15 +159,15 @@ public class BgpPeer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="customerAddress", refs={String.class}, tree="[0]")
-    private Output<String> customerAddress;
+    private Output</* @Nullable */ String> customerAddress;
 
     /**
      * @return The IPv4 CIDR destination address to which Amazon should send traffic.
      * Required for IPv4 BGP peers on public virtual interfaces.
      * 
      */
-    public Output<String> customerAddress() {
-        return this.customerAddress;
+    public Output<Optional<String>> customerAddress() {
+        return Codegen.optional(this.customerAddress);
     }
     /**
      * The ID of the Direct Connect virtual interface on which to create the BGP peer.

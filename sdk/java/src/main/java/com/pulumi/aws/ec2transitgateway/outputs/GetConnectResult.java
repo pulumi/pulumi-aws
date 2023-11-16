@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,28 +19,28 @@ public final class GetConnectResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Tunnel protocol
      * 
      */
-    private String protocol;
+    private @Nullable String protocol;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Connect
      * 
      */
-    private Map<String,String> tags;
-    private String transitGatewayConnectId;
+    private @Nullable Map<String,String> tags;
+    private @Nullable String transitGatewayConnectId;
     /**
      * @return EC2 Transit Gateway identifier
      * 
      */
-    private String transitGatewayId;
+    private @Nullable String transitGatewayId;
     /**
      * @return The underlaying VPC attachment
      * 
      */
-    private String transportAttachmentId;
+    private @Nullable String transportAttachmentId;
 
     private GetConnectResult() {}
     public List<GetConnectFilter> filters() {
@@ -49,39 +50,39 @@ public final class GetConnectResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Tunnel protocol
      * 
      */
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
     /**
      * @return Key-value tags for the EC2 Transit Gateway Connect
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
-    public String transitGatewayConnectId() {
-        return this.transitGatewayConnectId;
+    public Optional<String> transitGatewayConnectId() {
+        return Optional.ofNullable(this.transitGatewayConnectId);
     }
     /**
      * @return EC2 Transit Gateway identifier
      * 
      */
-    public String transitGatewayId() {
-        return this.transitGatewayId;
+    public Optional<String> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
     }
     /**
      * @return The underlaying VPC attachment
      * 
      */
-    public String transportAttachmentId() {
-        return this.transportAttachmentId;
+    public Optional<String> transportAttachmentId() {
+        return Optional.ofNullable(this.transportAttachmentId);
     }
 
     public static Builder builder() {
@@ -94,12 +95,12 @@ public final class GetConnectResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetConnectFilter> filters;
-        private String id;
-        private String protocol;
-        private Map<String,String> tags;
-        private String transitGatewayConnectId;
-        private String transitGatewayId;
-        private String transportAttachmentId;
+        private @Nullable String id;
+        private @Nullable String protocol;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String transitGatewayConnectId;
+        private @Nullable String transitGatewayId;
+        private @Nullable String transportAttachmentId;
         public Builder() {}
         public Builder(GetConnectResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -121,33 +122,33 @@ public final class GetConnectResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayConnectId(String transitGatewayConnectId) {
-            this.transitGatewayConnectId = Objects.requireNonNull(transitGatewayConnectId);
+        public Builder transitGatewayConnectId(@Nullable String transitGatewayConnectId) {
+            this.transitGatewayConnectId = transitGatewayConnectId;
             return this;
         }
         @CustomType.Setter
-        public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+        public Builder transitGatewayId(@Nullable String transitGatewayId) {
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
-        public Builder transportAttachmentId(String transportAttachmentId) {
-            this.transportAttachmentId = Objects.requireNonNull(transportAttachmentId);
+        public Builder transportAttachmentId(@Nullable String transportAttachmentId) {
+            this.transportAttachmentId = transportAttachmentId;
             return this;
         }
         public GetConnectResult build() {

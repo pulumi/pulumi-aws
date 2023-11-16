@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The user profile Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the associated Domain.
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
         /// </summary>
         [Output("homeEfsFileSystemUid")]
-        public Output<string> HomeEfsFileSystemUid { get; private set; } = null!;
+        public Output<string?> HomeEfsFileSystemUid { get; private set; } = null!;
 
         /// <summary>
         /// A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.

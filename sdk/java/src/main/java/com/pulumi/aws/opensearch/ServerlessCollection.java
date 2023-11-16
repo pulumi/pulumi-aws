@@ -87,42 +87,42 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of the collection.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      * 
      */
     @Export(name="collectionEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> collectionEndpoint;
+    private Output</* @Nullable */ String> collectionEndpoint;
 
     /**
      * @return Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      * 
      */
-    public Output<String> collectionEndpoint() {
-        return this.collectionEndpoint;
+    public Output<Optional<String>> collectionEndpoint() {
+        return Codegen.optional(this.collectionEndpoint);
     }
     /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      * 
      */
     @Export(name="dashboardEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> dashboardEndpoint;
+    private Output</* @Nullable */ String> dashboardEndpoint;
 
     /**
      * @return Collection-specific endpoint used to access OpenSearch Dashboards.
      * 
      */
-    public Output<String> dashboardEndpoint() {
-        return this.dashboardEndpoint;
+    public Output<Optional<String>> dashboardEndpoint() {
+        return Codegen.optional(this.dashboardEndpoint);
     }
     /**
      * Description of the collection.
@@ -143,14 +143,14 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyArn;
+    private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
      * @return The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      * 
      */
-    public Output<String> kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * Name of the collection.
@@ -207,14 +207,14 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

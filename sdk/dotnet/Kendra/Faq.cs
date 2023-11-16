@@ -104,13 +104,13 @@ namespace Pulumi.Aws.Kendra
         /// ARN of the FAQ.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The Unix datetime that the FAQ was created.
         /// </summary>
         [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        public Output<string?> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The description for a FAQ.
@@ -122,13 +122,13 @@ namespace Pulumi.Aws.Kendra
         /// When the Status field value is `FAILED`, this contains a message that explains why.
         /// </summary>
         [Output("errorMessage")]
-        public Output<string> ErrorMessage { get; private set; } = null!;
+        public Output<string?> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the FAQ.
         /// </summary>
         [Output("faqId")]
-        public Output<string> FaqId { get; private set; } = null!;
+        public Output<string?> FaqId { get; private set; } = null!;
 
         /// <summary>
         /// The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Kendra
         /// The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         /// </summary>
         [Output("languageCode")]
-        public Output<string> LanguageCode { get; private set; } = null!;
+        public Output<string?> LanguageCode { get; private set; } = null!;
 
         /// <summary>
         /// The name that should be associated with the FAQ.
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Kendra
         /// The status of the FAQ. It is ready to use when the status is ACTIVE.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Kendra
         /// The date and time that the FAQ was last updated.
         /// </summary>
         [Output("updatedAt")]
-        public Output<string> UpdatedAt { get; private set; } = null!;
+        public Output<string?> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

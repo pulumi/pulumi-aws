@@ -13,26 +13,26 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult
     {
-        public readonly string Cidr;
-        public readonly string Direction;
+        public readonly string? Cidr;
+        public readonly string? Direction;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult> PortRanges;
-        public readonly string PrefixListId;
-        public readonly string Protocol;
-        public readonly string SecurityGroupId;
+        public readonly string? PrefixListId;
+        public readonly string? Protocol;
+        public readonly string? SecurityGroupId;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult(
-            string cidr,
+            string? cidr,
 
-            string direction,
+            string? direction,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult> portRanges,
 
-            string prefixListId,
+            string? prefixListId,
 
-            string protocol,
+            string? protocol,
 
-            string securityGroupId)
+            string? securityGroupId)
         {
             Cidr = cidr;
             Direction = direction;

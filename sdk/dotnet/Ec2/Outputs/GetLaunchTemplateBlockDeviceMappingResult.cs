@@ -13,20 +13,20 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateBlockDeviceMappingResult
     {
-        public readonly string DeviceName;
+        public readonly string? DeviceName;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingEbResult> Ebs;
-        public readonly string NoDevice;
-        public readonly string VirtualName;
+        public readonly string? NoDevice;
+        public readonly string? VirtualName;
 
         [OutputConstructor]
         private GetLaunchTemplateBlockDeviceMappingResult(
-            string deviceName,
+            string? deviceName,
 
             ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingEbResult> ebs,
 
-            string noDevice,
+            string? noDevice,
 
-            string virtualName)
+            string? virtualName)
         {
             DeviceName = deviceName;
             Ebs = ebs;

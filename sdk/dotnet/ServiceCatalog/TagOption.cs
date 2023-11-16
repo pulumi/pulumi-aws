@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> Key { get; private set; } = null!;
 
         [Output("owner")]
-        public Output<string> Owner { get; private set; } = null!;
+        public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// Tag option value.

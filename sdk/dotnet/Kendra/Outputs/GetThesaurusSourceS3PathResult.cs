@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// Name of the S3 bucket that contains the file.
         /// </summary>
-        public readonly string Bucket;
+        public readonly string? Bucket;
         /// <summary>
         /// Name of the file.
         /// </summary>
-        public readonly string Key;
+        public readonly string? Key;
 
         [OutputConstructor]
         private GetThesaurusSourceS3PathResult(
-            string bucket,
+            string? bucket,
 
-            string key)
+            string? key)
         {
             Bucket = bucket;
             Key = key;

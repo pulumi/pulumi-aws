@@ -71,9 +71,9 @@ type ConfiguredTable struct {
 	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod pulumi.StringOutput `pulumi:"analysisMethod"`
 	// The ARN of the configured table.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date and time the configured table was created.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	CreateTime pulumi.StringPtrOutput `pulumi:"createTime"`
 	// A description for the configured table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the configured table.
@@ -87,7 +87,7 @@ type ConfiguredTable struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time the configured table was last updated.
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	UpdateTime pulumi.StringPtrOutput `pulumi:"updateTime"`
 }
 
 // NewConfiguredTable registers a new resource with the given unique name, arguments, and options.
@@ -319,13 +319,13 @@ func (o ConfiguredTableOutput) AnalysisMethod() pulumi.StringOutput {
 }
 
 // The ARN of the configured table.
-func (o ConfiguredTableOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ConfiguredTableOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time the configured table was created.
-func (o ConfiguredTableOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+func (o ConfiguredTableOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringPtrOutput { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
 // A description for the configured table.
@@ -356,8 +356,8 @@ func (o ConfiguredTableOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The date and time the configured table was last updated.
-func (o ConfiguredTableOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o ConfiguredTableOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringPtrOutput { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }
 
 type ConfiguredTableArrayOutput struct{ *pulumi.OutputState }

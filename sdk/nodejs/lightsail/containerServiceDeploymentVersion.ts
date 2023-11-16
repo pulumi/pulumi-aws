@@ -92,7 +92,7 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
     /**
      * The timestamp when the deployment was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
     /**
      * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
      */
@@ -104,11 +104,11 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
     /**
      * The current state of the container service.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * The version number of the deployment.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ContainerServiceDeploymentVersion resource with the given unique name, arguments, and options.

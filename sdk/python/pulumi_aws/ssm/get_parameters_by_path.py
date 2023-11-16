@@ -49,7 +49,7 @@ class GetParametersByPathResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> Sequence[str]:
+    def arns(self) -> Optional[Sequence[str]]:
         """
         A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
         """
@@ -57,7 +57,7 @@ class GetParametersByPathResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -65,7 +65,7 @@ class GetParametersByPathResult:
 
     @property
     @pulumi.getter
-    def names(self) -> Sequence[str]:
+    def names(self) -> Optional[Sequence[str]]:
         """
         A list that contains the names of the retrieved parameters.
         """
@@ -83,7 +83,7 @@ class GetParametersByPathResult:
 
     @property
     @pulumi.getter
-    def types(self) -> Sequence[str]:
+    def types(self) -> Optional[Sequence[str]]:
         """
         A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
         """
@@ -91,7 +91,7 @@ class GetParametersByPathResult:
 
     @property
     @pulumi.getter
-    def values(self) -> Sequence[str]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
         """

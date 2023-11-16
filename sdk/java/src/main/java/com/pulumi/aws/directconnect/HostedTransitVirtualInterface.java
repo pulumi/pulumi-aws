@@ -84,48 +84,48 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="amazonAddress", refs={String.class}, tree="[0]")
-    private Output<String> amazonAddress;
+    private Output</* @Nullable */ String> amazonAddress;
 
     /**
      * @return The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    public Output<String> amazonAddress() {
-        return this.amazonAddress;
+    public Output<Optional<String>> amazonAddress() {
+        return Codegen.optional(this.amazonAddress);
     }
     @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
-    private Output<String> amazonSideAsn;
+    private Output</* @Nullable */ String> amazonSideAsn;
 
-    public Output<String> amazonSideAsn() {
-        return this.amazonSideAsn;
+    public Output<Optional<String>> amazonSideAsn() {
+        return Codegen.optional(this.amazonSideAsn);
     }
     /**
      * The ARN of the virtual interface.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the virtual interface.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
     @Export(name="awsDevice", refs={String.class}, tree="[0]")
-    private Output<String> awsDevice;
+    private Output</* @Nullable */ String> awsDevice;
 
     /**
      * @return The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
-    public Output<String> awsDevice() {
-        return this.awsDevice;
+    public Output<Optional<String>> awsDevice() {
+        return Codegen.optional(this.awsDevice);
     }
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -146,14 +146,14 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="bgpAuthKey", refs={String.class}, tree="[0]")
-    private Output<String> bgpAuthKey;
+    private Output</* @Nullable */ String> bgpAuthKey;
 
     /**
      * @return The authentication key for BGP configuration.
      * 
      */
-    public Output<String> bgpAuthKey() {
-        return this.bgpAuthKey;
+    public Output<Optional<String>> bgpAuthKey() {
+        return Codegen.optional(this.bgpAuthKey);
     }
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -174,28 +174,28 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="customerAddress", refs={String.class}, tree="[0]")
-    private Output<String> customerAddress;
+    private Output</* @Nullable */ String> customerAddress;
 
     /**
      * @return The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    public Output<String> customerAddress() {
-        return this.customerAddress;
+    public Output<Optional<String>> customerAddress() {
+        return Codegen.optional(this.customerAddress);
     }
     /**
      * Indicates whether jumbo frames (8500 MTU) are supported.
      * 
      */
     @Export(name="jumboFrameCapable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> jumboFrameCapable;
+    private Output</* @Nullable */ Boolean> jumboFrameCapable;
 
     /**
      * @return Indicates whether jumbo frames (8500 MTU) are supported.
      * 
      */
-    public Output<Boolean> jumboFrameCapable() {
-        return this.jumboFrameCapable;
+    public Output<Optional<Boolean>> jumboFrameCapable() {
+        return Codegen.optional(this.jumboFrameCapable);
     }
     /**
      * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.

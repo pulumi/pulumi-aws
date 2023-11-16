@@ -55,13 +55,13 @@ namespace Pulumi.Aws.Oam
         /// ARN of the link.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Label that is assigned to this link.
         /// </summary>
         [Output("label")]
-        public Output<string> Label { get; private set; } = null!;
+        public Output<string?> Label { get; private set; } = null!;
 
         /// <summary>
         /// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Oam
         /// ID string that AWS generated as part of the link ARN.
         /// </summary>
         [Output("linkId")]
-        public Output<string> LinkId { get; private set; } = null!;
+        public Output<string?> LinkId { get; private set; } = null!;
 
         /// <summary>
         /// Types of data that the source account shares with the monitoring account.
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Oam
         /// ARN of the sink that is used for this link.
         /// </summary>
         [Output("sinkArn")]
-        public Output<string> SinkArn { get; private set; } = null!;
+        public Output<string?> SinkArn { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the sink to use to create this link.

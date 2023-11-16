@@ -8,6 +8,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorSkewedInfo {
@@ -15,17 +16,17 @@ public final class GetCatalogTableStorageDescriptorSkewedInfo {
      * @return List of names of columns that contain skewed values.
      * 
      */
-    private List<String> skewedColumnNames;
+    private @Nullable List<String> skewedColumnNames;
     /**
      * @return List of values that appear so frequently as to be considered skewed.
      * 
      */
-    private Map<String,String> skewedColumnValueLocationMaps;
+    private @Nullable Map<String,String> skewedColumnValueLocationMaps;
     /**
      * @return Map of skewed values to the columns that contain them.
      * 
      */
-    private List<String> skewedColumnValues;
+    private @Nullable List<String> skewedColumnValues;
 
     private GetCatalogTableStorageDescriptorSkewedInfo() {}
     /**
@@ -33,21 +34,21 @@ public final class GetCatalogTableStorageDescriptorSkewedInfo {
      * 
      */
     public List<String> skewedColumnNames() {
-        return this.skewedColumnNames;
+        return this.skewedColumnNames == null ? List.of() : this.skewedColumnNames;
     }
     /**
      * @return List of values that appear so frequently as to be considered skewed.
      * 
      */
     public Map<String,String> skewedColumnValueLocationMaps() {
-        return this.skewedColumnValueLocationMaps;
+        return this.skewedColumnValueLocationMaps == null ? Map.of() : this.skewedColumnValueLocationMaps;
     }
     /**
      * @return Map of skewed values to the columns that contain them.
      * 
      */
     public List<String> skewedColumnValues() {
-        return this.skewedColumnValues;
+        return this.skewedColumnValues == null ? List.of() : this.skewedColumnValues;
     }
 
     public static Builder builder() {
@@ -59,9 +60,9 @@ public final class GetCatalogTableStorageDescriptorSkewedInfo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> skewedColumnNames;
-        private Map<String,String> skewedColumnValueLocationMaps;
-        private List<String> skewedColumnValues;
+        private @Nullable List<String> skewedColumnNames;
+        private @Nullable Map<String,String> skewedColumnValueLocationMaps;
+        private @Nullable List<String> skewedColumnValues;
         public Builder() {}
         public Builder(GetCatalogTableStorageDescriptorSkewedInfo defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,21 +72,21 @@ public final class GetCatalogTableStorageDescriptorSkewedInfo {
         }
 
         @CustomType.Setter
-        public Builder skewedColumnNames(List<String> skewedColumnNames) {
-            this.skewedColumnNames = Objects.requireNonNull(skewedColumnNames);
+        public Builder skewedColumnNames(@Nullable List<String> skewedColumnNames) {
+            this.skewedColumnNames = skewedColumnNames;
             return this;
         }
         public Builder skewedColumnNames(String... skewedColumnNames) {
             return skewedColumnNames(List.of(skewedColumnNames));
         }
         @CustomType.Setter
-        public Builder skewedColumnValueLocationMaps(Map<String,String> skewedColumnValueLocationMaps) {
-            this.skewedColumnValueLocationMaps = Objects.requireNonNull(skewedColumnValueLocationMaps);
+        public Builder skewedColumnValueLocationMaps(@Nullable Map<String,String> skewedColumnValueLocationMaps) {
+            this.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
             return this;
         }
         @CustomType.Setter
-        public Builder skewedColumnValues(List<String> skewedColumnValues) {
-            this.skewedColumnValues = Objects.requireNonNull(skewedColumnValues);
+        public Builder skewedColumnValues(@Nullable List<String> skewedColumnValues) {
+            this.skewedColumnValues = skewedColumnValues;
             return this;
         }
         public Builder skewedColumnValues(String... skewedColumnValues) {

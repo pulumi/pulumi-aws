@@ -90,28 +90,28 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
-    private Output<String> dnsName;
+    private Output</* @Nullable */ String> dnsName;
 
     /**
      * @return The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
-    public Output<String> dnsName() {
-        return this.dnsName;
+    public Output<Optional<String>> dnsName() {
+        return Codegen.optional(this.dnsName);
     }
     /**
      * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      * 
      */
     @Export(name="dualStackDnsName", refs={String.class}, tree="[0]")
-    private Output<String> dualStackDnsName;
+    private Output</* @Nullable */ String> dualStackDnsName;
 
     /**
      * @return The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      * 
      */
-    public Output<String> dualStackDnsName() {
-        return this.dualStackDnsName;
+    public Output<Optional<String>> dualStackDnsName() {
+        return Codegen.optional(this.dualStackDnsName);
     }
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
@@ -134,7 +134,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
-    private Output<String> hostedZoneId;
+    private Output</* @Nullable */ String> hostedZoneId;
 
     /**
      * @return -  The Global Accelerator Route 53 zone ID that can be used to
@@ -142,8 +142,8 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
-    public Output<String> hostedZoneId() {
-        return this.hostedZoneId;
+    public Output<Optional<String>> hostedZoneId() {
+        return Codegen.optional(this.hostedZoneId);
     }
     /**
      * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
@@ -178,14 +178,14 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipSets", refs={List.class,AcceleratorIpSet.class}, tree="[0,1]")
-    private Output<List<AcceleratorIpSet>> ipSets;
+    private Output</* @Nullable */ List<AcceleratorIpSet>> ipSets;
 
     /**
      * @return IP address set associated with the accelerator.
      * 
      */
-    public Output<List<AcceleratorIpSet>> ipSets() {
-        return this.ipSets;
+    public Output<Optional<List<AcceleratorIpSet>>> ipSets() {
+        return Codegen.optional(this.ipSets);
     }
     /**
      * The name of the accelerator.

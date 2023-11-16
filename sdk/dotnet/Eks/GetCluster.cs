@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Nested attribute containing `certificate-authority-data` for your cluster.
         /// </summary>
@@ -148,11 +148,11 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         /// </summary>
-        public readonly string ClusterId;
+        public readonly string? ClusterId;
         /// <summary>
         /// Unix epoch time stamp in seconds for when the cluster was created.
         /// </summary>
-        public readonly string CreatedAt;
+        public readonly string? CreatedAt;
         /// <summary>
         /// The enabled control plane logs.
         /// </summary>
@@ -160,11 +160,11 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Endpoint for your Kubernetes API server.
         /// </summary>
-        public readonly string Endpoint;
+        public readonly string? Endpoint;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
         /// </summary>
@@ -181,43 +181,43 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Platform version for the cluster.
         /// </summary>
-        public readonly string PlatformVersion;
+        public readonly string? PlatformVersion;
         /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         /// </summary>
-        public readonly string Status;
+        public readonly string? Status;
         /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Kubernetes server version for the cluster.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
         /// <summary>
         /// Nested list containing VPC configuration for the cluster.
         /// </summary>
-        public readonly Outputs.GetClusterVpcConfigResult VpcConfig;
+        public readonly Outputs.GetClusterVpcConfigResult? VpcConfig;
 
         [OutputConstructor]
         private GetClusterResult(
-            string arn,
+            string? arn,
 
             ImmutableArray<Outputs.GetClusterCertificateAuthorityResult> certificateAuthorities,
 
-            string clusterId,
+            string? clusterId,
 
-            string createdAt,
+            string? createdAt,
 
             ImmutableArray<string> enabledClusterLogTypes,
 
-            string endpoint,
+            string? endpoint,
 
-            string id,
+            string? id,
 
             ImmutableArray<Outputs.GetClusterIdentityResult> identities,
 
@@ -227,17 +227,17 @@ namespace Pulumi.Aws.Eks
 
             ImmutableArray<Outputs.GetClusterOutpostConfigResult> outpostConfigs,
 
-            string platformVersion,
+            string? platformVersion,
 
-            string roleArn,
+            string? roleArn,
 
-            string status,
+            string? status,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
-            string version,
+            string? version,
 
-            Outputs.GetClusterVpcConfigResult vpcConfig)
+            Outputs.GetClusterVpcConfigResult? vpcConfig)
         {
             Arn = arn;
             CertificateAuthorities = certificateAuthorities;

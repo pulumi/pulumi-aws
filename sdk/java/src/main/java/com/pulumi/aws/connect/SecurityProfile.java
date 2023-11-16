@@ -71,14 +71,14 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Security Profile.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Specifies the description of the Security Profile.
@@ -127,14 +127,14 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="organizationResourceId", refs={String.class}, tree="[0]")
-    private Output<String> organizationResourceId;
+    private Output</* @Nullable */ String> organizationResourceId;
 
     /**
      * @return The organization resource identifier for the security profile.
      * 
      */
-    public Output<String> organizationResourceId() {
-        return this.organizationResourceId;
+    public Output<Optional<String>> organizationResourceId() {
+        return Codegen.optional(this.organizationResourceId);
     }
     /**
      * Specifies a list of permissions assigned to the security profile.
@@ -155,14 +155,14 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="securityProfileId", refs={String.class}, tree="[0]")
-    private Output<String> securityProfileId;
+    private Output</* @Nullable */ String> securityProfileId;
 
     /**
      * @return The identifier for the Security Profile.
      * 
      */
-    public Output<String> securityProfileId() {
-        return this.securityProfileId;
+    public Output<Optional<String>> securityProfileId() {
+        return Codegen.optional(this.securityProfileId);
     }
     /**
      * Tags to apply to the Security Profile. If configured with a provider

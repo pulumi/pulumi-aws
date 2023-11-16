@@ -16,23 +16,23 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// The email address.
         /// </summary>
-        public readonly string Email;
+        public readonly string? Email;
         /// <summary>
         /// The first name.
         /// </summary>
-        public readonly string FirstName;
+        public readonly string? FirstName;
         /// <summary>
         /// The last name.
         /// </summary>
-        public readonly string LastName;
+        public readonly string? LastName;
 
         [OutputConstructor]
         private GetUserIdentityInfoResult(
-            string email,
+            string? email,
 
-            string firstName,
+            string? firstName,
 
-            string lastName)
+            string? lastName)
         {
             Email = email;
             FirstName = firstName;

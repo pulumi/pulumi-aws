@@ -1193,7 +1193,7 @@ func (o WorkspaceWorkspacePropertiesPtrOutput) UserVolumeSizeGib() pulumi.IntPtr
 
 type GetBundleComputeType struct {
 	// Name of the bundle. You cannot combine this parameter with `bundleId`.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetBundleComputeTypeInput is an input type that accepts GetBundleComputeTypeArgs and GetBundleComputeTypeOutput values.
@@ -1209,7 +1209,7 @@ type GetBundleComputeTypeInput interface {
 
 type GetBundleComputeTypeArgs struct {
 	// Name of the bundle. You cannot combine this parameter with `bundleId`.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetBundleComputeTypeArgs) ElementType() reflect.Type {
@@ -1264,8 +1264,8 @@ func (o GetBundleComputeTypeOutput) ToGetBundleComputeTypeOutputWithContext(ctx 
 }
 
 // Name of the bundle. You cannot combine this parameter with `bundleId`.
-func (o GetBundleComputeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBundleComputeType) string { return v.Name }).(pulumi.StringOutput)
+func (o GetBundleComputeTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBundleComputeType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetBundleComputeTypeArrayOutput struct{ *pulumi.OutputState }
@@ -1290,7 +1290,7 @@ func (o GetBundleComputeTypeArrayOutput) Index(i pulumi.IntInput) GetBundleCompu
 
 type GetBundleRootStorage struct {
 	// Size of the user storage.
-	Capacity string `pulumi:"capacity"`
+	Capacity *string `pulumi:"capacity"`
 }
 
 // GetBundleRootStorageInput is an input type that accepts GetBundleRootStorageArgs and GetBundleRootStorageOutput values.
@@ -1306,7 +1306,7 @@ type GetBundleRootStorageInput interface {
 
 type GetBundleRootStorageArgs struct {
 	// Size of the user storage.
-	Capacity pulumi.StringInput `pulumi:"capacity"`
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
 }
 
 func (GetBundleRootStorageArgs) ElementType() reflect.Type {
@@ -1361,8 +1361,8 @@ func (o GetBundleRootStorageOutput) ToGetBundleRootStorageOutputWithContext(ctx 
 }
 
 // Size of the user storage.
-func (o GetBundleRootStorageOutput) Capacity() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBundleRootStorage) string { return v.Capacity }).(pulumi.StringOutput)
+func (o GetBundleRootStorageOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBundleRootStorage) *string { return v.Capacity }).(pulumi.StringPtrOutput)
 }
 
 type GetBundleRootStorageArrayOutput struct{ *pulumi.OutputState }
@@ -1387,7 +1387,7 @@ func (o GetBundleRootStorageArrayOutput) Index(i pulumi.IntInput) GetBundleRootS
 
 type GetBundleUserStorage struct {
 	// Size of the user storage.
-	Capacity string `pulumi:"capacity"`
+	Capacity *string `pulumi:"capacity"`
 }
 
 // GetBundleUserStorageInput is an input type that accepts GetBundleUserStorageArgs and GetBundleUserStorageOutput values.
@@ -1403,7 +1403,7 @@ type GetBundleUserStorageInput interface {
 
 type GetBundleUserStorageArgs struct {
 	// Size of the user storage.
-	Capacity pulumi.StringInput `pulumi:"capacity"`
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
 }
 
 func (GetBundleUserStorageArgs) ElementType() reflect.Type {
@@ -1458,8 +1458,8 @@ func (o GetBundleUserStorageOutput) ToGetBundleUserStorageOutputWithContext(ctx 
 }
 
 // Size of the user storage.
-func (o GetBundleUserStorageOutput) Capacity() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBundleUserStorage) string { return v.Capacity }).(pulumi.StringOutput)
+func (o GetBundleUserStorageOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBundleUserStorage) *string { return v.Capacity }).(pulumi.StringPtrOutput)
 }
 
 type GetBundleUserStorageArrayOutput struct{ *pulumi.OutputState }
@@ -1484,15 +1484,15 @@ func (o GetBundleUserStorageArrayOutput) Index(i pulumi.IntInput) GetBundleUserS
 
 type GetDirectorySelfServicePermission struct {
 	// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
-	ChangeComputeType bool `pulumi:"changeComputeType"`
+	ChangeComputeType *bool `pulumi:"changeComputeType"`
 	// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
-	IncreaseVolumeSize bool `pulumi:"increaseVolumeSize"`
+	IncreaseVolumeSize *bool `pulumi:"increaseVolumeSize"`
 	// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
-	RebuildWorkspace bool `pulumi:"rebuildWorkspace"`
+	RebuildWorkspace *bool `pulumi:"rebuildWorkspace"`
 	// Whether WorkSpaces directory users can restart their workspace.
-	RestartWorkspace bool `pulumi:"restartWorkspace"`
+	RestartWorkspace *bool `pulumi:"restartWorkspace"`
 	// Whether WorkSpaces directory users can switch the running mode of their workspace.
-	SwitchRunningMode bool `pulumi:"switchRunningMode"`
+	SwitchRunningMode *bool `pulumi:"switchRunningMode"`
 }
 
 // GetDirectorySelfServicePermissionInput is an input type that accepts GetDirectorySelfServicePermissionArgs and GetDirectorySelfServicePermissionOutput values.
@@ -1508,15 +1508,15 @@ type GetDirectorySelfServicePermissionInput interface {
 
 type GetDirectorySelfServicePermissionArgs struct {
 	// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
-	ChangeComputeType pulumi.BoolInput `pulumi:"changeComputeType"`
+	ChangeComputeType pulumi.BoolPtrInput `pulumi:"changeComputeType"`
 	// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
-	IncreaseVolumeSize pulumi.BoolInput `pulumi:"increaseVolumeSize"`
+	IncreaseVolumeSize pulumi.BoolPtrInput `pulumi:"increaseVolumeSize"`
 	// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
-	RebuildWorkspace pulumi.BoolInput `pulumi:"rebuildWorkspace"`
+	RebuildWorkspace pulumi.BoolPtrInput `pulumi:"rebuildWorkspace"`
 	// Whether WorkSpaces directory users can restart their workspace.
-	RestartWorkspace pulumi.BoolInput `pulumi:"restartWorkspace"`
+	RestartWorkspace pulumi.BoolPtrInput `pulumi:"restartWorkspace"`
 	// Whether WorkSpaces directory users can switch the running mode of their workspace.
-	SwitchRunningMode pulumi.BoolInput `pulumi:"switchRunningMode"`
+	SwitchRunningMode pulumi.BoolPtrInput `pulumi:"switchRunningMode"`
 }
 
 func (GetDirectorySelfServicePermissionArgs) ElementType() reflect.Type {
@@ -1571,28 +1571,28 @@ func (o GetDirectorySelfServicePermissionOutput) ToGetDirectorySelfServicePermis
 }
 
 // Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
-func (o GetDirectorySelfServicePermissionOutput) ChangeComputeType() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.ChangeComputeType }).(pulumi.BoolOutput)
+func (o GetDirectorySelfServicePermissionOutput) ChangeComputeType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) *bool { return v.ChangeComputeType }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
-func (o GetDirectorySelfServicePermissionOutput) IncreaseVolumeSize() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.IncreaseVolumeSize }).(pulumi.BoolOutput)
+func (o GetDirectorySelfServicePermissionOutput) IncreaseVolumeSize() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) *bool { return v.IncreaseVolumeSize }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
-func (o GetDirectorySelfServicePermissionOutput) RebuildWorkspace() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.RebuildWorkspace }).(pulumi.BoolOutput)
+func (o GetDirectorySelfServicePermissionOutput) RebuildWorkspace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) *bool { return v.RebuildWorkspace }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can restart their workspace.
-func (o GetDirectorySelfServicePermissionOutput) RestartWorkspace() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.RestartWorkspace }).(pulumi.BoolOutput)
+func (o GetDirectorySelfServicePermissionOutput) RestartWorkspace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) *bool { return v.RestartWorkspace }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can switch the running mode of their workspace.
-func (o GetDirectorySelfServicePermissionOutput) SwitchRunningMode() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.SwitchRunningMode }).(pulumi.BoolOutput)
+func (o GetDirectorySelfServicePermissionOutput) SwitchRunningMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) *bool { return v.SwitchRunningMode }).(pulumi.BoolPtrOutput)
 }
 
 type GetDirectorySelfServicePermissionArrayOutput struct{ *pulumi.OutputState }
@@ -1617,21 +1617,21 @@ func (o GetDirectorySelfServicePermissionArrayOutput) Index(i pulumi.IntInput) G
 
 type GetDirectoryWorkspaceAccessProperty struct {
 	// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
-	DeviceTypeAndroid string `pulumi:"deviceTypeAndroid"`
+	DeviceTypeAndroid *string `pulumi:"deviceTypeAndroid"`
 	// (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
-	DeviceTypeChromeos string `pulumi:"deviceTypeChromeos"`
+	DeviceTypeChromeos *string `pulumi:"deviceTypeChromeos"`
 	// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
-	DeviceTypeIos string `pulumi:"deviceTypeIos"`
+	DeviceTypeIos *string `pulumi:"deviceTypeIos"`
 	// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
-	DeviceTypeLinux string `pulumi:"deviceTypeLinux"`
+	DeviceTypeLinux *string `pulumi:"deviceTypeLinux"`
 	// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
-	DeviceTypeOsx string `pulumi:"deviceTypeOsx"`
+	DeviceTypeOsx *string `pulumi:"deviceTypeOsx"`
 	// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
-	DeviceTypeWeb string `pulumi:"deviceTypeWeb"`
+	DeviceTypeWeb *string `pulumi:"deviceTypeWeb"`
 	// (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
-	DeviceTypeWindows string `pulumi:"deviceTypeWindows"`
+	DeviceTypeWindows *string `pulumi:"deviceTypeWindows"`
 	// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
-	DeviceTypeZeroclient string `pulumi:"deviceTypeZeroclient"`
+	DeviceTypeZeroclient *string `pulumi:"deviceTypeZeroclient"`
 }
 
 // GetDirectoryWorkspaceAccessPropertyInput is an input type that accepts GetDirectoryWorkspaceAccessPropertyArgs and GetDirectoryWorkspaceAccessPropertyOutput values.
@@ -1647,21 +1647,21 @@ type GetDirectoryWorkspaceAccessPropertyInput interface {
 
 type GetDirectoryWorkspaceAccessPropertyArgs struct {
 	// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
-	DeviceTypeAndroid pulumi.StringInput `pulumi:"deviceTypeAndroid"`
+	DeviceTypeAndroid pulumi.StringPtrInput `pulumi:"deviceTypeAndroid"`
 	// (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
-	DeviceTypeChromeos pulumi.StringInput `pulumi:"deviceTypeChromeos"`
+	DeviceTypeChromeos pulumi.StringPtrInput `pulumi:"deviceTypeChromeos"`
 	// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
-	DeviceTypeIos pulumi.StringInput `pulumi:"deviceTypeIos"`
+	DeviceTypeIos pulumi.StringPtrInput `pulumi:"deviceTypeIos"`
 	// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
-	DeviceTypeLinux pulumi.StringInput `pulumi:"deviceTypeLinux"`
+	DeviceTypeLinux pulumi.StringPtrInput `pulumi:"deviceTypeLinux"`
 	// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
-	DeviceTypeOsx pulumi.StringInput `pulumi:"deviceTypeOsx"`
+	DeviceTypeOsx pulumi.StringPtrInput `pulumi:"deviceTypeOsx"`
 	// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
-	DeviceTypeWeb pulumi.StringInput `pulumi:"deviceTypeWeb"`
+	DeviceTypeWeb pulumi.StringPtrInput `pulumi:"deviceTypeWeb"`
 	// (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
-	DeviceTypeWindows pulumi.StringInput `pulumi:"deviceTypeWindows"`
+	DeviceTypeWindows pulumi.StringPtrInput `pulumi:"deviceTypeWindows"`
 	// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
-	DeviceTypeZeroclient pulumi.StringInput `pulumi:"deviceTypeZeroclient"`
+	DeviceTypeZeroclient pulumi.StringPtrInput `pulumi:"deviceTypeZeroclient"`
 }
 
 func (GetDirectoryWorkspaceAccessPropertyArgs) ElementType() reflect.Type {
@@ -1716,43 +1716,43 @@ func (o GetDirectoryWorkspaceAccessPropertyOutput) ToGetDirectoryWorkspaceAccess
 }
 
 // (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
-func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeAndroid() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeAndroid }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeAndroid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) *string { return v.DeviceTypeAndroid }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
-func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeChromeos() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeChromeos }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeChromeos() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) *string { return v.DeviceTypeChromeos }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
-func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeIos() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeIos }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeIos() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) *string { return v.DeviceTypeIos }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
-func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeLinux() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeLinux }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeLinux() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) *string { return v.DeviceTypeLinux }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
-func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeOsx() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeOsx }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeOsx() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) *string { return v.DeviceTypeOsx }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Indicates whether users can access their WorkSpaces through a web browser.
-func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeWeb() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeWeb }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeWeb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) *string { return v.DeviceTypeWeb }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
-func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeWindows() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeWindows }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeWindows() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) *string { return v.DeviceTypeWindows }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
-func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeZeroclient() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeZeroclient }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeZeroclient() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) *string { return v.DeviceTypeZeroclient }).(pulumi.StringPtrOutput)
 }
 
 type GetDirectoryWorkspaceAccessPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -1777,15 +1777,15 @@ func (o GetDirectoryWorkspaceAccessPropertyArrayOutput) Index(i pulumi.IntInput)
 
 type GetDirectoryWorkspaceCreationProperty struct {
 	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-	CustomSecurityGroupId string `pulumi:"customSecurityGroupId"`
+	CustomSecurityGroupId *string `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories.
-	DefaultOu string `pulumi:"defaultOu"`
+	DefaultOu *string `pulumi:"defaultOu"`
 	// Indicates whether internet access is enabled for your WorkSpaces.
-	EnableInternetAccess bool `pulumi:"enableInternetAccess"`
+	EnableInternetAccess *bool `pulumi:"enableInternetAccess"`
 	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
-	EnableMaintenanceMode bool `pulumi:"enableMaintenanceMode"`
+	EnableMaintenanceMode *bool `pulumi:"enableMaintenanceMode"`
 	// Indicates whether users are local administrators of their WorkSpaces.
-	UserEnabledAsLocalAdministrator bool `pulumi:"userEnabledAsLocalAdministrator"`
+	UserEnabledAsLocalAdministrator *bool `pulumi:"userEnabledAsLocalAdministrator"`
 }
 
 // GetDirectoryWorkspaceCreationPropertyInput is an input type that accepts GetDirectoryWorkspaceCreationPropertyArgs and GetDirectoryWorkspaceCreationPropertyOutput values.
@@ -1801,15 +1801,15 @@ type GetDirectoryWorkspaceCreationPropertyInput interface {
 
 type GetDirectoryWorkspaceCreationPropertyArgs struct {
 	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-	CustomSecurityGroupId pulumi.StringInput `pulumi:"customSecurityGroupId"`
+	CustomSecurityGroupId pulumi.StringPtrInput `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories.
-	DefaultOu pulumi.StringInput `pulumi:"defaultOu"`
+	DefaultOu pulumi.StringPtrInput `pulumi:"defaultOu"`
 	// Indicates whether internet access is enabled for your WorkSpaces.
-	EnableInternetAccess pulumi.BoolInput `pulumi:"enableInternetAccess"`
+	EnableInternetAccess pulumi.BoolPtrInput `pulumi:"enableInternetAccess"`
 	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
-	EnableMaintenanceMode pulumi.BoolInput `pulumi:"enableMaintenanceMode"`
+	EnableMaintenanceMode pulumi.BoolPtrInput `pulumi:"enableMaintenanceMode"`
 	// Indicates whether users are local administrators of their WorkSpaces.
-	UserEnabledAsLocalAdministrator pulumi.BoolInput `pulumi:"userEnabledAsLocalAdministrator"`
+	UserEnabledAsLocalAdministrator pulumi.BoolPtrInput `pulumi:"userEnabledAsLocalAdministrator"`
 }
 
 func (GetDirectoryWorkspaceCreationPropertyArgs) ElementType() reflect.Type {
@@ -1864,28 +1864,28 @@ func (o GetDirectoryWorkspaceCreationPropertyOutput) ToGetDirectoryWorkspaceCrea
 }
 
 // The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-func (o GetDirectoryWorkspaceCreationPropertyOutput) CustomSecurityGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) string { return v.CustomSecurityGroupId }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) CustomSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) *string { return v.CustomSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The default organizational unit (OU) for your WorkSpace directories.
-func (o GetDirectoryWorkspaceCreationPropertyOutput) DefaultOu() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) string { return v.DefaultOu }).(pulumi.StringOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) DefaultOu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) *string { return v.DefaultOu }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether internet access is enabled for your WorkSpaces.
-func (o GetDirectoryWorkspaceCreationPropertyOutput) EnableInternetAccess() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) bool { return v.EnableInternetAccess }).(pulumi.BoolOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) EnableInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) *bool { return v.EnableInternetAccess }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
-func (o GetDirectoryWorkspaceCreationPropertyOutput) EnableMaintenanceMode() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) bool { return v.EnableMaintenanceMode }).(pulumi.BoolOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) EnableMaintenanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) *bool { return v.EnableMaintenanceMode }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether users are local administrators of their WorkSpaces.
-func (o GetDirectoryWorkspaceCreationPropertyOutput) UserEnabledAsLocalAdministrator() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolOutput)
+func (o GetDirectoryWorkspaceCreationPropertyOutput) UserEnabledAsLocalAdministrator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) *bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolPtrOutput)
 }
 
 type GetDirectoryWorkspaceCreationPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -1910,15 +1910,15 @@ func (o GetDirectoryWorkspaceCreationPropertyArrayOutput) Index(i pulumi.IntInpu
 
 type GetWorkspaceWorkspaceProperty struct {
 	// Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
-	ComputeTypeName string `pulumi:"computeTypeName"`
+	ComputeTypeName *string `pulumi:"computeTypeName"`
 	// Size of the root volume.
-	RootVolumeSizeGib int `pulumi:"rootVolumeSizeGib"`
+	RootVolumeSizeGib *int `pulumi:"rootVolumeSizeGib"`
 	// Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-	RunningMode string `pulumi:"runningMode"`
+	RunningMode *string `pulumi:"runningMode"`
 	// Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-	RunningModeAutoStopTimeoutInMinutes int `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	RunningModeAutoStopTimeoutInMinutes *int `pulumi:"runningModeAutoStopTimeoutInMinutes"`
 	// Size of the user storage.
-	UserVolumeSizeGib int `pulumi:"userVolumeSizeGib"`
+	UserVolumeSizeGib *int `pulumi:"userVolumeSizeGib"`
 }
 
 // GetWorkspaceWorkspacePropertyInput is an input type that accepts GetWorkspaceWorkspacePropertyArgs and GetWorkspaceWorkspacePropertyOutput values.
@@ -1934,15 +1934,15 @@ type GetWorkspaceWorkspacePropertyInput interface {
 
 type GetWorkspaceWorkspacePropertyArgs struct {
 	// Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
-	ComputeTypeName pulumi.StringInput `pulumi:"computeTypeName"`
+	ComputeTypeName pulumi.StringPtrInput `pulumi:"computeTypeName"`
 	// Size of the root volume.
-	RootVolumeSizeGib pulumi.IntInput `pulumi:"rootVolumeSizeGib"`
+	RootVolumeSizeGib pulumi.IntPtrInput `pulumi:"rootVolumeSizeGib"`
 	// Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-	RunningMode pulumi.StringInput `pulumi:"runningMode"`
+	RunningMode pulumi.StringPtrInput `pulumi:"runningMode"`
 	// Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-	RunningModeAutoStopTimeoutInMinutes pulumi.IntInput `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	RunningModeAutoStopTimeoutInMinutes pulumi.IntPtrInput `pulumi:"runningModeAutoStopTimeoutInMinutes"`
 	// Size of the user storage.
-	UserVolumeSizeGib pulumi.IntInput `pulumi:"userVolumeSizeGib"`
+	UserVolumeSizeGib pulumi.IntPtrInput `pulumi:"userVolumeSizeGib"`
 }
 
 func (GetWorkspaceWorkspacePropertyArgs) ElementType() reflect.Type {
@@ -1997,28 +1997,28 @@ func (o GetWorkspaceWorkspacePropertyOutput) ToGetWorkspaceWorkspacePropertyOutp
 }
 
 // Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
-func (o GetWorkspaceWorkspacePropertyOutput) ComputeTypeName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) string { return v.ComputeTypeName }).(pulumi.StringOutput)
+func (o GetWorkspaceWorkspacePropertyOutput) ComputeTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) *string { return v.ComputeTypeName }).(pulumi.StringPtrOutput)
 }
 
 // Size of the root volume.
-func (o GetWorkspaceWorkspacePropertyOutput) RootVolumeSizeGib() pulumi.IntOutput {
-	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) int { return v.RootVolumeSizeGib }).(pulumi.IntOutput)
+func (o GetWorkspaceWorkspacePropertyOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) *int { return v.RootVolumeSizeGib }).(pulumi.IntPtrOutput)
 }
 
 // Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-func (o GetWorkspaceWorkspacePropertyOutput) RunningMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) string { return v.RunningMode }).(pulumi.StringOutput)
+func (o GetWorkspaceWorkspacePropertyOutput) RunningMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) *string { return v.RunningMode }).(pulumi.StringPtrOutput)
 }
 
 // Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-func (o GetWorkspaceWorkspacePropertyOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) int { return v.RunningModeAutoStopTimeoutInMinutes }).(pulumi.IntOutput)
+func (o GetWorkspaceWorkspacePropertyOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) *int { return v.RunningModeAutoStopTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Size of the user storage.
-func (o GetWorkspaceWorkspacePropertyOutput) UserVolumeSizeGib() pulumi.IntOutput {
-	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) int { return v.UserVolumeSizeGib }).(pulumi.IntOutput)
+func (o GetWorkspaceWorkspacePropertyOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) *int { return v.UserVolumeSizeGib }).(pulumi.IntPtrOutput)
 }
 
 type GetWorkspaceWorkspacePropertyArrayOutput struct{ *pulumi.OutputState }

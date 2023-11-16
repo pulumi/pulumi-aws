@@ -483,7 +483,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Attachment Amazon Resource Name (ARN).
         """
@@ -491,7 +491,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
-    def attachment_policy_rule_number(self) -> pulumi.Output[int]:
+    def attachment_policy_rule_number(self) -> pulumi.Output[Optional[int]]:
         """
         The policy rule number associated with the attachment.
         """
@@ -499,7 +499,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attachmentType")
-    def attachment_type(self) -> pulumi.Output[str]:
+    def attachment_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of attachment.
         """
@@ -507,7 +507,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreNetworkArn")
-    def core_network_arn(self) -> pulumi.Output[str]:
+    def core_network_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the core network.
         """
@@ -515,7 +515,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> pulumi.Output[str]:
+    def core_network_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the core network.
         """
@@ -523,7 +523,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="edgeLocation")
-    def edge_location(self) -> pulumi.Output[str]:
+    def edge_location(self) -> pulumi.Output[Optional[str]]:
         """
         The edge location for the peer.
         """
@@ -531,7 +531,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> pulumi.Output[str]:
+    def owner_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the attachment account owner.
         """
@@ -547,7 +547,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Output[str]:
+    def resource_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The attachment resource ARN.
         """
@@ -555,7 +555,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="segmentName")
-    def segment_name(self) -> pulumi.Output[str]:
+    def segment_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the segment attachment.
         """
@@ -563,7 +563,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the attachment.
         """

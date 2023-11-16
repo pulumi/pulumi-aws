@@ -29,7 +29,7 @@ type ServerlessSecurityConfig struct {
 	pulumi.CustomResourceState
 
 	// Version of the configuration.
-	ConfigVersion pulumi.StringOutput `pulumi:"configVersion"`
+	ConfigVersion pulumi.StringPtrOutput `pulumi:"configVersion"`
 	// Description of the security configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the policy.
@@ -223,8 +223,8 @@ func (o ServerlessSecurityConfigOutput) ToServerlessSecurityConfigOutputWithCont
 }
 
 // Version of the configuration.
-func (o ServerlessSecurityConfigOutput) ConfigVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServerlessSecurityConfig) pulumi.StringOutput { return v.ConfigVersion }).(pulumi.StringOutput)
+func (o ServerlessSecurityConfigOutput) ConfigVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfig) pulumi.StringPtrOutput { return v.ConfigVersion }).(pulumi.StringPtrOutput)
 }
 
 // Description of the security configuration.

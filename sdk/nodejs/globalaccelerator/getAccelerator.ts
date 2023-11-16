@@ -57,17 +57,17 @@ export interface GetAcceleratorArgs {
  * A collection of values returned by getAccelerator.
  */
 export interface GetAcceleratorResult {
-    readonly arn: string;
-    readonly attributes: outputs.globalaccelerator.GetAcceleratorAttribute[];
-    readonly dnsName: string;
-    readonly dualStackDnsName: string;
-    readonly enabled: boolean;
-    readonly hostedZoneId: string;
-    readonly id: string;
-    readonly ipAddressType: string;
-    readonly ipSets: outputs.globalaccelerator.GetAcceleratorIpSet[];
-    readonly name: string;
-    readonly tags: {[key: string]: string};
+    readonly arn?: string;
+    readonly attributes?: outputs.globalaccelerator.GetAcceleratorAttribute[];
+    readonly dnsName?: string;
+    readonly dualStackDnsName?: string;
+    readonly enabled?: boolean;
+    readonly hostedZoneId?: string;
+    readonly id?: string;
+    readonly ipAddressType?: string;
+    readonly ipSets?: outputs.globalaccelerator.GetAcceleratorIpSet[];
+    readonly name?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides information about a Global Accelerator accelerator.

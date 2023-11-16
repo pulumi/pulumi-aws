@@ -493,7 +493,7 @@ class Grant(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grantId")
-    def grant_id(self) -> pulumi.Output[str]:
+    def grant_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier for the grant.
         """
@@ -501,7 +501,7 @@ class Grant(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grantToken")
-    def grant_token(self) -> pulumi.Output[str]:
+    def grant_token(self) -> pulumi.Output[Optional[str]]:
         """
         The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
         """

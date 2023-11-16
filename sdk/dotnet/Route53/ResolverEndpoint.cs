@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Route53
         /// The ARN of the Route 53 Resolver endpoint.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The direction of DNS queries to or from the Route 53 Resolver endpoint.
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Route53
         /// The ID of the VPC that you want to create the resolver endpoint in.
         /// </summary>
         [Output("hostVpcId")]
-        public Output<string> HostVpcId { get; private set; } = null!;
+        public Output<string?> HostVpcId { get; private set; } = null!;
 
         /// <summary>
         /// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs

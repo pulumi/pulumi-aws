@@ -82,7 +82,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> str:
+    def date_created(self) -> Optional[str]:
         """
         Date the infrastructure configuration was updated.
         """
@@ -90,12 +90,12 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="dateUpdated")
-    def date_updated(self) -> str:
+    def date_updated(self) -> Optional[str]:
         return pulumi.get(self, "date_updated")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the infrastructure configuration.
         """
@@ -103,7 +103,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -111,7 +111,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="instanceMetadataOptions")
-    def instance_metadata_options(self) -> Sequence['outputs.GetInfrastructureConfigurationInstanceMetadataOptionResult']:
+    def instance_metadata_options(self) -> Optional[Sequence['outputs.GetInfrastructureConfigurationInstanceMetadataOptionResult']]:
         """
         Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
         """
@@ -119,7 +119,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="instanceProfileName")
-    def instance_profile_name(self) -> str:
+    def instance_profile_name(self) -> Optional[str]:
         """
         Name of the IAM Instance Profile associated with the configuration.
         """
@@ -127,7 +127,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Sequence[str]:
+    def instance_types(self) -> Optional[Sequence[str]]:
         """
         Set of EC2 Instance Types associated with the configuration.
         """
@@ -135,7 +135,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="keyPair")
-    def key_pair(self) -> str:
+    def key_pair(self) -> Optional[str]:
         """
         Name of the EC2 Key Pair associated with the configuration.
         """
@@ -143,7 +143,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter
-    def loggings(self) -> Sequence['outputs.GetInfrastructureConfigurationLoggingResult']:
+    def loggings(self) -> Optional[Sequence['outputs.GetInfrastructureConfigurationLoggingResult']]:
         """
         Nested list of logging settings.
         """
@@ -151,7 +151,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the infrastructure configuration.
         """
@@ -159,7 +159,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Mapping[str, str]:
+    def resource_tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
         """
@@ -167,7 +167,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         Set of EC2 Security Group identifiers associated with the configuration.
         """
@@ -175,7 +175,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> str:
+    def sns_topic_arn(self) -> Optional[str]:
         """
         ARN of the SNS Topic associated with the configuration.
         """
@@ -183,7 +183,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> Optional[str]:
         """
         Identifier of the EC2 Subnet associated with the configuration.
         """
@@ -191,7 +191,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value map of resource tags for the infrastructure configuration.
         """
@@ -199,7 +199,7 @@ class GetInfrastructureConfigurationResult:
 
     @property
     @pulumi.getter(name="terminateInstanceOnFailure")
-    def terminate_instance_on_failure(self) -> bool:
+    def terminate_instance_on_failure(self) -> Optional[bool]:
         """
         Whether instances are terminated on failure.
         """

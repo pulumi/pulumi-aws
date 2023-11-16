@@ -51,13 +51,13 @@ import {RestApi} from "./index";
  *     authorizerUri: authorizer.invokeArn,
  *     authorizerCredentials: invocationRole.arn,
  * });
- * const invocationPolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const invocationPolicyPolicyDocument = authorizer.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["lambda:InvokeFunction"],
- *         resources: [authorizer.arn],
+ *         resources: [arn],
  *     }],
- * });
+ * }));
  * const invocationPolicyRolePolicy = new aws.iam.RolePolicy("invocationPolicyRolePolicy", {
  *     role: invocationRole.id,
  *     policy: invocationPolicyPolicyDocument.apply(invocationPolicyPolicyDocument => invocationPolicyPolicyDocument.json),
@@ -103,7 +103,7 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * ARN of the API Gateway Authorizer
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      */

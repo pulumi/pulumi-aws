@@ -101,11 +101,11 @@ type Stack struct {
 	AccessEndpoints StackAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
 	// Settings for application settings persistence.
 	// See `applicationSettings` below.
-	ApplicationSettings StackApplicationSettingsOutput `pulumi:"applicationSettings"`
+	ApplicationSettings StackApplicationSettingsPtrOutput `pulumi:"applicationSettings"`
 	// ARN of the appstream stack.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Description for the AppStream stack.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Stack name to display.
@@ -113,19 +113,19 @@ type Stack struct {
 	// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
 	EmbedHostDomains pulumi.StringArrayOutput `pulumi:"embedHostDomains"`
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
-	FeedbackUrl pulumi.StringOutput `pulumi:"feedbackUrl"`
+	FeedbackUrl pulumi.StringPtrOutput `pulumi:"feedbackUrl"`
 	// Unique name for the AppStream stack.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
-	RedirectUrl pulumi.StringOutput `pulumi:"redirectUrl"`
+	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayOutput `pulumi:"storageConnectors"`
 	// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
 	// See `streamingExperienceSettings` below.
-	StreamingExperienceSettings StackStreamingExperienceSettingsOutput `pulumi:"streamingExperienceSettings"`
+	StreamingExperienceSettings StackStreamingExperienceSettingsPtrOutput `pulumi:"streamingExperienceSettings"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -416,18 +416,18 @@ func (o StackOutput) AccessEndpoints() StackAccessEndpointArrayOutput {
 
 // Settings for application settings persistence.
 // See `applicationSettings` below.
-func (o StackOutput) ApplicationSettings() StackApplicationSettingsOutput {
-	return o.ApplyT(func(v *Stack) StackApplicationSettingsOutput { return v.ApplicationSettings }).(StackApplicationSettingsOutput)
+func (o StackOutput) ApplicationSettings() StackApplicationSettingsPtrOutput {
+	return o.ApplyT(func(v *Stack) StackApplicationSettingsPtrOutput { return v.ApplicationSettings }).(StackApplicationSettingsPtrOutput)
 }
 
 // ARN of the appstream stack.
-func (o StackOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o StackOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when the stack was created.
-func (o StackOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o StackOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Description for the AppStream stack.
@@ -446,8 +446,8 @@ func (o StackOutput) EmbedHostDomains() pulumi.StringArrayOutput {
 }
 
 // URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
-func (o StackOutput) FeedbackUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.FeedbackUrl }).(pulumi.StringOutput)
+func (o StackOutput) FeedbackUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.FeedbackUrl }).(pulumi.StringPtrOutput)
 }
 
 // Unique name for the AppStream stack.
@@ -458,8 +458,8 @@ func (o StackOutput) Name() pulumi.StringOutput {
 }
 
 // URL that users are redirected to after their streaming session ends.
-func (o StackOutput) RedirectUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.RedirectUrl }).(pulumi.StringOutput)
+func (o StackOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the storage connectors to enable.
@@ -470,8 +470,8 @@ func (o StackOutput) StorageConnectors() StackStorageConnectorArrayOutput {
 
 // The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
 // See `streamingExperienceSettings` below.
-func (o StackOutput) StreamingExperienceSettings() StackStreamingExperienceSettingsOutput {
-	return o.ApplyT(func(v *Stack) StackStreamingExperienceSettingsOutput { return v.StreamingExperienceSettings }).(StackStreamingExperienceSettingsOutput)
+func (o StackOutput) StreamingExperienceSettings() StackStreamingExperienceSettingsPtrOutput {
+	return o.ApplyT(func(v *Stack) StackStreamingExperienceSettingsPtrOutput { return v.StreamingExperienceSettings }).(StackStreamingExperienceSettingsPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

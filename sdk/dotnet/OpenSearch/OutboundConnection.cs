@@ -81,13 +81,13 @@ namespace Pulumi.Aws.OpenSearch
         /// Configuration block for the outbound connection.
         /// </summary>
         [Output("connectionProperties")]
-        public Output<Outputs.OutboundConnectionConnectionProperties> ConnectionProperties { get; private set; } = null!;
+        public Output<Outputs.OutboundConnectionConnectionProperties?> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
         /// Status of the connection request.
         /// </summary>
         [Output("connectionStatus")]
-        public Output<string> ConnectionStatus { get; private set; } = null!;
+        public Output<string?> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the local Opensearch domain.

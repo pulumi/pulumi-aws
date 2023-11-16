@@ -47,19 +47,19 @@ namespace Pulumi.Aws.DataSync
         /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
         /// </summary>
         [Output("activationKey")]
-        public Output<string> ActivationKey { get; private set; } = null!;
+        public Output<string?> ActivationKey { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Agent.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         /// </summary>
         [Output("ipAddress")]
-        public Output<string> IpAddress { get; private set; } = null!;
+        public Output<string?> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// Name of the DataSync Agent.
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.DataSync
         /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         /// </summary>
         [Output("privateLinkEndpoint")]
-        public Output<string> PrivateLinkEndpoint { get; private set; } = null!;
+        public Output<string?> PrivateLinkEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The ARNs of the security groups used to protect your data transfer task subnets.

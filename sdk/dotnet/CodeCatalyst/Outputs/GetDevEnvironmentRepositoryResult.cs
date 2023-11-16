@@ -13,14 +13,14 @@ namespace Pulumi.Aws.CodeCatalyst.Outputs
     [OutputType]
     public sealed class GetDevEnvironmentRepositoryResult
     {
-        public readonly string BranchName;
-        public readonly string RepositoryName;
+        public readonly string? BranchName;
+        public readonly string? RepositoryName;
 
         [OutputConstructor]
         private GetDevEnvironmentRepositoryResult(
-            string branchName,
+            string? branchName,
 
-            string repositoryName)
+            string? repositoryName)
         {
             BranchName = branchName;
             RepositoryName = repositoryName;

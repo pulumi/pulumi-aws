@@ -37,7 +37,7 @@ class GetRegionResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Region's description in this format: "Location (Region name)".
         """
@@ -45,7 +45,7 @@ class GetRegionResult:
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> Optional[str]:
         """
         EC2 endpoint for the selected region.
         """
@@ -53,12 +53,12 @@ class GetRegionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the selected region.
         """

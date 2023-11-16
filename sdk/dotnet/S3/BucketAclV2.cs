@@ -201,7 +201,7 @@ namespace Pulumi.Aws.S3
         /// Configuration block that sets the ACL permissions for an object per grantee. See below.
         /// </summary>
         [Output("accessControlPolicy")]
-        public Output<Outputs.BucketAclV2AccessControlPolicy> AccessControlPolicy { get; private set; } = null!;
+        public Output<Outputs.BucketAclV2AccessControlPolicy?> AccessControlPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Canned ACL to apply to the bucket.

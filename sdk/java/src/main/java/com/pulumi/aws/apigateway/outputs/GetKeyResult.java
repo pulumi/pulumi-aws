@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetKeyResult {
@@ -15,22 +17,22 @@ public final class GetKeyResult {
      * @return Date and time when the API Key was created.
      * 
      */
-    private String createdDate;
+    private @Nullable String createdDate;
     /**
      * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      * 
      */
-    private String customerId;
+    private @Nullable String customerId;
     /**
      * @return Description of the API Key.
      * 
      */
-    private String description;
+    private @Nullable String description;
     /**
      * @return Whether the API Key is enabled.
      * 
      */
-    private Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Set to the ID of the API Key.
      * 
@@ -40,51 +42,51 @@ public final class GetKeyResult {
      * @return Date and time when the API Key was last updated.
      * 
      */
-    private String lastUpdatedDate;
+    private @Nullable String lastUpdatedDate;
     /**
      * @return Set to the name of the API Key.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return Map of tags for the resource.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Set to the value of the API Key.
      * 
      */
-    private String value;
+    private @Nullable String value;
 
     private GetKeyResult() {}
     /**
      * @return Date and time when the API Key was created.
      * 
      */
-    public String createdDate() {
-        return this.createdDate;
+    public Optional<String> createdDate() {
+        return Optional.ofNullable(this.createdDate);
     }
     /**
      * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      * 
      */
-    public String customerId() {
-        return this.customerId;
+    public Optional<String> customerId() {
+        return Optional.ofNullable(this.customerId);
     }
     /**
      * @return Description of the API Key.
      * 
      */
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Whether the API Key is enabled.
      * 
      */
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
     /**
      * @return Set to the ID of the API Key.
@@ -97,29 +99,29 @@ public final class GetKeyResult {
      * @return Date and time when the API Key was last updated.
      * 
      */
-    public String lastUpdatedDate() {
-        return this.lastUpdatedDate;
+    public Optional<String> lastUpdatedDate() {
+        return Optional.ofNullable(this.lastUpdatedDate);
     }
     /**
      * @return Set to the name of the API Key.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return Set to the value of the API Key.
      * 
      */
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -131,15 +133,15 @@ public final class GetKeyResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String createdDate;
-        private String customerId;
-        private String description;
-        private Boolean enabled;
+        private @Nullable String createdDate;
+        private @Nullable String customerId;
+        private @Nullable String description;
+        private @Nullable Boolean enabled;
         private String id;
-        private String lastUpdatedDate;
-        private String name;
-        private Map<String,String> tags;
-        private String value;
+        private @Nullable String lastUpdatedDate;
+        private @Nullable String name;
+        private @Nullable Map<String,String> tags;
+        private @Nullable String value;
         public Builder() {}
         public Builder(GetKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -155,23 +157,23 @@ public final class GetKeyResult {
         }
 
         @CustomType.Setter
-        public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+        public Builder createdDate(@Nullable String createdDate) {
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
-        public Builder customerId(String customerId) {
-            this.customerId = Objects.requireNonNull(customerId);
+        public Builder customerId(@Nullable String customerId) {
+            this.customerId = customerId;
             return this;
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
@@ -180,23 +182,23 @@ public final class GetKeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+        public Builder lastUpdatedDate(@Nullable String lastUpdatedDate) {
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+        public Builder value(@Nullable String value) {
+            this.value = value;
             return this;
         }
         public GetKeyResult build() {

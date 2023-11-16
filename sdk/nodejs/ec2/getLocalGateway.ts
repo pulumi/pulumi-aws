@@ -69,20 +69,20 @@ export interface GetLocalGatewayArgs {
  */
 export interface GetLocalGatewayResult {
     readonly filters?: outputs.ec2.GetLocalGatewayFilter[];
-    readonly id: string;
+    readonly id?: string;
     /**
      * ARN of Outpost
      */
-    readonly outpostArn: string;
+    readonly outpostArn?: string;
     /**
      * AWS account identifier that owns the Local Gateway.
      */
-    readonly ownerId: string;
+    readonly ownerId?: string;
     /**
      * State of the local gateway.
      */
-    readonly state: string;
-    readonly tags: {[key: string]: string};
+    readonly state?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about an EC2 Local Gateway.

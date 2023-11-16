@@ -167,22 +167,22 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set of all the Local Gateway identifiers
         /// </summary>
         public readonly ImmutableArray<string> Ids;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLocalGatewaysResult(
             ImmutableArray<Outputs.GetLocalGatewaysFilterResult> filters,
 
-            string id,
+            string? id,
 
             ImmutableArray<string> ids,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;

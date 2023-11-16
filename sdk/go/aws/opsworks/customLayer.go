@@ -54,7 +54,7 @@ type CustomLayer struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -85,7 +85,7 @@ type CustomLayer struct {
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
 	// Load-based auto scaling configuration. See Load Based AutoScaling
-	LoadBasedAutoScaling CustomLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
+	LoadBasedAutoScaling CustomLayerLoadBasedAutoScalingPtrOutput `pulumi:"loadBasedAutoScaling"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
@@ -452,8 +452,8 @@ func (o CustomLayerOutput) ToCustomLayerOutputWithContext(ctx context.Context) C
 }
 
 // The Amazon Resource Name(ARN) of the layer.
-func (o CustomLayerOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CustomLayerOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomLayer) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
@@ -537,8 +537,8 @@ func (o CustomLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 }
 
 // Load-based auto scaling configuration. See Load Based AutoScaling
-func (o CustomLayerOutput) LoadBasedAutoScaling() CustomLayerLoadBasedAutoScalingOutput {
-	return o.ApplyT(func(v *CustomLayer) CustomLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(CustomLayerLoadBasedAutoScalingOutput)
+func (o CustomLayerOutput) LoadBasedAutoScaling() CustomLayerLoadBasedAutoScalingPtrOutput {
+	return o.ApplyT(func(v *CustomLayer) CustomLayerLoadBasedAutoScalingPtrOutput { return v.LoadBasedAutoScaling }).(CustomLayerLoadBasedAutoScalingPtrOutput)
 }
 
 // A human-readable name for the layer.

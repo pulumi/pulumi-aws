@@ -72,48 +72,48 @@ export interface GetLaunchTemplateArgs {
  * A collection of values returned by getLaunchTemplate.
  */
 export interface GetLaunchTemplateResult {
-    readonly arn: string;
-    readonly blockDeviceMappings: outputs.ec2.GetLaunchTemplateBlockDeviceMapping[];
-    readonly capacityReservationSpecifications: outputs.ec2.GetLaunchTemplateCapacityReservationSpecification[];
-    readonly cpuOptions: outputs.ec2.GetLaunchTemplateCpuOption[];
-    readonly creditSpecifications: outputs.ec2.GetLaunchTemplateCreditSpecification[];
-    readonly defaultVersion: number;
-    readonly description: string;
-    readonly disableApiStop: boolean;
-    readonly disableApiTermination: boolean;
-    readonly ebsOptimized: string;
-    readonly elasticGpuSpecifications: outputs.ec2.GetLaunchTemplateElasticGpuSpecification[];
-    readonly elasticInferenceAccelerators: outputs.ec2.GetLaunchTemplateElasticInferenceAccelerator[];
-    readonly enclaveOptions: outputs.ec2.GetLaunchTemplateEnclaveOption[];
+    readonly arn?: string;
+    readonly blockDeviceMappings?: outputs.ec2.GetLaunchTemplateBlockDeviceMapping[];
+    readonly capacityReservationSpecifications?: outputs.ec2.GetLaunchTemplateCapacityReservationSpecification[];
+    readonly cpuOptions?: outputs.ec2.GetLaunchTemplateCpuOption[];
+    readonly creditSpecifications?: outputs.ec2.GetLaunchTemplateCreditSpecification[];
+    readonly defaultVersion?: number;
+    readonly description?: string;
+    readonly disableApiStop?: boolean;
+    readonly disableApiTermination?: boolean;
+    readonly ebsOptimized?: string;
+    readonly elasticGpuSpecifications?: outputs.ec2.GetLaunchTemplateElasticGpuSpecification[];
+    readonly elasticInferenceAccelerators?: outputs.ec2.GetLaunchTemplateElasticInferenceAccelerator[];
+    readonly enclaveOptions?: outputs.ec2.GetLaunchTemplateEnclaveOption[];
     readonly filters?: outputs.ec2.GetLaunchTemplateFilter[];
-    readonly hibernationOptions: outputs.ec2.GetLaunchTemplateHibernationOption[];
-    readonly iamInstanceProfiles: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
+    readonly hibernationOptions?: outputs.ec2.GetLaunchTemplateHibernationOption[];
+    readonly iamInstanceProfiles?: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
     /**
      * ID of the launch template.
      */
-    readonly id: string;
-    readonly imageId: string;
-    readonly instanceInitiatedShutdownBehavior: string;
-    readonly instanceMarketOptions: outputs.ec2.GetLaunchTemplateInstanceMarketOption[];
-    readonly instanceRequirements: outputs.ec2.GetLaunchTemplateInstanceRequirement[];
-    readonly instanceType: string;
-    readonly kernelId: string;
-    readonly keyName: string;
-    readonly latestVersion: number;
-    readonly licenseSpecifications: outputs.ec2.GetLaunchTemplateLicenseSpecification[];
-    readonly maintenanceOptions: outputs.ec2.GetLaunchTemplateMaintenanceOption[];
-    readonly metadataOptions: outputs.ec2.GetLaunchTemplateMetadataOption[];
-    readonly monitorings: outputs.ec2.GetLaunchTemplateMonitoring[];
-    readonly name: string;
-    readonly networkInterfaces: outputs.ec2.GetLaunchTemplateNetworkInterface[];
-    readonly placements: outputs.ec2.GetLaunchTemplatePlacement[];
-    readonly privateDnsNameOptions: outputs.ec2.GetLaunchTemplatePrivateDnsNameOption[];
-    readonly ramDiskId: string;
-    readonly securityGroupNames: string[];
-    readonly tagSpecifications: outputs.ec2.GetLaunchTemplateTagSpecification[];
-    readonly tags: {[key: string]: string};
-    readonly userData: string;
-    readonly vpcSecurityGroupIds: string[];
+    readonly id?: string;
+    readonly imageId?: string;
+    readonly instanceInitiatedShutdownBehavior?: string;
+    readonly instanceMarketOptions?: outputs.ec2.GetLaunchTemplateInstanceMarketOption[];
+    readonly instanceRequirements?: outputs.ec2.GetLaunchTemplateInstanceRequirement[];
+    readonly instanceType?: string;
+    readonly kernelId?: string;
+    readonly keyName?: string;
+    readonly latestVersion?: number;
+    readonly licenseSpecifications?: outputs.ec2.GetLaunchTemplateLicenseSpecification[];
+    readonly maintenanceOptions?: outputs.ec2.GetLaunchTemplateMaintenanceOption[];
+    readonly metadataOptions?: outputs.ec2.GetLaunchTemplateMetadataOption[];
+    readonly monitorings?: outputs.ec2.GetLaunchTemplateMonitoring[];
+    readonly name?: string;
+    readonly networkInterfaces?: outputs.ec2.GetLaunchTemplateNetworkInterface[];
+    readonly placements?: outputs.ec2.GetLaunchTemplatePlacement[];
+    readonly privateDnsNameOptions?: outputs.ec2.GetLaunchTemplatePrivateDnsNameOption[];
+    readonly ramDiskId?: string;
+    readonly securityGroupNames?: string[];
+    readonly tagSpecifications?: outputs.ec2.GetLaunchTemplateTagSpecification[];
+    readonly tags?: {[key: string]: string};
+    readonly userData?: string;
+    readonly vpcSecurityGroupIds?: string[];
 }
 /**
  * Provides information about a Launch Template.

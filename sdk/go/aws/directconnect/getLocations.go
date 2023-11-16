@@ -52,7 +52,7 @@ func GetLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLocatio
 // A collection of values returned by getLocations.
 type GetLocationsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// Code for the locations.
 	LocationCodes []string `pulumi:"locationCodes"`
 }
@@ -84,8 +84,8 @@ func (o GetLocationsResultOutput) ToGetLocationsResultOutputWithContext(ctx cont
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLocationsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocationsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLocationsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocationsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Code for the locations.

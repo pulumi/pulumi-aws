@@ -13,29 +13,29 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult
     {
-        public readonly string AttachmentId;
-        public readonly string DestinationCidr;
-        public readonly string PrefixListId;
-        public readonly string ResourceId;
-        public readonly string ResourceType;
-        public readonly string RouteOrigin;
-        public readonly string State;
+        public readonly string? AttachmentId;
+        public readonly string? DestinationCidr;
+        public readonly string? PrefixListId;
+        public readonly string? ResourceId;
+        public readonly string? ResourceType;
+        public readonly string? RouteOrigin;
+        public readonly string? State;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult(
-            string attachmentId,
+            string? attachmentId,
 
-            string destinationCidr,
+            string? destinationCidr,
 
-            string prefixListId,
+            string? prefixListId,
 
-            string resourceId,
+            string? resourceId,
 
-            string resourceType,
+            string? resourceType,
 
-            string routeOrigin,
+            string? routeOrigin,
 
-            string state)
+            string? state)
         {
             AttachmentId = attachmentId;
             DestinationCidr = destinationCidr;

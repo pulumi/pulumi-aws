@@ -51,7 +51,7 @@ class GetCredentialsResult:
 
     @property
     @pulumi.getter(name="dbPassword")
-    def db_password(self) -> str:
+    def db_password(self) -> Optional[str]:
         """
         Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
         """
@@ -59,7 +59,7 @@ class GetCredentialsResult:
 
     @property
     @pulumi.getter(name="dbUser")
-    def db_user(self) -> str:
+    def db_user(self) -> Optional[str]:
         """
         A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
         """
@@ -72,7 +72,7 @@ class GetCredentialsResult:
 
     @property
     @pulumi.getter
-    def expiration(self) -> str:
+    def expiration(self) -> Optional[str]:
         """
         Date and time the password in `db_password` expires.
         """
@@ -80,7 +80,7 @@ class GetCredentialsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

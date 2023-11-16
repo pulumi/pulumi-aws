@@ -62,13 +62,13 @@ type GetPromptArgs struct {
 // A collection of values returned by getPrompt.
 type GetPromptResult struct {
 	// ARN of the Prompt.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	Name       string `pulumi:"name"`
+	Id         *string `pulumi:"id"`
+	InstanceId string  `pulumi:"instanceId"`
+	Name       string  `pulumi:"name"`
 	// Identifier for the prompt.
-	PromptId string `pulumi:"promptId"`
+	PromptId *string `pulumi:"promptId"`
 }
 
 func GetPromptOutput(ctx *pulumi.Context, args GetPromptOutputArgs, opts ...pulumi.InvokeOption) GetPromptResultOutput {
@@ -112,13 +112,13 @@ func (o GetPromptResultOutput) ToGetPromptResultOutputWithContext(ctx context.Co
 }
 
 // ARN of the Prompt.
-func (o GetPromptResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPromptResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetPromptResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPromptResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetPromptResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPromptResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetPromptResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPromptResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetPromptResultOutput) InstanceId() pulumi.StringOutput {
@@ -130,8 +130,8 @@ func (o GetPromptResultOutput) Name() pulumi.StringOutput {
 }
 
 // Identifier for the prompt.
-func (o GetPromptResultOutput) PromptId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPromptResult) string { return v.PromptId }).(pulumi.StringOutput)
+func (o GetPromptResultOutput) PromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetPromptResult) *string { return v.PromptId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

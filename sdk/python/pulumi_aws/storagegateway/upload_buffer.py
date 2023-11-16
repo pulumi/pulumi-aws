@@ -288,7 +288,7 @@ class UploadBuffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskId")
-    def disk_id(self) -> pulumi.Output[str]:
+    def disk_id(self) -> pulumi.Output[Optional[str]]:
         """
         Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         """
@@ -296,7 +296,7 @@ class UploadBuffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskPath")
-    def disk_path(self) -> pulumi.Output[str]:
+    def disk_path(self) -> pulumi.Output[Optional[str]]:
         """
         Local disk path. For example, `/dev/nvme1n1`.
         """

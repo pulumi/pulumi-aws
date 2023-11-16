@@ -177,7 +177,7 @@ namespace Pulumi.Aws.CostExplorer
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly string? SearchString;
         public readonly ImmutableArray<Outputs.GetTagsSortByResult> SortBies;
         public readonly string? TagKey;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.CostExplorer
         private GetTagsResult(
             Outputs.GetTagsFilterResult? filter,
 
-            string id,
+            string? id,
 
             string? searchString,
 

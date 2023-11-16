@@ -30,11 +30,11 @@ export interface GetEncryptionByDefaultResult {
     /**
      * Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
      */
-    readonly enabled: boolean;
+    readonly enabled?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
 }
 /**
  * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.

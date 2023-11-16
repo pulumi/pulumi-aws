@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Kendra
         /// ARN of the thesaurus.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The description for a thesaurus.
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Kendra
         /// The current status of the thesaurus.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Kendra
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("thesaurusId")]
-        public Output<string> ThesaurusId { get; private set; } = null!;
+        public Output<string?> ThesaurusId { get; private set; } = null!;
 
 
         /// <summary>

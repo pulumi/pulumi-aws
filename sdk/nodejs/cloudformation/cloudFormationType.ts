@@ -66,23 +66,23 @@ export class CloudFormationType extends pulumi.CustomResource {
     /**
      * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the CloudFormation Type default version.
      */
-    public /*out*/ readonly defaultVersionId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultVersionId!: pulumi.Output<string | undefined>;
     /**
      * Deprecation status of the version.
      */
-    public /*out*/ readonly deprecatedStatus!: pulumi.Output<string>;
+    public /*out*/ readonly deprecatedStatus!: pulumi.Output<string | undefined>;
     /**
      * Description of the version.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
      * URL of the documentation for the CloudFormation Type.
      */
-    public /*out*/ readonly documentationUrl!: pulumi.Output<string>;
+    public /*out*/ readonly documentationUrl!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
      */
@@ -90,7 +90,7 @@ export class CloudFormationType extends pulumi.CustomResource {
     /**
      * Whether the CloudFormation Type version is the default version.
      */
-    public /*out*/ readonly isDefaultVersion!: pulumi.Output<boolean>;
+    public /*out*/ readonly isDefaultVersion!: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block containing logging configuration.
      */
@@ -98,11 +98,11 @@ export class CloudFormationType extends pulumi.CustomResource {
     /**
      * Provisioning behavior of the CloudFormation Type.
      */
-    public /*out*/ readonly provisioningType!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningType!: pulumi.Output<string | undefined>;
     /**
      * JSON document of the CloudFormation Type schema.
      */
-    public /*out*/ readonly schema!: pulumi.Output<string>;
+    public /*out*/ readonly schema!: pulumi.Output<string | undefined>;
     /**
      * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
      */
@@ -110,15 +110,15 @@ export class CloudFormationType extends pulumi.CustomResource {
     /**
      * URL of the source code for the CloudFormation Type.
      */
-    public /*out*/ readonly sourceUrl!: pulumi.Output<string>;
+    public /*out*/ readonly sourceUrl!: pulumi.Output<string | undefined>;
     /**
      * CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
      */
-    public /*out*/ readonly typeArn!: pulumi.Output<string>;
+    public /*out*/ readonly typeArn!: pulumi.Output<string | undefined>;
     /**
      * CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
      */
@@ -126,11 +126,11 @@ export class CloudFormationType extends pulumi.CustomResource {
     /**
      * (Optional) Identifier of the CloudFormation Type version.
      */
-    public /*out*/ readonly versionId!: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string | undefined>;
     /**
      * Scope of the CloudFormation Type.
      */
-    public /*out*/ readonly visibility!: pulumi.Output<string>;
+    public /*out*/ readonly visibility!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CloudFormationType resource with the given unique name, arguments, and options.

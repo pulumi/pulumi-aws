@@ -69,7 +69,7 @@ export class InviteAccepter extends pulumi.CustomResource {
     /**
      * The ID of the invitation.
      */
-    public /*out*/ readonly invitationId!: pulumi.Output<string>;
+    public /*out*/ readonly invitationId!: pulumi.Output<string | undefined>;
     /**
      * The account ID of the master Security Hub account whose invitation you're accepting.
      */

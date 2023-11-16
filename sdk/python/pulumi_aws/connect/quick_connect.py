@@ -423,7 +423,7 @@ class QuickConnect(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Quick Connect.
         """
@@ -463,7 +463,7 @@ class QuickConnect(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="quickConnectId")
-    def quick_connect_id(self) -> pulumi.Output[str]:
+    def quick_connect_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for the Quick Connect.
         """

@@ -49,33 +49,33 @@ export interface GetCertificateResult {
     /**
      * ARN of the certificate.
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Type of certificate. For example, `CA`.
      */
-    readonly certificateType: string;
+    readonly certificateType?: string;
     /**
      * Boolean whether there is an override for the default certificate identifier.
      */
-    readonly customerOverride: boolean;
+    readonly customerOverride?: boolean;
     /**
      * If there is an override for the default certificate identifier, when the override expires.
      */
-    readonly customerOverrideValidTill: string;
-    readonly id: string;
+    readonly customerOverrideValidTill?: string;
+    readonly id?: string;
     readonly latestValidTill?: boolean;
     /**
      * Thumbprint of the certificate.
      */
-    readonly thumbprint: string;
+    readonly thumbprint?: string;
     /**
      * [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
      */
-    readonly validFrom: string;
+    readonly validFrom?: string;
     /**
      * [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
      */
-    readonly validTill: string;
+    readonly validTill?: string;
 }
 /**
  * Information about an RDS Certificate.

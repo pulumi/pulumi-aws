@@ -60,11 +60,11 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
      */
-    public readonly amazonSideAsn!: pulumi.Output<string>;
+    public readonly amazonSideAsn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the VPN Gateway.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone for the virtual private gateway.
      */
@@ -82,7 +82,7 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * The VPC ID to create in.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpnGateway resource with the given unique name, arguments, and options.

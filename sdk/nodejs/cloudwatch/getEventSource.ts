@@ -46,24 +46,24 @@ export interface GetEventSourceResult {
     /**
      * ARN of the partner event source
      */
-    readonly arn: string;
+    readonly arn?: string;
     /**
      * Name of the SaaS partner that created the event source
      */
-    readonly createdBy: string;
+    readonly createdBy?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Name of the event source
      */
-    readonly name: string;
+    readonly name?: string;
     readonly namePrefix?: string;
     /**
      * State of the event source (`ACTIVE` or `PENDING`)
      */
-    readonly state: string;
+    readonly state?: string;
 }
 /**
  * Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.

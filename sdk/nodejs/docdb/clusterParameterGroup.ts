@@ -65,7 +65,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * The ARN of the DocumentDB cluster parameter group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
      */
@@ -81,7 +81,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      */

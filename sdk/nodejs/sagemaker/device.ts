@@ -61,11 +61,11 @@ export class Device extends pulumi.CustomResource {
         return obj['__pulumiType'] === Device.__pulumiType;
     }
 
-    public /*out*/ readonly agentVersion!: pulumi.Output<string>;
+    public /*out*/ readonly agentVersion!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Device.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The device to register with SageMaker Edge Manager. See Device details below.
      */

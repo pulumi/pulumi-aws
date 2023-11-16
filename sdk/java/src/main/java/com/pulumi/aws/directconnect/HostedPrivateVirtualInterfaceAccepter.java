@@ -96,14 +96,14 @@ public class HostedPrivateVirtualInterfaceAccepter extends com.pulumi.resources.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the virtual interface.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.

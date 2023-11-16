@@ -381,7 +381,7 @@ class LicenseGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The grant ARN.
         """
@@ -389,7 +389,7 @@ class LicenseGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="homeRegion")
-    def home_region(self) -> pulumi.Output[str]:
+    def home_region(self) -> pulumi.Output[Optional[str]]:
         """
         The home region for the license.
         """
@@ -413,7 +413,7 @@ class LicenseGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parentArn")
-    def parent_arn(self) -> pulumi.Output[str]:
+    def parent_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The parent ARN.
         """
@@ -429,7 +429,7 @@ class LicenseGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The grant status.
         """
@@ -437,7 +437,7 @@ class LicenseGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The grant version.
         """

@@ -6,6 +6,8 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLaunchConfigurationEphemeralBlockDevice {
@@ -13,27 +15,27 @@ public final class GetLaunchConfigurationEphemeralBlockDevice {
      * @return Name of the device.
      * 
      */
-    private String deviceName;
+    private @Nullable String deviceName;
     /**
      * @return Virtual Name of the device.
      * 
      */
-    private String virtualName;
+    private @Nullable String virtualName;
 
     private GetLaunchConfigurationEphemeralBlockDevice() {}
     /**
      * @return Name of the device.
      * 
      */
-    public String deviceName() {
-        return this.deviceName;
+    public Optional<String> deviceName() {
+        return Optional.ofNullable(this.deviceName);
     }
     /**
      * @return Virtual Name of the device.
      * 
      */
-    public String virtualName() {
-        return this.virtualName;
+    public Optional<String> virtualName() {
+        return Optional.ofNullable(this.virtualName);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetLaunchConfigurationEphemeralBlockDevice {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String deviceName;
-        private String virtualName;
+        private @Nullable String deviceName;
+        private @Nullable String virtualName;
         public Builder() {}
         public Builder(GetLaunchConfigurationEphemeralBlockDevice defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetLaunchConfigurationEphemeralBlockDevice {
         }
 
         @CustomType.Setter
-        public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+        public Builder deviceName(@Nullable String deviceName) {
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
-        public Builder virtualName(String virtualName) {
-            this.virtualName = Objects.requireNonNull(virtualName);
+        public Builder virtualName(@Nullable String virtualName) {
+            this.virtualName = virtualName;
             return this;
         }
         public GetLaunchConfigurationEphemeralBlockDevice build() {

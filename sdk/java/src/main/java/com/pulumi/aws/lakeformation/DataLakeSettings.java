@@ -157,14 +157,14 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="admins", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> admins;
+    private Output</* @Nullable */ List<String>> admins;
 
     /**
      * @return Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      * 
      */
-    public Output<List<String>> admins() {
-        return this.admins;
+    public Output<Optional<List<String>>> admins() {
+        return Codegen.optional(this.admins);
     }
     /**
      * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
@@ -187,7 +187,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="authorizedSessionTagValueLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> authorizedSessionTagValueLists;
+    private Output</* @Nullable */ List<String>> authorizedSessionTagValueLists;
 
     /**
      * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
@@ -195,8 +195,8 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
-    public Output<List<String>> authorizedSessionTagValueLists() {
-        return this.authorizedSessionTagValueLists;
+    public Output<Optional<List<String>>> authorizedSessionTagValueLists() {
+        return Codegen.optional(this.authorizedSessionTagValueLists);
     }
     /**
      * Identifier for the Data Catalog. By default, the account ID.
@@ -217,70 +217,70 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createDatabaseDefaultPermissions", refs={List.class,DataLakeSettingsCreateDatabaseDefaultPermission.class}, tree="[0,1]")
-    private Output<List<DataLakeSettingsCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions;
+    private Output</* @Nullable */ List<DataLakeSettingsCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions;
 
     /**
      * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      * 
      */
-    public Output<List<DataLakeSettingsCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions() {
-        return this.createDatabaseDefaultPermissions;
+    public Output<Optional<List<DataLakeSettingsCreateDatabaseDefaultPermission>>> createDatabaseDefaultPermissions() {
+        return Codegen.optional(this.createDatabaseDefaultPermissions);
     }
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      * 
      */
     @Export(name="createTableDefaultPermissions", refs={List.class,DataLakeSettingsCreateTableDefaultPermission.class}, tree="[0,1]")
-    private Output<List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions;
+    private Output</* @Nullable */ List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions;
 
     /**
      * @return Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      * 
      */
-    public Output<List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions() {
-        return this.createTableDefaultPermissions;
+    public Output<Optional<List<DataLakeSettingsCreateTableDefaultPermission>>> createTableDefaultPermissions() {
+        return Codegen.optional(this.createTableDefaultPermissions);
     }
     /**
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      * 
      */
     @Export(name="externalDataFilteringAllowLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> externalDataFilteringAllowLists;
+    private Output</* @Nullable */ List<String>> externalDataFilteringAllowLists;
 
     /**
      * @return A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      * 
      */
-    public Output<List<String>> externalDataFilteringAllowLists() {
-        return this.externalDataFilteringAllowLists;
+    public Output<Optional<List<String>>> externalDataFilteringAllowLists() {
+        return Codegen.optional(this.externalDataFilteringAllowLists);
     }
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      * 
      */
     @Export(name="readOnlyAdmins", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> readOnlyAdmins;
+    private Output</* @Nullable */ List<String>> readOnlyAdmins;
 
     /**
      * @return Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      * 
      */
-    public Output<List<String>> readOnlyAdmins() {
-        return this.readOnlyAdmins;
+    public Output<Optional<List<String>>> readOnlyAdmins() {
+        return Codegen.optional(this.readOnlyAdmins);
     }
     /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      */
     @Export(name="trustedResourceOwners", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> trustedResourceOwners;
+    private Output</* @Nullable */ List<String>> trustedResourceOwners;
 
     /**
      * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      */
-    public Output<List<String>> trustedResourceOwners() {
-        return this.trustedResourceOwners;
+    public Output<Optional<List<String>>> trustedResourceOwners() {
+        return Codegen.optional(this.trustedResourceOwners);
     }
 
     /**

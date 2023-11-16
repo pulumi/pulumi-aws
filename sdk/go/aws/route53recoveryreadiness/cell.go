@@ -53,7 +53,7 @@ type Cell struct {
 	pulumi.CustomResourceState
 
 	// ARN of the cell
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Unique name describing the cell.
 	//
 	// The following arguments are optional:
@@ -259,8 +259,8 @@ func (o CellOutput) ToCellOutputWithContext(ctx context.Context) CellOutput {
 }
 
 // ARN of the cell
-func (o CellOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cell) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CellOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cell) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Unique name describing the cell.

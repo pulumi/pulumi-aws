@@ -274,7 +274,7 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedPolicyName")
-    def managed_policy_name(self) -> pulumi.Output[str]:
+    def managed_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the IAM Managed Policy.
         """

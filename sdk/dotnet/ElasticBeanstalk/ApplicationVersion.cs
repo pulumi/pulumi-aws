@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// ARN assigned by AWS for this Elastic Beanstalk Application.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// S3 bucket that contains the Application Version source bundle.

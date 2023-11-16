@@ -6,6 +6,8 @@ package com.pulumi.aws.sesv2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationSetVdmOptionDashboardOption {
@@ -13,15 +15,15 @@ public final class GetConfigurationSetVdmOptionDashboardOption {
      * @return Specifies the status of your VDM engagement metrics collection.
      * 
      */
-    private String engagementMetrics;
+    private @Nullable String engagementMetrics;
 
     private GetConfigurationSetVdmOptionDashboardOption() {}
     /**
      * @return Specifies the status of your VDM engagement metrics collection.
      * 
      */
-    public String engagementMetrics() {
-        return this.engagementMetrics;
+    public Optional<String> engagementMetrics() {
+        return Optional.ofNullable(this.engagementMetrics);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class GetConfigurationSetVdmOptionDashboardOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String engagementMetrics;
+        private @Nullable String engagementMetrics;
         public Builder() {}
         public Builder(GetConfigurationSetVdmOptionDashboardOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class GetConfigurationSetVdmOptionDashboardOption {
         }
 
         @CustomType.Setter
-        public Builder engagementMetrics(String engagementMetrics) {
-            this.engagementMetrics = Objects.requireNonNull(engagementMetrics);
+        public Builder engagementMetrics(@Nullable String engagementMetrics) {
+            this.engagementMetrics = engagementMetrics;
             return this;
         }
         public GetConfigurationSetVdmOptionDashboardOption build() {

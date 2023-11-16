@@ -93,7 +93,7 @@ type OptionGroup struct {
 	pulumi.CustomResourceState
 
 	// ARN of the DB option group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Specifies the name of the engine that this option group should be associated with.
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
@@ -101,7 +101,7 @@ type OptionGroup struct {
 	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Description of the option group.
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// List of options to apply.
@@ -329,8 +329,8 @@ func (o OptionGroupOutput) ToOptionGroupOutputWithContext(ctx context.Context) O
 }
 
 // ARN of the DB option group.
-func (o OptionGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o OptionGroupOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptionGroup) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the engine that this option group should be associated with.
@@ -349,8 +349,8 @@ func (o OptionGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-func (o OptionGroupOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o OptionGroupOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptionGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Description of the option group.

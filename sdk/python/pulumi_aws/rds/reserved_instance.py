@@ -615,7 +615,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN for the reserved DB instance.
         """
@@ -623,7 +623,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currencyCode")
-    def currency_code(self) -> pulumi.Output[str]:
+    def currency_code(self) -> pulumi.Output[Optional[str]]:
         """
         Currency code for the reserved DB instance.
         """
@@ -631,7 +631,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbInstanceClass")
-    def db_instance_class(self) -> pulumi.Output[str]:
+    def db_instance_class(self) -> pulumi.Output[Optional[str]]:
         """
         DB instance class for the reserved DB instance.
         """
@@ -639,7 +639,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def duration(self) -> pulumi.Output[int]:
+    def duration(self) -> pulumi.Output[Optional[int]]:
         """
         Duration of the reservation in seconds.
         """
@@ -647,7 +647,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fixedPrice")
-    def fixed_price(self) -> pulumi.Output[float]:
+    def fixed_price(self) -> pulumi.Output[Optional[float]]:
         """
         Fixed price charged for this reserved DB instance.
         """
@@ -663,7 +663,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="leaseId")
-    def lease_id(self) -> pulumi.Output[str]:
+    def lease_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
         """
@@ -671,7 +671,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> pulumi.Output[bool]:
+    def multi_az(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the reservation applies to Multi-AZ deployments.
         """
@@ -689,7 +689,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offeringType")
-    def offering_type(self) -> pulumi.Output[str]:
+    def offering_type(self) -> pulumi.Output[Optional[str]]:
         """
         Offering type of this reserved DB instance.
         """
@@ -697,7 +697,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productDescription")
-    def product_description(self) -> pulumi.Output[str]:
+    def product_description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the reserved DB instance.
         """
@@ -705,7 +705,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recurringCharges")
-    def recurring_charges(self) -> pulumi.Output[Sequence['outputs.ReservedInstanceRecurringCharge']]:
+    def recurring_charges(self) -> pulumi.Output[Optional[Sequence['outputs.ReservedInstanceRecurringCharge']]]:
         """
         Recurring price charged to run this reserved DB instance.
         """
@@ -721,7 +721,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> pulumi.Output[str]:
+    def start_time(self) -> pulumi.Output[Optional[str]]:
         """
         Time the reservation started.
         """
@@ -729,7 +729,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the reserved DB instance.
         """
@@ -756,7 +756,7 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usagePrice")
-    def usage_price(self) -> pulumi.Output[float]:
+    def usage_price(self) -> pulumi.Output[Optional[float]]:
         """
         Hourly price charged for this reserved DB instance.
         """

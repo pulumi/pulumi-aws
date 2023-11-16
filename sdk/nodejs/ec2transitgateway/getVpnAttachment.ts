@@ -80,11 +80,11 @@ export interface GetVpnAttachmentResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway VPN Attachment
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly transitGatewayId?: string;
     readonly vpnConnectionId?: string;
 }

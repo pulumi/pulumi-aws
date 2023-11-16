@@ -15,7 +15,7 @@ public final class GetHostedZoneIdResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String loadBalancerType;
     private @Nullable String region;
 
@@ -24,8 +24,8 @@ public final class GetHostedZoneIdResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> loadBalancerType() {
         return Optional.ofNullable(this.loadBalancerType);
@@ -43,7 +43,7 @@ public final class GetHostedZoneIdResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
+        private @Nullable String id;
         private @Nullable String loadBalancerType;
         private @Nullable String region;
         public Builder() {}
@@ -55,8 +55,8 @@ public final class GetHostedZoneIdResult {
         }
 
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

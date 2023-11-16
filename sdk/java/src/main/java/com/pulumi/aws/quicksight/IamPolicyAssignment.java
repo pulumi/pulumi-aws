@@ -71,14 +71,14 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="assignmentId", refs={String.class}, tree="[0]")
-    private Output<String> assignmentId;
+    private Output</* @Nullable */ String> assignmentId;
 
     /**
      * @return Assignment ID.
      * 
      */
-    public Output<String> assignmentId() {
-        return this.assignmentId;
+    public Output<Optional<String>> assignmentId() {
+        return Codegen.optional(this.assignmentId);
     }
     /**
      * Name of the assignment.
@@ -117,14 +117,14 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
@@ -145,14 +145,14 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namespace", refs={String.class}, tree="[0]")
-    private Output<String> namespace;
+    private Output</* @Nullable */ String> namespace;
 
     /**
      * @return Namespace that contains the assignment. Defaults to `default`.
      * 
      */
-    public Output<String> namespace() {
-        return this.namespace;
+    public Output<Optional<String>> namespace() {
+        return Codegen.optional(this.namespace);
     }
     /**
      * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.

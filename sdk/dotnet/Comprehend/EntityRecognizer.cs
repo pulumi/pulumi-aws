@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Comprehend
         /// ARN of the Entity Recognizer version.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Comprehend
         /// Conflicts with `version_name_prefix`.
         /// </summary>
         [Output("versionName")]
-        public Output<string> VersionName { get; private set; } = null!;
+        public Output<string?> VersionName { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique version name beginning with the specified prefix.
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Comprehend
         /// Conflicts with `version_name`.
         /// </summary>
         [Output("versionNamePrefix")]
-        public Output<string> VersionNamePrefix { get; private set; } = null!;
+        public Output<string?> VersionNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.

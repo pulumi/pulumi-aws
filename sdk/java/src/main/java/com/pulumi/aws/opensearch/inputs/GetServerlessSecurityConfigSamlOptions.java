@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetServerlessSecurityConfigSamlOptions extends com.pulumi.resources.InvokeArgs {
@@ -17,60 +19,60 @@ public final class GetServerlessSecurityConfigSamlOptions extends com.pulumi.res
      * Group attribute for this SAML integration.
      * 
      */
-    @Import(name="groupAttribute", required=true)
-    private String groupAttribute;
+    @Import(name="groupAttribute")
+    private @Nullable String groupAttribute;
 
     /**
      * @return Group attribute for this SAML integration.
      * 
      */
-    public String groupAttribute() {
-        return this.groupAttribute;
+    public Optional<String> groupAttribute() {
+        return Optional.ofNullable(this.groupAttribute);
     }
 
     /**
      * The XML IdP metadata file generated from your identity provider.
      * 
      */
-    @Import(name="metadata", required=true)
-    private String metadata;
+    @Import(name="metadata")
+    private @Nullable String metadata;
 
     /**
      * @return The XML IdP metadata file generated from your identity provider.
      * 
      */
-    public String metadata() {
-        return this.metadata;
+    public Optional<String> metadata() {
+        return Optional.ofNullable(this.metadata);
     }
 
     /**
      * Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
      * 
      */
-    @Import(name="sessionTimeout", required=true)
-    private Integer sessionTimeout;
+    @Import(name="sessionTimeout")
+    private @Nullable Integer sessionTimeout;
 
     /**
      * @return Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
      * 
      */
-    public Integer sessionTimeout() {
-        return this.sessionTimeout;
+    public Optional<Integer> sessionTimeout() {
+        return Optional.ofNullable(this.sessionTimeout);
     }
 
     /**
      * User attribute for this SAML integration.
      * 
      */
-    @Import(name="userAttribute", required=true)
-    private String userAttribute;
+    @Import(name="userAttribute")
+    private @Nullable String userAttribute;
 
     /**
      * @return User attribute for this SAML integration.
      * 
      */
-    public String userAttribute() {
-        return this.userAttribute;
+    public Optional<String> userAttribute() {
+        return Optional.ofNullable(this.userAttribute);
     }
 
     private GetServerlessSecurityConfigSamlOptions() {}
@@ -106,7 +108,7 @@ public final class GetServerlessSecurityConfigSamlOptions extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder groupAttribute(String groupAttribute) {
+        public Builder groupAttribute(@Nullable String groupAttribute) {
             $.groupAttribute = groupAttribute;
             return this;
         }
@@ -117,7 +119,7 @@ public final class GetServerlessSecurityConfigSamlOptions extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder metadata(String metadata) {
+        public Builder metadata(@Nullable String metadata) {
             $.metadata = metadata;
             return this;
         }
@@ -128,7 +130,7 @@ public final class GetServerlessSecurityConfigSamlOptions extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder sessionTimeout(Integer sessionTimeout) {
+        public Builder sessionTimeout(@Nullable Integer sessionTimeout) {
             $.sessionTimeout = sessionTimeout;
             return this;
         }
@@ -139,16 +141,12 @@ public final class GetServerlessSecurityConfigSamlOptions extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder userAttribute(String userAttribute) {
+        public Builder userAttribute(@Nullable String userAttribute) {
             $.userAttribute = userAttribute;
             return this;
         }
 
         public GetServerlessSecurityConfigSamlOptions build() {
-            $.groupAttribute = Objects.requireNonNull($.groupAttribute, "expected parameter 'groupAttribute' to be non-null");
-            $.metadata = Objects.requireNonNull($.metadata, "expected parameter 'metadata' to be non-null");
-            $.sessionTimeout = Objects.requireNonNull($.sessionTimeout, "expected parameter 'sessionTimeout' to be non-null");
-            $.userAttribute = Objects.requireNonNull($.userAttribute, "expected parameter 'userAttribute' to be non-null");
             return $;
         }
     }

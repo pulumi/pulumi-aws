@@ -495,7 +495,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the connector.
         """
@@ -511,7 +511,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorId")
-    def connector_id(self) -> pulumi.Output[str]:
+    def connector_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier for the AS2 profile or SFTP Profile.
         """

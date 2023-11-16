@@ -45,8 +45,8 @@ export interface GetOutpostInstanceTypeResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly instanceType: string;
+    readonly id?: string;
+    readonly instanceType?: string;
     readonly preferredInstanceTypes?: string[];
 }
 /**

@@ -298,14 +298,14 @@ public class Server extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) of Transfer Server
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
@@ -354,14 +354,14 @@ public class Server extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
@@ -438,14 +438,14 @@ public class Server extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostKeyFingerprint", refs={String.class}, tree="[0]")
-    private Output<String> hostKeyFingerprint;
+    private Output</* @Nullable */ String> hostKeyFingerprint;
 
     /**
      * @return This value contains the message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
      * 
      */
-    public Output<String> hostKeyFingerprint() {
-        return this.hostKeyFingerprint;
+    public Output<Optional<String>> hostKeyFingerprint() {
+        return Codegen.optional(this.hostKeyFingerprint);
     }
     /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
@@ -522,28 +522,28 @@ public class Server extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="protocolDetails", refs={ServerProtocolDetails.class}, tree="[0]")
-    private Output<ServerProtocolDetails> protocolDetails;
+    private Output</* @Nullable */ ServerProtocolDetails> protocolDetails;
 
     /**
      * @return The protocol settings that are configured for your server.
      * 
      */
-    public Output<ServerProtocolDetails> protocolDetails() {
-        return this.protocolDetails;
+    public Output<Optional<ServerProtocolDetails>> protocolDetails() {
+        return Codegen.optional(this.protocolDetails);
     }
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
      * 
      */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> protocols;
+    private Output</* @Nullable */ List<String>> protocols;
 
     /**
      * @return Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
      * 
      */
-    public Output<List<String>> protocols() {
-        return this.protocols;
+    public Output<Optional<List<String>>> protocols() {
+        return Codegen.optional(this.protocols);
     }
     /**
      * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.

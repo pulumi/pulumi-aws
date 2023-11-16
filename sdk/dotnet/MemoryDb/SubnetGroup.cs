@@ -62,7 +62,7 @@ namespace Pulumi.Aws.MemoryDb
         /// The ARN of the subnet group.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Description for the subnet group.
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.MemoryDb
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.MemoryDb
         /// The VPC in which the subnet group exists.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>

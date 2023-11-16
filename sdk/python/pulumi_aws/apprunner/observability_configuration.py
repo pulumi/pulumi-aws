@@ -374,7 +374,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of this observability configuration.
         """
@@ -382,7 +382,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def latest(self) -> pulumi.Output[bool]:
+    def latest(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
         """
@@ -398,7 +398,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="observabilityConfigurationRevision")
-    def observability_configuration_revision(self) -> pulumi.Output[int]:
+    def observability_configuration_revision(self) -> pulumi.Output[Optional[int]]:
         """
         The revision of this observability configuration.
         """
@@ -406,7 +406,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         """

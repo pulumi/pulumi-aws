@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *     bucket: codepipelineBucket.id,
  *     acl: "private",
  * });
- * const codepipelinePolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const codepipelinePolicyPolicyDocument = pulumi.all([codepipelineBucket.arn, codepipelineBucket.arn, example.arn]).apply(([codepipelineBucketArn, codepipelineBucketArn1, exampleArn]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -110,14 +110,14 @@ import * as utilities from "../utilities";
  *                 "s3:PutObject",
  *             ],
  *             resources: [
- *                 codepipelineBucket.arn,
- *                 pulumi.interpolate`${codepipelineBucket.arn}/*`,
+ *                 codepipelineBucketArn,
+ *                 `${codepipelineBucketArn1}/*`,
  *             ],
  *         },
  *         {
  *             effect: "Allow",
  *             actions: ["codestar-connections:UseConnection"],
- *             resources: [example.arn],
+ *             resources: [exampleArn],
  *         },
  *         {
  *             effect: "Allow",
@@ -128,7 +128,7 @@ import * as utilities from "../utilities";
  *             resources: ["*"],
  *         },
  *     ],
- * });
+ * }));
  * const codepipelinePolicyRolePolicy = new aws.iam.RolePolicy("codepipelinePolicyRolePolicy", {
  *     role: codepipelineRole.id,
  *     policy: codepipelinePolicyPolicyDocument.apply(codepipelinePolicyPolicyDocument => codepipelinePolicyPolicyDocument.json),
@@ -174,7 +174,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The codepipeline ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */

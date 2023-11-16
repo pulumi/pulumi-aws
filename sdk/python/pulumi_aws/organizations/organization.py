@@ -409,7 +409,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accounts(self) -> pulumi.Output[Sequence['outputs.OrganizationAccount']]:
+    def accounts(self) -> pulumi.Output[Optional[Sequence['outputs.OrganizationAccount']]]:
         """
         List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         """
@@ -417,7 +417,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the root
         """
@@ -449,7 +449,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterAccountArn")
-    def master_account_arn(self) -> pulumi.Output[str]:
+    def master_account_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the master account
         """
@@ -457,7 +457,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterAccountEmail")
-    def master_account_email(self) -> pulumi.Output[str]:
+    def master_account_email(self) -> pulumi.Output[Optional[str]]:
         """
         Email address of the master account
         """
@@ -465,7 +465,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterAccountId")
-    def master_account_id(self) -> pulumi.Output[str]:
+    def master_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the master account
         """
@@ -473,7 +473,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nonMasterAccounts")
-    def non_master_accounts(self) -> pulumi.Output[Sequence['outputs.OrganizationNonMasterAccount']]:
+    def non_master_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.OrganizationNonMasterAccount']]]:
         """
         List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         """
@@ -481,7 +481,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roots(self) -> pulumi.Output[Sequence['outputs.OrganizationRoot']]:
+    def roots(self) -> pulumi.Output[Optional[Sequence['outputs.OrganizationRoot']]]:
         """
         List of organization roots. All elements have these attributes:
         """

@@ -9,6 +9,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkgroupEndpoint {
@@ -16,39 +18,39 @@ public final class GetWorkgroupEndpoint {
      * @return The DNS address of the VPC endpoint.
      * 
      */
-    private String address;
+    private @Nullable String address;
     /**
      * @return The port that Amazon Redshift Serverless listens on.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
     /**
      * @return The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
      * 
      */
-    private List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints;
+    private @Nullable List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints;
 
     private GetWorkgroupEndpoint() {}
     /**
      * @return The DNS address of the VPC endpoint.
      * 
      */
-    public String address() {
-        return this.address;
+    public Optional<String> address() {
+        return Optional.ofNullable(this.address);
     }
     /**
      * @return The port that Amazon Redshift Serverless listens on.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
      * 
      */
     public List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints() {
-        return this.vpcEndpoints;
+        return this.vpcEndpoints == null ? List.of() : this.vpcEndpoints;
     }
 
     public static Builder builder() {
@@ -60,9 +62,9 @@ public final class GetWorkgroupEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String address;
-        private Integer port;
-        private List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints;
+        private @Nullable String address;
+        private @Nullable Integer port;
+        private @Nullable List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints;
         public Builder() {}
         public Builder(GetWorkgroupEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,18 +74,18 @@ public final class GetWorkgroupEndpoint {
         }
 
         @CustomType.Setter
-        public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+        public Builder address(@Nullable String address) {
+            this.address = address;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcEndpoints(List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints) {
-            this.vpcEndpoints = Objects.requireNonNull(vpcEndpoints);
+        public Builder vpcEndpoints(@Nullable List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints) {
+            this.vpcEndpoints = vpcEndpoints;
             return this;
         }
         public Builder vpcEndpoints(GetWorkgroupEndpointVpcEndpoint... vpcEndpoints) {

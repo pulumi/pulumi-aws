@@ -98,7 +98,7 @@ type RepositoryPolicy struct {
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The registry ID where the repository was created.
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	RegistryId pulumi.StringPtrOutput `pulumi:"registryId"`
 	// Name of the repository to apply the policy.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 }
@@ -268,8 +268,8 @@ func (o RepositoryPolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // The registry ID where the repository was created.
-func (o RepositoryPolicyOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+func (o RepositoryPolicyOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringPtrOutput { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the repository to apply the policy.

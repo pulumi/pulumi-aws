@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudfront.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOriginAccessIdentityResult {
@@ -14,31 +16,31 @@ public final class GetOriginAccessIdentityResult {
      * updates to the origin access identity.
      * 
      */
-    private String callerReference;
+    private @Nullable String callerReference;
     /**
      * @return A shortcut to the full path for the
      * origin access identity to use in CloudFront, see below.
      * 
      */
-    private String cloudfrontAccessIdentityPath;
+    private @Nullable String cloudfrontAccessIdentityPath;
     /**
      * @return An optional comment for the origin access identity.
      * 
      */
-    private String comment;
+    private @Nullable String comment;
     /**
      * @return Current version of the origin access identity&#39;s information.
      * For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    private String etag;
+    private @Nullable String etag;
     /**
      * @return Pre-generated ARN for use in S3 bucket policies (see below).
      * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
      * E2QWRUHAPOMQZL`.
      * 
      */
-    private String iamArn;
+    private @Nullable String iamArn;
     private String id;
     /**
      * @return The Amazon S3 canonical user ID for the origin
@@ -46,7 +48,7 @@ public final class GetOriginAccessIdentityResult {
      * permission to an object in Amazon S3.
      * 
      */
-    private String s3CanonicalUserId;
+    private @Nullable String s3CanonicalUserId;
 
     private GetOriginAccessIdentityResult() {}
     /**
@@ -54,31 +56,31 @@ public final class GetOriginAccessIdentityResult {
      * updates to the origin access identity.
      * 
      */
-    public String callerReference() {
-        return this.callerReference;
+    public Optional<String> callerReference() {
+        return Optional.ofNullable(this.callerReference);
     }
     /**
      * @return A shortcut to the full path for the
      * origin access identity to use in CloudFront, see below.
      * 
      */
-    public String cloudfrontAccessIdentityPath() {
-        return this.cloudfrontAccessIdentityPath;
+    public Optional<String> cloudfrontAccessIdentityPath() {
+        return Optional.ofNullable(this.cloudfrontAccessIdentityPath);
     }
     /**
      * @return An optional comment for the origin access identity.
      * 
      */
-    public String comment() {
-        return this.comment;
+    public Optional<String> comment() {
+        return Optional.ofNullable(this.comment);
     }
     /**
      * @return Current version of the origin access identity&#39;s information.
      * For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    public String etag() {
-        return this.etag;
+    public Optional<String> etag() {
+        return Optional.ofNullable(this.etag);
     }
     /**
      * @return Pre-generated ARN for use in S3 bucket policies (see below).
@@ -86,8 +88,8 @@ public final class GetOriginAccessIdentityResult {
      * E2QWRUHAPOMQZL`.
      * 
      */
-    public String iamArn() {
-        return this.iamArn;
+    public Optional<String> iamArn() {
+        return Optional.ofNullable(this.iamArn);
     }
     public String id() {
         return this.id;
@@ -98,8 +100,8 @@ public final class GetOriginAccessIdentityResult {
      * permission to an object in Amazon S3.
      * 
      */
-    public String s3CanonicalUserId() {
-        return this.s3CanonicalUserId;
+    public Optional<String> s3CanonicalUserId() {
+        return Optional.ofNullable(this.s3CanonicalUserId);
     }
 
     public static Builder builder() {
@@ -111,13 +113,13 @@ public final class GetOriginAccessIdentityResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String callerReference;
-        private String cloudfrontAccessIdentityPath;
-        private String comment;
-        private String etag;
-        private String iamArn;
+        private @Nullable String callerReference;
+        private @Nullable String cloudfrontAccessIdentityPath;
+        private @Nullable String comment;
+        private @Nullable String etag;
+        private @Nullable String iamArn;
         private String id;
-        private String s3CanonicalUserId;
+        private @Nullable String s3CanonicalUserId;
         public Builder() {}
         public Builder(GetOriginAccessIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -131,28 +133,28 @@ public final class GetOriginAccessIdentityResult {
         }
 
         @CustomType.Setter
-        public Builder callerReference(String callerReference) {
-            this.callerReference = Objects.requireNonNull(callerReference);
+        public Builder callerReference(@Nullable String callerReference) {
+            this.callerReference = callerReference;
             return this;
         }
         @CustomType.Setter
-        public Builder cloudfrontAccessIdentityPath(String cloudfrontAccessIdentityPath) {
-            this.cloudfrontAccessIdentityPath = Objects.requireNonNull(cloudfrontAccessIdentityPath);
+        public Builder cloudfrontAccessIdentityPath(@Nullable String cloudfrontAccessIdentityPath) {
+            this.cloudfrontAccessIdentityPath = cloudfrontAccessIdentityPath;
             return this;
         }
         @CustomType.Setter
-        public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+        public Builder comment(@Nullable String comment) {
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
-        public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+        public Builder etag(@Nullable String etag) {
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
-        public Builder iamArn(String iamArn) {
-            this.iamArn = Objects.requireNonNull(iamArn);
+        public Builder iamArn(@Nullable String iamArn) {
+            this.iamArn = iamArn;
             return this;
         }
         @CustomType.Setter
@@ -161,8 +163,8 @@ public final class GetOriginAccessIdentityResult {
             return this;
         }
         @CustomType.Setter
-        public Builder s3CanonicalUserId(String s3CanonicalUserId) {
-            this.s3CanonicalUserId = Objects.requireNonNull(s3CanonicalUserId);
+        public Builder s3CanonicalUserId(@Nullable String s3CanonicalUserId) {
+            this.s3CanonicalUserId = s3CanonicalUserId;
             return this;
         }
         public GetOriginAccessIdentityResult build() {

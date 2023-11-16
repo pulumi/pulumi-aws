@@ -363,7 +363,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN that Amazon Route 53 assigns to the namespace when you create it.
         """
@@ -379,7 +379,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZone")
-    def hosted_zone(self) -> pulumi.Output[str]:
+    def hosted_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
         """

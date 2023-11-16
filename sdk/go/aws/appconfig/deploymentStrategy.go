@@ -61,7 +61,7 @@ type DeploymentStrategy struct {
 	pulumi.CustomResourceState
 
 	// ARN of the AppConfig Deployment Strategy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
 	DeploymentDurationInMinutes pulumi.IntOutput `pulumi:"deploymentDurationInMinutes"`
 	// Description of the deployment strategy. Can be at most 1024 characters.
@@ -307,8 +307,8 @@ func (o DeploymentStrategyOutput) ToDeploymentStrategyOutputWithContext(ctx cont
 }
 
 // ARN of the AppConfig Deployment Strategy.
-func (o DeploymentStrategyOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o DeploymentStrategyOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.

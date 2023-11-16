@@ -73,15 +73,15 @@ export class ReportPlan extends pulumi.CustomResource {
     /**
      * The ARN of the backup report plan.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      */
-    public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
+    public /*out*/ readonly deploymentStatus!: pulumi.Output<string | undefined>;
     /**
      * The description of the report plan with a maximum of 1,024 characters
      */

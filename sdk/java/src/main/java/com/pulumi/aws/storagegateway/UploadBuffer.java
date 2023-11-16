@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -110,28 +111,28 @@ public class UploadBuffer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="diskId", refs={String.class}, tree="[0]")
-    private Output<String> diskId;
+    private Output</* @Nullable */ String> diskId;
 
     /**
      * @return Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      * 
      */
-    public Output<String> diskId() {
-        return this.diskId;
+    public Output<Optional<String>> diskId() {
+        return Codegen.optional(this.diskId);
     }
     /**
      * Local disk path. For example, `/dev/nvme1n1`.
      * 
      */
     @Export(name="diskPath", refs={String.class}, tree="[0]")
-    private Output<String> diskPath;
+    private Output</* @Nullable */ String> diskPath;
 
     /**
      * @return Local disk path. For example, `/dev/nvme1n1`.
      * 
      */
-    public Output<String> diskPath() {
-        return this.diskPath;
+    public Output<Optional<String>> diskPath() {
+        return Codegen.optional(this.diskPath);
     }
     /**
      * The Amazon Resource Name (ARN) of the gateway.

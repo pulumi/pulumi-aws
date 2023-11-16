@@ -76,14 +76,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN assigned by AWS to this policy.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of the IAM policy.
@@ -118,14 +118,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output<String> namePrefix;
+    private Output</* @Nullable */ String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<String> namePrefix() {
-        return this.namePrefix;
+    public Output<Optional<String>> namePrefix() {
+        return Codegen.optional(this.namePrefix);
     }
     /**
      * Path in which to create the policy.
@@ -162,14 +162,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
-    private Output<String> policyId;
+    private Output</* @Nullable */ String> policyId;
 
     /**
      * @return The policy&#39;s ID.
      * 
      */
-    public Output<String> policyId() {
-        return this.policyId;
+    public Output<Optional<String>> policyId() {
+        return Codegen.optional(this.policyId);
     }
     /**
      * Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

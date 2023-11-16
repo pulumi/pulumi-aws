@@ -150,22 +150,22 @@ type VpcIpamPoolCidrAllocation struct {
 	pulumi.CustomResourceState
 
 	// The CIDR you want to assign to the pool.
-	Cidr pulumi.StringOutput `pulumi:"cidr"`
+	Cidr pulumi.StringPtrOutput `pulumi:"cidr"`
 	// The description for the allocation.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs      pulumi.StringArrayOutput `pulumi:"disallowedCidrs"`
-	IpamPoolAllocationId pulumi.StringOutput      `pulumi:"ipamPoolAllocationId"`
+	IpamPoolAllocationId pulumi.StringPtrOutput   `pulumi:"ipamPoolAllocationId"`
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
 	// The ID of the resource.
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// The owner of the resource.
-	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
+	ResourceOwner pulumi.StringPtrOutput `pulumi:"resourceOwner"`
 	// The type of the resource.
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 }
 
 // NewVpcIpamPoolCidrAllocation registers a new resource with the given unique name, arguments, and options.
@@ -359,8 +359,8 @@ func (o VpcIpamPoolCidrAllocationOutput) ToVpcIpamPoolCidrAllocationOutputWithCo
 }
 
 // The CIDR you want to assign to the pool.
-func (o VpcIpamPoolCidrAllocationOutput) Cidr() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
+func (o VpcIpamPoolCidrAllocationOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringPtrOutput { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
 // The description for the allocation.
@@ -373,8 +373,8 @@ func (o VpcIpamPoolCidrAllocationOutput) DisallowedCidrs() pulumi.StringArrayOut
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringArrayOutput { return v.DisallowedCidrs }).(pulumi.StringArrayOutput)
 }
 
-func (o VpcIpamPoolCidrAllocationOutput) IpamPoolAllocationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.IpamPoolAllocationId }).(pulumi.StringOutput)
+func (o VpcIpamPoolCidrAllocationOutput) IpamPoolAllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringPtrOutput { return v.IpamPoolAllocationId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the pool to which you want to assign a CIDR.
@@ -388,18 +388,18 @@ func (o VpcIpamPoolCidrAllocationOutput) NetmaskLength() pulumi.IntPtrOutput {
 }
 
 // The ID of the resource.
-func (o VpcIpamPoolCidrAllocationOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+func (o VpcIpamPoolCidrAllocationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 // The owner of the resource.
-func (o VpcIpamPoolCidrAllocationOutput) ResourceOwner() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
+func (o VpcIpamPoolCidrAllocationOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringPtrOutput { return v.ResourceOwner }).(pulumi.StringPtrOutput)
 }
 
 // The type of the resource.
-func (o VpcIpamPoolCidrAllocationOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+func (o VpcIpamPoolCidrAllocationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 type VpcIpamPoolCidrAllocationArrayOutput struct{ *pulumi.OutputState }

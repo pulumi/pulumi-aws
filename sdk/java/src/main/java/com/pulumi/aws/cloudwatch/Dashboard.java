@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -97,14 +98,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dashboardArn", refs={String.class}, tree="[0]")
-    private Output<String> dashboardArn;
+    private Output</* @Nullable */ String> dashboardArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the dashboard.
      * 
      */
-    public Output<String> dashboardArn() {
-        return this.dashboardArn;
+    public Output<Optional<String>> dashboardArn() {
+        return Codegen.optional(this.dashboardArn);
     }
     /**
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).

@@ -57,12 +57,12 @@ type LookupGatewayArgs struct {
 // A collection of values returned by getGateway.
 type LookupGatewayResult struct {
 	// ASN on the Amazon side of the connection.
-	AmazonSideAsn string `pulumi:"amazonSideAsn"`
+	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
 	// AWS Account ID of the gateway.
-	OwnerAccountId string `pulumi:"ownerAccountId"`
+	OwnerAccountId *string `pulumi:"ownerAccountId"`
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
@@ -104,13 +104,13 @@ func (o LookupGatewayResultOutput) ToLookupGatewayResultOutputWithContext(ctx co
 }
 
 // ASN on the Amazon side of the connection.
-func (o LookupGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupGatewayResult) string { return v.AmazonSideAsn }).(pulumi.StringOutput)
+func (o LookupGatewayResultOutput) AmazonSideAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGatewayResult) *string { return v.AmazonSideAsn }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupGatewayResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupGatewayResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGatewayResultOutput) Name() pulumi.StringOutput {
@@ -118,8 +118,8 @@ func (o LookupGatewayResultOutput) Name() pulumi.StringOutput {
 }
 
 // AWS Account ID of the gateway.
-func (o LookupGatewayResultOutput) OwnerAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupGatewayResult) string { return v.OwnerAccountId }).(pulumi.StringOutput)
+func (o LookupGatewayResultOutput) OwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGatewayResult) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

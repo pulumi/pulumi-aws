@@ -159,9 +159,9 @@ type Topic struct {
 	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
 	ArchivePolicy pulumi.StringPtrOutput `pulumi:"archivePolicy"`
 	// The ARN of the SNS topic, as a more obvious property (clone of id)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
-	BeginningArchiveTime pulumi.StringOutput `pulumi:"beginningArchiveTime"`
+	BeginningArchiveTime pulumi.StringPtrOutput `pulumi:"beginningArchiveTime"`
 	// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
 	ContentBasedDeduplication pulumi.BoolPtrOutput `pulumi:"contentBasedDeduplication"`
 	// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
@@ -193,13 +193,13 @@ type Topic struct {
 	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The AWS Account ID of the SNS topic owner
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
-	SignatureVersion pulumi.IntOutput `pulumi:"signatureVersion"`
+	SignatureVersion pulumi.IntPtrOutput `pulumi:"signatureVersion"`
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"sqsFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -213,7 +213,7 @@ type Topic struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
-	TracingConfig pulumi.StringOutput `pulumi:"tracingConfig"`
+	TracingConfig pulumi.StringPtrOutput `pulumi:"tracingConfig"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
@@ -610,13 +610,13 @@ func (o TopicOutput) ArchivePolicy() pulumi.StringPtrOutput {
 }
 
 // The ARN of the SNS topic, as a more obvious property (clone of id)
-func (o TopicOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TopicOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The oldest timestamp at which a FIFO topic subscriber can start a replay.
-func (o TopicOutput) BeginningArchiveTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.BeginningArchiveTime }).(pulumi.StringOutput)
+func (o TopicOutput) BeginningArchiveTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.BeginningArchiveTime }).(pulumi.StringPtrOutput)
 }
 
 // Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -695,23 +695,23 @@ func (o TopicOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`
-func (o TopicOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o TopicOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Account ID of the SNS topic owner
-func (o TopicOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o TopicOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // The fully-formed AWS policy as JSON.
-func (o TopicOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o TopicOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
-func (o TopicOutput) SignatureVersion() pulumi.IntOutput {
-	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.SignatureVersion }).(pulumi.IntOutput)
+func (o TopicOutput) SignatureVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.IntPtrOutput { return v.SignatureVersion }).(pulumi.IntPtrOutput)
 }
 
 // IAM role for failure feedback
@@ -742,8 +742,8 @@ func (o TopicOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
-func (o TopicOutput) TracingConfig() pulumi.StringOutput {
-	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.TracingConfig }).(pulumi.StringOutput)
+func (o TopicOutput) TracingConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.TracingConfig }).(pulumi.StringPtrOutput)
 }
 
 type TopicArrayOutput struct{ *pulumi.OutputState }

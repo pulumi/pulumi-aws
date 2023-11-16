@@ -31066,7 +31066,7 @@ type GetGatewayRouteSpec struct {
 	GrpcRoutes  []GetGatewayRouteSpecGrpcRoute  `pulumi:"grpcRoutes"`
 	Http2Routes []GetGatewayRouteSpecHttp2Route `pulumi:"http2Routes"`
 	HttpRoutes  []GetGatewayRouteSpecHttpRoute  `pulumi:"httpRoutes"`
-	Priority    int                             `pulumi:"priority"`
+	Priority    *int                            `pulumi:"priority"`
 }
 
 // GetGatewayRouteSpecInput is an input type that accepts GetGatewayRouteSpecArgs and GetGatewayRouteSpecOutput values.
@@ -31084,7 +31084,7 @@ type GetGatewayRouteSpecArgs struct {
 	GrpcRoutes  GetGatewayRouteSpecGrpcRouteArrayInput  `pulumi:"grpcRoutes"`
 	Http2Routes GetGatewayRouteSpecHttp2RouteArrayInput `pulumi:"http2Routes"`
 	HttpRoutes  GetGatewayRouteSpecHttpRouteArrayInput  `pulumi:"httpRoutes"`
-	Priority    pulumi.IntInput                         `pulumi:"priority"`
+	Priority    pulumi.IntPtrInput                      `pulumi:"priority"`
 }
 
 func (GetGatewayRouteSpecArgs) ElementType() reflect.Type {
@@ -31150,8 +31150,8 @@ func (o GetGatewayRouteSpecOutput) HttpRoutes() GetGatewayRouteSpecHttpRouteArra
 	return o.ApplyT(func(v GetGatewayRouteSpec) []GetGatewayRouteSpecHttpRoute { return v.HttpRoutes }).(GetGatewayRouteSpecHttpRouteArrayOutput)
 }
 
-func (o GetGatewayRouteSpecOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpec) int { return v.Priority }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 type GetGatewayRouteSpecArrayOutput struct{ *pulumi.OutputState }
@@ -31371,7 +31371,7 @@ func (o GetGatewayRouteSpecGrpcRouteActionArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetGatewayRouteSpecGrpcRouteActionTarget struct {
-	Port            int                                                      `pulumi:"port"`
+	Port            *int                                                     `pulumi:"port"`
 	VirtualServices []GetGatewayRouteSpecGrpcRouteActionTargetVirtualService `pulumi:"virtualServices"`
 }
 
@@ -31387,7 +31387,7 @@ type GetGatewayRouteSpecGrpcRouteActionTargetInput interface {
 }
 
 type GetGatewayRouteSpecGrpcRouteActionTargetArgs struct {
-	Port            pulumi.IntInput                                                  `pulumi:"port"`
+	Port            pulumi.IntPtrInput                                               `pulumi:"port"`
 	VirtualServices GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceArrayInput `pulumi:"virtualServices"`
 }
 
@@ -31442,8 +31442,8 @@ func (o GetGatewayRouteSpecGrpcRouteActionTargetOutput) ToGetGatewayRouteSpecGrp
 	return o
 }
 
-func (o GetGatewayRouteSpecGrpcRouteActionTargetOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecGrpcRouteActionTarget) int { return v.Port }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecGrpcRouteActionTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecGrpcRouteActionTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 func (o GetGatewayRouteSpecGrpcRouteActionTargetOutput) VirtualServices() GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceArrayOutput {
@@ -31473,7 +31473,7 @@ func (o GetGatewayRouteSpecGrpcRouteActionTargetArrayOutput) Index(i pulumi.IntI
 }
 
 type GetGatewayRouteSpecGrpcRouteActionTargetVirtualService struct {
-	VirtualServiceName string `pulumi:"virtualServiceName"`
+	VirtualServiceName *string `pulumi:"virtualServiceName"`
 }
 
 // GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceInput is an input type that accepts GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs and GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput values.
@@ -31488,7 +31488,7 @@ type GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceInput interface {
 }
 
 type GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs struct {
-	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
+	VirtualServiceName pulumi.StringPtrInput `pulumi:"virtualServiceName"`
 }
 
 func (GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs) ElementType() reflect.Type {
@@ -31542,8 +31542,8 @@ func (o GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput) ToGetGatew
 	return o
 }
 
-func (o GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecGrpcRouteActionTargetVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecGrpcRouteActionTargetVirtualService) *string { return v.VirtualServiceName }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceArrayOutput struct{ *pulumi.OutputState }
@@ -31567,8 +31567,8 @@ func (o GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceArrayOutput) Index
 }
 
 type GetGatewayRouteSpecGrpcRouteMatch struct {
-	Port        int    `pulumi:"port"`
-	ServiceName string `pulumi:"serviceName"`
+	Port        *int    `pulumi:"port"`
+	ServiceName *string `pulumi:"serviceName"`
 }
 
 // GetGatewayRouteSpecGrpcRouteMatchInput is an input type that accepts GetGatewayRouteSpecGrpcRouteMatchArgs and GetGatewayRouteSpecGrpcRouteMatchOutput values.
@@ -31583,8 +31583,8 @@ type GetGatewayRouteSpecGrpcRouteMatchInput interface {
 }
 
 type GetGatewayRouteSpecGrpcRouteMatchArgs struct {
-	Port        pulumi.IntInput    `pulumi:"port"`
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	Port        pulumi.IntPtrInput    `pulumi:"port"`
+	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 }
 
 func (GetGatewayRouteSpecGrpcRouteMatchArgs) ElementType() reflect.Type {
@@ -31638,12 +31638,12 @@ func (o GetGatewayRouteSpecGrpcRouteMatchOutput) ToGetGatewayRouteSpecGrpcRouteM
 	return o
 }
 
-func (o GetGatewayRouteSpecGrpcRouteMatchOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecGrpcRouteMatch) int { return v.Port }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecGrpcRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecGrpcRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetGatewayRouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecGrpcRouteMatch) string { return v.ServiceName }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecGrpcRouteMatch) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecGrpcRouteMatchArrayOutput struct{ *pulumi.OutputState }
@@ -31983,7 +31983,7 @@ func (o GetGatewayRouteSpecHttp2RouteActionRewriteArrayOutput) Index(i pulumi.In
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewriteHostname struct {
-	DefaultTargetHostname string `pulumi:"defaultTargetHostname"`
+	DefaultTargetHostname *string `pulumi:"defaultTargetHostname"`
 }
 
 // GetGatewayRouteSpecHttp2RouteActionRewriteHostnameInput is an input type that accepts GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArgs and GetGatewayRouteSpecHttp2RouteActionRewriteHostnameOutput values.
@@ -31998,7 +31998,7 @@ type GetGatewayRouteSpecHttp2RouteActionRewriteHostnameInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArgs struct {
-	DefaultTargetHostname pulumi.StringInput `pulumi:"defaultTargetHostname"`
+	DefaultTargetHostname pulumi.StringPtrInput `pulumi:"defaultTargetHostname"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArgs) ElementType() reflect.Type {
@@ -32052,8 +32052,8 @@ func (o GetGatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) ToGetGatewayRo
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) DefaultTargetHostname() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewriteHostname) string { return v.DefaultTargetHostname }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewriteHostname) *string { return v.DefaultTargetHostname }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArrayOutput struct{ *pulumi.OutputState }
@@ -32077,7 +32077,7 @@ func (o GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArrayOutput) Index(i p
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewritePath struct {
-	Exact string `pulumi:"exact"`
+	Exact *string `pulumi:"exact"`
 }
 
 // GetGatewayRouteSpecHttp2RouteActionRewritePathInput is an input type that accepts GetGatewayRouteSpecHttp2RouteActionRewritePathArgs and GetGatewayRouteSpecHttp2RouteActionRewritePathOutput values.
@@ -32092,7 +32092,7 @@ type GetGatewayRouteSpecHttp2RouteActionRewritePathInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewritePathArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteActionRewritePathArgs) ElementType() reflect.Type {
@@ -32146,8 +32146,8 @@ func (o GetGatewayRouteSpecHttp2RouteActionRewritePathOutput) ToGetGatewayRouteS
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteActionRewritePathOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewritePath) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteActionRewritePathOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewritePath) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput struct{ *pulumi.OutputState }
@@ -32171,8 +32171,8 @@ func (o GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput) Index(i pulum
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewritePrefix struct {
-	DefaultPrefix string `pulumi:"defaultPrefix"`
-	Value         string `pulumi:"value"`
+	DefaultPrefix *string `pulumi:"defaultPrefix"`
+	Value         *string `pulumi:"value"`
 }
 
 // GetGatewayRouteSpecHttp2RouteActionRewritePrefixInput is an input type that accepts GetGatewayRouteSpecHttp2RouteActionRewritePrefixArgs and GetGatewayRouteSpecHttp2RouteActionRewritePrefixOutput values.
@@ -32187,8 +32187,8 @@ type GetGatewayRouteSpecHttp2RouteActionRewritePrefixInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewritePrefixArgs struct {
-	DefaultPrefix pulumi.StringInput `pulumi:"defaultPrefix"`
-	Value         pulumi.StringInput `pulumi:"value"`
+	DefaultPrefix pulumi.StringPtrInput `pulumi:"defaultPrefix"`
+	Value         pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteActionRewritePrefixArgs) ElementType() reflect.Type {
@@ -32242,12 +32242,12 @@ func (o GetGatewayRouteSpecHttp2RouteActionRewritePrefixOutput) ToGetGatewayRout
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteActionRewritePrefixOutput) DefaultPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewritePrefix) string { return v.DefaultPrefix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteActionRewritePrefixOutput) DefaultPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewritePrefix) *string { return v.DefaultPrefix }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttp2RouteActionRewritePrefixOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewritePrefix) string { return v.Value }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteActionRewritePrefixOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewritePrefix) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewritePrefixArrayOutput struct{ *pulumi.OutputState }
@@ -32271,7 +32271,7 @@ func (o GetGatewayRouteSpecHttp2RouteActionRewritePrefixArrayOutput) Index(i pul
 }
 
 type GetGatewayRouteSpecHttp2RouteActionTarget struct {
-	Port            int                                                       `pulumi:"port"`
+	Port            *int                                                      `pulumi:"port"`
 	VirtualServices []GetGatewayRouteSpecHttp2RouteActionTargetVirtualService `pulumi:"virtualServices"`
 }
 
@@ -32287,7 +32287,7 @@ type GetGatewayRouteSpecHttp2RouteActionTargetInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteActionTargetArgs struct {
-	Port            pulumi.IntInput                                                   `pulumi:"port"`
+	Port            pulumi.IntPtrInput                                                `pulumi:"port"`
 	VirtualServices GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceArrayInput `pulumi:"virtualServices"`
 }
 
@@ -32342,8 +32342,8 @@ func (o GetGatewayRouteSpecHttp2RouteActionTargetOutput) ToGetGatewayRouteSpecHt
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteActionTargetOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionTarget) int { return v.Port }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecHttp2RouteActionTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 func (o GetGatewayRouteSpecHttp2RouteActionTargetOutput) VirtualServices() GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceArrayOutput {
@@ -32373,7 +32373,7 @@ func (o GetGatewayRouteSpecHttp2RouteActionTargetArrayOutput) Index(i pulumi.Int
 }
 
 type GetGatewayRouteSpecHttp2RouteActionTargetVirtualService struct {
-	VirtualServiceName string `pulumi:"virtualServiceName"`
+	VirtualServiceName *string `pulumi:"virtualServiceName"`
 }
 
 // GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceInput is an input type that accepts GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs and GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput values.
@@ -32388,7 +32388,7 @@ type GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs struct {
-	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
+	VirtualServiceName pulumi.StringPtrInput `pulumi:"virtualServiceName"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs) ElementType() reflect.Type {
@@ -32442,8 +32442,8 @@ func (o GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput) ToGetGate
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionTargetVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionTargetVirtualService) *string { return v.VirtualServiceName }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceArrayOutput struct{ *pulumi.OutputState }
@@ -32470,8 +32470,8 @@ type GetGatewayRouteSpecHttp2RouteMatch struct {
 	Headers         []GetGatewayRouteSpecHttp2RouteMatchHeader         `pulumi:"headers"`
 	Hostnames       []GetGatewayRouteSpecHttp2RouteMatchHostname       `pulumi:"hostnames"`
 	Paths           []GetGatewayRouteSpecHttp2RouteMatchPath           `pulumi:"paths"`
-	Port            int                                                `pulumi:"port"`
-	Prefix          string                                             `pulumi:"prefix"`
+	Port            *int                                               `pulumi:"port"`
+	Prefix          *string                                            `pulumi:"prefix"`
 	QueryParameters []GetGatewayRouteSpecHttp2RouteMatchQueryParameter `pulumi:"queryParameters"`
 }
 
@@ -32490,8 +32490,8 @@ type GetGatewayRouteSpecHttp2RouteMatchArgs struct {
 	Headers         GetGatewayRouteSpecHttp2RouteMatchHeaderArrayInput         `pulumi:"headers"`
 	Hostnames       GetGatewayRouteSpecHttp2RouteMatchHostnameArrayInput       `pulumi:"hostnames"`
 	Paths           GetGatewayRouteSpecHttp2RouteMatchPathArrayInput           `pulumi:"paths"`
-	Port            pulumi.IntInput                                            `pulumi:"port"`
-	Prefix          pulumi.StringInput                                         `pulumi:"prefix"`
+	Port            pulumi.IntPtrInput                                         `pulumi:"port"`
+	Prefix          pulumi.StringPtrInput                                      `pulumi:"prefix"`
 	QueryParameters GetGatewayRouteSpecHttp2RouteMatchQueryParameterArrayInput `pulumi:"queryParameters"`
 }
 
@@ -32562,12 +32562,12 @@ func (o GetGatewayRouteSpecHttp2RouteMatchOutput) Paths() GetGatewayRouteSpecHtt
 	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatch) []GetGatewayRouteSpecHttp2RouteMatchPath { return v.Paths }).(GetGatewayRouteSpecHttp2RouteMatchPathArrayOutput)
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatch) int { return v.Port }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o GetGatewayRouteSpecHttp2RouteMatchOutput) QueryParameters() GetGatewayRouteSpecHttp2RouteMatchQueryParameterArrayOutput {
@@ -32597,10 +32597,10 @@ func (o GetGatewayRouteSpecHttp2RouteMatchArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHeader struct {
-	Invert  bool                                            `pulumi:"invert"`
+	Invert  *bool                                           `pulumi:"invert"`
 	Matches []GetGatewayRouteSpecHttp2RouteMatchHeaderMatch `pulumi:"matches"`
 	// Name of the gateway route.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetGatewayRouteSpecHttp2RouteMatchHeaderInput is an input type that accepts GetGatewayRouteSpecHttp2RouteMatchHeaderArgs and GetGatewayRouteSpecHttp2RouteMatchHeaderOutput values.
@@ -32615,10 +32615,10 @@ type GetGatewayRouteSpecHttp2RouteMatchHeaderInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHeaderArgs struct {
-	Invert  pulumi.BoolInput                                        `pulumi:"invert"`
+	Invert  pulumi.BoolPtrInput                                     `pulumi:"invert"`
 	Matches GetGatewayRouteSpecHttp2RouteMatchHeaderMatchArrayInput `pulumi:"matches"`
 	// Name of the gateway route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteMatchHeaderArgs) ElementType() reflect.Type {
@@ -32672,8 +32672,8 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHeaderOutput) ToGetGatewayRouteSpecHtt
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchHeaderOutput) Invert() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeader) bool { return v.Invert }).(pulumi.BoolOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHeaderOutput) Invert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetGatewayRouteSpecHttp2RouteMatchHeaderOutput) Matches() GetGatewayRouteSpecHttp2RouteMatchHeaderMatchArrayOutput {
@@ -32683,8 +32683,8 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHeaderOutput) Matches() GetGatewayRout
 }
 
 // Name of the gateway route.
-func (o GetGatewayRouteSpecHttp2RouteMatchHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHeaderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeader) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHeaderArrayOutput struct{ *pulumi.OutputState }
@@ -32708,11 +32708,11 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHeaderArrayOutput) Index(i pulumi.IntI
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHeaderMatch struct {
-	Exact  string                                               `pulumi:"exact"`
-	Prefix string                                               `pulumi:"prefix"`
+	Exact  *string                                              `pulumi:"exact"`
+	Prefix *string                                              `pulumi:"prefix"`
 	Ranges []GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRange `pulumi:"ranges"`
-	Regex  string                                               `pulumi:"regex"`
-	Suffix string                                               `pulumi:"suffix"`
+	Regex  *string                                              `pulumi:"regex"`
+	Suffix *string                                              `pulumi:"suffix"`
 }
 
 // GetGatewayRouteSpecHttp2RouteMatchHeaderMatchInput is an input type that accepts GetGatewayRouteSpecHttp2RouteMatchHeaderMatchArgs and GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput values.
@@ -32727,11 +32727,11 @@ type GetGatewayRouteSpecHttp2RouteMatchHeaderMatchInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHeaderMatchArgs struct {
-	Exact  pulumi.StringInput                                           `pulumi:"exact"`
-	Prefix pulumi.StringInput                                           `pulumi:"prefix"`
+	Exact  pulumi.StringPtrInput                                        `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput                                        `pulumi:"prefix"`
 	Ranges GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArrayInput `pulumi:"ranges"`
-	Regex  pulumi.StringInput                                           `pulumi:"regex"`
-	Suffix pulumi.StringInput                                           `pulumi:"suffix"`
+	Regex  pulumi.StringPtrInput                                        `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput                                        `pulumi:"suffix"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteMatchHeaderMatchArgs) ElementType() reflect.Type {
@@ -32785,12 +32785,12 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) ToGetGatewayRouteSp
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Ranges() GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput {
@@ -32799,12 +32799,12 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Ranges() GetGateway
 	}).(GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput)
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Regex() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Regex }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Suffix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHeaderMatchArrayOutput struct{ *pulumi.OutputState }
@@ -32828,8 +32828,8 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchArrayOutput) Index(i pulumi
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRange struct {
-	End   int `pulumi:"end"`
-	Start int `pulumi:"start"`
+	End   *int `pulumi:"end"`
+	Start *int `pulumi:"start"`
 }
 
 // GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeInput is an input type that accepts GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs and GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeOutput values.
@@ -32844,8 +32844,8 @@ type GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs struct {
-	End   pulumi.IntInput `pulumi:"end"`
-	Start pulumi.IntInput `pulumi:"start"`
+	End   pulumi.IntPtrInput `pulumi:"end"`
+	Start pulumi.IntPtrInput `pulumi:"start"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ElementType() reflect.Type {
@@ -32899,12 +32899,12 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToGetGatewayRo
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRange) *int { return v.End }).(pulumi.IntPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRange) *int { return v.Start }).(pulumi.IntPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput struct{ *pulumi.OutputState }
@@ -32928,8 +32928,8 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput) Index(i p
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHostname struct {
-	Exact  string `pulumi:"exact"`
-	Suffix string `pulumi:"suffix"`
+	Exact  *string `pulumi:"exact"`
+	Suffix *string `pulumi:"suffix"`
 }
 
 // GetGatewayRouteSpecHttp2RouteMatchHostnameInput is an input type that accepts GetGatewayRouteSpecHttp2RouteMatchHostnameArgs and GetGatewayRouteSpecHttp2RouteMatchHostnameOutput values.
@@ -32944,8 +32944,8 @@ type GetGatewayRouteSpecHttp2RouteMatchHostnameInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHostnameArgs struct {
-	Exact  pulumi.StringInput `pulumi:"exact"`
-	Suffix pulumi.StringInput `pulumi:"suffix"`
+	Exact  pulumi.StringPtrInput `pulumi:"exact"`
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteMatchHostnameArgs) ElementType() reflect.Type {
@@ -32999,12 +32999,12 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHostnameOutput) ToGetGatewayRouteSpecH
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchHostnameOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHostname) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHostnameOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHostname) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchHostnameOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHostname) string { return v.Suffix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchHostnameOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchHostname) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchHostnameArrayOutput struct{ *pulumi.OutputState }
@@ -33028,8 +33028,8 @@ func (o GetGatewayRouteSpecHttp2RouteMatchHostnameArrayOutput) Index(i pulumi.In
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchPath struct {
-	Exact string `pulumi:"exact"`
-	Regex string `pulumi:"regex"`
+	Exact *string `pulumi:"exact"`
+	Regex *string `pulumi:"regex"`
 }
 
 // GetGatewayRouteSpecHttp2RouteMatchPathInput is an input type that accepts GetGatewayRouteSpecHttp2RouteMatchPathArgs and GetGatewayRouteSpecHttp2RouteMatchPathOutput values.
@@ -33044,8 +33044,8 @@ type GetGatewayRouteSpecHttp2RouteMatchPathInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchPathArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
-	Regex pulumi.StringInput `pulumi:"regex"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteMatchPathArgs) ElementType() reflect.Type {
@@ -33099,12 +33099,12 @@ func (o GetGatewayRouteSpecHttp2RouteMatchPathOutput) ToGetGatewayRouteSpecHttp2
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchPathOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchPath) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchPathOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchPath) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchPathOutput) Regex() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchPath) string { return v.Regex }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchPathOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchPath) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchPathArrayOutput struct{ *pulumi.OutputState }
@@ -33130,7 +33130,7 @@ func (o GetGatewayRouteSpecHttp2RouteMatchPathArrayOutput) Index(i pulumi.IntInp
 type GetGatewayRouteSpecHttp2RouteMatchQueryParameter struct {
 	Matches []GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatch `pulumi:"matches"`
 	// Name of the gateway route.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetGatewayRouteSpecHttp2RouteMatchQueryParameterInput is an input type that accepts GetGatewayRouteSpecHttp2RouteMatchQueryParameterArgs and GetGatewayRouteSpecHttp2RouteMatchQueryParameterOutput values.
@@ -33147,7 +33147,7 @@ type GetGatewayRouteSpecHttp2RouteMatchQueryParameterInput interface {
 type GetGatewayRouteSpecHttp2RouteMatchQueryParameterArgs struct {
 	Matches GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchArrayInput `pulumi:"matches"`
 	// Name of the gateway route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteMatchQueryParameterArgs) ElementType() reflect.Type {
@@ -33208,8 +33208,8 @@ func (o GetGatewayRouteSpecHttp2RouteMatchQueryParameterOutput) Matches() GetGat
 }
 
 // Name of the gateway route.
-func (o GetGatewayRouteSpecHttp2RouteMatchQueryParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchQueryParameter) string { return v.Name }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchQueryParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchQueryParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchQueryParameterArrayOutput struct{ *pulumi.OutputState }
@@ -33233,7 +33233,7 @@ func (o GetGatewayRouteSpecHttp2RouteMatchQueryParameterArrayOutput) Index(i pul
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatch struct {
-	Exact string `pulumi:"exact"`
+	Exact *string `pulumi:"exact"`
 }
 
 // GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchInput is an input type that accepts GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs and GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput values.
@@ -33248,7 +33248,7 @@ type GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchInput interface {
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
 func (GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs) ElementType() reflect.Type {
@@ -33302,8 +33302,8 @@ func (o GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput) ToGetGatewa
 	return o
 }
 
-func (o GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatch) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchArrayOutput struct{ *pulumi.OutputState }
@@ -33643,7 +33643,7 @@ func (o GetGatewayRouteSpecHttpRouteActionRewriteArrayOutput) Index(i pulumi.Int
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewriteHostname struct {
-	DefaultTargetHostname string `pulumi:"defaultTargetHostname"`
+	DefaultTargetHostname *string `pulumi:"defaultTargetHostname"`
 }
 
 // GetGatewayRouteSpecHttpRouteActionRewriteHostnameInput is an input type that accepts GetGatewayRouteSpecHttpRouteActionRewriteHostnameArgs and GetGatewayRouteSpecHttpRouteActionRewriteHostnameOutput values.
@@ -33658,7 +33658,7 @@ type GetGatewayRouteSpecHttpRouteActionRewriteHostnameInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewriteHostnameArgs struct {
-	DefaultTargetHostname pulumi.StringInput `pulumi:"defaultTargetHostname"`
+	DefaultTargetHostname pulumi.StringPtrInput `pulumi:"defaultTargetHostname"`
 }
 
 func (GetGatewayRouteSpecHttpRouteActionRewriteHostnameArgs) ElementType() reflect.Type {
@@ -33712,8 +33712,8 @@ func (o GetGatewayRouteSpecHttpRouteActionRewriteHostnameOutput) ToGetGatewayRou
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteActionRewriteHostnameOutput) DefaultTargetHostname() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewriteHostname) string { return v.DefaultTargetHostname }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteActionRewriteHostnameOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewriteHostname) *string { return v.DefaultTargetHostname }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewriteHostnameArrayOutput struct{ *pulumi.OutputState }
@@ -33737,7 +33737,7 @@ func (o GetGatewayRouteSpecHttpRouteActionRewriteHostnameArrayOutput) Index(i pu
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewritePath struct {
-	Exact string `pulumi:"exact"`
+	Exact *string `pulumi:"exact"`
 }
 
 // GetGatewayRouteSpecHttpRouteActionRewritePathInput is an input type that accepts GetGatewayRouteSpecHttpRouteActionRewritePathArgs and GetGatewayRouteSpecHttpRouteActionRewritePathOutput values.
@@ -33752,7 +33752,7 @@ type GetGatewayRouteSpecHttpRouteActionRewritePathInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewritePathArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
 func (GetGatewayRouteSpecHttpRouteActionRewritePathArgs) ElementType() reflect.Type {
@@ -33806,8 +33806,8 @@ func (o GetGatewayRouteSpecHttpRouteActionRewritePathOutput) ToGetGatewayRouteSp
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteActionRewritePathOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewritePath) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteActionRewritePathOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewritePath) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput struct{ *pulumi.OutputState }
@@ -33831,8 +33831,8 @@ func (o GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput) Index(i pulumi
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewritePrefix struct {
-	DefaultPrefix string `pulumi:"defaultPrefix"`
-	Value         string `pulumi:"value"`
+	DefaultPrefix *string `pulumi:"defaultPrefix"`
+	Value         *string `pulumi:"value"`
 }
 
 // GetGatewayRouteSpecHttpRouteActionRewritePrefixInput is an input type that accepts GetGatewayRouteSpecHttpRouteActionRewritePrefixArgs and GetGatewayRouteSpecHttpRouteActionRewritePrefixOutput values.
@@ -33847,8 +33847,8 @@ type GetGatewayRouteSpecHttpRouteActionRewritePrefixInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewritePrefixArgs struct {
-	DefaultPrefix pulumi.StringInput `pulumi:"defaultPrefix"`
-	Value         pulumi.StringInput `pulumi:"value"`
+	DefaultPrefix pulumi.StringPtrInput `pulumi:"defaultPrefix"`
+	Value         pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetGatewayRouteSpecHttpRouteActionRewritePrefixArgs) ElementType() reflect.Type {
@@ -33902,12 +33902,12 @@ func (o GetGatewayRouteSpecHttpRouteActionRewritePrefixOutput) ToGetGatewayRoute
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteActionRewritePrefixOutput) DefaultPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewritePrefix) string { return v.DefaultPrefix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteActionRewritePrefixOutput) DefaultPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewritePrefix) *string { return v.DefaultPrefix }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttpRouteActionRewritePrefixOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewritePrefix) string { return v.Value }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteActionRewritePrefixOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewritePrefix) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewritePrefixArrayOutput struct{ *pulumi.OutputState }
@@ -33931,7 +33931,7 @@ func (o GetGatewayRouteSpecHttpRouteActionRewritePrefixArrayOutput) Index(i pulu
 }
 
 type GetGatewayRouteSpecHttpRouteActionTarget struct {
-	Port            int                                                      `pulumi:"port"`
+	Port            *int                                                     `pulumi:"port"`
 	VirtualServices []GetGatewayRouteSpecHttpRouteActionTargetVirtualService `pulumi:"virtualServices"`
 }
 
@@ -33947,7 +33947,7 @@ type GetGatewayRouteSpecHttpRouteActionTargetInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteActionTargetArgs struct {
-	Port            pulumi.IntInput                                                  `pulumi:"port"`
+	Port            pulumi.IntPtrInput                                               `pulumi:"port"`
 	VirtualServices GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceArrayInput `pulumi:"virtualServices"`
 }
 
@@ -34002,8 +34002,8 @@ func (o GetGatewayRouteSpecHttpRouteActionTargetOutput) ToGetGatewayRouteSpecHtt
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteActionTargetOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionTarget) int { return v.Port }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecHttpRouteActionTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 func (o GetGatewayRouteSpecHttpRouteActionTargetOutput) VirtualServices() GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceArrayOutput {
@@ -34033,7 +34033,7 @@ func (o GetGatewayRouteSpecHttpRouteActionTargetArrayOutput) Index(i pulumi.IntI
 }
 
 type GetGatewayRouteSpecHttpRouteActionTargetVirtualService struct {
-	VirtualServiceName string `pulumi:"virtualServiceName"`
+	VirtualServiceName *string `pulumi:"virtualServiceName"`
 }
 
 // GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceInput is an input type that accepts GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs and GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput values.
@@ -34048,7 +34048,7 @@ type GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs struct {
-	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
+	VirtualServiceName pulumi.StringPtrInput `pulumi:"virtualServiceName"`
 }
 
 func (GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs) ElementType() reflect.Type {
@@ -34102,8 +34102,8 @@ func (o GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput) ToGetGatew
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionTargetVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionTargetVirtualService) *string { return v.VirtualServiceName }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceArrayOutput struct{ *pulumi.OutputState }
@@ -34130,8 +34130,8 @@ type GetGatewayRouteSpecHttpRouteMatch struct {
 	Headers         []GetGatewayRouteSpecHttpRouteMatchHeader         `pulumi:"headers"`
 	Hostnames       []GetGatewayRouteSpecHttpRouteMatchHostname       `pulumi:"hostnames"`
 	Paths           []GetGatewayRouteSpecHttpRouteMatchPath           `pulumi:"paths"`
-	Port            int                                               `pulumi:"port"`
-	Prefix          string                                            `pulumi:"prefix"`
+	Port            *int                                              `pulumi:"port"`
+	Prefix          *string                                           `pulumi:"prefix"`
 	QueryParameters []GetGatewayRouteSpecHttpRouteMatchQueryParameter `pulumi:"queryParameters"`
 }
 
@@ -34150,8 +34150,8 @@ type GetGatewayRouteSpecHttpRouteMatchArgs struct {
 	Headers         GetGatewayRouteSpecHttpRouteMatchHeaderArrayInput         `pulumi:"headers"`
 	Hostnames       GetGatewayRouteSpecHttpRouteMatchHostnameArrayInput       `pulumi:"hostnames"`
 	Paths           GetGatewayRouteSpecHttpRouteMatchPathArrayInput           `pulumi:"paths"`
-	Port            pulumi.IntInput                                           `pulumi:"port"`
-	Prefix          pulumi.StringInput                                        `pulumi:"prefix"`
+	Port            pulumi.IntPtrInput                                        `pulumi:"port"`
+	Prefix          pulumi.StringPtrInput                                     `pulumi:"prefix"`
 	QueryParameters GetGatewayRouteSpecHttpRouteMatchQueryParameterArrayInput `pulumi:"queryParameters"`
 }
 
@@ -34220,12 +34220,12 @@ func (o GetGatewayRouteSpecHttpRouteMatchOutput) Paths() GetGatewayRouteSpecHttp
 	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatch) []GetGatewayRouteSpecHttpRouteMatchPath { return v.Paths }).(GetGatewayRouteSpecHttpRouteMatchPathArrayOutput)
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatch) int { return v.Port }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o GetGatewayRouteSpecHttpRouteMatchOutput) QueryParameters() GetGatewayRouteSpecHttpRouteMatchQueryParameterArrayOutput {
@@ -34255,10 +34255,10 @@ func (o GetGatewayRouteSpecHttpRouteMatchArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHeader struct {
-	Invert  bool                                           `pulumi:"invert"`
+	Invert  *bool                                          `pulumi:"invert"`
 	Matches []GetGatewayRouteSpecHttpRouteMatchHeaderMatch `pulumi:"matches"`
 	// Name of the gateway route.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetGatewayRouteSpecHttpRouteMatchHeaderInput is an input type that accepts GetGatewayRouteSpecHttpRouteMatchHeaderArgs and GetGatewayRouteSpecHttpRouteMatchHeaderOutput values.
@@ -34273,10 +34273,10 @@ type GetGatewayRouteSpecHttpRouteMatchHeaderInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHeaderArgs struct {
-	Invert  pulumi.BoolInput                                       `pulumi:"invert"`
+	Invert  pulumi.BoolPtrInput                                    `pulumi:"invert"`
 	Matches GetGatewayRouteSpecHttpRouteMatchHeaderMatchArrayInput `pulumi:"matches"`
 	// Name of the gateway route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetGatewayRouteSpecHttpRouteMatchHeaderArgs) ElementType() reflect.Type {
@@ -34330,8 +34330,8 @@ func (o GetGatewayRouteSpecHttpRouteMatchHeaderOutput) ToGetGatewayRouteSpecHttp
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchHeaderOutput) Invert() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeader) bool { return v.Invert }).(pulumi.BoolOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHeaderOutput) Invert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetGatewayRouteSpecHttpRouteMatchHeaderOutput) Matches() GetGatewayRouteSpecHttpRouteMatchHeaderMatchArrayOutput {
@@ -34341,8 +34341,8 @@ func (o GetGatewayRouteSpecHttpRouteMatchHeaderOutput) Matches() GetGatewayRoute
 }
 
 // Name of the gateway route.
-func (o GetGatewayRouteSpecHttpRouteMatchHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHeaderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeader) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHeaderArrayOutput struct{ *pulumi.OutputState }
@@ -34366,11 +34366,11 @@ func (o GetGatewayRouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHeaderMatch struct {
-	Exact  string                                              `pulumi:"exact"`
-	Prefix string                                              `pulumi:"prefix"`
+	Exact  *string                                             `pulumi:"exact"`
+	Prefix *string                                             `pulumi:"prefix"`
 	Ranges []GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"ranges"`
-	Regex  string                                              `pulumi:"regex"`
-	Suffix string                                              `pulumi:"suffix"`
+	Regex  *string                                             `pulumi:"regex"`
+	Suffix *string                                             `pulumi:"suffix"`
 }
 
 // GetGatewayRouteSpecHttpRouteMatchHeaderMatchInput is an input type that accepts GetGatewayRouteSpecHttpRouteMatchHeaderMatchArgs and GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput values.
@@ -34385,11 +34385,11 @@ type GetGatewayRouteSpecHttpRouteMatchHeaderMatchInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHeaderMatchArgs struct {
-	Exact  pulumi.StringInput                                          `pulumi:"exact"`
-	Prefix pulumi.StringInput                                          `pulumi:"prefix"`
+	Exact  pulumi.StringPtrInput                                       `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput                                       `pulumi:"prefix"`
 	Ranges GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeArrayInput `pulumi:"ranges"`
-	Regex  pulumi.StringInput                                          `pulumi:"regex"`
-	Suffix pulumi.StringInput                                          `pulumi:"suffix"`
+	Regex  pulumi.StringPtrInput                                       `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput                                       `pulumi:"suffix"`
 }
 
 func (GetGatewayRouteSpecHttpRouteMatchHeaderMatchArgs) ElementType() reflect.Type {
@@ -34443,12 +34443,12 @@ func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) ToGetGatewayRouteSpe
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatch) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Ranges() GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput {
@@ -34457,12 +34457,12 @@ func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Ranges() GetGatewayR
 	}).(GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput)
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatch) string { return v.Regex }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatch) string { return v.Suffix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHeaderMatchArrayOutput struct{ *pulumi.OutputState }
@@ -34486,8 +34486,8 @@ func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchArrayOutput) Index(i pulumi.
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange struct {
-	End   int `pulumi:"end"`
-	Start int `pulumi:"start"`
+	End   *int `pulumi:"end"`
+	Start *int `pulumi:"start"`
 }
 
 // GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeInput is an input type that accepts GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs and GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeOutput values.
@@ -34502,8 +34502,8 @@ type GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs struct {
-	End   pulumi.IntInput `pulumi:"end"`
-	Start pulumi.IntInput `pulumi:"start"`
+	End   pulumi.IntPtrInput `pulumi:"end"`
+	Start pulumi.IntPtrInput `pulumi:"start"`
 }
 
 func (GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs) ElementType() reflect.Type {
@@ -34557,12 +34557,12 @@ func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToGetGatewayRou
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange) *int { return v.End }).(pulumi.IntPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange) *int { return v.Start }).(pulumi.IntPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput struct{ *pulumi.OutputState }
@@ -34586,8 +34586,8 @@ func (o GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput) Index(i pu
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHostname struct {
-	Exact  string `pulumi:"exact"`
-	Suffix string `pulumi:"suffix"`
+	Exact  *string `pulumi:"exact"`
+	Suffix *string `pulumi:"suffix"`
 }
 
 // GetGatewayRouteSpecHttpRouteMatchHostnameInput is an input type that accepts GetGatewayRouteSpecHttpRouteMatchHostnameArgs and GetGatewayRouteSpecHttpRouteMatchHostnameOutput values.
@@ -34602,8 +34602,8 @@ type GetGatewayRouteSpecHttpRouteMatchHostnameInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHostnameArgs struct {
-	Exact  pulumi.StringInput `pulumi:"exact"`
-	Suffix pulumi.StringInput `pulumi:"suffix"`
+	Exact  pulumi.StringPtrInput `pulumi:"exact"`
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
 func (GetGatewayRouteSpecHttpRouteMatchHostnameArgs) ElementType() reflect.Type {
@@ -34657,12 +34657,12 @@ func (o GetGatewayRouteSpecHttpRouteMatchHostnameOutput) ToGetGatewayRouteSpecHt
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchHostnameOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHostname) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHostnameOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHostname) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchHostnameOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHostname) string { return v.Suffix }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchHostnameOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchHostname) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteMatchHostnameArrayOutput struct{ *pulumi.OutputState }
@@ -34686,8 +34686,8 @@ func (o GetGatewayRouteSpecHttpRouteMatchHostnameArrayOutput) Index(i pulumi.Int
 }
 
 type GetGatewayRouteSpecHttpRouteMatchPath struct {
-	Exact string `pulumi:"exact"`
-	Regex string `pulumi:"regex"`
+	Exact *string `pulumi:"exact"`
+	Regex *string `pulumi:"regex"`
 }
 
 // GetGatewayRouteSpecHttpRouteMatchPathInput is an input type that accepts GetGatewayRouteSpecHttpRouteMatchPathArgs and GetGatewayRouteSpecHttpRouteMatchPathOutput values.
@@ -34702,8 +34702,8 @@ type GetGatewayRouteSpecHttpRouteMatchPathInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteMatchPathArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
-	Regex pulumi.StringInput `pulumi:"regex"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
 }
 
 func (GetGatewayRouteSpecHttpRouteMatchPathArgs) ElementType() reflect.Type {
@@ -34757,12 +34757,12 @@ func (o GetGatewayRouteSpecHttpRouteMatchPathOutput) ToGetGatewayRouteSpecHttpRo
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchPathOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchPath) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchPathOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchPath) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchPathOutput) Regex() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchPath) string { return v.Regex }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchPathOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchPath) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteMatchPathArrayOutput struct{ *pulumi.OutputState }
@@ -34788,7 +34788,7 @@ func (o GetGatewayRouteSpecHttpRouteMatchPathArrayOutput) Index(i pulumi.IntInpu
 type GetGatewayRouteSpecHttpRouteMatchQueryParameter struct {
 	Matches []GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch `pulumi:"matches"`
 	// Name of the gateway route.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetGatewayRouteSpecHttpRouteMatchQueryParameterInput is an input type that accepts GetGatewayRouteSpecHttpRouteMatchQueryParameterArgs and GetGatewayRouteSpecHttpRouteMatchQueryParameterOutput values.
@@ -34805,7 +34805,7 @@ type GetGatewayRouteSpecHttpRouteMatchQueryParameterInput interface {
 type GetGatewayRouteSpecHttpRouteMatchQueryParameterArgs struct {
 	Matches GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchArrayInput `pulumi:"matches"`
 	// Name of the gateway route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetGatewayRouteSpecHttpRouteMatchQueryParameterArgs) ElementType() reflect.Type {
@@ -34866,8 +34866,8 @@ func (o GetGatewayRouteSpecHttpRouteMatchQueryParameterOutput) Matches() GetGate
 }
 
 // Name of the gateway route.
-func (o GetGatewayRouteSpecHttpRouteMatchQueryParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchQueryParameter) string { return v.Name }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchQueryParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchQueryParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteMatchQueryParameterArrayOutput struct{ *pulumi.OutputState }
@@ -34891,7 +34891,7 @@ func (o GetGatewayRouteSpecHttpRouteMatchQueryParameterArrayOutput) Index(i pulu
 }
 
 type GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch struct {
-	Exact string `pulumi:"exact"`
+	Exact *string `pulumi:"exact"`
 }
 
 // GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchInput is an input type that accepts GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs and GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput values.
@@ -34906,7 +34906,7 @@ type GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchInput interface {
 }
 
 type GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
 func (GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs) ElementType() reflect.Type {
@@ -34960,8 +34960,8 @@ func (o GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput) ToGetGateway
 	return o
 }
 
-func (o GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchArrayOutput struct{ *pulumi.OutputState }
@@ -35079,7 +35079,7 @@ func (o GetMeshSpecArrayOutput) Index(i pulumi.IntInput) GetMeshSpecOutput {
 }
 
 type GetMeshSpecEgressFilter struct {
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetMeshSpecEgressFilterInput is an input type that accepts GetMeshSpecEgressFilterArgs and GetMeshSpecEgressFilterOutput values.
@@ -35094,7 +35094,7 @@ type GetMeshSpecEgressFilterInput interface {
 }
 
 type GetMeshSpecEgressFilterArgs struct {
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetMeshSpecEgressFilterArgs) ElementType() reflect.Type {
@@ -35148,8 +35148,8 @@ func (o GetMeshSpecEgressFilterOutput) ToGetMeshSpecEgressFilterOutputWithContex
 	return o
 }
 
-func (o GetMeshSpecEgressFilterOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMeshSpecEgressFilter) string { return v.Type }).(pulumi.StringOutput)
+func (o GetMeshSpecEgressFilterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMeshSpecEgressFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetMeshSpecEgressFilterArrayOutput struct{ *pulumi.OutputState }
@@ -35176,7 +35176,7 @@ type GetRouteSpec struct {
 	GrpcRoutes  []GetRouteSpecGrpcRoute  `pulumi:"grpcRoutes"`
 	Http2Routes []GetRouteSpecHttp2Route `pulumi:"http2Routes"`
 	HttpRoutes  []GetRouteSpecHttpRoute  `pulumi:"httpRoutes"`
-	Priority    int                      `pulumi:"priority"`
+	Priority    *int                     `pulumi:"priority"`
 	TcpRoutes   []GetRouteSpecTcpRoute   `pulumi:"tcpRoutes"`
 }
 
@@ -35195,7 +35195,7 @@ type GetRouteSpecArgs struct {
 	GrpcRoutes  GetRouteSpecGrpcRouteArrayInput  `pulumi:"grpcRoutes"`
 	Http2Routes GetRouteSpecHttp2RouteArrayInput `pulumi:"http2Routes"`
 	HttpRoutes  GetRouteSpecHttpRouteArrayInput  `pulumi:"httpRoutes"`
-	Priority    pulumi.IntInput                  `pulumi:"priority"`
+	Priority    pulumi.IntPtrInput               `pulumi:"priority"`
 	TcpRoutes   GetRouteSpecTcpRouteArrayInput   `pulumi:"tcpRoutes"`
 }
 
@@ -35262,8 +35262,8 @@ func (o GetRouteSpecOutput) HttpRoutes() GetRouteSpecHttpRouteArrayOutput {
 	return o.ApplyT(func(v GetRouteSpec) []GetRouteSpecHttpRoute { return v.HttpRoutes }).(GetRouteSpecHttpRouteArrayOutput)
 }
 
-func (o GetRouteSpecOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpec) int { return v.Priority }).(pulumi.IntOutput)
+func (o GetRouteSpecOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 func (o GetRouteSpecOutput) TcpRoutes() GetRouteSpecTcpRouteArrayOutput {
@@ -35499,9 +35499,9 @@ func (o GetRouteSpecGrpcRouteActionArrayOutput) Index(i pulumi.IntInput) GetRout
 }
 
 type GetRouteSpecGrpcRouteActionWeightedTarget struct {
-	Port        int    `pulumi:"port"`
-	VirtualNode string `pulumi:"virtualNode"`
-	Weight      int    `pulumi:"weight"`
+	Port        *int    `pulumi:"port"`
+	VirtualNode *string `pulumi:"virtualNode"`
+	Weight      *int    `pulumi:"weight"`
 }
 
 // GetRouteSpecGrpcRouteActionWeightedTargetInput is an input type that accepts GetRouteSpecGrpcRouteActionWeightedTargetArgs and GetRouteSpecGrpcRouteActionWeightedTargetOutput values.
@@ -35516,9 +35516,9 @@ type GetRouteSpecGrpcRouteActionWeightedTargetInput interface {
 }
 
 type GetRouteSpecGrpcRouteActionWeightedTargetArgs struct {
-	Port        pulumi.IntInput    `pulumi:"port"`
-	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
-	Weight      pulumi.IntInput    `pulumi:"weight"`
+	Port        pulumi.IntPtrInput    `pulumi:"port"`
+	VirtualNode pulumi.StringPtrInput `pulumi:"virtualNode"`
+	Weight      pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (GetRouteSpecGrpcRouteActionWeightedTargetArgs) ElementType() reflect.Type {
@@ -35572,16 +35572,16 @@ func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) ToGetRouteSpecGrpcRoute
 	return o
 }
 
-func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteActionWeightedTarget) int { return v.Port }).(pulumi.IntOutput)
+func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteActionWeightedTarget) *string { return v.VirtualNode }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteActionWeightedTarget) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
@@ -35606,10 +35606,10 @@ func (o GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput) Index(i pulumi.Int
 
 type GetRouteSpecGrpcRouteMatch struct {
 	Metadatas   []GetRouteSpecGrpcRouteMatchMetadata `pulumi:"metadatas"`
-	MethodName  string                               `pulumi:"methodName"`
-	Port        int                                  `pulumi:"port"`
-	Prefix      string                               `pulumi:"prefix"`
-	ServiceName string                               `pulumi:"serviceName"`
+	MethodName  *string                              `pulumi:"methodName"`
+	Port        *int                                 `pulumi:"port"`
+	Prefix      *string                              `pulumi:"prefix"`
+	ServiceName *string                              `pulumi:"serviceName"`
 }
 
 // GetRouteSpecGrpcRouteMatchInput is an input type that accepts GetRouteSpecGrpcRouteMatchArgs and GetRouteSpecGrpcRouteMatchOutput values.
@@ -35625,10 +35625,10 @@ type GetRouteSpecGrpcRouteMatchInput interface {
 
 type GetRouteSpecGrpcRouteMatchArgs struct {
 	Metadatas   GetRouteSpecGrpcRouteMatchMetadataArrayInput `pulumi:"metadatas"`
-	MethodName  pulumi.StringInput                           `pulumi:"methodName"`
-	Port        pulumi.IntInput                              `pulumi:"port"`
-	Prefix      pulumi.StringInput                           `pulumi:"prefix"`
-	ServiceName pulumi.StringInput                           `pulumi:"serviceName"`
+	MethodName  pulumi.StringPtrInput                        `pulumi:"methodName"`
+	Port        pulumi.IntPtrInput                           `pulumi:"port"`
+	Prefix      pulumi.StringPtrInput                        `pulumi:"prefix"`
+	ServiceName pulumi.StringPtrInput                        `pulumi:"serviceName"`
 }
 
 func (GetRouteSpecGrpcRouteMatchArgs) ElementType() reflect.Type {
@@ -35686,20 +35686,20 @@ func (o GetRouteSpecGrpcRouteMatchOutput) Metadatas() GetRouteSpecGrpcRouteMatch
 	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) []GetRouteSpecGrpcRouteMatchMetadata { return v.Metadatas }).(GetRouteSpecGrpcRouteMatchMetadataArrayOutput)
 }
 
-func (o GetRouteSpecGrpcRouteMatchOutput) MethodName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) string { return v.MethodName }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteMatchOutput) MethodName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) *string { return v.MethodName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteMatchOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) int { return v.Port }).(pulumi.IntOutput)
+func (o GetRouteSpecGrpcRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) string { return v.ServiceName }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecGrpcRouteMatchArrayOutput struct{ *pulumi.OutputState }
@@ -35723,10 +35723,10 @@ func (o GetRouteSpecGrpcRouteMatchArrayOutput) Index(i pulumi.IntInput) GetRoute
 }
 
 type GetRouteSpecGrpcRouteMatchMetadata struct {
-	Invert  bool                                      `pulumi:"invert"`
+	Invert  *bool                                     `pulumi:"invert"`
 	Matches []GetRouteSpecGrpcRouteMatchMetadataMatch `pulumi:"matches"`
 	// Name of the route.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetRouteSpecGrpcRouteMatchMetadataInput is an input type that accepts GetRouteSpecGrpcRouteMatchMetadataArgs and GetRouteSpecGrpcRouteMatchMetadataOutput values.
@@ -35741,10 +35741,10 @@ type GetRouteSpecGrpcRouteMatchMetadataInput interface {
 }
 
 type GetRouteSpecGrpcRouteMatchMetadataArgs struct {
-	Invert  pulumi.BoolInput                                  `pulumi:"invert"`
+	Invert  pulumi.BoolPtrInput                               `pulumi:"invert"`
 	Matches GetRouteSpecGrpcRouteMatchMetadataMatchArrayInput `pulumi:"matches"`
 	// Name of the route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetRouteSpecGrpcRouteMatchMetadataArgs) ElementType() reflect.Type {
@@ -35798,8 +35798,8 @@ func (o GetRouteSpecGrpcRouteMatchMetadataOutput) ToGetRouteSpecGrpcRouteMatchMe
 	return o
 }
 
-func (o GetRouteSpecGrpcRouteMatchMetadataOutput) Invert() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadata) bool { return v.Invert }).(pulumi.BoolOutput)
+func (o GetRouteSpecGrpcRouteMatchMetadataOutput) Invert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadata) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetRouteSpecGrpcRouteMatchMetadataOutput) Matches() GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput {
@@ -35807,8 +35807,8 @@ func (o GetRouteSpecGrpcRouteMatchMetadataOutput) Matches() GetRouteSpecGrpcRout
 }
 
 // Name of the route.
-func (o GetRouteSpecGrpcRouteMatchMetadataOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadata) string { return v.Name }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteMatchMetadataOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadata) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecGrpcRouteMatchMetadataArrayOutput struct{ *pulumi.OutputState }
@@ -35832,11 +35832,11 @@ func (o GetRouteSpecGrpcRouteMatchMetadataArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetRouteSpecGrpcRouteMatchMetadataMatch struct {
-	Exact  string                                         `pulumi:"exact"`
-	Prefix string                                         `pulumi:"prefix"`
+	Exact  *string                                        `pulumi:"exact"`
+	Prefix *string                                        `pulumi:"prefix"`
 	Ranges []GetRouteSpecGrpcRouteMatchMetadataMatchRange `pulumi:"ranges"`
-	Regex  string                                         `pulumi:"regex"`
-	Suffix string                                         `pulumi:"suffix"`
+	Regex  *string                                        `pulumi:"regex"`
+	Suffix *string                                        `pulumi:"suffix"`
 }
 
 // GetRouteSpecGrpcRouteMatchMetadataMatchInput is an input type that accepts GetRouteSpecGrpcRouteMatchMetadataMatchArgs and GetRouteSpecGrpcRouteMatchMetadataMatchOutput values.
@@ -35851,11 +35851,11 @@ type GetRouteSpecGrpcRouteMatchMetadataMatchInput interface {
 }
 
 type GetRouteSpecGrpcRouteMatchMetadataMatchArgs struct {
-	Exact  pulumi.StringInput                                     `pulumi:"exact"`
-	Prefix pulumi.StringInput                                     `pulumi:"prefix"`
+	Exact  pulumi.StringPtrInput                                  `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput                                  `pulumi:"prefix"`
 	Ranges GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayInput `pulumi:"ranges"`
-	Regex  pulumi.StringInput                                     `pulumi:"regex"`
-	Suffix pulumi.StringInput                                     `pulumi:"suffix"`
+	Regex  pulumi.StringPtrInput                                  `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput                                  `pulumi:"suffix"`
 }
 
 func (GetRouteSpecGrpcRouteMatchMetadataMatchArgs) ElementType() reflect.Type {
@@ -35909,12 +35909,12 @@ func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) ToGetRouteSpecGrpcRouteMa
 	return o
 }
 
-func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Ranges() GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput {
@@ -35923,12 +35923,12 @@ func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Ranges() GetRouteSpecGrpc
 	}).(GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput)
 }
 
-func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Regex() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) string { return v.Regex }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) string { return v.Suffix }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput struct{ *pulumi.OutputState }
@@ -35952,8 +35952,8 @@ func (o GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetRouteSpecGrpcRouteMatchMetadataMatchRange struct {
-	End   int `pulumi:"end"`
-	Start int `pulumi:"start"`
+	End   *int `pulumi:"end"`
+	Start *int `pulumi:"start"`
 }
 
 // GetRouteSpecGrpcRouteMatchMetadataMatchRangeInput is an input type that accepts GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs and GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput values.
@@ -35968,8 +35968,8 @@ type GetRouteSpecGrpcRouteMatchMetadataMatchRangeInput interface {
 }
 
 type GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs struct {
-	End   pulumi.IntInput `pulumi:"end"`
-	Start pulumi.IntInput `pulumi:"start"`
+	End   pulumi.IntPtrInput `pulumi:"end"`
+	Start pulumi.IntPtrInput `pulumi:"start"`
 }
 
 func (GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs) ElementType() reflect.Type {
@@ -36023,12 +36023,12 @@ func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToGetRouteSpecGrpcRo
 	return o
 }
 
-func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) End() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatchRange) int { return v.End }).(pulumi.IntOutput)
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatchRange) *int { return v.End }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) Start() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatchRange) int { return v.Start }).(pulumi.IntOutput)
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatchRange) *int { return v.Start }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput struct{ *pulumi.OutputState }
@@ -36054,7 +36054,7 @@ func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput) Index(i pulumi.
 type GetRouteSpecGrpcRouteRetryPolicy struct {
 	GrpcRetryEvents  []string                                          `pulumi:"grpcRetryEvents"`
 	HttpRetryEvents  []string                                          `pulumi:"httpRetryEvents"`
-	MaxRetries       int                                               `pulumi:"maxRetries"`
+	MaxRetries       *int                                              `pulumi:"maxRetries"`
 	PerRetryTimeouts []GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeouts"`
 	TcpRetryEvents   []string                                          `pulumi:"tcpRetryEvents"`
 }
@@ -36073,7 +36073,7 @@ type GetRouteSpecGrpcRouteRetryPolicyInput interface {
 type GetRouteSpecGrpcRouteRetryPolicyArgs struct {
 	GrpcRetryEvents  pulumi.StringArrayInput                                   `pulumi:"grpcRetryEvents"`
 	HttpRetryEvents  pulumi.StringArrayInput                                   `pulumi:"httpRetryEvents"`
-	MaxRetries       pulumi.IntInput                                           `pulumi:"maxRetries"`
+	MaxRetries       pulumi.IntPtrInput                                        `pulumi:"maxRetries"`
 	PerRetryTimeouts GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayInput `pulumi:"perRetryTimeouts"`
 	TcpRetryEvents   pulumi.StringArrayInput                                   `pulumi:"tcpRetryEvents"`
 }
@@ -36137,8 +36137,8 @@ func (o GetRouteSpecGrpcRouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringA
 	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
 }
 
-func (o GetRouteSpecGrpcRouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
+func (o GetRouteSpecGrpcRouteRetryPolicyOutput) MaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicy) *int { return v.MaxRetries }).(pulumi.IntPtrOutput)
 }
 
 func (o GetRouteSpecGrpcRouteRetryPolicyOutput) PerRetryTimeouts() GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput {
@@ -36172,8 +36172,8 @@ func (o GetRouteSpecGrpcRouteRetryPolicyArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput is an input type that accepts GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs and GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput values.
@@ -36188,8 +36188,8 @@ type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput interface {
 }
 
 type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
@@ -36243,12 +36243,12 @@ func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToGetRouteSpecGrp
 	return o
 }
 
-func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput struct{ *pulumi.OutputState }
@@ -36372,8 +36372,8 @@ func (o GetRouteSpecGrpcRouteTimeoutArrayOutput) Index(i pulumi.IntInput) GetRou
 }
 
 type GetRouteSpecGrpcRouteTimeoutIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecGrpcRouteTimeoutIdleInput is an input type that accepts GetRouteSpecGrpcRouteTimeoutIdleArgs and GetRouteSpecGrpcRouteTimeoutIdleOutput values.
@@ -36388,8 +36388,8 @@ type GetRouteSpecGrpcRouteTimeoutIdleInput interface {
 }
 
 type GetRouteSpecGrpcRouteTimeoutIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecGrpcRouteTimeoutIdleArgs) ElementType() reflect.Type {
@@ -36443,12 +36443,12 @@ func (o GetRouteSpecGrpcRouteTimeoutIdleOutput) ToGetRouteSpecGrpcRouteTimeoutId
 	return o
 }
 
-func (o GetRouteSpecGrpcRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteTimeoutIdleOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutIdle) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecGrpcRouteTimeoutIdleOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutIdle) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecGrpcRouteTimeoutIdleArrayOutput struct{ *pulumi.OutputState }
@@ -36472,8 +36472,8 @@ func (o GetRouteSpecGrpcRouteTimeoutIdleArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetRouteSpecGrpcRouteTimeoutPerRequest struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecGrpcRouteTimeoutPerRequestInput is an input type that accepts GetRouteSpecGrpcRouteTimeoutPerRequestArgs and GetRouteSpecGrpcRouteTimeoutPerRequestOutput values.
@@ -36488,8 +36488,8 @@ type GetRouteSpecGrpcRouteTimeoutPerRequestInput interface {
 }
 
 type GetRouteSpecGrpcRouteTimeoutPerRequestArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecGrpcRouteTimeoutPerRequestArgs) ElementType() reflect.Type {
@@ -36543,12 +36543,12 @@ func (o GetRouteSpecGrpcRouteTimeoutPerRequestOutput) ToGetRouteSpecGrpcRouteTim
 	return o
 }
 
-func (o GetRouteSpecGrpcRouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecGrpcRouteTimeoutPerRequestOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutPerRequest) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecGrpcRouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecGrpcRouteTimeoutPerRequestOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutPerRequest) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput struct{ *pulumi.OutputState }
@@ -36780,9 +36780,9 @@ func (o GetRouteSpecHttp2RouteActionArrayOutput) Index(i pulumi.IntInput) GetRou
 }
 
 type GetRouteSpecHttp2RouteActionWeightedTarget struct {
-	Port        int    `pulumi:"port"`
-	VirtualNode string `pulumi:"virtualNode"`
-	Weight      int    `pulumi:"weight"`
+	Port        *int    `pulumi:"port"`
+	VirtualNode *string `pulumi:"virtualNode"`
+	Weight      *int    `pulumi:"weight"`
 }
 
 // GetRouteSpecHttp2RouteActionWeightedTargetInput is an input type that accepts GetRouteSpecHttp2RouteActionWeightedTargetArgs and GetRouteSpecHttp2RouteActionWeightedTargetOutput values.
@@ -36797,9 +36797,9 @@ type GetRouteSpecHttp2RouteActionWeightedTargetInput interface {
 }
 
 type GetRouteSpecHttp2RouteActionWeightedTargetArgs struct {
-	Port        pulumi.IntInput    `pulumi:"port"`
-	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
-	Weight      pulumi.IntInput    `pulumi:"weight"`
+	Port        pulumi.IntPtrInput    `pulumi:"port"`
+	VirtualNode pulumi.StringPtrInput `pulumi:"virtualNode"`
+	Weight      pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (GetRouteSpecHttp2RouteActionWeightedTargetArgs) ElementType() reflect.Type {
@@ -36853,16 +36853,16 @@ func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) ToGetRouteSpecHttp2Rou
 	return o
 }
 
-func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteActionWeightedTarget) int { return v.Port }).(pulumi.IntOutput)
+func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) VirtualNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteActionWeightedTarget) *string { return v.VirtualNode }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteActionWeightedTarget) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
@@ -36887,12 +36887,12 @@ func (o GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput) Index(i pulumi.In
 
 type GetRouteSpecHttp2RouteMatch struct {
 	Headers         []GetRouteSpecHttp2RouteMatchHeader         `pulumi:"headers"`
-	Method          string                                      `pulumi:"method"`
+	Method          *string                                     `pulumi:"method"`
 	Paths           []GetRouteSpecHttp2RouteMatchPath           `pulumi:"paths"`
-	Port            int                                         `pulumi:"port"`
-	Prefix          string                                      `pulumi:"prefix"`
+	Port            *int                                        `pulumi:"port"`
+	Prefix          *string                                     `pulumi:"prefix"`
 	QueryParameters []GetRouteSpecHttp2RouteMatchQueryParameter `pulumi:"queryParameters"`
-	Scheme          string                                      `pulumi:"scheme"`
+	Scheme          *string                                     `pulumi:"scheme"`
 }
 
 // GetRouteSpecHttp2RouteMatchInput is an input type that accepts GetRouteSpecHttp2RouteMatchArgs and GetRouteSpecHttp2RouteMatchOutput values.
@@ -36908,12 +36908,12 @@ type GetRouteSpecHttp2RouteMatchInput interface {
 
 type GetRouteSpecHttp2RouteMatchArgs struct {
 	Headers         GetRouteSpecHttp2RouteMatchHeaderArrayInput         `pulumi:"headers"`
-	Method          pulumi.StringInput                                  `pulumi:"method"`
+	Method          pulumi.StringPtrInput                               `pulumi:"method"`
 	Paths           GetRouteSpecHttp2RouteMatchPathArrayInput           `pulumi:"paths"`
-	Port            pulumi.IntInput                                     `pulumi:"port"`
-	Prefix          pulumi.StringInput                                  `pulumi:"prefix"`
+	Port            pulumi.IntPtrInput                                  `pulumi:"port"`
+	Prefix          pulumi.StringPtrInput                               `pulumi:"prefix"`
 	QueryParameters GetRouteSpecHttp2RouteMatchQueryParameterArrayInput `pulumi:"queryParameters"`
-	Scheme          pulumi.StringInput                                  `pulumi:"scheme"`
+	Scheme          pulumi.StringPtrInput                               `pulumi:"scheme"`
 }
 
 func (GetRouteSpecHttp2RouteMatchArgs) ElementType() reflect.Type {
@@ -36971,20 +36971,20 @@ func (o GetRouteSpecHttp2RouteMatchOutput) Headers() GetRouteSpecHttp2RouteMatch
 	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) []GetRouteSpecHttp2RouteMatchHeader { return v.Headers }).(GetRouteSpecHttp2RouteMatchHeaderArrayOutput)
 }
 
-func (o GetRouteSpecHttp2RouteMatchOutput) Method() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) string { return v.Method }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRouteSpecHttp2RouteMatchOutput) Paths() GetRouteSpecHttp2RouteMatchPathArrayOutput {
 	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) []GetRouteSpecHttp2RouteMatchPath { return v.Paths }).(GetRouteSpecHttp2RouteMatchPathArrayOutput)
 }
 
-func (o GetRouteSpecHttp2RouteMatchOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) int { return v.Port }).(pulumi.IntOutput)
+func (o GetRouteSpecHttp2RouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRouteSpecHttp2RouteMatchOutput) QueryParameters() GetRouteSpecHttp2RouteMatchQueryParameterArrayOutput {
@@ -36993,8 +36993,8 @@ func (o GetRouteSpecHttp2RouteMatchOutput) QueryParameters() GetRouteSpecHttp2Ro
 	}).(GetRouteSpecHttp2RouteMatchQueryParameterArrayOutput)
 }
 
-func (o GetRouteSpecHttp2RouteMatchOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) string { return v.Scheme }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteMatchArrayOutput struct{ *pulumi.OutputState }
@@ -37018,10 +37018,10 @@ func (o GetRouteSpecHttp2RouteMatchArrayOutput) Index(i pulumi.IntInput) GetRout
 }
 
 type GetRouteSpecHttp2RouteMatchHeader struct {
-	Invert  bool                                     `pulumi:"invert"`
+	Invert  *bool                                    `pulumi:"invert"`
 	Matches []GetRouteSpecHttp2RouteMatchHeaderMatch `pulumi:"matches"`
 	// Name of the route.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetRouteSpecHttp2RouteMatchHeaderInput is an input type that accepts GetRouteSpecHttp2RouteMatchHeaderArgs and GetRouteSpecHttp2RouteMatchHeaderOutput values.
@@ -37036,10 +37036,10 @@ type GetRouteSpecHttp2RouteMatchHeaderInput interface {
 }
 
 type GetRouteSpecHttp2RouteMatchHeaderArgs struct {
-	Invert  pulumi.BoolInput                                 `pulumi:"invert"`
+	Invert  pulumi.BoolPtrInput                              `pulumi:"invert"`
 	Matches GetRouteSpecHttp2RouteMatchHeaderMatchArrayInput `pulumi:"matches"`
 	// Name of the route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetRouteSpecHttp2RouteMatchHeaderArgs) ElementType() reflect.Type {
@@ -37093,8 +37093,8 @@ func (o GetRouteSpecHttp2RouteMatchHeaderOutput) ToGetRouteSpecHttp2RouteMatchHe
 	return o
 }
 
-func (o GetRouteSpecHttp2RouteMatchHeaderOutput) Invert() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeader) bool { return v.Invert }).(pulumi.BoolOutput)
+func (o GetRouteSpecHttp2RouteMatchHeaderOutput) Invert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetRouteSpecHttp2RouteMatchHeaderOutput) Matches() GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput {
@@ -37102,8 +37102,8 @@ func (o GetRouteSpecHttp2RouteMatchHeaderOutput) Matches() GetRouteSpecHttp2Rout
 }
 
 // Name of the route.
-func (o GetRouteSpecHttp2RouteMatchHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchHeaderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeader) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteMatchHeaderArrayOutput struct{ *pulumi.OutputState }
@@ -37127,11 +37127,11 @@ func (o GetRouteSpecHttp2RouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetRouteSpecHttp2RouteMatchHeaderMatch struct {
-	Exact  string                                        `pulumi:"exact"`
-	Prefix string                                        `pulumi:"prefix"`
+	Exact  *string                                       `pulumi:"exact"`
+	Prefix *string                                       `pulumi:"prefix"`
 	Ranges []GetRouteSpecHttp2RouteMatchHeaderMatchRange `pulumi:"ranges"`
-	Regex  string                                        `pulumi:"regex"`
-	Suffix string                                        `pulumi:"suffix"`
+	Regex  *string                                       `pulumi:"regex"`
+	Suffix *string                                       `pulumi:"suffix"`
 }
 
 // GetRouteSpecHttp2RouteMatchHeaderMatchInput is an input type that accepts GetRouteSpecHttp2RouteMatchHeaderMatchArgs and GetRouteSpecHttp2RouteMatchHeaderMatchOutput values.
@@ -37146,11 +37146,11 @@ type GetRouteSpecHttp2RouteMatchHeaderMatchInput interface {
 }
 
 type GetRouteSpecHttp2RouteMatchHeaderMatchArgs struct {
-	Exact  pulumi.StringInput                                    `pulumi:"exact"`
-	Prefix pulumi.StringInput                                    `pulumi:"prefix"`
+	Exact  pulumi.StringPtrInput                                 `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput                                 `pulumi:"prefix"`
 	Ranges GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayInput `pulumi:"ranges"`
-	Regex  pulumi.StringInput                                    `pulumi:"regex"`
-	Suffix pulumi.StringInput                                    `pulumi:"suffix"`
+	Regex  pulumi.StringPtrInput                                 `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput                                 `pulumi:"suffix"`
 }
 
 func (GetRouteSpecHttp2RouteMatchHeaderMatchArgs) ElementType() reflect.Type {
@@ -37204,12 +37204,12 @@ func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) ToGetRouteSpecHttp2RouteMa
 	return o
 }
 
-func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Ranges() GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput {
@@ -37218,12 +37218,12 @@ func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Ranges() GetRouteSpecHttp2
 	}).(GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput)
 }
 
-func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Regex() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Regex }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Suffix }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput struct{ *pulumi.OutputState }
@@ -37247,8 +37247,8 @@ func (o GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetRouteSpecHttp2RouteMatchHeaderMatchRange struct {
-	End   int `pulumi:"end"`
-	Start int `pulumi:"start"`
+	End   *int `pulumi:"end"`
+	Start *int `pulumi:"start"`
 }
 
 // GetRouteSpecHttp2RouteMatchHeaderMatchRangeInput is an input type that accepts GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs and GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput values.
@@ -37263,8 +37263,8 @@ type GetRouteSpecHttp2RouteMatchHeaderMatchRangeInput interface {
 }
 
 type GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs struct {
-	End   pulumi.IntInput `pulumi:"end"`
-	Start pulumi.IntInput `pulumi:"start"`
+	End   pulumi.IntPtrInput `pulumi:"end"`
+	Start pulumi.IntPtrInput `pulumi:"start"`
 }
 
 func (GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ElementType() reflect.Type {
@@ -37318,12 +37318,12 @@ func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToGetRouteSpecHttp2Ro
 	return o
 }
 
-func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatchRange) *int { return v.End }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatchRange) *int { return v.Start }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput struct{ *pulumi.OutputState }
@@ -37347,8 +37347,8 @@ func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput) Index(i pulumi.I
 }
 
 type GetRouteSpecHttp2RouteMatchPath struct {
-	Exact string `pulumi:"exact"`
-	Regex string `pulumi:"regex"`
+	Exact *string `pulumi:"exact"`
+	Regex *string `pulumi:"regex"`
 }
 
 // GetRouteSpecHttp2RouteMatchPathInput is an input type that accepts GetRouteSpecHttp2RouteMatchPathArgs and GetRouteSpecHttp2RouteMatchPathOutput values.
@@ -37363,8 +37363,8 @@ type GetRouteSpecHttp2RouteMatchPathInput interface {
 }
 
 type GetRouteSpecHttp2RouteMatchPathArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
-	Regex pulumi.StringInput `pulumi:"regex"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
 }
 
 func (GetRouteSpecHttp2RouteMatchPathArgs) ElementType() reflect.Type {
@@ -37418,12 +37418,12 @@ func (o GetRouteSpecHttp2RouteMatchPathOutput) ToGetRouteSpecHttp2RouteMatchPath
 	return o
 }
 
-func (o GetRouteSpecHttp2RouteMatchPathOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchPath) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchPathOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchPath) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteMatchPathOutput) Regex() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchPath) string { return v.Regex }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchPathOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchPath) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteMatchPathArrayOutput struct{ *pulumi.OutputState }
@@ -37449,7 +37449,7 @@ func (o GetRouteSpecHttp2RouteMatchPathArrayOutput) Index(i pulumi.IntInput) Get
 type GetRouteSpecHttp2RouteMatchQueryParameter struct {
 	Matches []GetRouteSpecHttp2RouteMatchQueryParameterMatch `pulumi:"matches"`
 	// Name of the route.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetRouteSpecHttp2RouteMatchQueryParameterInput is an input type that accepts GetRouteSpecHttp2RouteMatchQueryParameterArgs and GetRouteSpecHttp2RouteMatchQueryParameterOutput values.
@@ -37466,7 +37466,7 @@ type GetRouteSpecHttp2RouteMatchQueryParameterInput interface {
 type GetRouteSpecHttp2RouteMatchQueryParameterArgs struct {
 	Matches GetRouteSpecHttp2RouteMatchQueryParameterMatchArrayInput `pulumi:"matches"`
 	// Name of the route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetRouteSpecHttp2RouteMatchQueryParameterArgs) ElementType() reflect.Type {
@@ -37527,8 +37527,8 @@ func (o GetRouteSpecHttp2RouteMatchQueryParameterOutput) Matches() GetRouteSpecH
 }
 
 // Name of the route.
-func (o GetRouteSpecHttp2RouteMatchQueryParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchQueryParameter) string { return v.Name }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchQueryParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchQueryParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteMatchQueryParameterArrayOutput struct{ *pulumi.OutputState }
@@ -37552,7 +37552,7 @@ func (o GetRouteSpecHttp2RouteMatchQueryParameterArrayOutput) Index(i pulumi.Int
 }
 
 type GetRouteSpecHttp2RouteMatchQueryParameterMatch struct {
-	Exact string `pulumi:"exact"`
+	Exact *string `pulumi:"exact"`
 }
 
 // GetRouteSpecHttp2RouteMatchQueryParameterMatchInput is an input type that accepts GetRouteSpecHttp2RouteMatchQueryParameterMatchArgs and GetRouteSpecHttp2RouteMatchQueryParameterMatchOutput values.
@@ -37567,7 +37567,7 @@ type GetRouteSpecHttp2RouteMatchQueryParameterMatchInput interface {
 }
 
 type GetRouteSpecHttp2RouteMatchQueryParameterMatchArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
 func (GetRouteSpecHttp2RouteMatchQueryParameterMatchArgs) ElementType() reflect.Type {
@@ -37621,8 +37621,8 @@ func (o GetRouteSpecHttp2RouteMatchQueryParameterMatchOutput) ToGetRouteSpecHttp
 	return o
 }
 
-func (o GetRouteSpecHttp2RouteMatchQueryParameterMatchOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchQueryParameterMatch) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteMatchQueryParameterMatchArrayOutput struct{ *pulumi.OutputState }
@@ -37647,7 +37647,7 @@ func (o GetRouteSpecHttp2RouteMatchQueryParameterMatchArrayOutput) Index(i pulum
 
 type GetRouteSpecHttp2RouteRetryPolicy struct {
 	HttpRetryEvents  []string                                           `pulumi:"httpRetryEvents"`
-	MaxRetries       int                                                `pulumi:"maxRetries"`
+	MaxRetries       *int                                               `pulumi:"maxRetries"`
 	PerRetryTimeouts []GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeouts"`
 	TcpRetryEvents   []string                                           `pulumi:"tcpRetryEvents"`
 }
@@ -37665,7 +37665,7 @@ type GetRouteSpecHttp2RouteRetryPolicyInput interface {
 
 type GetRouteSpecHttp2RouteRetryPolicyArgs struct {
 	HttpRetryEvents  pulumi.StringArrayInput                                    `pulumi:"httpRetryEvents"`
-	MaxRetries       pulumi.IntInput                                            `pulumi:"maxRetries"`
+	MaxRetries       pulumi.IntPtrInput                                         `pulumi:"maxRetries"`
 	PerRetryTimeouts GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayInput `pulumi:"perRetryTimeouts"`
 	TcpRetryEvents   pulumi.StringArrayInput                                    `pulumi:"tcpRetryEvents"`
 }
@@ -37725,8 +37725,8 @@ func (o GetRouteSpecHttp2RouteRetryPolicyOutput) HttpRetryEvents() pulumi.String
 	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
 }
 
-func (o GetRouteSpecHttp2RouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
+func (o GetRouteSpecHttp2RouteRetryPolicyOutput) MaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicy) *int { return v.MaxRetries }).(pulumi.IntPtrOutput)
 }
 
 func (o GetRouteSpecHttp2RouteRetryPolicyOutput) PerRetryTimeouts() GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput {
@@ -37760,8 +37760,8 @@ func (o GetRouteSpecHttp2RouteRetryPolicyArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput is an input type that accepts GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs and GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput values.
@@ -37776,8 +37776,8 @@ type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput interface {
 }
 
 type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
@@ -37831,12 +37831,12 @@ func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToGetRouteSpecHt
 	return o
 }
 
-func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput struct{ *pulumi.OutputState }
@@ -37960,8 +37960,8 @@ func (o GetRouteSpecHttp2RouteTimeoutArrayOutput) Index(i pulumi.IntInput) GetRo
 }
 
 type GetRouteSpecHttp2RouteTimeoutIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecHttp2RouteTimeoutIdleInput is an input type that accepts GetRouteSpecHttp2RouteTimeoutIdleArgs and GetRouteSpecHttp2RouteTimeoutIdleOutput values.
@@ -37976,8 +37976,8 @@ type GetRouteSpecHttp2RouteTimeoutIdleInput interface {
 }
 
 type GetRouteSpecHttp2RouteTimeoutIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecHttp2RouteTimeoutIdleArgs) ElementType() reflect.Type {
@@ -38031,12 +38031,12 @@ func (o GetRouteSpecHttp2RouteTimeoutIdleOutput) ToGetRouteSpecHttp2RouteTimeout
 	return o
 }
 
-func (o GetRouteSpecHttp2RouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteTimeoutIdleOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutIdle) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteTimeoutIdleOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecHttp2RouteTimeoutIdleOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutIdle) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteTimeoutIdleArrayOutput struct{ *pulumi.OutputState }
@@ -38060,8 +38060,8 @@ func (o GetRouteSpecHttp2RouteTimeoutIdleArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetRouteSpecHttp2RouteTimeoutPerRequest struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecHttp2RouteTimeoutPerRequestInput is an input type that accepts GetRouteSpecHttp2RouteTimeoutPerRequestArgs and GetRouteSpecHttp2RouteTimeoutPerRequestOutput values.
@@ -38076,8 +38076,8 @@ type GetRouteSpecHttp2RouteTimeoutPerRequestInput interface {
 }
 
 type GetRouteSpecHttp2RouteTimeoutPerRequestArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecHttp2RouteTimeoutPerRequestArgs) ElementType() reflect.Type {
@@ -38131,12 +38131,12 @@ func (o GetRouteSpecHttp2RouteTimeoutPerRequestOutput) ToGetRouteSpecHttp2RouteT
 	return o
 }
 
-func (o GetRouteSpecHttp2RouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecHttp2RouteTimeoutPerRequestOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutPerRequest) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttp2RouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecHttp2RouteTimeoutPerRequestOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutPerRequest) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput struct{ *pulumi.OutputState }
@@ -38368,9 +38368,9 @@ func (o GetRouteSpecHttpRouteActionArrayOutput) Index(i pulumi.IntInput) GetRout
 }
 
 type GetRouteSpecHttpRouteActionWeightedTarget struct {
-	Port        int    `pulumi:"port"`
-	VirtualNode string `pulumi:"virtualNode"`
-	Weight      int    `pulumi:"weight"`
+	Port        *int    `pulumi:"port"`
+	VirtualNode *string `pulumi:"virtualNode"`
+	Weight      *int    `pulumi:"weight"`
 }
 
 // GetRouteSpecHttpRouteActionWeightedTargetInput is an input type that accepts GetRouteSpecHttpRouteActionWeightedTargetArgs and GetRouteSpecHttpRouteActionWeightedTargetOutput values.
@@ -38385,9 +38385,9 @@ type GetRouteSpecHttpRouteActionWeightedTargetInput interface {
 }
 
 type GetRouteSpecHttpRouteActionWeightedTargetArgs struct {
-	Port        pulumi.IntInput    `pulumi:"port"`
-	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
-	Weight      pulumi.IntInput    `pulumi:"weight"`
+	Port        pulumi.IntPtrInput    `pulumi:"port"`
+	VirtualNode pulumi.StringPtrInput `pulumi:"virtualNode"`
+	Weight      pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (GetRouteSpecHttpRouteActionWeightedTargetArgs) ElementType() reflect.Type {
@@ -38441,16 +38441,16 @@ func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) ToGetRouteSpecHttpRoute
 	return o
 }
 
-func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteActionWeightedTarget) int { return v.Port }).(pulumi.IntOutput)
+func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteActionWeightedTarget) *string { return v.VirtualNode }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteActionWeightedTarget) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttpRouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
@@ -38475,12 +38475,12 @@ func (o GetRouteSpecHttpRouteActionWeightedTargetArrayOutput) Index(i pulumi.Int
 
 type GetRouteSpecHttpRouteMatch struct {
 	Headers         []GetRouteSpecHttpRouteMatchHeader         `pulumi:"headers"`
-	Method          string                                     `pulumi:"method"`
+	Method          *string                                    `pulumi:"method"`
 	Paths           []GetRouteSpecHttpRouteMatchPath           `pulumi:"paths"`
-	Port            int                                        `pulumi:"port"`
-	Prefix          string                                     `pulumi:"prefix"`
+	Port            *int                                       `pulumi:"port"`
+	Prefix          *string                                    `pulumi:"prefix"`
 	QueryParameters []GetRouteSpecHttpRouteMatchQueryParameter `pulumi:"queryParameters"`
-	Scheme          string                                     `pulumi:"scheme"`
+	Scheme          *string                                    `pulumi:"scheme"`
 }
 
 // GetRouteSpecHttpRouteMatchInput is an input type that accepts GetRouteSpecHttpRouteMatchArgs and GetRouteSpecHttpRouteMatchOutput values.
@@ -38496,12 +38496,12 @@ type GetRouteSpecHttpRouteMatchInput interface {
 
 type GetRouteSpecHttpRouteMatchArgs struct {
 	Headers         GetRouteSpecHttpRouteMatchHeaderArrayInput         `pulumi:"headers"`
-	Method          pulumi.StringInput                                 `pulumi:"method"`
+	Method          pulumi.StringPtrInput                              `pulumi:"method"`
 	Paths           GetRouteSpecHttpRouteMatchPathArrayInput           `pulumi:"paths"`
-	Port            pulumi.IntInput                                    `pulumi:"port"`
-	Prefix          pulumi.StringInput                                 `pulumi:"prefix"`
+	Port            pulumi.IntPtrInput                                 `pulumi:"port"`
+	Prefix          pulumi.StringPtrInput                              `pulumi:"prefix"`
 	QueryParameters GetRouteSpecHttpRouteMatchQueryParameterArrayInput `pulumi:"queryParameters"`
-	Scheme          pulumi.StringInput                                 `pulumi:"scheme"`
+	Scheme          pulumi.StringPtrInput                              `pulumi:"scheme"`
 }
 
 func (GetRouteSpecHttpRouteMatchArgs) ElementType() reflect.Type {
@@ -38559,20 +38559,20 @@ func (o GetRouteSpecHttpRouteMatchOutput) Headers() GetRouteSpecHttpRouteMatchHe
 	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) []GetRouteSpecHttpRouteMatchHeader { return v.Headers }).(GetRouteSpecHttpRouteMatchHeaderArrayOutput)
 }
 
-func (o GetRouteSpecHttpRouteMatchOutput) Method() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) string { return v.Method }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRouteSpecHttpRouteMatchOutput) Paths() GetRouteSpecHttpRouteMatchPathArrayOutput {
 	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) []GetRouteSpecHttpRouteMatchPath { return v.Paths }).(GetRouteSpecHttpRouteMatchPathArrayOutput)
 }
 
-func (o GetRouteSpecHttpRouteMatchOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) int { return v.Port }).(pulumi.IntOutput)
+func (o GetRouteSpecHttpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRouteSpecHttpRouteMatchOutput) QueryParameters() GetRouteSpecHttpRouteMatchQueryParameterArrayOutput {
@@ -38581,8 +38581,8 @@ func (o GetRouteSpecHttpRouteMatchOutput) QueryParameters() GetRouteSpecHttpRout
 	}).(GetRouteSpecHttpRouteMatchQueryParameterArrayOutput)
 }
 
-func (o GetRouteSpecHttpRouteMatchOutput) Scheme() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) string { return v.Scheme }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttpRouteMatchArrayOutput struct{ *pulumi.OutputState }
@@ -38606,10 +38606,10 @@ func (o GetRouteSpecHttpRouteMatchArrayOutput) Index(i pulumi.IntInput) GetRoute
 }
 
 type GetRouteSpecHttpRouteMatchHeader struct {
-	Invert  bool                                    `pulumi:"invert"`
+	Invert  *bool                                   `pulumi:"invert"`
 	Matches []GetRouteSpecHttpRouteMatchHeaderMatch `pulumi:"matches"`
 	// Name of the route.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetRouteSpecHttpRouteMatchHeaderInput is an input type that accepts GetRouteSpecHttpRouteMatchHeaderArgs and GetRouteSpecHttpRouteMatchHeaderOutput values.
@@ -38624,10 +38624,10 @@ type GetRouteSpecHttpRouteMatchHeaderInput interface {
 }
 
 type GetRouteSpecHttpRouteMatchHeaderArgs struct {
-	Invert  pulumi.BoolInput                                `pulumi:"invert"`
+	Invert  pulumi.BoolPtrInput                             `pulumi:"invert"`
 	Matches GetRouteSpecHttpRouteMatchHeaderMatchArrayInput `pulumi:"matches"`
 	// Name of the route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetRouteSpecHttpRouteMatchHeaderArgs) ElementType() reflect.Type {
@@ -38681,8 +38681,8 @@ func (o GetRouteSpecHttpRouteMatchHeaderOutput) ToGetRouteSpecHttpRouteMatchHead
 	return o
 }
 
-func (o GetRouteSpecHttpRouteMatchHeaderOutput) Invert() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeader) bool { return v.Invert }).(pulumi.BoolOutput)
+func (o GetRouteSpecHttpRouteMatchHeaderOutput) Invert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetRouteSpecHttpRouteMatchHeaderOutput) Matches() GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput {
@@ -38690,8 +38690,8 @@ func (o GetRouteSpecHttpRouteMatchHeaderOutput) Matches() GetRouteSpecHttpRouteM
 }
 
 // Name of the route.
-func (o GetRouteSpecHttpRouteMatchHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchHeaderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeader) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttpRouteMatchHeaderArrayOutput struct{ *pulumi.OutputState }
@@ -38715,11 +38715,11 @@ func (o GetRouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetRouteSpecHttpRouteMatchHeaderMatch struct {
-	Exact  string                                       `pulumi:"exact"`
-	Prefix string                                       `pulumi:"prefix"`
+	Exact  *string                                      `pulumi:"exact"`
+	Prefix *string                                      `pulumi:"prefix"`
 	Ranges []GetRouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"ranges"`
-	Regex  string                                       `pulumi:"regex"`
-	Suffix string                                       `pulumi:"suffix"`
+	Regex  *string                                      `pulumi:"regex"`
+	Suffix *string                                      `pulumi:"suffix"`
 }
 
 // GetRouteSpecHttpRouteMatchHeaderMatchInput is an input type that accepts GetRouteSpecHttpRouteMatchHeaderMatchArgs and GetRouteSpecHttpRouteMatchHeaderMatchOutput values.
@@ -38734,11 +38734,11 @@ type GetRouteSpecHttpRouteMatchHeaderMatchInput interface {
 }
 
 type GetRouteSpecHttpRouteMatchHeaderMatchArgs struct {
-	Exact  pulumi.StringInput                                   `pulumi:"exact"`
-	Prefix pulumi.StringInput                                   `pulumi:"prefix"`
+	Exact  pulumi.StringPtrInput                                `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput                                `pulumi:"prefix"`
 	Ranges GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayInput `pulumi:"ranges"`
-	Regex  pulumi.StringInput                                   `pulumi:"regex"`
-	Suffix pulumi.StringInput                                   `pulumi:"suffix"`
+	Regex  pulumi.StringPtrInput                                `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput                                `pulumi:"suffix"`
 }
 
 func (GetRouteSpecHttpRouteMatchHeaderMatchArgs) ElementType() reflect.Type {
@@ -38792,12 +38792,12 @@ func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) ToGetRouteSpecHttpRouteMatc
 	return o
 }
 
-func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Ranges() GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput {
@@ -38806,12 +38806,12 @@ func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Ranges() GetRouteSpecHttpRo
 	}).(GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput)
 }
 
-func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) string { return v.Regex }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) string { return v.Suffix }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput struct{ *pulumi.OutputState }
@@ -38835,8 +38835,8 @@ func (o GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetRouteSpecHttpRouteMatchHeaderMatchRange struct {
-	End   int `pulumi:"end"`
-	Start int `pulumi:"start"`
+	End   *int `pulumi:"end"`
+	Start *int `pulumi:"start"`
 }
 
 // GetRouteSpecHttpRouteMatchHeaderMatchRangeInput is an input type that accepts GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs and GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput values.
@@ -38851,8 +38851,8 @@ type GetRouteSpecHttpRouteMatchHeaderMatchRangeInput interface {
 }
 
 type GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs struct {
-	End   pulumi.IntInput `pulumi:"end"`
-	Start pulumi.IntInput `pulumi:"start"`
+	End   pulumi.IntPtrInput `pulumi:"end"`
+	Start pulumi.IntPtrInput `pulumi:"start"`
 }
 
 func (GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs) ElementType() reflect.Type {
@@ -38906,12 +38906,12 @@ func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToGetRouteSpecHttpRout
 	return o
 }
 
-func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatchRange) *int { return v.End }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatchRange) *int { return v.Start }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput struct{ *pulumi.OutputState }
@@ -38935,8 +38935,8 @@ func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput) Index(i pulumi.In
 }
 
 type GetRouteSpecHttpRouteMatchPath struct {
-	Exact string `pulumi:"exact"`
-	Regex string `pulumi:"regex"`
+	Exact *string `pulumi:"exact"`
+	Regex *string `pulumi:"regex"`
 }
 
 // GetRouteSpecHttpRouteMatchPathInput is an input type that accepts GetRouteSpecHttpRouteMatchPathArgs and GetRouteSpecHttpRouteMatchPathOutput values.
@@ -38951,8 +38951,8 @@ type GetRouteSpecHttpRouteMatchPathInput interface {
 }
 
 type GetRouteSpecHttpRouteMatchPathArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
-	Regex pulumi.StringInput `pulumi:"regex"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
 }
 
 func (GetRouteSpecHttpRouteMatchPathArgs) ElementType() reflect.Type {
@@ -39006,12 +39006,12 @@ func (o GetRouteSpecHttpRouteMatchPathOutput) ToGetRouteSpecHttpRouteMatchPathOu
 	return o
 }
 
-func (o GetRouteSpecHttpRouteMatchPathOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchPath) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchPathOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchPath) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteMatchPathOutput) Regex() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchPath) string { return v.Regex }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchPathOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchPath) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttpRouteMatchPathArrayOutput struct{ *pulumi.OutputState }
@@ -39037,7 +39037,7 @@ func (o GetRouteSpecHttpRouteMatchPathArrayOutput) Index(i pulumi.IntInput) GetR
 type GetRouteSpecHttpRouteMatchQueryParameter struct {
 	Matches []GetRouteSpecHttpRouteMatchQueryParameterMatch `pulumi:"matches"`
 	// Name of the route.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // GetRouteSpecHttpRouteMatchQueryParameterInput is an input type that accepts GetRouteSpecHttpRouteMatchQueryParameterArgs and GetRouteSpecHttpRouteMatchQueryParameterOutput values.
@@ -39054,7 +39054,7 @@ type GetRouteSpecHttpRouteMatchQueryParameterInput interface {
 type GetRouteSpecHttpRouteMatchQueryParameterArgs struct {
 	Matches GetRouteSpecHttpRouteMatchQueryParameterMatchArrayInput `pulumi:"matches"`
 	// Name of the route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetRouteSpecHttpRouteMatchQueryParameterArgs) ElementType() reflect.Type {
@@ -39115,8 +39115,8 @@ func (o GetRouteSpecHttpRouteMatchQueryParameterOutput) Matches() GetRouteSpecHt
 }
 
 // Name of the route.
-func (o GetRouteSpecHttpRouteMatchQueryParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchQueryParameter) string { return v.Name }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchQueryParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchQueryParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttpRouteMatchQueryParameterArrayOutput struct{ *pulumi.OutputState }
@@ -39140,7 +39140,7 @@ func (o GetRouteSpecHttpRouteMatchQueryParameterArrayOutput) Index(i pulumi.IntI
 }
 
 type GetRouteSpecHttpRouteMatchQueryParameterMatch struct {
-	Exact string `pulumi:"exact"`
+	Exact *string `pulumi:"exact"`
 }
 
 // GetRouteSpecHttpRouteMatchQueryParameterMatchInput is an input type that accepts GetRouteSpecHttpRouteMatchQueryParameterMatchArgs and GetRouteSpecHttpRouteMatchQueryParameterMatchOutput values.
@@ -39155,7 +39155,7 @@ type GetRouteSpecHttpRouteMatchQueryParameterMatchInput interface {
 }
 
 type GetRouteSpecHttpRouteMatchQueryParameterMatchArgs struct {
-	Exact pulumi.StringInput `pulumi:"exact"`
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
 func (GetRouteSpecHttpRouteMatchQueryParameterMatchArgs) ElementType() reflect.Type {
@@ -39209,8 +39209,8 @@ func (o GetRouteSpecHttpRouteMatchQueryParameterMatchOutput) ToGetRouteSpecHttpR
 	return o
 }
 
-func (o GetRouteSpecHttpRouteMatchQueryParameterMatchOutput) Exact() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchQueryParameterMatch) string { return v.Exact }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
 type GetRouteSpecHttpRouteMatchQueryParameterMatchArrayOutput struct{ *pulumi.OutputState }
@@ -39235,7 +39235,7 @@ func (o GetRouteSpecHttpRouteMatchQueryParameterMatchArrayOutput) Index(i pulumi
 
 type GetRouteSpecHttpRouteRetryPolicy struct {
 	HttpRetryEvents  []string                                          `pulumi:"httpRetryEvents"`
-	MaxRetries       int                                               `pulumi:"maxRetries"`
+	MaxRetries       *int                                              `pulumi:"maxRetries"`
 	PerRetryTimeouts []GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeouts"`
 	TcpRetryEvents   []string                                          `pulumi:"tcpRetryEvents"`
 }
@@ -39253,7 +39253,7 @@ type GetRouteSpecHttpRouteRetryPolicyInput interface {
 
 type GetRouteSpecHttpRouteRetryPolicyArgs struct {
 	HttpRetryEvents  pulumi.StringArrayInput                                   `pulumi:"httpRetryEvents"`
-	MaxRetries       pulumi.IntInput                                           `pulumi:"maxRetries"`
+	MaxRetries       pulumi.IntPtrInput                                        `pulumi:"maxRetries"`
 	PerRetryTimeouts GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayInput `pulumi:"perRetryTimeouts"`
 	TcpRetryEvents   pulumi.StringArrayInput                                   `pulumi:"tcpRetryEvents"`
 }
@@ -39313,8 +39313,8 @@ func (o GetRouteSpecHttpRouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringA
 	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
 }
 
-func (o GetRouteSpecHttpRouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
+func (o GetRouteSpecHttpRouteRetryPolicyOutput) MaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicy) *int { return v.MaxRetries }).(pulumi.IntPtrOutput)
 }
 
 func (o GetRouteSpecHttpRouteRetryPolicyOutput) PerRetryTimeouts() GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput {
@@ -39348,8 +39348,8 @@ func (o GetRouteSpecHttpRouteRetryPolicyArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput is an input type that accepts GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs and GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput values.
@@ -39364,8 +39364,8 @@ type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput interface {
 }
 
 type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
@@ -39419,12 +39419,12 @@ func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToGetRouteSpecHtt
 	return o
 }
 
-func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput struct{ *pulumi.OutputState }
@@ -39548,8 +39548,8 @@ func (o GetRouteSpecHttpRouteTimeoutArrayOutput) Index(i pulumi.IntInput) GetRou
 }
 
 type GetRouteSpecHttpRouteTimeoutIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecHttpRouteTimeoutIdleInput is an input type that accepts GetRouteSpecHttpRouteTimeoutIdleArgs and GetRouteSpecHttpRouteTimeoutIdleOutput values.
@@ -39564,8 +39564,8 @@ type GetRouteSpecHttpRouteTimeoutIdleInput interface {
 }
 
 type GetRouteSpecHttpRouteTimeoutIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecHttpRouteTimeoutIdleArgs) ElementType() reflect.Type {
@@ -39619,12 +39619,12 @@ func (o GetRouteSpecHttpRouteTimeoutIdleOutput) ToGetRouteSpecHttpRouteTimeoutId
 	return o
 }
 
-func (o GetRouteSpecHttpRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteTimeoutIdleOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutIdle) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecHttpRouteTimeoutIdleOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutIdle) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttpRouteTimeoutIdleArrayOutput struct{ *pulumi.OutputState }
@@ -39648,8 +39648,8 @@ func (o GetRouteSpecHttpRouteTimeoutIdleArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetRouteSpecHttpRouteTimeoutPerRequest struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecHttpRouteTimeoutPerRequestInput is an input type that accepts GetRouteSpecHttpRouteTimeoutPerRequestArgs and GetRouteSpecHttpRouteTimeoutPerRequestOutput values.
@@ -39664,8 +39664,8 @@ type GetRouteSpecHttpRouteTimeoutPerRequestInput interface {
 }
 
 type GetRouteSpecHttpRouteTimeoutPerRequestArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecHttpRouteTimeoutPerRequestArgs) ElementType() reflect.Type {
@@ -39719,12 +39719,12 @@ func (o GetRouteSpecHttpRouteTimeoutPerRequestOutput) ToGetRouteSpecHttpRouteTim
 	return o
 }
 
-func (o GetRouteSpecHttpRouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecHttpRouteTimeoutPerRequestOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutPerRequest) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecHttpRouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecHttpRouteTimeoutPerRequestOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutPerRequest) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput struct{ *pulumi.OutputState }
@@ -39950,9 +39950,9 @@ func (o GetRouteSpecTcpRouteActionArrayOutput) Index(i pulumi.IntInput) GetRoute
 }
 
 type GetRouteSpecTcpRouteActionWeightedTarget struct {
-	Port        int    `pulumi:"port"`
-	VirtualNode string `pulumi:"virtualNode"`
-	Weight      int    `pulumi:"weight"`
+	Port        *int    `pulumi:"port"`
+	VirtualNode *string `pulumi:"virtualNode"`
+	Weight      *int    `pulumi:"weight"`
 }
 
 // GetRouteSpecTcpRouteActionWeightedTargetInput is an input type that accepts GetRouteSpecTcpRouteActionWeightedTargetArgs and GetRouteSpecTcpRouteActionWeightedTargetOutput values.
@@ -39967,9 +39967,9 @@ type GetRouteSpecTcpRouteActionWeightedTargetInput interface {
 }
 
 type GetRouteSpecTcpRouteActionWeightedTargetArgs struct {
-	Port        pulumi.IntInput    `pulumi:"port"`
-	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
-	Weight      pulumi.IntInput    `pulumi:"weight"`
+	Port        pulumi.IntPtrInput    `pulumi:"port"`
+	VirtualNode pulumi.StringPtrInput `pulumi:"virtualNode"`
+	Weight      pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (GetRouteSpecTcpRouteActionWeightedTargetArgs) ElementType() reflect.Type {
@@ -40023,16 +40023,16 @@ func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) ToGetRouteSpecTcpRouteAc
 	return o
 }
 
-func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecTcpRouteActionWeightedTarget) int { return v.Port }).(pulumi.IntOutput)
+func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecTcpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteActionWeightedTarget) *string { return v.VirtualNode }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecTcpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteActionWeightedTarget) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecTcpRouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
@@ -40056,7 +40056,7 @@ func (o GetRouteSpecTcpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntI
 }
 
 type GetRouteSpecTcpRouteMatch struct {
-	Port int `pulumi:"port"`
+	Port *int `pulumi:"port"`
 }
 
 // GetRouteSpecTcpRouteMatchInput is an input type that accepts GetRouteSpecTcpRouteMatchArgs and GetRouteSpecTcpRouteMatchOutput values.
@@ -40071,7 +40071,7 @@ type GetRouteSpecTcpRouteMatchInput interface {
 }
 
 type GetRouteSpecTcpRouteMatchArgs struct {
-	Port pulumi.IntInput `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
 func (GetRouteSpecTcpRouteMatchArgs) ElementType() reflect.Type {
@@ -40125,8 +40125,8 @@ func (o GetRouteSpecTcpRouteMatchOutput) ToGetRouteSpecTcpRouteMatchOutputWithCo
 	return o
 }
 
-func (o GetRouteSpecTcpRouteMatchOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecTcpRouteMatch) int { return v.Port }).(pulumi.IntOutput)
+func (o GetRouteSpecTcpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecTcpRouteMatchArrayOutput struct{ *pulumi.OutputState }
@@ -40244,8 +40244,8 @@ func (o GetRouteSpecTcpRouteTimeoutArrayOutput) Index(i pulumi.IntInput) GetRout
 }
 
 type GetRouteSpecTcpRouteTimeoutIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetRouteSpecTcpRouteTimeoutIdleInput is an input type that accepts GetRouteSpecTcpRouteTimeoutIdleArgs and GetRouteSpecTcpRouteTimeoutIdleOutput values.
@@ -40260,8 +40260,8 @@ type GetRouteSpecTcpRouteTimeoutIdleInput interface {
 }
 
 type GetRouteSpecTcpRouteTimeoutIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetRouteSpecTcpRouteTimeoutIdleArgs) ElementType() reflect.Type {
@@ -40315,12 +40315,12 @@ func (o GetRouteSpecTcpRouteTimeoutIdleOutput) ToGetRouteSpecTcpRouteTimeoutIdle
 	return o
 }
 
-func (o GetRouteSpecTcpRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteSpecTcpRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetRouteSpecTcpRouteTimeoutIdleOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteTimeoutIdle) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetRouteSpecTcpRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetRouteSpecTcpRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+func (o GetRouteSpecTcpRouteTimeoutIdleOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteTimeoutIdle) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetRouteSpecTcpRouteTimeoutIdleArrayOutput struct{ *pulumi.OutputState }
@@ -40643,7 +40643,7 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput) Index(i pulu
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTl struct {
 	Certificates []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate `pulumi:"certificates"`
-	Enforce      bool                                                           `pulumi:"enforce"`
+	Enforce      *bool                                                          `pulumi:"enforce"`
 	Ports        []int                                                          `pulumi:"ports"`
 	Validations  []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation  `pulumi:"validations"`
 }
@@ -40661,7 +40661,7 @@ type GetVirtualGatewaySpecBackendDefaultClientPolicyTlInput interface {
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs struct {
 	Certificates GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayInput `pulumi:"certificates"`
-	Enforce      pulumi.BoolInput                                                       `pulumi:"enforce"`
+	Enforce      pulumi.BoolPtrInput                                                    `pulumi:"enforce"`
 	Ports        pulumi.IntArrayInput                                                   `pulumi:"ports"`
 	Validations  GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayInput  `pulumi:"validations"`
 }
@@ -40723,8 +40723,8 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) Certificates() 
 	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput)
 }
 
-func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) Enforce() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTl) bool { return v.Enforce }).(pulumi.BoolOutput)
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTl) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) Ports() pulumi.IntArrayOutput {
@@ -40862,8 +40862,8 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput)
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
-	PrivateKey       string `pulumi:"privateKey"`
+	CertificateChain *string `pulumi:"certificateChain"`
+	PrivateKey       *string `pulumi:"privateKey"`
 }
 
 // GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput values.
@@ -40878,8 +40878,8 @@ type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileInput inter
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
+	PrivateKey       pulumi.StringPtrInput `pulumi:"privateKey"`
 }
 
 func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs) ElementType() reflect.Type {
@@ -40933,14 +40933,14 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) 
 	return o
 }
 
-func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile) string {
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile) *string {
 		return v.CertificateChain
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput struct{ *pulumi.OutputState }
@@ -40964,7 +40964,7 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOut
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput values.
@@ -40979,7 +40979,7 @@ type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdInput interfa
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs) ElementType() reflect.Type {
@@ -41033,8 +41033,8 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput) To
 	return o
 }
 
-func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd) *string { return v.SecretName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput struct{ *pulumi.OutputState }
@@ -41562,7 +41562,7 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArray
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
+	CertificateChain *string `pulumi:"certificateChain"`
 }
 
 // GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput values.
@@ -41577,7 +41577,7 @@ type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileInput i
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
 }
 
 func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs) ElementType() reflect.Type {
@@ -41631,10 +41631,10 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutp
 	return o
 }
 
-func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile) string {
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile) *string {
 		return v.CertificateChain
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput struct{ *pulumi.OutputState }
@@ -41658,7 +41658,7 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArra
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput values.
@@ -41673,7 +41673,7 @@ type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdInput int
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs) ElementType() reflect.Type {
@@ -41727,8 +41727,10 @@ func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput
 	return o
 }
 
-func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd) *string {
+		return v.SecretName
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput struct{ *pulumi.OutputState }
@@ -41982,7 +41984,7 @@ func (o GetVirtualGatewaySpecListenerConnectionPoolArrayOutput) Index(i pulumi.I
 }
 
 type GetVirtualGatewaySpecListenerConnectionPoolGrpc struct {
-	MaxRequests int `pulumi:"maxRequests"`
+	MaxRequests *int `pulumi:"maxRequests"`
 }
 
 // GetVirtualGatewaySpecListenerConnectionPoolGrpcInput is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs and GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput values.
@@ -41997,7 +41999,7 @@ type GetVirtualGatewaySpecListenerConnectionPoolGrpcInput interface {
 }
 
 type GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs struct {
-	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+	MaxRequests pulumi.IntPtrInput `pulumi:"maxRequests"`
 }
 
 func (GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs) ElementType() reflect.Type {
@@ -42051,8 +42053,8 @@ func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToGetVirtualGatew
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolGrpc) int { return v.MaxRequests }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolGrpc) *int { return v.MaxRequests }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput struct{ *pulumi.OutputState }
@@ -42076,7 +42078,7 @@ func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput) Index(i pulu
 }
 
 type GetVirtualGatewaySpecListenerConnectionPoolHttp2 struct {
-	MaxRequests int `pulumi:"maxRequests"`
+	MaxRequests *int `pulumi:"maxRequests"`
 }
 
 // GetVirtualGatewaySpecListenerConnectionPoolHttp2Input is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolHttp2Args and GetVirtualGatewaySpecListenerConnectionPoolHttp2Output values.
@@ -42091,7 +42093,7 @@ type GetVirtualGatewaySpecListenerConnectionPoolHttp2Input interface {
 }
 
 type GetVirtualGatewaySpecListenerConnectionPoolHttp2Args struct {
-	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+	MaxRequests pulumi.IntPtrInput `pulumi:"maxRequests"`
 }
 
 func (GetVirtualGatewaySpecListenerConnectionPoolHttp2Args) ElementType() reflect.Type {
@@ -42145,8 +42147,8 @@ func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2Output) ToGetVirtualGate
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolHttp2) int { return v.MaxRequests }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolHttp2) *int { return v.MaxRequests }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput struct{ *pulumi.OutputState }
@@ -42170,8 +42172,8 @@ func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput) Index(i pul
 }
 
 type GetVirtualGatewaySpecListenerConnectionPoolHttp struct {
-	MaxConnections     int `pulumi:"maxConnections"`
-	MaxPendingRequests int `pulumi:"maxPendingRequests"`
+	MaxConnections     *int `pulumi:"maxConnections"`
+	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
 }
 
 // GetVirtualGatewaySpecListenerConnectionPoolHttpInput is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolHttpArgs and GetVirtualGatewaySpecListenerConnectionPoolHttpOutput values.
@@ -42186,8 +42188,8 @@ type GetVirtualGatewaySpecListenerConnectionPoolHttpInput interface {
 }
 
 type GetVirtualGatewaySpecListenerConnectionPoolHttpArgs struct {
-	MaxConnections     pulumi.IntInput `pulumi:"maxConnections"`
-	MaxPendingRequests pulumi.IntInput `pulumi:"maxPendingRequests"`
+	MaxConnections     pulumi.IntPtrInput `pulumi:"maxConnections"`
+	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
 }
 
 func (GetVirtualGatewaySpecListenerConnectionPoolHttpArgs) ElementType() reflect.Type {
@@ -42241,12 +42243,12 @@ func (o GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) ToGetVirtualGatew
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolHttp) int { return v.MaxConnections }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolHttp) *int { return v.MaxConnections }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolHttp) int { return v.MaxPendingRequests }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput struct{ *pulumi.OutputState }
@@ -42270,13 +42272,13 @@ func (o GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput) Index(i pulu
 }
 
 type GetVirtualGatewaySpecListenerHealthCheck struct {
-	HealthyThreshold   int    `pulumi:"healthyThreshold"`
-	IntervalMillis     int    `pulumi:"intervalMillis"`
-	Path               string `pulumi:"path"`
-	Port               int    `pulumi:"port"`
-	Protocol           string `pulumi:"protocol"`
-	TimeoutMillis      int    `pulumi:"timeoutMillis"`
-	UnhealthyThreshold int    `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   *int    `pulumi:"healthyThreshold"`
+	IntervalMillis     *int    `pulumi:"intervalMillis"`
+	Path               *string `pulumi:"path"`
+	Port               *int    `pulumi:"port"`
+	Protocol           *string `pulumi:"protocol"`
+	TimeoutMillis      *int    `pulumi:"timeoutMillis"`
+	UnhealthyThreshold *int    `pulumi:"unhealthyThreshold"`
 }
 
 // GetVirtualGatewaySpecListenerHealthCheckInput is an input type that accepts GetVirtualGatewaySpecListenerHealthCheckArgs and GetVirtualGatewaySpecListenerHealthCheckOutput values.
@@ -42291,13 +42293,13 @@ type GetVirtualGatewaySpecListenerHealthCheckInput interface {
 }
 
 type GetVirtualGatewaySpecListenerHealthCheckArgs struct {
-	HealthyThreshold   pulumi.IntInput    `pulumi:"healthyThreshold"`
-	IntervalMillis     pulumi.IntInput    `pulumi:"intervalMillis"`
-	Path               pulumi.StringInput `pulumi:"path"`
-	Port               pulumi.IntInput    `pulumi:"port"`
-	Protocol           pulumi.StringInput `pulumi:"protocol"`
-	TimeoutMillis      pulumi.IntInput    `pulumi:"timeoutMillis"`
-	UnhealthyThreshold pulumi.IntInput    `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   pulumi.IntPtrInput    `pulumi:"healthyThreshold"`
+	IntervalMillis     pulumi.IntPtrInput    `pulumi:"intervalMillis"`
+	Path               pulumi.StringPtrInput `pulumi:"path"`
+	Port               pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol           pulumi.StringPtrInput `pulumi:"protocol"`
+	TimeoutMillis      pulumi.IntPtrInput    `pulumi:"timeoutMillis"`
+	UnhealthyThreshold pulumi.IntPtrInput    `pulumi:"unhealthyThreshold"`
 }
 
 func (GetVirtualGatewaySpecListenerHealthCheckArgs) ElementType() reflect.Type {
@@ -42351,32 +42353,32 @@ func (o GetVirtualGatewaySpecListenerHealthCheckOutput) ToGetVirtualGatewaySpecL
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) *int { return v.IntervalMillis }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerHealthCheckOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) string { return v.Path }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerHealthCheckOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.Port }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerHealthCheckOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) *int { return v.TimeoutMillis }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerHealthCheckArrayOutput struct{ *pulumi.OutputState }
@@ -42400,8 +42402,8 @@ func (o GetVirtualGatewaySpecListenerHealthCheckArrayOutput) Index(i pulumi.IntI
 }
 
 type GetVirtualGatewaySpecListenerPortMapping struct {
-	Port     int    `pulumi:"port"`
-	Protocol string `pulumi:"protocol"`
+	Port     *int    `pulumi:"port"`
+	Protocol *string `pulumi:"protocol"`
 }
 
 // GetVirtualGatewaySpecListenerPortMappingInput is an input type that accepts GetVirtualGatewaySpecListenerPortMappingArgs and GetVirtualGatewaySpecListenerPortMappingOutput values.
@@ -42416,8 +42418,8 @@ type GetVirtualGatewaySpecListenerPortMappingInput interface {
 }
 
 type GetVirtualGatewaySpecListenerPortMappingArgs struct {
-	Port     pulumi.IntInput    `pulumi:"port"`
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Port     pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (GetVirtualGatewaySpecListenerPortMappingArgs) ElementType() reflect.Type {
@@ -42471,12 +42473,12 @@ func (o GetVirtualGatewaySpecListenerPortMappingOutput) ToGetVirtualGatewaySpecL
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerPortMappingOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
+func (o GetVirtualGatewaySpecListenerPortMappingOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerPortMapping) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerPortMappingOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerPortMapping) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerPortMappingArrayOutput struct{ *pulumi.OutputState }
@@ -42501,7 +42503,7 @@ func (o GetVirtualGatewaySpecListenerPortMappingArrayOutput) Index(i pulumi.IntI
 
 type GetVirtualGatewaySpecListenerTl struct {
 	Certificates []GetVirtualGatewaySpecListenerTlCertificate `pulumi:"certificates"`
-	Mode         string                                       `pulumi:"mode"`
+	Mode         *string                                      `pulumi:"mode"`
 	Validations  []GetVirtualGatewaySpecListenerTlValidation  `pulumi:"validations"`
 }
 
@@ -42518,7 +42520,7 @@ type GetVirtualGatewaySpecListenerTlInput interface {
 
 type GetVirtualGatewaySpecListenerTlArgs struct {
 	Certificates GetVirtualGatewaySpecListenerTlCertificateArrayInput `pulumi:"certificates"`
-	Mode         pulumi.StringInput                                   `pulumi:"mode"`
+	Mode         pulumi.StringPtrInput                                `pulumi:"mode"`
 	Validations  GetVirtualGatewaySpecListenerTlValidationArrayInput  `pulumi:"validations"`
 }
 
@@ -42579,8 +42581,8 @@ func (o GetVirtualGatewaySpecListenerTlOutput) Certificates() GetVirtualGatewayS
 	}).(GetVirtualGatewaySpecListenerTlCertificateArrayOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerTlOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTl) string { return v.Mode }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerTlOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTl) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 func (o GetVirtualGatewaySpecListenerTlOutput) Validations() GetVirtualGatewaySpecListenerTlValidationArrayOutput {
@@ -42722,7 +42724,7 @@ func (o GetVirtualGatewaySpecListenerTlCertificateArrayOutput) Index(i pulumi.In
 }
 
 type GetVirtualGatewaySpecListenerTlCertificateAcm struct {
-	CertificateArn string `pulumi:"certificateArn"`
+	CertificateArn *string `pulumi:"certificateArn"`
 }
 
 // GetVirtualGatewaySpecListenerTlCertificateAcmInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateAcmArgs and GetVirtualGatewaySpecListenerTlCertificateAcmOutput values.
@@ -42737,7 +42739,7 @@ type GetVirtualGatewaySpecListenerTlCertificateAcmInput interface {
 }
 
 type GetVirtualGatewaySpecListenerTlCertificateAcmArgs struct {
-	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
 }
 
 func (GetVirtualGatewaySpecListenerTlCertificateAcmArgs) ElementType() reflect.Type {
@@ -42791,8 +42793,8 @@ func (o GetVirtualGatewaySpecListenerTlCertificateAcmOutput) ToGetVirtualGateway
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerTlCertificateAcmOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateAcm) string { return v.CertificateArn }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerTlCertificateAcmOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateAcm) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput struct{ *pulumi.OutputState }
@@ -42816,8 +42818,8 @@ func (o GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput) Index(i pulumi
 }
 
 type GetVirtualGatewaySpecListenerTlCertificateFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
-	PrivateKey       string `pulumi:"privateKey"`
+	CertificateChain *string `pulumi:"certificateChain"`
+	PrivateKey       *string `pulumi:"privateKey"`
 }
 
 // GetVirtualGatewaySpecListenerTlCertificateFileInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateFileArgs and GetVirtualGatewaySpecListenerTlCertificateFileOutput values.
@@ -42832,8 +42834,8 @@ type GetVirtualGatewaySpecListenerTlCertificateFileInput interface {
 }
 
 type GetVirtualGatewaySpecListenerTlCertificateFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
+	PrivateKey       pulumi.StringPtrInput `pulumi:"privateKey"`
 }
 
 func (GetVirtualGatewaySpecListenerTlCertificateFileArgs) ElementType() reflect.Type {
@@ -42887,12 +42889,12 @@ func (o GetVirtualGatewaySpecListenerTlCertificateFileOutput) ToGetVirtualGatewa
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerTlCertificateFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateFile) *string { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecListenerTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerTlCertificateFileOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateFile) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput struct{ *pulumi.OutputState }
@@ -42916,7 +42918,7 @@ func (o GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput) Index(i pulum
 }
 
 type GetVirtualGatewaySpecListenerTlCertificateSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualGatewaySpecListenerTlCertificateSdInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateSdArgs and GetVirtualGatewaySpecListenerTlCertificateSdOutput values.
@@ -42931,7 +42933,7 @@ type GetVirtualGatewaySpecListenerTlCertificateSdInput interface {
 }
 
 type GetVirtualGatewaySpecListenerTlCertificateSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualGatewaySpecListenerTlCertificateSdArgs) ElementType() reflect.Type {
@@ -42985,8 +42987,8 @@ func (o GetVirtualGatewaySpecListenerTlCertificateSdOutput) ToGetVirtualGatewayS
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerTlCertificateSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerTlCertificateSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateSd) *string { return v.SecretName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput struct{ *pulumi.OutputState }
@@ -43408,7 +43410,7 @@ func (o GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput) Index(i pulum
 }
 
 type GetVirtualGatewaySpecListenerTlValidationTrustFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
+	CertificateChain *string `pulumi:"certificateChain"`
 }
 
 // GetVirtualGatewaySpecListenerTlValidationTrustFileInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationTrustFileArgs and GetVirtualGatewaySpecListenerTlValidationTrustFileOutput values.
@@ -43423,7 +43425,7 @@ type GetVirtualGatewaySpecListenerTlValidationTrustFileInput interface {
 }
 
 type GetVirtualGatewaySpecListenerTlValidationTrustFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
 }
 
 func (GetVirtualGatewaySpecListenerTlValidationTrustFileArgs) ElementType() reflect.Type {
@@ -43477,8 +43479,8 @@ func (o GetVirtualGatewaySpecListenerTlValidationTrustFileOutput) ToGetVirtualGa
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationTrustFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerTlValidationTrustFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationTrustFile) *string { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput struct{ *pulumi.OutputState }
@@ -43502,7 +43504,7 @@ func (o GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput) Index(i p
 }
 
 type GetVirtualGatewaySpecListenerTlValidationTrustSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualGatewaySpecListenerTlValidationTrustSdInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationTrustSdArgs and GetVirtualGatewaySpecListenerTlValidationTrustSdOutput values.
@@ -43517,7 +43519,7 @@ type GetVirtualGatewaySpecListenerTlValidationTrustSdInput interface {
 }
 
 type GetVirtualGatewaySpecListenerTlValidationTrustSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualGatewaySpecListenerTlValidationTrustSdArgs) ElementType() reflect.Type {
@@ -43571,8 +43573,8 @@ func (o GetVirtualGatewaySpecListenerTlValidationTrustSdOutput) ToGetVirtualGate
 	return o
 }
 
-func (o GetVirtualGatewaySpecListenerTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecListenerTlValidationTrustSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationTrustSd) *string { return v.SecretName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput struct{ *pulumi.OutputState }
@@ -43787,7 +43789,7 @@ func (o GetVirtualGatewaySpecLoggingAccessLogArrayOutput) Index(i pulumi.IntInpu
 
 type GetVirtualGatewaySpecLoggingAccessLogFile struct {
 	Formats []GetVirtualGatewaySpecLoggingAccessLogFileFormat `pulumi:"formats"`
-	Path    string                                            `pulumi:"path"`
+	Path    *string                                           `pulumi:"path"`
 }
 
 // GetVirtualGatewaySpecLoggingAccessLogFileInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogFileArgs and GetVirtualGatewaySpecLoggingAccessLogFileOutput values.
@@ -43803,7 +43805,7 @@ type GetVirtualGatewaySpecLoggingAccessLogFileInput interface {
 
 type GetVirtualGatewaySpecLoggingAccessLogFileArgs struct {
 	Formats GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayInput `pulumi:"formats"`
-	Path    pulumi.StringInput                                        `pulumi:"path"`
+	Path    pulumi.StringPtrInput                                     `pulumi:"path"`
 }
 
 func (GetVirtualGatewaySpecLoggingAccessLogFileArgs) ElementType() reflect.Type {
@@ -43863,8 +43865,8 @@ func (o GetVirtualGatewaySpecLoggingAccessLogFileOutput) Formats() GetVirtualGat
 	}).(GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput)
 }
 
-func (o GetVirtualGatewaySpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecLoggingAccessLogFileOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFile) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput struct{ *pulumi.OutputState }
@@ -43889,7 +43891,7 @@ func (o GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput) Index(i pulumi.Int
 
 type GetVirtualGatewaySpecLoggingAccessLogFileFormat struct {
 	Jsons []GetVirtualGatewaySpecLoggingAccessLogFileFormatJson `pulumi:"jsons"`
-	Text  string                                                `pulumi:"text"`
+	Text  *string                                               `pulumi:"text"`
 }
 
 // GetVirtualGatewaySpecLoggingAccessLogFileFormatInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs and GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput values.
@@ -43905,7 +43907,7 @@ type GetVirtualGatewaySpecLoggingAccessLogFileFormatInput interface {
 
 type GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs struct {
 	Jsons GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput `pulumi:"jsons"`
-	Text  pulumi.StringInput                                            `pulumi:"text"`
+	Text  pulumi.StringPtrInput                                         `pulumi:"text"`
 }
 
 func (GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs) ElementType() reflect.Type {
@@ -43965,8 +43967,8 @@ func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput) Jsons() GetVirtua
 	}).(GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput)
 }
 
-func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput) Text() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormat) string { return v.Text }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormat) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput struct{ *pulumi.OutputState }
@@ -43990,8 +43992,8 @@ func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput) Index(i pulu
 }
 
 type GetVirtualGatewaySpecLoggingAccessLogFileFormatJson struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
 }
 
 // GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs and GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput values.
@@ -44006,8 +44008,8 @@ type GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonInput interface {
 }
 
 type GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs) ElementType() reflect.Type {
@@ -44061,12 +44063,12 @@ func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) ToGetVirtualG
 	return o
 }
 
-func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormatJson) string { return v.Key }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormatJson) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormatJson) string { return v.Value }).(pulumi.StringOutput)
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormatJson) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput struct{ *pulumi.OutputState }
@@ -44495,7 +44497,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyArrayOutput) Index(i pulumi.
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTl struct {
 	Certificates []GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate `pulumi:"certificates"`
-	Enforce      bool                                                        `pulumi:"enforce"`
+	Enforce      *bool                                                       `pulumi:"enforce"`
 	Ports        []int                                                       `pulumi:"ports"`
 	Validations  []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation  `pulumi:"validations"`
 }
@@ -44513,7 +44515,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlInput interface {
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlArgs struct {
 	Certificates GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArrayInput `pulumi:"certificates"`
-	Enforce      pulumi.BoolInput                                                    `pulumi:"enforce"`
+	Enforce      pulumi.BoolPtrInput                                                 `pulumi:"enforce"`
 	Ports        pulumi.IntArrayInput                                                `pulumi:"ports"`
 	Validations  GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArrayInput  `pulumi:"validations"`
 }
@@ -44575,8 +44577,8 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Certificates() Get
 	}).(GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArrayOutput)
 }
 
-func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Enforce() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTl) bool { return v.Enforce }).(pulumi.BoolOutput)
+func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTl) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Ports() pulumi.IntArrayOutput {
@@ -44714,8 +44716,8 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateArrayOutput) In
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
-	PrivateKey       string `pulumi:"privateKey"`
+	CertificateChain *string `pulumi:"certificateChain"`
+	PrivateKey       *string `pulumi:"privateKey"`
 }
 
 // GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileInput is an input type that accepts GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArgs and GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput values.
@@ -44730,8 +44732,8 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileInput interfac
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
+	PrivateKey       pulumi.StringPtrInput `pulumi:"privateKey"`
 }
 
 func (GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArgs) ElementType() reflect.Type {
@@ -44785,14 +44787,14 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput) ToG
 	return o
 }
 
-func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile) string {
+func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile) *string {
 		return v.CertificateChain
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArrayOutput struct{ *pulumi.OutputState }
@@ -44816,7 +44818,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArrayOutput
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdInput is an input type that accepts GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArgs and GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdOutput values.
@@ -44831,7 +44833,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdInput interface 
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArgs) ElementType() reflect.Type {
@@ -44885,8 +44887,8 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdOutput) ToGet
 	return o
 }
 
-func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd) *string { return v.SecretName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArrayOutput struct{ *pulumi.OutputState }
@@ -45414,7 +45416,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOut
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
+	CertificateChain *string `pulumi:"certificateChain"`
 }
 
 // GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileInput is an input type that accepts GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArgs and GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileOutput values.
@@ -45429,7 +45431,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileInput inte
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
 }
 
 func (GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArgs) ElementType() reflect.Type {
@@ -45483,10 +45485,10 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileOutput)
 	return o
 }
 
-func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile) string {
+func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile) *string {
 		return v.CertificateChain
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput struct{ *pulumi.OutputState }
@@ -45510,7 +45512,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArrayOu
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdInput is an input type that accepts GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArgs and GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdOutput values.
@@ -45525,7 +45527,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdInput interf
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArgs) ElementType() reflect.Type {
@@ -45579,8 +45581,8 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdOutput) T
 	return o
 }
 
-func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd) *string { return v.SecretName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput struct{ *pulumi.OutputState }
@@ -45605,7 +45607,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutp
 
 type GetVirtualNodeSpecBackendVirtualService struct {
 	ClientPolicies     []GetVirtualNodeSpecBackendVirtualServiceClientPolicy `pulumi:"clientPolicies"`
-	VirtualServiceName string                                                `pulumi:"virtualServiceName"`
+	VirtualServiceName *string                                               `pulumi:"virtualServiceName"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceArgs and GetVirtualNodeSpecBackendVirtualServiceOutput values.
@@ -45621,7 +45623,7 @@ type GetVirtualNodeSpecBackendVirtualServiceInput interface {
 
 type GetVirtualNodeSpecBackendVirtualServiceArgs struct {
 	ClientPolicies     GetVirtualNodeSpecBackendVirtualServiceClientPolicyArrayInput `pulumi:"clientPolicies"`
-	VirtualServiceName pulumi.StringInput                                            `pulumi:"virtualServiceName"`
+	VirtualServiceName pulumi.StringPtrInput                                         `pulumi:"virtualServiceName"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceArgs) ElementType() reflect.Type {
@@ -45681,8 +45683,8 @@ func (o GetVirtualNodeSpecBackendVirtualServiceOutput) ClientPolicies() GetVirtu
 	}).(GetVirtualNodeSpecBackendVirtualServiceClientPolicyArrayOutput)
 }
 
-func (o GetVirtualNodeSpecBackendVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecBackendVirtualServiceOutput) VirtualServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualService) *string { return v.VirtualServiceName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceArrayOutput struct{ *pulumi.OutputState }
@@ -45803,7 +45805,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyArrayOutput) Index(i 
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl struct {
 	Certificates []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate `pulumi:"certificates"`
-	Enforce      bool                                                               `pulumi:"enforce"`
+	Enforce      *bool                                                              `pulumi:"enforce"`
 	Ports        []int                                                              `pulumi:"ports"`
 	Validations  []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation  `pulumi:"validations"`
 }
@@ -45821,7 +45823,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlInput interface {
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArgs struct {
 	Certificates GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArrayInput `pulumi:"certificates"`
-	Enforce      pulumi.BoolInput                                                           `pulumi:"enforce"`
+	Enforce      pulumi.BoolPtrInput                                                        `pulumi:"enforce"`
 	Ports        pulumi.IntArrayInput                                                       `pulumi:"ports"`
 	Validations  GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArrayInput  `pulumi:"validations"`
 }
@@ -45883,8 +45885,8 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Certificate
 	}).(GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArrayOutput)
 }
 
-func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Enforce() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl) bool { return v.Enforce }).(pulumi.BoolOutput)
+func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Ports() pulumi.IntArrayOutput {
@@ -46022,8 +46024,8 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateArrayOut
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
-	PrivateKey       string `pulumi:"privateKey"`
+	CertificateChain *string `pulumi:"certificateChain"`
+	PrivateKey       *string `pulumi:"privateKey"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArgs and GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutput values.
@@ -46038,8 +46040,8 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileInput i
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
+	PrivateKey       pulumi.StringPtrInput `pulumi:"privateKey"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArgs) ElementType() reflect.Type {
@@ -46093,16 +46095,16 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutp
 	return o
 }
 
-func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile) string {
+func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile) *string {
 		return v.CertificateChain
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile) string {
+func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile) *string {
 		return v.PrivateKey
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArrayOutput struct{ *pulumi.OutputState }
@@ -46126,7 +46128,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArra
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArgs and GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdOutput values.
@@ -46141,7 +46143,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdInput int
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArgs) ElementType() reflect.Type {
@@ -46195,8 +46197,10 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdOutput
 	return o
 }
 
-func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd) *string {
+		return v.SecretName
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArrayOutput struct{ *pulumi.OutputState }
@@ -46724,7 +46728,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmA
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
+	CertificateChain *string `pulumi:"certificateChain"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileArgs and GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileOutput values.
@@ -46739,7 +46743,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileInp
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileArgs) ElementType() reflect.Type {
@@ -46793,10 +46797,10 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile
 	return o
 }
 
-func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile) string {
+func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile) *string {
 		return v.CertificateChain
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileArrayOutput struct{ *pulumi.OutputState }
@@ -46820,7 +46824,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdInput is an input type that accepts GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArgs and GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdOutput values.
@@ -46835,7 +46839,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdInput
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArgs) ElementType() reflect.Type {
@@ -46889,10 +46893,10 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdOu
 	return o
 }
 
-func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd) string {
+func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd) *string {
 		return v.SecretName
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArrayOutput struct{ *pulumi.OutputState }
@@ -47164,7 +47168,7 @@ func (o GetVirtualNodeSpecListenerConnectionPoolArrayOutput) Index(i pulumi.IntI
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolGrpc struct {
-	MaxRequests int `pulumi:"maxRequests"`
+	MaxRequests *int `pulumi:"maxRequests"`
 }
 
 // GetVirtualNodeSpecListenerConnectionPoolGrpcInput is an input type that accepts GetVirtualNodeSpecListenerConnectionPoolGrpcArgs and GetVirtualNodeSpecListenerConnectionPoolGrpcOutput values.
@@ -47179,7 +47183,7 @@ type GetVirtualNodeSpecListenerConnectionPoolGrpcInput interface {
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolGrpcArgs struct {
-	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+	MaxRequests pulumi.IntPtrInput `pulumi:"maxRequests"`
 }
 
 func (GetVirtualNodeSpecListenerConnectionPoolGrpcArgs) ElementType() reflect.Type {
@@ -47233,8 +47237,8 @@ func (o GetVirtualNodeSpecListenerConnectionPoolGrpcOutput) ToGetVirtualNodeSpec
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolGrpc) int { return v.MaxRequests }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolGrpc) *int { return v.MaxRequests }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolGrpcArrayOutput struct{ *pulumi.OutputState }
@@ -47258,7 +47262,7 @@ func (o GetVirtualNodeSpecListenerConnectionPoolGrpcArrayOutput) Index(i pulumi.
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttp2 struct {
-	MaxRequests int `pulumi:"maxRequests"`
+	MaxRequests *int `pulumi:"maxRequests"`
 }
 
 // GetVirtualNodeSpecListenerConnectionPoolHttp2Input is an input type that accepts GetVirtualNodeSpecListenerConnectionPoolHttp2Args and GetVirtualNodeSpecListenerConnectionPoolHttp2Output values.
@@ -47273,7 +47277,7 @@ type GetVirtualNodeSpecListenerConnectionPoolHttp2Input interface {
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttp2Args struct {
-	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+	MaxRequests pulumi.IntPtrInput `pulumi:"maxRequests"`
 }
 
 func (GetVirtualNodeSpecListenerConnectionPoolHttp2Args) ElementType() reflect.Type {
@@ -47327,8 +47331,8 @@ func (o GetVirtualNodeSpecListenerConnectionPoolHttp2Output) ToGetVirtualNodeSpe
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolHttp2) int { return v.MaxRequests }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolHttp2) *int { return v.MaxRequests }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput struct{ *pulumi.OutputState }
@@ -47352,8 +47356,8 @@ func (o GetVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput) Index(i pulumi
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttp struct {
-	MaxConnections     int `pulumi:"maxConnections"`
-	MaxPendingRequests int `pulumi:"maxPendingRequests"`
+	MaxConnections     *int `pulumi:"maxConnections"`
+	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
 }
 
 // GetVirtualNodeSpecListenerConnectionPoolHttpInput is an input type that accepts GetVirtualNodeSpecListenerConnectionPoolHttpArgs and GetVirtualNodeSpecListenerConnectionPoolHttpOutput values.
@@ -47368,8 +47372,8 @@ type GetVirtualNodeSpecListenerConnectionPoolHttpInput interface {
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttpArgs struct {
-	MaxConnections     pulumi.IntInput `pulumi:"maxConnections"`
-	MaxPendingRequests pulumi.IntInput `pulumi:"maxPendingRequests"`
+	MaxConnections     pulumi.IntPtrInput `pulumi:"maxConnections"`
+	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
 }
 
 func (GetVirtualNodeSpecListenerConnectionPoolHttpArgs) ElementType() reflect.Type {
@@ -47423,12 +47427,12 @@ func (o GetVirtualNodeSpecListenerConnectionPoolHttpOutput) ToGetVirtualNodeSpec
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolHttp) int { return v.MaxConnections }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolHttp) *int { return v.MaxConnections }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolHttp) int { return v.MaxPendingRequests }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolHttpArrayOutput struct{ *pulumi.OutputState }
@@ -47452,7 +47456,7 @@ func (o GetVirtualNodeSpecListenerConnectionPoolHttpArrayOutput) Index(i pulumi.
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolTcp struct {
-	MaxConnections int `pulumi:"maxConnections"`
+	MaxConnections *int `pulumi:"maxConnections"`
 }
 
 // GetVirtualNodeSpecListenerConnectionPoolTcpInput is an input type that accepts GetVirtualNodeSpecListenerConnectionPoolTcpArgs and GetVirtualNodeSpecListenerConnectionPoolTcpOutput values.
@@ -47467,7 +47471,7 @@ type GetVirtualNodeSpecListenerConnectionPoolTcpInput interface {
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolTcpArgs struct {
-	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
+	MaxConnections pulumi.IntPtrInput `pulumi:"maxConnections"`
 }
 
 func (GetVirtualNodeSpecListenerConnectionPoolTcpArgs) ElementType() reflect.Type {
@@ -47521,8 +47525,8 @@ func (o GetVirtualNodeSpecListenerConnectionPoolTcpOutput) ToGetVirtualNodeSpecL
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerConnectionPoolTcpOutput) MaxConnections() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolTcp) int { return v.MaxConnections }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerConnectionPoolTcpOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerConnectionPoolTcp) *int { return v.MaxConnections }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerConnectionPoolTcpArrayOutput struct{ *pulumi.OutputState }
@@ -47546,13 +47550,13 @@ func (o GetVirtualNodeSpecListenerConnectionPoolTcpArrayOutput) Index(i pulumi.I
 }
 
 type GetVirtualNodeSpecListenerHealthCheck struct {
-	HealthyThreshold   int    `pulumi:"healthyThreshold"`
-	IntervalMillis     int    `pulumi:"intervalMillis"`
-	Path               string `pulumi:"path"`
-	Port               int    `pulumi:"port"`
-	Protocol           string `pulumi:"protocol"`
-	TimeoutMillis      int    `pulumi:"timeoutMillis"`
-	UnhealthyThreshold int    `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   *int    `pulumi:"healthyThreshold"`
+	IntervalMillis     *int    `pulumi:"intervalMillis"`
+	Path               *string `pulumi:"path"`
+	Port               *int    `pulumi:"port"`
+	Protocol           *string `pulumi:"protocol"`
+	TimeoutMillis      *int    `pulumi:"timeoutMillis"`
+	UnhealthyThreshold *int    `pulumi:"unhealthyThreshold"`
 }
 
 // GetVirtualNodeSpecListenerHealthCheckInput is an input type that accepts GetVirtualNodeSpecListenerHealthCheckArgs and GetVirtualNodeSpecListenerHealthCheckOutput values.
@@ -47567,13 +47571,13 @@ type GetVirtualNodeSpecListenerHealthCheckInput interface {
 }
 
 type GetVirtualNodeSpecListenerHealthCheckArgs struct {
-	HealthyThreshold   pulumi.IntInput    `pulumi:"healthyThreshold"`
-	IntervalMillis     pulumi.IntInput    `pulumi:"intervalMillis"`
-	Path               pulumi.StringInput `pulumi:"path"`
-	Port               pulumi.IntInput    `pulumi:"port"`
-	Protocol           pulumi.StringInput `pulumi:"protocol"`
-	TimeoutMillis      pulumi.IntInput    `pulumi:"timeoutMillis"`
-	UnhealthyThreshold pulumi.IntInput    `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   pulumi.IntPtrInput    `pulumi:"healthyThreshold"`
+	IntervalMillis     pulumi.IntPtrInput    `pulumi:"intervalMillis"`
+	Path               pulumi.StringPtrInput `pulumi:"path"`
+	Port               pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol           pulumi.StringPtrInput `pulumi:"protocol"`
+	TimeoutMillis      pulumi.IntPtrInput    `pulumi:"timeoutMillis"`
+	UnhealthyThreshold pulumi.IntPtrInput    `pulumi:"unhealthyThreshold"`
 }
 
 func (GetVirtualNodeSpecListenerHealthCheckArgs) ElementType() reflect.Type {
@@ -47627,32 +47631,32 @@ func (o GetVirtualNodeSpecListenerHealthCheckOutput) ToGetVirtualNodeSpecListene
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) *int { return v.IntervalMillis }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerHealthCheckOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) string { return v.Path }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerHealthCheckOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerHealthCheckOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.Port }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerHealthCheckOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerHealthCheckOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerHealthCheckOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) *int { return v.TimeoutMillis }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerHealthCheck) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerHealthCheckArrayOutput struct{ *pulumi.OutputState }
@@ -47678,8 +47682,8 @@ func (o GetVirtualNodeSpecListenerHealthCheckArrayOutput) Index(i pulumi.IntInpu
 type GetVirtualNodeSpecListenerOutlierDetection struct {
 	BaseEjectionDurations []GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration `pulumi:"baseEjectionDurations"`
 	Intervals             []GetVirtualNodeSpecListenerOutlierDetectionInterval             `pulumi:"intervals"`
-	MaxEjectionPercent    int                                                              `pulumi:"maxEjectionPercent"`
-	MaxServerErrors       int                                                              `pulumi:"maxServerErrors"`
+	MaxEjectionPercent    *int                                                             `pulumi:"maxEjectionPercent"`
+	MaxServerErrors       *int                                                             `pulumi:"maxServerErrors"`
 }
 
 // GetVirtualNodeSpecListenerOutlierDetectionInput is an input type that accepts GetVirtualNodeSpecListenerOutlierDetectionArgs and GetVirtualNodeSpecListenerOutlierDetectionOutput values.
@@ -47696,8 +47700,8 @@ type GetVirtualNodeSpecListenerOutlierDetectionInput interface {
 type GetVirtualNodeSpecListenerOutlierDetectionArgs struct {
 	BaseEjectionDurations GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArrayInput `pulumi:"baseEjectionDurations"`
 	Intervals             GetVirtualNodeSpecListenerOutlierDetectionIntervalArrayInput             `pulumi:"intervals"`
-	MaxEjectionPercent    pulumi.IntInput                                                          `pulumi:"maxEjectionPercent"`
-	MaxServerErrors       pulumi.IntInput                                                          `pulumi:"maxServerErrors"`
+	MaxEjectionPercent    pulumi.IntPtrInput                                                       `pulumi:"maxEjectionPercent"`
+	MaxServerErrors       pulumi.IntPtrInput                                                       `pulumi:"maxServerErrors"`
 }
 
 func (GetVirtualNodeSpecListenerOutlierDetectionArgs) ElementType() reflect.Type {
@@ -47763,12 +47767,12 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) Intervals() GetVirtual
 	}).(GetVirtualNodeSpecListenerOutlierDetectionIntervalArrayOutput)
 }
 
-func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) MaxEjectionPercent() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetection) int { return v.MaxEjectionPercent }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) MaxEjectionPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetection) *int { return v.MaxEjectionPercent }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) MaxServerErrors() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetection) int { return v.MaxServerErrors }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerOutlierDetectionOutput) MaxServerErrors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetection) *int { return v.MaxServerErrors }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionArrayOutput struct{ *pulumi.OutputState }
@@ -47792,8 +47796,8 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionArrayOutput) Index(i pulumi.In
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput is an input type that accepts GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs and GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput values.
@@ -47808,8 +47812,8 @@ type GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput interfa
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs) ElementType() reflect.Type {
@@ -47863,12 +47867,12 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) To
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) int { return v.Value }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArrayOutput struct{ *pulumi.OutputState }
@@ -47892,8 +47896,8 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArrayOutpu
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionInterval struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerOutlierDetectionIntervalInput is an input type that accepts GetVirtualNodeSpecListenerOutlierDetectionIntervalArgs and GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput values.
@@ -47908,8 +47912,8 @@ type GetVirtualNodeSpecListenerOutlierDetectionIntervalInput interface {
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionIntervalArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerOutlierDetectionIntervalArgs) ElementType() reflect.Type {
@@ -47963,12 +47967,12 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput) ToGetVirtualNo
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionInterval) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionInterval) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionInterval) int { return v.Value }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerOutlierDetectionInterval) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerOutlierDetectionIntervalArrayOutput struct{ *pulumi.OutputState }
@@ -47992,8 +47996,8 @@ func (o GetVirtualNodeSpecListenerOutlierDetectionIntervalArrayOutput) Index(i p
 }
 
 type GetVirtualNodeSpecListenerPortMapping struct {
-	Port     int    `pulumi:"port"`
-	Protocol string `pulumi:"protocol"`
+	Port     *int    `pulumi:"port"`
+	Protocol *string `pulumi:"protocol"`
 }
 
 // GetVirtualNodeSpecListenerPortMappingInput is an input type that accepts GetVirtualNodeSpecListenerPortMappingArgs and GetVirtualNodeSpecListenerPortMappingOutput values.
@@ -48008,8 +48012,8 @@ type GetVirtualNodeSpecListenerPortMappingInput interface {
 }
 
 type GetVirtualNodeSpecListenerPortMappingArgs struct {
-	Port     pulumi.IntInput    `pulumi:"port"`
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Port     pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (GetVirtualNodeSpecListenerPortMappingArgs) ElementType() reflect.Type {
@@ -48063,12 +48067,12 @@ func (o GetVirtualNodeSpecListenerPortMappingOutput) ToGetVirtualNodeSpecListene
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerPortMapping) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerPortMappingOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerPortMapping) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerPortMappingArrayOutput struct{ *pulumi.OutputState }
@@ -48308,8 +48312,8 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutGrpcIdleInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutGrpcIdleArgs and GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput values.
@@ -48324,8 +48328,8 @@ type GetVirtualNodeSpecListenerTimeoutGrpcIdleInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutGrpcIdleArgs) ElementType() reflect.Type {
@@ -48379,12 +48383,12 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput) ToGetVirtualNodeSpecLis
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcIdle) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcIdle) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcIdle) int { return v.Value }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcIdle) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcIdleArrayOutput struct{ *pulumi.OutputState }
@@ -48408,8 +48412,8 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcIdleArrayOutput) Index(i pulumi.Int
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcPerRequest struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutGrpcPerRequestInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArgs and GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput values.
@@ -48424,8 +48428,8 @@ type GetVirtualNodeSpecListenerTimeoutGrpcPerRequestInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArgs) ElementType() reflect.Type {
@@ -48479,12 +48483,12 @@ func (o GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ToGetVirtualNodeS
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcPerRequest) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcPerRequest) int { return v.Value }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutGrpcPerRequest) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTimeoutGrpcPerRequestArrayOutput struct{ *pulumi.OutputState }
@@ -48612,8 +48616,8 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2ArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2Idle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutHttp2IdleInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutHttp2IdleArgs and GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput values.
@@ -48628,8 +48632,8 @@ type GetVirtualNodeSpecListenerTimeoutHttp2IdleInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2IdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutHttp2IdleArgs) ElementType() reflect.Type {
@@ -48683,12 +48687,12 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput) ToGetVirtualNodeSpecLi
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2Idle) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2Idle) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2Idle) int { return v.Value }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2Idle) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2IdleArrayOutput struct{ *pulumi.OutputState }
@@ -48712,8 +48716,8 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2IdleArrayOutput) Index(i pulumi.In
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2PerRequest struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutHttp2PerRequestInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArgs and GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput values.
@@ -48728,8 +48732,8 @@ type GetVirtualNodeSpecListenerTimeoutHttp2PerRequestInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArgs) ElementType() reflect.Type {
@@ -48783,12 +48787,12 @@ func (o GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ToGetVirtualNode
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2PerRequest) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2PerRequest) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2PerRequest) int { return v.Value }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttp2PerRequest) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttp2PerRequestArrayOutput struct{ *pulumi.OutputState }
@@ -48916,8 +48920,8 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutHttpIdleInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutHttpIdleArgs and GetVirtualNodeSpecListenerTimeoutHttpIdleOutput values.
@@ -48932,8 +48936,8 @@ type GetVirtualNodeSpecListenerTimeoutHttpIdleInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutHttpIdleArgs) ElementType() reflect.Type {
@@ -48987,12 +48991,12 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpIdleOutput) ToGetVirtualNodeSpecLis
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutHttpIdleOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpIdle) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTimeoutHttpIdleOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpIdle) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutHttpIdleOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpIdle) int { return v.Value }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerTimeoutHttpIdleOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpIdle) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpIdleArrayOutput struct{ *pulumi.OutputState }
@@ -49016,8 +49020,8 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpIdleArrayOutput) Index(i pulumi.Int
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpPerRequest struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutHttpPerRequestInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutHttpPerRequestArgs and GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput values.
@@ -49032,8 +49036,8 @@ type GetVirtualNodeSpecListenerTimeoutHttpPerRequestInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpPerRequestArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutHttpPerRequestArgs) ElementType() reflect.Type {
@@ -49087,12 +49091,12 @@ func (o GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ToGetVirtualNodeS
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpPerRequest) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpPerRequest) int { return v.Value }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutHttpPerRequest) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTimeoutHttpPerRequestArrayOutput struct{ *pulumi.OutputState }
@@ -49212,8 +49216,8 @@ func (o GetVirtualNodeSpecListenerTimeoutTcpArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetVirtualNodeSpecListenerTimeoutTcpIdle struct {
-	Unit  string `pulumi:"unit"`
-	Value int    `pulumi:"value"`
+	Unit  *string `pulumi:"unit"`
+	Value *int    `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecListenerTimeoutTcpIdleInput is an input type that accepts GetVirtualNodeSpecListenerTimeoutTcpIdleArgs and GetVirtualNodeSpecListenerTimeoutTcpIdleOutput values.
@@ -49228,8 +49232,8 @@ type GetVirtualNodeSpecListenerTimeoutTcpIdleInput interface {
 }
 
 type GetVirtualNodeSpecListenerTimeoutTcpIdleArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecListenerTimeoutTcpIdleArgs) ElementType() reflect.Type {
@@ -49283,12 +49287,12 @@ func (o GetVirtualNodeSpecListenerTimeoutTcpIdleOutput) ToGetVirtualNodeSpecList
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutTcpIdleOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutTcpIdle) string { return v.Unit }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTimeoutTcpIdleOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutTcpIdle) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerTimeoutTcpIdleOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutTcpIdle) int { return v.Value }).(pulumi.IntOutput)
+func (o GetVirtualNodeSpecListenerTimeoutTcpIdleOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTimeoutTcpIdle) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTimeoutTcpIdleArrayOutput struct{ *pulumi.OutputState }
@@ -49313,7 +49317,7 @@ func (o GetVirtualNodeSpecListenerTimeoutTcpIdleArrayOutput) Index(i pulumi.IntI
 
 type GetVirtualNodeSpecListenerTl struct {
 	Certificates []GetVirtualNodeSpecListenerTlCertificate `pulumi:"certificates"`
-	Mode         string                                    `pulumi:"mode"`
+	Mode         *string                                   `pulumi:"mode"`
 	Validations  []GetVirtualNodeSpecListenerTlValidation  `pulumi:"validations"`
 }
 
@@ -49330,7 +49334,7 @@ type GetVirtualNodeSpecListenerTlInput interface {
 
 type GetVirtualNodeSpecListenerTlArgs struct {
 	Certificates GetVirtualNodeSpecListenerTlCertificateArrayInput `pulumi:"certificates"`
-	Mode         pulumi.StringInput                                `pulumi:"mode"`
+	Mode         pulumi.StringPtrInput                             `pulumi:"mode"`
 	Validations  GetVirtualNodeSpecListenerTlValidationArrayInput  `pulumi:"validations"`
 }
 
@@ -49389,8 +49393,8 @@ func (o GetVirtualNodeSpecListenerTlOutput) Certificates() GetVirtualNodeSpecLis
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTl) []GetVirtualNodeSpecListenerTlCertificate { return v.Certificates }).(GetVirtualNodeSpecListenerTlCertificateArrayOutput)
 }
 
-func (o GetVirtualNodeSpecListenerTlOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTl) string { return v.Mode }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTlOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTl) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 func (o GetVirtualNodeSpecListenerTlOutput) Validations() GetVirtualNodeSpecListenerTlValidationArrayOutput {
@@ -49530,7 +49534,7 @@ func (o GetVirtualNodeSpecListenerTlCertificateArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetVirtualNodeSpecListenerTlCertificateAcm struct {
-	CertificateArn string `pulumi:"certificateArn"`
+	CertificateArn *string `pulumi:"certificateArn"`
 }
 
 // GetVirtualNodeSpecListenerTlCertificateAcmInput is an input type that accepts GetVirtualNodeSpecListenerTlCertificateAcmArgs and GetVirtualNodeSpecListenerTlCertificateAcmOutput values.
@@ -49545,7 +49549,7 @@ type GetVirtualNodeSpecListenerTlCertificateAcmInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlCertificateAcmArgs struct {
-	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
 }
 
 func (GetVirtualNodeSpecListenerTlCertificateAcmArgs) ElementType() reflect.Type {
@@ -49599,8 +49603,8 @@ func (o GetVirtualNodeSpecListenerTlCertificateAcmOutput) ToGetVirtualNodeSpecLi
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTlCertificateAcmOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateAcm) string { return v.CertificateArn }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTlCertificateAcmOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateAcm) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTlCertificateAcmArrayOutput struct{ *pulumi.OutputState }
@@ -49624,8 +49628,8 @@ func (o GetVirtualNodeSpecListenerTlCertificateAcmArrayOutput) Index(i pulumi.In
 }
 
 type GetVirtualNodeSpecListenerTlCertificateFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
-	PrivateKey       string `pulumi:"privateKey"`
+	CertificateChain *string `pulumi:"certificateChain"`
+	PrivateKey       *string `pulumi:"privateKey"`
 }
 
 // GetVirtualNodeSpecListenerTlCertificateFileInput is an input type that accepts GetVirtualNodeSpecListenerTlCertificateFileArgs and GetVirtualNodeSpecListenerTlCertificateFileOutput values.
@@ -49640,8 +49644,8 @@ type GetVirtualNodeSpecListenerTlCertificateFileInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlCertificateFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
+	PrivateKey       pulumi.StringPtrInput `pulumi:"privateKey"`
 }
 
 func (GetVirtualNodeSpecListenerTlCertificateFileArgs) ElementType() reflect.Type {
@@ -49695,12 +49699,12 @@ func (o GetVirtualNodeSpecListenerTlCertificateFileOutput) ToGetVirtualNodeSpecL
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTlCertificateFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateFile) *string { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecListenerTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTlCertificateFileOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateFile) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTlCertificateFileArrayOutput struct{ *pulumi.OutputState }
@@ -49724,7 +49728,7 @@ func (o GetVirtualNodeSpecListenerTlCertificateFileArrayOutput) Index(i pulumi.I
 }
 
 type GetVirtualNodeSpecListenerTlCertificateSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualNodeSpecListenerTlCertificateSdInput is an input type that accepts GetVirtualNodeSpecListenerTlCertificateSdArgs and GetVirtualNodeSpecListenerTlCertificateSdOutput values.
@@ -49739,7 +49743,7 @@ type GetVirtualNodeSpecListenerTlCertificateSdInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlCertificateSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualNodeSpecListenerTlCertificateSdArgs) ElementType() reflect.Type {
@@ -49793,8 +49797,8 @@ func (o GetVirtualNodeSpecListenerTlCertificateSdOutput) ToGetVirtualNodeSpecLis
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTlCertificateSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTlCertificateSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateSd) *string { return v.SecretName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTlCertificateSdArrayOutput struct{ *pulumi.OutputState }
@@ -50216,7 +50220,7 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustArrayOutput) Index(i pulumi.I
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustFile struct {
-	CertificateChain string `pulumi:"certificateChain"`
+	CertificateChain *string `pulumi:"certificateChain"`
 }
 
 // GetVirtualNodeSpecListenerTlValidationTrustFileInput is an input type that accepts GetVirtualNodeSpecListenerTlValidationTrustFileArgs and GetVirtualNodeSpecListenerTlValidationTrustFileOutput values.
@@ -50231,7 +50235,7 @@ type GetVirtualNodeSpecListenerTlValidationTrustFileInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustFileArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	CertificateChain pulumi.StringPtrInput `pulumi:"certificateChain"`
 }
 
 func (GetVirtualNodeSpecListenerTlValidationTrustFileArgs) ElementType() reflect.Type {
@@ -50285,8 +50289,8 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustFileOutput) ToGetVirtualNodeS
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationTrustFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTlValidationTrustFileOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationTrustFile) *string { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustFileArrayOutput struct{ *pulumi.OutputState }
@@ -50310,7 +50314,7 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustFileArrayOutput) Index(i pulu
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustSd struct {
-	SecretName string `pulumi:"secretName"`
+	SecretName *string `pulumi:"secretName"`
 }
 
 // GetVirtualNodeSpecListenerTlValidationTrustSdInput is an input type that accepts GetVirtualNodeSpecListenerTlValidationTrustSdArgs and GetVirtualNodeSpecListenerTlValidationTrustSdOutput values.
@@ -50325,7 +50329,7 @@ type GetVirtualNodeSpecListenerTlValidationTrustSdInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustSdArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 }
 
 func (GetVirtualNodeSpecListenerTlValidationTrustSdArgs) ElementType() reflect.Type {
@@ -50379,8 +50383,8 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustSdOutput) ToGetVirtualNodeSpe
 	return o
 }
 
-func (o GetVirtualNodeSpecListenerTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecListenerTlValidationTrustSdOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationTrustSd) *string { return v.SecretName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustSdArrayOutput struct{ *pulumi.OutputState }
@@ -50593,7 +50597,7 @@ func (o GetVirtualNodeSpecLoggingAccessLogArrayOutput) Index(i pulumi.IntInput) 
 
 type GetVirtualNodeSpecLoggingAccessLogFile struct {
 	Formats []GetVirtualNodeSpecLoggingAccessLogFileFormat `pulumi:"formats"`
-	Path    string                                         `pulumi:"path"`
+	Path    *string                                        `pulumi:"path"`
 }
 
 // GetVirtualNodeSpecLoggingAccessLogFileInput is an input type that accepts GetVirtualNodeSpecLoggingAccessLogFileArgs and GetVirtualNodeSpecLoggingAccessLogFileOutput values.
@@ -50609,7 +50613,7 @@ type GetVirtualNodeSpecLoggingAccessLogFileInput interface {
 
 type GetVirtualNodeSpecLoggingAccessLogFileArgs struct {
 	Formats GetVirtualNodeSpecLoggingAccessLogFileFormatArrayInput `pulumi:"formats"`
-	Path    pulumi.StringInput                                     `pulumi:"path"`
+	Path    pulumi.StringPtrInput                                  `pulumi:"path"`
 }
 
 func (GetVirtualNodeSpecLoggingAccessLogFileArgs) ElementType() reflect.Type {
@@ -50669,8 +50673,8 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileOutput) Formats() GetVirtualNodeSp
 	}).(GetVirtualNodeSpecLoggingAccessLogFileFormatArrayOutput)
 }
 
-func (o GetVirtualNodeSpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecLoggingAccessLogFileOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFile) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileArrayOutput struct{ *pulumi.OutputState }
@@ -50695,7 +50699,7 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileArrayOutput) Index(i pulumi.IntInp
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormat struct {
 	Jsons []GetVirtualNodeSpecLoggingAccessLogFileFormatJson `pulumi:"jsons"`
-	Text  string                                             `pulumi:"text"`
+	Text  *string                                            `pulumi:"text"`
 }
 
 // GetVirtualNodeSpecLoggingAccessLogFileFormatInput is an input type that accepts GetVirtualNodeSpecLoggingAccessLogFileFormatArgs and GetVirtualNodeSpecLoggingAccessLogFileFormatOutput values.
@@ -50711,7 +50715,7 @@ type GetVirtualNodeSpecLoggingAccessLogFileFormatInput interface {
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormatArgs struct {
 	Jsons GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayInput `pulumi:"jsons"`
-	Text  pulumi.StringInput                                         `pulumi:"text"`
+	Text  pulumi.StringPtrInput                                      `pulumi:"text"`
 }
 
 func (GetVirtualNodeSpecLoggingAccessLogFileFormatArgs) ElementType() reflect.Type {
@@ -50771,8 +50775,8 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileFormatOutput) Jsons() GetVirtualNo
 	}).(GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput)
 }
 
-func (o GetVirtualNodeSpecLoggingAccessLogFileFormatOutput) Text() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormat) string { return v.Text }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecLoggingAccessLogFileFormatOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormat) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormatArrayOutput struct{ *pulumi.OutputState }
@@ -50796,8 +50800,8 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileFormatArrayOutput) Index(i pulumi.
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormatJson struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
 }
 
 // GetVirtualNodeSpecLoggingAccessLogFileFormatJsonInput is an input type that accepts GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArgs and GetVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput values.
@@ -50812,8 +50816,8 @@ type GetVirtualNodeSpecLoggingAccessLogFileFormatJsonInput interface {
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArgs) ElementType() reflect.Type {
@@ -50867,12 +50871,12 @@ func (o GetVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) ToGetVirtualNode
 	return o
 }
 
-func (o GetVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormatJson) string { return v.Key }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormatJson) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormatJson) string { return v.Value }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecLoggingAccessLogFileFormatJson) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput struct{ *pulumi.OutputState }
@@ -50999,8 +51003,8 @@ func (o GetVirtualNodeSpecServiceDiscoveryArrayOutput) Index(i pulumi.IntInput) 
 
 type GetVirtualNodeSpecServiceDiscoveryAwsCloudMap struct {
 	Attributes    map[string]string `pulumi:"attributes"`
-	NamespaceName string            `pulumi:"namespaceName"`
-	ServiceName   string            `pulumi:"serviceName"`
+	NamespaceName *string           `pulumi:"namespaceName"`
+	ServiceName   *string           `pulumi:"serviceName"`
 }
 
 // GetVirtualNodeSpecServiceDiscoveryAwsCloudMapInput is an input type that accepts GetVirtualNodeSpecServiceDiscoveryAwsCloudMap and GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput values.
@@ -51016,8 +51020,8 @@ type GetVirtualNodeSpecServiceDiscoveryAwsCloudMapInput interface {
 
 type GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArgs struct {
 	Attributes    pulumi.StringMapInput `pulumi:"attributes"`
-	NamespaceName pulumi.StringInput    `pulumi:"namespaceName"`
-	ServiceName   pulumi.StringInput    `pulumi:"serviceName"`
+	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
+	ServiceName   pulumi.StringPtrInput `pulumi:"serviceName"`
 }
 
 func (GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArgs) ElementType() reflect.Type {
@@ -51075,12 +51079,12 @@ func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) Attributes() pulumi
 	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryAwsCloudMap) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
-func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.NamespaceName }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) NamespaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryAwsCloudMap) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.ServiceName }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryAwsCloudMap) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArrayOutput struct{ *pulumi.OutputState }
@@ -51104,9 +51108,9 @@ func (o GetVirtualNodeSpecServiceDiscoveryAwsCloudMapArrayOutput) Index(i pulumi
 }
 
 type GetVirtualNodeSpecServiceDiscoveryDn struct {
-	Hostname     string `pulumi:"hostname"`
-	IpPreference string `pulumi:"ipPreference"`
-	ResponseType string `pulumi:"responseType"`
+	Hostname     *string `pulumi:"hostname"`
+	IpPreference *string `pulumi:"ipPreference"`
+	ResponseType *string `pulumi:"responseType"`
 }
 
 // GetVirtualNodeSpecServiceDiscoveryDnInput is an input type that accepts GetVirtualNodeSpecServiceDiscoveryDnArgs and GetVirtualNodeSpecServiceDiscoveryDnOutput values.
@@ -51121,9 +51125,9 @@ type GetVirtualNodeSpecServiceDiscoveryDnInput interface {
 }
 
 type GetVirtualNodeSpecServiceDiscoveryDnArgs struct {
-	Hostname     pulumi.StringInput `pulumi:"hostname"`
-	IpPreference pulumi.StringInput `pulumi:"ipPreference"`
-	ResponseType pulumi.StringInput `pulumi:"responseType"`
+	Hostname     pulumi.StringPtrInput `pulumi:"hostname"`
+	IpPreference pulumi.StringPtrInput `pulumi:"ipPreference"`
+	ResponseType pulumi.StringPtrInput `pulumi:"responseType"`
 }
 
 func (GetVirtualNodeSpecServiceDiscoveryDnArgs) ElementType() reflect.Type {
@@ -51177,16 +51181,16 @@ func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) ToGetVirtualNodeSpecServiceD
 	return o
 }
 
-func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) Hostname() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryDn) string { return v.Hostname }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryDn) *string { return v.Hostname }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) IpPreference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryDn) string { return v.IpPreference }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) IpPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryDn) *string { return v.IpPreference }).(pulumi.StringPtrOutput)
 }
 
-func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) ResponseType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryDn) string { return v.ResponseType }).(pulumi.StringOutput)
+func (o GetVirtualNodeSpecServiceDiscoveryDnOutput) ResponseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualNodeSpecServiceDiscoveryDn) *string { return v.ResponseType }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualNodeSpecServiceDiscoveryDnArrayOutput struct{ *pulumi.OutputState }
@@ -51398,8 +51402,8 @@ func (o GetVirtualRouterSpecListenerArrayOutput) Index(i pulumi.IntInput) GetVir
 }
 
 type GetVirtualRouterSpecListenerPortMapping struct {
-	Port     int    `pulumi:"port"`
-	Protocol string `pulumi:"protocol"`
+	Port     *int    `pulumi:"port"`
+	Protocol *string `pulumi:"protocol"`
 }
 
 // GetVirtualRouterSpecListenerPortMappingInput is an input type that accepts GetVirtualRouterSpecListenerPortMappingArgs and GetVirtualRouterSpecListenerPortMappingOutput values.
@@ -51414,8 +51418,8 @@ type GetVirtualRouterSpecListenerPortMappingInput interface {
 }
 
 type GetVirtualRouterSpecListenerPortMappingArgs struct {
-	Port     pulumi.IntInput    `pulumi:"port"`
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Port     pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (GetVirtualRouterSpecListenerPortMappingArgs) ElementType() reflect.Type {
@@ -51469,12 +51473,12 @@ func (o GetVirtualRouterSpecListenerPortMappingOutput) ToGetVirtualRouterSpecLis
 	return o
 }
 
-func (o GetVirtualRouterSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetVirtualRouterSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
+func (o GetVirtualRouterSpecListenerPortMappingOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetVirtualRouterSpecListenerPortMapping) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o GetVirtualRouterSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualRouterSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
+func (o GetVirtualRouterSpecListenerPortMappingOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualRouterSpecListenerPortMapping) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualRouterSpecListenerPortMappingArrayOutput struct{ *pulumi.OutputState }
@@ -51696,7 +51700,7 @@ func (o GetVirtualServiceSpecProviderArrayOutput) Index(i pulumi.IntInput) GetVi
 }
 
 type GetVirtualServiceSpecProviderVirtualNode struct {
-	VirtualNodeName string `pulumi:"virtualNodeName"`
+	VirtualNodeName *string `pulumi:"virtualNodeName"`
 }
 
 // GetVirtualServiceSpecProviderVirtualNodeInput is an input type that accepts GetVirtualServiceSpecProviderVirtualNodeArgs and GetVirtualServiceSpecProviderVirtualNodeOutput values.
@@ -51711,7 +51715,7 @@ type GetVirtualServiceSpecProviderVirtualNodeInput interface {
 }
 
 type GetVirtualServiceSpecProviderVirtualNodeArgs struct {
-	VirtualNodeName pulumi.StringInput `pulumi:"virtualNodeName"`
+	VirtualNodeName pulumi.StringPtrInput `pulumi:"virtualNodeName"`
 }
 
 func (GetVirtualServiceSpecProviderVirtualNodeArgs) ElementType() reflect.Type {
@@ -51765,8 +51769,8 @@ func (o GetVirtualServiceSpecProviderVirtualNodeOutput) ToGetVirtualServiceSpecP
 	return o
 }
 
-func (o GetVirtualServiceSpecProviderVirtualNodeOutput) VirtualNodeName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualServiceSpecProviderVirtualNode) string { return v.VirtualNodeName }).(pulumi.StringOutput)
+func (o GetVirtualServiceSpecProviderVirtualNodeOutput) VirtualNodeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualServiceSpecProviderVirtualNode) *string { return v.VirtualNodeName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualServiceSpecProviderVirtualNodeArrayOutput struct{ *pulumi.OutputState }
@@ -51790,7 +51794,7 @@ func (o GetVirtualServiceSpecProviderVirtualNodeArrayOutput) Index(i pulumi.IntI
 }
 
 type GetVirtualServiceSpecProviderVirtualRouter struct {
-	VirtualRouterName string `pulumi:"virtualRouterName"`
+	VirtualRouterName *string `pulumi:"virtualRouterName"`
 }
 
 // GetVirtualServiceSpecProviderVirtualRouterInput is an input type that accepts GetVirtualServiceSpecProviderVirtualRouterArgs and GetVirtualServiceSpecProviderVirtualRouterOutput values.
@@ -51805,7 +51809,7 @@ type GetVirtualServiceSpecProviderVirtualRouterInput interface {
 }
 
 type GetVirtualServiceSpecProviderVirtualRouterArgs struct {
-	VirtualRouterName pulumi.StringInput `pulumi:"virtualRouterName"`
+	VirtualRouterName pulumi.StringPtrInput `pulumi:"virtualRouterName"`
 }
 
 func (GetVirtualServiceSpecProviderVirtualRouterArgs) ElementType() reflect.Type {
@@ -51859,8 +51863,8 @@ func (o GetVirtualServiceSpecProviderVirtualRouterOutput) ToGetVirtualServiceSpe
 	return o
 }
 
-func (o GetVirtualServiceSpecProviderVirtualRouterOutput) VirtualRouterName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVirtualServiceSpecProviderVirtualRouter) string { return v.VirtualRouterName }).(pulumi.StringOutput)
+func (o GetVirtualServiceSpecProviderVirtualRouterOutput) VirtualRouterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVirtualServiceSpecProviderVirtualRouter) *string { return v.VirtualRouterName }).(pulumi.StringPtrOutput)
 }
 
 type GetVirtualServiceSpecProviderVirtualRouterArrayOutput struct{ *pulumi.OutputState }

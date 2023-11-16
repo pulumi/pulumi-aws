@@ -317,7 +317,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupVaultArn")
-    def backup_vault_arn(self) -> pulumi.Output[str]:
+    def backup_vault_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the vault.
         """

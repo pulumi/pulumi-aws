@@ -94,7 +94,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * The ARN of the route table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * ID of the default route table.
      *
@@ -104,7 +104,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * ID of the AWS account that owns the route table.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * List of virtual gateways for propagation.
      */
@@ -112,7 +112,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * Set of objects. Detailed below
      */
-    public readonly routes!: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
+    public readonly routes!: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -126,7 +126,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * ID of the VPC.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DefaultRouteTable resource with the given unique name, arguments, and options.

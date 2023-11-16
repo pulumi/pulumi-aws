@@ -449,7 +449,7 @@ class Experience(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the Experience.
         """
@@ -457,7 +457,7 @@ class Experience(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output['outputs.ExperienceConfiguration']:
+    def configuration(self) -> pulumi.Output[Optional['outputs.ExperienceConfiguration']]:
         """
         Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         """
@@ -473,7 +473,7 @@ class Experience(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> pulumi.Output[Sequence['outputs.ExperienceEndpoint']]:
+    def endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ExperienceEndpoint']]]:
         """
         Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         """
@@ -481,7 +481,7 @@ class Experience(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="experienceId")
-    def experience_id(self) -> pulumi.Output[str]:
+    def experience_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier of the experience.
         """
@@ -515,7 +515,7 @@ class Experience(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current processing status of your Amazon Kendra experience.
         """

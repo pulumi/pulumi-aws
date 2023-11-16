@@ -52,36 +52,36 @@ export interface GetCostCategoryResult {
     /**
      * Default value for the cost category.
      */
-    readonly defaultValue: string;
+    readonly defaultValue?: string;
     /**
      * Effective end data of your Cost Category.
      */
-    readonly effectiveEnd: string;
+    readonly effectiveEnd?: string;
     /**
      * Effective state data of your Cost Category.
      */
-    readonly effectiveStart: string;
+    readonly effectiveStart?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly name: string;
+    readonly id?: string;
+    readonly name?: string;
     /**
      * Rule schema version in this particular Cost Category.
      */
-    readonly ruleVersion: string;
+    readonly ruleVersion?: string;
     /**
      * Configuration block for the `Expression` object used to categorize costs. See below.
      */
-    readonly rules: outputs.costexplorer.GetCostCategoryRule[];
+    readonly rules?: outputs.costexplorer.GetCostCategoryRule[];
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
-    readonly splitChargeRules: outputs.costexplorer.GetCostCategorySplitChargeRule[];
+    readonly splitChargeRules?: outputs.costexplorer.GetCostCategorySplitChargeRule[];
     /**
      * Configuration block for the specific `Tag` to use for `Expression`. See below.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about a specific CostExplorer Cost Category.

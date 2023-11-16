@@ -99,14 +99,14 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="peerAccountId", refs={String.class}, tree="[0]")
-    private Output<String> peerAccountId;
+    private Output</* @Nullable */ String> peerAccountId;
 
     /**
      * @return Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    public Output<String> peerAccountId() {
-        return this.peerAccountId;
+    public Output<Optional<String>> peerAccountId() {
+        return Codegen.optional(this.peerAccountId);
     }
     /**
      * Region of EC2 Transit Gateway to peer with.

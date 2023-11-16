@@ -16,15 +16,15 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// <summary>
         /// A string used to stop Incident Manager from creating multiple incident records for the same incident.
         /// </summary>
-        public readonly string DedupeString;
+        public readonly string? DedupeString;
         /// <summary>
         /// The impact value of a generated incident. The following values are supported:
         /// </summary>
-        public readonly int Impact;
+        public readonly int? Impact;
         /// <summary>
         /// The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> IncidentTags;
+        public readonly ImmutableDictionary<string, string>? IncidentTags;
         /// <summary>
         /// The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
         /// </summary>
@@ -32,25 +32,25 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// <summary>
         /// The summary of an incident.
         /// </summary>
-        public readonly string Summary;
+        public readonly string? Summary;
         /// <summary>
         /// The title of a generated incident.
         /// </summary>
-        public readonly string Title;
+        public readonly string? Title;
 
         [OutputConstructor]
         private GetResponsePlanIncidentTemplateResult(
-            string dedupeString,
+            string? dedupeString,
 
-            int impact,
+            int? impact,
 
-            ImmutableDictionary<string, string> incidentTags,
+            ImmutableDictionary<string, string>? incidentTags,
 
             ImmutableArray<Outputs.GetResponsePlanIncidentTemplateNotificationTargetResult> notificationTargets,
 
-            string summary,
+            string? summary,
 
-            string title)
+            string? title)
         {
             DedupeString = dedupeString;
             Impact = impact;

@@ -80,7 +80,7 @@ export class VpcEndpointConnectionAccepter extends pulumi.CustomResource {
     /**
      * State of the VPC Endpoint.
      */
-    public /*out*/ readonly vpcEndpointState!: pulumi.Output<string>;
+    public /*out*/ readonly vpcEndpointState!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcEndpointConnectionAccepter resource with the given unique name, arguments, and options.

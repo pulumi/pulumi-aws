@@ -501,7 +501,7 @@ class HoursOfOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Hours of Operation.
         """
@@ -525,7 +525,7 @@ class HoursOfOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hoursOfOperationId")
-    def hours_of_operation_id(self) -> pulumi.Output[str]:
+    def hours_of_operation_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for the hours of operation.
         """

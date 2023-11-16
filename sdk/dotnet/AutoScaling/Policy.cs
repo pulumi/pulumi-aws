@@ -282,7 +282,7 @@ namespace Pulumi.Aws.AutoScaling
         /// ARN assigned by AWS to the scaling policy.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the autoscaling group.
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         /// </summary>
         [Output("metricAggregationType")]
-        public Output<string> MetricAggregationType { get; private set; } = null!;
+        public Output<string?> MetricAggregationType { get; private set; } = null!;
 
         /// <summary>
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.

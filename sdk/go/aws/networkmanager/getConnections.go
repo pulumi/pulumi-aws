@@ -66,7 +66,7 @@ type GetConnectionsResult struct {
 	DeviceId        *string `pulumi:"deviceId"`
 	GlobalNetworkId string  `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// IDs of the connections.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
@@ -123,8 +123,8 @@ func (o GetConnectionsResultOutput) GlobalNetworkId() pulumi.StringOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetConnectionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetConnectionsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetConnectionsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // IDs of the connections.

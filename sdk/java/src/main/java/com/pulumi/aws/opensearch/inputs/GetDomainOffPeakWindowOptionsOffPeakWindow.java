@@ -7,6 +7,8 @@ import com.pulumi.aws.opensearch.inputs.GetDomainOffPeakWindowOptionsOffPeakWind
 import com.pulumi.core.annotations.Import;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDomainOffPeakWindowOptionsOffPeakWindow extends com.pulumi.resources.InvokeArgs {
@@ -17,15 +19,15 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindow extends com.pulumi
      * 10h window for updates
      * 
      */
-    @Import(name="windowStartTimes", required=true)
-    private List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes;
+    @Import(name="windowStartTimes")
+    private @Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes;
 
     /**
      * @return 10h window for updates
      * 
      */
-    public List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes() {
-        return this.windowStartTimes;
+    public Optional<List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime>> windowStartTimes() {
+        return Optional.ofNullable(this.windowStartTimes);
     }
 
     private GetDomainOffPeakWindowOptionsOffPeakWindow() {}
@@ -58,7 +60,7 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindow extends com.pulumi
          * @return builder
          * 
          */
-        public Builder windowStartTimes(List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes) {
+        public Builder windowStartTimes(@Nullable List<GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTimes) {
             $.windowStartTimes = windowStartTimes;
             return this;
         }
@@ -74,7 +76,6 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindow extends com.pulumi
         }
 
         public GetDomainOffPeakWindowOptionsOffPeakWindow build() {
-            $.windowStartTimes = Objects.requireNonNull($.windowStartTimes, "expected parameter 'windowStartTimes' to be non-null");
             return $;
         }
     }

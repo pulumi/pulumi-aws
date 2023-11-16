@@ -20,12 +20,12 @@ public final class GetDirectConnectGatewayAttachmentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Attachment
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     private @Nullable String transitGatewayId;
 
     private GetDirectConnectGatewayAttachmentResult() {}
@@ -39,15 +39,15 @@ public final class GetDirectConnectGatewayAttachmentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return Key-value tags for the EC2 Transit Gateway Attachment
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     public Optional<String> transitGatewayId() {
         return Optional.ofNullable(this.transitGatewayId);
@@ -64,8 +64,8 @@ public final class GetDirectConnectGatewayAttachmentResult {
     public static final class Builder {
         private @Nullable String dxGatewayId;
         private @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters;
-        private String id;
-        private Map<String,String> tags;
+        private @Nullable String id;
+        private @Nullable Map<String,String> tags;
         private @Nullable String transitGatewayId;
         public Builder() {}
         public Builder(GetDirectConnectGatewayAttachmentResult defaults) {
@@ -91,13 +91,13 @@ public final class GetDirectConnectGatewayAttachmentResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter

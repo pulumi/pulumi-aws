@@ -7,50 +7,52 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceResult {
-    private String dnsName;
-    private String id;
-    private String partition;
-    private String region;
-    private String reverseDnsName;
-    private String reverseDnsPrefix;
-    private String serviceId;
+    private @Nullable String dnsName;
+    private @Nullable String id;
+    private @Nullable String partition;
+    private @Nullable String region;
+    private @Nullable String reverseDnsName;
+    private @Nullable String reverseDnsPrefix;
+    private @Nullable String serviceId;
     /**
      * @return Whether the service is supported in the region&#39;s partition. New services may not be listed immediately as supported.
      * 
      */
-    private Boolean supported;
+    private @Nullable Boolean supported;
 
     private GetServiceResult() {}
-    public String dnsName() {
-        return this.dnsName;
+    public Optional<String> dnsName() {
+        return Optional.ofNullable(this.dnsName);
     }
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
-    public String partition() {
-        return this.partition;
+    public Optional<String> partition() {
+        return Optional.ofNullable(this.partition);
     }
-    public String region() {
-        return this.region;
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
-    public String reverseDnsName() {
-        return this.reverseDnsName;
+    public Optional<String> reverseDnsName() {
+        return Optional.ofNullable(this.reverseDnsName);
     }
-    public String reverseDnsPrefix() {
-        return this.reverseDnsPrefix;
+    public Optional<String> reverseDnsPrefix() {
+        return Optional.ofNullable(this.reverseDnsPrefix);
     }
-    public String serviceId() {
-        return this.serviceId;
+    public Optional<String> serviceId() {
+        return Optional.ofNullable(this.serviceId);
     }
     /**
      * @return Whether the service is supported in the region&#39;s partition. New services may not be listed immediately as supported.
      * 
      */
-    public Boolean supported() {
-        return this.supported;
+    public Optional<Boolean> supported() {
+        return Optional.ofNullable(this.supported);
     }
 
     public static Builder builder() {
@@ -62,14 +64,14 @@ public final class GetServiceResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dnsName;
-        private String id;
-        private String partition;
-        private String region;
-        private String reverseDnsName;
-        private String reverseDnsPrefix;
-        private String serviceId;
-        private Boolean supported;
+        private @Nullable String dnsName;
+        private @Nullable String id;
+        private @Nullable String partition;
+        private @Nullable String region;
+        private @Nullable String reverseDnsName;
+        private @Nullable String reverseDnsPrefix;
+        private @Nullable String serviceId;
+        private @Nullable Boolean supported;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,43 +86,43 @@ public final class GetServiceResult {
         }
 
         @CustomType.Setter
-        public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+        public Builder dnsName(@Nullable String dnsName) {
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+        public Builder partition(@Nullable String partition) {
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+        public Builder region(@Nullable String region) {
+            this.region = region;
             return this;
         }
         @CustomType.Setter
-        public Builder reverseDnsName(String reverseDnsName) {
-            this.reverseDnsName = Objects.requireNonNull(reverseDnsName);
+        public Builder reverseDnsName(@Nullable String reverseDnsName) {
+            this.reverseDnsName = reverseDnsName;
             return this;
         }
         @CustomType.Setter
-        public Builder reverseDnsPrefix(String reverseDnsPrefix) {
-            this.reverseDnsPrefix = Objects.requireNonNull(reverseDnsPrefix);
+        public Builder reverseDnsPrefix(@Nullable String reverseDnsPrefix) {
+            this.reverseDnsPrefix = reverseDnsPrefix;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceId(String serviceId) {
-            this.serviceId = Objects.requireNonNull(serviceId);
+        public Builder serviceId(@Nullable String serviceId) {
+            this.serviceId = serviceId;
             return this;
         }
         @CustomType.Setter
-        public Builder supported(Boolean supported) {
-            this.supported = Objects.requireNonNull(supported);
+        public Builder supported(@Nullable Boolean supported) {
+            this.supported = supported;
             return this;
         }
         public GetServiceResult build() {

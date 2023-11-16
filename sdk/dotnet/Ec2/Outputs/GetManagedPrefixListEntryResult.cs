@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetManagedPrefixListEntryResult
     {
-        public readonly string Cidr;
-        public readonly string Description;
+        public readonly string? Cidr;
+        public readonly string? Description;
 
         [OutputConstructor]
         private GetManagedPrefixListEntryResult(
-            string cidr,
+            string? cidr,
 
-            string description)
+            string? description)
         {
             Cidr = cidr;
             Description = description;

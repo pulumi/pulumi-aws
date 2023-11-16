@@ -486,7 +486,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Output[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         """
@@ -502,7 +502,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> pulumi.Output[str]:
+    def hosted_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         -  The Global Accelerator Route 53 zone ID that can be used to
         route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
@@ -528,7 +528,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipSets")
-    def ip_sets(self) -> pulumi.Output[Sequence['outputs.CustomRoutingAcceleratorIpSet']]:
+    def ip_sets(self) -> pulumi.Output[Optional[Sequence['outputs.CustomRoutingAcceleratorIpSet']]]:
         """
         IP address set associated with the accelerator.
         """

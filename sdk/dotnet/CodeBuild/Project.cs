@@ -296,7 +296,7 @@ namespace Pulumi.Aws.CodeBuild
         /// ARN of the CodeBuild project.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block. Detailed below.
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.CodeBuild
         /// URL of the build badge when `badge_enabled` is enabled.
         /// </summary>
         [Output("badgeUrl")]
-        public Output<string> BadgeUrl { get; private set; } = null!;
+        public Output<string?> BadgeUrl { get; private set; } = null!;
 
         /// <summary>
         /// Defines the batch build options for the project.
@@ -344,13 +344,13 @@ namespace Pulumi.Aws.CodeBuild
         /// Short description of the project.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         /// </summary>
         [Output("encryptionKey")]
-        public Output<string> EncryptionKey { get; private set; } = null!;
+        public Output<string?> EncryptionKey { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block. Detailed below.
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.CodeBuild
         /// The project identifier used with the public build APIs.
         /// </summary>
         [Output("publicProjectAlias")]
-        public Output<string> PublicProjectAlias { get; private set; } = null!;
+        public Output<string?> PublicProjectAlias { get; private set; } = null!;
 
         /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.

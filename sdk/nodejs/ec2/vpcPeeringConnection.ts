@@ -139,12 +139,12 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     /**
      * The status of the VPC Peering Connection request.
      */
-    public /*out*/ readonly acceptStatus!: pulumi.Output<string>;
+    public /*out*/ readonly acceptStatus!: pulumi.Output<string | undefined>;
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    public readonly accepter!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepter>;
+    public readonly accepter!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepter | undefined>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account and region).
      */
@@ -153,12 +153,12 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * The AWS account ID of the owner of the peer VPC.
      * Defaults to the account ID the AWS provider is currently connected to.
      */
-    public readonly peerOwnerId!: pulumi.Output<string>;
+    public readonly peerOwnerId!: pulumi.Output<string | undefined>;
     /**
      * The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
      * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
      */
-    public readonly peerRegion!: pulumi.Output<string>;
+    public readonly peerRegion!: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC with which you are creating the VPC Peering Connection.
      */
@@ -167,7 +167,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionRequester>;
+    public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionRequester | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

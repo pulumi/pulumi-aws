@@ -105,7 +105,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the custom plugin.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Information about the capacity allocated to the connector. See below.
      */
@@ -153,7 +153,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The current version of the connector.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
     /**
      * Specifies which worker configuration to use with the connector. See below.
      */

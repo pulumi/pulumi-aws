@@ -177,28 +177,28 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the table
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
      * 
      */
     @Export(name="attributes", refs={List.class,TableAttribute.class}, tree="[0,1]")
-    private Output<List<TableAttribute>> attributes;
+    private Output</* @Nullable */ List<TableAttribute>> attributes;
 
     /**
      * @return Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
      * 
      */
-    public Output<List<TableAttribute>> attributes() {
-        return this.attributes;
+    public Output<Optional<List<TableAttribute>>> attributes() {
+        return Codegen.optional(this.attributes);
     }
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
@@ -247,14 +247,14 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hashKey", refs={String.class}, tree="[0]")
-    private Output<String> hashKey;
+    private Output</* @Nullable */ String> hashKey;
 
     /**
      * @return Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      * 
      */
-    public Output<String> hashKey() {
-        return this.hashKey;
+    public Output<Optional<String>> hashKey() {
+        return Codegen.optional(this.hashKey);
     }
     /**
      * Import Amazon S3 data into a new table. See below.
@@ -307,14 +307,14 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="pointInTimeRecovery", refs={TablePointInTimeRecovery.class}, tree="[0]")
-    private Output<TablePointInTimeRecovery> pointInTimeRecovery;
+    private Output</* @Nullable */ TablePointInTimeRecovery> pointInTimeRecovery;
 
     /**
      * @return Enable point-in-time recovery options. See below.
      * 
      */
-    public Output<TablePointInTimeRecovery> pointInTimeRecovery() {
-        return this.pointInTimeRecovery;
+    public Output<Optional<TablePointInTimeRecovery>> pointInTimeRecovery() {
+        return Codegen.optional(this.pointInTimeRecovery);
     }
     /**
      * Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -335,14 +335,14 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="readCapacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> readCapacity;
+    private Output</* @Nullable */ Integer> readCapacity;
 
     /**
      * @return Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
-    public Output<Integer> readCapacity() {
-        return this.readCapacity;
+    public Output<Optional<Integer>> readCapacity() {
+        return Codegen.optional(this.readCapacity);
     }
     /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
@@ -405,28 +405,28 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serverSideEncryption", refs={TableServerSideEncryption.class}, tree="[0]")
-    private Output<TableServerSideEncryption> serverSideEncryption;
+    private Output</* @Nullable */ TableServerSideEncryption> serverSideEncryption;
 
     /**
      * @return Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
      * 
      */
-    public Output<TableServerSideEncryption> serverSideEncryption() {
-        return this.serverSideEncryption;
+    public Output<Optional<TableServerSideEncryption>> serverSideEncryption() {
+        return Codegen.optional(this.serverSideEncryption);
     }
     /**
      * ARN of the Table Stream. Only available when `stream_enabled = true`
      * 
      */
     @Export(name="streamArn", refs={String.class}, tree="[0]")
-    private Output<String> streamArn;
+    private Output</* @Nullable */ String> streamArn;
 
     /**
      * @return ARN of the Table Stream. Only available when `stream_enabled = true`
      * 
      */
-    public Output<String> streamArn() {
-        return this.streamArn;
+    public Output<Optional<String>> streamArn() {
+        return Codegen.optional(this.streamArn);
     }
     /**
      * Whether Streams are enabled.
@@ -447,28 +447,28 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="streamLabel", refs={String.class}, tree="[0]")
-    private Output<String> streamLabel;
+    private Output</* @Nullable */ String> streamLabel;
 
     /**
      * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
      * 
      */
-    public Output<String> streamLabel() {
-        return this.streamLabel;
+    public Output<Optional<String>> streamLabel() {
+        return Codegen.optional(this.streamLabel);
     }
     /**
      * When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
      * 
      */
     @Export(name="streamViewType", refs={String.class}, tree="[0]")
-    private Output<String> streamViewType;
+    private Output</* @Nullable */ String> streamViewType;
 
     /**
      * @return When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
      * 
      */
-    public Output<String> streamViewType() {
-        return this.streamViewType;
+    public Output<Optional<String>> streamViewType() {
+        return Codegen.optional(this.streamViewType);
     }
     /**
      * Storage class of the table.
@@ -525,28 +525,28 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ttl", refs={TableTtl.class}, tree="[0]")
-    private Output<TableTtl> ttl;
+    private Output</* @Nullable */ TableTtl> ttl;
 
     /**
      * @return Configuration block for TTL. See below.
      * 
      */
-    public Output<TableTtl> ttl() {
-        return this.ttl;
+    public Output<Optional<TableTtl>> ttl() {
+        return Codegen.optional(this.ttl);
     }
     /**
      * Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
     @Export(name="writeCapacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> writeCapacity;
+    private Output</* @Nullable */ Integer> writeCapacity;
 
     /**
      * @return Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
-    public Output<Integer> writeCapacity() {
-        return this.writeCapacity;
+    public Output<Optional<Integer>> writeCapacity() {
+        return Codegen.optional(this.writeCapacity);
     }
 
     /**

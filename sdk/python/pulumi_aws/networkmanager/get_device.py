@@ -65,7 +65,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the device.
         """
@@ -73,7 +73,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="awsLocations")
-    def aws_locations(self) -> Sequence['outputs.GetDeviceAwsLocationResult']:
+    def aws_locations(self) -> Optional[Sequence['outputs.GetDeviceAwsLocationResult']]:
         """
         AWS location of the device. Documented below.
         """
@@ -81,7 +81,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the device.
         """
@@ -99,7 +99,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -107,7 +107,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def locations(self) -> Sequence['outputs.GetDeviceLocationResult']:
+    def locations(self) -> Optional[Sequence['outputs.GetDeviceLocationResult']]:
         """
         Location of the device. Documented below.
         """
@@ -115,7 +115,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def model(self) -> str:
+    def model(self) -> Optional[str]:
         """
         Model of device.
         """
@@ -123,7 +123,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> str:
+    def serial_number(self) -> Optional[str]:
         """
         Serial number of the device.
         """
@@ -131,7 +131,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="siteId")
-    def site_id(self) -> str:
+    def site_id(self) -> Optional[str]:
         """
         ID of the site.
         """
@@ -139,7 +139,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the device.
         """
@@ -147,7 +147,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of device.
         """
@@ -155,7 +155,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def vendor(self) -> str:
+    def vendor(self) -> Optional[str]:
         """
         Vendor of the device.
         """

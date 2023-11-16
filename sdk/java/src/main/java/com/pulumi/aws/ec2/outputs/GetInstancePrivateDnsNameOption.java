@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInstancePrivateDnsNameOption {
@@ -14,39 +16,39 @@ public final class GetInstancePrivateDnsNameOption {
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
      * 
      */
-    private Boolean enableResourceNameDnsARecord;
+    private @Nullable Boolean enableResourceNameDnsARecord;
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
      * 
      */
-    private Boolean enableResourceNameDnsAaaaRecord;
+    private @Nullable Boolean enableResourceNameDnsAaaaRecord;
     /**
      * @return Type of hostname for EC2 instances.
      * 
      */
-    private String hostnameType;
+    private @Nullable String hostnameType;
 
     private GetInstancePrivateDnsNameOption() {}
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
      * 
      */
-    public Boolean enableResourceNameDnsARecord() {
-        return this.enableResourceNameDnsARecord;
+    public Optional<Boolean> enableResourceNameDnsARecord() {
+        return Optional.ofNullable(this.enableResourceNameDnsARecord);
     }
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
      * 
      */
-    public Boolean enableResourceNameDnsAaaaRecord() {
-        return this.enableResourceNameDnsAaaaRecord;
+    public Optional<Boolean> enableResourceNameDnsAaaaRecord() {
+        return Optional.ofNullable(this.enableResourceNameDnsAaaaRecord);
     }
     /**
      * @return Type of hostname for EC2 instances.
      * 
      */
-    public String hostnameType() {
-        return this.hostnameType;
+    public Optional<String> hostnameType() {
+        return Optional.ofNullable(this.hostnameType);
     }
 
     public static Builder builder() {
@@ -58,9 +60,9 @@ public final class GetInstancePrivateDnsNameOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enableResourceNameDnsARecord;
-        private Boolean enableResourceNameDnsAaaaRecord;
-        private String hostnameType;
+        private @Nullable Boolean enableResourceNameDnsARecord;
+        private @Nullable Boolean enableResourceNameDnsAaaaRecord;
+        private @Nullable String hostnameType;
         public Builder() {}
         public Builder(GetInstancePrivateDnsNameOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,18 +72,18 @@ public final class GetInstancePrivateDnsNameOption {
         }
 
         @CustomType.Setter
-        public Builder enableResourceNameDnsARecord(Boolean enableResourceNameDnsARecord) {
-            this.enableResourceNameDnsARecord = Objects.requireNonNull(enableResourceNameDnsARecord);
+        public Builder enableResourceNameDnsARecord(@Nullable Boolean enableResourceNameDnsARecord) {
+            this.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
             return this;
         }
         @CustomType.Setter
-        public Builder enableResourceNameDnsAaaaRecord(Boolean enableResourceNameDnsAaaaRecord) {
-            this.enableResourceNameDnsAaaaRecord = Objects.requireNonNull(enableResourceNameDnsAaaaRecord);
+        public Builder enableResourceNameDnsAaaaRecord(@Nullable Boolean enableResourceNameDnsAaaaRecord) {
+            this.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
             return this;
         }
         @CustomType.Setter
-        public Builder hostnameType(String hostnameType) {
-            this.hostnameType = Objects.requireNonNull(hostnameType);
+        public Builder hostnameType(@Nullable String hostnameType) {
+            this.hostnameType = hostnameType;
             return this;
         }
         public GetInstancePrivateDnsNameOption build() {

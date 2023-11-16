@@ -225,14 +225,14 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the config rule
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Description of the rule
@@ -253,14 +253,14 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="evaluationModes", refs={List.class,RuleEvaluationMode.class}, tree="[0,1]")
-    private Output<List<RuleEvaluationMode>> evaluationModes;
+    private Output</* @Nullable */ List<RuleEvaluationMode>> evaluationModes;
 
     /**
      * @return The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      * 
      */
-    public Output<List<RuleEvaluationMode>> evaluationModes() {
-        return this.evaluationModes;
+    public Output<Optional<List<RuleEvaluationMode>>> evaluationModes() {
+        return Codegen.optional(this.evaluationModes);
     }
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
@@ -309,14 +309,14 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ruleId", refs={String.class}, tree="[0]")
-    private Output<String> ruleId;
+    private Output</* @Nullable */ String> ruleId;
 
     /**
      * @return The ID of the config rule
      * 
      */
-    public Output<String> ruleId() {
-        return this.ruleId;
+    public Output<Optional<String>> ruleId() {
+        return Codegen.optional(this.ruleId);
     }
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Source Below.

@@ -27,7 +27,7 @@ namespace Pulumi.Aws.RedShift
         /// Amazon Resource Name (ARN) of the snapshot.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The cluster identifier for which you want a snapshot.
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.RedShift
         /// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
         /// </summary>
         [Output("kmsKeyId")]
-        public Output<string> KmsKeyId { get; private set; } = null!;
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.RedShift
         /// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
         /// </summary>
         [Output("ownerAccount")]
-        public Output<string> OwnerAccount { get; private set; } = null!;
+        public Output<string?> OwnerAccount { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.

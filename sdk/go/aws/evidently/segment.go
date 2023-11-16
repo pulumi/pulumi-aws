@@ -120,17 +120,17 @@ type Segment struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the segment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The date and time that the segment is created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// Specifies the description of the segment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-	ExperimentCount pulumi.IntOutput `pulumi:"experimentCount"`
+	ExperimentCount pulumi.IntPtrOutput `pulumi:"experimentCount"`
 	// The date and time that this segment was most recently updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-	LaunchCount pulumi.IntOutput `pulumi:"launchCount"`
+	LaunchCount pulumi.IntPtrOutput `pulumi:"launchCount"`
 	// A name for the segment.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
@@ -344,13 +344,13 @@ func (o SegmentOutput) ToSegmentOutputWithContext(ctx context.Context) SegmentOu
 }
 
 // The ARN of the segment.
-func (o SegmentOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o SegmentOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Segment) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The date and time that the segment is created.
-func (o SegmentOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o SegmentOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Segment) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the description of the segment.
@@ -359,18 +359,18 @@ func (o SegmentOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-func (o SegmentOutput) ExperimentCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Segment) pulumi.IntOutput { return v.ExperimentCount }).(pulumi.IntOutput)
+func (o SegmentOutput) ExperimentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Segment) pulumi.IntPtrOutput { return v.ExperimentCount }).(pulumi.IntPtrOutput)
 }
 
 // The date and time that this segment was most recently updated.
-func (o SegmentOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o SegmentOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Segment) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-func (o SegmentOutput) LaunchCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Segment) pulumi.IntOutput { return v.LaunchCount }).(pulumi.IntOutput)
+func (o SegmentOutput) LaunchCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Segment) pulumi.IntPtrOutput { return v.LaunchCount }).(pulumi.IntPtrOutput)
 }
 
 // A name for the segment.

@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionEphemeralStorageResult
     {
-        public readonly int Size;
+        public readonly int? Size;
 
         [OutputConstructor]
-        private GetFunctionEphemeralStorageResult(int size)
+        private GetFunctionEphemeralStorageResult(int? size)
         {
             Size = size;
         }

@@ -367,7 +367,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> pulumi.Output[str]:
+    def encrypted_password(self) -> pulumi.Output[Optional[str]]:
         """
         The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
         """
@@ -375,7 +375,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyFingerprint")
-    def key_fingerprint(self) -> pulumi.Output[str]:
+    def key_fingerprint(self) -> pulumi.Output[Optional[str]]:
         """
         The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
         """
@@ -383,7 +383,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The plain text password, only available when `pgp_key` is not provided.
         """
@@ -399,7 +399,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordResetRequired")
-    def password_reset_required(self) -> pulumi.Output[bool]:
+    def password_reset_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         """

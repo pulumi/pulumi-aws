@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult
     {
-        public readonly int Max;
-        public readonly int Min;
+        public readonly int? Max;
+        public readonly int? Min;
 
         [OutputConstructor]
         private GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult(
-            int max,
+            int? max,
 
-            int min)
+            int? min)
         {
             Max = max;
             Min = min;

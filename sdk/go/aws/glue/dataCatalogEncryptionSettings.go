@@ -62,7 +62,7 @@ type DataCatalogEncryptionSettings struct {
 	pulumi.CustomResourceState
 
 	// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput `pulumi:"dataCatalogEncryptionSettings"`
 }
@@ -220,8 +220,8 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutp
 }
 
 // The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-func (o DataCatalogEncryptionSettingsOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettings) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+func (o DataCatalogEncryptionSettingsOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettings) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // The security configuration to set. see Data Catalog Encryption Settings.

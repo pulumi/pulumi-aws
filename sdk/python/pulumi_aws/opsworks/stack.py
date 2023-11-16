@@ -1101,7 +1101,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> pulumi.Output[str]:
+    def agent_version(self) -> pulumi.Output[Optional[str]]:
         """
         If set to `"LATEST"`, OpsWorks will automatically install the latest version.
         """
@@ -1109,7 +1109,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "arn")
 
     @property
@@ -1146,7 +1146,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customCookbooksSources")
-    def custom_cookbooks_sources(self) -> pulumi.Output[Sequence['outputs.StackCustomCookbooksSource']]:
+    def custom_cookbooks_sources(self) -> pulumi.Output[Optional[Sequence['outputs.StackCustomCookbooksSource']]]:
         """
         When `use_custom_cookbooks` is set, provide this sub-object as described below.
         """
@@ -1162,7 +1162,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultAvailabilityZone")
-    def default_availability_zone(self) -> pulumi.Output[str]:
+    def default_availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the availability zone where instances will be created by default.
         Cannot be set when `vpc_id` is set.
@@ -1203,7 +1203,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSubnetId")
-    def default_subnet_id(self) -> pulumi.Output[str]:
+    def default_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the subnet in which instances will be created by default.
         Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
@@ -1252,7 +1252,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackEndpoint")
-    def stack_endpoint(self) -> pulumi.Output[str]:
+    def stack_endpoint(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "stack_endpoint")
 
     @property
@@ -1293,7 +1293,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the VPC that this stack belongs to.
         Defaults to the region's default VPC.

@@ -57,7 +57,7 @@ class GetResourceShareResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the resource share.
         """
@@ -70,7 +70,7 @@ class GetResourceShareResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -83,7 +83,7 @@ class GetResourceShareResult:
 
     @property
     @pulumi.getter(name="owningAccountId")
-    def owning_account_id(self) -> str:
+    def owning_account_id(self) -> Optional[str]:
         """
         ID of the AWS account that owns the resource share.
         """
@@ -91,7 +91,7 @@ class GetResourceShareResult:
 
     @property
     @pulumi.getter(name="resourceArns")
-    def resource_arns(self) -> Sequence[str]:
+    def resource_arns(self) -> Optional[Sequence[str]]:
         """
         A list of resource ARNs associated with the resource share.
         """
@@ -109,7 +109,7 @@ class GetResourceShareResult:
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> Optional[str]:
         """
         Status of the resource share.
         """
@@ -117,7 +117,7 @@ class GetResourceShareResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags attached to the resource share.
         """

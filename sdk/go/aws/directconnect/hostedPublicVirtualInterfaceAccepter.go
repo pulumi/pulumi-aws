@@ -82,7 +82,7 @@ type HostedPublicVirtualInterfaceAccepter struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the virtual interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -262,8 +262,8 @@ func (o HostedPublicVirtualInterfaceAccepterOutput) ToHostedPublicVirtualInterfa
 }
 
 // The ARN of the virtual interface.
-func (o HostedPublicVirtualInterfaceAccepterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o HostedPublicVirtualInterfaceAccepterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

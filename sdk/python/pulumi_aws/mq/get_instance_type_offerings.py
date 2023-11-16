@@ -41,7 +41,7 @@ class GetInstanceTypeOfferingsResult:
 
     @property
     @pulumi.getter(name="brokerInstanceOptions")
-    def broker_instance_options(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionResult']:
+    def broker_instance_options(self) -> Optional[Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionResult']]:
         """
         Option for host instance type. See Broker Instance Options below.
         """
@@ -65,7 +65,7 @@ class GetInstanceTypeOfferingsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

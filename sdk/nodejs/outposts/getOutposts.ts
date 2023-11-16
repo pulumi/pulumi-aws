@@ -59,19 +59,19 @@ export interface GetOutpostsResult {
     /**
      * Set of Amazon Resource Names (ARNs).
      */
-    readonly arns: string[];
-    readonly availabilityZone: string;
-    readonly availabilityZoneId: string;
+    readonly arns?: string[];
+    readonly availabilityZone?: string;
+    readonly availabilityZoneId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of identifiers.
      */
-    readonly ids: string[];
-    readonly ownerId: string;
-    readonly siteId: string;
+    readonly ids?: string[];
+    readonly ownerId?: string;
+    readonly siteId?: string;
 }
 /**
  * Provides details about multiple Outposts.

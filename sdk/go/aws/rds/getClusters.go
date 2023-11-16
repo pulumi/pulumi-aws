@@ -70,7 +70,7 @@ type GetClustersResult struct {
 	ClusterIdentifiers []string            `pulumi:"clusterIdentifiers"`
 	Filters            []GetClustersFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...pulumi.InvokeOption) GetClustersResultOutput {
@@ -126,8 +126,8 @@ func (o GetClustersResultOutput) Filters() GetClustersFilterArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetClustersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClustersResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetClustersResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClustersResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

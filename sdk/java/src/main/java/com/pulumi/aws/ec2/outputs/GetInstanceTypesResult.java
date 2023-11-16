@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -17,12 +18,12 @@ public final class GetInstanceTypesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return List of EC2 Instance Types.
      * 
      */
-    private List<String> instanceTypes;
+    private @Nullable List<String> instanceTypes;
 
     private GetInstanceTypesResult() {}
     public List<GetInstanceTypesFilter> filters() {
@@ -32,15 +33,15 @@ public final class GetInstanceTypesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return List of EC2 Instance Types.
      * 
      */
     public List<String> instanceTypes() {
-        return this.instanceTypes;
+        return this.instanceTypes == null ? List.of() : this.instanceTypes;
     }
 
     public static Builder builder() {
@@ -53,8 +54,8 @@ public final class GetInstanceTypesResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetInstanceTypesFilter> filters;
-        private String id;
-        private List<String> instanceTypes;
+        private @Nullable String id;
+        private @Nullable List<String> instanceTypes;
         public Builder() {}
         public Builder(GetInstanceTypesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,13 +73,13 @@ public final class GetInstanceTypesResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder instanceTypes(List<String> instanceTypes) {
-            this.instanceTypes = Objects.requireNonNull(instanceTypes);
+        public Builder instanceTypes(@Nullable List<String> instanceTypes) {
+            this.instanceTypes = instanceTypes;
             return this;
         }
         public Builder instanceTypes(String... instanceTypes) {

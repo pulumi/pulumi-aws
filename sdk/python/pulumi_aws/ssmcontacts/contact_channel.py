@@ -377,7 +377,7 @@ class ContactChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationStatus")
-    def activation_status(self) -> pulumi.Output[str]:
+    def activation_status(self) -> pulumi.Output[Optional[str]]:
         """
         Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
         """
@@ -385,7 +385,7 @@ class ContactChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the contact channel.
         """

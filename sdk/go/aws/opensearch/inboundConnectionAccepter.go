@@ -81,7 +81,7 @@ type InboundConnectionAccepter struct {
 	// Specifies the ID of the connection to accept.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// Status of the connection request.
-	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
+	ConnectionStatus pulumi.StringPtrOutput `pulumi:"connectionStatus"`
 }
 
 // NewInboundConnectionAccepter registers a new resource with the given unique name, arguments, and options.
@@ -238,8 +238,8 @@ func (o InboundConnectionAccepterOutput) ConnectionId() pulumi.StringOutput {
 }
 
 // Status of the connection request.
-func (o InboundConnectionAccepterOutput) ConnectionStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *InboundConnectionAccepter) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
+func (o InboundConnectionAccepterOutput) ConnectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InboundConnectionAccepter) pulumi.StringPtrOutput { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
 }
 
 type InboundConnectionAccepterArrayOutput struct{ *pulumi.OutputState }

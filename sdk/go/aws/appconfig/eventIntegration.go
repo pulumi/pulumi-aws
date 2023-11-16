@@ -60,7 +60,7 @@ type EventIntegration struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Event Integration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Description of the Event Integration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
@@ -273,8 +273,8 @@ func (o EventIntegrationOutput) ToEventIntegrationOutputWithContext(ctx context.
 }
 
 // ARN of the Event Integration.
-func (o EventIntegrationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventIntegration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EventIntegrationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventIntegration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Description of the Event Integration.

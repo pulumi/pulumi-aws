@@ -107,13 +107,13 @@ namespace Pulumi.Aws.Glue
         /// ARN of the Glue Data Quality Ruleset.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The time and date that this data quality ruleset was created.
         /// </summary>
         [Output("createdOn")]
-        public Output<string> CreatedOn { get; private set; } = null!;
+        public Output<string?> CreatedOn { get; private set; } = null!;
 
         /// <summary>
         /// Description of the data quality ruleset.
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Glue
         /// The time and date that this data quality ruleset was created.
         /// </summary>
         [Output("lastModifiedOn")]
-        public Output<string> LastModifiedOn { get; private set; } = null!;
+        public Output<string?> LastModifiedOn { get; private set; } = null!;
 
         /// <summary>
         /// Name of the data quality ruleset.
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Glue
         /// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
         /// </summary>
         [Output("recommendationRunId")]
-        public Output<string> RecommendationRunId { get; private set; } = null!;
+        public Output<string?> RecommendationRunId { get; private set; } = null!;
 
         /// <summary>
         /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.

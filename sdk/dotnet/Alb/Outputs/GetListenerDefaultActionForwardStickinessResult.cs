@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Alb.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionForwardStickinessResult
     {
-        public readonly int Duration;
-        public readonly bool Enabled;
+        public readonly int? Duration;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
         private GetListenerDefaultActionForwardStickinessResult(
-            int duration,
+            int? duration,
 
-            bool enabled)
+            bool? enabled)
         {
             Duration = duration;
             Enabled = enabled;

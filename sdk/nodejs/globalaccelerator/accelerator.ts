@@ -71,11 +71,11 @@ export class Accelerator extends pulumi.CustomResource {
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string | undefined>;
     /**
      * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      */
-    public /*out*/ readonly dualStackDnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dualStackDnsName!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
@@ -85,7 +85,7 @@ export class Accelerator extends pulumi.CustomResource {
      * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
      * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
-    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string | undefined>;
     /**
      * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      */
@@ -97,7 +97,7 @@ export class Accelerator extends pulumi.CustomResource {
     /**
      * IP address set associated with the accelerator.
      */
-    public /*out*/ readonly ipSets!: pulumi.Output<outputs.globalaccelerator.AcceleratorIpSet[]>;
+    public /*out*/ readonly ipSets!: pulumi.Output<outputs.globalaccelerator.AcceleratorIpSet[] | undefined>;
     /**
      * The name of the accelerator.
      */

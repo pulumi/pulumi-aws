@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,29 +19,29 @@ public final class GetInstancesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return IDs of instances found through the filter
      * 
      */
-    private List<String> ids;
+    private @Nullable List<String> ids;
     private @Nullable List<String> instanceStateNames;
-    private Map<String,String> instanceTags;
+    private @Nullable Map<String,String> instanceTags;
     /**
      * @return IPv6 addresses of instances found through the filter
      * 
      */
-    private List<String> ipv6Addresses;
+    private @Nullable List<String> ipv6Addresses;
     /**
      * @return Private IP addresses of instances found through the filter
      * 
      */
-    private List<String> privateIps;
+    private @Nullable List<String> privateIps;
     /**
      * @return Public IP addresses of instances found through the filter
      * 
      */
-    private List<String> publicIps;
+    private @Nullable List<String> publicIps;
 
     private GetInstancesResult() {}
     public List<GetInstancesFilter> filters() {
@@ -50,42 +51,42 @@ public final class GetInstancesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return IDs of instances found through the filter
      * 
      */
     public List<String> ids() {
-        return this.ids;
+        return this.ids == null ? List.of() : this.ids;
     }
     public List<String> instanceStateNames() {
         return this.instanceStateNames == null ? List.of() : this.instanceStateNames;
     }
     public Map<String,String> instanceTags() {
-        return this.instanceTags;
+        return this.instanceTags == null ? Map.of() : this.instanceTags;
     }
     /**
      * @return IPv6 addresses of instances found through the filter
      * 
      */
     public List<String> ipv6Addresses() {
-        return this.ipv6Addresses;
+        return this.ipv6Addresses == null ? List.of() : this.ipv6Addresses;
     }
     /**
      * @return Private IP addresses of instances found through the filter
      * 
      */
     public List<String> privateIps() {
-        return this.privateIps;
+        return this.privateIps == null ? List.of() : this.privateIps;
     }
     /**
      * @return Public IP addresses of instances found through the filter
      * 
      */
     public List<String> publicIps() {
-        return this.publicIps;
+        return this.publicIps == null ? List.of() : this.publicIps;
     }
 
     public static Builder builder() {
@@ -98,13 +99,13 @@ public final class GetInstancesResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetInstancesFilter> filters;
-        private String id;
-        private List<String> ids;
+        private @Nullable String id;
+        private @Nullable List<String> ids;
         private @Nullable List<String> instanceStateNames;
-        private Map<String,String> instanceTags;
-        private List<String> ipv6Addresses;
-        private List<String> privateIps;
-        private List<String> publicIps;
+        private @Nullable Map<String,String> instanceTags;
+        private @Nullable List<String> ipv6Addresses;
+        private @Nullable List<String> privateIps;
+        private @Nullable List<String> publicIps;
         public Builder() {}
         public Builder(GetInstancesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -127,13 +128,13 @@ public final class GetInstancesResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+        public Builder ids(@Nullable List<String> ids) {
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -148,29 +149,29 @@ public final class GetInstancesResult {
             return instanceStateNames(List.of(instanceStateNames));
         }
         @CustomType.Setter
-        public Builder instanceTags(Map<String,String> instanceTags) {
-            this.instanceTags = Objects.requireNonNull(instanceTags);
+        public Builder instanceTags(@Nullable Map<String,String> instanceTags) {
+            this.instanceTags = instanceTags;
             return this;
         }
         @CustomType.Setter
-        public Builder ipv6Addresses(List<String> ipv6Addresses) {
-            this.ipv6Addresses = Objects.requireNonNull(ipv6Addresses);
+        public Builder ipv6Addresses(@Nullable List<String> ipv6Addresses) {
+            this.ipv6Addresses = ipv6Addresses;
             return this;
         }
         public Builder ipv6Addresses(String... ipv6Addresses) {
             return ipv6Addresses(List.of(ipv6Addresses));
         }
         @CustomType.Setter
-        public Builder privateIps(List<String> privateIps) {
-            this.privateIps = Objects.requireNonNull(privateIps);
+        public Builder privateIps(@Nullable List<String> privateIps) {
+            this.privateIps = privateIps;
             return this;
         }
         public Builder privateIps(String... privateIps) {
             return privateIps(List.of(privateIps));
         }
         @CustomType.Setter
-        public Builder publicIps(List<String> publicIps) {
-            this.publicIps = Objects.requireNonNull(publicIps);
+        public Builder publicIps(@Nullable List<String> publicIps) {
+            this.publicIps = publicIps;
             return this;
         }
         public Builder publicIps(String... publicIps) {

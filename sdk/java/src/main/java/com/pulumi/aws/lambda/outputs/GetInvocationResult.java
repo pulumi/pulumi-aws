@@ -16,14 +16,14 @@ public final class GetInvocationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String input;
     private @Nullable String qualifier;
     /**
      * @return String result of the lambda function invocation.
      * 
      */
-    private String result;
+    private @Nullable String result;
 
     private GetInvocationResult() {}
     public String functionName() {
@@ -33,8 +33,8 @@ public final class GetInvocationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String input() {
         return this.input;
@@ -46,8 +46,8 @@ public final class GetInvocationResult {
      * @return String result of the lambda function invocation.
      * 
      */
-    public String result() {
-        return this.result;
+    public Optional<String> result() {
+        return Optional.ofNullable(this.result);
     }
 
     public static Builder builder() {
@@ -60,10 +60,10 @@ public final class GetInvocationResult {
     @CustomType.Builder
     public static final class Builder {
         private String functionName;
-        private String id;
+        private @Nullable String id;
         private String input;
         private @Nullable String qualifier;
-        private String result;
+        private @Nullable String result;
         public Builder() {}
         public Builder(GetInvocationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -80,8 +80,8 @@ public final class GetInvocationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -95,8 +95,8 @@ public final class GetInvocationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder result(String result) {
-            this.result = Objects.requireNonNull(result);
+        public Builder result(@Nullable String result) {
+            this.result = result;
             return this;
         }
         public GetInvocationResult build() {

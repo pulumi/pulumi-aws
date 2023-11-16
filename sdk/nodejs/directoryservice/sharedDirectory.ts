@@ -86,7 +86,7 @@ export class SharedDirectory extends pulumi.CustomResource {
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */
-    public /*out*/ readonly sharedDirectoryId!: pulumi.Output<string>;
+    public /*out*/ readonly sharedDirectoryId!: pulumi.Output<string | undefined>;
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
      *

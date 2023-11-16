@@ -52,7 +52,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the certificate.
         """
@@ -60,7 +60,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="certificateType")
-    def certificate_type(self) -> str:
+    def certificate_type(self) -> Optional[str]:
         """
         Type of certificate. For example, `CA`.
         """
@@ -68,7 +68,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="customerOverride")
-    def customer_override(self) -> bool:
+    def customer_override(self) -> Optional[bool]:
         """
         Boolean whether there is an override for the default certificate identifier.
         """
@@ -76,7 +76,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="customerOverrideValidTill")
-    def customer_override_valid_till(self) -> str:
+    def customer_override_valid_till(self) -> Optional[str]:
         """
         If there is an override for the default certificate identifier, when the override expires.
         """
@@ -84,7 +84,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
@@ -94,7 +94,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> Optional[str]:
         """
         Thumbprint of the certificate.
         """
@@ -102,7 +102,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="validFrom")
-    def valid_from(self) -> str:
+    def valid_from(self) -> Optional[str]:
         """
         [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
         """
@@ -110,7 +110,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="validTill")
-    def valid_till(self) -> str:
+    def valid_till(self) -> Optional[str]:
         """
         [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
         """

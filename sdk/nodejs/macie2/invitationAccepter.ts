@@ -74,7 +74,7 @@ export class InvitationAccepter extends pulumi.CustomResource {
     /**
      * The unique identifier for the invitation.
      */
-    public /*out*/ readonly invitationId!: pulumi.Output<string>;
+    public /*out*/ readonly invitationId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a InvitationAccepter resource with the given unique name, arguments, and options.

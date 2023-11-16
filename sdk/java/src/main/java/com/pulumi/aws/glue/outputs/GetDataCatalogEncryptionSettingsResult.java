@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataCatalogEncryptionSettingsResult {
@@ -16,12 +18,12 @@ public final class GetDataCatalogEncryptionSettingsResult {
      * @return The security configuration to set. see Data Catalog Encryption Settings.
      * 
      */
-    private List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings;
+    private @Nullable List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
 
     private GetDataCatalogEncryptionSettingsResult() {}
     public String catalogId() {
@@ -32,14 +34,14 @@ public final class GetDataCatalogEncryptionSettingsResult {
      * 
      */
     public List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings() {
-        return this.dataCatalogEncryptionSettings;
+        return this.dataCatalogEncryptionSettings == null ? List.of() : this.dataCatalogEncryptionSettings;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -52,8 +54,8 @@ public final class GetDataCatalogEncryptionSettingsResult {
     @CustomType.Builder
     public static final class Builder {
         private String catalogId;
-        private List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings;
-        private String id;
+        private @Nullable List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings;
+        private @Nullable String id;
         public Builder() {}
         public Builder(GetDataCatalogEncryptionSettingsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -68,16 +70,16 @@ public final class GetDataCatalogEncryptionSettingsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dataCatalogEncryptionSettings(List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings) {
-            this.dataCatalogEncryptionSettings = Objects.requireNonNull(dataCatalogEncryptionSettings);
+        public Builder dataCatalogEncryptionSettings(@Nullable List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings) {
+            this.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
             return this;
         }
         public Builder dataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting... dataCatalogEncryptionSettings) {
             return dataCatalogEncryptionSettings(List.of(dataCatalogEncryptionSettings));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         public GetDataCatalogEncryptionSettingsResult build() {

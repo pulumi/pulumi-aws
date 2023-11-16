@@ -20,13 +20,13 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// AMI ID of the base image for container build and test instance.
         /// </summary>
-        public readonly string Image;
+        public readonly string? Image;
 
         [OutputConstructor]
         private GetContainerRecipeInstanceConfigurationResult(
             ImmutableArray<Outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult> blockDeviceMappings,
 
-            string image)
+            string? image)
         {
             BlockDeviceMappings = blockDeviceMappings;
             Image = image;

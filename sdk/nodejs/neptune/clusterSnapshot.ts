@@ -58,11 +58,11 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
-    public /*out*/ readonly allocatedStorage!: pulumi.Output<number>;
+    public /*out*/ readonly allocatedStorage!: pulumi.Output<number | undefined>;
     /**
      * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      */
-    public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
+    public /*out*/ readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
      * The DB Cluster Identifier from which to take the snapshot.
      */
@@ -70,7 +70,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      */
-    public /*out*/ readonly dbClusterSnapshotArn!: pulumi.Output<string>;
+    public /*out*/ readonly dbClusterSnapshotArn!: pulumi.Output<string | undefined>;
     /**
      * The Identifier for the snapshot.
      */
@@ -78,37 +78,37 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * Specifies the name of the database engine.
      */
-    public /*out*/ readonly engine!: pulumi.Output<string>;
+    public /*out*/ readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Version of the database engine for this DB cluster snapshot.
      */
-    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      */
-    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * License model information for the restored DB cluster.
      */
-    public /*out*/ readonly licenseModel!: pulumi.Output<string>;
+    public /*out*/ readonly licenseModel!: pulumi.Output<string | undefined>;
     /**
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
-    public /*out*/ readonly snapshotType!: pulumi.Output<string>;
-    public /*out*/ readonly sourceDbClusterSnapshotArn!: pulumi.Output<string>;
+    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly snapshotType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly sourceDbClusterSnapshotArn!: pulumi.Output<string | undefined>;
     /**
      * The status of this DB Cluster Snapshot.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the DB cluster snapshot is encrypted.
      */
-    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
+    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ClusterSnapshot resource with the given unique name, arguments, and options.

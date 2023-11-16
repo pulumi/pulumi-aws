@@ -25,7 +25,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
         /// <summary>
         /// Username corresponding to the password provided.
         /// </summary>
-        public readonly string CustomerUsername;
+        public readonly string? CustomerUsername;
         /// <summary>
         /// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
         /// <summary>
         /// ID of the VPC that the connector is in.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetDirectoryConnectSettingResult(
@@ -43,11 +43,11 @@ namespace Pulumi.Aws.DirectoryService.Outputs
 
             ImmutableArray<string> customerDnsIps,
 
-            string customerUsername,
+            string? customerUsername,
 
             ImmutableArray<string> subnetIds,
 
-            string vpcId)
+            string? vpcId)
         {
             AvailabilityZones = availabilityZones;
             ConnectIps = connectIps;

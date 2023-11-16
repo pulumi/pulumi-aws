@@ -69,28 +69,28 @@ public class Link extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the link.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Label that is assigned to this link.
      * 
      */
     @Export(name="label", refs={String.class}, tree="[0]")
-    private Output<String> label;
+    private Output</* @Nullable */ String> label;
 
     /**
      * @return Label that is assigned to this link.
      * 
      */
-    public Output<String> label() {
-        return this.label;
+    public Output<Optional<String>> label() {
+        return Codegen.optional(this.label);
     }
     /**
      * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
@@ -111,14 +111,14 @@ public class Link extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="linkId", refs={String.class}, tree="[0]")
-    private Output<String> linkId;
+    private Output</* @Nullable */ String> linkId;
 
     /**
      * @return ID string that AWS generated as part of the link ARN.
      * 
      */
-    public Output<String> linkId() {
-        return this.linkId;
+    public Output<Optional<String>> linkId() {
+        return Codegen.optional(this.linkId);
     }
     /**
      * Types of data that the source account shares with the monitoring account.
@@ -139,14 +139,14 @@ public class Link extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sinkArn", refs={String.class}, tree="[0]")
-    private Output<String> sinkArn;
+    private Output</* @Nullable */ String> sinkArn;
 
     /**
      * @return ARN of the sink that is used for this link.
      * 
      */
-    public Output<String> sinkArn() {
-        return this.sinkArn;
+    public Output<Optional<String>> sinkArn() {
+        return Codegen.optional(this.sinkArn);
     }
     /**
      * Identifier of the sink to use to create this link.

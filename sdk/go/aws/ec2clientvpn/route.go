@@ -86,11 +86,11 @@ type Route struct {
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
 	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-	Origin pulumi.StringOutput `pulumi:"origin"`
+	Origin pulumi.StringPtrOutput `pulumi:"origin"`
 	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 	TargetVpcSubnetId pulumi.StringOutput `pulumi:"targetVpcSubnetId"`
 	// The type of the route.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
@@ -291,8 +291,8 @@ func (o RouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 }
 
 // Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-func (o RouteOutput) Origin() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Origin }).(pulumi.StringOutput)
+func (o RouteOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Origin }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
@@ -301,8 +301,8 @@ func (o RouteOutput) TargetVpcSubnetId() pulumi.StringOutput {
 }
 
 // The type of the route.
-func (o RouteOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o RouteOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type RouteArrayOutput struct{ *pulumi.OutputState }

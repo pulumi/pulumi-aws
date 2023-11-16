@@ -11,30 +11,31 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecServiceDiscovery;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpec {
-    private List<GetVirtualNodeSpecBackendDefault> backendDefaults;
-    private List<GetVirtualNodeSpecBackend> backends;
-    private List<GetVirtualNodeSpecListener> listeners;
-    private List<GetVirtualNodeSpecLogging> loggings;
-    private List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries;
+    private @Nullable List<GetVirtualNodeSpecBackendDefault> backendDefaults;
+    private @Nullable List<GetVirtualNodeSpecBackend> backends;
+    private @Nullable List<GetVirtualNodeSpecListener> listeners;
+    private @Nullable List<GetVirtualNodeSpecLogging> loggings;
+    private @Nullable List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries;
 
     private GetVirtualNodeSpec() {}
     public List<GetVirtualNodeSpecBackendDefault> backendDefaults() {
-        return this.backendDefaults;
+        return this.backendDefaults == null ? List.of() : this.backendDefaults;
     }
     public List<GetVirtualNodeSpecBackend> backends() {
-        return this.backends;
+        return this.backends == null ? List.of() : this.backends;
     }
     public List<GetVirtualNodeSpecListener> listeners() {
-        return this.listeners;
+        return this.listeners == null ? List.of() : this.listeners;
     }
     public List<GetVirtualNodeSpecLogging> loggings() {
-        return this.loggings;
+        return this.loggings == null ? List.of() : this.loggings;
     }
     public List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries() {
-        return this.serviceDiscoveries;
+        return this.serviceDiscoveries == null ? List.of() : this.serviceDiscoveries;
     }
 
     public static Builder builder() {
@@ -46,11 +47,11 @@ public final class GetVirtualNodeSpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecBackendDefault> backendDefaults;
-        private List<GetVirtualNodeSpecBackend> backends;
-        private List<GetVirtualNodeSpecListener> listeners;
-        private List<GetVirtualNodeSpecLogging> loggings;
-        private List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries;
+        private @Nullable List<GetVirtualNodeSpecBackendDefault> backendDefaults;
+        private @Nullable List<GetVirtualNodeSpecBackend> backends;
+        private @Nullable List<GetVirtualNodeSpecListener> listeners;
+        private @Nullable List<GetVirtualNodeSpecLogging> loggings;
+        private @Nullable List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries;
         public Builder() {}
         public Builder(GetVirtualNodeSpec defaults) {
     	      Objects.requireNonNull(defaults);
@@ -62,40 +63,40 @@ public final class GetVirtualNodeSpec {
         }
 
         @CustomType.Setter
-        public Builder backendDefaults(List<GetVirtualNodeSpecBackendDefault> backendDefaults) {
-            this.backendDefaults = Objects.requireNonNull(backendDefaults);
+        public Builder backendDefaults(@Nullable List<GetVirtualNodeSpecBackendDefault> backendDefaults) {
+            this.backendDefaults = backendDefaults;
             return this;
         }
         public Builder backendDefaults(GetVirtualNodeSpecBackendDefault... backendDefaults) {
             return backendDefaults(List.of(backendDefaults));
         }
         @CustomType.Setter
-        public Builder backends(List<GetVirtualNodeSpecBackend> backends) {
-            this.backends = Objects.requireNonNull(backends);
+        public Builder backends(@Nullable List<GetVirtualNodeSpecBackend> backends) {
+            this.backends = backends;
             return this;
         }
         public Builder backends(GetVirtualNodeSpecBackend... backends) {
             return backends(List.of(backends));
         }
         @CustomType.Setter
-        public Builder listeners(List<GetVirtualNodeSpecListener> listeners) {
-            this.listeners = Objects.requireNonNull(listeners);
+        public Builder listeners(@Nullable List<GetVirtualNodeSpecListener> listeners) {
+            this.listeners = listeners;
             return this;
         }
         public Builder listeners(GetVirtualNodeSpecListener... listeners) {
             return listeners(List.of(listeners));
         }
         @CustomType.Setter
-        public Builder loggings(List<GetVirtualNodeSpecLogging> loggings) {
-            this.loggings = Objects.requireNonNull(loggings);
+        public Builder loggings(@Nullable List<GetVirtualNodeSpecLogging> loggings) {
+            this.loggings = loggings;
             return this;
         }
         public Builder loggings(GetVirtualNodeSpecLogging... loggings) {
             return loggings(List.of(loggings));
         }
         @CustomType.Setter
-        public Builder serviceDiscoveries(List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries) {
-            this.serviceDiscoveries = Objects.requireNonNull(serviceDiscoveries);
+        public Builder serviceDiscoveries(@Nullable List<GetVirtualNodeSpecServiceDiscovery> serviceDiscoveries) {
+            this.serviceDiscoveries = serviceDiscoveries;
             return this;
         }
         public Builder serviceDiscoveries(GetVirtualNodeSpecServiceDiscovery... serviceDiscoveries) {

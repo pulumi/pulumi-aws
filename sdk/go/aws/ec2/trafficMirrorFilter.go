@@ -58,7 +58,7 @@ type TrafficMirrorFilter struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the traffic mirror filter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// A description of the filter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
@@ -245,8 +245,8 @@ func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterOutputWithContext(ctx co
 }
 
 // The ARN of the traffic mirror filter.
-func (o TrafficMirrorFilterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TrafficMirrorFilterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A description of the filter.

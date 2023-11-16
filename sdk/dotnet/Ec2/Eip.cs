@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2
         /// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
         /// </summary>
         [Output("allocationId")]
-        public Output<string> AllocationId { get; private set; } = null!;
+        public Output<string?> AllocationId { get; private set; } = null!;
 
         /// <summary>
         /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
@@ -180,19 +180,19 @@ namespace Pulumi.Aws.Ec2
         /// ID representing the association of the address with an instance in a VPC.
         /// </summary>
         [Output("associationId")]
-        public Output<string> AssociationId { get; private set; } = null!;
+        public Output<string?> AssociationId { get; private set; } = null!;
 
         /// <summary>
         /// Carrier IP address.
         /// </summary>
         [Output("carrierIp")]
-        public Output<string> CarrierIp { get; private set; } = null!;
+        public Output<string?> CarrierIp { get; private set; } = null!;
 
         /// <summary>
         /// Customer owned IP.
         /// </summary>
         [Output("customerOwnedIp")]
-        public Output<string> CustomerOwnedIp { get; private set; } = null!;
+        public Output<string?> CustomerOwnedIp { get; private set; } = null!;
 
         /// <summary>
         /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
@@ -204,56 +204,56 @@ namespace Pulumi.Aws.Ec2
         /// Indicates if this EIP is for use in VPC (`vpc`).
         /// </summary>
         [Output("domain")]
-        public Output<string> Domain { get; private set; } = null!;
+        public Output<string?> Domain { get; private set; } = null!;
 
         /// <summary>
         /// EC2 instance ID.
         /// </summary>
         [Output("instance")]
-        public Output<string> Instance { get; private set; } = null!;
+        public Output<string?> Instance { get; private set; } = null!;
 
         /// <summary>
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         /// </summary>
         [Output("networkBorderGroup")]
-        public Output<string> NetworkBorderGroup { get; private set; } = null!;
+        public Output<string?> NetworkBorderGroup { get; private set; } = null!;
 
         /// <summary>
         /// Network interface ID to associate with.
         /// </summary>
         [Output("networkInterface")]
-        public Output<string> NetworkInterface { get; private set; } = null!;
+        public Output<string?> NetworkInterface { get; private set; } = null!;
 
         /// <summary>
         /// The Private DNS associated with the Elastic IP address (if in VPC).
         /// </summary>
         [Output("privateDns")]
-        public Output<string> PrivateDns { get; private set; } = null!;
+        public Output<string?> PrivateDns { get; private set; } = null!;
 
         /// <summary>
         /// Contains the private IP address (if in VPC).
         /// </summary>
         [Output("privateIp")]
-        public Output<string> PrivateIp { get; private set; } = null!;
+        public Output<string?> PrivateIp { get; private set; } = null!;
 
         /// <summary>
         /// Public DNS associated with the Elastic IP address.
         /// </summary>
         [Output("publicDns")]
-        public Output<string> PublicDns { get; private set; } = null!;
+        public Output<string?> PublicDns { get; private set; } = null!;
 
         /// <summary>
         /// Contains the public IP address.
         /// </summary>
         [Output("publicIp")]
-        public Output<string> PublicIp { get; private set; } = null!;
+        public Output<string?> PublicIp { get; private set; } = null!;
 
         /// <summary>
         /// EC2 IPv4 address pool identifier or `amazon`.
         /// This option is only available for VPC EIPs.
         /// </summary>
         [Output("publicIpv4Pool")]
-        public Output<string> PublicIpv4Pool { get; private set; } = null!;
+        public Output<string?> PublicIpv4Pool { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Ec2
         /// case both options are defined as the api only requires one or the other.
         /// </summary>
         [Output("vpc")]
-        public Output<bool> Vpc { get; private set; } = null!;
+        public Output<bool?> Vpc { get; private set; } = null!;
 
 
         /// <summary>

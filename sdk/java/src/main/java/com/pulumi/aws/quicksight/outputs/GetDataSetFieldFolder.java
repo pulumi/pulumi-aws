@@ -7,22 +7,24 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetFieldFolder {
-    private List<String> columns;
-    private String description;
-    private String fieldFoldersId;
+    private @Nullable List<String> columns;
+    private @Nullable String description;
+    private @Nullable String fieldFoldersId;
 
     private GetDataSetFieldFolder() {}
     public List<String> columns() {
-        return this.columns;
+        return this.columns == null ? List.of() : this.columns;
     }
-    public String description() {
-        return this.description;
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
-    public String fieldFoldersId() {
-        return this.fieldFoldersId;
+    public Optional<String> fieldFoldersId() {
+        return Optional.ofNullable(this.fieldFoldersId);
     }
 
     public static Builder builder() {
@@ -34,9 +36,9 @@ public final class GetDataSetFieldFolder {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> columns;
-        private String description;
-        private String fieldFoldersId;
+        private @Nullable List<String> columns;
+        private @Nullable String description;
+        private @Nullable String fieldFoldersId;
         public Builder() {}
         public Builder(GetDataSetFieldFolder defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,21 +48,21 @@ public final class GetDataSetFieldFolder {
         }
 
         @CustomType.Setter
-        public Builder columns(List<String> columns) {
-            this.columns = Objects.requireNonNull(columns);
+        public Builder columns(@Nullable List<String> columns) {
+            this.columns = columns;
             return this;
         }
         public Builder columns(String... columns) {
             return columns(List.of(columns));
         }
         @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+        public Builder description(@Nullable String description) {
+            this.description = description;
             return this;
         }
         @CustomType.Setter
-        public Builder fieldFoldersId(String fieldFoldersId) {
-            this.fieldFoldersId = Objects.requireNonNull(fieldFoldersId);
+        public Builder fieldFoldersId(@Nullable String fieldFoldersId) {
+            this.fieldFoldersId = fieldFoldersId;
             return this;
         }
         public GetDataSetFieldFolder build() {

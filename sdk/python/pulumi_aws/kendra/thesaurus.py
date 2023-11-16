@@ -484,7 +484,7 @@ class Thesaurus(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the thesaurus.
         """
@@ -534,7 +534,7 @@ class Thesaurus(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of the thesaurus.
         """
@@ -561,6 +561,6 @@ class Thesaurus(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thesaurusId")
-    def thesaurus_id(self) -> pulumi.Output[str]:
+    def thesaurus_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "thesaurus_id")
 

@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQueryLogConfigResult {
-    private String arn;
-    private String destinationArn;
+    private @Nullable String arn;
+    private @Nullable String destinationArn;
     private @Nullable List<GetQueryLogConfigFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private @Nullable String name;
-    private String ownerId;
+    private @Nullable String ownerId;
     private @Nullable String resolverQueryLogConfigId;
-    private String shareStatus;
-    private Map<String,String> tags;
+    private @Nullable String shareStatus;
+    private @Nullable Map<String,String> tags;
 
     private GetQueryLogConfigResult() {}
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
-    public String destinationArn() {
-        return this.destinationArn;
+    public Optional<String> destinationArn() {
+        return Optional.ofNullable(this.destinationArn);
     }
     public List<GetQueryLogConfigFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -42,23 +42,23 @@ public final class GetQueryLogConfigResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     public Optional<String> resolverQueryLogConfigId() {
         return Optional.ofNullable(this.resolverQueryLogConfigId);
     }
-    public String shareStatus() {
-        return this.shareStatus;
+    public Optional<String> shareStatus() {
+        return Optional.ofNullable(this.shareStatus);
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -70,15 +70,15 @@ public final class GetQueryLogConfigResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String destinationArn;
+        private @Nullable String arn;
+        private @Nullable String destinationArn;
         private @Nullable List<GetQueryLogConfigFilter> filters;
-        private String id;
+        private @Nullable String id;
         private @Nullable String name;
-        private String ownerId;
+        private @Nullable String ownerId;
         private @Nullable String resolverQueryLogConfigId;
-        private String shareStatus;
-        private Map<String,String> tags;
+        private @Nullable String shareStatus;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetQueryLogConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -94,13 +94,13 @@ public final class GetQueryLogConfigResult {
         }
 
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder destinationArn(String destinationArn) {
-            this.destinationArn = Objects.requireNonNull(destinationArn);
+        public Builder destinationArn(@Nullable String destinationArn) {
+            this.destinationArn = destinationArn;
             return this;
         }
         @CustomType.Setter
@@ -112,8 +112,8 @@ public final class GetQueryLogConfigResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -122,8 +122,8 @@ public final class GetQueryLogConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
@@ -132,13 +132,13 @@ public final class GetQueryLogConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder shareStatus(String shareStatus) {
-            this.shareStatus = Objects.requireNonNull(shareStatus);
+        public Builder shareStatus(@Nullable String shareStatus) {
+            this.shareStatus = shareStatus;
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+        public Builder tags(@Nullable Map<String,String> tags) {
+            this.tags = tags;
             return this;
         }
         public GetQueryLogConfigResult build() {

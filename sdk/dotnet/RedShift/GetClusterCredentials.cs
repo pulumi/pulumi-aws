@@ -182,17 +182,17 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
         /// </summary>
-        public readonly string DbPassword;
+        public readonly string? DbPassword;
         public readonly string DbUser;
         public readonly int? DurationSeconds;
         /// <summary>
         /// Date and time the password in `db_password` expires.
         /// </summary>
-        public readonly string Expiration;
+        public readonly string? Expiration;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
         private GetClusterCredentialsResult(
@@ -204,15 +204,15 @@ namespace Pulumi.Aws.RedShift
 
             string? dbName,
 
-            string dbPassword,
+            string? dbPassword,
 
             string dbUser,
 
             int? durationSeconds,
 
-            string expiration,
+            string? expiration,
 
-            string id)
+            string? id)
         {
             AutoCreate = autoCreate;
             ClusterIdentifier = clusterIdentifier;

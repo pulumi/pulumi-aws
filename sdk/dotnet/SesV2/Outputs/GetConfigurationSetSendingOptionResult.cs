@@ -16,10 +16,10 @@ namespace Pulumi.Aws.SesV2.Outputs
         /// <summary>
         /// Specifies whether email sending is enabled.
         /// </summary>
-        public readonly bool SendingEnabled;
+        public readonly bool? SendingEnabled;
 
         [OutputConstructor]
-        private GetConfigurationSetSendingOptionResult(bool sendingEnabled)
+        private GetConfigurationSetSendingOptionResult(bool? sendingEnabled)
         {
             SendingEnabled = sendingEnabled;
         }

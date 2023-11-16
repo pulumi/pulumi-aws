@@ -13,17 +13,17 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult
     {
-        public readonly ImmutableDictionary<string, string> Attributes;
-        public readonly string NamespaceName;
-        public readonly string ServiceName;
+        public readonly ImmutableDictionary<string, string>? Attributes;
+        public readonly string? NamespaceName;
+        public readonly string? ServiceName;
 
         [OutputConstructor]
         private GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult(
-            ImmutableDictionary<string, string> attributes,
+            ImmutableDictionary<string, string>? attributes,
 
-            string namespaceName,
+            string? namespaceName,
 
-            string serviceName)
+            string? serviceName)
         {
             Attributes = attributes;
             NamespaceName = namespaceName;

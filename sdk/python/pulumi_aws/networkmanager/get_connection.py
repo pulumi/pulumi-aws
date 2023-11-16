@@ -55,7 +55,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the connection.
         """
@@ -63,7 +63,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="connectedDeviceId")
-    def connected_device_id(self) -> str:
+    def connected_device_id(self) -> Optional[str]:
         """
         ID of the second device in the connection.
         """
@@ -71,7 +71,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="connectedLinkId")
-    def connected_link_id(self) -> str:
+    def connected_link_id(self) -> Optional[str]:
         """
         ID of the link for the second device.
         """
@@ -84,7 +84,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the connection.
         """
@@ -92,7 +92,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="deviceId")
-    def device_id(self) -> str:
+    def device_id(self) -> Optional[str]:
         """
         ID of the first device in the connection.
         """
@@ -105,7 +105,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -113,7 +113,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="linkId")
-    def link_id(self) -> str:
+    def link_id(self) -> Optional[str]:
         """
         ID of the link for the first device.
         """
@@ -121,7 +121,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Key-value tags for the connection.
         """

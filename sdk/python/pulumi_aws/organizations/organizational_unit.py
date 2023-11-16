@@ -320,7 +320,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accounts(self) -> pulumi.Output[Sequence['outputs.OrganizationalUnitAccount']]:
+    def accounts(self) -> pulumi.Output[Optional[Sequence['outputs.OrganizationalUnitAccount']]]:
         """
         List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
         """
@@ -328,7 +328,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the organizational unit
         """

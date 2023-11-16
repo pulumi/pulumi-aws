@@ -3487,7 +3487,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def address(self) -> pulumi.Output[str]:
+    def address(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the DNS address of the DB instance.
         """
@@ -3495,7 +3495,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> pulumi.Output[int]:
+    def allocated_storage(self) -> pulumi.Output[Optional[int]]:
         """
         The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         """
@@ -3524,7 +3524,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the RDS instance.
         """
@@ -3542,7 +3542,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The AZ for the RDS instance.
         """
@@ -3550,7 +3550,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> pulumi.Output[int]:
+    def backup_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
         The days to retain backups for.
         Must be between `0` and `35`.
@@ -3563,7 +3563,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupTarget")
-    def backup_target(self) -> pulumi.Output[str]:
+    def backup_target(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         """
@@ -3571,7 +3571,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupWindow")
-    def backup_window(self) -> pulumi.Output[str]:
+    def backup_window(self) -> pulumi.Output[Optional[str]]:
         """
         The daily time range (in UTC) during which automated backups are created if they are enabled.
         Example: "09:46-10:16". Must not overlap with `maintenance_window`.
@@ -3589,7 +3589,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caCertIdentifier")
-    def ca_cert_identifier(self) -> pulumi.Output[str]:
+    def ca_cert_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the CA certificate for the DB instance.
         """
@@ -3597,7 +3597,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="characterSetName")
-    def character_set_name(self) -> pulumi.Output[str]:
+    def character_set_name(self) -> pulumi.Output[Optional[str]]:
         """
         The character set name to use for DB
         encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
@@ -3636,7 +3636,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbName")
-    def db_name(self) -> pulumi.Output[str]:
+    def db_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         """
@@ -3644,7 +3644,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
-    def db_subnet_group_name(self) -> pulumi.Output[str]:
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of DB subnet group. DB instance will
         be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -3698,7 +3698,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The connection endpoint in `address:port` format.
         """
@@ -3706,7 +3706,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[str]:
+    def engine(self) -> pulumi.Output[Optional[str]]:
         """
         The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         """
@@ -3714,7 +3714,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         """
@@ -3722,7 +3722,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersionActual")
-    def engine_version_actual(self) -> pulumi.Output[str]:
+    def engine_version_actual(self) -> pulumi.Output[Optional[str]]:
         """
         The running version of the database.
         """
@@ -3740,7 +3740,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> pulumi.Output[str]:
+    def hosted_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         """
@@ -3765,7 +3765,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identifierPrefix")
-    def identifier_prefix(self) -> pulumi.Output[str]:
+    def identifier_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         """
@@ -3781,7 +3781,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def iops(self) -> pulumi.Output[int]:
+    def iops(self) -> pulumi.Output[Optional[int]]:
         """
         The amount of provisioned IOPS. Setting this implies a
         storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
@@ -3792,7 +3792,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> pulumi.Output[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the KMS encryption key. If creating an
         encrypted replica, set this to the destination KMS ARN.
@@ -3801,7 +3801,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestRestorableTime")
-    def latest_restorable_time(self) -> pulumi.Output[str]:
+    def latest_restorable_time(self) -> pulumi.Output[Optional[str]]:
         """
         The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         """
@@ -3809,7 +3809,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> pulumi.Output[str]:
+    def license_model(self) -> pulumi.Output[Optional[str]]:
         """
         License model information for this DB instance. Valid values for this field are as follows:
         * RDS for MariaDB: `general-public-license`
@@ -3822,7 +3822,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="listenerEndpoints")
-    def listener_endpoints(self) -> pulumi.Output[Sequence['outputs.InstanceListenerEndpoint']]:
+    def listener_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceListenerEndpoint']]]:
         """
         Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
         """
@@ -3830,7 +3830,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> pulumi.Output[str]:
+    def maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         The window to perform maintenance in.
         Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -3850,7 +3850,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterUserSecretKmsKeyId")
-    def master_user_secret_kms_key_id(self) -> pulumi.Output[str]:
+    def master_user_secret_kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         """
@@ -3858,7 +3858,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterUserSecrets")
-    def master_user_secrets(self) -> pulumi.Output[Sequence['outputs.InstanceMasterUserSecret']]:
+    def master_user_secrets(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceMasterUserSecret']]]:
         """
         A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         """
@@ -3885,7 +3885,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringRoleArn")
-    def monitoring_role_arn(self) -> pulumi.Output[str]:
+    def monitoring_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the IAM role that permits RDS
         to send enhanced monitoring metrics to CloudWatch Logs. You can find more
@@ -3897,7 +3897,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> pulumi.Output[bool]:
+    def multi_az(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the RDS instance is multi-AZ
         """
@@ -3913,7 +3913,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ncharCharacterSetName")
-    def nchar_character_set_name(self) -> pulumi.Output[str]:
+    def nchar_character_set_name(self) -> pulumi.Output[Optional[str]]:
         """
         The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
         Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -3922,7 +3922,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> pulumi.Output[str]:
+    def network_type(self) -> pulumi.Output[Optional[str]]:
         """
         The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         """
@@ -3930,7 +3930,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optionGroupName")
-    def option_group_name(self) -> pulumi.Output[str]:
+    def option_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the DB option group to associate.
         """
@@ -3938,7 +3938,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> pulumi.Output[str]:
+    def parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the DB parameter group to
         associate.
@@ -3965,7 +3965,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
-    def performance_insights_kms_key_id(self) -> pulumi.Output[str]:
+    def performance_insights_kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         """
@@ -3973,7 +3973,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
-    def performance_insights_retention_period(self) -> pulumi.Output[int]:
+    def performance_insights_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
         Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         """
@@ -3981,7 +3981,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[int]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port on which the DB accepts connections.
         """
@@ -3998,7 +3998,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicaMode")
-    def replica_mode(self) -> pulumi.Output[str]:
+    def replica_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
         is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
@@ -4007,7 +4007,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def replicas(self) -> pulumi.Output[Sequence[str]]:
+    def replicas(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "replicas")
 
     @property
@@ -4028,7 +4028,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> pulumi.Output[str]:
+    def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The RDS Resource ID of this instance.
         """
@@ -4064,7 +4064,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotIdentifier")
-    def snapshot_identifier(self) -> pulumi.Output[str]:
+    def snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether or not to create this
         database from a snapshot. This correlates to the snapshot ID you'd find in the
@@ -4074,7 +4074,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The RDS instance status.
         """
@@ -4093,7 +4093,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageThroughput")
-    def storage_throughput(self) -> pulumi.Output[int]:
+    def storage_throughput(self) -> pulumi.Output[Optional[int]]:
         """
         The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
@@ -4101,7 +4101,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> pulumi.Output[str]:
+    def storage_type(self) -> pulumi.Output[Optional[str]]:
         """
         One of "standard" (magnetic), "gp2" (general
         purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
@@ -4131,7 +4131,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> pulumi.Output[str]:
+    def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         Time zone of the DB instance. `timezone` is currently
         only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -4143,7 +4143,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Output[str]:
+    def username(self) -> pulumi.Output[Optional[str]]:
         """
         (Required unless a `snapshot_identifier` or `replicate_source_db`
         is provided) Username for the master DB user. Cannot be specified for a replica.
@@ -4152,7 +4152,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of VPC security groups to
         associate.

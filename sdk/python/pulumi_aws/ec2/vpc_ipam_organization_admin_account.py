@@ -252,7 +252,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Organizations ARN for the delegate account.
         """
@@ -265,7 +265,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> pulumi.Output[str]:
+    def email(self) -> pulumi.Output[Optional[str]]:
         """
         The Organizations email for the delegate account.
         """
@@ -273,7 +273,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The Organizations name for the delegate account.
         """
@@ -281,7 +281,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> pulumi.Output[str]:
+    def service_principal(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS service principal.
         """

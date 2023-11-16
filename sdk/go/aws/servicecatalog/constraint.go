@@ -71,16 +71,16 @@ type Constraint struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
 	// Description of the constraint.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Owner of the constraint.
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
 	Parameters pulumi.StringOutput `pulumi:"parameters"`
 	// Portfolio identifier.
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Product identifier.
-	ProductId pulumi.StringOutput `pulumi:"productId"`
-	Status    pulumi.StringOutput `pulumi:"status"`
+	ProductId pulumi.StringOutput    `pulumi:"productId"`
+	Status    pulumi.StringPtrOutput `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -300,13 +300,13 @@ func (o ConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
 }
 
 // Description of the constraint.
-func (o ConstraintOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o ConstraintOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Constraint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Owner of the constraint.
-func (o ConstraintOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+func (o ConstraintOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Constraint) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
 // Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
@@ -324,8 +324,8 @@ func (o ConstraintOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
 }
 
-func (o ConstraintOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ConstraintOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Constraint) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.

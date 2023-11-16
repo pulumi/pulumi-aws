@@ -77,14 +77,14 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accountSubscriptionStatus", refs={String.class}, tree="[0]")
-    private Output<String> accountSubscriptionStatus;
+    private Output</* @Nullable */ String> accountSubscriptionStatus;
 
     /**
      * @return Status of the Amazon QuickSight account&#39;s subscription.
      * 
      */
-    public Output<String> accountSubscriptionStatus() {
-        return this.accountSubscriptionStatus;
+    public Output<Optional<String>> accountSubscriptionStatus() {
+        return Codegen.optional(this.accountSubscriptionStatus);
     }
     /**
      * Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
@@ -147,14 +147,14 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
+    private Output</* @Nullable */ String> awsAccountId;
 
     /**
      * @return AWS account ID hosting the QuickSight account. Default to provider account.
      * 
      */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
+    public Output<Optional<String>> awsAccountId() {
+        return Codegen.optional(this.awsAccountId);
     }
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.

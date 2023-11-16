@@ -3749,7 +3749,7 @@ func (o GetCodeSigningConfigAllowedPublisherArrayOutput) Index(i pulumi.IntInput
 
 type GetCodeSigningConfigPolicy struct {
 	// Code signing configuration policy for deployment validation failure.
-	UntrustedArtifactOnDeployment string `pulumi:"untrustedArtifactOnDeployment"`
+	UntrustedArtifactOnDeployment *string `pulumi:"untrustedArtifactOnDeployment"`
 }
 
 // GetCodeSigningConfigPolicyInput is an input type that accepts GetCodeSigningConfigPolicyArgs and GetCodeSigningConfigPolicyOutput values.
@@ -3765,7 +3765,7 @@ type GetCodeSigningConfigPolicyInput interface {
 
 type GetCodeSigningConfigPolicyArgs struct {
 	// Code signing configuration policy for deployment validation failure.
-	UntrustedArtifactOnDeployment pulumi.StringInput `pulumi:"untrustedArtifactOnDeployment"`
+	UntrustedArtifactOnDeployment pulumi.StringPtrInput `pulumi:"untrustedArtifactOnDeployment"`
 }
 
 func (GetCodeSigningConfigPolicyArgs) ElementType() reflect.Type {
@@ -3820,8 +3820,8 @@ func (o GetCodeSigningConfigPolicyOutput) ToGetCodeSigningConfigPolicyOutputWith
 }
 
 // Code signing configuration policy for deployment validation failure.
-func (o GetCodeSigningConfigPolicyOutput) UntrustedArtifactOnDeployment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCodeSigningConfigPolicy) string { return v.UntrustedArtifactOnDeployment }).(pulumi.StringOutput)
+func (o GetCodeSigningConfigPolicyOutput) UntrustedArtifactOnDeployment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCodeSigningConfigPolicy) *string { return v.UntrustedArtifactOnDeployment }).(pulumi.StringPtrOutput)
 }
 
 type GetCodeSigningConfigPolicyArrayOutput struct{ *pulumi.OutputState }
@@ -3845,7 +3845,7 @@ func (o GetCodeSigningConfigPolicyArrayOutput) Index(i pulumi.IntInput) GetCodeS
 }
 
 type GetFunctionDeadLetterConfig struct {
-	TargetArn string `pulumi:"targetArn"`
+	TargetArn *string `pulumi:"targetArn"`
 }
 
 // GetFunctionDeadLetterConfigInput is an input type that accepts GetFunctionDeadLetterConfigArgs and GetFunctionDeadLetterConfigOutput values.
@@ -3860,7 +3860,7 @@ type GetFunctionDeadLetterConfigInput interface {
 }
 
 type GetFunctionDeadLetterConfigArgs struct {
-	TargetArn pulumi.StringInput `pulumi:"targetArn"`
+	TargetArn pulumi.StringPtrInput `pulumi:"targetArn"`
 }
 
 func (GetFunctionDeadLetterConfigArgs) ElementType() reflect.Type {
@@ -3873,6 +3873,47 @@ func (i GetFunctionDeadLetterConfigArgs) ToGetFunctionDeadLetterConfigOutput() G
 
 func (i GetFunctionDeadLetterConfigArgs) ToGetFunctionDeadLetterConfigOutputWithContext(ctx context.Context) GetFunctionDeadLetterConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionDeadLetterConfigOutput)
+}
+
+func (i GetFunctionDeadLetterConfigArgs) ToGetFunctionDeadLetterConfigPtrOutput() GetFunctionDeadLetterConfigPtrOutput {
+	return i.ToGetFunctionDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GetFunctionDeadLetterConfigArgs) ToGetFunctionDeadLetterConfigPtrOutputWithContext(ctx context.Context) GetFunctionDeadLetterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionDeadLetterConfigOutput).ToGetFunctionDeadLetterConfigPtrOutputWithContext(ctx)
+}
+
+// GetFunctionDeadLetterConfigPtrInput is an input type that accepts GetFunctionDeadLetterConfigArgs, GetFunctionDeadLetterConfigPtr and GetFunctionDeadLetterConfigPtrOutput values.
+// You can construct a concrete instance of `GetFunctionDeadLetterConfigPtrInput` via:
+//
+//	        GetFunctionDeadLetterConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFunctionDeadLetterConfigPtrInput interface {
+	pulumi.Input
+
+	ToGetFunctionDeadLetterConfigPtrOutput() GetFunctionDeadLetterConfigPtrOutput
+	ToGetFunctionDeadLetterConfigPtrOutputWithContext(context.Context) GetFunctionDeadLetterConfigPtrOutput
+}
+
+type getFunctionDeadLetterConfigPtrType GetFunctionDeadLetterConfigArgs
+
+func GetFunctionDeadLetterConfigPtr(v *GetFunctionDeadLetterConfigArgs) GetFunctionDeadLetterConfigPtrInput {
+	return (*getFunctionDeadLetterConfigPtrType)(v)
+}
+
+func (*getFunctionDeadLetterConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFunctionDeadLetterConfig)(nil)).Elem()
+}
+
+func (i *getFunctionDeadLetterConfigPtrType) ToGetFunctionDeadLetterConfigPtrOutput() GetFunctionDeadLetterConfigPtrOutput {
+	return i.ToGetFunctionDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *getFunctionDeadLetterConfigPtrType) ToGetFunctionDeadLetterConfigPtrOutputWithContext(ctx context.Context) GetFunctionDeadLetterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionDeadLetterConfigPtrOutput)
 }
 
 type GetFunctionDeadLetterConfigOutput struct{ *pulumi.OutputState }
@@ -3889,8 +3930,51 @@ func (o GetFunctionDeadLetterConfigOutput) ToGetFunctionDeadLetterConfigOutputWi
 	return o
 }
 
-func (o GetFunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFunctionDeadLetterConfig) string { return v.TargetArn }).(pulumi.StringOutput)
+func (o GetFunctionDeadLetterConfigOutput) ToGetFunctionDeadLetterConfigPtrOutput() GetFunctionDeadLetterConfigPtrOutput {
+	return o.ToGetFunctionDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GetFunctionDeadLetterConfigOutput) ToGetFunctionDeadLetterConfigPtrOutputWithContext(ctx context.Context) GetFunctionDeadLetterConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFunctionDeadLetterConfig) *GetFunctionDeadLetterConfig {
+		return &v
+	}).(GetFunctionDeadLetterConfigPtrOutput)
+}
+
+func (o GetFunctionDeadLetterConfigOutput) TargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFunctionDeadLetterConfig) *string { return v.TargetArn }).(pulumi.StringPtrOutput)
+}
+
+type GetFunctionDeadLetterConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionDeadLetterConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFunctionDeadLetterConfig)(nil)).Elem()
+}
+
+func (o GetFunctionDeadLetterConfigPtrOutput) ToGetFunctionDeadLetterConfigPtrOutput() GetFunctionDeadLetterConfigPtrOutput {
+	return o
+}
+
+func (o GetFunctionDeadLetterConfigPtrOutput) ToGetFunctionDeadLetterConfigPtrOutputWithContext(ctx context.Context) GetFunctionDeadLetterConfigPtrOutput {
+	return o
+}
+
+func (o GetFunctionDeadLetterConfigPtrOutput) Elem() GetFunctionDeadLetterConfigOutput {
+	return o.ApplyT(func(v *GetFunctionDeadLetterConfig) GetFunctionDeadLetterConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GetFunctionDeadLetterConfig
+		return ret
+	}).(GetFunctionDeadLetterConfigOutput)
+}
+
+func (o GetFunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFunctionDeadLetterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetFunctionEnvironment struct {
@@ -3924,6 +4008,47 @@ func (i GetFunctionEnvironmentArgs) ToGetFunctionEnvironmentOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionEnvironmentOutput)
 }
 
+func (i GetFunctionEnvironmentArgs) ToGetFunctionEnvironmentPtrOutput() GetFunctionEnvironmentPtrOutput {
+	return i.ToGetFunctionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i GetFunctionEnvironmentArgs) ToGetFunctionEnvironmentPtrOutputWithContext(ctx context.Context) GetFunctionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionEnvironmentOutput).ToGetFunctionEnvironmentPtrOutputWithContext(ctx)
+}
+
+// GetFunctionEnvironmentPtrInput is an input type that accepts GetFunctionEnvironmentArgs, GetFunctionEnvironmentPtr and GetFunctionEnvironmentPtrOutput values.
+// You can construct a concrete instance of `GetFunctionEnvironmentPtrInput` via:
+//
+//	        GetFunctionEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFunctionEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToGetFunctionEnvironmentPtrOutput() GetFunctionEnvironmentPtrOutput
+	ToGetFunctionEnvironmentPtrOutputWithContext(context.Context) GetFunctionEnvironmentPtrOutput
+}
+
+type getFunctionEnvironmentPtrType GetFunctionEnvironmentArgs
+
+func GetFunctionEnvironmentPtr(v *GetFunctionEnvironmentArgs) GetFunctionEnvironmentPtrInput {
+	return (*getFunctionEnvironmentPtrType)(v)
+}
+
+func (*getFunctionEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFunctionEnvironment)(nil)).Elem()
+}
+
+func (i *getFunctionEnvironmentPtrType) ToGetFunctionEnvironmentPtrOutput() GetFunctionEnvironmentPtrOutput {
+	return i.ToGetFunctionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *getFunctionEnvironmentPtrType) ToGetFunctionEnvironmentPtrOutputWithContext(ctx context.Context) GetFunctionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionEnvironmentPtrOutput)
+}
+
 type GetFunctionEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionEnvironmentOutput) ElementType() reflect.Type {
@@ -3938,12 +4063,55 @@ func (o GetFunctionEnvironmentOutput) ToGetFunctionEnvironmentOutputWithContext(
 	return o
 }
 
+func (o GetFunctionEnvironmentOutput) ToGetFunctionEnvironmentPtrOutput() GetFunctionEnvironmentPtrOutput {
+	return o.ToGetFunctionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o GetFunctionEnvironmentOutput) ToGetFunctionEnvironmentPtrOutputWithContext(ctx context.Context) GetFunctionEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFunctionEnvironment) *GetFunctionEnvironment {
+		return &v
+	}).(GetFunctionEnvironmentPtrOutput)
+}
+
 func (o GetFunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
 
+type GetFunctionEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFunctionEnvironment)(nil)).Elem()
+}
+
+func (o GetFunctionEnvironmentPtrOutput) ToGetFunctionEnvironmentPtrOutput() GetFunctionEnvironmentPtrOutput {
+	return o
+}
+
+func (o GetFunctionEnvironmentPtrOutput) ToGetFunctionEnvironmentPtrOutputWithContext(ctx context.Context) GetFunctionEnvironmentPtrOutput {
+	return o
+}
+
+func (o GetFunctionEnvironmentPtrOutput) Elem() GetFunctionEnvironmentOutput {
+	return o.ApplyT(func(v *GetFunctionEnvironment) GetFunctionEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret GetFunctionEnvironment
+		return ret
+	}).(GetFunctionEnvironmentOutput)
+}
+
+func (o GetFunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GetFunctionEnvironment) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Variables
+	}).(pulumi.StringMapOutput)
+}
+
 type GetFunctionEphemeralStorage struct {
-	Size int `pulumi:"size"`
+	Size *int `pulumi:"size"`
 }
 
 // GetFunctionEphemeralStorageInput is an input type that accepts GetFunctionEphemeralStorageArgs and GetFunctionEphemeralStorageOutput values.
@@ -3958,7 +4126,7 @@ type GetFunctionEphemeralStorageInput interface {
 }
 
 type GetFunctionEphemeralStorageArgs struct {
-	Size pulumi.IntInput `pulumi:"size"`
+	Size pulumi.IntPtrInput `pulumi:"size"`
 }
 
 func (GetFunctionEphemeralStorageArgs) ElementType() reflect.Type {
@@ -4012,8 +4180,8 @@ func (o GetFunctionEphemeralStorageOutput) ToGetFunctionEphemeralStorageOutputWi
 	return o
 }
 
-func (o GetFunctionEphemeralStorageOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func(v GetFunctionEphemeralStorage) int { return v.Size }).(pulumi.IntOutput)
+func (o GetFunctionEphemeralStorageOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetFunctionEphemeralStorage) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
 type GetFunctionEphemeralStorageArrayOutput struct{ *pulumi.OutputState }
@@ -4038,8 +4206,8 @@ func (o GetFunctionEphemeralStorageArrayOutput) Index(i pulumi.IntInput) GetFunc
 
 type GetFunctionFileSystemConfig struct {
 	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
-	Arn            string `pulumi:"arn"`
-	LocalMountPath string `pulumi:"localMountPath"`
+	Arn            *string `pulumi:"arn"`
+	LocalMountPath *string `pulumi:"localMountPath"`
 }
 
 // GetFunctionFileSystemConfigInput is an input type that accepts GetFunctionFileSystemConfigArgs and GetFunctionFileSystemConfigOutput values.
@@ -4055,8 +4223,8 @@ type GetFunctionFileSystemConfigInput interface {
 
 type GetFunctionFileSystemConfigArgs struct {
 	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
-	Arn            pulumi.StringInput `pulumi:"arn"`
-	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
+	Arn            pulumi.StringPtrInput `pulumi:"arn"`
+	LocalMountPath pulumi.StringPtrInput `pulumi:"localMountPath"`
 }
 
 func (GetFunctionFileSystemConfigArgs) ElementType() reflect.Type {
@@ -4111,12 +4279,12 @@ func (o GetFunctionFileSystemConfigOutput) ToGetFunctionFileSystemConfigOutputWi
 }
 
 // Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
-func (o GetFunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
+func (o GetFunctionFileSystemConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFunctionFileSystemConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetFunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
+func (o GetFunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFunctionFileSystemConfig) *string { return v.LocalMountPath }).(pulumi.StringPtrOutput)
 }
 
 type GetFunctionFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
@@ -4140,7 +4308,7 @@ func (o GetFunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) GetFunc
 }
 
 type GetFunctionTracingConfig struct {
-	Mode string `pulumi:"mode"`
+	Mode *string `pulumi:"mode"`
 }
 
 // GetFunctionTracingConfigInput is an input type that accepts GetFunctionTracingConfigArgs and GetFunctionTracingConfigOutput values.
@@ -4155,7 +4323,7 @@ type GetFunctionTracingConfigInput interface {
 }
 
 type GetFunctionTracingConfigArgs struct {
-	Mode pulumi.StringInput `pulumi:"mode"`
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
 func (GetFunctionTracingConfigArgs) ElementType() reflect.Type {
@@ -4168,6 +4336,47 @@ func (i GetFunctionTracingConfigArgs) ToGetFunctionTracingConfigOutput() GetFunc
 
 func (i GetFunctionTracingConfigArgs) ToGetFunctionTracingConfigOutputWithContext(ctx context.Context) GetFunctionTracingConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionTracingConfigOutput)
+}
+
+func (i GetFunctionTracingConfigArgs) ToGetFunctionTracingConfigPtrOutput() GetFunctionTracingConfigPtrOutput {
+	return i.ToGetFunctionTracingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GetFunctionTracingConfigArgs) ToGetFunctionTracingConfigPtrOutputWithContext(ctx context.Context) GetFunctionTracingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionTracingConfigOutput).ToGetFunctionTracingConfigPtrOutputWithContext(ctx)
+}
+
+// GetFunctionTracingConfigPtrInput is an input type that accepts GetFunctionTracingConfigArgs, GetFunctionTracingConfigPtr and GetFunctionTracingConfigPtrOutput values.
+// You can construct a concrete instance of `GetFunctionTracingConfigPtrInput` via:
+//
+//	        GetFunctionTracingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFunctionTracingConfigPtrInput interface {
+	pulumi.Input
+
+	ToGetFunctionTracingConfigPtrOutput() GetFunctionTracingConfigPtrOutput
+	ToGetFunctionTracingConfigPtrOutputWithContext(context.Context) GetFunctionTracingConfigPtrOutput
+}
+
+type getFunctionTracingConfigPtrType GetFunctionTracingConfigArgs
+
+func GetFunctionTracingConfigPtr(v *GetFunctionTracingConfigArgs) GetFunctionTracingConfigPtrInput {
+	return (*getFunctionTracingConfigPtrType)(v)
+}
+
+func (*getFunctionTracingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFunctionTracingConfig)(nil)).Elem()
+}
+
+func (i *getFunctionTracingConfigPtrType) ToGetFunctionTracingConfigPtrOutput() GetFunctionTracingConfigPtrOutput {
+	return i.ToGetFunctionTracingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *getFunctionTracingConfigPtrType) ToGetFunctionTracingConfigPtrOutputWithContext(ctx context.Context) GetFunctionTracingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionTracingConfigPtrOutput)
 }
 
 type GetFunctionTracingConfigOutput struct{ *pulumi.OutputState }
@@ -4184,17 +4393,60 @@ func (o GetFunctionTracingConfigOutput) ToGetFunctionTracingConfigOutputWithCont
 	return o
 }
 
-func (o GetFunctionTracingConfigOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFunctionTracingConfig) string { return v.Mode }).(pulumi.StringOutput)
+func (o GetFunctionTracingConfigOutput) ToGetFunctionTracingConfigPtrOutput() GetFunctionTracingConfigPtrOutput {
+	return o.ToGetFunctionTracingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GetFunctionTracingConfigOutput) ToGetFunctionTracingConfigPtrOutputWithContext(ctx context.Context) GetFunctionTracingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFunctionTracingConfig) *GetFunctionTracingConfig {
+		return &v
+	}).(GetFunctionTracingConfigPtrOutput)
+}
+
+func (o GetFunctionTracingConfigOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFunctionTracingConfig) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type GetFunctionTracingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionTracingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFunctionTracingConfig)(nil)).Elem()
+}
+
+func (o GetFunctionTracingConfigPtrOutput) ToGetFunctionTracingConfigPtrOutput() GetFunctionTracingConfigPtrOutput {
+	return o
+}
+
+func (o GetFunctionTracingConfigPtrOutput) ToGetFunctionTracingConfigPtrOutputWithContext(ctx context.Context) GetFunctionTracingConfigPtrOutput {
+	return o
+}
+
+func (o GetFunctionTracingConfigPtrOutput) Elem() GetFunctionTracingConfigOutput {
+	return o.ApplyT(func(v *GetFunctionTracingConfig) GetFunctionTracingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GetFunctionTracingConfig
+		return ret
+	}).(GetFunctionTracingConfigOutput)
+}
+
+func (o GetFunctionTracingConfigPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFunctionTracingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetFunctionUrlCor struct {
-	AllowCredentials bool     `pulumi:"allowCredentials"`
+	AllowCredentials *bool    `pulumi:"allowCredentials"`
 	AllowHeaders     []string `pulumi:"allowHeaders"`
 	AllowMethods     []string `pulumi:"allowMethods"`
 	AllowOrigins     []string `pulumi:"allowOrigins"`
 	ExposeHeaders    []string `pulumi:"exposeHeaders"`
-	MaxAge           int      `pulumi:"maxAge"`
+	MaxAge           *int     `pulumi:"maxAge"`
 }
 
 // GetFunctionUrlCorInput is an input type that accepts GetFunctionUrlCorArgs and GetFunctionUrlCorOutput values.
@@ -4209,12 +4461,12 @@ type GetFunctionUrlCorInput interface {
 }
 
 type GetFunctionUrlCorArgs struct {
-	AllowCredentials pulumi.BoolInput        `pulumi:"allowCredentials"`
+	AllowCredentials pulumi.BoolPtrInput     `pulumi:"allowCredentials"`
 	AllowHeaders     pulumi.StringArrayInput `pulumi:"allowHeaders"`
 	AllowMethods     pulumi.StringArrayInput `pulumi:"allowMethods"`
 	AllowOrigins     pulumi.StringArrayInput `pulumi:"allowOrigins"`
 	ExposeHeaders    pulumi.StringArrayInput `pulumi:"exposeHeaders"`
-	MaxAge           pulumi.IntInput         `pulumi:"maxAge"`
+	MaxAge           pulumi.IntPtrInput      `pulumi:"maxAge"`
 }
 
 func (GetFunctionUrlCorArgs) ElementType() reflect.Type {
@@ -4268,8 +4520,8 @@ func (o GetFunctionUrlCorOutput) ToGetFunctionUrlCorOutputWithContext(ctx contex
 	return o
 }
 
-func (o GetFunctionUrlCorOutput) AllowCredentials() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetFunctionUrlCor) bool { return v.AllowCredentials }).(pulumi.BoolOutput)
+func (o GetFunctionUrlCorOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetFunctionUrlCor) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetFunctionUrlCorOutput) AllowHeaders() pulumi.StringArrayOutput {
@@ -4288,8 +4540,8 @@ func (o GetFunctionUrlCorOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionUrlCor) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
 }
 
-func (o GetFunctionUrlCorOutput) MaxAge() pulumi.IntOutput {
-	return o.ApplyT(func(v GetFunctionUrlCor) int { return v.MaxAge }).(pulumi.IntOutput)
+func (o GetFunctionUrlCorOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetFunctionUrlCor) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
 
 type GetFunctionUrlCorArrayOutput struct{ *pulumi.OutputState }
@@ -4313,10 +4565,10 @@ func (o GetFunctionUrlCorArrayOutput) Index(i pulumi.IntInput) GetFunctionUrlCor
 }
 
 type GetFunctionVpcConfig struct {
-	Ipv6AllowedForDualStack bool     `pulumi:"ipv6AllowedForDualStack"`
+	Ipv6AllowedForDualStack *bool    `pulumi:"ipv6AllowedForDualStack"`
 	SecurityGroupIds        []string `pulumi:"securityGroupIds"`
 	SubnetIds               []string `pulumi:"subnetIds"`
-	VpcId                   string   `pulumi:"vpcId"`
+	VpcId                   *string  `pulumi:"vpcId"`
 }
 
 // GetFunctionVpcConfigInput is an input type that accepts GetFunctionVpcConfigArgs and GetFunctionVpcConfigOutput values.
@@ -4331,10 +4583,10 @@ type GetFunctionVpcConfigInput interface {
 }
 
 type GetFunctionVpcConfigArgs struct {
-	Ipv6AllowedForDualStack pulumi.BoolInput        `pulumi:"ipv6AllowedForDualStack"`
+	Ipv6AllowedForDualStack pulumi.BoolPtrInput     `pulumi:"ipv6AllowedForDualStack"`
 	SecurityGroupIds        pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	SubnetIds               pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId                   pulumi.StringInput      `pulumi:"vpcId"`
+	VpcId                   pulumi.StringPtrInput   `pulumi:"vpcId"`
 }
 
 func (GetFunctionVpcConfigArgs) ElementType() reflect.Type {
@@ -4347,6 +4599,47 @@ func (i GetFunctionVpcConfigArgs) ToGetFunctionVpcConfigOutput() GetFunctionVpcC
 
 func (i GetFunctionVpcConfigArgs) ToGetFunctionVpcConfigOutputWithContext(ctx context.Context) GetFunctionVpcConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionVpcConfigOutput)
+}
+
+func (i GetFunctionVpcConfigArgs) ToGetFunctionVpcConfigPtrOutput() GetFunctionVpcConfigPtrOutput {
+	return i.ToGetFunctionVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GetFunctionVpcConfigArgs) ToGetFunctionVpcConfigPtrOutputWithContext(ctx context.Context) GetFunctionVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionVpcConfigOutput).ToGetFunctionVpcConfigPtrOutputWithContext(ctx)
+}
+
+// GetFunctionVpcConfigPtrInput is an input type that accepts GetFunctionVpcConfigArgs, GetFunctionVpcConfigPtr and GetFunctionVpcConfigPtrOutput values.
+// You can construct a concrete instance of `GetFunctionVpcConfigPtrInput` via:
+//
+//	        GetFunctionVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFunctionVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToGetFunctionVpcConfigPtrOutput() GetFunctionVpcConfigPtrOutput
+	ToGetFunctionVpcConfigPtrOutputWithContext(context.Context) GetFunctionVpcConfigPtrOutput
+}
+
+type getFunctionVpcConfigPtrType GetFunctionVpcConfigArgs
+
+func GetFunctionVpcConfigPtr(v *GetFunctionVpcConfigArgs) GetFunctionVpcConfigPtrInput {
+	return (*getFunctionVpcConfigPtrType)(v)
+}
+
+func (*getFunctionVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFunctionVpcConfig)(nil)).Elem()
+}
+
+func (i *getFunctionVpcConfigPtrType) ToGetFunctionVpcConfigPtrOutput() GetFunctionVpcConfigPtrOutput {
+	return i.ToGetFunctionVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *getFunctionVpcConfigPtrType) ToGetFunctionVpcConfigPtrOutputWithContext(ctx context.Context) GetFunctionVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionVpcConfigPtrOutput)
 }
 
 type GetFunctionVpcConfigOutput struct{ *pulumi.OutputState }
@@ -4363,8 +4656,18 @@ func (o GetFunctionVpcConfigOutput) ToGetFunctionVpcConfigOutputWithContext(ctx 
 	return o
 }
 
-func (o GetFunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetFunctionVpcConfig) bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolOutput)
+func (o GetFunctionVpcConfigOutput) ToGetFunctionVpcConfigPtrOutput() GetFunctionVpcConfigPtrOutput {
+	return o.ToGetFunctionVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GetFunctionVpcConfigOutput) ToGetFunctionVpcConfigPtrOutputWithContext(ctx context.Context) GetFunctionVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFunctionVpcConfig) *GetFunctionVpcConfig {
+		return &v
+	}).(GetFunctionVpcConfigPtrOutput)
+}
+
+func (o GetFunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetFunctionVpcConfig) *bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetFunctionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
@@ -4375,8 +4678,68 @@ func (o GetFunctionVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-func (o GetFunctionVpcConfigOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFunctionVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
+func (o GetFunctionVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFunctionVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type GetFunctionVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFunctionVpcConfig)(nil)).Elem()
+}
+
+func (o GetFunctionVpcConfigPtrOutput) ToGetFunctionVpcConfigPtrOutput() GetFunctionVpcConfigPtrOutput {
+	return o
+}
+
+func (o GetFunctionVpcConfigPtrOutput) ToGetFunctionVpcConfigPtrOutputWithContext(ctx context.Context) GetFunctionVpcConfigPtrOutput {
+	return o
+}
+
+func (o GetFunctionVpcConfigPtrOutput) Elem() GetFunctionVpcConfigOutput {
+	return o.ApplyT(func(v *GetFunctionVpcConfig) GetFunctionVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GetFunctionVpcConfig
+		return ret
+	}).(GetFunctionVpcConfigOutput)
+}
+
+func (o GetFunctionVpcConfigPtrOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetFunctionVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv6AllowedForDualStack
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetFunctionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetFunctionVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetFunctionVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFunctionVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -4435,15 +4798,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigPolicyInput)(nil)).Elem(), GetCodeSigningConfigPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigPolicyArrayInput)(nil)).Elem(), GetCodeSigningConfigPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionDeadLetterConfigInput)(nil)).Elem(), GetFunctionDeadLetterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionDeadLetterConfigPtrInput)(nil)).Elem(), GetFunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEnvironmentInput)(nil)).Elem(), GetFunctionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEnvironmentPtrInput)(nil)).Elem(), GetFunctionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEphemeralStorageInput)(nil)).Elem(), GetFunctionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEphemeralStorageArrayInput)(nil)).Elem(), GetFunctionEphemeralStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionFileSystemConfigInput)(nil)).Elem(), GetFunctionFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionFileSystemConfigArrayInput)(nil)).Elem(), GetFunctionFileSystemConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionTracingConfigInput)(nil)).Elem(), GetFunctionTracingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionTracingConfigPtrInput)(nil)).Elem(), GetFunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionUrlCorInput)(nil)).Elem(), GetFunctionUrlCorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionUrlCorArrayInput)(nil)).Elem(), GetFunctionUrlCorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionVpcConfigInput)(nil)).Elem(), GetFunctionVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionVpcConfigPtrInput)(nil)).Elem(), GetFunctionVpcConfigArgs{})
 	pulumi.RegisterOutputType(AliasRoutingConfigOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
@@ -4499,13 +4866,17 @@ func init() {
 	pulumi.RegisterOutputType(GetCodeSigningConfigPolicyOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionDeadLetterConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetFunctionEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetFunctionEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(GetFunctionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(GetFunctionEphemeralStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionTracingConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetFunctionUrlCorOutput{})
 	pulumi.RegisterOutputType(GetFunctionUrlCorArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionVpcConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionVpcConfigPtrOutput{})
 }

@@ -148,26 +148,26 @@ namespace Pulumi.Aws.AppMesh
         /// <summary>
         /// ARN of the virtual router.
         /// </summary>
-        public readonly string Arn;
+        public readonly string? Arn;
         /// <summary>
         /// Creation date of the virtual router.
         /// </summary>
-        public readonly string CreatedDate;
+        public readonly string? CreatedDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Last update date of the virtual router.
         /// </summary>
-        public readonly string LastUpdatedDate;
+        public readonly string? LastUpdatedDate;
         public readonly string MeshName;
-        public readonly string MeshOwner;
+        public readonly string? MeshOwner;
         public readonly string Name;
         /// <summary>
         /// Resource owner's AWS account ID.
         /// </summary>
-        public readonly string ResourceOwner;
+        public readonly string? ResourceOwner;
         /// <summary>
         /// Virtual routers specification. See the `aws.appmesh.VirtualRouter` resource for details.
         /// </summary>
@@ -175,29 +175,29 @@ namespace Pulumi.Aws.AppMesh
         /// <summary>
         /// Map of tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetVirtualRouterResult(
-            string arn,
+            string? arn,
 
-            string createdDate,
+            string? createdDate,
 
-            string id,
+            string? id,
 
-            string lastUpdatedDate,
+            string? lastUpdatedDate,
 
             string meshName,
 
-            string meshOwner,
+            string? meshOwner,
 
             string name,
 
-            string resourceOwner,
+            string? resourceOwner,
 
             ImmutableArray<Outputs.GetVirtualRouterSpecResult> specs,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             CreatedDate = createdDate;

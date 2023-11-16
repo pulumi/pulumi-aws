@@ -29,9 +29,9 @@ type Theme struct {
 	pulumi.CustomResourceState
 
 	// ARN of the theme.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// AWS account ID.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringOutput `pulumi:"baseThemeId"`
 	// The theme configuration, which contains the theme display properties. See configuration.
@@ -39,15 +39,15 @@ type Theme struct {
 	// The following arguments are optional:
 	Configuration ThemeConfigurationPtrOutput `pulumi:"configuration"`
 	// The time that the theme was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
 	// The time that the theme was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringPtrOutput `pulumi:"lastUpdatedTime"`
 	// Display name of the theme.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayOutput `pulumi:"permissions"`
 	// The theme creation status.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -59,7 +59,7 @@ type Theme struct {
 	// A description of the current theme version being created/updated.
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 	// The version number of the theme version.
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	VersionNumber pulumi.IntPtrOutput `pulumi:"versionNumber"`
 }
 
 // NewTheme registers a new resource with the given unique name, arguments, and options.
@@ -306,13 +306,13 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 }
 
 // ARN of the theme.
-func (o ThemeOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ThemeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID.
-func (o ThemeOutput) AwsAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+func (o ThemeOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
@@ -328,13 +328,13 @@ func (o ThemeOutput) Configuration() ThemeConfigurationPtrOutput {
 }
 
 // The time that the theme was created.
-func (o ThemeOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+func (o ThemeOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // The time that the theme was last updated.
-func (o ThemeOutput) LastUpdatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+func (o ThemeOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
 // Display name of the theme.
@@ -348,8 +348,8 @@ func (o ThemeOutput) Permissions() ThemePermissionArrayOutput {
 }
 
 // The theme creation status.
-func (o ThemeOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o ThemeOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -375,8 +375,8 @@ func (o ThemeOutput) VersionDescription() pulumi.StringPtrOutput {
 }
 
 // The version number of the theme version.
-func (o ThemeOutput) VersionNumber() pulumi.IntOutput {
-	return o.ApplyT(func(v *Theme) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
+func (o ThemeOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Theme) pulumi.IntPtrOutput { return v.VersionNumber }).(pulumi.IntPtrOutput)
 }
 
 type ThemeArrayOutput struct{ *pulumi.OutputState }

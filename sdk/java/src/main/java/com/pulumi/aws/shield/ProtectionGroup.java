@@ -198,14 +198,14 @@ public class ProtectionGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="protectionGroupArn", refs={String.class}, tree="[0]")
-    private Output<String> protectionGroupArn;
+    private Output</* @Nullable */ String> protectionGroupArn;
 
     /**
      * @return The ARN (Amazon Resource Name) of the protection group.
      * 
      */
-    public Output<String> protectionGroupArn() {
-        return this.protectionGroupArn;
+    public Output<Optional<String>> protectionGroupArn() {
+        return Codegen.optional(this.protectionGroupArn);
     }
     /**
      * The name of the protection group.

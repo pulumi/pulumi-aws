@@ -59,7 +59,7 @@ type GetLogGroupsResult struct {
 	// Set of ARNs of the Cloudwatch log groups
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string  `pulumi:"id"`
+	Id                 *string `pulumi:"id"`
 	LogGroupNamePrefix *string `pulumi:"logGroupNamePrefix"`
 	// Set of names of the Cloudwatch log groups
 	LogGroupNames []string `pulumi:"logGroupNames"`
@@ -109,8 +109,8 @@ func (o GetLogGroupsResultOutput) Arns() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLogGroupsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLogGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+func (o GetLogGroupsResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLogGroupsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLogGroupsResultOutput) LogGroupNamePrefix() pulumi.StringPtrOutput {

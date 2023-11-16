@@ -432,14 +432,14 @@ public class MediaInsightsPipelineConfiguration extends com.pulumi.resources.Cus
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the Media Insights Pipeline Configuration.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Collection of processors and sinks to transform media and deliver data.

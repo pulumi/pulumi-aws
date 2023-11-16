@@ -15352,24 +15352,28 @@ class VpnConnectionVgwTelemetry(dict):
 @pulumi.output_type
 class GetAmiBlockDeviceMappingResult(dict):
     def __init__(__self__, *,
-                 device_name: str,
-                 ebs: Mapping[str, str],
-                 no_device: str,
-                 virtual_name: str):
+                 device_name: Optional[str] = None,
+                 ebs: Optional[Mapping[str, str]] = None,
+                 no_device: Optional[str] = None,
+                 virtual_name: Optional[str] = None):
         """
         :param str device_name: Physical name of the device.
         :param Mapping[str, str] ebs: Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
         :param str no_device: Suppresses the specified device included in the block device mapping of the AMI.
         :param str virtual_name: Virtual device name (for instance stores).
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "ebs", ebs)
-        pulumi.set(__self__, "no_device", no_device)
-        pulumi.set(__self__, "virtual_name", virtual_name)
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> str:
+    def device_name(self) -> Optional[str]:
         """
         Physical name of the device.
         """
@@ -15377,7 +15381,7 @@ class GetAmiBlockDeviceMappingResult(dict):
 
     @property
     @pulumi.getter
-    def ebs(self) -> Mapping[str, str]:
+    def ebs(self) -> Optional[Mapping[str, str]]:
         """
         Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
         """
@@ -15385,7 +15389,7 @@ class GetAmiBlockDeviceMappingResult(dict):
 
     @property
     @pulumi.getter(name="noDevice")
-    def no_device(self) -> str:
+    def no_device(self) -> Optional[str]:
         """
         Suppresses the specified device included in the block device mapping of the AMI.
         """
@@ -15393,7 +15397,7 @@ class GetAmiBlockDeviceMappingResult(dict):
 
     @property
     @pulumi.getter(name="virtualName")
-    def virtual_name(self) -> str:
+    def virtual_name(self) -> Optional[str]:
         """
         Virtual device name (for instance stores).
         """
@@ -15447,19 +15451,21 @@ class GetAmiIdsFilterResult(dict):
 @pulumi.output_type
 class GetAmiProductCodeResult(dict):
     def __init__(__self__, *,
-                 product_code_id: str,
-                 product_code_type: str):
-        pulumi.set(__self__, "product_code_id", product_code_id)
-        pulumi.set(__self__, "product_code_type", product_code_type)
+                 product_code_id: Optional[str] = None,
+                 product_code_type: Optional[str] = None):
+        if product_code_id is not None:
+            pulumi.set(__self__, "product_code_id", product_code_id)
+        if product_code_type is not None:
+            pulumi.set(__self__, "product_code_type", product_code_type)
 
     @property
     @pulumi.getter(name="productCodeId")
-    def product_code_id(self) -> str:
+    def product_code_id(self) -> Optional[str]:
         return pulumi.get(self, "product_code_id")
 
     @property
     @pulumi.getter(name="productCodeType")
-    def product_code_type(self) -> str:
+    def product_code_type(self) -> Optional[str]:
         return pulumi.get(self, "product_code_type")
 
 
@@ -15630,29 +15636,30 @@ class GetElasticIpFilterResult(dict):
 @pulumi.output_type
 class GetInstanceCreditSpecificationResult(dict):
     def __init__(__self__, *,
-                 cpu_credits: str):
-        pulumi.set(__self__, "cpu_credits", cpu_credits)
+                 cpu_credits: Optional[str] = None):
+        if cpu_credits is not None:
+            pulumi.set(__self__, "cpu_credits", cpu_credits)
 
     @property
     @pulumi.getter(name="cpuCredits")
-    def cpu_credits(self) -> str:
+    def cpu_credits(self) -> Optional[str]:
         return pulumi.get(self, "cpu_credits")
 
 
 @pulumi.output_type
 class GetInstanceEbsBlockDeviceResult(dict):
     def __init__(__self__, *,
-                 delete_on_termination: bool,
-                 device_name: str,
-                 encrypted: bool,
-                 iops: int,
-                 kms_key_id: str,
-                 snapshot_id: str,
-                 tags: Mapping[str, str],
-                 throughput: int,
-                 volume_id: str,
-                 volume_size: int,
-                 volume_type: str):
+                 delete_on_termination: Optional[bool] = None,
+                 device_name: Optional[str] = None,
+                 encrypted: Optional[bool] = None,
+                 iops: Optional[int] = None,
+                 kms_key_id: Optional[str] = None,
+                 snapshot_id: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 throughput: Optional[int] = None,
+                 volume_id: Optional[str] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
         """
         :param bool delete_on_termination: If the root block device will be deleted on termination.
         :param str device_name: Physical name of the device.
@@ -15664,21 +15671,32 @@ class GetInstanceEbsBlockDeviceResult(dict):
         :param int volume_size: Size of the volume, in GiB.
         :param str volume_type: Type of the volume.
         """
-        pulumi.set(__self__, "delete_on_termination", delete_on_termination)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "snapshot_id", snapshot_id)
-        pulumi.set(__self__, "tags", tags)
-        pulumi.set(__self__, "throughput", throughput)
-        pulumi.set(__self__, "volume_id", volume_id)
-        pulumi.set(__self__, "volume_size", volume_size)
-        pulumi.set(__self__, "volume_type", volume_type)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_id is not None:
+            pulumi.set(__self__, "volume_id", volume_id)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
-    def delete_on_termination(self) -> bool:
+    def delete_on_termination(self) -> Optional[bool]:
         """
         If the root block device will be deleted on termination.
         """
@@ -15686,7 +15704,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> str:
+    def device_name(self) -> Optional[str]:
         """
         Physical name of the device.
         """
@@ -15694,7 +15712,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> Optional[bool]:
         """
         If the EBS volume is encrypted.
         """
@@ -15702,7 +15720,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def iops(self) -> int:
+    def iops(self) -> Optional[int]:
         """
         `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
         """
@@ -15710,12 +15728,12 @@ class GetInstanceEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> str:
+    def snapshot_id(self) -> Optional[str]:
         """
         ID of the snapshot.
         """
@@ -15723,7 +15741,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the Instance.
         """
@@ -15731,7 +15749,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def throughput(self) -> int:
+    def throughput(self) -> Optional[int]:
         """
         Throughput of the volume, in MiB/s.
         """
@@ -15739,12 +15757,12 @@ class GetInstanceEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> str:
+    def volume_id(self) -> Optional[str]:
         return pulumi.get(self, "volume_id")
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> int:
+    def volume_size(self) -> Optional[int]:
         """
         Size of the volume, in GiB.
         """
@@ -15752,7 +15770,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> str:
+    def volume_type(self) -> Optional[str]:
         """
         Type of the volume.
         """
@@ -15762,15 +15780,16 @@ class GetInstanceEbsBlockDeviceResult(dict):
 @pulumi.output_type
 class GetInstanceEnclaveOptionResult(dict):
     def __init__(__self__, *,
-                 enabled: bool):
+                 enabled: Optional[bool] = None):
         """
         :param bool enabled: Whether Nitro Enclaves are enabled.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         """
         Whether Nitro Enclaves are enabled.
         """
@@ -15841,15 +15860,16 @@ class GetInstanceFilterResult(dict):
 @pulumi.output_type
 class GetInstanceMaintenanceOptionResult(dict):
     def __init__(__self__, *,
-                 auto_recovery: str):
+                 auto_recovery: Optional[str] = None):
         """
         :param str auto_recovery: Automatic recovery behavior of the instance.
         """
-        pulumi.set(__self__, "auto_recovery", auto_recovery)
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
 
     @property
     @pulumi.getter(name="autoRecovery")
-    def auto_recovery(self) -> str:
+    def auto_recovery(self) -> Optional[str]:
         """
         Automatic recovery behavior of the instance.
         """
@@ -15859,11 +15879,11 @@ class GetInstanceMaintenanceOptionResult(dict):
 @pulumi.output_type
 class GetInstanceMetadataOptionResult(dict):
     def __init__(__self__, *,
-                 http_endpoint: str,
-                 http_protocol_ipv6: str,
-                 http_put_response_hop_limit: int,
-                 http_tokens: str,
-                 instance_metadata_tags: str):
+                 http_endpoint: Optional[str] = None,
+                 http_protocol_ipv6: Optional[str] = None,
+                 http_put_response_hop_limit: Optional[int] = None,
+                 http_tokens: Optional[str] = None,
+                 instance_metadata_tags: Optional[str] = None):
         """
         :param str http_endpoint: State of the metadata service: `enabled`, `disabled`.
         :param str http_protocol_ipv6: Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
@@ -15871,15 +15891,20 @@ class GetInstanceMetadataOptionResult(dict):
         :param str http_tokens: If session tokens are required: `optional`, `required`.
         :param str instance_metadata_tags: If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
         """
-        pulumi.set(__self__, "http_endpoint", http_endpoint)
-        pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
-        pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
-        pulumi.set(__self__, "http_tokens", http_tokens)
-        pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_protocol_ipv6 is not None:
+            pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+        if instance_metadata_tags is not None:
+            pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
 
     @property
     @pulumi.getter(name="httpEndpoint")
-    def http_endpoint(self) -> str:
+    def http_endpoint(self) -> Optional[str]:
         """
         State of the metadata service: `enabled`, `disabled`.
         """
@@ -15887,7 +15912,7 @@ class GetInstanceMetadataOptionResult(dict):
 
     @property
     @pulumi.getter(name="httpProtocolIpv6")
-    def http_protocol_ipv6(self) -> str:
+    def http_protocol_ipv6(self) -> Optional[str]:
         """
         Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
         """
@@ -15895,7 +15920,7 @@ class GetInstanceMetadataOptionResult(dict):
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
-    def http_put_response_hop_limit(self) -> int:
+    def http_put_response_hop_limit(self) -> Optional[int]:
         """
         Desired HTTP PUT response hop limit for instance metadata requests.
         """
@@ -15903,7 +15928,7 @@ class GetInstanceMetadataOptionResult(dict):
 
     @property
     @pulumi.getter(name="httpTokens")
-    def http_tokens(self) -> str:
+    def http_tokens(self) -> Optional[str]:
         """
         If session tokens are required: `optional`, `required`.
         """
@@ -15911,7 +15936,7 @@ class GetInstanceMetadataOptionResult(dict):
 
     @property
     @pulumi.getter(name="instanceMetadataTags")
-    def instance_metadata_tags(self) -> str:
+    def instance_metadata_tags(self) -> Optional[str]:
         """
         If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
         """
@@ -15921,21 +15946,24 @@ class GetInstanceMetadataOptionResult(dict):
 @pulumi.output_type
 class GetInstancePrivateDnsNameOptionResult(dict):
     def __init__(__self__, *,
-                 enable_resource_name_dns_a_record: bool,
-                 enable_resource_name_dns_aaaa_record: bool,
-                 hostname_type: str):
+                 enable_resource_name_dns_a_record: Optional[bool] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
+                 hostname_type: Optional[str] = None):
         """
         :param bool enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         :param bool enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         :param str hostname_type: Type of hostname for EC2 instances.
         """
-        pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
-        pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
-        pulumi.set(__self__, "hostname_type", hostname_type)
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecord")
-    def enable_resource_name_dns_a_record(self) -> bool:
+    def enable_resource_name_dns_a_record(self) -> Optional[bool]:
         """
         Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         """
@@ -15943,7 +15971,7 @@ class GetInstancePrivateDnsNameOptionResult(dict):
 
     @property
     @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
-    def enable_resource_name_dns_aaaa_record(self) -> bool:
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
         """
         Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         """
@@ -15951,7 +15979,7 @@ class GetInstancePrivateDnsNameOptionResult(dict):
 
     @property
     @pulumi.getter(name="hostnameType")
-    def hostname_type(self) -> str:
+    def hostname_type(self) -> Optional[str]:
         """
         Type of hostname for EC2 instances.
         """
@@ -15961,16 +15989,16 @@ class GetInstancePrivateDnsNameOptionResult(dict):
 @pulumi.output_type
 class GetInstanceRootBlockDeviceResult(dict):
     def __init__(__self__, *,
-                 delete_on_termination: bool,
-                 device_name: str,
-                 encrypted: bool,
-                 iops: int,
-                 kms_key_id: str,
-                 tags: Mapping[str, str],
-                 throughput: int,
-                 volume_id: str,
-                 volume_size: int,
-                 volume_type: str):
+                 delete_on_termination: Optional[bool] = None,
+                 device_name: Optional[str] = None,
+                 encrypted: Optional[bool] = None,
+                 iops: Optional[int] = None,
+                 kms_key_id: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 throughput: Optional[int] = None,
+                 volume_id: Optional[str] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
         """
         :param bool delete_on_termination: If the root block device will be deleted on termination.
         :param str device_name: Physical name of the device.
@@ -15981,20 +16009,30 @@ class GetInstanceRootBlockDeviceResult(dict):
         :param int volume_size: Size of the volume, in GiB.
         :param str volume_type: Type of the volume.
         """
-        pulumi.set(__self__, "delete_on_termination", delete_on_termination)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "tags", tags)
-        pulumi.set(__self__, "throughput", throughput)
-        pulumi.set(__self__, "volume_id", volume_id)
-        pulumi.set(__self__, "volume_size", volume_size)
-        pulumi.set(__self__, "volume_type", volume_type)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_id is not None:
+            pulumi.set(__self__, "volume_id", volume_id)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
-    def delete_on_termination(self) -> bool:
+    def delete_on_termination(self) -> Optional[bool]:
         """
         If the root block device will be deleted on termination.
         """
@@ -16002,7 +16040,7 @@ class GetInstanceRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> str:
+    def device_name(self) -> Optional[str]:
         """
         Physical name of the device.
         """
@@ -16010,7 +16048,7 @@ class GetInstanceRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> Optional[bool]:
         """
         If the EBS volume is encrypted.
         """
@@ -16018,7 +16056,7 @@ class GetInstanceRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def iops(self) -> int:
+    def iops(self) -> Optional[int]:
         """
         `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
         """
@@ -16026,12 +16064,12 @@ class GetInstanceRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags assigned to the Instance.
         """
@@ -16039,7 +16077,7 @@ class GetInstanceRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def throughput(self) -> int:
+    def throughput(self) -> Optional[int]:
         """
         Throughput of the volume, in MiB/s.
         """
@@ -16047,12 +16085,12 @@ class GetInstanceRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> str:
+    def volume_id(self) -> Optional[str]:
         return pulumi.get(self, "volume_id")
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> int:
+    def volume_size(self) -> Optional[int]:
         """
         Size of the volume, in GiB.
         """
@@ -16060,7 +16098,7 @@ class GetInstanceRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> str:
+    def volume_type(self) -> Optional[str]:
         """
         Type of the volume.
         """
@@ -16070,31 +16108,35 @@ class GetInstanceRootBlockDeviceResult(dict):
 @pulumi.output_type
 class GetInstanceTypeFpgaResult(dict):
     def __init__(__self__, *,
-                 count: int,
-                 manufacturer: str,
-                 memory_size: int,
-                 name: str):
+                 count: Optional[int] = None,
+                 manufacturer: Optional[str] = None,
+                 memory_size: Optional[int] = None,
+                 name: Optional[str] = None):
         """
         :param int memory_size: Size of the instance memory, in MiB.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "memory_size", memory_size)
-        pulumi.set(__self__, "name", name)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if manufacturer is not None:
+            pulumi.set(__self__, "manufacturer", manufacturer)
+        if memory_size is not None:
+            pulumi.set(__self__, "memory_size", memory_size)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def count(self) -> int:
+    def count(self) -> Optional[int]:
         return pulumi.get(self, "count")
 
     @property
     @pulumi.getter
-    def manufacturer(self) -> str:
+    def manufacturer(self) -> Optional[str]:
         return pulumi.get(self, "manufacturer")
 
     @property
     @pulumi.getter(name="memorySize")
-    def memory_size(self) -> int:
+    def memory_size(self) -> Optional[int]:
         """
         Size of the instance memory, in MiB.
         """
@@ -16102,38 +16144,42 @@ class GetInstanceTypeFpgaResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class GetInstanceTypeGpusResult(dict):
     def __init__(__self__, *,
-                 count: int,
-                 manufacturer: str,
-                 memory_size: int,
-                 name: str):
+                 count: Optional[int] = None,
+                 manufacturer: Optional[str] = None,
+                 memory_size: Optional[int] = None,
+                 name: Optional[str] = None):
         """
         :param int memory_size: Size of the instance memory, in MiB.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "memory_size", memory_size)
-        pulumi.set(__self__, "name", name)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if manufacturer is not None:
+            pulumi.set(__self__, "manufacturer", manufacturer)
+        if memory_size is not None:
+            pulumi.set(__self__, "memory_size", memory_size)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def count(self) -> int:
+    def count(self) -> Optional[int]:
         return pulumi.get(self, "count")
 
     @property
     @pulumi.getter
-    def manufacturer(self) -> str:
+    def manufacturer(self) -> Optional[str]:
         return pulumi.get(self, "manufacturer")
 
     @property
     @pulumi.getter(name="memorySize")
-    def memory_size(self) -> int:
+    def memory_size(self) -> Optional[int]:
         """
         Size of the instance memory, in MiB.
         """
@@ -16141,59 +16187,65 @@ class GetInstanceTypeGpusResult(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class GetInstanceTypeInferenceAcceleratorResult(dict):
     def __init__(__self__, *,
-                 count: int,
-                 manufacturer: str,
-                 name: str):
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "name", name)
+                 count: Optional[int] = None,
+                 manufacturer: Optional[str] = None,
+                 name: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if manufacturer is not None:
+            pulumi.set(__self__, "manufacturer", manufacturer)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def count(self) -> int:
+    def count(self) -> Optional[int]:
         return pulumi.get(self, "count")
 
     @property
     @pulumi.getter
-    def manufacturer(self) -> str:
+    def manufacturer(self) -> Optional[str]:
         return pulumi.get(self, "manufacturer")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class GetInstanceTypeInstanceDiskResult(dict):
     def __init__(__self__, *,
-                 count: int,
-                 size: int,
-                 type: str):
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+                 count: Optional[int] = None,
+                 size: Optional[int] = None,
+                 type: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def count(self) -> int:
+    def count(self) -> Optional[int]:
         return pulumi.get(self, "count")
 
     @property
     @pulumi.getter
-    def size(self) -> int:
+    def size(self) -> Optional[int]:
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
@@ -16306,18 +16358,20 @@ class GetInstancesFilterResult(dict):
 @pulumi.output_type
 class GetInternetGatewayAttachmentResult(dict):
     def __init__(__self__, *,
-                 state: str,
-                 vpc_id: str):
+                 state: Optional[str] = None,
+                 vpc_id: Optional[str] = None):
         """
         :param str state: Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
         :param str vpc_id: ID of an attached VPC.
         """
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
         """
@@ -16325,7 +16379,7 @@ class GetInternetGatewayAttachmentResult(dict):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> Optional[str]:
         """
         ID of an attached VPC.
         """
@@ -16397,15 +16451,15 @@ class GetKeyPairFilterResult(dict):
 @pulumi.output_type
 class GetLaunchConfigurationEbsBlockDeviceResult(dict):
     def __init__(__self__, *,
-                 delete_on_termination: bool,
-                 device_name: str,
-                 encrypted: bool,
-                 iops: int,
-                 no_device: bool,
-                 snapshot_id: str,
-                 throughput: int,
-                 volume_size: int,
-                 volume_type: str):
+                 delete_on_termination: Optional[bool] = None,
+                 device_name: Optional[str] = None,
+                 encrypted: Optional[bool] = None,
+                 iops: Optional[int] = None,
+                 no_device: Optional[bool] = None,
+                 snapshot_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
         """
         :param bool delete_on_termination: Whether the EBS Volume will be deleted on instance termination.
         :param str device_name: Name of the device.
@@ -16417,19 +16471,28 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
         :param int volume_size: Size of the volume.
         :param str volume_type: Type of the volume.
         """
-        pulumi.set(__self__, "delete_on_termination", delete_on_termination)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "no_device", no_device)
-        pulumi.set(__self__, "snapshot_id", snapshot_id)
-        pulumi.set(__self__, "throughput", throughput)
-        pulumi.set(__self__, "volume_size", volume_size)
-        pulumi.set(__self__, "volume_type", volume_type)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
-    def delete_on_termination(self) -> bool:
+    def delete_on_termination(self) -> Optional[bool]:
         """
         Whether the EBS Volume will be deleted on instance termination.
         """
@@ -16437,7 +16500,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> str:
+    def device_name(self) -> Optional[str]:
         """
         Name of the device.
         """
@@ -16445,7 +16508,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> Optional[bool]:
         """
         Whether the volume is Encrypted.
         """
@@ -16453,7 +16516,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def iops(self) -> int:
+    def iops(self) -> Optional[int]:
         """
         Provisioned IOPs of the volume.
         """
@@ -16461,7 +16524,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="noDevice")
-    def no_device(self) -> bool:
+    def no_device(self) -> Optional[bool]:
         """
         Whether the device in the block device mapping of the AMI is suppressed.
         """
@@ -16469,7 +16532,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> str:
+    def snapshot_id(self) -> Optional[str]:
         """
         Snapshot ID of the mount.
         """
@@ -16477,7 +16540,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def throughput(self) -> int:
+    def throughput(self) -> Optional[int]:
         """
         Throughput of the volume.
         """
@@ -16485,7 +16548,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> int:
+    def volume_size(self) -> Optional[int]:
         """
         Size of the volume.
         """
@@ -16493,7 +16556,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> str:
+    def volume_type(self) -> Optional[str]:
         """
         Type of the volume.
         """
@@ -16503,18 +16566,20 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 @pulumi.output_type
 class GetLaunchConfigurationEphemeralBlockDeviceResult(dict):
     def __init__(__self__, *,
-                 device_name: str,
-                 virtual_name: str):
+                 device_name: Optional[str] = None,
+                 virtual_name: Optional[str] = None):
         """
         :param str device_name: Name of the device.
         :param str virtual_name: Virtual Name of the device.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "virtual_name", virtual_name)
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> str:
+    def device_name(self) -> Optional[str]:
         """
         Name of the device.
         """
@@ -16522,7 +16587,7 @@ class GetLaunchConfigurationEphemeralBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="virtualName")
-    def virtual_name(self) -> str:
+    def virtual_name(self) -> Optional[str]:
         """
         Virtual Name of the device.
         """
@@ -16532,21 +16597,24 @@ class GetLaunchConfigurationEphemeralBlockDeviceResult(dict):
 @pulumi.output_type
 class GetLaunchConfigurationMetadataOptionResult(dict):
     def __init__(__self__, *,
-                 http_endpoint: str,
-                 http_put_response_hop_limit: int,
-                 http_tokens: str):
+                 http_endpoint: Optional[str] = None,
+                 http_put_response_hop_limit: Optional[int] = None,
+                 http_tokens: Optional[str] = None):
         """
         :param str http_endpoint: State of the metadata service: `enabled`, `disabled`.
         :param int http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests.
         :param str http_tokens: If session tokens are required: `optional`, `required`.
         """
-        pulumi.set(__self__, "http_endpoint", http_endpoint)
-        pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
-        pulumi.set(__self__, "http_tokens", http_tokens)
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
 
     @property
     @pulumi.getter(name="httpEndpoint")
-    def http_endpoint(self) -> str:
+    def http_endpoint(self) -> Optional[str]:
         """
         State of the metadata service: `enabled`, `disabled`.
         """
@@ -16554,7 +16622,7 @@ class GetLaunchConfigurationMetadataOptionResult(dict):
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
-    def http_put_response_hop_limit(self) -> int:
+    def http_put_response_hop_limit(self) -> Optional[int]:
         """
         The desired HTTP PUT response hop limit for instance metadata requests.
         """
@@ -16562,7 +16630,7 @@ class GetLaunchConfigurationMetadataOptionResult(dict):
 
     @property
     @pulumi.getter(name="httpTokens")
-    def http_tokens(self) -> str:
+    def http_tokens(self) -> Optional[str]:
         """
         If session tokens are required: `optional`, `required`.
         """
@@ -16572,12 +16640,12 @@ class GetLaunchConfigurationMetadataOptionResult(dict):
 @pulumi.output_type
 class GetLaunchConfigurationRootBlockDeviceResult(dict):
     def __init__(__self__, *,
-                 delete_on_termination: bool,
-                 encrypted: bool,
-                 iops: int,
-                 throughput: int,
-                 volume_size: int,
-                 volume_type: str):
+                 delete_on_termination: Optional[bool] = None,
+                 encrypted: Optional[bool] = None,
+                 iops: Optional[int] = None,
+                 throughput: Optional[int] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
         """
         :param bool delete_on_termination: Whether the EBS Volume will be deleted on instance termination.
         :param bool encrypted: Whether the volume is Encrypted.
@@ -16586,16 +16654,22 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
         :param int volume_size: Size of the volume.
         :param str volume_type: Type of the volume.
         """
-        pulumi.set(__self__, "delete_on_termination", delete_on_termination)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "throughput", throughput)
-        pulumi.set(__self__, "volume_size", volume_size)
-        pulumi.set(__self__, "volume_type", volume_type)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
-    def delete_on_termination(self) -> bool:
+    def delete_on_termination(self) -> Optional[bool]:
         """
         Whether the EBS Volume will be deleted on instance termination.
         """
@@ -16603,7 +16677,7 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> Optional[bool]:
         """
         Whether the volume is Encrypted.
         """
@@ -16611,7 +16685,7 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def iops(self) -> int:
+    def iops(self) -> Optional[int]:
         """
         Provisioned IOPs of the volume.
         """
@@ -16619,7 +16693,7 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def throughput(self) -> int:
+    def throughput(self) -> Optional[int]:
         """
         Throughput of the volume.
         """
@@ -16627,7 +16701,7 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> int:
+    def volume_size(self) -> Optional[int]:
         """
         Size of the volume.
         """
@@ -16635,7 +16709,7 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> str:
+    def volume_type(self) -> Optional[str]:
         """
         Type of the volume.
         """
@@ -16645,170 +16719,190 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
 @pulumi.output_type
 class GetLaunchTemplateBlockDeviceMappingResult(dict):
     def __init__(__self__, *,
-                 device_name: str,
-                 ebs: Sequence['outputs.GetLaunchTemplateBlockDeviceMappingEbResult'],
-                 no_device: str,
-                 virtual_name: str):
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "ebs", ebs)
-        pulumi.set(__self__, "no_device", no_device)
-        pulumi.set(__self__, "virtual_name", virtual_name)
+                 device_name: Optional[str] = None,
+                 ebs: Optional[Sequence['outputs.GetLaunchTemplateBlockDeviceMappingEbResult']] = None,
+                 no_device: Optional[str] = None,
+                 virtual_name: Optional[str] = None):
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> str:
+    def device_name(self) -> Optional[str]:
         return pulumi.get(self, "device_name")
 
     @property
     @pulumi.getter
-    def ebs(self) -> Sequence['outputs.GetLaunchTemplateBlockDeviceMappingEbResult']:
+    def ebs(self) -> Optional[Sequence['outputs.GetLaunchTemplateBlockDeviceMappingEbResult']]:
         return pulumi.get(self, "ebs")
 
     @property
     @pulumi.getter(name="noDevice")
-    def no_device(self) -> str:
+    def no_device(self) -> Optional[str]:
         return pulumi.get(self, "no_device")
 
     @property
     @pulumi.getter(name="virtualName")
-    def virtual_name(self) -> str:
+    def virtual_name(self) -> Optional[str]:
         return pulumi.get(self, "virtual_name")
 
 
 @pulumi.output_type
 class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
     def __init__(__self__, *,
-                 delete_on_termination: str,
-                 encrypted: str,
-                 iops: int,
-                 kms_key_id: str,
-                 snapshot_id: str,
-                 throughput: int,
-                 volume_size: int,
-                 volume_type: str):
-        pulumi.set(__self__, "delete_on_termination", delete_on_termination)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "snapshot_id", snapshot_id)
-        pulumi.set(__self__, "throughput", throughput)
-        pulumi.set(__self__, "volume_size", volume_size)
-        pulumi.set(__self__, "volume_type", volume_type)
+                 delete_on_termination: Optional[str] = None,
+                 encrypted: Optional[str] = None,
+                 iops: Optional[int] = None,
+                 kms_key_id: Optional[str] = None,
+                 snapshot_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
-    def delete_on_termination(self) -> str:
+    def delete_on_termination(self) -> Optional[str]:
         return pulumi.get(self, "delete_on_termination")
 
     @property
     @pulumi.getter
-    def encrypted(self) -> str:
+    def encrypted(self) -> Optional[str]:
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter
-    def iops(self) -> int:
+    def iops(self) -> Optional[int]:
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> str:
+    def snapshot_id(self) -> Optional[str]:
         return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter
-    def throughput(self) -> int:
+    def throughput(self) -> Optional[int]:
         return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> int:
+    def volume_size(self) -> Optional[int]:
         return pulumi.get(self, "volume_size")
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> str:
+    def volume_type(self) -> Optional[str]:
         return pulumi.get(self, "volume_type")
 
 
 @pulumi.output_type
 class GetLaunchTemplateCapacityReservationSpecificationResult(dict):
     def __init__(__self__, *,
-                 capacity_reservation_preference: str,
-                 capacity_reservation_targets: Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult']):
-        pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
-        pulumi.set(__self__, "capacity_reservation_targets", capacity_reservation_targets)
+                 capacity_reservation_preference: Optional[str] = None,
+                 capacity_reservation_targets: Optional[Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult']] = None):
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_targets is not None:
+            pulumi.set(__self__, "capacity_reservation_targets", capacity_reservation_targets)
 
     @property
     @pulumi.getter(name="capacityReservationPreference")
-    def capacity_reservation_preference(self) -> str:
+    def capacity_reservation_preference(self) -> Optional[str]:
         return pulumi.get(self, "capacity_reservation_preference")
 
     @property
     @pulumi.getter(name="capacityReservationTargets")
-    def capacity_reservation_targets(self) -> Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult']:
+    def capacity_reservation_targets(self) -> Optional[Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult']]:
         return pulumi.get(self, "capacity_reservation_targets")
 
 
 @pulumi.output_type
 class GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult(dict):
     def __init__(__self__, *,
-                 capacity_reservation_id: str,
-                 capacity_reservation_resource_group_arn: str):
-        pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
-        pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
+                 capacity_reservation_id: Optional[str] = None,
+                 capacity_reservation_resource_group_arn: Optional[str] = None):
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
 
     @property
     @pulumi.getter(name="capacityReservationId")
-    def capacity_reservation_id(self) -> str:
+    def capacity_reservation_id(self) -> Optional[str]:
         return pulumi.get(self, "capacity_reservation_id")
 
     @property
     @pulumi.getter(name="capacityReservationResourceGroupArn")
-    def capacity_reservation_resource_group_arn(self) -> str:
+    def capacity_reservation_resource_group_arn(self) -> Optional[str]:
         return pulumi.get(self, "capacity_reservation_resource_group_arn")
 
 
 @pulumi.output_type
 class GetLaunchTemplateCpuOptionResult(dict):
     def __init__(__self__, *,
-                 amd_sev_snp: str,
-                 core_count: int,
-                 threads_per_core: int):
-        pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
-        pulumi.set(__self__, "core_count", core_count)
-        pulumi.set(__self__, "threads_per_core", threads_per_core)
+                 amd_sev_snp: Optional[str] = None,
+                 core_count: Optional[int] = None,
+                 threads_per_core: Optional[int] = None):
+        if amd_sev_snp is not None:
+            pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
 
     @property
     @pulumi.getter(name="amdSevSnp")
-    def amd_sev_snp(self) -> str:
+    def amd_sev_snp(self) -> Optional[str]:
         return pulumi.get(self, "amd_sev_snp")
 
     @property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> int:
+    def core_count(self) -> Optional[int]:
         return pulumi.get(self, "core_count")
 
     @property
     @pulumi.getter(name="threadsPerCore")
-    def threads_per_core(self) -> int:
+    def threads_per_core(self) -> Optional[int]:
         return pulumi.get(self, "threads_per_core")
 
 
 @pulumi.output_type
 class GetLaunchTemplateCreditSpecificationResult(dict):
     def __init__(__self__, *,
-                 cpu_credits: str):
-        pulumi.set(__self__, "cpu_credits", cpu_credits)
+                 cpu_credits: Optional[str] = None):
+        if cpu_credits is not None:
+            pulumi.set(__self__, "cpu_credits", cpu_credits)
 
     @property
     @pulumi.getter(name="cpuCredits")
-    def cpu_credits(self) -> str:
+    def cpu_credits(self) -> Optional[str]:
         return pulumi.get(self, "cpu_credits")
 
 
@@ -16827,24 +16921,26 @@ class GetLaunchTemplateElasticGpuSpecificationResult(dict):
 @pulumi.output_type
 class GetLaunchTemplateElasticInferenceAcceleratorResult(dict):
     def __init__(__self__, *,
-                 type: str):
-        pulumi.set(__self__, "type", type)
+                 type: Optional[str] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GetLaunchTemplateEnclaveOptionResult(dict):
     def __init__(__self__, *,
-                 enabled: bool):
-        pulumi.set(__self__, "enabled", enabled)
+                 enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
 
@@ -16880,34 +16976,37 @@ class GetLaunchTemplateFilterResult(dict):
 @pulumi.output_type
 class GetLaunchTemplateHibernationOptionResult(dict):
     def __init__(__self__, *,
-                 configured: bool):
-        pulumi.set(__self__, "configured", configured)
+                 configured: Optional[bool] = None):
+        if configured is not None:
+            pulumi.set(__self__, "configured", configured)
 
     @property
     @pulumi.getter
-    def configured(self) -> bool:
+    def configured(self) -> Optional[bool]:
         return pulumi.get(self, "configured")
 
 
 @pulumi.output_type
 class GetLaunchTemplateIamInstanceProfileResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str name: Name of the launch template.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the launch template.
         """
@@ -16917,603 +17016,596 @@ class GetLaunchTemplateIamInstanceProfileResult(dict):
 @pulumi.output_type
 class GetLaunchTemplateInstanceMarketOptionResult(dict):
     def __init__(__self__, *,
-                 market_type: str,
-                 spot_options: Sequence['outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult']):
-        pulumi.set(__self__, "market_type", market_type)
-        pulumi.set(__self__, "spot_options", spot_options)
+                 market_type: Optional[str] = None,
+                 spot_options: Optional[Sequence['outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult']] = None):
+        if market_type is not None:
+            pulumi.set(__self__, "market_type", market_type)
+        if spot_options is not None:
+            pulumi.set(__self__, "spot_options", spot_options)
 
     @property
     @pulumi.getter(name="marketType")
-    def market_type(self) -> str:
+    def market_type(self) -> Optional[str]:
         return pulumi.get(self, "market_type")
 
     @property
     @pulumi.getter(name="spotOptions")
-    def spot_options(self) -> Sequence['outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult']:
+    def spot_options(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult']]:
         return pulumi.get(self, "spot_options")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceMarketOptionSpotOptionResult(dict):
     def __init__(__self__, *,
-                 block_duration_minutes: int,
-                 instance_interruption_behavior: str,
-                 max_price: str,
-                 spot_instance_type: str,
-                 valid_until: str):
-        pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
-        pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
-        pulumi.set(__self__, "max_price", max_price)
-        pulumi.set(__self__, "spot_instance_type", spot_instance_type)
-        pulumi.set(__self__, "valid_until", valid_until)
+                 block_duration_minutes: Optional[int] = None,
+                 instance_interruption_behavior: Optional[str] = None,
+                 max_price: Optional[str] = None,
+                 spot_instance_type: Optional[str] = None,
+                 valid_until: Optional[str] = None):
+        if block_duration_minutes is not None:
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+        if instance_interruption_behavior is not None:
+            pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
+        if max_price is not None:
+            pulumi.set(__self__, "max_price", max_price)
+        if spot_instance_type is not None:
+            pulumi.set(__self__, "spot_instance_type", spot_instance_type)
+        if valid_until is not None:
+            pulumi.set(__self__, "valid_until", valid_until)
 
     @property
     @pulumi.getter(name="blockDurationMinutes")
-    def block_duration_minutes(self) -> int:
+    def block_duration_minutes(self) -> Optional[int]:
         return pulumi.get(self, "block_duration_minutes")
 
     @property
     @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> str:
+    def instance_interruption_behavior(self) -> Optional[str]:
         return pulumi.get(self, "instance_interruption_behavior")
 
     @property
     @pulumi.getter(name="maxPrice")
-    def max_price(self) -> str:
+    def max_price(self) -> Optional[str]:
         return pulumi.get(self, "max_price")
 
     @property
     @pulumi.getter(name="spotInstanceType")
-    def spot_instance_type(self) -> str:
+    def spot_instance_type(self) -> Optional[str]:
         return pulumi.get(self, "spot_instance_type")
 
     @property
     @pulumi.getter(name="validUntil")
-    def valid_until(self) -> str:
+    def valid_until(self) -> Optional[str]:
         return pulumi.get(self, "valid_until")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementResult(dict):
     def __init__(__self__, *,
-                 accelerator_counts: Sequence['outputs.GetLaunchTemplateInstanceRequirementAcceleratorCountResult'],
-                 accelerator_manufacturers: Sequence[str],
-                 accelerator_names: Sequence[str],
-                 accelerator_total_memory_mibs: Sequence['outputs.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult'],
-                 accelerator_types: Sequence[str],
-                 allowed_instance_types: Sequence[str],
-                 bare_metal: str,
-                 baseline_ebs_bandwidth_mbps: Sequence['outputs.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult'],
-                 burstable_performance: str,
-                 cpu_manufacturers: Sequence[str],
-                 excluded_instance_types: Sequence[str],
-                 instance_generations: Sequence[str],
-                 local_storage: str,
-                 local_storage_types: Sequence[str],
-                 memory_gib_per_vcpus: Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult'],
-                 memory_mibs: Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult'],
-                 network_bandwidth_gbps: Sequence['outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult'],
-                 network_interface_counts: Sequence['outputs.GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult'],
-                 on_demand_max_price_percentage_over_lowest_price: int,
-                 require_hibernate_support: bool,
-                 spot_max_price_percentage_over_lowest_price: int,
-                 total_local_storage_gbs: Sequence['outputs.GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult'],
-                 vcpu_counts: Sequence['outputs.GetLaunchTemplateInstanceRequirementVcpuCountResult']):
-        pulumi.set(__self__, "accelerator_counts", accelerator_counts)
-        pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
-        pulumi.set(__self__, "accelerator_names", accelerator_names)
-        pulumi.set(__self__, "accelerator_total_memory_mibs", accelerator_total_memory_mibs)
-        pulumi.set(__self__, "accelerator_types", accelerator_types)
-        pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
-        pulumi.set(__self__, "bare_metal", bare_metal)
-        pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
-        pulumi.set(__self__, "burstable_performance", burstable_performance)
-        pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
-        pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
-        pulumi.set(__self__, "instance_generations", instance_generations)
-        pulumi.set(__self__, "local_storage", local_storage)
-        pulumi.set(__self__, "local_storage_types", local_storage_types)
-        pulumi.set(__self__, "memory_gib_per_vcpus", memory_gib_per_vcpus)
-        pulumi.set(__self__, "memory_mibs", memory_mibs)
-        pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
-        pulumi.set(__self__, "network_interface_counts", network_interface_counts)
-        pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
-        pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
-        pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
-        pulumi.set(__self__, "total_local_storage_gbs", total_local_storage_gbs)
-        pulumi.set(__self__, "vcpu_counts", vcpu_counts)
+                 accelerator_counts: Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementAcceleratorCountResult']] = None,
+                 accelerator_manufacturers: Optional[Sequence[str]] = None,
+                 accelerator_names: Optional[Sequence[str]] = None,
+                 accelerator_total_memory_mibs: Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult']] = None,
+                 accelerator_types: Optional[Sequence[str]] = None,
+                 allowed_instance_types: Optional[Sequence[str]] = None,
+                 bare_metal: Optional[str] = None,
+                 baseline_ebs_bandwidth_mbps: Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult']] = None,
+                 burstable_performance: Optional[str] = None,
+                 cpu_manufacturers: Optional[Sequence[str]] = None,
+                 excluded_instance_types: Optional[Sequence[str]] = None,
+                 instance_generations: Optional[Sequence[str]] = None,
+                 local_storage: Optional[str] = None,
+                 local_storage_types: Optional[Sequence[str]] = None,
+                 memory_gib_per_vcpus: Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult']] = None,
+                 memory_mibs: Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult']] = None,
+                 network_bandwidth_gbps: Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult']] = None,
+                 network_interface_counts: Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult']] = None,
+                 on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
+                 require_hibernate_support: Optional[bool] = None,
+                 spot_max_price_percentage_over_lowest_price: Optional[int] = None,
+                 total_local_storage_gbs: Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult']] = None,
+                 vcpu_counts: Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementVcpuCountResult']] = None):
+        if accelerator_counts is not None:
+            pulumi.set(__self__, "accelerator_counts", accelerator_counts)
+        if accelerator_manufacturers is not None:
+            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+        if accelerator_names is not None:
+            pulumi.set(__self__, "accelerator_names", accelerator_names)
+        if accelerator_total_memory_mibs is not None:
+            pulumi.set(__self__, "accelerator_total_memory_mibs", accelerator_total_memory_mibs)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+        if bare_metal is not None:
+            pulumi.set(__self__, "bare_metal", bare_metal)
+        if baseline_ebs_bandwidth_mbps is not None:
+            pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if burstable_performance is not None:
+            pulumi.set(__self__, "burstable_performance", burstable_performance)
+        if cpu_manufacturers is not None:
+            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+        if excluded_instance_types is not None:
+            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+        if instance_generations is not None:
+            pulumi.set(__self__, "instance_generations", instance_generations)
+        if local_storage is not None:
+            pulumi.set(__self__, "local_storage", local_storage)
+        if local_storage_types is not None:
+            pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if memory_gib_per_vcpus is not None:
+            pulumi.set(__self__, "memory_gib_per_vcpus", memory_gib_per_vcpus)
+        if memory_mibs is not None:
+            pulumi.set(__self__, "memory_mibs", memory_mibs)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
+        if network_interface_counts is not None:
+            pulumi.set(__self__, "network_interface_counts", network_interface_counts)
+        if on_demand_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_hibernate_support is not None:
+            pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
+        if spot_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
+        if total_local_storage_gbs is not None:
+            pulumi.set(__self__, "total_local_storage_gbs", total_local_storage_gbs)
+        if vcpu_counts is not None:
+            pulumi.set(__self__, "vcpu_counts", vcpu_counts)
 
     @property
     @pulumi.getter(name="acceleratorCounts")
-    def accelerator_counts(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementAcceleratorCountResult']:
+    def accelerator_counts(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementAcceleratorCountResult']]:
         return pulumi.get(self, "accelerator_counts")
 
     @property
     @pulumi.getter(name="acceleratorManufacturers")
-    def accelerator_manufacturers(self) -> Sequence[str]:
+    def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "accelerator_manufacturers")
 
     @property
     @pulumi.getter(name="acceleratorNames")
-    def accelerator_names(self) -> Sequence[str]:
+    def accelerator_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "accelerator_names")
 
     @property
     @pulumi.getter(name="acceleratorTotalMemoryMibs")
-    def accelerator_total_memory_mibs(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult']:
+    def accelerator_total_memory_mibs(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult']]:
         return pulumi.get(self, "accelerator_total_memory_mibs")
 
     @property
     @pulumi.getter(name="acceleratorTypes")
-    def accelerator_types(self) -> Sequence[str]:
+    def accelerator_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "accelerator_types")
 
     @property
     @pulumi.getter(name="allowedInstanceTypes")
-    def allowed_instance_types(self) -> Sequence[str]:
+    def allowed_instance_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "allowed_instance_types")
 
     @property
     @pulumi.getter(name="bareMetal")
-    def bare_metal(self) -> str:
+    def bare_metal(self) -> Optional[str]:
         return pulumi.get(self, "bare_metal")
 
     @property
     @pulumi.getter(name="baselineEbsBandwidthMbps")
-    def baseline_ebs_bandwidth_mbps(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult']:
+    def baseline_ebs_bandwidth_mbps(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult']]:
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
     @property
     @pulumi.getter(name="burstablePerformance")
-    def burstable_performance(self) -> str:
+    def burstable_performance(self) -> Optional[str]:
         return pulumi.get(self, "burstable_performance")
 
     @property
     @pulumi.getter(name="cpuManufacturers")
-    def cpu_manufacturers(self) -> Sequence[str]:
+    def cpu_manufacturers(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "cpu_manufacturers")
 
     @property
     @pulumi.getter(name="excludedInstanceTypes")
-    def excluded_instance_types(self) -> Sequence[str]:
+    def excluded_instance_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "excluded_instance_types")
 
     @property
     @pulumi.getter(name="instanceGenerations")
-    def instance_generations(self) -> Sequence[str]:
+    def instance_generations(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "instance_generations")
 
     @property
     @pulumi.getter(name="localStorage")
-    def local_storage(self) -> str:
+    def local_storage(self) -> Optional[str]:
         return pulumi.get(self, "local_storage")
 
     @property
     @pulumi.getter(name="localStorageTypes")
-    def local_storage_types(self) -> Sequence[str]:
+    def local_storage_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "local_storage_types")
 
     @property
     @pulumi.getter(name="memoryGibPerVcpus")
-    def memory_gib_per_vcpus(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult']:
+    def memory_gib_per_vcpus(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult']]:
         return pulumi.get(self, "memory_gib_per_vcpus")
 
     @property
     @pulumi.getter(name="memoryMibs")
-    def memory_mibs(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult']:
+    def memory_mibs(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult']]:
         return pulumi.get(self, "memory_mibs")
 
     @property
     @pulumi.getter(name="networkBandwidthGbps")
-    def network_bandwidth_gbps(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult']:
+    def network_bandwidth_gbps(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult']]:
         return pulumi.get(self, "network_bandwidth_gbps")
 
     @property
     @pulumi.getter(name="networkInterfaceCounts")
-    def network_interface_counts(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult']:
+    def network_interface_counts(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult']]:
         return pulumi.get(self, "network_interface_counts")
 
     @property
     @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
-    def on_demand_max_price_percentage_over_lowest_price(self) -> int:
+    def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
     @property
     @pulumi.getter(name="requireHibernateSupport")
-    def require_hibernate_support(self) -> bool:
+    def require_hibernate_support(self) -> Optional[bool]:
         return pulumi.get(self, "require_hibernate_support")
 
     @property
     @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
-    def spot_max_price_percentage_over_lowest_price(self) -> int:
+    def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
     @property
     @pulumi.getter(name="totalLocalStorageGbs")
-    def total_local_storage_gbs(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult']:
+    def total_local_storage_gbs(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult']]:
         return pulumi.get(self, "total_local_storage_gbs")
 
     @property
     @pulumi.getter(name="vcpuCounts")
-    def vcpu_counts(self) -> Sequence['outputs.GetLaunchTemplateInstanceRequirementVcpuCountResult']:
+    def vcpu_counts(self) -> Optional[Sequence['outputs.GetLaunchTemplateInstanceRequirementVcpuCountResult']]:
         return pulumi.get(self, "vcpu_counts")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementAcceleratorCountResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         return pulumi.get(self, "min")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         return pulumi.get(self, "min")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         return pulumi.get(self, "min")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult(dict):
     def __init__(__self__, *,
-                 max: float,
-                 min: float):
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> float:
+    def max(self) -> Optional[float]:
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
-    def min(self) -> float:
+    def min(self) -> Optional[float]:
         return pulumi.get(self, "min")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementMemoryMibResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         return pulumi.get(self, "min")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult(dict):
     def __init__(__self__, *,
-                 max: float,
-                 min: float):
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> float:
+    def max(self) -> Optional[float]:
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
-    def min(self) -> float:
+    def min(self) -> Optional[float]:
         return pulumi.get(self, "min")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         return pulumi.get(self, "min")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult(dict):
     def __init__(__self__, *,
-                 max: float,
-                 min: float):
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> float:
+    def max(self) -> Optional[float]:
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
-    def min(self) -> float:
+    def min(self) -> Optional[float]:
         return pulumi.get(self, "min")
 
 
 @pulumi.output_type
 class GetLaunchTemplateInstanceRequirementVcpuCountResult(dict):
     def __init__(__self__, *,
-                 max: int,
-                 min: int):
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
 
     @property
     @pulumi.getter
-    def max(self) -> int:
+    def max(self) -> Optional[int]:
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
-    def min(self) -> int:
+    def min(self) -> Optional[int]:
         return pulumi.get(self, "min")
 
 
 @pulumi.output_type
 class GetLaunchTemplateLicenseSpecificationResult(dict):
     def __init__(__self__, *,
-                 license_configuration_arn: str):
-        pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+                 license_configuration_arn: Optional[str] = None):
+        if license_configuration_arn is not None:
+            pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
 
     @property
     @pulumi.getter(name="licenseConfigurationArn")
-    def license_configuration_arn(self) -> str:
+    def license_configuration_arn(self) -> Optional[str]:
         return pulumi.get(self, "license_configuration_arn")
 
 
 @pulumi.output_type
 class GetLaunchTemplateMaintenanceOptionResult(dict):
     def __init__(__self__, *,
-                 auto_recovery: str):
-        pulumi.set(__self__, "auto_recovery", auto_recovery)
+                 auto_recovery: Optional[str] = None):
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
 
     @property
     @pulumi.getter(name="autoRecovery")
-    def auto_recovery(self) -> str:
+    def auto_recovery(self) -> Optional[str]:
         return pulumi.get(self, "auto_recovery")
 
 
 @pulumi.output_type
 class GetLaunchTemplateMetadataOptionResult(dict):
     def __init__(__self__, *,
-                 http_endpoint: str,
-                 http_protocol_ipv6: str,
-                 http_put_response_hop_limit: int,
-                 http_tokens: str,
-                 instance_metadata_tags: str):
-        pulumi.set(__self__, "http_endpoint", http_endpoint)
-        pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
-        pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
-        pulumi.set(__self__, "http_tokens", http_tokens)
-        pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
+                 http_endpoint: Optional[str] = None,
+                 http_protocol_ipv6: Optional[str] = None,
+                 http_put_response_hop_limit: Optional[int] = None,
+                 http_tokens: Optional[str] = None,
+                 instance_metadata_tags: Optional[str] = None):
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_protocol_ipv6 is not None:
+            pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+        if instance_metadata_tags is not None:
+            pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
 
     @property
     @pulumi.getter(name="httpEndpoint")
-    def http_endpoint(self) -> str:
+    def http_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "http_endpoint")
 
     @property
     @pulumi.getter(name="httpProtocolIpv6")
-    def http_protocol_ipv6(self) -> str:
+    def http_protocol_ipv6(self) -> Optional[str]:
         return pulumi.get(self, "http_protocol_ipv6")
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
-    def http_put_response_hop_limit(self) -> int:
+    def http_put_response_hop_limit(self) -> Optional[int]:
         return pulumi.get(self, "http_put_response_hop_limit")
 
     @property
     @pulumi.getter(name="httpTokens")
-    def http_tokens(self) -> str:
+    def http_tokens(self) -> Optional[str]:
         return pulumi.get(self, "http_tokens")
 
     @property
     @pulumi.getter(name="instanceMetadataTags")
-    def instance_metadata_tags(self) -> str:
+    def instance_metadata_tags(self) -> Optional[str]:
         return pulumi.get(self, "instance_metadata_tags")
 
 
 @pulumi.output_type
 class GetLaunchTemplateMonitoringResult(dict):
     def __init__(__self__, *,
-                 enabled: bool):
-        pulumi.set(__self__, "enabled", enabled)
+                 enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
 class GetLaunchTemplateNetworkInterfaceResult(dict):
     def __init__(__self__, *,
-                 associate_carrier_ip_address: str,
-                 description: str,
-                 device_index: int,
-                 interface_type: str,
-                 ipv4_address_count: int,
-                 ipv4_addresses: Sequence[str],
-                 ipv4_prefix_count: int,
-                 ipv4_prefixes: Sequence[str],
-                 ipv6_address_count: int,
-                 ipv6_addresses: Sequence[str],
-                 ipv6_prefix_count: int,
-                 ipv6_prefixes: Sequence[str],
-                 network_card_index: int,
-                 network_interface_id: str,
-                 private_ip_address: str,
-                 security_groups: Sequence[str],
-                 subnet_id: str,
+                 associate_carrier_ip_address: Optional[str] = None,
                  associate_public_ip_address: Optional[bool] = None,
-                 delete_on_termination: Optional[bool] = None):
-        pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "device_index", device_index)
-        pulumi.set(__self__, "interface_type", interface_type)
-        pulumi.set(__self__, "ipv4_address_count", ipv4_address_count)
-        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
-        pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
-        pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
-        pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
-        pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
-        pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
-        pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
-        pulumi.set(__self__, "network_card_index", network_card_index)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "security_groups", security_groups)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+                 delete_on_termination: Optional[bool] = None,
+                 description: Optional[str] = None,
+                 device_index: Optional[int] = None,
+                 interface_type: Optional[str] = None,
+                 ipv4_address_count: Optional[int] = None,
+                 ipv4_addresses: Optional[Sequence[str]] = None,
+                 ipv4_prefix_count: Optional[int] = None,
+                 ipv4_prefixes: Optional[Sequence[str]] = None,
+                 ipv6_address_count: Optional[int] = None,
+                 ipv6_addresses: Optional[Sequence[str]] = None,
+                 ipv6_prefix_count: Optional[int] = None,
+                 ipv6_prefixes: Optional[Sequence[str]] = None,
+                 network_card_index: Optional[int] = None,
+                 network_interface_id: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 security_groups: Optional[Sequence[str]] = None,
+                 subnet_id: Optional[str] = None):
+        if associate_carrier_ip_address is not None:
+            pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         if associate_public_ip_address is not None:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if device_index is not None:
+            pulumi.set(__self__, "device_index", device_index)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
+        if ipv4_address_count is not None:
+            pulumi.set(__self__, "ipv4_address_count", ipv4_address_count)
+        if ipv4_addresses is not None:
+            pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if ipv4_prefix_count is not None:
+            pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
+        if ipv4_prefixes is not None:
+            pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if ipv6_prefix_count is not None:
+            pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
+        if ipv6_prefixes is not None:
+            pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="associateCarrierIpAddress")
-    def associate_carrier_ip_address(self) -> str:
+    def associate_carrier_ip_address(self) -> Optional[str]:
         return pulumi.get(self, "associate_carrier_ip_address")
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="deviceIndex")
-    def device_index(self) -> int:
-        return pulumi.get(self, "device_index")
-
-    @property
-    @pulumi.getter(name="interfaceType")
-    def interface_type(self) -> str:
-        return pulumi.get(self, "interface_type")
-
-    @property
-    @pulumi.getter(name="ipv4AddressCount")
-    def ipv4_address_count(self) -> int:
-        return pulumi.get(self, "ipv4_address_count")
-
-    @property
-    @pulumi.getter(name="ipv4Addresses")
-    def ipv4_addresses(self) -> Sequence[str]:
-        return pulumi.get(self, "ipv4_addresses")
-
-    @property
-    @pulumi.getter(name="ipv4PrefixCount")
-    def ipv4_prefix_count(self) -> int:
-        return pulumi.get(self, "ipv4_prefix_count")
-
-    @property
-    @pulumi.getter(name="ipv4Prefixes")
-    def ipv4_prefixes(self) -> Sequence[str]:
-        return pulumi.get(self, "ipv4_prefixes")
-
-    @property
-    @pulumi.getter(name="ipv6AddressCount")
-    def ipv6_address_count(self) -> int:
-        return pulumi.get(self, "ipv6_address_count")
-
-    @property
-    @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> Sequence[str]:
-        return pulumi.get(self, "ipv6_addresses")
-
-    @property
-    @pulumi.getter(name="ipv6PrefixCount")
-    def ipv6_prefix_count(self) -> int:
-        return pulumi.get(self, "ipv6_prefix_count")
-
-    @property
-    @pulumi.getter(name="ipv6Prefixes")
-    def ipv6_prefixes(self) -> Sequence[str]:
-        return pulumi.get(self, "ipv6_prefixes")
-
-    @property
-    @pulumi.getter(name="networkCardIndex")
-    def network_card_index(self) -> int:
-        return pulumi.get(self, "network_card_index")
-
-    @property
-    @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
-        return pulumi.get(self, "network_interface_id")
-
-    @property
-    @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> str:
-        return pulumi.get(self, "private_ip_address")
-
-    @property
-    @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Sequence[str]:
-        return pulumi.get(self, "security_groups")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
-        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
@@ -17525,113 +17617,206 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
     def delete_on_termination(self) -> Optional[bool]:
         return pulumi.get(self, "delete_on_termination")
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> Optional[int]:
+        return pulumi.get(self, "device_index")
+
+    @property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[str]:
+        return pulumi.get(self, "interface_type")
+
+    @property
+    @pulumi.getter(name="ipv4AddressCount")
+    def ipv4_address_count(self) -> Optional[int]:
+        return pulumi.get(self, "ipv4_address_count")
+
+    @property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "ipv4_addresses")
+
+    @property
+    @pulumi.getter(name="ipv4PrefixCount")
+    def ipv4_prefix_count(self) -> Optional[int]:
+        return pulumi.get(self, "ipv4_prefix_count")
+
+    @property
+    @pulumi.getter(name="ipv4Prefixes")
+    def ipv4_prefixes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "ipv4_prefixes")
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[int]:
+        return pulumi.get(self, "ipv6_address_count")
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "ipv6_addresses")
+
+    @property
+    @pulumi.getter(name="ipv6PrefixCount")
+    def ipv6_prefix_count(self) -> Optional[int]:
+        return pulumi.get(self, "ipv6_prefix_count")
+
+    @property
+    @pulumi.getter(name="ipv6Prefixes")
+    def ipv6_prefixes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "ipv6_prefixes")
+
+    @property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[int]:
+        return pulumi.get(self, "network_card_index")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[str]:
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_id")
+
 
 @pulumi.output_type
 class GetLaunchTemplatePlacementResult(dict):
     def __init__(__self__, *,
-                 affinity: str,
-                 availability_zone: str,
-                 group_name: str,
-                 host_id: str,
-                 host_resource_group_arn: str,
-                 partition_number: int,
-                 spread_domain: str,
-                 tenancy: str):
-        pulumi.set(__self__, "affinity", affinity)
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "host_id", host_id)
-        pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
-        pulumi.set(__self__, "partition_number", partition_number)
-        pulumi.set(__self__, "spread_domain", spread_domain)
-        pulumi.set(__self__, "tenancy", tenancy)
+                 affinity: Optional[str] = None,
+                 availability_zone: Optional[str] = None,
+                 group_name: Optional[str] = None,
+                 host_id: Optional[str] = None,
+                 host_resource_group_arn: Optional[str] = None,
+                 partition_number: Optional[int] = None,
+                 spread_domain: Optional[str] = None,
+                 tenancy: Optional[str] = None):
+        if affinity is not None:
+            pulumi.set(__self__, "affinity", affinity)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+        if host_id is not None:
+            pulumi.set(__self__, "host_id", host_id)
+        if host_resource_group_arn is not None:
+            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
+        if partition_number is not None:
+            pulumi.set(__self__, "partition_number", partition_number)
+        if spread_domain is not None:
+            pulumi.set(__self__, "spread_domain", spread_domain)
+        if tenancy is not None:
+            pulumi.set(__self__, "tenancy", tenancy)
 
     @property
     @pulumi.getter
-    def affinity(self) -> str:
+    def affinity(self) -> Optional[str]:
         return pulumi.get(self, "affinity")
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> Optional[str]:
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> str:
+    def group_name(self) -> Optional[str]:
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="hostId")
-    def host_id(self) -> str:
+    def host_id(self) -> Optional[str]:
         return pulumi.get(self, "host_id")
 
     @property
     @pulumi.getter(name="hostResourceGroupArn")
-    def host_resource_group_arn(self) -> str:
+    def host_resource_group_arn(self) -> Optional[str]:
         return pulumi.get(self, "host_resource_group_arn")
 
     @property
     @pulumi.getter(name="partitionNumber")
-    def partition_number(self) -> int:
+    def partition_number(self) -> Optional[int]:
         return pulumi.get(self, "partition_number")
 
     @property
     @pulumi.getter(name="spreadDomain")
-    def spread_domain(self) -> str:
+    def spread_domain(self) -> Optional[str]:
         return pulumi.get(self, "spread_domain")
 
     @property
     @pulumi.getter
-    def tenancy(self) -> str:
+    def tenancy(self) -> Optional[str]:
         return pulumi.get(self, "tenancy")
 
 
 @pulumi.output_type
 class GetLaunchTemplatePrivateDnsNameOptionResult(dict):
     def __init__(__self__, *,
-                 enable_resource_name_dns_a_record: bool,
-                 enable_resource_name_dns_aaaa_record: bool,
-                 hostname_type: str):
-        pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
-        pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
-        pulumi.set(__self__, "hostname_type", hostname_type)
+                 enable_resource_name_dns_a_record: Optional[bool] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
+                 hostname_type: Optional[str] = None):
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecord")
-    def enable_resource_name_dns_a_record(self) -> bool:
+    def enable_resource_name_dns_a_record(self) -> Optional[bool]:
         return pulumi.get(self, "enable_resource_name_dns_a_record")
 
     @property
     @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
-    def enable_resource_name_dns_aaaa_record(self) -> bool:
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
         return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
 
     @property
     @pulumi.getter(name="hostnameType")
-    def hostname_type(self) -> str:
+    def hostname_type(self) -> Optional[str]:
         return pulumi.get(self, "hostname_type")
 
 
 @pulumi.output_type
 class GetLaunchTemplateTagSpecificationResult(dict):
     def __init__(__self__, *,
-                 resource_type: str,
-                 tags: Mapping[str, str]):
+                 resource_type: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
         """
         :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
         """
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "tags", tags)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> str:
+    def resource_type(self) -> Optional[str]:
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
         """
@@ -17860,19 +18045,21 @@ class GetLocalGatewaysFilterResult(dict):
 @pulumi.output_type
 class GetManagedPrefixListEntryResult(dict):
     def __init__(__self__, *,
-                 cidr: str,
-                 description: str):
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "description", description)
+                 cidr: Optional[str] = None,
+                 description: Optional[str] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
 
 
@@ -18040,380 +18227,433 @@ class GetNetworkAclsFilterResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisAlternatePathHintResult(dict):
     def __init__(__self__, *,
-                 component_arn: str,
-                 component_id: str):
-        pulumi.set(__self__, "component_arn", component_arn)
-        pulumi.set(__self__, "component_id", component_id)
+                 component_arn: Optional[str] = None,
+                 component_id: Optional[str] = None):
+        if component_arn is not None:
+            pulumi.set(__self__, "component_arn", component_arn)
+        if component_id is not None:
+            pulumi.set(__self__, "component_id", component_id)
 
     @property
     @pulumi.getter(name="componentArn")
-    def component_arn(self) -> str:
+    def component_arn(self) -> Optional[str]:
         return pulumi.get(self, "component_arn")
 
     @property
     @pulumi.getter(name="componentId")
-    def component_id(self) -> str:
+    def component_id(self) -> Optional[str]:
         return pulumi.get(self, "component_id")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationResult(dict):
     def __init__(__self__, *,
-                 acl_rules: Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclRuleResult'],
-                 acls: Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclResult'],
-                 address: str,
-                 addresses: Sequence[str],
-                 attached_tos: Sequence['outputs.GetNetworkInsightsAnalysisExplanationAttachedToResult'],
-                 availability_zones: Sequence[str],
-                 cidrs: Sequence[str],
-                 classic_load_balancer_listeners: Sequence['outputs.GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult'],
-                 components: Sequence['outputs.GetNetworkInsightsAnalysisExplanationComponentResult'],
-                 customer_gateways: Sequence['outputs.GetNetworkInsightsAnalysisExplanationCustomerGatewayResult'],
-                 destination_vpcs: Sequence['outputs.GetNetworkInsightsAnalysisExplanationDestinationVpcResult'],
-                 destinations: Sequence['outputs.GetNetworkInsightsAnalysisExplanationDestinationResult'],
-                 direction: str,
-                 elastic_load_balancer_listeners: Sequence['outputs.GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult'],
-                 explanation_code: str,
-                 ingress_route_tables: Sequence['outputs.GetNetworkInsightsAnalysisExplanationIngressRouteTableResult'],
-                 internet_gateways: Sequence['outputs.GetNetworkInsightsAnalysisExplanationInternetGatewayResult'],
-                 load_balancer_arn: str,
-                 load_balancer_listener_port: int,
-                 load_balancer_target_group: Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult'],
-                 load_balancer_target_groups: Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult'],
-                 load_balancer_target_port: int,
-                 missing_component: str,
-                 nat_gateways: Sequence['outputs.GetNetworkInsightsAnalysisExplanationNatGatewayResult'],
-                 network_interfaces: Sequence['outputs.GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult'],
-                 packet_field: str,
-                 port: int,
-                 port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisExplanationPortRangeResult'],
-                 prefix_lists: Sequence['outputs.GetNetworkInsightsAnalysisExplanationPrefixListResult'],
-                 protocols: Sequence[str],
-                 route_table_routes: Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableRouteResult'],
-                 route_tables: Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableResult'],
-                 security_group: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult'],
-                 security_group_rules: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult'],
-                 security_groups: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult'],
-                 source_vpcs: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSourceVpcResult'],
-                 state: str,
-                 subnet_route_tables: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult'],
-                 subnets: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSubnetResult'],
-                 transit_gateway_attachments: Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult'],
-                 transit_gateway_route_table_routes: Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult'],
-                 transit_gateway_route_tables: Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult'],
-                 transit_gateways: Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayResult'],
-                 vpc_endpoints: Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcEndpointResult'],
-                 vpc_peering_connections: Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult'],
-                 vpcs: Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcResult'],
-                 vpn_connections: Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpnConnectionResult'],
-                 vpn_gateways: Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpnGatewayResult']):
-        pulumi.set(__self__, "acl_rules", acl_rules)
-        pulumi.set(__self__, "acls", acls)
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "addresses", addresses)
-        pulumi.set(__self__, "attached_tos", attached_tos)
-        pulumi.set(__self__, "availability_zones", availability_zones)
-        pulumi.set(__self__, "cidrs", cidrs)
-        pulumi.set(__self__, "classic_load_balancer_listeners", classic_load_balancer_listeners)
-        pulumi.set(__self__, "components", components)
-        pulumi.set(__self__, "customer_gateways", customer_gateways)
-        pulumi.set(__self__, "destination_vpcs", destination_vpcs)
-        pulumi.set(__self__, "destinations", destinations)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "elastic_load_balancer_listeners", elastic_load_balancer_listeners)
-        pulumi.set(__self__, "explanation_code", explanation_code)
-        pulumi.set(__self__, "ingress_route_tables", ingress_route_tables)
-        pulumi.set(__self__, "internet_gateways", internet_gateways)
-        pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
-        pulumi.set(__self__, "load_balancer_listener_port", load_balancer_listener_port)
-        pulumi.set(__self__, "load_balancer_target_group", load_balancer_target_group)
-        pulumi.set(__self__, "load_balancer_target_groups", load_balancer_target_groups)
-        pulumi.set(__self__, "load_balancer_target_port", load_balancer_target_port)
-        pulumi.set(__self__, "missing_component", missing_component)
-        pulumi.set(__self__, "nat_gateways", nat_gateways)
-        pulumi.set(__self__, "network_interfaces", network_interfaces)
-        pulumi.set(__self__, "packet_field", packet_field)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "port_ranges", port_ranges)
-        pulumi.set(__self__, "prefix_lists", prefix_lists)
-        pulumi.set(__self__, "protocols", protocols)
-        pulumi.set(__self__, "route_table_routes", route_table_routes)
-        pulumi.set(__self__, "route_tables", route_tables)
-        pulumi.set(__self__, "security_group", security_group)
-        pulumi.set(__self__, "security_group_rules", security_group_rules)
-        pulumi.set(__self__, "security_groups", security_groups)
-        pulumi.set(__self__, "source_vpcs", source_vpcs)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "subnet_route_tables", subnet_route_tables)
-        pulumi.set(__self__, "subnets", subnets)
-        pulumi.set(__self__, "transit_gateway_attachments", transit_gateway_attachments)
-        pulumi.set(__self__, "transit_gateway_route_table_routes", transit_gateway_route_table_routes)
-        pulumi.set(__self__, "transit_gateway_route_tables", transit_gateway_route_tables)
-        pulumi.set(__self__, "transit_gateways", transit_gateways)
-        pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
-        pulumi.set(__self__, "vpc_peering_connections", vpc_peering_connections)
-        pulumi.set(__self__, "vpcs", vpcs)
-        pulumi.set(__self__, "vpn_connections", vpn_connections)
-        pulumi.set(__self__, "vpn_gateways", vpn_gateways)
+                 acl_rules: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclRuleResult']] = None,
+                 acls: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclResult']] = None,
+                 address: Optional[str] = None,
+                 addresses: Optional[Sequence[str]] = None,
+                 attached_tos: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationAttachedToResult']] = None,
+                 availability_zones: Optional[Sequence[str]] = None,
+                 cidrs: Optional[Sequence[str]] = None,
+                 classic_load_balancer_listeners: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult']] = None,
+                 components: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationComponentResult']] = None,
+                 customer_gateways: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationCustomerGatewayResult']] = None,
+                 destination_vpcs: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationDestinationVpcResult']] = None,
+                 destinations: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationDestinationResult']] = None,
+                 direction: Optional[str] = None,
+                 elastic_load_balancer_listeners: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult']] = None,
+                 explanation_code: Optional[str] = None,
+                 ingress_route_tables: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationIngressRouteTableResult']] = None,
+                 internet_gateways: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationInternetGatewayResult']] = None,
+                 load_balancer_arn: Optional[str] = None,
+                 load_balancer_listener_port: Optional[int] = None,
+                 load_balancer_target_group: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult']] = None,
+                 load_balancer_target_groups: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult']] = None,
+                 load_balancer_target_port: Optional[int] = None,
+                 missing_component: Optional[str] = None,
+                 nat_gateways: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationNatGatewayResult']] = None,
+                 network_interfaces: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult']] = None,
+                 packet_field: Optional[str] = None,
+                 port: Optional[int] = None,
+                 port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationPortRangeResult']] = None,
+                 prefix_lists: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationPrefixListResult']] = None,
+                 protocols: Optional[Sequence[str]] = None,
+                 route_table_routes: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableRouteResult']] = None,
+                 route_tables: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableResult']] = None,
+                 security_group: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult']] = None,
+                 security_group_rules: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult']] = None,
+                 security_groups: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult']] = None,
+                 source_vpcs: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSourceVpcResult']] = None,
+                 state: Optional[str] = None,
+                 subnet_route_tables: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult']] = None,
+                 subnets: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSubnetResult']] = None,
+                 transit_gateway_attachments: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult']] = None,
+                 transit_gateway_route_table_routes: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult']] = None,
+                 transit_gateway_route_tables: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult']] = None,
+                 transit_gateways: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayResult']] = None,
+                 vpc_endpoints: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcEndpointResult']] = None,
+                 vpc_peering_connections: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult']] = None,
+                 vpcs: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcResult']] = None,
+                 vpn_connections: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpnConnectionResult']] = None,
+                 vpn_gateways: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpnGatewayResult']] = None):
+        if acl_rules is not None:
+            pulumi.set(__self__, "acl_rules", acl_rules)
+        if acls is not None:
+            pulumi.set(__self__, "acls", acls)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if addresses is not None:
+            pulumi.set(__self__, "addresses", addresses)
+        if attached_tos is not None:
+            pulumi.set(__self__, "attached_tos", attached_tos)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if cidrs is not None:
+            pulumi.set(__self__, "cidrs", cidrs)
+        if classic_load_balancer_listeners is not None:
+            pulumi.set(__self__, "classic_load_balancer_listeners", classic_load_balancer_listeners)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if customer_gateways is not None:
+            pulumi.set(__self__, "customer_gateways", customer_gateways)
+        if destination_vpcs is not None:
+            pulumi.set(__self__, "destination_vpcs", destination_vpcs)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if elastic_load_balancer_listeners is not None:
+            pulumi.set(__self__, "elastic_load_balancer_listeners", elastic_load_balancer_listeners)
+        if explanation_code is not None:
+            pulumi.set(__self__, "explanation_code", explanation_code)
+        if ingress_route_tables is not None:
+            pulumi.set(__self__, "ingress_route_tables", ingress_route_tables)
+        if internet_gateways is not None:
+            pulumi.set(__self__, "internet_gateways", internet_gateways)
+        if load_balancer_arn is not None:
+            pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
+        if load_balancer_listener_port is not None:
+            pulumi.set(__self__, "load_balancer_listener_port", load_balancer_listener_port)
+        if load_balancer_target_group is not None:
+            pulumi.set(__self__, "load_balancer_target_group", load_balancer_target_group)
+        if load_balancer_target_groups is not None:
+            pulumi.set(__self__, "load_balancer_target_groups", load_balancer_target_groups)
+        if load_balancer_target_port is not None:
+            pulumi.set(__self__, "load_balancer_target_port", load_balancer_target_port)
+        if missing_component is not None:
+            pulumi.set(__self__, "missing_component", missing_component)
+        if nat_gateways is not None:
+            pulumi.set(__self__, "nat_gateways", nat_gateways)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if packet_field is not None:
+            pulumi.set(__self__, "packet_field", packet_field)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if prefix_lists is not None:
+            pulumi.set(__self__, "prefix_lists", prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if route_table_routes is not None:
+            pulumi.set(__self__, "route_table_routes", route_table_routes)
+        if route_tables is not None:
+            pulumi.set(__self__, "route_tables", route_tables)
+        if security_group is not None:
+            pulumi.set(__self__, "security_group", security_group)
+        if security_group_rules is not None:
+            pulumi.set(__self__, "security_group_rules", security_group_rules)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if source_vpcs is not None:
+            pulumi.set(__self__, "source_vpcs", source_vpcs)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if subnet_route_tables is not None:
+            pulumi.set(__self__, "subnet_route_tables", subnet_route_tables)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if transit_gateway_attachments is not None:
+            pulumi.set(__self__, "transit_gateway_attachments", transit_gateway_attachments)
+        if transit_gateway_route_table_routes is not None:
+            pulumi.set(__self__, "transit_gateway_route_table_routes", transit_gateway_route_table_routes)
+        if transit_gateway_route_tables is not None:
+            pulumi.set(__self__, "transit_gateway_route_tables", transit_gateway_route_tables)
+        if transit_gateways is not None:
+            pulumi.set(__self__, "transit_gateways", transit_gateways)
+        if vpc_endpoints is not None:
+            pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
+        if vpc_peering_connections is not None:
+            pulumi.set(__self__, "vpc_peering_connections", vpc_peering_connections)
+        if vpcs is not None:
+            pulumi.set(__self__, "vpcs", vpcs)
+        if vpn_connections is not None:
+            pulumi.set(__self__, "vpn_connections", vpn_connections)
+        if vpn_gateways is not None:
+            pulumi.set(__self__, "vpn_gateways", vpn_gateways)
 
     @property
     @pulumi.getter(name="aclRules")
-    def acl_rules(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclRuleResult']:
+    def acl_rules(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclRuleResult']]:
         return pulumi.get(self, "acl_rules")
 
     @property
     @pulumi.getter
-    def acls(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclResult']:
+    def acls(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclResult']]:
         return pulumi.get(self, "acls")
 
     @property
     @pulumi.getter
-    def address(self) -> str:
+    def address(self) -> Optional[str]:
         return pulumi.get(self, "address")
 
     @property
     @pulumi.getter
-    def addresses(self) -> Sequence[str]:
+    def addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "addresses")
 
     @property
     @pulumi.getter(name="attachedTos")
-    def attached_tos(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationAttachedToResult']:
+    def attached_tos(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationAttachedToResult']]:
         return pulumi.get(self, "attached_tos")
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter
-    def cidrs(self) -> Sequence[str]:
+    def cidrs(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "cidrs")
 
     @property
     @pulumi.getter(name="classicLoadBalancerListeners")
-    def classic_load_balancer_listeners(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult']:
+    def classic_load_balancer_listeners(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult']]:
         return pulumi.get(self, "classic_load_balancer_listeners")
 
     @property
     @pulumi.getter
-    def components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationComponentResult']:
+    def components(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationComponentResult']]:
         return pulumi.get(self, "components")
 
     @property
     @pulumi.getter(name="customerGateways")
-    def customer_gateways(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationCustomerGatewayResult']:
+    def customer_gateways(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationCustomerGatewayResult']]:
         return pulumi.get(self, "customer_gateways")
 
     @property
     @pulumi.getter(name="destinationVpcs")
-    def destination_vpcs(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationDestinationVpcResult']:
+    def destination_vpcs(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationDestinationVpcResult']]:
         return pulumi.get(self, "destination_vpcs")
 
     @property
     @pulumi.getter
-    def destinations(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationDestinationResult']:
+    def destinations(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationDestinationResult']]:
         return pulumi.get(self, "destinations")
 
     @property
     @pulumi.getter
-    def direction(self) -> str:
+    def direction(self) -> Optional[str]:
         return pulumi.get(self, "direction")
 
     @property
     @pulumi.getter(name="elasticLoadBalancerListeners")
-    def elastic_load_balancer_listeners(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult']:
+    def elastic_load_balancer_listeners(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult']]:
         return pulumi.get(self, "elastic_load_balancer_listeners")
 
     @property
     @pulumi.getter(name="explanationCode")
-    def explanation_code(self) -> str:
+    def explanation_code(self) -> Optional[str]:
         return pulumi.get(self, "explanation_code")
 
     @property
     @pulumi.getter(name="ingressRouteTables")
-    def ingress_route_tables(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationIngressRouteTableResult']:
+    def ingress_route_tables(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationIngressRouteTableResult']]:
         return pulumi.get(self, "ingress_route_tables")
 
     @property
     @pulumi.getter(name="internetGateways")
-    def internet_gateways(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationInternetGatewayResult']:
+    def internet_gateways(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationInternetGatewayResult']]:
         return pulumi.get(self, "internet_gateways")
 
     @property
     @pulumi.getter(name="loadBalancerArn")
-    def load_balancer_arn(self) -> str:
+    def load_balancer_arn(self) -> Optional[str]:
         return pulumi.get(self, "load_balancer_arn")
 
     @property
     @pulumi.getter(name="loadBalancerListenerPort")
-    def load_balancer_listener_port(self) -> int:
+    def load_balancer_listener_port(self) -> Optional[int]:
         return pulumi.get(self, "load_balancer_listener_port")
 
     @property
     @pulumi.getter(name="loadBalancerTargetGroup")
-    def load_balancer_target_group(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult']:
+    def load_balancer_target_group(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult']]:
         return pulumi.get(self, "load_balancer_target_group")
 
     @property
     @pulumi.getter(name="loadBalancerTargetGroups")
-    def load_balancer_target_groups(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult']:
+    def load_balancer_target_groups(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult']]:
         return pulumi.get(self, "load_balancer_target_groups")
 
     @property
     @pulumi.getter(name="loadBalancerTargetPort")
-    def load_balancer_target_port(self) -> int:
+    def load_balancer_target_port(self) -> Optional[int]:
         return pulumi.get(self, "load_balancer_target_port")
 
     @property
     @pulumi.getter(name="missingComponent")
-    def missing_component(self) -> str:
+    def missing_component(self) -> Optional[str]:
         return pulumi.get(self, "missing_component")
 
     @property
     @pulumi.getter(name="natGateways")
-    def nat_gateways(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationNatGatewayResult']:
+    def nat_gateways(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationNatGatewayResult']]:
         return pulumi.get(self, "nat_gateways")
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult']:
+    def network_interfaces(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult']]:
         return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter(name="packetField")
-    def packet_field(self) -> str:
+    def packet_field(self) -> Optional[str]:
         return pulumi.get(self, "packet_field")
 
     @property
     @pulumi.getter
-    def port(self) -> int:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationPortRangeResult']:
+    def port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationPortRangeResult']]:
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter(name="prefixLists")
-    def prefix_lists(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationPrefixListResult']:
+    def prefix_lists(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationPrefixListResult']]:
         return pulumi.get(self, "prefix_lists")
 
     @property
     @pulumi.getter
-    def protocols(self) -> Sequence[str]:
+    def protocols(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "protocols")
 
     @property
     @pulumi.getter(name="routeTableRoutes")
-    def route_table_routes(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableRouteResult']:
+    def route_table_routes(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableRouteResult']]:
         return pulumi.get(self, "route_table_routes")
 
     @property
     @pulumi.getter(name="routeTables")
-    def route_tables(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableResult']:
+    def route_tables(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableResult']]:
         return pulumi.get(self, "route_tables")
 
     @property
     @pulumi.getter(name="securityGroup")
-    def security_group(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult']:
+    def security_group(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult']]:
         return pulumi.get(self, "security_group")
 
     @property
     @pulumi.getter(name="securityGroupRules")
-    def security_group_rules(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult']:
+    def security_group_rules(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult']]:
         return pulumi.get(self, "security_group_rules")
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult']:
+    def security_groups(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult']]:
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="sourceVpcs")
-    def source_vpcs(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationSourceVpcResult']:
+    def source_vpcs(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSourceVpcResult']]:
         return pulumi.get(self, "source_vpcs")
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="subnetRouteTables")
-    def subnet_route_tables(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult']:
+    def subnet_route_tables(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult']]:
         return pulumi.get(self, "subnet_route_tables")
 
     @property
     @pulumi.getter
-    def subnets(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationSubnetResult']:
+    def subnets(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSubnetResult']]:
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter(name="transitGatewayAttachments")
-    def transit_gateway_attachments(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult']:
+    def transit_gateway_attachments(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult']]:
         return pulumi.get(self, "transit_gateway_attachments")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableRoutes")
-    def transit_gateway_route_table_routes(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult']:
+    def transit_gateway_route_table_routes(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult']]:
         return pulumi.get(self, "transit_gateway_route_table_routes")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTables")
-    def transit_gateway_route_tables(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult']:
+    def transit_gateway_route_tables(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult']]:
         return pulumi.get(self, "transit_gateway_route_tables")
 
     @property
     @pulumi.getter(name="transitGateways")
-    def transit_gateways(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayResult']:
+    def transit_gateways(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationTransitGatewayResult']]:
         return pulumi.get(self, "transit_gateways")
 
     @property
     @pulumi.getter(name="vpcEndpoints")
-    def vpc_endpoints(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcEndpointResult']:
+    def vpc_endpoints(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcEndpointResult']]:
         return pulumi.get(self, "vpc_endpoints")
 
     @property
     @pulumi.getter(name="vpcPeeringConnections")
-    def vpc_peering_connections(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult']:
+    def vpc_peering_connections(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult']]:
         return pulumi.get(self, "vpc_peering_connections")
 
     @property
     @pulumi.getter
-    def vpcs(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcResult']:
+    def vpcs(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpcResult']]:
         return pulumi.get(self, "vpcs")
 
     @property
     @pulumi.getter(name="vpnConnections")
-    def vpn_connections(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpnConnectionResult']:
+    def vpn_connections(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpnConnectionResult']]:
         return pulumi.get(self, "vpn_connections")
 
     @property
     @pulumi.getter(name="vpnGateways")
-    def vpn_gateways(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpnGatewayResult']:
+    def vpn_gateways(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationVpnGatewayResult']]:
         return pulumi.get(self, "vpn_gateways")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationAclResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18421,12 +18661,12 @@ class GetNetworkInsightsAnalysisExplanationAclResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18436,86 +18676,97 @@ class GetNetworkInsightsAnalysisExplanationAclResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationAclRuleResult(dict):
     def __init__(__self__, *,
-                 cidr: str,
-                 egress: bool,
-                 port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclRulePortRangeResult'],
-                 protocol: str,
-                 rule_action: str,
-                 rule_number: int):
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "egress", egress)
-        pulumi.set(__self__, "port_ranges", port_ranges)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "rule_action", rule_action)
-        pulumi.set(__self__, "rule_number", rule_number)
+                 cidr: Optional[str] = None,
+                 egress: Optional[bool] = None,
+                 port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclRulePortRangeResult']] = None,
+                 protocol: Optional[str] = None,
+                 rule_action: Optional[str] = None,
+                 rule_number: Optional[int] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rule_action is not None:
+            pulumi.set(__self__, "rule_action", rule_action)
+        if rule_number is not None:
+            pulumi.set(__self__, "rule_number", rule_number)
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
-    def egress(self) -> bool:
+    def egress(self) -> Optional[bool]:
         return pulumi.get(self, "egress")
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclRulePortRangeResult']:
+    def port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclRulePortRangeResult']]:
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="ruleAction")
-    def rule_action(self) -> str:
+    def rule_action(self) -> Optional[str]:
         return pulumi.get(self, "rule_action")
 
     @property
     @pulumi.getter(name="ruleNumber")
-    def rule_number(self) -> int:
+    def rule_number(self) -> Optional[int]:
         return pulumi.get(self, "rule_number")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationAclRulePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationAttachedToResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18523,12 +18774,12 @@ class GetNetworkInsightsAnalysisExplanationAttachedToResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18538,39 +18789,44 @@ class GetNetworkInsightsAnalysisExplanationAttachedToResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult(dict):
     def __init__(__self__, *,
-                 instance_port: int,
-                 load_balancer_port: int):
-        pulumi.set(__self__, "instance_port", instance_port)
-        pulumi.set(__self__, "load_balancer_port", load_balancer_port)
+                 instance_port: Optional[int] = None,
+                 load_balancer_port: Optional[int] = None):
+        if instance_port is not None:
+            pulumi.set(__self__, "instance_port", instance_port)
+        if load_balancer_port is not None:
+            pulumi.set(__self__, "load_balancer_port", load_balancer_port)
 
     @property
     @pulumi.getter(name="instancePort")
-    def instance_port(self) -> int:
+    def instance_port(self) -> Optional[int]:
         return pulumi.get(self, "instance_port")
 
     @property
     @pulumi.getter(name="loadBalancerPort")
-    def load_balancer_port(self) -> int:
+    def load_balancer_port(self) -> Optional[int]:
         return pulumi.get(self, "load_balancer_port")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationComponentResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18578,12 +18834,12 @@ class GetNetworkInsightsAnalysisExplanationComponentResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18593,20 +18849,23 @@ class GetNetworkInsightsAnalysisExplanationComponentResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationCustomerGatewayResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18614,12 +18873,12 @@ class GetNetworkInsightsAnalysisExplanationCustomerGatewayResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18629,20 +18888,23 @@ class GetNetworkInsightsAnalysisExplanationCustomerGatewayResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationDestinationResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18650,12 +18912,12 @@ class GetNetworkInsightsAnalysisExplanationDestinationResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18665,20 +18927,23 @@ class GetNetworkInsightsAnalysisExplanationDestinationResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationDestinationVpcResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18686,12 +18951,12 @@ class GetNetworkInsightsAnalysisExplanationDestinationVpcResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18701,20 +18966,23 @@ class GetNetworkInsightsAnalysisExplanationDestinationVpcResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18722,12 +18990,12 @@ class GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult(dic
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18737,20 +19005,23 @@ class GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult(dic
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationIngressRouteTableResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18758,12 +19029,12 @@ class GetNetworkInsightsAnalysisExplanationIngressRouteTableResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18773,20 +19044,23 @@ class GetNetworkInsightsAnalysisExplanationIngressRouteTableResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationInternetGatewayResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18794,12 +19068,12 @@ class GetNetworkInsightsAnalysisExplanationInternetGatewayResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18809,20 +19083,23 @@ class GetNetworkInsightsAnalysisExplanationInternetGatewayResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18830,12 +19107,12 @@ class GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18845,20 +19122,23 @@ class GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationNatGatewayResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18866,12 +19146,12 @@ class GetNetworkInsightsAnalysisExplanationNatGatewayResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18881,20 +19161,23 @@ class GetNetworkInsightsAnalysisExplanationNatGatewayResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18902,12 +19185,12 @@ class GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18917,39 +19200,44 @@ class GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationPortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationPrefixListResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18957,12 +19245,12 @@ class GetNetworkInsightsAnalysisExplanationPrefixListResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -18972,20 +19260,23 @@ class GetNetworkInsightsAnalysisExplanationPrefixListResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationRouteTableResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -18993,12 +19284,12 @@ class GetNetworkInsightsAnalysisExplanationRouteTableResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19008,95 +19299,108 @@ class GetNetworkInsightsAnalysisExplanationRouteTableResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationRouteTableRouteResult(dict):
     def __init__(__self__, *,
-                 destination_cidr: str,
-                 destination_prefix_list_id: str,
-                 egress_only_internet_gateway_id: str,
-                 gateway_id: str,
-                 instance_id: str,
-                 nat_gateway_id: str,
-                 network_interface_id: str,
-                 origin: str,
-                 transit_gateway_id: str,
-                 vpc_peering_connection_id: str):
-        pulumi.set(__self__, "destination_cidr", destination_cidr)
-        pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
-        pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
-        pulumi.set(__self__, "gateway_id", gateway_id)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "origin", origin)
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
-        pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+                 destination_cidr: Optional[str] = None,
+                 destination_prefix_list_id: Optional[str] = None,
+                 egress_only_internet_gateway_id: Optional[str] = None,
+                 gateway_id: Optional[str] = None,
+                 instance_id: Optional[str] = None,
+                 nat_gateway_id: Optional[str] = None,
+                 network_interface_id: Optional[str] = None,
+                 origin: Optional[str] = None,
+                 transit_gateway_id: Optional[str] = None,
+                 vpc_peering_connection_id: Optional[str] = None):
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
+        if egress_only_internet_gateway_id is not None:
+            pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if nat_gateway_id is not None:
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_peering_connection_id is not None:
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
     @pulumi.getter(name="destinationCidr")
-    def destination_cidr(self) -> str:
+    def destination_cidr(self) -> Optional[str]:
         return pulumi.get(self, "destination_cidr")
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
-    def destination_prefix_list_id(self) -> str:
+    def destination_prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyInternetGatewayId")
-    def egress_only_internet_gateway_id(self) -> str:
+    def egress_only_internet_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "egress_only_internet_gateway_id")
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> str:
+    def gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "gateway_id")
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> Optional[str]:
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> str:
+    def nat_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "nat_gateway_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> Optional[str]:
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter
-    def origin(self) -> str:
+    def origin(self) -> Optional[str]:
         return pulumi.get(self, "origin")
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
-    def vpc_peering_connection_id(self) -> str:
+    def vpc_peering_connection_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_peering_connection_id")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationSecurityGroupResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19104,12 +19408,12 @@ class GetNetworkInsightsAnalysisExplanationSecurityGroupResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19119,86 +19423,97 @@ class GetNetworkInsightsAnalysisExplanationSecurityGroupResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult(dict):
     def __init__(__self__, *,
-                 cidr: str,
-                 direction: str,
-                 port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult'],
-                 prefix_list_id: str,
-                 protocol: str,
-                 security_group_id: str):
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "port_ranges", port_ranges)
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "security_group_id", security_group_id)
+                 cidr: Optional[str] = None,
+                 direction: Optional[str] = None,
+                 port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult']] = None,
+                 prefix_list_id: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 security_group_id: Optional[str] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
-    def direction(self) -> str:
+    def direction(self) -> Optional[str]:
         return pulumi.get(self, "direction")
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult']:
+    def port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult']]:
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> str:
+    def prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "prefix_list_id")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> str:
+    def security_group_id(self) -> Optional[str]:
         return pulumi.get(self, "security_group_id")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationSourceVpcResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19206,12 +19521,12 @@ class GetNetworkInsightsAnalysisExplanationSourceVpcResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19221,20 +19536,23 @@ class GetNetworkInsightsAnalysisExplanationSourceVpcResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationSubnetResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19242,12 +19560,12 @@ class GetNetworkInsightsAnalysisExplanationSubnetResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19257,20 +19575,23 @@ class GetNetworkInsightsAnalysisExplanationSubnetResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19278,12 +19599,12 @@ class GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19293,20 +19614,23 @@ class GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationTransitGatewayResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19314,12 +19638,12 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19329,20 +19653,23 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19350,12 +19677,12 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19365,20 +19692,23 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19386,12 +19716,12 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19401,74 +19731,84 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult(dict):
     def __init__(__self__, *,
-                 attachment_id: str,
-                 destination_cidr: str,
-                 prefix_list_id: str,
-                 resource_id: str,
-                 resource_type: str,
-                 route_origin: str,
-                 state: str):
-        pulumi.set(__self__, "attachment_id", attachment_id)
-        pulumi.set(__self__, "destination_cidr", destination_cidr)
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "route_origin", route_origin)
-        pulumi.set(__self__, "state", state)
+                 attachment_id: Optional[str] = None,
+                 destination_cidr: Optional[str] = None,
+                 prefix_list_id: Optional[str] = None,
+                 resource_id: Optional[str] = None,
+                 resource_type: Optional[str] = None,
+                 route_origin: Optional[str] = None,
+                 state: Optional[str] = None):
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if route_origin is not None:
+            pulumi.set(__self__, "route_origin", route_origin)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="attachmentId")
-    def attachment_id(self) -> str:
+    def attachment_id(self) -> Optional[str]:
         return pulumi.get(self, "attachment_id")
 
     @property
     @pulumi.getter(name="destinationCidr")
-    def destination_cidr(self) -> str:
+    def destination_cidr(self) -> Optional[str]:
         return pulumi.get(self, "destination_cidr")
 
     @property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> str:
+    def prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "prefix_list_id")
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> Optional[str]:
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> str:
+    def resource_type(self) -> Optional[str]:
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="routeOrigin")
-    def route_origin(self) -> str:
+    def route_origin(self) -> Optional[str]:
         return pulumi.get(self, "route_origin")
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationVpcResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19476,12 +19816,12 @@ class GetNetworkInsightsAnalysisExplanationVpcResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19491,20 +19831,23 @@ class GetNetworkInsightsAnalysisExplanationVpcResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationVpcEndpointResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19512,12 +19855,12 @@ class GetNetworkInsightsAnalysisExplanationVpcEndpointResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19527,20 +19870,23 @@ class GetNetworkInsightsAnalysisExplanationVpcEndpointResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19548,12 +19894,12 @@ class GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19563,20 +19909,23 @@ class GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationVpnConnectionResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19584,12 +19933,12 @@ class GetNetworkInsightsAnalysisExplanationVpnConnectionResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19599,20 +19948,23 @@ class GetNetworkInsightsAnalysisExplanationVpnConnectionResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisExplanationVpnGatewayResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19620,12 +19972,12 @@ class GetNetworkInsightsAnalysisExplanationVpnGatewayResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19664,215 +20016,243 @@ class GetNetworkInsightsAnalysisFilterResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentResult(dict):
     def __init__(__self__, *,
-                 acl_rules: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult'],
-                 additional_details: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult'],
-                 attached_tos: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult'],
-                 components: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentComponentResult'],
-                 destination_vpcs: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult'],
-                 inbound_headers: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult'],
-                 outbound_headers: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult'],
-                 route_table_routes: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult'],
-                 security_group_rules: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult'],
-                 sequence_number: int,
-                 source_vpcs: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult'],
-                 subnets: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSubnetResult'],
-                 transit_gateway_route_table_routes: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult'],
-                 transit_gateways: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult'],
-                 vpcs: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentVpcResult']):
-        pulumi.set(__self__, "acl_rules", acl_rules)
-        pulumi.set(__self__, "additional_details", additional_details)
-        pulumi.set(__self__, "attached_tos", attached_tos)
-        pulumi.set(__self__, "components", components)
-        pulumi.set(__self__, "destination_vpcs", destination_vpcs)
-        pulumi.set(__self__, "inbound_headers", inbound_headers)
-        pulumi.set(__self__, "outbound_headers", outbound_headers)
-        pulumi.set(__self__, "route_table_routes", route_table_routes)
-        pulumi.set(__self__, "security_group_rules", security_group_rules)
-        pulumi.set(__self__, "sequence_number", sequence_number)
-        pulumi.set(__self__, "source_vpcs", source_vpcs)
-        pulumi.set(__self__, "subnets", subnets)
-        pulumi.set(__self__, "transit_gateway_route_table_routes", transit_gateway_route_table_routes)
-        pulumi.set(__self__, "transit_gateways", transit_gateways)
-        pulumi.set(__self__, "vpcs", vpcs)
+                 acl_rules: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult']] = None,
+                 additional_details: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult']] = None,
+                 attached_tos: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult']] = None,
+                 components: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentComponentResult']] = None,
+                 destination_vpcs: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult']] = None,
+                 inbound_headers: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult']] = None,
+                 outbound_headers: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult']] = None,
+                 route_table_routes: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult']] = None,
+                 security_group_rules: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult']] = None,
+                 sequence_number: Optional[int] = None,
+                 source_vpcs: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult']] = None,
+                 subnets: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSubnetResult']] = None,
+                 transit_gateway_route_table_routes: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult']] = None,
+                 transit_gateways: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult']] = None,
+                 vpcs: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentVpcResult']] = None):
+        if acl_rules is not None:
+            pulumi.set(__self__, "acl_rules", acl_rules)
+        if additional_details is not None:
+            pulumi.set(__self__, "additional_details", additional_details)
+        if attached_tos is not None:
+            pulumi.set(__self__, "attached_tos", attached_tos)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if destination_vpcs is not None:
+            pulumi.set(__self__, "destination_vpcs", destination_vpcs)
+        if inbound_headers is not None:
+            pulumi.set(__self__, "inbound_headers", inbound_headers)
+        if outbound_headers is not None:
+            pulumi.set(__self__, "outbound_headers", outbound_headers)
+        if route_table_routes is not None:
+            pulumi.set(__self__, "route_table_routes", route_table_routes)
+        if security_group_rules is not None:
+            pulumi.set(__self__, "security_group_rules", security_group_rules)
+        if sequence_number is not None:
+            pulumi.set(__self__, "sequence_number", sequence_number)
+        if source_vpcs is not None:
+            pulumi.set(__self__, "source_vpcs", source_vpcs)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if transit_gateway_route_table_routes is not None:
+            pulumi.set(__self__, "transit_gateway_route_table_routes", transit_gateway_route_table_routes)
+        if transit_gateways is not None:
+            pulumi.set(__self__, "transit_gateways", transit_gateways)
+        if vpcs is not None:
+            pulumi.set(__self__, "vpcs", vpcs)
 
     @property
     @pulumi.getter(name="aclRules")
-    def acl_rules(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult']:
+    def acl_rules(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult']]:
         return pulumi.get(self, "acl_rules")
 
     @property
     @pulumi.getter(name="additionalDetails")
-    def additional_details(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult']:
+    def additional_details(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult']]:
         return pulumi.get(self, "additional_details")
 
     @property
     @pulumi.getter(name="attachedTos")
-    def attached_tos(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult']:
+    def attached_tos(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult']]:
         return pulumi.get(self, "attached_tos")
 
     @property
     @pulumi.getter
-    def components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentComponentResult']:
+    def components(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentComponentResult']]:
         return pulumi.get(self, "components")
 
     @property
     @pulumi.getter(name="destinationVpcs")
-    def destination_vpcs(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult']:
+    def destination_vpcs(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult']]:
         return pulumi.get(self, "destination_vpcs")
 
     @property
     @pulumi.getter(name="inboundHeaders")
-    def inbound_headers(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult']:
+    def inbound_headers(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult']]:
         return pulumi.get(self, "inbound_headers")
 
     @property
     @pulumi.getter(name="outboundHeaders")
-    def outbound_headers(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult']:
+    def outbound_headers(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult']]:
         return pulumi.get(self, "outbound_headers")
 
     @property
     @pulumi.getter(name="routeTableRoutes")
-    def route_table_routes(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult']:
+    def route_table_routes(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult']]:
         return pulumi.get(self, "route_table_routes")
 
     @property
     @pulumi.getter(name="securityGroupRules")
-    def security_group_rules(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult']:
+    def security_group_rules(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult']]:
         return pulumi.get(self, "security_group_rules")
 
     @property
     @pulumi.getter(name="sequenceNumber")
-    def sequence_number(self) -> int:
+    def sequence_number(self) -> Optional[int]:
         return pulumi.get(self, "sequence_number")
 
     @property
     @pulumi.getter(name="sourceVpcs")
-    def source_vpcs(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult']:
+    def source_vpcs(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult']]:
         return pulumi.get(self, "source_vpcs")
 
     @property
     @pulumi.getter
-    def subnets(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSubnetResult']:
+    def subnets(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSubnetResult']]:
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableRoutes")
-    def transit_gateway_route_table_routes(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult']:
+    def transit_gateway_route_table_routes(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult']]:
         return pulumi.get(self, "transit_gateway_route_table_routes")
 
     @property
     @pulumi.getter(name="transitGateways")
-    def transit_gateways(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult']:
+    def transit_gateways(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult']]:
         return pulumi.get(self, "transit_gateways")
 
     @property
     @pulumi.getter
-    def vpcs(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentVpcResult']:
+    def vpcs(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentVpcResult']]:
         return pulumi.get(self, "vpcs")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult(dict):
     def __init__(__self__, *,
-                 cidr: str,
-                 egress: bool,
-                 port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult'],
-                 protocol: str,
-                 rule_action: str,
-                 rule_number: int):
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "egress", egress)
-        pulumi.set(__self__, "port_ranges", port_ranges)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "rule_action", rule_action)
-        pulumi.set(__self__, "rule_number", rule_number)
+                 cidr: Optional[str] = None,
+                 egress: Optional[bool] = None,
+                 port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult']] = None,
+                 protocol: Optional[str] = None,
+                 rule_action: Optional[str] = None,
+                 rule_number: Optional[int] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rule_action is not None:
+            pulumi.set(__self__, "rule_action", rule_action)
+        if rule_number is not None:
+            pulumi.set(__self__, "rule_number", rule_number)
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
-    def egress(self) -> bool:
+    def egress(self) -> Optional[bool]:
         return pulumi.get(self, "egress")
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult']:
+    def port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult']]:
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="ruleAction")
-    def rule_action(self) -> str:
+    def rule_action(self) -> Optional[str]:
         return pulumi.get(self, "rule_action")
 
     @property
     @pulumi.getter(name="ruleNumber")
-    def rule_number(self) -> int:
+    def rule_number(self) -> Optional[int]:
         return pulumi.get(self, "rule_number")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult(dict):
     def __init__(__self__, *,
-                 additional_detail_type: str,
-                 components: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult']):
-        pulumi.set(__self__, "additional_detail_type", additional_detail_type)
-        pulumi.set(__self__, "components", components)
+                 additional_detail_type: Optional[str] = None,
+                 components: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult']] = None):
+        if additional_detail_type is not None:
+            pulumi.set(__self__, "additional_detail_type", additional_detail_type)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
 
     @property
     @pulumi.getter(name="additionalDetailType")
-    def additional_detail_type(self) -> str:
+    def additional_detail_type(self) -> Optional[str]:
         return pulumi.get(self, "additional_detail_type")
 
     @property
     @pulumi.getter
-    def components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult']:
+    def components(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult']]:
         return pulumi.get(self, "components")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19880,12 +20260,12 @@ class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentRes
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19895,20 +20275,23 @@ class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentRes
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19916,12 +20299,12 @@ class GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19931,20 +20314,23 @@ class GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentComponentResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19952,12 +20338,12 @@ class GetNetworkInsightsAnalysisForwardPathComponentComponentResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -19967,20 +20353,23 @@ class GetNetworkInsightsAnalysisForwardPathComponentComponentResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -19988,12 +20377,12 @@ class GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -20003,317 +20392,356 @@ class GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult(dict):
     def __init__(__self__, *,
-                 destination_addresses: Sequence[str],
-                 destination_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult'],
-                 protocol: str,
-                 source_addresses: Sequence[str],
-                 source_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeResult']):
-        pulumi.set(__self__, "destination_addresses", destination_addresses)
-        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "source_addresses", source_addresses)
-        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 destination_port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult']] = None,
+                 protocol: Optional[str] = None,
+                 source_addresses: Optional[Sequence[str]] = None,
+                 source_port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeResult']] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Sequence[str]:
+    def destination_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "destination_addresses")
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult']:
+    def destination_port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult']]:
         return pulumi.get(self, "destination_port_ranges")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Sequence[str]:
+    def source_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "source_addresses")
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeResult']:
+    def source_port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeResult']]:
         return pulumi.get(self, "source_port_ranges")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult(dict):
     def __init__(__self__, *,
-                 destination_addresses: Sequence[str],
-                 destination_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult'],
-                 protocol: str,
-                 source_addresses: Sequence[str],
-                 source_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeResult']):
-        pulumi.set(__self__, "destination_addresses", destination_addresses)
-        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "source_addresses", source_addresses)
-        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 destination_port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult']] = None,
+                 protocol: Optional[str] = None,
+                 source_addresses: Optional[Sequence[str]] = None,
+                 source_port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeResult']] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Sequence[str]:
+    def destination_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "destination_addresses")
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult']:
+    def destination_port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult']]:
         return pulumi.get(self, "destination_port_ranges")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Sequence[str]:
+    def source_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "source_addresses")
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeResult']:
+    def source_port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeResult']]:
         return pulumi.get(self, "source_port_ranges")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult(dict):
     def __init__(__self__, *,
-                 destination_cidr: str,
-                 destination_prefix_list_id: str,
-                 egress_only_internet_gateway_id: str,
-                 gateway_id: str,
-                 instance_id: str,
-                 nat_gateway_id: str,
-                 network_interface_id: str,
-                 origin: str,
-                 transit_gateway_id: str,
-                 vpc_peering_connection_id: str):
-        pulumi.set(__self__, "destination_cidr", destination_cidr)
-        pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
-        pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
-        pulumi.set(__self__, "gateway_id", gateway_id)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "origin", origin)
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
-        pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+                 destination_cidr: Optional[str] = None,
+                 destination_prefix_list_id: Optional[str] = None,
+                 egress_only_internet_gateway_id: Optional[str] = None,
+                 gateway_id: Optional[str] = None,
+                 instance_id: Optional[str] = None,
+                 nat_gateway_id: Optional[str] = None,
+                 network_interface_id: Optional[str] = None,
+                 origin: Optional[str] = None,
+                 transit_gateway_id: Optional[str] = None,
+                 vpc_peering_connection_id: Optional[str] = None):
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
+        if egress_only_internet_gateway_id is not None:
+            pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if nat_gateway_id is not None:
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_peering_connection_id is not None:
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
     @pulumi.getter(name="destinationCidr")
-    def destination_cidr(self) -> str:
+    def destination_cidr(self) -> Optional[str]:
         return pulumi.get(self, "destination_cidr")
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
-    def destination_prefix_list_id(self) -> str:
+    def destination_prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyInternetGatewayId")
-    def egress_only_internet_gateway_id(self) -> str:
+    def egress_only_internet_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "egress_only_internet_gateway_id")
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> str:
+    def gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "gateway_id")
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> Optional[str]:
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> str:
+    def nat_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "nat_gateway_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> Optional[str]:
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter
-    def origin(self) -> str:
+    def origin(self) -> Optional[str]:
         return pulumi.get(self, "origin")
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
-    def vpc_peering_connection_id(self) -> str:
+    def vpc_peering_connection_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_peering_connection_id")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult(dict):
     def __init__(__self__, *,
-                 cidr: str,
-                 direction: str,
-                 port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeResult'],
-                 prefix_list_id: str,
-                 protocol: str,
-                 security_group_id: str):
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "port_ranges", port_ranges)
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "security_group_id", security_group_id)
+                 cidr: Optional[str] = None,
+                 direction: Optional[str] = None,
+                 port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeResult']] = None,
+                 prefix_list_id: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 security_group_id: Optional[str] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
-    def direction(self) -> str:
+    def direction(self) -> Optional[str]:
         return pulumi.get(self, "direction")
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeResult']:
+    def port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeResult']]:
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> str:
+    def prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "prefix_list_id")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> str:
+    def security_group_id(self) -> Optional[str]:
         return pulumi.get(self, "security_group_id")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -20321,12 +20749,12 @@ class GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -20336,20 +20764,23 @@ class GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentSubnetResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -20357,12 +20788,12 @@ class GetNetworkInsightsAnalysisForwardPathComponentSubnetResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -20372,20 +20803,23 @@ class GetNetworkInsightsAnalysisForwardPathComponentSubnetResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -20393,12 +20827,12 @@ class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -20408,74 +20842,84 @@ class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult(dict):
     def __init__(__self__, *,
-                 attachment_id: str,
-                 destination_cidr: str,
-                 prefix_list_id: str,
-                 resource_id: str,
-                 resource_type: str,
-                 route_origin: str,
-                 state: str):
-        pulumi.set(__self__, "attachment_id", attachment_id)
-        pulumi.set(__self__, "destination_cidr", destination_cidr)
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "route_origin", route_origin)
-        pulumi.set(__self__, "state", state)
+                 attachment_id: Optional[str] = None,
+                 destination_cidr: Optional[str] = None,
+                 prefix_list_id: Optional[str] = None,
+                 resource_id: Optional[str] = None,
+                 resource_type: Optional[str] = None,
+                 route_origin: Optional[str] = None,
+                 state: Optional[str] = None):
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if route_origin is not None:
+            pulumi.set(__self__, "route_origin", route_origin)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="attachmentId")
-    def attachment_id(self) -> str:
+    def attachment_id(self) -> Optional[str]:
         return pulumi.get(self, "attachment_id")
 
     @property
     @pulumi.getter(name="destinationCidr")
-    def destination_cidr(self) -> str:
+    def destination_cidr(self) -> Optional[str]:
         return pulumi.get(self, "destination_cidr")
 
     @property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> str:
+    def prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "prefix_list_id")
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> Optional[str]:
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> str:
+    def resource_type(self) -> Optional[str]:
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="routeOrigin")
-    def route_origin(self) -> str:
+    def route_origin(self) -> Optional[str]:
         return pulumi.get(self, "route_origin")
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisForwardPathComponentVpcResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -20483,12 +20927,12 @@ class GetNetworkInsightsAnalysisForwardPathComponentVpcResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -20498,215 +20942,243 @@ class GetNetworkInsightsAnalysisForwardPathComponentVpcResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentResult(dict):
     def __init__(__self__, *,
-                 acl_rules: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAclRuleResult'],
-                 additional_details: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult'],
-                 attached_tos: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult'],
-                 components: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentComponentResult'],
-                 destination_vpcs: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult'],
-                 inbound_headers: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderResult'],
-                 outbound_headers: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderResult'],
-                 route_table_routes: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult'],
-                 security_group_rules: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleResult'],
-                 sequence_number: int,
-                 source_vpcs: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult'],
-                 subnets: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSubnetResult'],
-                 transit_gateway_route_table_routes: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteResult'],
-                 transit_gateways: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult'],
-                 vpcs: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentVpcResult']):
-        pulumi.set(__self__, "acl_rules", acl_rules)
-        pulumi.set(__self__, "additional_details", additional_details)
-        pulumi.set(__self__, "attached_tos", attached_tos)
-        pulumi.set(__self__, "components", components)
-        pulumi.set(__self__, "destination_vpcs", destination_vpcs)
-        pulumi.set(__self__, "inbound_headers", inbound_headers)
-        pulumi.set(__self__, "outbound_headers", outbound_headers)
-        pulumi.set(__self__, "route_table_routes", route_table_routes)
-        pulumi.set(__self__, "security_group_rules", security_group_rules)
-        pulumi.set(__self__, "sequence_number", sequence_number)
-        pulumi.set(__self__, "source_vpcs", source_vpcs)
-        pulumi.set(__self__, "subnets", subnets)
-        pulumi.set(__self__, "transit_gateway_route_table_routes", transit_gateway_route_table_routes)
-        pulumi.set(__self__, "transit_gateways", transit_gateways)
-        pulumi.set(__self__, "vpcs", vpcs)
+                 acl_rules: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAclRuleResult']] = None,
+                 additional_details: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult']] = None,
+                 attached_tos: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult']] = None,
+                 components: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentComponentResult']] = None,
+                 destination_vpcs: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult']] = None,
+                 inbound_headers: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderResult']] = None,
+                 outbound_headers: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderResult']] = None,
+                 route_table_routes: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult']] = None,
+                 security_group_rules: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleResult']] = None,
+                 sequence_number: Optional[int] = None,
+                 source_vpcs: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult']] = None,
+                 subnets: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSubnetResult']] = None,
+                 transit_gateway_route_table_routes: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteResult']] = None,
+                 transit_gateways: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult']] = None,
+                 vpcs: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentVpcResult']] = None):
+        if acl_rules is not None:
+            pulumi.set(__self__, "acl_rules", acl_rules)
+        if additional_details is not None:
+            pulumi.set(__self__, "additional_details", additional_details)
+        if attached_tos is not None:
+            pulumi.set(__self__, "attached_tos", attached_tos)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if destination_vpcs is not None:
+            pulumi.set(__self__, "destination_vpcs", destination_vpcs)
+        if inbound_headers is not None:
+            pulumi.set(__self__, "inbound_headers", inbound_headers)
+        if outbound_headers is not None:
+            pulumi.set(__self__, "outbound_headers", outbound_headers)
+        if route_table_routes is not None:
+            pulumi.set(__self__, "route_table_routes", route_table_routes)
+        if security_group_rules is not None:
+            pulumi.set(__self__, "security_group_rules", security_group_rules)
+        if sequence_number is not None:
+            pulumi.set(__self__, "sequence_number", sequence_number)
+        if source_vpcs is not None:
+            pulumi.set(__self__, "source_vpcs", source_vpcs)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if transit_gateway_route_table_routes is not None:
+            pulumi.set(__self__, "transit_gateway_route_table_routes", transit_gateway_route_table_routes)
+        if transit_gateways is not None:
+            pulumi.set(__self__, "transit_gateways", transit_gateways)
+        if vpcs is not None:
+            pulumi.set(__self__, "vpcs", vpcs)
 
     @property
     @pulumi.getter(name="aclRules")
-    def acl_rules(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAclRuleResult']:
+    def acl_rules(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAclRuleResult']]:
         return pulumi.get(self, "acl_rules")
 
     @property
     @pulumi.getter(name="additionalDetails")
-    def additional_details(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult']:
+    def additional_details(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult']]:
         return pulumi.get(self, "additional_details")
 
     @property
     @pulumi.getter(name="attachedTos")
-    def attached_tos(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult']:
+    def attached_tos(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult']]:
         return pulumi.get(self, "attached_tos")
 
     @property
     @pulumi.getter
-    def components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentComponentResult']:
+    def components(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentComponentResult']]:
         return pulumi.get(self, "components")
 
     @property
     @pulumi.getter(name="destinationVpcs")
-    def destination_vpcs(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult']:
+    def destination_vpcs(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult']]:
         return pulumi.get(self, "destination_vpcs")
 
     @property
     @pulumi.getter(name="inboundHeaders")
-    def inbound_headers(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderResult']:
+    def inbound_headers(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderResult']]:
         return pulumi.get(self, "inbound_headers")
 
     @property
     @pulumi.getter(name="outboundHeaders")
-    def outbound_headers(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderResult']:
+    def outbound_headers(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderResult']]:
         return pulumi.get(self, "outbound_headers")
 
     @property
     @pulumi.getter(name="routeTableRoutes")
-    def route_table_routes(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult']:
+    def route_table_routes(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult']]:
         return pulumi.get(self, "route_table_routes")
 
     @property
     @pulumi.getter(name="securityGroupRules")
-    def security_group_rules(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleResult']:
+    def security_group_rules(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleResult']]:
         return pulumi.get(self, "security_group_rules")
 
     @property
     @pulumi.getter(name="sequenceNumber")
-    def sequence_number(self) -> int:
+    def sequence_number(self) -> Optional[int]:
         return pulumi.get(self, "sequence_number")
 
     @property
     @pulumi.getter(name="sourceVpcs")
-    def source_vpcs(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult']:
+    def source_vpcs(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult']]:
         return pulumi.get(self, "source_vpcs")
 
     @property
     @pulumi.getter
-    def subnets(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSubnetResult']:
+    def subnets(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSubnetResult']]:
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableRoutes")
-    def transit_gateway_route_table_routes(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteResult']:
+    def transit_gateway_route_table_routes(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteResult']]:
         return pulumi.get(self, "transit_gateway_route_table_routes")
 
     @property
     @pulumi.getter(name="transitGateways")
-    def transit_gateways(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult']:
+    def transit_gateways(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult']]:
         return pulumi.get(self, "transit_gateways")
 
     @property
     @pulumi.getter
-    def vpcs(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentVpcResult']:
+    def vpcs(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentVpcResult']]:
         return pulumi.get(self, "vpcs")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentAclRuleResult(dict):
     def __init__(__self__, *,
-                 cidr: str,
-                 egress: bool,
-                 port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRangeResult'],
-                 protocol: str,
-                 rule_action: str,
-                 rule_number: int):
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "egress", egress)
-        pulumi.set(__self__, "port_ranges", port_ranges)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "rule_action", rule_action)
-        pulumi.set(__self__, "rule_number", rule_number)
+                 cidr: Optional[str] = None,
+                 egress: Optional[bool] = None,
+                 port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRangeResult']] = None,
+                 protocol: Optional[str] = None,
+                 rule_action: Optional[str] = None,
+                 rule_number: Optional[int] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if egress is not None:
+            pulumi.set(__self__, "egress", egress)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rule_action is not None:
+            pulumi.set(__self__, "rule_action", rule_action)
+        if rule_number is not None:
+            pulumi.set(__self__, "rule_number", rule_number)
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
-    def egress(self) -> bool:
+    def egress(self) -> Optional[bool]:
         return pulumi.get(self, "egress")
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRangeResult']:
+    def port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRangeResult']]:
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="ruleAction")
-    def rule_action(self) -> str:
+    def rule_action(self) -> Optional[str]:
         return pulumi.get(self, "rule_action")
 
     @property
     @pulumi.getter(name="ruleNumber")
-    def rule_number(self) -> int:
+    def rule_number(self) -> Optional[int]:
         return pulumi.get(self, "rule_number")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult(dict):
     def __init__(__self__, *,
-                 additional_detail_type: str,
-                 components: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult']):
-        pulumi.set(__self__, "additional_detail_type", additional_detail_type)
-        pulumi.set(__self__, "components", components)
+                 additional_detail_type: Optional[str] = None,
+                 components: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult']] = None):
+        if additional_detail_type is not None:
+            pulumi.set(__self__, "additional_detail_type", additional_detail_type)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
 
     @property
     @pulumi.getter(name="additionalDetailType")
-    def additional_detail_type(self) -> str:
+    def additional_detail_type(self) -> Optional[str]:
         return pulumi.get(self, "additional_detail_type")
 
     @property
     @pulumi.getter
-    def components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult']:
+    def components(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult']]:
         return pulumi.get(self, "components")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -20714,12 +21186,12 @@ class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResu
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -20729,20 +21201,23 @@ class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResu
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -20750,12 +21225,12 @@ class GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -20765,20 +21240,23 @@ class GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentComponentResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -20786,12 +21264,12 @@ class GetNetworkInsightsAnalysisReturnPathComponentComponentResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -20801,20 +21279,23 @@ class GetNetworkInsightsAnalysisReturnPathComponentComponentResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -20822,12 +21303,12 @@ class GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -20837,317 +21318,356 @@ class GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderResult(dict):
     def __init__(__self__, *,
-                 destination_addresses: Sequence[str],
-                 destination_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeResult'],
-                 protocol: str,
-                 source_addresses: Sequence[str],
-                 source_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeResult']):
-        pulumi.set(__self__, "destination_addresses", destination_addresses)
-        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "source_addresses", source_addresses)
-        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 destination_port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeResult']] = None,
+                 protocol: Optional[str] = None,
+                 source_addresses: Optional[Sequence[str]] = None,
+                 source_port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeResult']] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Sequence[str]:
+    def destination_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "destination_addresses")
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeResult']:
+    def destination_port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeResult']]:
         return pulumi.get(self, "destination_port_ranges")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Sequence[str]:
+    def source_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "source_addresses")
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeResult']:
+    def source_port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeResult']]:
         return pulumi.get(self, "source_port_ranges")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderResult(dict):
     def __init__(__self__, *,
-                 destination_addresses: Sequence[str],
-                 destination_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeResult'],
-                 protocol: str,
-                 source_addresses: Sequence[str],
-                 source_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeResult']):
-        pulumi.set(__self__, "destination_addresses", destination_addresses)
-        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "source_addresses", source_addresses)
-        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+                 destination_addresses: Optional[Sequence[str]] = None,
+                 destination_port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeResult']] = None,
+                 protocol: Optional[str] = None,
+                 source_addresses: Optional[Sequence[str]] = None,
+                 source_port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeResult']] = None):
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Sequence[str]:
+    def destination_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "destination_addresses")
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeResult']:
+    def destination_port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeResult']]:
         return pulumi.get(self, "destination_port_ranges")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Sequence[str]:
+    def source_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "source_addresses")
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeResult']:
+    def source_port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeResult']]:
         return pulumi.get(self, "source_port_ranges")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult(dict):
     def __init__(__self__, *,
-                 destination_cidr: str,
-                 destination_prefix_list_id: str,
-                 egress_only_internet_gateway_id: str,
-                 gateway_id: str,
-                 instance_id: str,
-                 nat_gateway_id: str,
-                 network_interface_id: str,
-                 origin: str,
-                 transit_gateway_id: str,
-                 vpc_peering_connection_id: str):
-        pulumi.set(__self__, "destination_cidr", destination_cidr)
-        pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
-        pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
-        pulumi.set(__self__, "gateway_id", gateway_id)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "origin", origin)
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
-        pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+                 destination_cidr: Optional[str] = None,
+                 destination_prefix_list_id: Optional[str] = None,
+                 egress_only_internet_gateway_id: Optional[str] = None,
+                 gateway_id: Optional[str] = None,
+                 instance_id: Optional[str] = None,
+                 nat_gateway_id: Optional[str] = None,
+                 network_interface_id: Optional[str] = None,
+                 origin: Optional[str] = None,
+                 transit_gateway_id: Optional[str] = None,
+                 vpc_peering_connection_id: Optional[str] = None):
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
+        if egress_only_internet_gateway_id is not None:
+            pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if nat_gateway_id is not None:
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_peering_connection_id is not None:
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
     @pulumi.getter(name="destinationCidr")
-    def destination_cidr(self) -> str:
+    def destination_cidr(self) -> Optional[str]:
         return pulumi.get(self, "destination_cidr")
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
-    def destination_prefix_list_id(self) -> str:
+    def destination_prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyInternetGatewayId")
-    def egress_only_internet_gateway_id(self) -> str:
+    def egress_only_internet_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "egress_only_internet_gateway_id")
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> str:
+    def gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "gateway_id")
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> Optional[str]:
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> str:
+    def nat_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "nat_gateway_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> Optional[str]:
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter
-    def origin(self) -> str:
+    def origin(self) -> Optional[str]:
         return pulumi.get(self, "origin")
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
-    def vpc_peering_connection_id(self) -> str:
+    def vpc_peering_connection_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_peering_connection_id")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleResult(dict):
     def __init__(__self__, *,
-                 cidr: str,
-                 direction: str,
-                 port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeResult'],
-                 prefix_list_id: str,
-                 protocol: str,
-                 security_group_id: str):
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "port_ranges", port_ranges)
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "security_group_id", security_group_id)
+                 cidr: Optional[str] = None,
+                 direction: Optional[str] = None,
+                 port_ranges: Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeResult']] = None,
+                 prefix_list_id: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 security_group_id: Optional[str] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
-    def direction(self) -> str:
+    def direction(self) -> Optional[str]:
         return pulumi.get(self, "direction")
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeResult']:
+    def port_ranges(self) -> Optional[Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeResult']]:
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> str:
+    def prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "prefix_list_id")
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> str:
+    def security_group_id(self) -> Optional[str]:
         return pulumi.get(self, "security_group_id")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeResult(dict):
     def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")
-    def from_(self) -> int:
+    def from_(self) -> Optional[int]:
         return pulumi.get(self, "from_")
 
     @property
     @pulumi.getter
-    def to(self) -> int:
+    def to(self) -> Optional[int]:
         return pulumi.get(self, "to")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -21155,12 +21675,12 @@ class GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -21170,20 +21690,23 @@ class GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentSubnetResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -21191,12 +21714,12 @@ class GetNetworkInsightsAnalysisReturnPathComponentSubnetResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -21206,20 +21729,23 @@ class GetNetworkInsightsAnalysisReturnPathComponentSubnetResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -21227,12 +21753,12 @@ class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -21242,74 +21768,84 @@ class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult(dict):
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteResult(dict):
     def __init__(__self__, *,
-                 attachment_id: str,
-                 destination_cidr: str,
-                 prefix_list_id: str,
-                 resource_id: str,
-                 resource_type: str,
-                 route_origin: str,
-                 state: str):
-        pulumi.set(__self__, "attachment_id", attachment_id)
-        pulumi.set(__self__, "destination_cidr", destination_cidr)
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "route_origin", route_origin)
-        pulumi.set(__self__, "state", state)
+                 attachment_id: Optional[str] = None,
+                 destination_cidr: Optional[str] = None,
+                 prefix_list_id: Optional[str] = None,
+                 resource_id: Optional[str] = None,
+                 resource_type: Optional[str] = None,
+                 route_origin: Optional[str] = None,
+                 state: Optional[str] = None):
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+        if destination_cidr is not None:
+            pulumi.set(__self__, "destination_cidr", destination_cidr)
+        if prefix_list_id is not None:
+            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if route_origin is not None:
+            pulumi.set(__self__, "route_origin", route_origin)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="attachmentId")
-    def attachment_id(self) -> str:
+    def attachment_id(self) -> Optional[str]:
         return pulumi.get(self, "attachment_id")
 
     @property
     @pulumi.getter(name="destinationCidr")
-    def destination_cidr(self) -> str:
+    def destination_cidr(self) -> Optional[str]:
         return pulumi.get(self, "destination_cidr")
 
     @property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> str:
+    def prefix_list_id(self) -> Optional[str]:
         return pulumi.get(self, "prefix_list_id")
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> Optional[str]:
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> str:
+    def resource_type(self) -> Optional[str]:
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="routeOrigin")
-    def route_origin(self) -> str:
+    def route_origin(self) -> Optional[str]:
         return pulumi.get(self, "route_origin")
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisReturnPathComponentVpcResult(dict):
     def __init__(__self__, *,
-                 arn: str,
-                 id: str,
-                 name: str):
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
         :param str arn: ARN of the selected Network Insights Analysis.
         :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the selected Network Insights Analysis.
         """
@@ -21317,12 +21853,12 @@ class GetNetworkInsightsAnalysisReturnPathComponentVpcResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
@@ -21361,13 +21897,13 @@ class GetNetworkInsightsPathFilterResult(dict):
 @pulumi.output_type
 class GetNetworkInterfaceAssociationResult(dict):
     def __init__(__self__, *,
-                 allocation_id: str,
-                 association_id: str,
-                 carrier_ip: str,
-                 customer_owned_ip: str,
-                 ip_owner_id: str,
-                 public_dns_name: str,
-                 public_ip: str):
+                 allocation_id: Optional[str] = None,
+                 association_id: Optional[str] = None,
+                 carrier_ip: Optional[str] = None,
+                 customer_owned_ip: Optional[str] = None,
+                 ip_owner_id: Optional[str] = None,
+                 public_dns_name: Optional[str] = None,
+                 public_ip: Optional[str] = None):
         """
         :param str allocation_id: Allocation ID.
         :param str association_id: Association ID.
@@ -21377,17 +21913,24 @@ class GetNetworkInterfaceAssociationResult(dict):
         :param str public_dns_name: Public DNS name.
         :param str public_ip: Address of the Elastic IP address bound to the network interface.
         """
-        pulumi.set(__self__, "allocation_id", allocation_id)
-        pulumi.set(__self__, "association_id", association_id)
-        pulumi.set(__self__, "carrier_ip", carrier_ip)
-        pulumi.set(__self__, "customer_owned_ip", customer_owned_ip)
-        pulumi.set(__self__, "ip_owner_id", ip_owner_id)
-        pulumi.set(__self__, "public_dns_name", public_dns_name)
-        pulumi.set(__self__, "public_ip", public_ip)
+        if allocation_id is not None:
+            pulumi.set(__self__, "allocation_id", allocation_id)
+        if association_id is not None:
+            pulumi.set(__self__, "association_id", association_id)
+        if carrier_ip is not None:
+            pulumi.set(__self__, "carrier_ip", carrier_ip)
+        if customer_owned_ip is not None:
+            pulumi.set(__self__, "customer_owned_ip", customer_owned_ip)
+        if ip_owner_id is not None:
+            pulumi.set(__self__, "ip_owner_id", ip_owner_id)
+        if public_dns_name is not None:
+            pulumi.set(__self__, "public_dns_name", public_dns_name)
+        if public_ip is not None:
+            pulumi.set(__self__, "public_ip", public_ip)
 
     @property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> str:
+    def allocation_id(self) -> Optional[str]:
         """
         Allocation ID.
         """
@@ -21395,7 +21938,7 @@ class GetNetworkInterfaceAssociationResult(dict):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> str:
+    def association_id(self) -> Optional[str]:
         """
         Association ID.
         """
@@ -21403,7 +21946,7 @@ class GetNetworkInterfaceAssociationResult(dict):
 
     @property
     @pulumi.getter(name="carrierIp")
-    def carrier_ip(self) -> str:
+    def carrier_ip(self) -> Optional[str]:
         """
         Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
         """
@@ -21411,7 +21954,7 @@ class GetNetworkInterfaceAssociationResult(dict):
 
     @property
     @pulumi.getter(name="customerOwnedIp")
-    def customer_owned_ip(self) -> str:
+    def customer_owned_ip(self) -> Optional[str]:
         """
         Customer-owned IP address.
         """
@@ -21419,7 +21962,7 @@ class GetNetworkInterfaceAssociationResult(dict):
 
     @property
     @pulumi.getter(name="ipOwnerId")
-    def ip_owner_id(self) -> str:
+    def ip_owner_id(self) -> Optional[str]:
         """
         ID of the Elastic IP address owner.
         """
@@ -21427,7 +21970,7 @@ class GetNetworkInterfaceAssociationResult(dict):
 
     @property
     @pulumi.getter(name="publicDnsName")
-    def public_dns_name(self) -> str:
+    def public_dns_name(self) -> Optional[str]:
         """
         Public DNS name.
         """
@@ -21435,7 +21978,7 @@ class GetNetworkInterfaceAssociationResult(dict):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> str:
+    def public_ip(self) -> Optional[str]:
         """
         Address of the Elastic IP address bound to the network interface.
         """
@@ -21445,33 +21988,37 @@ class GetNetworkInterfaceAssociationResult(dict):
 @pulumi.output_type
 class GetNetworkInterfaceAttachmentResult(dict):
     def __init__(__self__, *,
-                 attachment_id: str,
-                 device_index: int,
-                 instance_id: str,
-                 instance_owner_id: str):
-        pulumi.set(__self__, "attachment_id", attachment_id)
-        pulumi.set(__self__, "device_index", device_index)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "instance_owner_id", instance_owner_id)
+                 attachment_id: Optional[str] = None,
+                 device_index: Optional[int] = None,
+                 instance_id: Optional[str] = None,
+                 instance_owner_id: Optional[str] = None):
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+        if device_index is not None:
+            pulumi.set(__self__, "device_index", device_index)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if instance_owner_id is not None:
+            pulumi.set(__self__, "instance_owner_id", instance_owner_id)
 
     @property
     @pulumi.getter(name="attachmentId")
-    def attachment_id(self) -> str:
+    def attachment_id(self) -> Optional[str]:
         return pulumi.get(self, "attachment_id")
 
     @property
     @pulumi.getter(name="deviceIndex")
-    def device_index(self) -> int:
+    def device_index(self) -> Optional[int]:
         return pulumi.get(self, "device_index")
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> Optional[str]:
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="instanceOwnerId")
-    def instance_owner_id(self) -> str:
+    def instance_owner_id(self) -> Optional[str]:
         return pulumi.get(self, "instance_owner_id")
 
 
@@ -21557,24 +22104,28 @@ class GetPrefixListFilterResult(dict):
 @pulumi.output_type
 class GetPublicIpv4PoolPoolAddressRangeResult(dict):
     def __init__(__self__, *,
-                 address_count: int,
-                 available_address_count: int,
-                 first_address: str,
-                 last_address: str):
+                 address_count: Optional[int] = None,
+                 available_address_count: Optional[int] = None,
+                 first_address: Optional[str] = None,
+                 last_address: Optional[str] = None):
         """
         :param int address_count: Number of addresses in the range.
         :param int available_address_count: Number of available addresses in the range.
         :param str first_address: First address in the range.
         :param str last_address: Last address in the range.
         """
-        pulumi.set(__self__, "address_count", address_count)
-        pulumi.set(__self__, "available_address_count", available_address_count)
-        pulumi.set(__self__, "first_address", first_address)
-        pulumi.set(__self__, "last_address", last_address)
+        if address_count is not None:
+            pulumi.set(__self__, "address_count", address_count)
+        if available_address_count is not None:
+            pulumi.set(__self__, "available_address_count", available_address_count)
+        if first_address is not None:
+            pulumi.set(__self__, "first_address", first_address)
+        if last_address is not None:
+            pulumi.set(__self__, "last_address", last_address)
 
     @property
     @pulumi.getter(name="addressCount")
-    def address_count(self) -> int:
+    def address_count(self) -> Optional[int]:
         """
         Number of addresses in the range.
         """
@@ -21582,7 +22133,7 @@ class GetPublicIpv4PoolPoolAddressRangeResult(dict):
 
     @property
     @pulumi.getter(name="availableAddressCount")
-    def available_address_count(self) -> int:
+    def available_address_count(self) -> Optional[int]:
         """
         Number of available addresses in the range.
         """
@@ -21590,7 +22141,7 @@ class GetPublicIpv4PoolPoolAddressRangeResult(dict):
 
     @property
     @pulumi.getter(name="firstAddress")
-    def first_address(self) -> str:
+    def first_address(self) -> Optional[str]:
         """
         First address in the range.
         """
@@ -21598,7 +22149,7 @@ class GetPublicIpv4PoolPoolAddressRangeResult(dict):
 
     @property
     @pulumi.getter(name="lastAddress")
-    def last_address(self) -> str:
+    def last_address(self) -> Optional[str]:
         """
         Last address in the range.
         """
@@ -21637,11 +22188,11 @@ class GetPublicIpv4PoolsFilterResult(dict):
 @pulumi.output_type
 class GetRouteTableAssociationResult(dict):
     def __init__(__self__, *,
-                 gateway_id: str,
-                 main: bool,
-                 route_table_association_id: str,
-                 route_table_id: str,
-                 subnet_id: str):
+                 gateway_id: Optional[str] = None,
+                 main: Optional[bool] = None,
+                 route_table_association_id: Optional[str] = None,
+                 route_table_id: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
         """
         :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         :param bool main: Whether the association is due to the main route table.
@@ -21649,15 +22200,20 @@ class GetRouteTableAssociationResult(dict):
         :param str route_table_id: ID of the specific Route Table to retrieve.
         :param str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
         """
-        pulumi.set(__self__, "gateway_id", gateway_id)
-        pulumi.set(__self__, "main", main)
-        pulumi.set(__self__, "route_table_association_id", route_table_association_id)
-        pulumi.set(__self__, "route_table_id", route_table_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if main is not None:
+            pulumi.set(__self__, "main", main)
+        if route_table_association_id is not None:
+            pulumi.set(__self__, "route_table_association_id", route_table_association_id)
+        if route_table_id is not None:
+            pulumi.set(__self__, "route_table_id", route_table_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> str:
+    def gateway_id(self) -> Optional[str]:
         """
         ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         """
@@ -21665,7 +22221,7 @@ class GetRouteTableAssociationResult(dict):
 
     @property
     @pulumi.getter
-    def main(self) -> bool:
+    def main(self) -> Optional[bool]:
         """
         Whether the association is due to the main route table.
         """
@@ -21673,7 +22229,7 @@ class GetRouteTableAssociationResult(dict):
 
     @property
     @pulumi.getter(name="routeTableAssociationId")
-    def route_table_association_id(self) -> str:
+    def route_table_association_id(self) -> Optional[str]:
         """
         Association ID.
         """
@@ -21681,7 +22237,7 @@ class GetRouteTableAssociationResult(dict):
 
     @property
     @pulumi.getter(name="routeTableId")
-    def route_table_id(self) -> str:
+    def route_table_id(self) -> Optional[str]:
         """
         ID of the specific Route Table to retrieve.
         """
@@ -21689,7 +22245,7 @@ class GetRouteTableAssociationResult(dict):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> Optional[str]:
         """
         ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
         """
@@ -21728,20 +22284,20 @@ class GetRouteTableFilterResult(dict):
 @pulumi.output_type
 class GetRouteTableRouteResult(dict):
     def __init__(__self__, *,
-                 carrier_gateway_id: str,
-                 cidr_block: str,
-                 core_network_arn: str,
-                 destination_prefix_list_id: str,
-                 egress_only_gateway_id: str,
-                 gateway_id: str,
-                 instance_id: str,
-                 ipv6_cidr_block: str,
-                 local_gateway_id: str,
-                 nat_gateway_id: str,
-                 network_interface_id: str,
-                 transit_gateway_id: str,
-                 vpc_endpoint_id: str,
-                 vpc_peering_connection_id: str):
+                 carrier_gateway_id: Optional[str] = None,
+                 cidr_block: Optional[str] = None,
+                 core_network_arn: Optional[str] = None,
+                 destination_prefix_list_id: Optional[str] = None,
+                 egress_only_gateway_id: Optional[str] = None,
+                 gateway_id: Optional[str] = None,
+                 instance_id: Optional[str] = None,
+                 ipv6_cidr_block: Optional[str] = None,
+                 local_gateway_id: Optional[str] = None,
+                 nat_gateway_id: Optional[str] = None,
+                 network_interface_id: Optional[str] = None,
+                 transit_gateway_id: Optional[str] = None,
+                 vpc_endpoint_id: Optional[str] = None,
+                 vpc_peering_connection_id: Optional[str] = None):
         """
         :param str carrier_gateway_id: ID of the Carrier Gateway.
         :param str cidr_block: CIDR block of the route.
@@ -21758,24 +22314,38 @@ class GetRouteTableRouteResult(dict):
         :param str vpc_endpoint_id: VPC Endpoint ID.
         :param str vpc_peering_connection_id: VPC Peering ID.
         """
-        pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
-        pulumi.set(__self__, "cidr_block", cidr_block)
-        pulumi.set(__self__, "core_network_arn", core_network_arn)
-        pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
-        pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
-        pulumi.set(__self__, "gateway_id", gateway_id)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
-        pulumi.set(__self__, "local_gateway_id", local_gateway_id)
-        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
-        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
-        pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+        if carrier_gateway_id is not None:
+            pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
+        if core_network_arn is not None:
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
+        if egress_only_gateway_id is not None:
+            pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if ipv6_cidr_block is not None:
+            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if local_gateway_id is not None:
+            pulumi.set(__self__, "local_gateway_id", local_gateway_id)
+        if nat_gateway_id is not None:
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        if vpc_peering_connection_id is not None:
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
     @pulumi.getter(name="carrierGatewayId")
-    def carrier_gateway_id(self) -> str:
+    def carrier_gateway_id(self) -> Optional[str]:
         """
         ID of the Carrier Gateway.
         """
@@ -21783,7 +22353,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> Optional[str]:
         """
         CIDR block of the route.
         """
@@ -21791,7 +22361,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="coreNetworkArn")
-    def core_network_arn(self) -> str:
+    def core_network_arn(self) -> Optional[str]:
         """
         ARN of the core network.
         """
@@ -21799,7 +22369,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
-    def destination_prefix_list_id(self) -> str:
+    def destination_prefix_list_id(self) -> Optional[str]:
         """
         The ID of a managed prefix list destination of the route.
         """
@@ -21807,7 +22377,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="egressOnlyGatewayId")
-    def egress_only_gateway_id(self) -> str:
+    def egress_only_gateway_id(self) -> Optional[str]:
         """
         ID of the Egress Only Internet Gateway.
         """
@@ -21815,7 +22385,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> str:
+    def gateway_id(self) -> Optional[str]:
         """
         ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         """
@@ -21823,7 +22393,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> Optional[str]:
         """
         EC2 instance ID.
         """
@@ -21831,7 +22401,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> str:
+    def ipv6_cidr_block(self) -> Optional[str]:
         """
         IPv6 CIDR block of the route.
         """
@@ -21839,7 +22409,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="localGatewayId")
-    def local_gateway_id(self) -> str:
+    def local_gateway_id(self) -> Optional[str]:
         """
         Local Gateway ID.
         """
@@ -21847,7 +22417,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> str:
+    def nat_gateway_id(self) -> Optional[str]:
         """
         NAT Gateway ID.
         """
@@ -21855,7 +22425,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> Optional[str]:
         """
         ID of the elastic network interface (eni) to use.
         """
@@ -21863,7 +22433,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> Optional[str]:
         """
         EC2 Transit Gateway ID.
         """
@@ -21871,7 +22441,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> str:
+    def vpc_endpoint_id(self) -> Optional[str]:
         """
         VPC Endpoint ID.
         """
@@ -21879,7 +22449,7 @@ class GetRouteTableRouteResult(dict):
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
-    def vpc_peering_connection_id(self) -> str:
+    def vpc_peering_connection_id(self) -> Optional[str]:
         """
         VPC Peering ID.
         """
@@ -22120,22 +22690,25 @@ class GetTransitGatewayRouteTablesFilterResult(dict):
 @pulumi.output_type
 class GetVpcCidrBlockAssociationResult(dict):
     def __init__(__self__, *,
-                 association_id: str,
-                 cidr_block: str,
-                 state: str):
+                 association_id: Optional[str] = None,
+                 cidr_block: Optional[str] = None,
+                 state: Optional[str] = None):
         """
         :param str association_id: Association ID for the IPv4 CIDR block.
         :param str cidr_block: Cidr block of the desired VPC.
         :param str state: Current state of the desired VPC.
                Can be either `"pending"` or `"available"`.
         """
-        pulumi.set(__self__, "association_id", association_id)
-        pulumi.set(__self__, "cidr_block", cidr_block)
-        pulumi.set(__self__, "state", state)
+        if association_id is not None:
+            pulumi.set(__self__, "association_id", association_id)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> str:
+    def association_id(self) -> Optional[str]:
         """
         Association ID for the IPv4 CIDR block.
         """
@@ -22143,7 +22716,7 @@ class GetVpcCidrBlockAssociationResult(dict):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> Optional[str]:
         """
         Cidr block of the desired VPC.
         """
@@ -22151,7 +22724,7 @@ class GetVpcCidrBlockAssociationResult(dict):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         Current state of the desired VPC.
         Can be either `"pending"` or `"available"`.
@@ -22191,18 +22764,20 @@ class GetVpcDhcpOptionsFilterResult(dict):
 @pulumi.output_type
 class GetVpcEndpointDnsEntryResult(dict):
     def __init__(__self__, *,
-                 dns_name: str,
-                 hosted_zone_id: str):
+                 dns_name: Optional[str] = None,
+                 hosted_zone_id: Optional[str] = None):
         """
         :param str dns_name: DNS name.
         :param str hosted_zone_id: ID of the private hosted zone.
         """
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> Optional[str]:
         """
         DNS name.
         """
@@ -22210,7 +22785,7 @@ class GetVpcEndpointDnsEntryResult(dict):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> str:
+    def hosted_zone_id(self) -> Optional[str]:
         """
         ID of the private hosted zone.
         """
@@ -22220,18 +22795,20 @@ class GetVpcEndpointDnsEntryResult(dict):
 @pulumi.output_type
 class GetVpcEndpointDnsOptionResult(dict):
     def __init__(__self__, *,
-                 dns_record_ip_type: str,
-                 private_dns_only_for_inbound_resolver_endpoint: bool):
+                 dns_record_ip_type: Optional[str] = None,
+                 private_dns_only_for_inbound_resolver_endpoint: Optional[bool] = None):
         """
         :param str dns_record_ip_type: The DNS records created for the endpoint.
         :param bool private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints.
         """
-        pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
-        pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
+        if dns_record_ip_type is not None:
+            pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
+        if private_dns_only_for_inbound_resolver_endpoint is not None:
+            pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
 
     @property
     @pulumi.getter(name="dnsRecordIpType")
-    def dns_record_ip_type(self) -> str:
+    def dns_record_ip_type(self) -> Optional[str]:
         """
         The DNS records created for the endpoint.
         """
@@ -22239,7 +22816,7 @@ class GetVpcEndpointDnsOptionResult(dict):
 
     @property
     @pulumi.getter(name="privateDnsOnlyForInboundResolverEndpoint")
-    def private_dns_only_for_inbound_resolver_endpoint(self) -> bool:
+    def private_dns_only_for_inbound_resolver_endpoint(self) -> Optional[bool]:
         """
         Indicates whether to enable private DNS only for inbound endpoints.
         """
@@ -22363,18 +22940,20 @@ class GetVpcIamPoolCidrsFilterResult(dict):
 @pulumi.output_type
 class GetVpcIamPoolCidrsIpamPoolCidrResult(dict):
     def __init__(__self__, *,
-                 cidr: str,
-                 state: str):
+                 cidr: Optional[str] = None,
+                 state: Optional[str] = None):
         """
         :param str cidr: A network CIDR.
         :param str state: The provisioning state of that CIDR.
         """
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "state", state)
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         """
         A network CIDR.
         """
@@ -22382,7 +22961,7 @@ class GetVpcIamPoolCidrsIpamPoolCidrResult(dict):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         The provisioning state of that CIDR.
         """
@@ -22450,24 +23029,24 @@ class GetVpcIamPoolsFilterResult(dict):
 @pulumi.output_type
 class GetVpcIamPoolsIpamPoolResult(dict):
     def __init__(__self__, *,
-                 address_family: str,
-                 allocation_default_netmask_length: int,
-                 allocation_max_netmask_length: int,
-                 allocation_min_netmask_length: int,
-                 allocation_resource_tags: Mapping[str, str],
-                 arn: str,
-                 auto_import: bool,
-                 aws_service: str,
-                 description: str,
-                 id: str,
-                 ipam_scope_id: str,
-                 ipam_scope_type: str,
-                 locale: str,
-                 pool_depth: int,
-                 publicly_advertisable: bool,
-                 source_ipam_pool_id: str,
-                 state: str,
-                 tags: Mapping[str, str]):
+                 address_family: Optional[str] = None,
+                 allocation_default_netmask_length: Optional[int] = None,
+                 allocation_max_netmask_length: Optional[int] = None,
+                 allocation_min_netmask_length: Optional[int] = None,
+                 allocation_resource_tags: Optional[Mapping[str, str]] = None,
+                 arn: Optional[str] = None,
+                 auto_import: Optional[bool] = None,
+                 aws_service: Optional[str] = None,
+                 description: Optional[str] = None,
+                 id: Optional[str] = None,
+                 ipam_scope_id: Optional[str] = None,
+                 ipam_scope_type: Optional[str] = None,
+                 locale: Optional[str] = None,
+                 pool_depth: Optional[int] = None,
+                 publicly_advertisable: Optional[bool] = None,
+                 source_ipam_pool_id: Optional[str] = None,
+                 state: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
         """
         :param str address_family: IP protocol assigned to this pool.
         :param int allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
@@ -22485,28 +23064,46 @@ class GetVpcIamPoolsIpamPoolResult(dict):
         :param str source_ipam_pool_id: ID of the source IPAM pool.
         :param Mapping[str, str] tags: Map of tags to assigned to the resource.
         """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "allocation_default_netmask_length", allocation_default_netmask_length)
-        pulumi.set(__self__, "allocation_max_netmask_length", allocation_max_netmask_length)
-        pulumi.set(__self__, "allocation_min_netmask_length", allocation_min_netmask_length)
-        pulumi.set(__self__, "allocation_resource_tags", allocation_resource_tags)
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "auto_import", auto_import)
-        pulumi.set(__self__, "aws_service", aws_service)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
-        pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
-        pulumi.set(__self__, "locale", locale)
-        pulumi.set(__self__, "pool_depth", pool_depth)
-        pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
-        pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "tags", tags)
+        if address_family is not None:
+            pulumi.set(__self__, "address_family", address_family)
+        if allocation_default_netmask_length is not None:
+            pulumi.set(__self__, "allocation_default_netmask_length", allocation_default_netmask_length)
+        if allocation_max_netmask_length is not None:
+            pulumi.set(__self__, "allocation_max_netmask_length", allocation_max_netmask_length)
+        if allocation_min_netmask_length is not None:
+            pulumi.set(__self__, "allocation_min_netmask_length", allocation_min_netmask_length)
+        if allocation_resource_tags is not None:
+            pulumi.set(__self__, "allocation_resource_tags", allocation_resource_tags)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if auto_import is not None:
+            pulumi.set(__self__, "auto_import", auto_import)
+        if aws_service is not None:
+            pulumi.set(__self__, "aws_service", aws_service)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ipam_scope_id is not None:
+            pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
+        if ipam_scope_type is not None:
+            pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+        if pool_depth is not None:
+            pulumi.set(__self__, "pool_depth", pool_depth)
+        if publicly_advertisable is not None:
+            pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
+        if source_ipam_pool_id is not None:
+            pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> str:
+    def address_family(self) -> Optional[str]:
         """
         IP protocol assigned to this pool.
         """
@@ -22514,7 +23111,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="allocationDefaultNetmaskLength")
-    def allocation_default_netmask_length(self) -> int:
+    def allocation_default_netmask_length(self) -> Optional[int]:
         """
         A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
         """
@@ -22522,7 +23119,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="allocationMaxNetmaskLength")
-    def allocation_max_netmask_length(self) -> int:
+    def allocation_max_netmask_length(self) -> Optional[int]:
         """
         The maximum netmask length that will be required for CIDR allocations in this pool.
         """
@@ -22530,7 +23127,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="allocationMinNetmaskLength")
-    def allocation_min_netmask_length(self) -> int:
+    def allocation_min_netmask_length(self) -> Optional[int]:
         """
         The minimum netmask length that will be required for CIDR allocations in this pool.
         """
@@ -22538,7 +23135,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="allocationResourceTags")
-    def allocation_resource_tags(self) -> Mapping[str, str]:
+    def allocation_resource_tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags that are required to create resources in using this pool.
         """
@@ -22546,7 +23143,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the pool
         """
@@ -22554,7 +23151,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="autoImport")
-    def auto_import(self) -> bool:
+    def auto_import(self) -> Optional[bool]:
         """
         If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
         """
@@ -22562,7 +23159,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="awsService")
-    def aws_service(self) -> str:
+    def aws_service(self) -> Optional[str]:
         """
         Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         """
@@ -22570,7 +23167,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description for the IPAM pool.
         """
@@ -22578,7 +23175,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         ID of the IPAM pool.
         """
@@ -22586,7 +23183,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="ipamScopeId")
-    def ipam_scope_id(self) -> str:
+    def ipam_scope_id(self) -> Optional[str]:
         """
         ID of the scope the pool belongs to.
         """
@@ -22594,12 +23191,12 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> str:
+    def ipam_scope_type(self) -> Optional[str]:
         return pulumi.get(self, "ipam_scope_type")
 
     @property
     @pulumi.getter
-    def locale(self) -> str:
+    def locale(self) -> Optional[str]:
         """
         Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
         """
@@ -22607,12 +23204,12 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="poolDepth")
-    def pool_depth(self) -> int:
+    def pool_depth(self) -> Optional[int]:
         return pulumi.get(self, "pool_depth")
 
     @property
     @pulumi.getter(name="publiclyAdvertisable")
-    def publicly_advertisable(self) -> bool:
+    def publicly_advertisable(self) -> Optional[bool]:
         """
         Defines whether or not IPv6 pool space is publicly advertisable over the internet.
         """
@@ -22620,7 +23217,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="sourceIpamPoolId")
-    def source_ipam_pool_id(self) -> str:
+    def source_ipam_pool_id(self) -> Optional[str]:
         """
         ID of the source IPAM pool.
         """
@@ -22628,12 +23225,12 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assigned to the resource.
         """
@@ -22662,18 +23259,20 @@ class GetVpcIpamPoolCidrsFilterResult(dict):
 @pulumi.output_type
 class GetVpcIpamPoolCidrsIpamPoolCidrResult(dict):
     def __init__(__self__, *,
-                 cidr: str,
-                 state: str):
+                 cidr: Optional[str] = None,
+                 state: Optional[str] = None):
         """
         :param str cidr: A network CIDR.
         :param str state: The provisioning state of that CIDR.
         """
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "state", state)
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> Optional[str]:
         """
         A network CIDR.
         """
@@ -22681,7 +23280,7 @@ class GetVpcIpamPoolCidrsIpamPoolCidrResult(dict):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         """
         The provisioning state of that CIDR.
         """
@@ -22749,24 +23348,24 @@ class GetVpcIpamPoolsFilterResult(dict):
 @pulumi.output_type
 class GetVpcIpamPoolsIpamPoolResult(dict):
     def __init__(__self__, *,
-                 address_family: str,
-                 allocation_default_netmask_length: int,
-                 allocation_max_netmask_length: int,
-                 allocation_min_netmask_length: int,
-                 allocation_resource_tags: Mapping[str, str],
-                 arn: str,
-                 auto_import: bool,
-                 aws_service: str,
-                 description: str,
-                 id: str,
-                 ipam_scope_id: str,
-                 ipam_scope_type: str,
-                 locale: str,
-                 pool_depth: int,
-                 publicly_advertisable: bool,
-                 source_ipam_pool_id: str,
-                 state: str,
-                 tags: Mapping[str, str]):
+                 address_family: Optional[str] = None,
+                 allocation_default_netmask_length: Optional[int] = None,
+                 allocation_max_netmask_length: Optional[int] = None,
+                 allocation_min_netmask_length: Optional[int] = None,
+                 allocation_resource_tags: Optional[Mapping[str, str]] = None,
+                 arn: Optional[str] = None,
+                 auto_import: Optional[bool] = None,
+                 aws_service: Optional[str] = None,
+                 description: Optional[str] = None,
+                 id: Optional[str] = None,
+                 ipam_scope_id: Optional[str] = None,
+                 ipam_scope_type: Optional[str] = None,
+                 locale: Optional[str] = None,
+                 pool_depth: Optional[int] = None,
+                 publicly_advertisable: Optional[bool] = None,
+                 source_ipam_pool_id: Optional[str] = None,
+                 state: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
         """
         :param str address_family: IP protocol assigned to this pool.
         :param int allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
@@ -22784,28 +23383,46 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
         :param str source_ipam_pool_id: ID of the source IPAM pool.
         :param Mapping[str, str] tags: Map of tags to assigned to the resource.
         """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "allocation_default_netmask_length", allocation_default_netmask_length)
-        pulumi.set(__self__, "allocation_max_netmask_length", allocation_max_netmask_length)
-        pulumi.set(__self__, "allocation_min_netmask_length", allocation_min_netmask_length)
-        pulumi.set(__self__, "allocation_resource_tags", allocation_resource_tags)
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "auto_import", auto_import)
-        pulumi.set(__self__, "aws_service", aws_service)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
-        pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
-        pulumi.set(__self__, "locale", locale)
-        pulumi.set(__self__, "pool_depth", pool_depth)
-        pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
-        pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "tags", tags)
+        if address_family is not None:
+            pulumi.set(__self__, "address_family", address_family)
+        if allocation_default_netmask_length is not None:
+            pulumi.set(__self__, "allocation_default_netmask_length", allocation_default_netmask_length)
+        if allocation_max_netmask_length is not None:
+            pulumi.set(__self__, "allocation_max_netmask_length", allocation_max_netmask_length)
+        if allocation_min_netmask_length is not None:
+            pulumi.set(__self__, "allocation_min_netmask_length", allocation_min_netmask_length)
+        if allocation_resource_tags is not None:
+            pulumi.set(__self__, "allocation_resource_tags", allocation_resource_tags)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if auto_import is not None:
+            pulumi.set(__self__, "auto_import", auto_import)
+        if aws_service is not None:
+            pulumi.set(__self__, "aws_service", aws_service)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ipam_scope_id is not None:
+            pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
+        if ipam_scope_type is not None:
+            pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+        if pool_depth is not None:
+            pulumi.set(__self__, "pool_depth", pool_depth)
+        if publicly_advertisable is not None:
+            pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
+        if source_ipam_pool_id is not None:
+            pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> str:
+    def address_family(self) -> Optional[str]:
         """
         IP protocol assigned to this pool.
         """
@@ -22813,7 +23430,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="allocationDefaultNetmaskLength")
-    def allocation_default_netmask_length(self) -> int:
+    def allocation_default_netmask_length(self) -> Optional[int]:
         """
         A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
         """
@@ -22821,7 +23438,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="allocationMaxNetmaskLength")
-    def allocation_max_netmask_length(self) -> int:
+    def allocation_max_netmask_length(self) -> Optional[int]:
         """
         The maximum netmask length that will be required for CIDR allocations in this pool.
         """
@@ -22829,7 +23446,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="allocationMinNetmaskLength")
-    def allocation_min_netmask_length(self) -> int:
+    def allocation_min_netmask_length(self) -> Optional[int]:
         """
         The minimum netmask length that will be required for CIDR allocations in this pool.
         """
@@ -22837,7 +23454,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="allocationResourceTags")
-    def allocation_resource_tags(self) -> Mapping[str, str]:
+    def allocation_resource_tags(self) -> Optional[Mapping[str, str]]:
         """
         Tags that are required to create resources in using this pool.
         """
@@ -22845,7 +23462,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         ARN of the pool
         """
@@ -22853,7 +23470,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="autoImport")
-    def auto_import(self) -> bool:
+    def auto_import(self) -> Optional[bool]:
         """
         If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
         """
@@ -22861,7 +23478,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="awsService")
-    def aws_service(self) -> str:
+    def aws_service(self) -> Optional[str]:
         """
         Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         """
@@ -22869,7 +23486,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description for the IPAM pool.
         """
@@ -22877,7 +23494,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         ID of the IPAM pool.
         """
@@ -22885,7 +23502,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="ipamScopeId")
-    def ipam_scope_id(self) -> str:
+    def ipam_scope_id(self) -> Optional[str]:
         """
         ID of the scope the pool belongs to.
         """
@@ -22893,12 +23510,12 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> str:
+    def ipam_scope_type(self) -> Optional[str]:
         return pulumi.get(self, "ipam_scope_type")
 
     @property
     @pulumi.getter
-    def locale(self) -> str:
+    def locale(self) -> Optional[str]:
         """
         Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
         """
@@ -22906,12 +23523,12 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="poolDepth")
-    def pool_depth(self) -> int:
+    def pool_depth(self) -> Optional[int]:
         return pulumi.get(self, "pool_depth")
 
     @property
     @pulumi.getter(name="publiclyAdvertisable")
-    def publicly_advertisable(self) -> bool:
+    def publicly_advertisable(self) -> Optional[bool]:
         """
         Defines whether or not IPv6 pool space is publicly advertisable over the internet.
         """
@@ -22919,7 +23536,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter(name="sourceIpamPoolId")
-    def source_ipam_pool_id(self) -> str:
+    def source_ipam_pool_id(self) -> Optional[str]:
         """
         ID of the source IPAM pool.
         """
@@ -22927,12 +23544,12 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         Map of tags to assigned to the resource.
         """
@@ -22942,15 +23559,16 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 @pulumi.output_type
 class GetVpcPeeringConnectionCidrBlockSetResult(dict):
     def __init__(__self__, *,
-                 cidr_block: str):
+                 cidr_block: Optional[str] = None):
         """
         :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
         """
-        pulumi.set(__self__, "cidr_block", cidr_block)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> Optional[str]:
         """
         Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
         """
@@ -22993,15 +23611,16 @@ class GetVpcPeeringConnectionFilterResult(dict):
 @pulumi.output_type
 class GetVpcPeeringConnectionPeerCidrBlockSetResult(dict):
     def __init__(__self__, *,
-                 cidr_block: str):
+                 cidr_block: Optional[str] = None):
         """
         :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
         """
-        pulumi.set(__self__, "cidr_block", cidr_block)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> Optional[str]:
         """
         Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
         """

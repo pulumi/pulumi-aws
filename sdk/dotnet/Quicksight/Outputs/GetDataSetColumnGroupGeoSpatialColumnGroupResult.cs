@@ -14,16 +14,16 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class GetDataSetColumnGroupGeoSpatialColumnGroupResult
     {
         public readonly ImmutableArray<string> Columns;
-        public readonly string CountryCode;
-        public readonly string Name;
+        public readonly string? CountryCode;
+        public readonly string? Name;
 
         [OutputConstructor]
         private GetDataSetColumnGroupGeoSpatialColumnGroupResult(
             ImmutableArray<string> columns,
 
-            string countryCode,
+            string? countryCode,
 
-            string name)
+            string? name)
         {
             Columns = columns;
             CountryCode = countryCode;

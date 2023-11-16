@@ -88,7 +88,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
      */
-    public /*out*/ readonly origin!: pulumi.Output<string>;
+    public /*out*/ readonly origin!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      */
@@ -96,7 +96,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * The type of the route.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.

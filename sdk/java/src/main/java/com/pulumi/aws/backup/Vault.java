@@ -67,14 +67,14 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return The ARN of the vault.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
@@ -95,14 +95,14 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
-    private Output<String> kmsKeyArn;
+    private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
      * @return The server-side encryption key that is used to protect your backups.
      * 
      */
-    public Output<String> kmsKeyArn() {
-        return this.kmsKeyArn;
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * Name of the backup vault to create.
@@ -123,14 +123,14 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="recoveryPoints", refs={Integer.class}, tree="[0]")
-    private Output<Integer> recoveryPoints;
+    private Output</* @Nullable */ Integer> recoveryPoints;
 
     /**
      * @return The number of recovery points that are stored in a backup vault.
      * 
      */
-    public Output<Integer> recoveryPoints() {
-        return this.recoveryPoints;
+    public Output<Optional<Integer>> recoveryPoints() {
+        return Codegen.optional(this.recoveryPoints);
     }
     /**
      * Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

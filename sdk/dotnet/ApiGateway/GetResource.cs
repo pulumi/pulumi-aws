@@ -130,27 +130,27 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         /// <summary>
         /// Set to the ID of the parent Resource.
         /// </summary>
-        public readonly string ParentId;
+        public readonly string? ParentId;
         public readonly string Path;
         /// <summary>
         /// Set to the path relative to the parent Resource.
         /// </summary>
-        public readonly string PathPart;
+        public readonly string? PathPart;
         public readonly string RestApiId;
 
         [OutputConstructor]
         private GetResourceResult(
-            string id,
+            string? id,
 
-            string parentId,
+            string? parentId,
 
             string path,
 
-            string pathPart,
+            string? pathPart,
 
             string restApiId)
         {

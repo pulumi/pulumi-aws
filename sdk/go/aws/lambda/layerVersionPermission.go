@@ -67,11 +67,11 @@ type LayerVersionPermission struct {
 	// An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
 	OrganizationId pulumi.StringPtrOutput `pulumi:"organizationId"`
 	// Full Lambda Layer Permission policy.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// A unique identifier for the current revision of the policy.
-	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
+	RevisionId pulumi.StringPtrOutput `pulumi:"revisionId"`
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
@@ -308,8 +308,8 @@ func (o LayerVersionPermissionOutput) OrganizationId() pulumi.StringPtrOutput {
 }
 
 // Full Lambda Layer Permission policy.
-func (o LayerVersionPermissionOutput) Policy() pulumi.StringOutput {
-	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+func (o LayerVersionPermissionOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
@@ -318,8 +318,8 @@ func (o LayerVersionPermissionOutput) Principal() pulumi.StringOutput {
 }
 
 // A unique identifier for the current revision of the policy.
-func (o LayerVersionPermissionOutput) RevisionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
+func (o LayerVersionPermissionOutput) RevisionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringPtrOutput { return v.RevisionId }).(pulumi.StringPtrOutput)
 }
 
 // Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.

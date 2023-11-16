@@ -13,23 +13,23 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetDataSetRowLevelPermissionDataSetResult
     {
-        public readonly string Arn;
-        public readonly string FormatVersion;
-        public readonly string Namespace;
-        public readonly string PermissionPolicy;
-        public readonly string Status;
+        public readonly string? Arn;
+        public readonly string? FormatVersion;
+        public readonly string? Namespace;
+        public readonly string? PermissionPolicy;
+        public readonly string? Status;
 
         [OutputConstructor]
         private GetDataSetRowLevelPermissionDataSetResult(
-            string arn,
+            string? arn,
 
-            string formatVersion,
+            string? formatVersion,
 
-            string @namespace,
+            string? @namespace,
 
-            string permissionPolicy,
+            string? permissionPolicy,
 
-            string status)
+            string? status)
         {
             Arn = arn;
             FormatVersion = formatVersion;

@@ -93,7 +93,7 @@ type RemediationConfiguration struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Config Remediation Configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Remediation is triggered automatically if `true`.
 	Automatic pulumi.BoolPtrOutput `pulumi:"automatic"`
 	// Name of the AWS Config rule.
@@ -353,8 +353,8 @@ func (o RemediationConfigurationOutput) ToRemediationConfigurationOutputWithCont
 }
 
 // ARN of the Config Remediation Configuration.
-func (o RemediationConfigurationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o RemediationConfigurationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Remediation is triggered automatically if `true`.

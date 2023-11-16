@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageRecipeBlockDeviceMappingEb {
@@ -15,99 +17,99 @@ public final class GetImageRecipeBlockDeviceMappingEb {
      * @return Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    private Boolean deleteOnTermination;
+    private @Nullable Boolean deleteOnTermination;
     /**
      * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    private Boolean encrypted;
+    private @Nullable Boolean encrypted;
     /**
      * @return Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
      * 
      */
-    private Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return ARN of the Key Management Service (KMS) Key for encryption.
      * 
      */
-    private String kmsKeyId;
+    private @Nullable String kmsKeyId;
     /**
      * @return Identifier of the EC2 Volume Snapshot.
      * 
      */
-    private String snapshotId;
+    private @Nullable String snapshotId;
     /**
      * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
      * 
      */
-    private Integer throughput;
+    private @Nullable Integer throughput;
     /**
      * @return Size of the volume, in GiB.
      * 
      */
-    private Integer volumeSize;
+    private @Nullable Integer volumeSize;
     /**
      * @return Type of the volume. For example, `gp2` or `io2`.
      * 
      */
-    private String volumeType;
+    private @Nullable String volumeType;
 
     private GetImageRecipeBlockDeviceMappingEb() {}
     /**
      * @return Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    public Boolean deleteOnTermination() {
-        return this.deleteOnTermination;
+    public Optional<Boolean> deleteOnTermination() {
+        return Optional.ofNullable(this.deleteOnTermination);
     }
     /**
      * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    public Boolean encrypted() {
-        return this.encrypted;
+    public Optional<Boolean> encrypted() {
+        return Optional.ofNullable(this.encrypted);
     }
     /**
      * @return Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
      * 
      */
-    public Integer iops() {
-        return this.iops;
+    public Optional<Integer> iops() {
+        return Optional.ofNullable(this.iops);
     }
     /**
      * @return ARN of the Key Management Service (KMS) Key for encryption.
      * 
      */
-    public String kmsKeyId() {
-        return this.kmsKeyId;
+    public Optional<String> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
     }
     /**
      * @return Identifier of the EC2 Volume Snapshot.
      * 
      */
-    public String snapshotId() {
-        return this.snapshotId;
+    public Optional<String> snapshotId() {
+        return Optional.ofNullable(this.snapshotId);
     }
     /**
      * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
      * 
      */
-    public Integer throughput() {
-        return this.throughput;
+    public Optional<Integer> throughput() {
+        return Optional.ofNullable(this.throughput);
     }
     /**
      * @return Size of the volume, in GiB.
      * 
      */
-    public Integer volumeSize() {
-        return this.volumeSize;
+    public Optional<Integer> volumeSize() {
+        return Optional.ofNullable(this.volumeSize);
     }
     /**
      * @return Type of the volume. For example, `gp2` or `io2`.
      * 
      */
-    public String volumeType() {
-        return this.volumeType;
+    public Optional<String> volumeType() {
+        return Optional.ofNullable(this.volumeType);
     }
 
     public static Builder builder() {
@@ -119,14 +121,14 @@ public final class GetImageRecipeBlockDeviceMappingEb {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean deleteOnTermination;
-        private Boolean encrypted;
-        private Integer iops;
-        private String kmsKeyId;
-        private String snapshotId;
-        private Integer throughput;
-        private Integer volumeSize;
-        private String volumeType;
+        private @Nullable Boolean deleteOnTermination;
+        private @Nullable Boolean encrypted;
+        private @Nullable Integer iops;
+        private @Nullable String kmsKeyId;
+        private @Nullable String snapshotId;
+        private @Nullable Integer throughput;
+        private @Nullable Integer volumeSize;
+        private @Nullable String volumeType;
         public Builder() {}
         public Builder(GetImageRecipeBlockDeviceMappingEb defaults) {
     	      Objects.requireNonNull(defaults);
@@ -141,43 +143,43 @@ public final class GetImageRecipeBlockDeviceMappingEb {
         }
 
         @CustomType.Setter
-        public Builder deleteOnTermination(Boolean deleteOnTermination) {
-            this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
+        public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+            this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+        public Builder encrypted(@Nullable Boolean encrypted) {
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
-        public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+        public Builder iops(@Nullable Integer iops) {
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
-        public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+        public Builder kmsKeyId(@Nullable String kmsKeyId) {
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotId(String snapshotId) {
-            this.snapshotId = Objects.requireNonNull(snapshotId);
+        public Builder snapshotId(@Nullable String snapshotId) {
+            this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
-        public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+        public Builder throughput(@Nullable Integer throughput) {
+            this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+        public Builder volumeSize(@Nullable Integer volumeSize) {
+            this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
-        public Builder volumeType(String volumeType) {
-            this.volumeType = Objects.requireNonNull(volumeType);
+        public Builder volumeType(@Nullable String volumeType) {
+            this.volumeType = volumeType;
             return this;
         }
         public GetImageRecipeBlockDeviceMappingEb build() {

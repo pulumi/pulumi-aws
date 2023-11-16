@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Iot
         /// The ARN of the topic rule destination
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not to enable the destination. Default: `true`.

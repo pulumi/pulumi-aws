@@ -132,14 +132,14 @@ namespace Pulumi.Aws.LB
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetLbsResult(
             ImmutableArray<string> arns,
 
-            string id,
+            string? id,
 
             ImmutableDictionary<string, string>? tags)
         {

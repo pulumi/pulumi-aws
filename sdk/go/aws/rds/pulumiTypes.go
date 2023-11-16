@@ -2952,9 +2952,9 @@ func (o ReservedInstanceRecurringChargeArrayOutput) Index(i pulumi.IntInput) Res
 }
 
 type GetClusterMasterUserSecret struct {
-	KmsKeyId     string `pulumi:"kmsKeyId"`
-	SecretArn    string `pulumi:"secretArn"`
-	SecretStatus string `pulumi:"secretStatus"`
+	KmsKeyId     *string `pulumi:"kmsKeyId"`
+	SecretArn    *string `pulumi:"secretArn"`
+	SecretStatus *string `pulumi:"secretStatus"`
 }
 
 // GetClusterMasterUserSecretInput is an input type that accepts GetClusterMasterUserSecretArgs and GetClusterMasterUserSecretOutput values.
@@ -2969,9 +2969,9 @@ type GetClusterMasterUserSecretInput interface {
 }
 
 type GetClusterMasterUserSecretArgs struct {
-	KmsKeyId     pulumi.StringInput `pulumi:"kmsKeyId"`
-	SecretArn    pulumi.StringInput `pulumi:"secretArn"`
-	SecretStatus pulumi.StringInput `pulumi:"secretStatus"`
+	KmsKeyId     pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	SecretArn    pulumi.StringPtrInput `pulumi:"secretArn"`
+	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
 }
 
 func (GetClusterMasterUserSecretArgs) ElementType() reflect.Type {
@@ -3025,16 +3025,16 @@ func (o GetClusterMasterUserSecretOutput) ToGetClusterMasterUserSecretOutputWith
 	return o
 }
 
-func (o GetClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterMasterUserSecret) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o GetClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterMasterUserSecretOutput) SecretArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterMasterUserSecret) string { return v.SecretArn }).(pulumi.StringOutput)
+func (o GetClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetClusterMasterUserSecretOutput) SecretStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterMasterUserSecret) string { return v.SecretStatus }).(pulumi.StringOutput)
+func (o GetClusterMasterUserSecretOutput) SecretStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetClusterMasterUserSecret) *string { return v.SecretStatus }).(pulumi.StringPtrOutput)
 }
 
 type GetClusterMasterUserSecretArrayOutput struct{ *pulumi.OutputState }
@@ -3265,11 +3265,11 @@ func (o GetEngineVersionFilterArrayOutput) Index(i pulumi.IntInput) GetEngineVer
 
 type GetInstanceMasterUserSecret struct {
 	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
-	KmsKeyId string `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the secret.
-	SecretArn string `pulumi:"secretArn"`
+	SecretArn *string `pulumi:"secretArn"`
 	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-	SecretStatus string `pulumi:"secretStatus"`
+	SecretStatus *string `pulumi:"secretStatus"`
 }
 
 // GetInstanceMasterUserSecretInput is an input type that accepts GetInstanceMasterUserSecretArgs and GetInstanceMasterUserSecretOutput values.
@@ -3285,11 +3285,11 @@ type GetInstanceMasterUserSecretInput interface {
 
 type GetInstanceMasterUserSecretArgs struct {
 	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
-	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the secret.
-	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-	SecretStatus pulumi.StringInput `pulumi:"secretStatus"`
+	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
 }
 
 func (GetInstanceMasterUserSecretArgs) ElementType() reflect.Type {
@@ -3344,18 +3344,18 @@ func (o GetInstanceMasterUserSecretOutput) ToGetInstanceMasterUserSecretOutputWi
 }
 
 // The Amazon Web Services KMS key identifier that is used to encrypt the secret.
-func (o GetInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o GetInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the secret.
-func (o GetInstanceMasterUserSecretOutput) SecretArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.SecretArn }).(pulumi.StringOutput)
+func (o GetInstanceMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
 // The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-func (o GetInstanceMasterUserSecretOutput) SecretStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.SecretStatus }).(pulumi.StringOutput)
+func (o GetInstanceMasterUserSecretOutput) SecretStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceMasterUserSecret) *string { return v.SecretStatus }).(pulumi.StringPtrOutput)
 }
 
 type GetInstanceMasterUserSecretArrayOutput struct{ *pulumi.OutputState }
@@ -3485,12 +3485,12 @@ func (o GetInstancesFilterArrayOutput) Index(i pulumi.IntInput) GetInstancesFilt
 }
 
 type GetProxyAuth struct {
-	AuthScheme             string `pulumi:"authScheme"`
-	ClientPasswordAuthType string `pulumi:"clientPasswordAuthType"`
-	Description            string `pulumi:"description"`
-	IamAuth                string `pulumi:"iamAuth"`
-	SecretArn              string `pulumi:"secretArn"`
-	Username               string `pulumi:"username"`
+	AuthScheme             *string `pulumi:"authScheme"`
+	ClientPasswordAuthType *string `pulumi:"clientPasswordAuthType"`
+	Description            *string `pulumi:"description"`
+	IamAuth                *string `pulumi:"iamAuth"`
+	SecretArn              *string `pulumi:"secretArn"`
+	Username               *string `pulumi:"username"`
 }
 
 // GetProxyAuthInput is an input type that accepts GetProxyAuthArgs and GetProxyAuthOutput values.
@@ -3505,12 +3505,12 @@ type GetProxyAuthInput interface {
 }
 
 type GetProxyAuthArgs struct {
-	AuthScheme             pulumi.StringInput `pulumi:"authScheme"`
-	ClientPasswordAuthType pulumi.StringInput `pulumi:"clientPasswordAuthType"`
-	Description            pulumi.StringInput `pulumi:"description"`
-	IamAuth                pulumi.StringInput `pulumi:"iamAuth"`
-	SecretArn              pulumi.StringInput `pulumi:"secretArn"`
-	Username               pulumi.StringInput `pulumi:"username"`
+	AuthScheme             pulumi.StringPtrInput `pulumi:"authScheme"`
+	ClientPasswordAuthType pulumi.StringPtrInput `pulumi:"clientPasswordAuthType"`
+	Description            pulumi.StringPtrInput `pulumi:"description"`
+	IamAuth                pulumi.StringPtrInput `pulumi:"iamAuth"`
+	SecretArn              pulumi.StringPtrInput `pulumi:"secretArn"`
+	Username               pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (GetProxyAuthArgs) ElementType() reflect.Type {
@@ -3564,28 +3564,28 @@ func (o GetProxyAuthOutput) ToGetProxyAuthOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o GetProxyAuthOutput) AuthScheme() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProxyAuth) string { return v.AuthScheme }).(pulumi.StringOutput)
+func (o GetProxyAuthOutput) AuthScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProxyAuth) *string { return v.AuthScheme }).(pulumi.StringPtrOutput)
 }
 
-func (o GetProxyAuthOutput) ClientPasswordAuthType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProxyAuth) string { return v.ClientPasswordAuthType }).(pulumi.StringOutput)
+func (o GetProxyAuthOutput) ClientPasswordAuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProxyAuth) *string { return v.ClientPasswordAuthType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetProxyAuthOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProxyAuth) string { return v.Description }).(pulumi.StringOutput)
+func (o GetProxyAuthOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProxyAuth) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o GetProxyAuthOutput) IamAuth() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProxyAuth) string { return v.IamAuth }).(pulumi.StringOutput)
+func (o GetProxyAuthOutput) IamAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProxyAuth) *string { return v.IamAuth }).(pulumi.StringPtrOutput)
 }
 
-func (o GetProxyAuthOutput) SecretArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProxyAuth) string { return v.SecretArn }).(pulumi.StringOutput)
+func (o GetProxyAuthOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProxyAuth) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GetProxyAuthOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v GetProxyAuth) string { return v.Username }).(pulumi.StringOutput)
+func (o GetProxyAuthOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetProxyAuth) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type GetProxyAuthArrayOutput struct{ *pulumi.OutputState }

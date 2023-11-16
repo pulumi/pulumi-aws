@@ -72,16 +72,16 @@ type LookupCustomRoutingAcceleratorArgs struct {
 
 // A collection of values returned by getCustomRoutingAccelerator.
 type LookupCustomRoutingAcceleratorResult struct {
-	Arn          string                                 `pulumi:"arn"`
+	Arn          *string                                `pulumi:"arn"`
 	Attributes   []GetCustomRoutingAcceleratorAttribute `pulumi:"attributes"`
-	DnsName      string                                 `pulumi:"dnsName"`
-	Enabled      bool                                   `pulumi:"enabled"`
-	HostedZoneId string                                 `pulumi:"hostedZoneId"`
+	DnsName      *string                                `pulumi:"dnsName"`
+	Enabled      *bool                                  `pulumi:"enabled"`
+	HostedZoneId *string                                `pulumi:"hostedZoneId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string                             `pulumi:"id"`
-	IpAddressType string                             `pulumi:"ipAddressType"`
+	Id            *string                            `pulumi:"id"`
+	IpAddressType *string                            `pulumi:"ipAddressType"`
 	IpSets        []GetCustomRoutingAcceleratorIpSet `pulumi:"ipSets"`
-	Name          string                             `pulumi:"name"`
+	Name          *string                            `pulumi:"name"`
 	Tags          map[string]string                  `pulumi:"tags"`
 }
 
@@ -128,8 +128,8 @@ func (o LookupCustomRoutingAcceleratorResultOutput) ToLookupCustomRoutingAcceler
 	return o
 }
 
-func (o LookupCustomRoutingAcceleratorResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupCustomRoutingAcceleratorResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCustomRoutingAcceleratorResultOutput) Attributes() GetCustomRoutingAcceleratorAttributeArrayOutput {
@@ -138,33 +138,33 @@ func (o LookupCustomRoutingAcceleratorResultOutput) Attributes() GetCustomRoutin
 	}).(GetCustomRoutingAcceleratorAttributeArrayOutput)
 }
 
-func (o LookupCustomRoutingAcceleratorResultOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) string { return v.DnsName }).(pulumi.StringOutput)
+func (o LookupCustomRoutingAcceleratorResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCustomRoutingAcceleratorResultOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o LookupCustomRoutingAcceleratorResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupCustomRoutingAcceleratorResultOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o LookupCustomRoutingAcceleratorResultOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupCustomRoutingAcceleratorResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCustomRoutingAcceleratorResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupCustomRoutingAcceleratorResultOutput) IpAddressType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) string { return v.IpAddressType }).(pulumi.StringOutput)
+func (o LookupCustomRoutingAcceleratorResultOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCustomRoutingAcceleratorResultOutput) IpSets() GetCustomRoutingAcceleratorIpSetArrayOutput {
 	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) []GetCustomRoutingAcceleratorIpSet { return v.IpSets }).(GetCustomRoutingAcceleratorIpSetArrayOutput)
 }
 
-func (o LookupCustomRoutingAcceleratorResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupCustomRoutingAcceleratorResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomRoutingAcceleratorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCustomRoutingAcceleratorResultOutput) Tags() pulumi.StringMapOutput {

@@ -13,10 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult
     {
-        public readonly string DefaultTargetHostname;
+        public readonly string? DefaultTargetHostname;
 
         [OutputConstructor]
-        private GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(string defaultTargetHostname)
+        private GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(string? defaultTargetHostname)
         {
             DefaultTargetHostname = defaultTargetHostname;
         }

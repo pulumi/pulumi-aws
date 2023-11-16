@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSchedulingPolicyFairSharePolicyShareDistribution {
@@ -14,27 +16,27 @@ public final class GetSchedulingPolicyFairSharePolicyShareDistribution {
      * @return Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    private String shareIdentifier;
+    private @Nullable String shareIdentifier;
     /**
      * @return Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    private Double weightFactor;
+    private @Nullable Double weightFactor;
 
     private GetSchedulingPolicyFairSharePolicyShareDistribution() {}
     /**
      * @return Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    public String shareIdentifier() {
-        return this.shareIdentifier;
+    public Optional<String> shareIdentifier() {
+        return Optional.ofNullable(this.shareIdentifier);
     }
     /**
      * @return Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    public Double weightFactor() {
-        return this.weightFactor;
+    public Optional<Double> weightFactor() {
+        return Optional.ofNullable(this.weightFactor);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetSchedulingPolicyFairSharePolicyShareDistribution {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String shareIdentifier;
-        private Double weightFactor;
+        private @Nullable String shareIdentifier;
+        private @Nullable Double weightFactor;
         public Builder() {}
         public Builder(GetSchedulingPolicyFairSharePolicyShareDistribution defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetSchedulingPolicyFairSharePolicyShareDistribution {
         }
 
         @CustomType.Setter
-        public Builder shareIdentifier(String shareIdentifier) {
-            this.shareIdentifier = Objects.requireNonNull(shareIdentifier);
+        public Builder shareIdentifier(@Nullable String shareIdentifier) {
+            this.shareIdentifier = shareIdentifier;
             return this;
         }
         @CustomType.Setter
-        public Builder weightFactor(Double weightFactor) {
-            this.weightFactor = Objects.requireNonNull(weightFactor);
+        public Builder weightFactor(@Nullable Double weightFactor) {
+            this.weightFactor = weightFactor;
             return this;
         }
         public GetSchedulingPolicyFairSharePolicyShareDistribution build() {

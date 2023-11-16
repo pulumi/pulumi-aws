@@ -483,7 +483,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeDate")
-    def active_date(self) -> pulumi.Output[str]:
+    def active_date(self) -> pulumi.Output[Optional[str]]:
         """
         An date when the certificate becomes active
         """
@@ -491,7 +491,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the certificate
         """
@@ -515,7 +515,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> pulumi.Output[str]:
+    def certificate_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier for the AS2 certificate
         """
@@ -531,7 +531,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inactiveDate")
-    def inactive_date(self) -> pulumi.Output[str]:
+    def inactive_date(self) -> pulumi.Output[Optional[str]]:
         """
         An date when the certificate becomes inactive
         """

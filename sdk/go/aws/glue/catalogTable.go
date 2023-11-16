@@ -123,9 +123,9 @@ type CatalogTable struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Glue Table.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
 	// The follow arguments are optional:
@@ -427,13 +427,13 @@ func (o CatalogTableOutput) ToCatalogTableOutputWithContext(ctx context.Context)
 }
 
 // The ARN of the Glue Table.
-func (o CatalogTableOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o CatalogTableOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-func (o CatalogTableOutput) CatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
+func (o CatalogTableOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
 // Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.

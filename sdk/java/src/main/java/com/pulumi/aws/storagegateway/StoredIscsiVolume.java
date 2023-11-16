@@ -108,28 +108,28 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Whether mutual CHAP is enabled for the iSCSI target.
      * 
      */
     @Export(name="chapEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> chapEnabled;
+    private Output</* @Nullable */ Boolean> chapEnabled;
 
     /**
      * @return Whether mutual CHAP is enabled for the iSCSI target.
      * 
      */
-    public Output<Boolean> chapEnabled() {
-        return this.chapEnabled;
+    public Output<Optional<Boolean>> chapEnabled() {
+        return Codegen.optional(this.chapEnabled);
     }
     /**
      * The unique identifier for the gateway local disk that is configured as a stored volume.
@@ -192,14 +192,14 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lunNumber", refs={Integer.class}, tree="[0]")
-    private Output<Integer> lunNumber;
+    private Output</* @Nullable */ Integer> lunNumber;
 
     /**
      * @return Logical disk number.
      * 
      */
-    public Output<Integer> lunNumber() {
-        return this.lunNumber;
+    public Output<Optional<Integer>> lunNumber() {
+        return Codegen.optional(this.lunNumber);
     }
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
@@ -220,14 +220,14 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkInterfacePort", refs={Integer.class}, tree="[0]")
-    private Output<Integer> networkInterfacePort;
+    private Output</* @Nullable */ Integer> networkInterfacePort;
 
     /**
      * @return The port used to communicate with iSCSI targets.
      * 
      */
-    public Output<Integer> networkInterfacePort() {
-        return this.networkInterfacePort;
+    public Output<Optional<Integer>> networkInterfacePort() {
+        return Codegen.optional(this.networkInterfacePort);
     }
     /**
      * Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
@@ -294,14 +294,14 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
-    private Output<String> targetArn;
+    private Output</* @Nullable */ String> targetArn;
 
     /**
      * @return Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
-    public Output<String> targetArn() {
-        return this.targetArn;
+    public Output<Optional<String>> targetArn() {
+        return Codegen.optional(this.targetArn);
     }
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
@@ -322,70 +322,70 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="volumeAttachmentStatus", refs={String.class}, tree="[0]")
-    private Output<String> volumeAttachmentStatus;
+    private Output</* @Nullable */ String> volumeAttachmentStatus;
 
     /**
      * @return A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
      * 
      */
-    public Output<String> volumeAttachmentStatus() {
-        return this.volumeAttachmentStatus;
+    public Output<Optional<String>> volumeAttachmentStatus() {
+        return Codegen.optional(this.volumeAttachmentStatus);
     }
     /**
      * Volume ID, e.g., `vol-12345678`.
      * 
      */
     @Export(name="volumeId", refs={String.class}, tree="[0]")
-    private Output<String> volumeId;
+    private Output</* @Nullable */ String> volumeId;
 
     /**
      * @return Volume ID, e.g., `vol-12345678`.
      * 
      */
-    public Output<String> volumeId() {
-        return this.volumeId;
+    public Output<Optional<String>> volumeId() {
+        return Codegen.optional(this.volumeId);
     }
     /**
      * The size of the data stored on the volume in bytes.
      * 
      */
     @Export(name="volumeSizeInBytes", refs={Integer.class}, tree="[0]")
-    private Output<Integer> volumeSizeInBytes;
+    private Output</* @Nullable */ Integer> volumeSizeInBytes;
 
     /**
      * @return The size of the data stored on the volume in bytes.
      * 
      */
-    public Output<Integer> volumeSizeInBytes() {
-        return this.volumeSizeInBytes;
+    public Output<Optional<Integer>> volumeSizeInBytes() {
+        return Codegen.optional(this.volumeSizeInBytes);
     }
     /**
      * indicates the state of the storage volume.
      * 
      */
     @Export(name="volumeStatus", refs={String.class}, tree="[0]")
-    private Output<String> volumeStatus;
+    private Output</* @Nullable */ String> volumeStatus;
 
     /**
      * @return indicates the state of the storage volume.
      * 
      */
-    public Output<String> volumeStatus() {
-        return this.volumeStatus;
+    public Output<Optional<String>> volumeStatus() {
+        return Codegen.optional(this.volumeStatus);
     }
     /**
      * indicates the type of the volume.
      * 
      */
     @Export(name="volumeType", refs={String.class}, tree="[0]")
-    private Output<String> volumeType;
+    private Output</* @Nullable */ String> volumeType;
 
     /**
      * @return indicates the type of the volume.
      * 
      */
-    public Output<String> volumeType() {
-        return this.volumeType;
+    public Output<Optional<String>> volumeType() {
+        return Codegen.optional(this.volumeType);
     }
 
     /**

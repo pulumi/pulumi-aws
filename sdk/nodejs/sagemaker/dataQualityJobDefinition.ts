@@ -84,7 +84,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Specifies the container that runs the monitoring job. Fields are documented below.
      */
@@ -120,7 +120,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      */
-    public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionStoppingCondition>;
+    public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionStoppingCondition | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

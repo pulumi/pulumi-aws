@@ -54,25 +54,25 @@ namespace Pulumi.Aws.Quicksight
         /// The Amazon Resource Name (ARN) of the resource.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The time that the template was created.
         /// </summary>
         [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
+        public Output<string?> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// The time that the template was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        public Output<string?> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Display name for the template.
@@ -96,13 +96,13 @@ namespace Pulumi.Aws.Quicksight
         /// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
         /// </summary>
         [Output("sourceEntityArn")]
-        public Output<string> SourceEntityArn { get; private set; } = null!;
+        public Output<string?> SourceEntityArn { get; private set; } = null!;
 
         /// <summary>
         /// The template creation status.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Quicksight
         /// The version number of the template version.
         /// </summary>
         [Output("versionNumber")]
-        public Output<int> VersionNumber { get; private set; } = null!;
+        public Output<int?> VersionNumber { get; private set; } = null!;
 
 
         /// <summary>

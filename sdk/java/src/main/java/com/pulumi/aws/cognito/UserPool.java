@@ -171,14 +171,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="adminCreateUserConfig", refs={UserPoolAdminCreateUserConfig.class}, tree="[0]")
-    private Output<UserPoolAdminCreateUserConfig> adminCreateUserConfig;
+    private Output</* @Nullable */ UserPoolAdminCreateUserConfig> adminCreateUserConfig;
 
     /**
      * @return Configuration block for creating a new user profile. Detailed below.
      * 
      */
-    public Output<UserPoolAdminCreateUserConfig> adminCreateUserConfig() {
-        return this.adminCreateUserConfig;
+    public Output<Optional<UserPoolAdminCreateUserConfig>> adminCreateUserConfig() {
+        return Codegen.optional(this.adminCreateUserConfig);
     }
     /**
      * Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
@@ -199,14 +199,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    private Output</* @Nullable */ String> arn;
 
     /**
      * @return ARN of the user pool.
      * 
      */
-    public Output<String> arn() {
-        return this.arn;
+    public Output<Optional<String>> arn() {
+        return Codegen.optional(this.arn);
     }
     /**
      * Attributes to be auto-verified. Valid values: `email`, `phone_number`.
@@ -227,28 +227,28 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
-    private Output<String> creationDate;
+    private Output</* @Nullable */ String> creationDate;
 
     /**
      * @return Date the user pool was created.
      * 
      */
-    public Output<String> creationDate() {
-        return this.creationDate;
+    public Output<Optional<String>> creationDate() {
+        return Codegen.optional(this.creationDate);
     }
     /**
      * A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
      * 
      */
     @Export(name="customDomain", refs={String.class}, tree="[0]")
-    private Output<String> customDomain;
+    private Output</* @Nullable */ String> customDomain;
 
     /**
      * @return A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
      * 
      */
-    public Output<String> customDomain() {
-        return this.customDomain;
+    public Output<Optional<String>> customDomain() {
+        return Codegen.optional(this.customDomain);
     }
     /**
      * When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
@@ -283,14 +283,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
-    private Output<String> domain;
+    private Output</* @Nullable */ String> domain;
 
     /**
      * @return Holds the domain prefix if the user pool has a domain associated with it.
      * 
      */
-    public Output<String> domain() {
-        return this.domain;
+    public Output<Optional<String>> domain() {
+        return Codegen.optional(this.domain);
     }
     /**
      * Configuration block for configuring email. Detailed below.
@@ -311,56 +311,56 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="emailVerificationMessage", refs={String.class}, tree="[0]")
-    private Output<String> emailVerificationMessage;
+    private Output</* @Nullable */ String> emailVerificationMessage;
 
     /**
      * @return String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      * 
      */
-    public Output<String> emailVerificationMessage() {
-        return this.emailVerificationMessage;
+    public Output<Optional<String>> emailVerificationMessage() {
+        return Codegen.optional(this.emailVerificationMessage);
     }
     /**
      * String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
      * 
      */
     @Export(name="emailVerificationSubject", refs={String.class}, tree="[0]")
-    private Output<String> emailVerificationSubject;
+    private Output</* @Nullable */ String> emailVerificationSubject;
 
     /**
      * @return String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
      * 
      */
-    public Output<String> emailVerificationSubject() {
-        return this.emailVerificationSubject;
+    public Output<Optional<String>> emailVerificationSubject() {
+        return Codegen.optional(this.emailVerificationSubject);
     }
     /**
      * Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
-    private Output<String> endpoint;
+    private Output</* @Nullable */ String> endpoint;
 
     /**
      * @return Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
      * 
      */
-    public Output<String> endpoint() {
-        return this.endpoint;
+    public Output<Optional<String>> endpoint() {
+        return Codegen.optional(this.endpoint);
     }
     /**
      * A number estimating the size of the user pool.
      * 
      */
     @Export(name="estimatedNumberOfUsers", refs={Integer.class}, tree="[0]")
-    private Output<Integer> estimatedNumberOfUsers;
+    private Output</* @Nullable */ Integer> estimatedNumberOfUsers;
 
     /**
      * @return A number estimating the size of the user pool.
      * 
      */
-    public Output<Integer> estimatedNumberOfUsers() {
-        return this.estimatedNumberOfUsers;
+    public Output<Optional<Integer>> estimatedNumberOfUsers() {
+        return Codegen.optional(this.estimatedNumberOfUsers);
     }
     /**
      * Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
@@ -381,14 +381,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastModifiedDate", refs={String.class}, tree="[0]")
-    private Output<String> lastModifiedDate;
+    private Output</* @Nullable */ String> lastModifiedDate;
 
     /**
      * @return Date the user pool was last modified.
      * 
      */
-    public Output<String> lastModifiedDate() {
-        return this.lastModifiedDate;
+    public Output<Optional<String>> lastModifiedDate() {
+        return Codegen.optional(this.lastModifiedDate);
     }
     /**
      * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
@@ -427,14 +427,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="passwordPolicy", refs={UserPoolPasswordPolicy.class}, tree="[0]")
-    private Output<UserPoolPasswordPolicy> passwordPolicy;
+    private Output</* @Nullable */ UserPoolPasswordPolicy> passwordPolicy;
 
     /**
      * @return Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
-    public Output<UserPoolPasswordPolicy> passwordPolicy() {
-        return this.passwordPolicy;
+    public Output<Optional<UserPoolPasswordPolicy>> passwordPolicy() {
+        return Codegen.optional(this.passwordPolicy);
     }
     /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
@@ -469,28 +469,28 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="smsConfiguration", refs={UserPoolSmsConfiguration.class}, tree="[0]")
-    private Output<UserPoolSmsConfiguration> smsConfiguration;
+    private Output</* @Nullable */ UserPoolSmsConfiguration> smsConfiguration;
 
     /**
      * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
-    public Output<UserPoolSmsConfiguration> smsConfiguration() {
-        return this.smsConfiguration;
+    public Output<Optional<UserPoolSmsConfiguration>> smsConfiguration() {
+        return Codegen.optional(this.smsConfiguration);
     }
     /**
      * String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
      * 
      */
     @Export(name="smsVerificationMessage", refs={String.class}, tree="[0]")
-    private Output<String> smsVerificationMessage;
+    private Output</* @Nullable */ String> smsVerificationMessage;
 
     /**
      * @return String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
      * 
      */
-    public Output<String> smsVerificationMessage() {
-        return this.smsVerificationMessage;
+    public Output<Optional<String>> smsVerificationMessage() {
+        return Codegen.optional(this.smsVerificationMessage);
     }
     /**
      * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
@@ -599,14 +599,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="verificationMessageTemplate", refs={UserPoolVerificationMessageTemplate.class}, tree="[0]")
-    private Output<UserPoolVerificationMessageTemplate> verificationMessageTemplate;
+    private Output</* @Nullable */ UserPoolVerificationMessageTemplate> verificationMessageTemplate;
 
     /**
      * @return Configuration block for verification message templates. Detailed below.
      * 
      */
-    public Output<UserPoolVerificationMessageTemplate> verificationMessageTemplate() {
-        return this.verificationMessageTemplate;
+    public Output<Optional<UserPoolVerificationMessageTemplate>> verificationMessageTemplate() {
+        return Codegen.optional(this.verificationMessageTemplate);
     }
 
     /**

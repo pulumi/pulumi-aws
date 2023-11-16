@@ -34,7 +34,7 @@ class GetEmailIdentityResult:
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> Optional[str]:
         """
         The ARN of the email identity.
         """
@@ -50,7 +50,7 @@ class GetEmailIdentityResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """

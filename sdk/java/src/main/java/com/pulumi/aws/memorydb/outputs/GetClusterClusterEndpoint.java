@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClusterClusterEndpoint {
@@ -14,27 +16,27 @@ public final class GetClusterClusterEndpoint {
      * @return DNS hostname of the node.
      * 
      */
-    private String address;
+    private @Nullable String address;
     /**
      * @return Port number that this node is listening on.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
 
     private GetClusterClusterEndpoint() {}
     /**
      * @return DNS hostname of the node.
      * 
      */
-    public String address() {
-        return this.address;
+    public Optional<String> address() {
+        return Optional.ofNullable(this.address);
     }
     /**
      * @return Port number that this node is listening on.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetClusterClusterEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String address;
-        private Integer port;
+        private @Nullable String address;
+        private @Nullable Integer port;
         public Builder() {}
         public Builder(GetClusterClusterEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetClusterClusterEndpoint {
         }
 
         @CustomType.Setter
-        public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+        public Builder address(@Nullable String address) {
+            this.address = address;
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         public GetClusterClusterEndpoint build() {

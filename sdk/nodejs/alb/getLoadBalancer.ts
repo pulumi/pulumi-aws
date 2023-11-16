@@ -66,36 +66,36 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: outputs.alb.GetLoadBalancerAccessLogs;
-    readonly arn: string;
-    readonly arnSuffix: string;
-    readonly customerOwnedIpv4Pool: string;
-    readonly desyncMitigationMode: string;
-    readonly dnsName: string;
-    readonly dropInvalidHeaderFields: boolean;
-    readonly enableCrossZoneLoadBalancing: boolean;
-    readonly enableDeletionProtection: boolean;
-    readonly enableHttp2: boolean;
-    readonly enableTlsVersionAndCipherSuiteHeaders: boolean;
-    readonly enableWafFailOpen: boolean;
-    readonly enableXffClientPort: boolean;
+    readonly accessLogs?: outputs.alb.GetLoadBalancerAccessLogs;
+    readonly arn?: string;
+    readonly arnSuffix?: string;
+    readonly customerOwnedIpv4Pool?: string;
+    readonly desyncMitigationMode?: string;
+    readonly dnsName?: string;
+    readonly dropInvalidHeaderFields?: boolean;
+    readonly enableCrossZoneLoadBalancing?: boolean;
+    readonly enableDeletionProtection?: boolean;
+    readonly enableHttp2?: boolean;
+    readonly enableTlsVersionAndCipherSuiteHeaders?: boolean;
+    readonly enableWafFailOpen?: boolean;
+    readonly enableXffClientPort?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
-    readonly idleTimeout: number;
-    readonly internal: boolean;
-    readonly ipAddressType: string;
-    readonly loadBalancerType: string;
-    readonly name: string;
-    readonly preserveHostHeader: boolean;
-    readonly securityGroups: string[];
-    readonly subnetMappings: outputs.alb.GetLoadBalancerSubnetMapping[];
-    readonly subnets: string[];
-    readonly tags: {[key: string]: string};
-    readonly vpcId: string;
-    readonly xffHeaderProcessingMode: string;
-    readonly zoneId: string;
+    readonly id?: string;
+    readonly idleTimeout?: number;
+    readonly internal?: boolean;
+    readonly ipAddressType?: string;
+    readonly loadBalancerType?: string;
+    readonly name?: string;
+    readonly preserveHostHeader?: boolean;
+    readonly securityGroups?: string[];
+    readonly subnetMappings?: outputs.alb.GetLoadBalancerSubnetMapping[];
+    readonly subnets?: string[];
+    readonly tags?: {[key: string]: string};
+    readonly vpcId?: string;
+    readonly xffHeaderProcessingMode?: string;
+    readonly zoneId?: string;
 }
 /**
  * > **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.

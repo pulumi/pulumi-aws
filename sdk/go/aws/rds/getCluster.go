@@ -58,38 +58,38 @@ type LookupClusterArgs struct {
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
-	Arn                              string   `pulumi:"arn"`
+	Arn                              *string  `pulumi:"arn"`
 	AvailabilityZones                []string `pulumi:"availabilityZones"`
-	BacktrackWindow                  int      `pulumi:"backtrackWindow"`
-	BackupRetentionPeriod            int      `pulumi:"backupRetentionPeriod"`
+	BacktrackWindow                  *int     `pulumi:"backtrackWindow"`
+	BackupRetentionPeriod            *int     `pulumi:"backupRetentionPeriod"`
 	ClusterIdentifier                string   `pulumi:"clusterIdentifier"`
 	ClusterMembers                   []string `pulumi:"clusterMembers"`
-	ClusterResourceId                string   `pulumi:"clusterResourceId"`
-	DatabaseName                     string   `pulumi:"databaseName"`
-	DbClusterParameterGroupName      string   `pulumi:"dbClusterParameterGroupName"`
-	DbSubnetGroupName                string   `pulumi:"dbSubnetGroupName"`
-	DbSystemId                       string   `pulumi:"dbSystemId"`
+	ClusterResourceId                *string  `pulumi:"clusterResourceId"`
+	DatabaseName                     *string  `pulumi:"databaseName"`
+	DbClusterParameterGroupName      *string  `pulumi:"dbClusterParameterGroupName"`
+	DbSubnetGroupName                *string  `pulumi:"dbSubnetGroupName"`
+	DbSystemId                       *string  `pulumi:"dbSystemId"`
 	EnabledCloudwatchLogsExports     []string `pulumi:"enabledCloudwatchLogsExports"`
-	Endpoint                         string   `pulumi:"endpoint"`
-	Engine                           string   `pulumi:"engine"`
-	EngineMode                       string   `pulumi:"engineMode"`
-	EngineVersion                    string   `pulumi:"engineVersion"`
-	FinalSnapshotIdentifier          string   `pulumi:"finalSnapshotIdentifier"`
-	HostedZoneId                     string   `pulumi:"hostedZoneId"`
-	IamDatabaseAuthenticationEnabled bool     `pulumi:"iamDatabaseAuthenticationEnabled"`
+	Endpoint                         *string  `pulumi:"endpoint"`
+	Engine                           *string  `pulumi:"engine"`
+	EngineMode                       *string  `pulumi:"engineMode"`
+	EngineVersion                    *string  `pulumi:"engineVersion"`
+	FinalSnapshotIdentifier          *string  `pulumi:"finalSnapshotIdentifier"`
+	HostedZoneId                     *string  `pulumi:"hostedZoneId"`
+	IamDatabaseAuthenticationEnabled *bool    `pulumi:"iamDatabaseAuthenticationEnabled"`
 	IamRoles                         []string `pulumi:"iamRoles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                          string                       `pulumi:"id"`
-	KmsKeyId                    string                       `pulumi:"kmsKeyId"`
+	Id                          *string                      `pulumi:"id"`
+	KmsKeyId                    *string                      `pulumi:"kmsKeyId"`
 	MasterUserSecrets           []GetClusterMasterUserSecret `pulumi:"masterUserSecrets"`
-	MasterUsername              string                       `pulumi:"masterUsername"`
-	NetworkType                 string                       `pulumi:"networkType"`
-	Port                        int                          `pulumi:"port"`
-	PreferredBackupWindow       string                       `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  string                       `pulumi:"preferredMaintenanceWindow"`
-	ReaderEndpoint              string                       `pulumi:"readerEndpoint"`
-	ReplicationSourceIdentifier string                       `pulumi:"replicationSourceIdentifier"`
-	StorageEncrypted            bool                         `pulumi:"storageEncrypted"`
+	MasterUsername              *string                      `pulumi:"masterUsername"`
+	NetworkType                 *string                      `pulumi:"networkType"`
+	Port                        *int                         `pulumi:"port"`
+	PreferredBackupWindow       *string                      `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow  *string                      `pulumi:"preferredMaintenanceWindow"`
+	ReaderEndpoint              *string                      `pulumi:"readerEndpoint"`
+	ReplicationSourceIdentifier *string                      `pulumi:"replicationSourceIdentifier"`
+	StorageEncrypted            *bool                        `pulumi:"storageEncrypted"`
 	// A map of tags assigned to the resource.
 	Tags                map[string]string `pulumi:"tags"`
 	VpcSecurityGroupIds []string          `pulumi:"vpcSecurityGroupIds"`
@@ -135,20 +135,20 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
-func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupClusterResultOutput) BacktrackWindow() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupClusterResult) int { return v.BacktrackWindow }).(pulumi.IntOutput)
+func (o LookupClusterResultOutput) BacktrackWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *int { return v.BacktrackWindow }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupClusterResultOutput) BackupRetentionPeriod() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupClusterResult) int { return v.BackupRetentionPeriod }).(pulumi.IntOutput)
+func (o LookupClusterResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *int { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupClusterResultOutput) ClusterIdentifier() pulumi.StringOutput {
@@ -159,56 +159,56 @@ func (o LookupClusterResultOutput) ClusterMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.ClusterMembers }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupClusterResultOutput) ClusterResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterResourceId }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) ClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.DatabaseName }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) DbClusterParameterGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.DbClusterParameterGroupName }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) DbClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.DbClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) DbSubnetGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.DbSubnetGroupName }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) DbSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.DbSystemId }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) DbSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.DbSystemId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.EnabledCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupClusterResultOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.Endpoint }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) Engine() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.Engine }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) EngineMode() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.EngineMode }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) EngineMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.EngineMode }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) EngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.EngineVersion }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) FinalSnapshotIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.FinalSnapshotIdentifier }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) FinalSnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.FinalSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) IamDatabaseAuthenticationEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupClusterResult) bool { return v.IamDatabaseAuthenticationEnabled }).(pulumi.BoolOutput)
+func (o LookupClusterResultOutput) IamDatabaseAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *bool { return v.IamDatabaseAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupClusterResultOutput) IamRoles() pulumi.StringArrayOutput {
@@ -216,48 +216,48 @@ func (o LookupClusterResultOutput) IamRoles() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) MasterUserSecrets() GetClusterMasterUserSecretArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterMasterUserSecret { return v.MasterUserSecrets }).(GetClusterMasterUserSecretArrayOutput)
 }
 
-func (o LookupClusterResultOutput) MasterUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.MasterUsername }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) MasterUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.MasterUsername }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) NetworkType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.NetworkType }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.NetworkType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
+func (o LookupClusterResultOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupClusterResultOutput) PreferredBackupWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.PreferredBackupWindow }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) ReaderEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.ReaderEndpoint }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) ReaderEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.ReaderEndpoint }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) ReplicationSourceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterResult) string { return v.ReplicationSourceIdentifier }).(pulumi.StringOutput)
+func (o LookupClusterResultOutput) ReplicationSourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.ReplicationSourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) StorageEncrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupClusterResult) bool { return v.StorageEncrypted }).(pulumi.BoolOutput)
+func (o LookupClusterResultOutput) StorageEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *bool { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
 // A map of tags assigned to the resource.

@@ -63,7 +63,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * AWS Account ID of the gateway.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.

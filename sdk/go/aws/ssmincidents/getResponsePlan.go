@@ -40,16 +40,16 @@ type LookupResponsePlanResult struct {
 	// The Chatbot chat channel used for collaboration during an incident.
 	ChatChannels []string `pulumi:"chatChannels"`
 	// The long format of the response plan name. This field can contain spaces.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements []string `pulumi:"engagements"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string                            `pulumi:"id"`
+	Id                *string                           `pulumi:"id"`
 	IncidentTemplates []GetResponsePlanIncidentTemplate `pulumi:"incidentTemplates"`
 	// Information about third-party services integrated into the response plan. The following values are supported:
 	Integrations []GetResponsePlanIntegration `pulumi:"integrations"`
 	// The name of the PagerDuty configuration.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The tags applied to the response plan.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -109,8 +109,8 @@ func (o LookupResponsePlanResultOutput) ChatChannels() pulumi.StringArrayOutput 
 }
 
 // The long format of the response plan name. This field can contain spaces.
-func (o LookupResponsePlanResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o LookupResponsePlanResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResponsePlanResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
@@ -119,8 +119,8 @@ func (o LookupResponsePlanResultOutput) Engagements() pulumi.StringArrayOutput {
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o LookupResponsePlanResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupResponsePlanResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResponsePlanResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResponsePlanResultOutput) IncidentTemplates() GetResponsePlanIncidentTemplateArrayOutput {
@@ -133,8 +133,8 @@ func (o LookupResponsePlanResultOutput) Integrations() GetResponsePlanIntegratio
 }
 
 // The name of the PagerDuty configuration.
-func (o LookupResponsePlanResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupResponsePlanResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResponsePlanResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The tags applied to the response plan.

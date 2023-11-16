@@ -8,18 +8,19 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlValidationTrus
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTlValidationTrust {
-    private List<GetVirtualNodeSpecListenerTlValidationTrustFile> files;
-    private List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds;
+    private @Nullable List<GetVirtualNodeSpecListenerTlValidationTrustFile> files;
+    private @Nullable List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds;
 
     private GetVirtualNodeSpecListenerTlValidationTrust() {}
     public List<GetVirtualNodeSpecListenerTlValidationTrustFile> files() {
-        return this.files;
+        return this.files == null ? List.of() : this.files;
     }
     public List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds() {
-        return this.sds;
+        return this.sds == null ? List.of() : this.sds;
     }
 
     public static Builder builder() {
@@ -31,8 +32,8 @@ public final class GetVirtualNodeSpecListenerTlValidationTrust {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetVirtualNodeSpecListenerTlValidationTrustFile> files;
-        private List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds;
+        private @Nullable List<GetVirtualNodeSpecListenerTlValidationTrustFile> files;
+        private @Nullable List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds;
         public Builder() {}
         public Builder(GetVirtualNodeSpecListenerTlValidationTrust defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,16 +42,16 @@ public final class GetVirtualNodeSpecListenerTlValidationTrust {
         }
 
         @CustomType.Setter
-        public Builder files(List<GetVirtualNodeSpecListenerTlValidationTrustFile> files) {
-            this.files = Objects.requireNonNull(files);
+        public Builder files(@Nullable List<GetVirtualNodeSpecListenerTlValidationTrustFile> files) {
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecListenerTlValidationTrustFile... files) {
             return files(List.of(files));
         }
         @CustomType.Setter
-        public Builder sds(List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+        public Builder sds(@Nullable List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds) {
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecListenerTlValidationTrustSd... sds) {

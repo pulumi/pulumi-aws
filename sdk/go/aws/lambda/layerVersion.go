@@ -71,7 +71,7 @@ type LayerVersion struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Lambda Layer with version.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
@@ -79,11 +79,11 @@ type LayerVersion struct {
 	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayOutput `pulumi:"compatibleRuntimes"`
 	// Date this resource was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// Description of what your Lambda Layer does.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ARN of the Lambda Layer without version.
-	LayerArn pulumi.StringOutput `pulumi:"layerArn"`
+	LayerArn pulumi.StringPtrOutput `pulumi:"layerArn"`
 	// Unique name for your Lambda Layer
 	//
 	// The following arguments are optional:
@@ -97,17 +97,17 @@ type LayerVersion struct {
 	// Object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion pulumi.StringPtrOutput `pulumi:"s3ObjectVersion"`
 	// ARN of a signing job.
-	SigningJobArn pulumi.StringOutput `pulumi:"signingJobArn"`
+	SigningJobArn pulumi.StringPtrOutput `pulumi:"signingJobArn"`
 	// ARN for a signing profile version.
-	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
+	SigningProfileVersionArn pulumi.StringPtrOutput `pulumi:"signingProfileVersionArn"`
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
+	SourceCodeHash pulumi.StringPtrOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
-	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
+	SourceCodeSize pulumi.IntPtrOutput `pulumi:"sourceCodeSize"`
 	// Lambda Layer version.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewLayerVersion registers a new resource with the given unique name, arguments, and options.
@@ -371,8 +371,8 @@ func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context)
 }
 
 // ARN of the Lambda Layer with version.
-func (o LayerVersionOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o LayerVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
@@ -391,8 +391,8 @@ func (o LayerVersionOutput) CompatibleRuntimes() pulumi.StringArrayOutput {
 }
 
 // Date this resource was created.
-func (o LayerVersionOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o LayerVersionOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // Description of what your Lambda Layer does.
@@ -401,8 +401,8 @@ func (o LayerVersionOutput) Description() pulumi.StringPtrOutput {
 }
 
 // ARN of the Lambda Layer without version.
-func (o LayerVersionOutput) LayerArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.LayerArn }).(pulumi.StringOutput)
+func (o LayerVersionOutput) LayerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.LayerArn }).(pulumi.StringPtrOutput)
 }
 
 // Unique name for your Lambda Layer
@@ -433,13 +433,13 @@ func (o LayerVersionOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 }
 
 // ARN of a signing job.
-func (o LayerVersionOutput) SigningJobArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.SigningJobArn }).(pulumi.StringOutput)
+func (o LayerVersionOutput) SigningJobArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.SigningJobArn }).(pulumi.StringPtrOutput)
 }
 
 // ARN for a signing profile version.
-func (o LayerVersionOutput) SigningProfileVersionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
+func (o LayerVersionOutput) SigningProfileVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.SigningProfileVersionArn }).(pulumi.StringPtrOutput)
 }
 
 // Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
@@ -448,18 +448,18 @@ func (o LayerVersionOutput) SkipDestroy() pulumi.BoolPtrOutput {
 }
 
 // Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-func (o LayerVersionOutput) SourceCodeHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.SourceCodeHash }).(pulumi.StringOutput)
+func (o LayerVersionOutput) SourceCodeHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.SourceCodeHash }).(pulumi.StringPtrOutput)
 }
 
 // Size in bytes of the function .zip file.
-func (o LayerVersionOutput) SourceCodeSize() pulumi.IntOutput {
-	return o.ApplyT(func(v *LayerVersion) pulumi.IntOutput { return v.SourceCodeSize }).(pulumi.IntOutput)
+func (o LayerVersionOutput) SourceCodeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.IntPtrOutput { return v.SourceCodeSize }).(pulumi.IntPtrOutput)
 }
 
 // Lambda Layer version.
-func (o LayerVersionOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+func (o LayerVersionOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersion) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type LayerVersionArrayOutput struct{ *pulumi.OutputState }

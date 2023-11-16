@@ -139,7 +139,7 @@ namespace Pulumi.Aws.AppConfig
         /// ARN of the AppConfig  hosted configuration version.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration profile ID.
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.AppConfig
         /// Version number of the hosted configuration.
         /// </summary>
         [Output("versionNumber")]
-        public Output<int> VersionNumber { get; private set; } = null!;
+        public Output<int?> VersionNumber { get; private set; } = null!;
 
 
         /// <summary>

@@ -1251,7 +1251,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> pulumi.Output[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
         """
@@ -1259,7 +1259,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Lightsail instance (matches `id`).
         """
@@ -1267,7 +1267,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
         """
@@ -1299,7 +1299,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caCertificateIdentifier")
-    def ca_certificate_identifier(self) -> pulumi.Output[str]:
+    def ca_certificate_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate associated with the database.
         """
@@ -1307,7 +1307,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuCount")
-    def cpu_count(self) -> pulumi.Output[int]:
+    def cpu_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of vCPUs for the database.
         """
@@ -1315,7 +1315,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp when the instance was created.
         """
@@ -1323,7 +1323,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSize")
-    def disk_size(self) -> pulumi.Output[float]:
+    def disk_size(self) -> pulumi.Output[Optional[float]]:
         """
         The size of the disk for the database.
         """
@@ -1331,7 +1331,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[str]:
+    def engine(self) -> pulumi.Output[Optional[str]]:
         """
         The database software (for example, MySQL).
         """
@@ -1339,7 +1339,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> pulumi.Output[str]:
+    def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         The database engine version (for example, 5.7.23).
         """
@@ -1363,7 +1363,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterEndpointAddress")
-    def master_endpoint_address(self) -> pulumi.Output[str]:
+    def master_endpoint_address(self) -> pulumi.Output[Optional[str]]:
         """
         The master endpoint fqdn for the database.
         """
@@ -1371,7 +1371,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterEndpointPort")
-    def master_endpoint_port(self) -> pulumi.Output[int]:
+    def master_endpoint_port(self) -> pulumi.Output[Optional[int]]:
         """
         The master endpoint network port for the database.
         """
@@ -1395,7 +1395,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> pulumi.Output[str]:
+    def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
         """
         The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         """
@@ -1403,7 +1403,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> pulumi.Output[str]:
+    def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         """
@@ -1419,7 +1419,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ramSize")
-    def ram_size(self) -> pulumi.Output[float]:
+    def ram_size(self) -> pulumi.Output[Optional[float]]:
         """
         The amount of RAM in GB for the database.
         """
@@ -1435,7 +1435,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAvailabilityZone")
-    def secondary_availability_zone(self) -> pulumi.Output[str]:
+    def secondary_availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
         """
@@ -1451,7 +1451,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportCode")
-    def support_code(self) -> pulumi.Output[str]:
+    def support_code(self) -> pulumi.Output[Optional[str]]:
         """
         The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """

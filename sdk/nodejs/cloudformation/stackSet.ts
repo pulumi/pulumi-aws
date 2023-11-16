@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         effect: "Allow",
- *         resources: [pulumi.interpolate`arn:aws:iam::*:role/${example.executionRoleName}`],
+ *         resources: [example.executionRoleName.apply(executionRoleName => `arn:aws:iam::*:role/${executionRoleName}`)],
  *     }],
  * });
  * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", {
@@ -123,7 +123,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the StackSet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
      */
@@ -143,7 +143,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      */
-    public readonly executionRoleName!: pulumi.Output<string>;
+    public readonly executionRoleName!: pulumi.Output<string | undefined>;
     /**
      * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
      */
@@ -167,7 +167,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Unique identifier of the StackSet.
      */
-    public /*out*/ readonly stackSetId!: pulumi.Output<string>;
+    public /*out*/ readonly stackSetId!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -181,7 +181,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
      */
-    public readonly templateBody!: pulumi.Output<string>;
+    public readonly templateBody!: pulumi.Output<string | undefined>;
     /**
      * String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `templateBody`.
      */

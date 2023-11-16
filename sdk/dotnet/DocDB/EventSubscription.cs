@@ -72,13 +72,13 @@ namespace Pulumi.Aws.DocDB
         /// The Amazon Resource Name of the DocumentDB event notification subscription
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS customer account associated with the DocumentDB event notification subscription
         /// </summary>
         [Output("customerAwsId")]
-        public Output<string> CustomerAwsId { get; private set; } = null!;
+        public Output<string?> CustomerAwsId { get; private set; } = null!;
 
         /// <summary>
         /// A boolean flag to enable/disable the subscription. Defaults to true.
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.DocDB
         /// The name of the DocumentDB event subscription. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;

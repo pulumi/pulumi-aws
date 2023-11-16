@@ -921,7 +921,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
         """
@@ -985,7 +985,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> pulumi.Output[str]:
+    def network_interface_id(self) -> pulumi.Output[Optional[str]]:
         """
         The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
         """
@@ -993,7 +993,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformIdentifier")
-    def platform_identifier(self) -> pulumi.Output[str]:
+    def platform_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         """
@@ -1017,7 +1017,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> pulumi.Output[Sequence[str]]:
+    def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The associated security groups.
         """
@@ -1052,7 +1052,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
         """

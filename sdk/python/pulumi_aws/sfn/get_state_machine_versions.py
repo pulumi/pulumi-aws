@@ -34,7 +34,7 @@ class GetStateMachineVersionsResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -47,7 +47,7 @@ class GetStateMachineVersionsResult:
 
     @property
     @pulumi.getter(name="statemachineVersions")
-    def statemachine_versions(self) -> Sequence[str]:
+    def statemachine_versions(self) -> Optional[Sequence[str]]:
         """
         ARN List identifying the statemachine versions.
         """

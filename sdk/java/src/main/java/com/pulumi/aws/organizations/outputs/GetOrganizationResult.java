@@ -10,6 +10,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrganizationResult {
@@ -17,57 +19,57 @@ public final class GetOrganizationResult {
      * @return List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
      * 
      */
-    private List<GetOrganizationAccount> accounts;
+    private @Nullable List<GetOrganizationAccount> accounts;
     /**
      * @return ARN of the root
      * 
      */
-    private String arn;
+    private @Nullable String arn;
     /**
      * @return A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      * 
      */
-    private List<String> awsServiceAccessPrincipals;
+    private @Nullable List<String> awsServiceAccessPrincipals;
     /**
      * @return A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      * 
      */
-    private List<String> enabledPolicyTypes;
+    private @Nullable List<String> enabledPolicyTypes;
     /**
      * @return FeatureSet of the organization.
      * 
      */
-    private String featureSet;
+    private @Nullable String featureSet;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     /**
      * @return ARN of the account that is designated as the master account for the organization.
      * 
      */
-    private String masterAccountArn;
+    private @Nullable String masterAccountArn;
     /**
      * @return The email address that is associated with the AWS account that is designated as the master account for the organization.
      * 
      */
-    private String masterAccountEmail;
+    private @Nullable String masterAccountEmail;
     /**
      * @return Unique identifier (ID) of the master account of an organization.
      * 
      */
-    private String masterAccountId;
+    private @Nullable String masterAccountId;
     /**
      * @return List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
-    private List<GetOrganizationNonMasterAccount> nonMasterAccounts;
+    private @Nullable List<GetOrganizationNonMasterAccount> nonMasterAccounts;
     /**
      * @return List of organization roots. All elements have these attributes:
      * 
      */
-    private List<GetOrganizationRoot> roots;
+    private @Nullable List<GetOrganizationRoot> roots;
 
     private GetOrganizationResult() {}
     /**
@@ -75,77 +77,77 @@ public final class GetOrganizationResult {
      * 
      */
     public List<GetOrganizationAccount> accounts() {
-        return this.accounts;
+        return this.accounts == null ? List.of() : this.accounts;
     }
     /**
      * @return ARN of the root
      * 
      */
-    public String arn() {
-        return this.arn;
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
     }
     /**
      * @return A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      * 
      */
     public List<String> awsServiceAccessPrincipals() {
-        return this.awsServiceAccessPrincipals;
+        return this.awsServiceAccessPrincipals == null ? List.of() : this.awsServiceAccessPrincipals;
     }
     /**
      * @return A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      * 
      */
     public List<String> enabledPolicyTypes() {
-        return this.enabledPolicyTypes;
+        return this.enabledPolicyTypes == null ? List.of() : this.enabledPolicyTypes;
     }
     /**
      * @return FeatureSet of the organization.
      * 
      */
-    public String featureSet() {
-        return this.featureSet;
+    public Optional<String> featureSet() {
+        return Optional.ofNullable(this.featureSet);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return ARN of the account that is designated as the master account for the organization.
      * 
      */
-    public String masterAccountArn() {
-        return this.masterAccountArn;
+    public Optional<String> masterAccountArn() {
+        return Optional.ofNullable(this.masterAccountArn);
     }
     /**
      * @return The email address that is associated with the AWS account that is designated as the master account for the organization.
      * 
      */
-    public String masterAccountEmail() {
-        return this.masterAccountEmail;
+    public Optional<String> masterAccountEmail() {
+        return Optional.ofNullable(this.masterAccountEmail);
     }
     /**
      * @return Unique identifier (ID) of the master account of an organization.
      * 
      */
-    public String masterAccountId() {
-        return this.masterAccountId;
+    public Optional<String> masterAccountId() {
+        return Optional.ofNullable(this.masterAccountId);
     }
     /**
      * @return List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
     public List<GetOrganizationNonMasterAccount> nonMasterAccounts() {
-        return this.nonMasterAccounts;
+        return this.nonMasterAccounts == null ? List.of() : this.nonMasterAccounts;
     }
     /**
      * @return List of organization roots. All elements have these attributes:
      * 
      */
     public List<GetOrganizationRoot> roots() {
-        return this.roots;
+        return this.roots == null ? List.of() : this.roots;
     }
 
     public static Builder builder() {
@@ -157,17 +159,17 @@ public final class GetOrganizationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetOrganizationAccount> accounts;
-        private String arn;
-        private List<String> awsServiceAccessPrincipals;
-        private List<String> enabledPolicyTypes;
-        private String featureSet;
-        private String id;
-        private String masterAccountArn;
-        private String masterAccountEmail;
-        private String masterAccountId;
-        private List<GetOrganizationNonMasterAccount> nonMasterAccounts;
-        private List<GetOrganizationRoot> roots;
+        private @Nullable List<GetOrganizationAccount> accounts;
+        private @Nullable String arn;
+        private @Nullable List<String> awsServiceAccessPrincipals;
+        private @Nullable List<String> enabledPolicyTypes;
+        private @Nullable String featureSet;
+        private @Nullable String id;
+        private @Nullable String masterAccountArn;
+        private @Nullable String masterAccountEmail;
+        private @Nullable String masterAccountId;
+        private @Nullable List<GetOrganizationNonMasterAccount> nonMasterAccounts;
+        private @Nullable List<GetOrganizationRoot> roots;
         public Builder() {}
         public Builder(GetOrganizationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -185,70 +187,70 @@ public final class GetOrganizationResult {
         }
 
         @CustomType.Setter
-        public Builder accounts(List<GetOrganizationAccount> accounts) {
-            this.accounts = Objects.requireNonNull(accounts);
+        public Builder accounts(@Nullable List<GetOrganizationAccount> accounts) {
+            this.accounts = accounts;
             return this;
         }
         public Builder accounts(GetOrganizationAccount... accounts) {
             return accounts(List.of(accounts));
         }
         @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
-        public Builder awsServiceAccessPrincipals(List<String> awsServiceAccessPrincipals) {
-            this.awsServiceAccessPrincipals = Objects.requireNonNull(awsServiceAccessPrincipals);
+        public Builder awsServiceAccessPrincipals(@Nullable List<String> awsServiceAccessPrincipals) {
+            this.awsServiceAccessPrincipals = awsServiceAccessPrincipals;
             return this;
         }
         public Builder awsServiceAccessPrincipals(String... awsServiceAccessPrincipals) {
             return awsServiceAccessPrincipals(List.of(awsServiceAccessPrincipals));
         }
         @CustomType.Setter
-        public Builder enabledPolicyTypes(List<String> enabledPolicyTypes) {
-            this.enabledPolicyTypes = Objects.requireNonNull(enabledPolicyTypes);
+        public Builder enabledPolicyTypes(@Nullable List<String> enabledPolicyTypes) {
+            this.enabledPolicyTypes = enabledPolicyTypes;
             return this;
         }
         public Builder enabledPolicyTypes(String... enabledPolicyTypes) {
             return enabledPolicyTypes(List.of(enabledPolicyTypes));
         }
         @CustomType.Setter
-        public Builder featureSet(String featureSet) {
-            this.featureSet = Objects.requireNonNull(featureSet);
+        public Builder featureSet(@Nullable String featureSet) {
+            this.featureSet = featureSet;
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder masterAccountArn(String masterAccountArn) {
-            this.masterAccountArn = Objects.requireNonNull(masterAccountArn);
+        public Builder masterAccountArn(@Nullable String masterAccountArn) {
+            this.masterAccountArn = masterAccountArn;
             return this;
         }
         @CustomType.Setter
-        public Builder masterAccountEmail(String masterAccountEmail) {
-            this.masterAccountEmail = Objects.requireNonNull(masterAccountEmail);
+        public Builder masterAccountEmail(@Nullable String masterAccountEmail) {
+            this.masterAccountEmail = masterAccountEmail;
             return this;
         }
         @CustomType.Setter
-        public Builder masterAccountId(String masterAccountId) {
-            this.masterAccountId = Objects.requireNonNull(masterAccountId);
+        public Builder masterAccountId(@Nullable String masterAccountId) {
+            this.masterAccountId = masterAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder nonMasterAccounts(List<GetOrganizationNonMasterAccount> nonMasterAccounts) {
-            this.nonMasterAccounts = Objects.requireNonNull(nonMasterAccounts);
+        public Builder nonMasterAccounts(@Nullable List<GetOrganizationNonMasterAccount> nonMasterAccounts) {
+            this.nonMasterAccounts = nonMasterAccounts;
             return this;
         }
         public Builder nonMasterAccounts(GetOrganizationNonMasterAccount... nonMasterAccounts) {
             return nonMasterAccounts(List.of(nonMasterAccounts));
         }
         @CustomType.Setter
-        public Builder roots(List<GetOrganizationRoot> roots) {
-            this.roots = Objects.requireNonNull(roots);
+        public Builder roots(@Nullable List<GetOrganizationRoot> roots) {
+            this.roots = roots;
             return this;
         }
         public Builder roots(GetOrganizationRoot... roots) {

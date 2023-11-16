@@ -129,14 +129,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="amiId", refs={String.class}, tree="[0]")
-    private Output<String> amiId;
+    private Output</* @Nullable */ String> amiId;
 
     /**
      * @return AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
      * 
      */
-    public Output<String> amiId() {
-        return this.amiId;
+    public Output<Optional<String>> amiId() {
+        return Codegen.optional(this.amiId);
     }
     /**
      * Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
@@ -171,28 +171,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
-    private Output<String> availabilityZone;
+    private Output</* @Nullable */ String> availabilityZone;
 
     /**
      * @return Name of the availability zone where instances will be created by default.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Output<Optional<String>> availabilityZone() {
+        return Codegen.optional(this.availabilityZone);
     }
     /**
      * Time that the instance was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
-    private Output<String> createdAt;
+    private Output</* @Nullable */ String> createdAt;
 
     /**
      * @return Time that the instance was created.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Optional<String>> createdAt() {
+        return Codegen.optional(this.createdAt);
     }
     /**
      * Whether to delete EBS volume on deletion. Default is `true`.
@@ -227,14 +227,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ebsBlockDevices", refs={List.class,InstanceEbsBlockDevice.class}, tree="[0,1]")
-    private Output<List<InstanceEbsBlockDevice>> ebsBlockDevices;
+    private Output</* @Nullable */ List<InstanceEbsBlockDevice>> ebsBlockDevices;
 
     /**
      * @return Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
      * 
      */
-    public Output<List<InstanceEbsBlockDevice>> ebsBlockDevices() {
-        return this.ebsBlockDevices;
+    public Output<Optional<List<InstanceEbsBlockDevice>>> ebsBlockDevices() {
+        return Codegen.optional(this.ebsBlockDevices);
     }
     /**
      * Whether the launched EC2 instance will be EBS-optimized.
@@ -255,84 +255,84 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ec2InstanceId", refs={String.class}, tree="[0]")
-    private Output<String> ec2InstanceId;
+    private Output</* @Nullable */ String> ec2InstanceId;
 
     /**
      * @return EC2 instance ID.
      * 
      */
-    public Output<String> ec2InstanceId() {
-        return this.ec2InstanceId;
+    public Output<Optional<String>> ec2InstanceId() {
+        return Codegen.optional(this.ec2InstanceId);
     }
     /**
      * ECS cluster&#39;s ARN for container instances.
      * 
      */
     @Export(name="ecsClusterArn", refs={String.class}, tree="[0]")
-    private Output<String> ecsClusterArn;
+    private Output</* @Nullable */ String> ecsClusterArn;
 
     /**
      * @return ECS cluster&#39;s ARN for container instances.
      * 
      */
-    public Output<String> ecsClusterArn() {
-        return this.ecsClusterArn;
+    public Output<Optional<String>> ecsClusterArn() {
+        return Codegen.optional(this.ecsClusterArn);
     }
     /**
      * Instance Elastic IP address.
      * 
      */
     @Export(name="elasticIp", refs={String.class}, tree="[0]")
-    private Output<String> elasticIp;
+    private Output</* @Nullable */ String> elasticIp;
 
     /**
      * @return Instance Elastic IP address.
      * 
      */
-    public Output<String> elasticIp() {
-        return this.elasticIp;
+    public Output<Optional<String>> elasticIp() {
+        return Codegen.optional(this.elasticIp);
     }
     /**
      * Configuration block for ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below.
      * 
      */
     @Export(name="ephemeralBlockDevices", refs={List.class,InstanceEphemeralBlockDevice.class}, tree="[0,1]")
-    private Output<List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices;
+    private Output</* @Nullable */ List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices;
 
     /**
      * @return Configuration block for ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below.
      * 
      */
-    public Output<List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices() {
-        return this.ephemeralBlockDevices;
+    public Output<Optional<List<InstanceEphemeralBlockDevice>>> ephemeralBlockDevices() {
+        return Codegen.optional(this.ephemeralBlockDevices);
     }
     /**
      * Instance&#39;s host name.
      * 
      */
     @Export(name="hostname", refs={String.class}, tree="[0]")
-    private Output<String> hostname;
+    private Output</* @Nullable */ String> hostname;
 
     /**
      * @return Instance&#39;s host name.
      * 
      */
-    public Output<String> hostname() {
-        return this.hostname;
+    public Output<Optional<String>> hostname() {
+        return Codegen.optional(this.hostname);
     }
     /**
      * For registered instances, infrastructure class: ec2 or on-premises.
      * 
      */
     @Export(name="infrastructureClass", refs={String.class}, tree="[0]")
-    private Output<String> infrastructureClass;
+    private Output</* @Nullable */ String> infrastructureClass;
 
     /**
      * @return For registered instances, infrastructure class: ec2 or on-premises.
      * 
      */
-    public Output<String> infrastructureClass() {
-        return this.infrastructureClass;
+    public Output<Optional<String>> infrastructureClass() {
+        return Codegen.optional(this.infrastructureClass);
     }
     /**
      * Controls where to install OS and package updates when the instance boots.  Default is `true`.
@@ -353,14 +353,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="instanceProfileArn", refs={String.class}, tree="[0]")
-    private Output<String> instanceProfileArn;
+    private Output</* @Nullable */ String> instanceProfileArn;
 
     /**
      * @return ARN of the instance&#39;s IAM profile.
      * 
      */
-    public Output<String> instanceProfileArn() {
-        return this.instanceProfileArn;
+    public Output<Optional<String>> instanceProfileArn() {
+        return Codegen.optional(this.instanceProfileArn);
     }
     /**
      * Type of instance to start.
@@ -381,14 +381,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lastServiceErrorId", refs={String.class}, tree="[0]")
-    private Output<String> lastServiceErrorId;
+    private Output</* @Nullable */ String> lastServiceErrorId;
 
     /**
      * @return ID of the last service error.
      * 
      */
-    public Output<String> lastServiceErrorId() {
-        return this.lastServiceErrorId;
+    public Output<Optional<String>> lastServiceErrorId() {
+        return Codegen.optional(this.lastServiceErrorId);
     }
     /**
      * List of the layers the instance will belong to.
@@ -409,252 +409,252 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="os", refs={String.class}, tree="[0]")
-    private Output<String> os;
+    private Output</* @Nullable */ String> os;
 
     /**
      * @return Name of operating system that will be installed.
      * 
      */
-    public Output<String> os() {
-        return this.os;
+    public Output<Optional<String>> os() {
+        return Codegen.optional(this.os);
     }
     /**
      * Instance&#39;s platform.
      * 
      */
     @Export(name="platform", refs={String.class}, tree="[0]")
-    private Output<String> platform;
+    private Output</* @Nullable */ String> platform;
 
     /**
      * @return Instance&#39;s platform.
      * 
      */
-    public Output<String> platform() {
-        return this.platform;
+    public Output<Optional<String>> platform() {
+        return Codegen.optional(this.platform);
     }
     /**
      * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     @Export(name="privateDns", refs={String.class}, tree="[0]")
-    private Output<String> privateDns;
+    private Output</* @Nullable */ String> privateDns;
 
     /**
      * @return Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public Output<String> privateDns() {
-        return this.privateDns;
+    public Output<Optional<String>> privateDns() {
+        return Codegen.optional(this.privateDns);
     }
     /**
      * Private IP address assigned to the instance.
      * 
      */
     @Export(name="privateIp", refs={String.class}, tree="[0]")
-    private Output<String> privateIp;
+    private Output</* @Nullable */ String> privateIp;
 
     /**
      * @return Private IP address assigned to the instance.
      * 
      */
-    public Output<String> privateIp() {
-        return this.privateIp;
+    public Output<Optional<String>> privateIp() {
+        return Codegen.optional(this.privateIp);
     }
     /**
      * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     @Export(name="publicDns", refs={String.class}, tree="[0]")
-    private Output<String> publicDns;
+    private Output</* @Nullable */ String> publicDns;
 
     /**
      * @return Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public Output<String> publicDns() {
-        return this.publicDns;
+    public Output<Optional<String>> publicDns() {
+        return Codegen.optional(this.publicDns);
     }
     /**
      * Public IP address assigned to the instance, if applicable.
      * 
      */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
-    private Output<String> publicIp;
+    private Output</* @Nullable */ String> publicIp;
 
     /**
      * @return Public IP address assigned to the instance, if applicable.
      * 
      */
-    public Output<String> publicIp() {
-        return this.publicIp;
+    public Output<Optional<String>> publicIp() {
+        return Codegen.optional(this.publicIp);
     }
     /**
      * For registered instances, who performed the registration.
      * 
      */
     @Export(name="registeredBy", refs={String.class}, tree="[0]")
-    private Output<String> registeredBy;
+    private Output</* @Nullable */ String> registeredBy;
 
     /**
      * @return For registered instances, who performed the registration.
      * 
      */
-    public Output<String> registeredBy() {
-        return this.registeredBy;
+    public Output<Optional<String>> registeredBy() {
+        return Codegen.optional(this.registeredBy);
     }
     /**
      * Instance&#39;s reported AWS OpsWorks Stacks agent version.
      * 
      */
     @Export(name="reportedAgentVersion", refs={String.class}, tree="[0]")
-    private Output<String> reportedAgentVersion;
+    private Output</* @Nullable */ String> reportedAgentVersion;
 
     /**
      * @return Instance&#39;s reported AWS OpsWorks Stacks agent version.
      * 
      */
-    public Output<String> reportedAgentVersion() {
-        return this.reportedAgentVersion;
+    public Output<Optional<String>> reportedAgentVersion() {
+        return Codegen.optional(this.reportedAgentVersion);
     }
     /**
      * For registered instances, the reported operating system family.
      * 
      */
     @Export(name="reportedOsFamily", refs={String.class}, tree="[0]")
-    private Output<String> reportedOsFamily;
+    private Output</* @Nullable */ String> reportedOsFamily;
 
     /**
      * @return For registered instances, the reported operating system family.
      * 
      */
-    public Output<String> reportedOsFamily() {
-        return this.reportedOsFamily;
+    public Output<Optional<String>> reportedOsFamily() {
+        return Codegen.optional(this.reportedOsFamily);
     }
     /**
      * For registered instances, the reported operating system name.
      * 
      */
     @Export(name="reportedOsName", refs={String.class}, tree="[0]")
-    private Output<String> reportedOsName;
+    private Output</* @Nullable */ String> reportedOsName;
 
     /**
      * @return For registered instances, the reported operating system name.
      * 
      */
-    public Output<String> reportedOsName() {
-        return this.reportedOsName;
+    public Output<Optional<String>> reportedOsName() {
+        return Codegen.optional(this.reportedOsName);
     }
     /**
      * For registered instances, the reported operating system version.
      * 
      */
     @Export(name="reportedOsVersion", refs={String.class}, tree="[0]")
-    private Output<String> reportedOsVersion;
+    private Output</* @Nullable */ String> reportedOsVersion;
 
     /**
      * @return For registered instances, the reported operating system version.
      * 
      */
-    public Output<String> reportedOsVersion() {
-        return this.reportedOsVersion;
+    public Output<Optional<String>> reportedOsVersion() {
+        return Codegen.optional(this.reportedOsVersion);
     }
     /**
      * Configuration block for the root block device of the instance. See Block Devices below.
      * 
      */
     @Export(name="rootBlockDevices", refs={List.class,InstanceRootBlockDevice.class}, tree="[0,1]")
-    private Output<List<InstanceRootBlockDevice>> rootBlockDevices;
+    private Output</* @Nullable */ List<InstanceRootBlockDevice>> rootBlockDevices;
 
     /**
      * @return Configuration block for the root block device of the instance. See Block Devices below.
      * 
      */
-    public Output<List<InstanceRootBlockDevice>> rootBlockDevices() {
-        return this.rootBlockDevices;
+    public Output<Optional<List<InstanceRootBlockDevice>>> rootBlockDevices() {
+        return Codegen.optional(this.rootBlockDevices);
     }
     /**
      * Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
      * 
      */
     @Export(name="rootDeviceType", refs={String.class}, tree="[0]")
-    private Output<String> rootDeviceType;
+    private Output</* @Nullable */ String> rootDeviceType;
 
     /**
      * @return Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
      * 
      */
-    public Output<String> rootDeviceType() {
-        return this.rootDeviceType;
+    public Output<Optional<String>> rootDeviceType() {
+        return Codegen.optional(this.rootDeviceType);
     }
     /**
      * Root device volume ID.
      * 
      */
     @Export(name="rootDeviceVolumeId", refs={String.class}, tree="[0]")
-    private Output<String> rootDeviceVolumeId;
+    private Output</* @Nullable */ String> rootDeviceVolumeId;
 
     /**
      * @return Root device volume ID.
      * 
      */
-    public Output<String> rootDeviceVolumeId() {
-        return this.rootDeviceVolumeId;
+    public Output<Optional<String>> rootDeviceVolumeId() {
+        return Codegen.optional(this.rootDeviceVolumeId);
     }
     /**
      * Associated security groups.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupIds;
+    private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
      * @return Associated security groups.
      * 
      */
-    public Output<List<String>> securityGroupIds() {
-        return this.securityGroupIds;
+    public Output<Optional<List<String>>> securityGroupIds() {
+        return Codegen.optional(this.securityGroupIds);
     }
     /**
      * SSH key&#39;s Deep Security Agent (DSA) fingerprint.
      * 
      */
     @Export(name="sshHostDsaKeyFingerprint", refs={String.class}, tree="[0]")
-    private Output<String> sshHostDsaKeyFingerprint;
+    private Output</* @Nullable */ String> sshHostDsaKeyFingerprint;
 
     /**
      * @return SSH key&#39;s Deep Security Agent (DSA) fingerprint.
      * 
      */
-    public Output<String> sshHostDsaKeyFingerprint() {
-        return this.sshHostDsaKeyFingerprint;
+    public Output<Optional<String>> sshHostDsaKeyFingerprint() {
+        return Codegen.optional(this.sshHostDsaKeyFingerprint);
     }
     /**
      * SSH key&#39;s RSA fingerprint.
      * 
      */
     @Export(name="sshHostRsaKeyFingerprint", refs={String.class}, tree="[0]")
-    private Output<String> sshHostRsaKeyFingerprint;
+    private Output</* @Nullable */ String> sshHostRsaKeyFingerprint;
 
     /**
      * @return SSH key&#39;s RSA fingerprint.
      * 
      */
-    public Output<String> sshHostRsaKeyFingerprint() {
-        return this.sshHostRsaKeyFingerprint;
+    public Output<Optional<String>> sshHostRsaKeyFingerprint() {
+        return Codegen.optional(this.sshHostRsaKeyFingerprint);
     }
     /**
      * Name of the SSH keypair that instances will have by default.
      * 
      */
     @Export(name="sshKeyName", refs={String.class}, tree="[0]")
-    private Output<String> sshKeyName;
+    private Output</* @Nullable */ String> sshKeyName;
 
     /**
      * @return Name of the SSH keypair that instances will have by default.
      * 
      */
-    public Output<String> sshKeyName() {
-        return this.sshKeyName;
+    public Output<Optional<String>> sshKeyName() {
+        return Codegen.optional(this.sshKeyName);
     }
     /**
      * Identifier of the stack the instance will belong to.
@@ -693,56 +693,56 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
+    private Output</* @Nullable */ String> status;
 
     /**
      * @return Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
      * 
      */
-    public Output<String> status() {
-        return this.status;
+    public Output<Optional<String>> status() {
+        return Codegen.optional(this.status);
     }
     /**
      * Subnet ID to attach to.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
-    private Output<String> subnetId;
+    private Output</* @Nullable */ String> subnetId;
 
     /**
      * @return Subnet ID to attach to.
      * 
      */
-    public Output<String> subnetId() {
-        return this.subnetId;
+    public Output<Optional<String>> subnetId() {
+        return Codegen.optional(this.subnetId);
     }
     /**
      * Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
      * 
      */
     @Export(name="tenancy", refs={String.class}, tree="[0]")
-    private Output<String> tenancy;
+    private Output</* @Nullable */ String> tenancy;
 
     /**
      * @return Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
      * 
      */
-    public Output<String> tenancy() {
-        return this.tenancy;
+    public Output<Optional<String>> tenancy() {
+        return Codegen.optional(this.tenancy);
     }
     /**
      * Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
      * 
      */
     @Export(name="virtualizationType", refs={String.class}, tree="[0]")
-    private Output<String> virtualizationType;
+    private Output</* @Nullable */ String> virtualizationType;
 
     /**
      * @return Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
      * 
      */
-    public Output<String> virtualizationType() {
-        return this.virtualizationType;
+    public Output<Optional<String>> virtualizationType() {
+        return Codegen.optional(this.virtualizationType);
     }
 
     /**

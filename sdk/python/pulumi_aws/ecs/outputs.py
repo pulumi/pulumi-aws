@@ -2223,31 +2223,34 @@ class TaskSetServiceRegistries(dict):
 @pulumi.output_type
 class GetClusterServiceConnectDefaultResult(dict):
     def __init__(__self__, *,
-                 namespace: str):
-        pulumi.set(__self__, "namespace", namespace)
+                 namespace: Optional[str] = None):
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
-    def namespace(self) -> str:
+    def namespace(self) -> Optional[str]:
         return pulumi.get(self, "namespace")
 
 
 @pulumi.output_type
 class GetClusterSettingResult(dict):
     def __init__(__self__, *,
-                 name: str,
-                 value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 

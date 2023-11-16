@@ -16,77 +16,77 @@ namespace Pulumi.Aws.Route53.Outputs
         /// <summary>
         /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
         /// </summary>
-        public readonly string Action;
+        public readonly string? Action;
         /// <summary>
         /// The DNS record's type.
         /// </summary>
-        public readonly string BlockOverrideDnsType;
+        public readonly string? BlockOverrideDnsType;
         /// <summary>
         /// The custom DNS record to send back in response to the query.
         /// </summary>
-        public readonly string BlockOverrideDomain;
+        public readonly string? BlockOverrideDomain;
         /// <summary>
         /// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
         /// </summary>
-        public readonly int BlockOverrideTtl;
+        public readonly int? BlockOverrideTtl;
         /// <summary>
         /// The way that you want DNS Firewall to block the request.
         /// </summary>
-        public readonly string BlockResponse;
+        public readonly string? BlockResponse;
         /// <summary>
         /// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
         /// </summary>
-        public readonly string CreationTime;
+        public readonly string? CreationTime;
         /// <summary>
         /// A unique string defined by you to identify the request.
         /// </summary>
-        public readonly string CreatorRequestId;
+        public readonly string? CreatorRequestId;
         /// <summary>
         /// The ID of the domain list that's used in the rule.
         /// </summary>
-        public readonly string FirewallDomainListId;
+        public readonly string? FirewallDomainListId;
         /// <summary>
         /// The unique identifier of the firewall rule group that you want to retrieve the rules for.
         /// </summary>
-        public readonly string FirewallRuleGroupId;
+        public readonly string? FirewallRuleGroupId;
         /// <summary>
         /// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
         /// </summary>
-        public readonly string ModificationTime;
+        public readonly string? ModificationTime;
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The setting that determines the processing order of the rules in a rule group.
         /// </summary>
-        public readonly int Priority;
+        public readonly int? Priority;
 
         [OutputConstructor]
         private GetResolverFirewallRulesFirewallRuleResult(
-            string action,
+            string? action,
 
-            string blockOverrideDnsType,
+            string? blockOverrideDnsType,
 
-            string blockOverrideDomain,
+            string? blockOverrideDomain,
 
-            int blockOverrideTtl,
+            int? blockOverrideTtl,
 
-            string blockResponse,
+            string? blockResponse,
 
-            string creationTime,
+            string? creationTime,
 
-            string creatorRequestId,
+            string? creatorRequestId,
 
-            string firewallDomainListId,
+            string? firewallDomainListId,
 
-            string firewallRuleGroupId,
+            string? firewallRuleGroupId,
 
-            string modificationTime,
+            string? modificationTime,
 
-            string name,
+            string? name,
 
-            int priority)
+            int? priority)
         {
             Action = action;
             BlockOverrideDnsType = blockOverrideDnsType;

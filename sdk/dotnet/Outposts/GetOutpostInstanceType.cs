@@ -101,17 +101,17 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly string Id;
-        public readonly string InstanceType;
+        public readonly string? Id;
+        public readonly string? InstanceType;
         public readonly ImmutableArray<string> PreferredInstanceTypes;
 
         [OutputConstructor]
         private GetOutpostInstanceTypeResult(
             string arn,
 
-            string id,
+            string? id,
 
-            string instanceType,
+            string? instanceType,
 
             ImmutableArray<string> preferredInstanceTypes)
         {

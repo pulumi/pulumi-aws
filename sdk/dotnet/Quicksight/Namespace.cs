@@ -46,31 +46,31 @@ namespace Pulumi.Aws.Quicksight
         /// ARN of the Namespace.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
+        public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Namespace AWS Region.
         /// </summary>
         [Output("capacityRegion")]
-        public Output<string> CapacityRegion { get; private set; } = null!;
+        public Output<string?> CapacityRegion { get; private set; } = null!;
 
         /// <summary>
         /// Creation status of the namespace.
         /// </summary>
         [Output("creationStatus")]
-        public Output<string> CreationStatus { get; private set; } = null!;
+        public Output<string?> CreationStatus { get; private set; } = null!;
 
         /// <summary>
         /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         /// </summary>
         [Output("identityStore")]
-        public Output<string> IdentityStore { get; private set; } = null!;
+        public Output<string?> IdentityStore { get; private set; } = null!;
 
         /// <summary>
         /// Name of the namespace.

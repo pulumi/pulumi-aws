@@ -65,7 +65,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Name of the EKS Cluster.
      */
@@ -77,7 +77,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
     /**
      * Status of the EKS Identity Provider Configuration.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -396,7 +396,7 @@ class VpcIngressConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the VPC Ingress Connection.
         """
@@ -404,7 +404,7 @@ class VpcIngressConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The domain name associated with the VPC Ingress Connection resource.
         """
@@ -436,7 +436,7 @@ class VpcIngressConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of the VPC Ingress Connection.
         """

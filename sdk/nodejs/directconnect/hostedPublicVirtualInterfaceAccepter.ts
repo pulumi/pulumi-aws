@@ -81,7 +81,7 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
     /**
      * The ARN of the virtual interface.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

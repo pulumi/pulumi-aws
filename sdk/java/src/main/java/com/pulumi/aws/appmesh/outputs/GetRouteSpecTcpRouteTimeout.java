@@ -7,14 +7,15 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecTcpRouteTimeoutIdle;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteSpecTcpRouteTimeout {
-    private List<GetRouteSpecTcpRouteTimeoutIdle> idles;
+    private @Nullable List<GetRouteSpecTcpRouteTimeoutIdle> idles;
 
     private GetRouteSpecTcpRouteTimeout() {}
     public List<GetRouteSpecTcpRouteTimeoutIdle> idles() {
-        return this.idles;
+        return this.idles == null ? List.of() : this.idles;
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class GetRouteSpecTcpRouteTimeout {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetRouteSpecTcpRouteTimeoutIdle> idles;
+        private @Nullable List<GetRouteSpecTcpRouteTimeoutIdle> idles;
         public Builder() {}
         public Builder(GetRouteSpecTcpRouteTimeout defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,8 +35,8 @@ public final class GetRouteSpecTcpRouteTimeout {
         }
 
         @CustomType.Setter
-        public Builder idles(List<GetRouteSpecTcpRouteTimeoutIdle> idles) {
-            this.idles = Objects.requireNonNull(idles);
+        public Builder idles(@Nullable List<GetRouteSpecTcpRouteTimeoutIdle> idles) {
+            this.idles = idles;
             return this;
         }
         public Builder idles(GetRouteSpecTcpRouteTimeoutIdle... idles) {

@@ -440,7 +440,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the DataSync Location for the FSx Ontap File System.
         """
@@ -448,12 +448,12 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="fsxFilesystemArn")
-    def fsx_filesystem_arn(self) -> pulumi.Output[str]:
+    def fsx_filesystem_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the FSx Ontap File System.
         """
@@ -489,7 +489,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> pulumi.Output[str]:
+    def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
         Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
         """
@@ -513,7 +513,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> pulumi.Output[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         """
         URI of the FSx ONTAP file system location
         """

@@ -53,7 +53,7 @@ class GetSlotTypeResult:
 
     @property
     @pulumi.getter
-    def checksum(self) -> str:
+    def checksum(self) -> Optional[str]:
         """
         Checksum identifying the version of the slot type that was created. The checksum is
         not included as an argument because the resource will add it automatically when updating the slot type.
@@ -62,7 +62,7 @@ class GetSlotTypeResult:
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> Optional[str]:
         """
         Date when the slot type version was created.
         """
@@ -70,7 +70,7 @@ class GetSlotTypeResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the slot type.
         """
@@ -78,7 +78,7 @@ class GetSlotTypeResult:
 
     @property
     @pulumi.getter(name="enumerationValues")
-    def enumeration_values(self) -> Sequence['outputs.GetSlotTypeEnumerationValueResult']:
+    def enumeration_values(self) -> Optional[Sequence['outputs.GetSlotTypeEnumerationValueResult']]:
         """
         Set of EnumerationValue objects that defines the values that
         the slot type can take. Each value can have a set of synonyms, which are additional values that help
@@ -88,7 +88,7 @@ class GetSlotTypeResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def id(self) -> Optional[str]:
         """
         The provider-assigned unique ID for this managed resource.
         """
@@ -96,7 +96,7 @@ class GetSlotTypeResult:
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> Optional[str]:
         """
         Date when the $LATEST version of this slot type was updated.
         """
@@ -112,7 +112,7 @@ class GetSlotTypeResult:
 
     @property
     @pulumi.getter(name="valueSelectionStrategy")
-    def value_selection_strategy(self) -> str:
+    def value_selection_strategy(self) -> Optional[str]:
         """
         Determines the slot resolution strategy that Amazon Lex
         uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user

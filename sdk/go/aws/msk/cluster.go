@@ -264,27 +264,27 @@ type Cluster struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
-	BootstrapBrokers pulumi.StringOutput `pulumi:"bootstrapBrokers"`
+	BootstrapBrokers pulumi.StringPtrOutput `pulumi:"bootstrapBrokers"`
 	// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersPublicSaslIam pulumi.StringOutput `pulumi:"bootstrapBrokersPublicSaslIam"`
+	BootstrapBrokersPublicSaslIam pulumi.StringPtrOutput `pulumi:"bootstrapBrokersPublicSaslIam"`
 	// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersPublicSaslScram pulumi.StringOutput `pulumi:"bootstrapBrokersPublicSaslScram"`
+	BootstrapBrokersPublicSaslScram pulumi.StringPtrOutput `pulumi:"bootstrapBrokersPublicSaslScram"`
 	// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersPublicTls pulumi.StringOutput `pulumi:"bootstrapBrokersPublicTls"`
+	BootstrapBrokersPublicTls pulumi.StringPtrOutput `pulumi:"bootstrapBrokersPublicTls"`
 	// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersSaslIam pulumi.StringOutput `pulumi:"bootstrapBrokersSaslIam"`
+	BootstrapBrokersSaslIam pulumi.StringPtrOutput `pulumi:"bootstrapBrokersSaslIam"`
 	// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersSaslScram pulumi.StringOutput `pulumi:"bootstrapBrokersSaslScram"`
+	BootstrapBrokersSaslScram pulumi.StringPtrOutput `pulumi:"bootstrapBrokersSaslScram"`
 	// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersTls pulumi.StringOutput `pulumi:"bootstrapBrokersTls"`
+	BootstrapBrokersTls pulumi.StringPtrOutput `pulumi:"bootstrapBrokersTls"`
 	// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersVpcConnectivitySaslIam pulumi.StringOutput `pulumi:"bootstrapBrokersVpcConnectivitySaslIam"`
+	BootstrapBrokersVpcConnectivitySaslIam pulumi.StringPtrOutput `pulumi:"bootstrapBrokersVpcConnectivitySaslIam"`
 	// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersVpcConnectivitySaslScram pulumi.StringOutput `pulumi:"bootstrapBrokersVpcConnectivitySaslScram"`
+	BootstrapBrokersVpcConnectivitySaslScram pulumi.StringPtrOutput `pulumi:"bootstrapBrokersVpcConnectivitySaslScram"`
 	// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-	BootstrapBrokersVpcConnectivityTls pulumi.StringOutput `pulumi:"bootstrapBrokersVpcConnectivityTls"`
+	BootstrapBrokersVpcConnectivityTls pulumi.StringPtrOutput `pulumi:"bootstrapBrokersVpcConnectivityTls"`
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoOutput `pulumi:"brokerNodeGroupInfo"`
 	// Configuration block for specifying a client authentication. See below.
@@ -292,12 +292,12 @@ type Cluster struct {
 	// Name of the MSK cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// UUID of the MSK cluster, for use in IAM policies.
-	ClusterUuid pulumi.StringOutput `pulumi:"clusterUuid"`
+	ClusterUuid pulumi.StringPtrOutput `pulumi:"clusterUuid"`
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo ClusterConfigurationInfoPtrOutput `pulumi:"configurationInfo"`
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
 	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
-	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
+	CurrentVersion pulumi.StringPtrOutput `pulumi:"currentVersion"`
 	// Configuration block for specifying encryption. See below.
 	EncryptionInfo ClusterEncryptionInfoPtrOutput `pulumi:"encryptionInfo"`
 	// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
@@ -311,7 +311,7 @@ type Cluster struct {
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
 	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
-	StorageMode pulumi.StringOutput `pulumi:"storageMode"`
+	StorageMode pulumi.StringPtrOutput `pulumi:"storageMode"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -319,9 +319,9 @@ type Cluster struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-	ZookeeperConnectString pulumi.StringOutput `pulumi:"zookeeperConnectString"`
+	ZookeeperConnectString pulumi.StringPtrOutput `pulumi:"zookeeperConnectString"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-	ZookeeperConnectStringTls pulumi.StringOutput `pulumi:"zookeeperConnectStringTls"`
+	ZookeeperConnectStringTls pulumi.StringPtrOutput `pulumi:"zookeeperConnectStringTls"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -637,58 +637,58 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 }
 
 // Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-func (o ClusterOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
-func (o ClusterOutput) BootstrapBrokers() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokers }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokers }).(pulumi.StringPtrOutput)
 }
 
 // One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-func (o ClusterOutput) BootstrapBrokersPublicSaslIam() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersPublicSaslIam }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokersPublicSaslIam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokersPublicSaslIam }).(pulumi.StringPtrOutput)
 }
 
 // One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-func (o ClusterOutput) BootstrapBrokersPublicSaslScram() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersPublicSaslScram }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokersPublicSaslScram() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokersPublicSaslScram }).(pulumi.StringPtrOutput)
 }
 
 // One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-func (o ClusterOutput) BootstrapBrokersPublicTls() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersPublicTls }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokersPublicTls() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokersPublicTls }).(pulumi.StringPtrOutput)
 }
 
 // One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-func (o ClusterOutput) BootstrapBrokersSaslIam() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersSaslIam }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokersSaslIam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokersSaslIam }).(pulumi.StringPtrOutput)
 }
 
 // One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-func (o ClusterOutput) BootstrapBrokersSaslScram() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersSaslScram }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokersSaslScram() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokersSaslScram }).(pulumi.StringPtrOutput)
 }
 
 // One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-func (o ClusterOutput) BootstrapBrokersTls() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersTls }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokersTls() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokersTls }).(pulumi.StringPtrOutput)
 }
 
 // A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-func (o ClusterOutput) BootstrapBrokersVpcConnectivitySaslIam() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersVpcConnectivitySaslIam }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokersVpcConnectivitySaslIam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokersVpcConnectivitySaslIam }).(pulumi.StringPtrOutput)
 }
 
 // A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-func (o ClusterOutput) BootstrapBrokersVpcConnectivitySaslScram() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersVpcConnectivitySaslScram }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokersVpcConnectivitySaslScram() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokersVpcConnectivitySaslScram }).(pulumi.StringPtrOutput)
 }
 
 // A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-func (o ClusterOutput) BootstrapBrokersVpcConnectivityTls() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersVpcConnectivityTls }).(pulumi.StringOutput)
+func (o ClusterOutput) BootstrapBrokersVpcConnectivityTls() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BootstrapBrokersVpcConnectivityTls }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for the broker nodes of the Kafka cluster.
@@ -707,8 +707,8 @@ func (o ClusterOutput) ClusterName() pulumi.StringOutput {
 }
 
 // UUID of the MSK cluster, for use in IAM policies.
-func (o ClusterOutput) ClusterUuid() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterUuid }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterUuid }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
@@ -718,8 +718,8 @@ func (o ClusterOutput) ConfigurationInfo() ClusterConfigurationInfoPtrOutput {
 
 // Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
 // * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
-func (o ClusterOutput) CurrentVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
+func (o ClusterOutput) CurrentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CurrentVersion }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for specifying encryption. See below.
@@ -753,8 +753,8 @@ func (o ClusterOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 }
 
 // Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
-func (o ClusterOutput) StorageMode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.StorageMode }).(pulumi.StringOutput)
+func (o ClusterOutput) StorageMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.StorageMode }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -770,13 +770,13 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-func (o ClusterOutput) ZookeeperConnectString() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ZookeeperConnectString }).(pulumi.StringOutput)
+func (o ClusterOutput) ZookeeperConnectString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ZookeeperConnectString }).(pulumi.StringPtrOutput)
 }
 
 // A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-func (o ClusterOutput) ZookeeperConnectStringTls() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ZookeeperConnectStringTls }).(pulumi.StringOutput)
+func (o ClusterOutput) ZookeeperConnectStringTls() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ZookeeperConnectStringTls }).(pulumi.StringPtrOutput)
 }
 
 type ClusterArrayOutput struct{ *pulumi.OutputState }

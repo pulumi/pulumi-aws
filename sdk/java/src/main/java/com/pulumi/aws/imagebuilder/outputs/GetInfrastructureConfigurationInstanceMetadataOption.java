@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInfrastructureConfigurationInstanceMetadataOption {
@@ -14,27 +16,27 @@ public final class GetInfrastructureConfigurationInstanceMetadataOption {
      * @return Number of hops that an instance can traverse to reach its destonation.
      * 
      */
-    private Integer httpPutResponseHopLimit;
+    private @Nullable Integer httpPutResponseHopLimit;
     /**
      * @return Whether a signed token is required for instance metadata retrieval requests.
      * 
      */
-    private String httpTokens;
+    private @Nullable String httpTokens;
 
     private GetInfrastructureConfigurationInstanceMetadataOption() {}
     /**
      * @return Number of hops that an instance can traverse to reach its destonation.
      * 
      */
-    public Integer httpPutResponseHopLimit() {
-        return this.httpPutResponseHopLimit;
+    public Optional<Integer> httpPutResponseHopLimit() {
+        return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
     /**
      * @return Whether a signed token is required for instance metadata retrieval requests.
      * 
      */
-    public String httpTokens() {
-        return this.httpTokens;
+    public Optional<String> httpTokens() {
+        return Optional.ofNullable(this.httpTokens);
     }
 
     public static Builder builder() {
@@ -46,8 +48,8 @@ public final class GetInfrastructureConfigurationInstanceMetadataOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer httpPutResponseHopLimit;
-        private String httpTokens;
+        private @Nullable Integer httpPutResponseHopLimit;
+        private @Nullable String httpTokens;
         public Builder() {}
         public Builder(GetInfrastructureConfigurationInstanceMetadataOption defaults) {
     	      Objects.requireNonNull(defaults);
@@ -56,13 +58,13 @@ public final class GetInfrastructureConfigurationInstanceMetadataOption {
         }
 
         @CustomType.Setter
-        public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
-            this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
+        public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
+            this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder httpTokens(String httpTokens) {
-            this.httpTokens = Objects.requireNonNull(httpTokens);
+        public Builder httpTokens(@Nullable String httpTokens) {
+            this.httpTokens = httpTokens;
             return this;
         }
         public GetInfrastructureConfigurationInstanceMetadataOption build() {

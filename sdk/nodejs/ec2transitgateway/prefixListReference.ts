@@ -77,7 +77,7 @@ export class PrefixListReference extends pulumi.CustomResource {
      * Identifier of EC2 Prefix List.
      */
     public readonly prefixListId!: pulumi.Output<string>;
-    public /*out*/ readonly prefixListOwnerId!: pulumi.Output<string>;
+    public /*out*/ readonly prefixListOwnerId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */

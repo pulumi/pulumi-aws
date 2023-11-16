@@ -101,7 +101,7 @@ type LifecycleHook struct {
 	// Name of the Auto Scaling group to which you want to assign the lifecycle hook
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
 	// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
-	DefaultResult pulumi.StringOutput `pulumi:"defaultResult"`
+	DefaultResult pulumi.StringPtrOutput `pulumi:"defaultResult"`
 	// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
 	HeartbeatTimeout pulumi.IntPtrOutput `pulumi:"heartbeatTimeout"`
 	// Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
@@ -325,8 +325,8 @@ func (o LifecycleHookOutput) AutoscalingGroupName() pulumi.StringOutput {
 }
 
 // Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
-func (o LifecycleHookOutput) DefaultResult() pulumi.StringOutput {
-	return o.ApplyT(func(v *LifecycleHook) pulumi.StringOutput { return v.DefaultResult }).(pulumi.StringOutput)
+func (o LifecycleHookOutput) DefaultResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecycleHook) pulumi.StringPtrOutput { return v.DefaultResult }).(pulumi.StringPtrOutput)
 }
 
 // Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter

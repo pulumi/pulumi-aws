@@ -215,7 +215,7 @@ export class TopicSubscription extends pulumi.CustomResource {
     /**
      * ARN of the subscription.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
      */
@@ -223,7 +223,7 @@ export class TopicSubscription extends pulumi.CustomResource {
     /**
      * Whether the subscription confirmation request was authenticated.
      */
-    public /*out*/ readonly confirmationWasAuthenticated!: pulumi.Output<boolean>;
+    public /*out*/ readonly confirmationWasAuthenticated!: pulumi.Output<boolean | undefined>;
     /**
      * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
      */
@@ -243,15 +243,15 @@ export class TopicSubscription extends pulumi.CustomResource {
     /**
      * Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
      */
-    public readonly filterPolicyScope!: pulumi.Output<string>;
+    public readonly filterPolicyScope!: pulumi.Output<string | undefined>;
     /**
      * AWS account ID of the subscription's owner.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string | undefined>;
     /**
      * Whether the subscription has not been confirmed.
      */
-    public /*out*/ readonly pendingConfirmation!: pulumi.Output<boolean>;
+    public /*out*/ readonly pendingConfirmation!: pulumi.Output<boolean | undefined>;
     /**
      * Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
      */

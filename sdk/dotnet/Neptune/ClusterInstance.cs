@@ -68,20 +68,20 @@ namespace Pulumi.Aws.Neptune
         /// The hostname of the instance. See also `endpoint` and `port`.
         /// </summary>
         [Output("address")]
-        public Output<string> Address { get; private set; } = null!;
+        public Output<string?> Address { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether any instance modifications
         /// are applied immediately, or during the next maintenance window. Default is`false`.
         /// </summary>
         [Output("applyImmediately")]
-        public Output<bool> ApplyImmediately { get; private set; } = null!;
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of neptune instance
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Neptune
         /// The EC2 Availability Zone that the neptune instance is created in.
         /// </summary>
         [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the `aws.neptune.Cluster` in which to launch this instance.
@@ -105,13 +105,13 @@ namespace Pulumi.Aws.Neptune
         /// The region-unique, immutable identifier for the neptune instance.
         /// </summary>
         [Output("dbiResourceId")]
-        public Output<string> DbiResourceId { get; private set; } = null!;
+        public Output<string?> DbiResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The connection endpoint in `address:port` format.
         /// </summary>
         [Output("endpoint")]
-        public Output<string> Endpoint { get; private set; } = null!;
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
@@ -123,19 +123,19 @@ namespace Pulumi.Aws.Neptune
         /// The neptune engine version. Currently configuring this argumnet has no effect.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string> EngineVersion { get; private set; } = null!;
+        public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Output("identifier")]
-        public Output<string> Identifier { get; private set; } = null!;
+        public Output<string?> Identifier { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Output("identifierPrefix")]
-        public Output<string> IdentifierPrefix { get; private set; } = null!;
+        public Output<string?> IdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
         /// The instance class to use.
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Neptune
         /// The ARN for the KMS encryption key if one is set to the neptune cluster.
         /// </summary>
         [Output("kmsKeyArn")]
-        public Output<string> KmsKeyArn { get; private set; } = null!;
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the neptune parameter group to associate with this instance.
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Neptune
         /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Output("neptuneSubnetGroupName")]
-        public Output<string> NeptuneSubnetGroupName { get; private set; } = null!;
+        public Output<string?> NeptuneSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The port on which the DB accepts connections. Defaults to `8182`.
@@ -171,14 +171,14 @@ namespace Pulumi.Aws.Neptune
         /// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
         /// </summary>
         [Output("preferredBackupWindow")]
-        public Output<string> PreferredBackupWindow { get; private set; } = null!;
+        public Output<string?> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// The window to perform maintenance in.
         /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         /// </summary>
         [Output("preferredMaintenanceWindow")]
-        public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
+        public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Neptune
         /// Specifies whether the neptune cluster is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
-        public Output<bool> StorageEncrypted { get; private set; } = null!;
+        public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Neptune
         /// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         /// </summary>
         [Output("writer")]
-        public Output<bool> Writer { get; private set; } = null!;
+        public Output<bool?> Writer { get; private set; } = null!;
 
 
         /// <summary>

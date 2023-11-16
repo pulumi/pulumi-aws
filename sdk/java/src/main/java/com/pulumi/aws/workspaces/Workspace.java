@@ -103,14 +103,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="computerName", refs={String.class}, tree="[0]")
-    private Output<String> computerName;
+    private Output</* @Nullable */ String> computerName;
 
     /**
      * @return The name of the WorkSpace, as seen by the operating system.
      * 
      */
-    public Output<String> computerName() {
-        return this.computerName;
+    public Output<Optional<String>> computerName() {
+        return Codegen.optional(this.computerName);
     }
     /**
      * The ID of the directory for the WorkSpace.
@@ -131,14 +131,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
-    private Output<String> ipAddress;
+    private Output</* @Nullable */ String> ipAddress;
 
     /**
      * @return The IP address of the WorkSpace.
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Output<Optional<String>> ipAddress() {
+        return Codegen.optional(this.ipAddress);
     }
     /**
      * Indicates whether the data stored on the root volume is encrypted.
@@ -159,14 +159,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
-    private Output<String> state;
+    private Output</* @Nullable */ String> state;
 
     /**
      * @return The operational state of the WorkSpace.
      * 
      */
-    public Output<String> state() {
-        return this.state;
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -247,14 +247,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="workspaceProperties", refs={WorkspaceWorkspaceProperties.class}, tree="[0]")
-    private Output<WorkspaceWorkspaceProperties> workspaceProperties;
+    private Output</* @Nullable */ WorkspaceWorkspaceProperties> workspaceProperties;
 
     /**
      * @return The WorkSpace properties.
      * 
      */
-    public Output<WorkspaceWorkspaceProperties> workspaceProperties() {
-        return this.workspaceProperties;
+    public Output<Optional<WorkspaceWorkspaceProperties>> workspaceProperties() {
+        return Codegen.optional(this.workspaceProperties);
     }
 
     /**

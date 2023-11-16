@@ -70,7 +70,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) identifying your Lambda function alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Description of the alias.
      */
@@ -86,7 +86,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
      */
-    public /*out*/ readonly invokeArn!: pulumi.Output<string>;
+    public /*out*/ readonly invokeArn!: pulumi.Output<string | undefined>;
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */

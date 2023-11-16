@@ -6,6 +6,8 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInfrastructureConfigurationLoggingS3Log {
@@ -13,27 +15,27 @@ public final class GetInfrastructureConfigurationLoggingS3Log {
      * @return Name of the S3 Bucket for logging.
      * 
      */
-    private String s3BucketName;
+    private @Nullable String s3BucketName;
     /**
      * @return Key prefix for S3 Bucket logging.
      * 
      */
-    private String s3KeyPrefix;
+    private @Nullable String s3KeyPrefix;
 
     private GetInfrastructureConfigurationLoggingS3Log() {}
     /**
      * @return Name of the S3 Bucket for logging.
      * 
      */
-    public String s3BucketName() {
-        return this.s3BucketName;
+    public Optional<String> s3BucketName() {
+        return Optional.ofNullable(this.s3BucketName);
     }
     /**
      * @return Key prefix for S3 Bucket logging.
      * 
      */
-    public String s3KeyPrefix() {
-        return this.s3KeyPrefix;
+    public Optional<String> s3KeyPrefix() {
+        return Optional.ofNullable(this.s3KeyPrefix);
     }
 
     public static Builder builder() {
@@ -45,8 +47,8 @@ public final class GetInfrastructureConfigurationLoggingS3Log {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String s3BucketName;
-        private String s3KeyPrefix;
+        private @Nullable String s3BucketName;
+        private @Nullable String s3KeyPrefix;
         public Builder() {}
         public Builder(GetInfrastructureConfigurationLoggingS3Log defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +57,13 @@ public final class GetInfrastructureConfigurationLoggingS3Log {
         }
 
         @CustomType.Setter
-        public Builder s3BucketName(String s3BucketName) {
-            this.s3BucketName = Objects.requireNonNull(s3BucketName);
+        public Builder s3BucketName(@Nullable String s3BucketName) {
+            this.s3BucketName = s3BucketName;
             return this;
         }
         @CustomType.Setter
-        public Builder s3KeyPrefix(String s3KeyPrefix) {
-            this.s3KeyPrefix = Objects.requireNonNull(s3KeyPrefix);
+        public Builder s3KeyPrefix(@Nullable String s3KeyPrefix) {
+            this.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
         public GetInfrastructureConfigurationLoggingS3Log build() {

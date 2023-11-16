@@ -235,11 +235,11 @@ export class Function extends pulumi.CustomResource {
     /**
      * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
      */
-    public readonly architectures!: pulumi.Output<string[]>;
+    public readonly architectures!: pulumi.Output<string[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
@@ -263,7 +263,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
      */
-    public readonly ephemeralStorage!: pulumi.Output<outputs.lambda.FunctionEphemeralStorage>;
+    public readonly ephemeralStorage!: pulumi.Output<outputs.lambda.FunctionEphemeralStorage | undefined>;
     /**
      * Configuration block. Detailed below.
      */
@@ -283,7 +283,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
-    public /*out*/ readonly invokeArn!: pulumi.Output<string>;
+    public /*out*/ readonly invokeArn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
      */
@@ -291,7 +291,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Date this resource was last modified.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string | undefined>;
     /**
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      */
@@ -315,11 +315,11 @@ export class Function extends pulumi.CustomResource {
     /**
      * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
      */
-    public /*out*/ readonly qualifiedArn!: pulumi.Output<string>;
+    public /*out*/ readonly qualifiedArn!: pulumi.Output<string | undefined>;
     /**
      * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
-    public /*out*/ readonly qualifiedInvokeArn!: pulumi.Output<string>;
+    public /*out*/ readonly qualifiedInvokeArn!: pulumi.Output<string | undefined>;
     /**
      * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
      *
@@ -361,12 +361,12 @@ export class Function extends pulumi.CustomResource {
     /**
      * ARN of the signing job.
      */
-    public /*out*/ readonly signingJobArn!: pulumi.Output<string>;
+    public /*out*/ readonly signingJobArn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the signing profile version.
      * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      */
-    public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string>;
+    public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string | undefined>;
     /**
      * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
      */
@@ -378,11 +378,11 @@ export class Function extends pulumi.CustomResource {
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
      */
-    public readonly sourceCodeHash!: pulumi.Output<string>;
+    public readonly sourceCodeHash!: pulumi.Output<string | undefined>;
     /**
      * Size in bytes of the function .zip file.
      */
-    public /*out*/ readonly sourceCodeSize!: pulumi.Output<number>;
+    public /*out*/ readonly sourceCodeSize!: pulumi.Output<number | undefined>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -400,12 +400,12 @@ export class Function extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly tracingConfig!: pulumi.Output<outputs.lambda.FunctionTracingConfig>;
+    public readonly tracingConfig!: pulumi.Output<outputs.lambda.FunctionTracingConfig | undefined>;
     /**
      * Latest published version of your Lambda Function.
      * * `vpc_config.vpc_id` - ID of the VPC.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */

@@ -85,11 +85,11 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    public readonly transitGatewayDefaultRouteTableAssociation!: pulumi.Output<boolean>;
+    public readonly transitGatewayDefaultRouteTableAssociation!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    public readonly transitGatewayDefaultRouteTablePropagation!: pulumi.Output<boolean>;
+    public readonly transitGatewayDefaultRouteTablePropagation!: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -101,7 +101,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Identifier of the AWS account that owns the EC2 VPC.
      */
-    public /*out*/ readonly vpcOwnerId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcOwnerId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcAttachment resource with the given unique name, arguments, and options.

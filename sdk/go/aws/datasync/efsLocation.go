@@ -64,7 +64,7 @@ type EfsLocation struct {
 	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
 	AccessPointArn pulumi.StringPtrOutput `pulumi:"accessPointArn"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Configuration block containing EC2 configurations for connecting to the EFS File System.
 	Ec2Config EfsLocationEc2ConfigOutput `pulumi:"ec2Config"`
 	// Amazon Resource Name (ARN) of EFS File System.
@@ -81,7 +81,7 @@ type EfsLocation struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Uri     pulumi.StringOutput    `pulumi:"uri"`
+	Uri     pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewEfsLocation registers a new resource with the given unique name, arguments, and options.
@@ -303,8 +303,8 @@ func (o EfsLocationOutput) AccessPointArn() pulumi.StringPtrOutput {
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (o EfsLocationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EfsLocation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o EfsLocationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EfsLocation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing EC2 configurations for connecting to the EFS File System.
@@ -344,8 +344,8 @@ func (o EfsLocationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-func (o EfsLocationOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v *EfsLocation) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+func (o EfsLocationOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EfsLocation) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 type EfsLocationArrayOutput struct{ *pulumi.OutputState }

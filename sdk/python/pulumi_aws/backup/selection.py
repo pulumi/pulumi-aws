@@ -593,7 +593,7 @@ class Selection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def conditions(self) -> pulumi.Output[Sequence['outputs.SelectionCondition']]:
+    def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.SelectionCondition']]]:
         """
         A list of conditions that you define to assign resources to your backup plans using tags.
         """
@@ -617,7 +617,7 @@ class Selection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notResources")
-    def not_resources(self) -> pulumi.Output[Sequence[str]]:
+    def not_resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         """

@@ -89,7 +89,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The Amazon Resource Name (ARN) of the dashboard.
         /// </summary>
         [Output("dashboardArn")]
-        public Output<string> DashboardArn { get; private set; } = null!;
+        public Output<string?> DashboardArn { get; private set; } = null!;
 
         /// <summary>
         /// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).

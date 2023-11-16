@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Acm
         /// ARN of the certificate
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// ARN of an ACM PCA
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Acm
         /// Fully qualified domain name (FQDN) in the certificate.
         /// </summary>
         [Output("domainName")]
-        public Output<string> DomainName { get; private set; } = null!;
+        public Output<string?> DomainName { get; private set; } = null!;
 
         /// <summary>
         /// Set of domain validation objects which can be used to complete certificate validation.
@@ -245,31 +245,31 @@ namespace Pulumi.Aws.Acm
         /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         /// </summary>
         [Output("keyAlgorithm")]
-        public Output<string> KeyAlgorithm { get; private set; } = null!;
+        public Output<string?> KeyAlgorithm { get; private set; } = null!;
 
         /// <summary>
         /// Expiration date and time of the certificate.
         /// </summary>
         [Output("notAfter")]
-        public Output<string> NotAfter { get; private set; } = null!;
+        public Output<string?> NotAfter { get; private set; } = null!;
 
         /// <summary>
         /// Start of the validity period of the certificate.
         /// </summary>
         [Output("notBefore")]
-        public Output<string> NotBefore { get; private set; } = null!;
+        public Output<string?> NotBefore { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block used to set certificate options. Detailed below.
         /// </summary>
         [Output("options")]
-        public Output<Outputs.CertificateOptions> Options { get; private set; } = null!;
+        public Output<Outputs.CertificateOptions?> Options { get; private set; } = null!;
 
         /// <summary>
         /// `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
         /// </summary>
         [Output("pendingRenewal")]
-        public Output<bool> PendingRenewal { get; private set; } = null!;
+        public Output<bool?> PendingRenewal { get; private set; } = null!;
 
         /// <summary>
         /// Certificate's PEM-formatted private key
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Acm
         /// Whether the certificate is eligible for managed renewal.
         /// </summary>
         [Output("renewalEligibility")]
-        public Output<string> RenewalEligibility { get; private set; } = null!;
+        public Output<string?> RenewalEligibility { get; private set; } = null!;
 
         /// <summary>
         /// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Acm
         /// Status of the certificate.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Set of domains that should be SANs in the issued certificate.
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Acm
         /// Source of the certificate.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Acm
         /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         /// </summary>
         [Output("validationMethod")]
-        public Output<string> ValidationMethod { get; private set; } = null!;
+        public Output<string?> ValidationMethod { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.

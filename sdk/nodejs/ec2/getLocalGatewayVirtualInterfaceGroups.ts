@@ -51,16 +51,16 @@ export interface GetLocalGatewayVirtualInterfaceGroupsResult {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    readonly id: string;
+    readonly id?: string;
     /**
      * Set of EC2 Local Gateway Virtual Interface Group identifiers.
      */
-    readonly ids: string[];
+    readonly ids?: string[];
     /**
      * Set of EC2 Local Gateway Virtual Interface identifiers.
      */
-    readonly localGatewayVirtualInterfaceIds: string[];
-    readonly tags: {[key: string]: string};
+    readonly localGatewayVirtualInterfaceIds?: string[];
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).

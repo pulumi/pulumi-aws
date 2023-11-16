@@ -60,20 +60,20 @@ export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * The Organizations ARN for the delegate account.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     public readonly delegatedAdminAccountId!: pulumi.Output<string>;
     /**
      * The Organizations email for the delegate account.
      */
-    public /*out*/ readonly email!: pulumi.Output<string>;
+    public /*out*/ readonly email!: pulumi.Output<string | undefined>;
     /**
      * The Organizations name for the delegate account.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * The AWS service principal.
      */
-    public /*out*/ readonly servicePrincipal!: pulumi.Output<string>;
+    public /*out*/ readonly servicePrincipal!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcIpamOrganizationAdminAccount resource with the given unique name, arguments, and options.

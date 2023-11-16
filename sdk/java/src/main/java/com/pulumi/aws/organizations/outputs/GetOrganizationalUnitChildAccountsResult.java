@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrganizationalUnitChildAccountsResult {
@@ -15,12 +17,12 @@ public final class GetOrganizationalUnitChildAccountsResult {
      * @return List of child accounts, which have the following attributes:
      * 
      */
-    private List<GetOrganizationalUnitChildAccountsAccount> accounts;
+    private @Nullable List<GetOrganizationalUnitChildAccountsAccount> accounts;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private String id;
+    private @Nullable String id;
     private String parentId;
 
     private GetOrganizationalUnitChildAccountsResult() {}
@@ -29,14 +31,14 @@ public final class GetOrganizationalUnitChildAccountsResult {
      * 
      */
     public List<GetOrganizationalUnitChildAccountsAccount> accounts() {
-        return this.accounts;
+        return this.accounts == null ? List.of() : this.accounts;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     public String parentId() {
         return this.parentId;
@@ -51,8 +53,8 @@ public final class GetOrganizationalUnitChildAccountsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetOrganizationalUnitChildAccountsAccount> accounts;
-        private String id;
+        private @Nullable List<GetOrganizationalUnitChildAccountsAccount> accounts;
+        private @Nullable String id;
         private String parentId;
         public Builder() {}
         public Builder(GetOrganizationalUnitChildAccountsResult defaults) {
@@ -63,16 +65,16 @@ public final class GetOrganizationalUnitChildAccountsResult {
         }
 
         @CustomType.Setter
-        public Builder accounts(List<GetOrganizationalUnitChildAccountsAccount> accounts) {
-            this.accounts = Objects.requireNonNull(accounts);
+        public Builder accounts(@Nullable List<GetOrganizationalUnitChildAccountsAccount> accounts) {
+            this.accounts = accounts;
             return this;
         }
         public Builder accounts(GetOrganizationalUnitChildAccountsAccount... accounts) {
             return accounts(List.of(accounts));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
         @CustomType.Setter

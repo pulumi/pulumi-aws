@@ -874,7 +874,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of the target group.
 
@@ -918,7 +918,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[str]:
+    def protocol(self) -> pulumi.Output[Optional[str]]:
         """
         Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         """
@@ -926,7 +926,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslPolicy")
-    def ssl_policy(self) -> pulumi.Output[str]:
+    def ssl_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         """

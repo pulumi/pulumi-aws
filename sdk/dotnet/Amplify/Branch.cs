@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Amplify
         /// ARN for the branch.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A list of custom resources that are linked to this branch.
@@ -230,13 +230,13 @@ namespace Pulumi.Aws.Amplify
         /// Destination branch if the branch is a pull request branch.
         /// </summary>
         [Output("destinationBranch")]
-        public Output<string> DestinationBranch { get; private set; } = null!;
+        public Output<string?> DestinationBranch { get; private set; } = null!;
 
         /// <summary>
         /// Display name for a branch. This is used as the default domain prefix.
         /// </summary>
         [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
+        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// Enables auto building for the branch.
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Amplify
         /// Source branch if the branch is a pull request branch.
         /// </summary>
         [Output("sourceBranch")]
-        public Output<string> SourceBranch { get; private set; } = null!;
+        public Output<string?> SourceBranch { get; private set; } = null!;
 
         /// <summary>
         /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.

@@ -57,21 +57,21 @@ type BotAlias struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the bot alias.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// The name of the bot.
 	BotName pulumi.StringOutput `pulumi:"botName"`
 	// The version of the bot.
 	BotVersion pulumi.StringOutput `pulumi:"botVersion"`
 	// Checksum of the bot alias.
-	Checksum pulumi.StringOutput `pulumi:"checksum"`
+	Checksum pulumi.StringPtrOutput `pulumi:"checksum"`
 	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
 	ConversationLogs BotAliasConversationLogsPtrOutput `pulumi:"conversationLogs"`
 	// The date that the bot alias was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// A description of the alias. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+	LastUpdatedDate pulumi.StringPtrOutput `pulumi:"lastUpdatedDate"`
 	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -272,8 +272,8 @@ func (o BotAliasOutput) ToBotAliasOutputWithContext(ctx context.Context) BotAlia
 }
 
 // The ARN of the bot alias.
-func (o BotAliasOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o BotAliasOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the bot.
@@ -287,8 +287,8 @@ func (o BotAliasOutput) BotVersion() pulumi.StringOutput {
 }
 
 // Checksum of the bot alias.
-func (o BotAliasOutput) Checksum() pulumi.StringOutput {
-	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Checksum }).(pulumi.StringOutput)
+func (o BotAliasOutput) Checksum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.Checksum }).(pulumi.StringPtrOutput)
 }
 
 // The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
@@ -297,8 +297,8 @@ func (o BotAliasOutput) ConversationLogs() BotAliasConversationLogsPtrOutput {
 }
 
 // The date that the bot alias was created.
-func (o BotAliasOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+func (o BotAliasOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // A description of the alias. Must be less than or equal to 200 characters in length.
@@ -307,8 +307,8 @@ func (o BotAliasOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-func (o BotAliasOutput) LastUpdatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
+func (o BotAliasOutput) LastUpdatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.LastUpdatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.

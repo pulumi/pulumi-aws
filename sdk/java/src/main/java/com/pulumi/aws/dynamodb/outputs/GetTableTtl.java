@@ -7,18 +7,20 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTableTtl {
-    private String attributeName;
-    private Boolean enabled;
+    private @Nullable String attributeName;
+    private @Nullable Boolean enabled;
 
     private GetTableTtl() {}
-    public String attributeName() {
-        return this.attributeName;
+    public Optional<String> attributeName() {
+        return Optional.ofNullable(this.attributeName);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     public static Builder builder() {
@@ -30,8 +32,8 @@ public final class GetTableTtl {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String attributeName;
-        private Boolean enabled;
+        private @Nullable String attributeName;
+        private @Nullable Boolean enabled;
         public Builder() {}
         public Builder(GetTableTtl defaults) {
     	      Objects.requireNonNull(defaults);
@@ -40,13 +42,13 @@ public final class GetTableTtl {
         }
 
         @CustomType.Setter
-        public Builder attributeName(String attributeName) {
-            this.attributeName = Objects.requireNonNull(attributeName);
+        public Builder attributeName(@Nullable String attributeName) {
+            this.attributeName = attributeName;
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         public GetTableTtl build() {

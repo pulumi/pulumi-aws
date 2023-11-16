@@ -95,11 +95,11 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
      */
-    public /*out*/ readonly apiMappingSelectionExpression!: pulumi.Output<string>;
+    public /*out*/ readonly apiMappingSelectionExpression!: pulumi.Output<string | undefined>;
     /**
      * ARN of the domain name.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string | undefined>;
     /**
      * Domain name. Must be between 1 and 512 characters in length.
      */
