@@ -447,20 +447,20 @@ namespace Pulumi.Aws.Emr
         /// {
         ///     var cluster = new Aws.Emr.Cluster("cluster", new()
         ///     {
-        ///         ConfigurationsJson = @"[
-        /// {
-        /// ""Classification"": ""hadoop-env"",
-        /// ""Configurations"": [
-        /// {
-        /// ""Classification"": ""export"",
-        /// ""Properties"": {
-        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-        /// }
-        /// }
-        /// ],
-        /// ""Properties"": {}
-        /// }
-        /// ]
+        ///         ConfigurationsJson = @"  [
+        ///     {
+        ///       ""Classification"": ""hadoop-env"",
+        ///       ""Configurations"": [
+        ///         {
+        ///           ""Classification"": ""export"",
+        ///           ""Properties"": {
+        ///             ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        ///           }
+        ///         }
+        ///       ],
+        ///       ""Properties"": {}
+        ///     }
+        ///   ]
         /// 
         /// ",
         ///     });
@@ -736,20 +736,20 @@ namespace Pulumi.Aws.Emr
         /// {
         ///     var cluster = new Aws.Emr.Cluster("cluster", new()
         ///     {
-        ///         ConfigurationsJson = @"[
-        /// {
-        /// ""Classification"": ""hadoop-env"",
-        /// ""Configurations"": [
-        /// {
-        /// ""Classification"": ""export"",
-        /// ""Properties"": {
-        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-        /// }
-        /// }
-        /// ],
-        /// ""Properties"": {}
-        /// }
-        /// ]
+        ///         ConfigurationsJson = @"  [
+        ///     {
+        ///       ""Classification"": ""hadoop-env"",
+        ///       ""Configurations"": [
+        ///         {
+        ///           ""Classification"": ""export"",
+        ///           ""Properties"": {
+        ///             ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        ///           }
+        ///         }
+        ///       ],
+        ///       ""Properties"": {}
+        ///     }
+        ///   ]
         /// 
         /// ",
         ///     });
@@ -1004,20 +1004,20 @@ namespace Pulumi.Aws.Emr
         /// {
         ///     var cluster = new Aws.Emr.Cluster("cluster", new()
         ///     {
-        ///         ConfigurationsJson = @"[
-        /// {
-        /// ""Classification"": ""hadoop-env"",
-        /// ""Configurations"": [
-        /// {
-        /// ""Classification"": ""export"",
-        /// ""Properties"": {
-        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-        /// }
-        /// }
-        /// ],
-        /// ""Properties"": {}
-        /// }
-        /// ]
+        ///         ConfigurationsJson = @"  [
+        ///     {
+        ///       ""Classification"": ""hadoop-env"",
+        ///       ""Configurations"": [
+        ///         {
+        ///           ""Classification"": ""export"",
+        ///           ""Properties"": {
+        ///             ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        ///           }
+        ///         }
+        ///       ],
+        ///       ""Properties"": {}
+        ///     }
+        ///   ]
         /// 
         /// ",
         ///     });

@@ -65,7 +65,7 @@ type GangliaLayer struct {
 	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes GangliaLayerEbsVolumeArrayOutput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrOutput `pulumi:"elasticLoadBalancer"`
@@ -96,7 +96,7 @@ type GangliaLayer struct {
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
-	// The username to use for Ganglia. Defaults to "opsworks".
+	// (Optiona) The username to use for Ganglia. Defaults to "opsworks".
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
@@ -162,7 +162,7 @@ type gangliaLayerState struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []GangliaLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -193,7 +193,7 @@ type gangliaLayerState struct {
 	Url *string `pulumi:"url"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
-	// The username to use for Ganglia. Defaults to "opsworks".
+	// (Optiona) The username to use for Ganglia. Defaults to "opsworks".
 	Username *string `pulumi:"username"`
 }
 
@@ -220,7 +220,7 @@ type GangliaLayerState struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes GangliaLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput
@@ -251,7 +251,7 @@ type GangliaLayerState struct {
 	Url pulumi.StringPtrInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
-	// The username to use for Ganglia. Defaults to "opsworks".
+	// (Optiona) The username to use for Ganglia. Defaults to "opsworks".
 	Username pulumi.StringPtrInput
 }
 
@@ -280,7 +280,7 @@ type gangliaLayerArgs struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []GangliaLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -307,7 +307,7 @@ type gangliaLayerArgs struct {
 	Url *string `pulumi:"url"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
-	// The username to use for Ganglia. Defaults to "opsworks".
+	// (Optiona) The username to use for Ganglia. Defaults to "opsworks".
 	Username *string `pulumi:"username"`
 }
 
@@ -333,7 +333,7 @@ type GangliaLayerArgs struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes GangliaLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput
@@ -360,7 +360,7 @@ type GangliaLayerArgs struct {
 	Url pulumi.StringPtrInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
-	// The username to use for Ganglia. Defaults to "opsworks".
+	// (Optiona) The username to use for Ganglia. Defaults to "opsworks".
 	Username pulumi.StringPtrInput
 }
 
@@ -515,7 +515,7 @@ func (o GangliaLayerOutput) DrainElbOnShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GangliaLayer) pulumi.BoolPtrOutput { return v.DrainElbOnShutdown }).(pulumi.BoolPtrOutput)
 }
 
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (o GangliaLayerOutput) EbsVolumes() GangliaLayerEbsVolumeArrayOutput {
 	return o.ApplyT(func(v *GangliaLayer) GangliaLayerEbsVolumeArrayOutput { return v.EbsVolumes }).(GangliaLayerEbsVolumeArrayOutput)
 }
@@ -585,7 +585,7 @@ func (o GangliaLayerOutput) UseEbsOptimizedInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GangliaLayer) pulumi.BoolPtrOutput { return v.UseEbsOptimizedInstances }).(pulumi.BoolPtrOutput)
 }
 
-// The username to use for Ganglia. Defaults to "opsworks".
+// (Optiona) The username to use for Ganglia. Defaults to "opsworks".
 func (o GangliaLayerOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GangliaLayer) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }

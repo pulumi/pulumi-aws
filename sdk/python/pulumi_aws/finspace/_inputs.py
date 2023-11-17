@@ -128,7 +128,7 @@ class KxClusterCacheStorageConfigurationArgs:
                  size: pulumi.Input[int],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] size: Size of cache in Gigabytes.
+        :param pulumi.Input[int] size: Size of temporary storage in gigabytes. Must be between 10 and 16000.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
@@ -141,7 +141,7 @@ class KxClusterCacheStorageConfigurationArgs:
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
         """
-        Size of cache in Gigabytes.
+        Size of temporary storage in gigabytes. Must be between 10 and 16000.
         """
         return pulumi.get(self, "size")
 
@@ -414,7 +414,6 @@ class KxClusterVpcConfigurationArgs:
         """
         :param pulumi.Input[str] ip_address_type: IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-               * `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         :param pulumi.Input[str] vpc_id: Identifier of the VPC endpoint
         """
         pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -439,7 +438,6 @@ class KxClusterVpcConfigurationArgs:
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-        * `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         """
         return pulumi.get(self, "security_group_ids")
 

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LB.Inputs
         private InputMap<string>? _authenticationRequestExtraParams;
 
         /// <summary>
-        /// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        /// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         /// </summary>
         public InputMap<string> AuthenticationRequestExtraParams
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LB.Inputs
         }
 
         /// <summary>
-        /// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+        /// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         /// </summary>
         [Input("onUnauthenticatedRequest")]
         public Input<string>? OnUnauthenticatedRequest { get; set; }

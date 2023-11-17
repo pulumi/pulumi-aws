@@ -175,8 +175,7 @@ class InstanceArgs:
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
-        :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-               is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        :param pulumi.Input[str] password: Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -220,8 +219,7 @@ class InstanceArgs:
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
-        :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Username for the master DB user. Cannot be specified for a replica.
+        :param pulumi.Input[str] username: Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
         """
@@ -924,8 +922,7 @@ class InstanceArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-        is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        Password for the master DB user. Note that this may show up in
         logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         """
         return pulumi.get(self, "password")
@@ -1156,8 +1153,7 @@ class InstanceArgs:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required unless a `snapshot_identifier` or `replicate_source_db`
-        is provided) Username for the master DB user. Cannot be specified for a replica.
+        Username for the master DB user. Cannot be specified for a replica.
         """
         return pulumi.get(self, "username")
 
@@ -1360,8 +1356,7 @@ class _InstanceState:
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
-        :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-               is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        :param pulumi.Input[str] password: Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -1408,8 +1403,7 @@ class _InstanceState:
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
-        :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Username for the master DB user. Cannot be specified for a replica.
+        :param pulumi.Input[str] username: Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
         """
@@ -2236,8 +2230,7 @@ class _InstanceState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-        is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        Password for the master DB user. Note that this may show up in
         logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         """
         return pulumi.get(self, "password")
@@ -2516,8 +2509,7 @@ class _InstanceState:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required unless a `snapshot_identifier` or `replicate_source_db`
-        is provided) Username for the master DB user. Cannot be specified for a replica.
+        Username for the master DB user. Cannot be specified for a replica.
         """
         return pulumi.get(self, "username")
 
@@ -2821,8 +2813,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
-        :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-               is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        :param pulumi.Input[str] password: Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -2866,8 +2857,7 @@ class Instance(pulumi.CustomResource):
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
-        :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Username for the master DB user. Cannot be specified for a replica.
+        :param pulumi.Input[str] username: Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
         """
@@ -3352,8 +3342,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
-        :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-               is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        :param pulumi.Input[str] password: Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -3400,8 +3389,7 @@ class Instance(pulumi.CustomResource):
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
-        :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Username for the master DB user. Cannot be specified for a replica.
+        :param pulumi.Input[str] username: Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
         """
@@ -3949,8 +3937,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-        is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        Password for the master DB user. Note that this may show up in
         logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         """
         return pulumi.get(self, "password")
@@ -4145,8 +4132,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
         """
-        (Required unless a `snapshot_identifier` or `replicate_source_db`
-        is provided) Username for the master DB user. Cannot be specified for a replica.
+        Username for the master DB user. Cannot be specified for a replica.
         """
         return pulumi.get(self, "username")
 

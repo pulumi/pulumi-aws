@@ -33,10 +33,6 @@ class PermissionArgs:
         :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-               
-               [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-               [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-               [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         :param pulumi.Input[str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         :param pulumi.Input[str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -132,10 +128,6 @@ class PermissionArgs:
     def principal_org_id(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-
-        [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-        [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-        [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         """
         return pulumi.get(self, "principal_org_id")
 
@@ -230,10 +222,6 @@ class _PermissionState:
         :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-               
-               [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-               [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-               [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         :param pulumi.Input[str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         :param pulumi.Input[str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -332,10 +320,6 @@ class _PermissionState:
     def principal_org_id(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-
-        [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-        [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-        [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         """
         return pulumi.get(self, "principal_org_id")
 
@@ -592,10 +576,6 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-               
-               [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-               [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-               [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         :param pulumi.Input[str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         :param pulumi.Input[str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -857,10 +837,6 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-               
-               [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-               [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-               [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         :param pulumi.Input[str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         :param pulumi.Input[str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
@@ -933,10 +909,6 @@ class Permission(pulumi.CustomResource):
     def principal_org_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-
-        [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-        [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-        [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         """
         return pulumi.get(self, "principal_org_id")
 

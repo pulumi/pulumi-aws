@@ -51,7 +51,7 @@ class EcsClusterLayerArgs:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerEbsVolumeArgs']]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -277,7 +277,7 @@ class EcsClusterLayerArgs:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -422,7 +422,7 @@ class _EcsClusterLayerState:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerEbsVolumeArgs']]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] ecs_cluster_arn: The ECS Cluster ARN of the layer.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
@@ -647,7 +647,7 @@ class _EcsClusterLayerState:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -842,7 +842,7 @@ class EcsClusterLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EcsClusterLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EcsClusterLayerEbsVolumeArgs']]]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] ecs_cluster_arn: The ECS Cluster ARN of the layer.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
@@ -1008,7 +1008,7 @@ class EcsClusterLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EcsClusterLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EcsClusterLayerEbsVolumeArgs']]]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] ecs_cluster_arn: The ECS Cluster ARN of the layer.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
@@ -1153,7 +1153,7 @@ class EcsClusterLayer(pulumi.CustomResource):
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.EcsClusterLayerEbsVolume']]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 

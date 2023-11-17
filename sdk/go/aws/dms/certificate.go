@@ -59,7 +59,6 @@ type Certificate struct {
 	// The Amazon Resource Name (ARN) for the certificate.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// The certificate identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
@@ -122,7 +121,6 @@ type certificateState struct {
 	// The Amazon Resource Name (ARN) for the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The certificate identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId *string `pulumi:"certificateId"`
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
@@ -141,7 +139,6 @@ type CertificateState struct {
 	// The Amazon Resource Name (ARN) for the certificate.
 	CertificateArn pulumi.StringPtrInput
 	// The certificate identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId pulumi.StringPtrInput
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
@@ -162,7 +159,6 @@ func (CertificateState) ElementType() reflect.Type {
 
 type certificateArgs struct {
 	// The certificate identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId string `pulumi:"certificateId"`
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
@@ -176,7 +172,6 @@ type certificateArgs struct {
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The certificate identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters and hyphens.
 	CertificateId pulumi.StringInput
 	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
@@ -280,7 +275,6 @@ func (o CertificateOutput) CertificateArn() pulumi.StringOutput {
 }
 
 // The certificate identifier.
-//
 // - Must contain from 1 to 255 alphanumeric characters and hyphens.
 func (o CertificateOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)

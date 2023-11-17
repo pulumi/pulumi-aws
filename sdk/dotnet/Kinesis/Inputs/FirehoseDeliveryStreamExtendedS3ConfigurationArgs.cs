@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs>? S3BackupConfiguration { get; set; }
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }

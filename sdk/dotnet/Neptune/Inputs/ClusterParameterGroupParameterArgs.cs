@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Neptune.Inputs
         public Input<string>? ApplyMethod { get; set; }
 
         /// <summary>
-        /// The name of the neptune parameter.
+        /// The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

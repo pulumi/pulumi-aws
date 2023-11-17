@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Neptune.Outputs
         /// </summary>
         public readonly string? ApplyMethod;
         /// <summary>
-        /// The name of the Neptune parameter.
+        /// The name of the Neptune parameter group.
         /// </summary>
         public readonly string Name;
         /// <summary>

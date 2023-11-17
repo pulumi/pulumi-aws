@@ -239,7 +239,7 @@ type Pipeline struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A stage block. Stages are documented below.
+	// (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	Stages PipelineStageArrayOutput `pulumi:"stages"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -300,7 +300,7 @@ type pipelineState struct {
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
-	// A stage block. Stages are documented below.
+	// (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -319,7 +319,7 @@ type PipelineState struct {
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringPtrInput
-	// A stage block. Stages are documented below.
+	// (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -340,7 +340,7 @@ type pipelineArgs struct {
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
-	// A stage block. Stages are documented below.
+	// (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -354,7 +354,7 @@ type PipelineArgs struct {
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringInput
-	// A stage block. Stages are documented below.
+	// (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -467,7 +467,7 @@ func (o PipelineOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A stage block. Stages are documented below.
+// (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 func (o PipelineOutput) Stages() PipelineStageArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineStageArrayOutput { return v.Stages }).(PipelineStageArrayOutput)
 }

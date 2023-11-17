@@ -86,7 +86,7 @@ export class MysqlLayer extends pulumi.CustomResource {
      */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.MysqlLayerEbsVolume[]>;
     /**
@@ -264,7 +264,7 @@ export interface MysqlLayerState {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.MysqlLayerEbsVolume>[]>;
     /**
@@ -359,7 +359,7 @@ export interface MysqlLayerArgs {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.MysqlLayerEbsVolume>[]>;
     /**

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private Input<string>? _accessToken;
 
         /// <summary>
-        /// The access token used to access the connector on your behalf.
+        /// The access token used to access protected SAPOData resources.
         /// </summary>
         public Input<string>? AccessToken
         {
@@ -41,13 +41,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<string> ClientSecret { get; set; } = null!;
 
         /// <summary>
-        /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        /// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         /// </summary>
         [Input("oauthRequest")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestGetArgs>? OauthRequest { get; set; }
 
         /// <summary>
-        /// The refresh token used to refresh an expired access token.
+        /// The refresh token used to refresh expired access token.
         /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }

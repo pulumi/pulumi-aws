@@ -30,14 +30,14 @@ public final class GatewayRouteSpecHttp2RouteArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Criteria for determining a request match.
+     * Method and value to match the header value sent with a request. Specify one match method.
      * 
      */
     @Import(name="match", required=true)
     private Output<GatewayRouteSpecHttp2RouteMatchArgs> match;
 
     /**
-     * @return Criteria for determining a request match.
+     * @return Method and value to match the header value sent with a request. Specify one match method.
      * 
      */
     public Output<GatewayRouteSpecHttp2RouteMatchArgs> match() {
@@ -91,7 +91,7 @@ public final class GatewayRouteSpecHttp2RouteArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param match Criteria for determining a request match.
+         * @param match Method and value to match the header value sent with a request. Specify one match method.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GatewayRouteSpecHttp2RouteArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param match Criteria for determining a request match.
+         * @param match Method and value to match the header value sent with a request. Specify one match method.
          * 
          * @return builder
          * 

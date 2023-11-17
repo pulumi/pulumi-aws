@@ -823,8 +823,6 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) OutputSch
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestination struct {
 	// Analytics data export currently only supports an S3 bucket destination (documented below).
-	//
-	// The `s3BucketDestination` configuration supports the following:
 	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination `pulumi:"s3BucketDestination"`
 }
 
@@ -841,8 +839,6 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput interf
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs struct {
 	// Analytics data export currently only supports an S3 bucket destination (documented below).
-	//
-	// The `s3BucketDestination` configuration supports the following:
 	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput `pulumi:"s3BucketDestination"`
 }
 
@@ -924,8 +920,6 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) T
 }
 
 // Analytics data export currently only supports an S3 bucket destination (documented below).
-//
-// The `s3BucketDestination` configuration supports the following:
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) S3BucketDestination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestination) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		return v.S3BucketDestination
@@ -957,8 +951,6 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput
 }
 
 // Analytics data export currently only supports an S3 bucket destination (documented below).
-//
-// The `s3BucketDestination` configuration supports the following:
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput) S3BucketDestination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestination) *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		if v == nil {
@@ -14392,8 +14384,6 @@ type BucketWebsite struct {
 	RedirectAllRequestsTo *string `pulumi:"redirectAllRequestsTo"`
 	// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied.
-	//
-	// The `CORS` object supports the following:
 	RoutingRules interface{} `pulumi:"routingRules"`
 }
 
@@ -14417,8 +14407,6 @@ type BucketWebsiteArgs struct {
 	RedirectAllRequestsTo pulumi.StringPtrInput `pulumi:"redirectAllRequestsTo"`
 	// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied.
-	//
-	// The `CORS` object supports the following:
 	RoutingRules pulumi.Input `pulumi:"routingRules"`
 }
 
@@ -14516,8 +14504,6 @@ func (o BucketWebsiteOutput) RedirectAllRequestsTo() pulumi.StringPtrOutput {
 
 // A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 // describing redirect behavior and when redirects are applied.
-//
-// The `CORS` object supports the following:
 func (o BucketWebsiteOutput) RoutingRules() pulumi.AnyOutput {
 	return o.ApplyT(func(v BucketWebsite) interface{} { return v.RoutingRules }).(pulumi.AnyOutput)
 }
@@ -14578,8 +14564,6 @@ func (o BucketWebsitePtrOutput) RedirectAllRequestsTo() pulumi.StringPtrOutput {
 
 // A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 // describing redirect behavior and when redirects are applied.
-//
-// The `CORS` object supports the following:
 func (o BucketWebsitePtrOutput) RoutingRules() pulumi.AnyOutput {
 	return o.ApplyT(func(v *BucketWebsite) interface{} {
 		if v == nil {

@@ -2106,7 +2106,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchBodyArgs:
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -2115,7 +2115,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchBodyArgs:
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -3976,7 +3976,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -3985,7 +3985,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -4936,7 +4936,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -4945,7 +4945,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -5650,7 +5650,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -5659,7 +5659,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -6379,7 +6379,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -6388,7 +6388,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -7078,7 +7078,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -7087,7 +7087,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -7777,7 +7777,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -7786,7 +7786,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -8491,7 +8491,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArgs:
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -8500,7 +8500,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArgs:
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -9205,7 +9205,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyArg
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -9214,7 +9214,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyArg
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -9934,7 +9934,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArgs:
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -9943,7 +9943,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArgs:
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -10633,7 +10633,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArgs:
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -10642,7 +10642,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArgs:
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -11332,7 +11332,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyArgs:
     def __init__(__self__, *,
                  oversize_handling: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        :param pulumi.Input[str] oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         if oversize_handling is not None:
             pulumi.set(__self__, "oversize_handling", oversize_handling)
@@ -11341,7 +11341,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyArgs:
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[pulumi.Input[str]]:
         """
-        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         return pulumi.get(self, "oversize_handling")
 

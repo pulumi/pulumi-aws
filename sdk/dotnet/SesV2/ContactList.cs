@@ -88,7 +88,7 @@ namespace Pulumi.Aws.SesV2
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// A description of what the contact list is about.
+        /// A description of what the topic is about, which the contact will see.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string> ContactListName { get; set; } = null!;
 
         /// <summary>
-        /// A description of what the contact list is about.
+        /// A description of what the topic is about, which the contact will see.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? CreatedTimestamp { get; set; }
 
         /// <summary>
-        /// A description of what the contact list is about.
+        /// A description of what the topic is about, which the contact will see.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

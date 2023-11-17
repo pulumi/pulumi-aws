@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials
     {
         /// <summary>
-        /// The access token used to access the connector on your behalf.
+        /// The access token used to access protected SAPOData resources.
         /// </summary>
         public readonly string? AccessToken;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string ClientSecret;
         /// <summary>
-        /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        /// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest? OauthRequest;
         /// <summary>
-        /// The refresh token used to refresh an expired access token.
+        /// The refresh token used to refresh expired access token.
         /// </summary>
         public readonly string? RefreshToken;
 

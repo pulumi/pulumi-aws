@@ -22,12 +22,12 @@ public final class TopicRuleErrorActionS3 {
      */
     private @Nullable String cannedAcl;
     /**
-     * @return The name of the HTTP header.
+     * @return The object key.
      * 
      */
     private String key;
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
     private String roleArn;
@@ -48,14 +48,14 @@ public final class TopicRuleErrorActionS3 {
         return Optional.ofNullable(this.cannedAcl);
     }
     /**
-     * @return The name of the HTTP header.
+     * @return The object key.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
     public String roleArn() {

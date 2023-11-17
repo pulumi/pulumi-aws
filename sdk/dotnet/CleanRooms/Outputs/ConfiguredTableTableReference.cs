@@ -13,7 +13,13 @@ namespace Pulumi.Aws.CleanRooms.Outputs
     [OutputType]
     public sealed class ConfiguredTableTableReference
     {
+        /// <summary>
+        /// The name of the AWS Glue database which contains the table.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// The name of the AWS Glue table which will be used to create the configured table.
+        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]

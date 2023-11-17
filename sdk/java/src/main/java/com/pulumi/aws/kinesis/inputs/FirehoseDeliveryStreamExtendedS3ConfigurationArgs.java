@@ -219,14 +219,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
      * 
      */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -546,7 +546,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
          * 
          * @return builder
          * 

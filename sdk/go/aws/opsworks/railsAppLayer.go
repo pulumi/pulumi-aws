@@ -68,7 +68,7 @@ type RailsAppLayer struct {
 	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes RailsAppLayerEbsVolumeArrayOutput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrOutput `pulumi:"elasticLoadBalancer"`
@@ -168,7 +168,7 @@ type railsAppLayerState struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []RailsAppLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -232,7 +232,7 @@ type RailsAppLayerState struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes RailsAppLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput
@@ -298,7 +298,7 @@ type railsAppLayerArgs struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []RailsAppLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -357,7 +357,7 @@ type RailsAppLayerArgs struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes RailsAppLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput
@@ -551,7 +551,7 @@ func (o RailsAppLayerOutput) DrainElbOnShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RailsAppLayer) pulumi.BoolPtrOutput { return v.DrainElbOnShutdown }).(pulumi.BoolPtrOutput)
 }
 
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (o RailsAppLayerOutput) EbsVolumes() RailsAppLayerEbsVolumeArrayOutput {
 	return o.ApplyT(func(v *RailsAppLayer) RailsAppLayerEbsVolumeArrayOutput { return v.EbsVolumes }).(RailsAppLayerEbsVolumeArrayOutput)
 }

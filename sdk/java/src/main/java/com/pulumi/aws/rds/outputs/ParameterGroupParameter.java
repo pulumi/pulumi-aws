@@ -19,7 +19,7 @@ public final class ParameterGroupParameter {
      */
     private @Nullable String applyMethod;
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     private String name;
@@ -40,7 +40,7 @@ public final class ParameterGroupParameter {
         return Optional.ofNullable(this.applyMethod);
     }
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     public String name() {

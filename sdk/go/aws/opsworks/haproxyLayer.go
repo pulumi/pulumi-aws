@@ -65,7 +65,7 @@ type HaproxyLayer struct {
 	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes HaproxyLayerEbsVolumeArrayOutput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrOutput `pulumi:"elasticLoadBalancer"`
@@ -168,7 +168,7 @@ type haproxyLayerState struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []HaproxyLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -232,7 +232,7 @@ type HaproxyLayerState struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes HaproxyLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput
@@ -298,7 +298,7 @@ type haproxyLayerArgs struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []HaproxyLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -357,7 +357,7 @@ type HaproxyLayerArgs struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes HaproxyLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput
@@ -545,7 +545,7 @@ func (o HaproxyLayerOutput) DrainElbOnShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HaproxyLayer) pulumi.BoolPtrOutput { return v.DrainElbOnShutdown }).(pulumi.BoolPtrOutput)
 }
 
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (o HaproxyLayerOutput) EbsVolumes() HaproxyLayerEbsVolumeArrayOutput {
 	return o.ApplyT(func(v *HaproxyLayer) HaproxyLayerEbsVolumeArrayOutput { return v.EbsVolumes }).(HaproxyLayerEbsVolumeArrayOutput)
 }

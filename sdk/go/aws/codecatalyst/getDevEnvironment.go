@@ -57,7 +57,7 @@ type LookupDevEnvironmentArgs struct {
 	Alias *string `pulumi:"alias"`
 	// The system-generated unique ID of the user who created the Dev Environment.
 	CreatorId *string `pulumi:"creatorId"`
-	// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
+	// The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
 	EnvId string `pulumi:"envId"`
 	// The name of the project in the space.
 	ProjectName string `pulumi:"projectName"`
@@ -117,7 +117,7 @@ type LookupDevEnvironmentOutputArgs struct {
 	Alias pulumi.StringPtrInput `pulumi:"alias"`
 	// The system-generated unique ID of the user who created the Dev Environment.
 	CreatorId pulumi.StringPtrInput `pulumi:"creatorId"`
-	// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
+	// The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
 	EnvId pulumi.StringInput `pulumi:"envId"`
 	// The name of the project in the space.
 	ProjectName pulumi.StringInput `pulumi:"projectName"`

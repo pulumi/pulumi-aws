@@ -1187,8 +1187,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.parameterGroupName;
     }
     /**
-     * (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+     * Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
@@ -1196,8 +1195,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+     * @return Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
@@ -1533,16 +1531,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.timezone;
     }
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Username for the master DB user. Cannot be specified for a replica.
+     * Username for the master DB user. Cannot be specified for a replica.
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Username for the master DB user. Cannot be specified for a replica.
+     * @return Username for the master DB user. Cannot be specified for a replica.
      * 
      */
     public Output<String> username() {

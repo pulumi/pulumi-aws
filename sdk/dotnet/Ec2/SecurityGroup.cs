@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        /// Description of this egress rule.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        /// Description of this egress rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -458,7 +458,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        /// Description of this egress rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

@@ -101,7 +101,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<bool?> DrainElbOnShutdown { get; private set; } = null!;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
         public Output<ImmutableArray<Outputs.EcsClusterLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.EcsClusterLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.EcsClusterLayerEbsVolumeArgs> EbsVolumes
         {
@@ -505,7 +505,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.EcsClusterLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.EcsClusterLayerEbsVolumeGetArgs> EbsVolumes
         {

@@ -1293,8 +1293,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryG
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -1305,7 +1305,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryG
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -1317,7 +1317,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryG
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -1449,8 +1449,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLo
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -1461,7 +1461,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLo
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -1473,7 +1473,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLo
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 

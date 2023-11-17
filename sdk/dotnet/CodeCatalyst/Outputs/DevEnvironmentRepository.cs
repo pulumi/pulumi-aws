@@ -15,8 +15,6 @@ namespace Pulumi.Aws.CodeCatalyst.Outputs
     {
         /// <summary>
         /// The name of the branch in a source repository.
-        /// 
-        /// persistent storage (` persistent_storage`) supports the following:
         /// </summary>
         public readonly string? BranchName;
         /// <summary>

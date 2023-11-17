@@ -253,7 +253,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum
+        /// (Default `20m`) The maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
         /// out.
@@ -409,7 +409,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The maximum
+        /// (Default `20m`) The maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
         /// out.
@@ -641,7 +641,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The maximum
+        /// (Default `20m`) The maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
         /// out.

@@ -1118,8 +1118,6 @@ class ClassificationJobScheduleFrequency(dict):
         """
         :param bool daily_schedule: Specifies a daily recurrence pattern for running the job.
         :param int monthly_schedule: Specifies a monthly recurrence pattern for running the job.
-               
-               The `s3_job_definition` object supports the following:
         :param str weekly_schedule: Specifies a weekly recurrence pattern for running the job.
         """
         if daily_schedule is not None:
@@ -1142,8 +1140,6 @@ class ClassificationJobScheduleFrequency(dict):
     def monthly_schedule(self) -> Optional[int]:
         """
         Specifies a monthly recurrence pattern for running the job.
-
-        The `s3_job_definition` object supports the following:
         """
         return pulumi.get(self, "monthly_schedule")
 

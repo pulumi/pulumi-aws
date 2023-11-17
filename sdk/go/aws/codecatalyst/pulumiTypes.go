@@ -308,8 +308,6 @@ func (o DevEnvironmentPersistentStoragePtrOutput) Size() pulumi.IntPtrOutput {
 
 type DevEnvironmentRepository struct {
 	// The name of the branch in a source repository.
-	//
-	// persistent storage (`  persistentStorage `) supports the following:
 	BranchName *string `pulumi:"branchName"`
 	// The name of the source repository.
 	RepositoryName string `pulumi:"repositoryName"`
@@ -328,8 +326,6 @@ type DevEnvironmentRepositoryInput interface {
 
 type DevEnvironmentRepositoryArgs struct {
 	// The name of the branch in a source repository.
-	//
-	// persistent storage (`  persistentStorage `) supports the following:
 	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
 	// The name of the source repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
@@ -387,8 +383,6 @@ func (o DevEnvironmentRepositoryOutput) ToDevEnvironmentRepositoryOutputWithCont
 }
 
 // The name of the branch in a source repository.
-//
-// persistent storage (`  persistentStorage `) supports the following:
 func (o DevEnvironmentRepositoryOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DevEnvironmentRepository) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }

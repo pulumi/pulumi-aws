@@ -219,11 +219,11 @@ type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProce
 	PiiEntityTypes *string `pulumi:"piiEntityTypes"`
 	// Settings for post call analytics.
 	PostCallAnalyticsSettings *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings `pulumi:"postCallAnalyticsSettings"`
-	// Method for applying a vocabulary filter to Transcript events.
+	// Method for applying a vocabulary filter to Utterance events.
 	VocabularyFilterMethod *string `pulumi:"vocabularyFilterMethod"`
-	// Name of the custom vocabulary filter to use when processing Transcript events.
+	// Name of the custom vocabulary filter to use when processing Utterance events.
 	VocabularyFilterName *string `pulumi:"vocabularyFilterName"`
-	// Name of the custom vocabulary to use when processing Transcript events.
+	// Name of the custom vocabulary to use when processing Utterance events.
 	VocabularyName *string `pulumi:"vocabularyName"`
 }
 
@@ -259,11 +259,11 @@ type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProce
 	PiiEntityTypes pulumi.StringPtrInput `pulumi:"piiEntityTypes"`
 	// Settings for post call analytics.
 	PostCallAnalyticsSettings MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrInput `pulumi:"postCallAnalyticsSettings"`
-	// Method for applying a vocabulary filter to Transcript events.
+	// Method for applying a vocabulary filter to Utterance events.
 	VocabularyFilterMethod pulumi.StringPtrInput `pulumi:"vocabularyFilterMethod"`
-	// Name of the custom vocabulary filter to use when processing Transcript events.
+	// Name of the custom vocabulary filter to use when processing Utterance events.
 	VocabularyFilterName pulumi.StringPtrInput `pulumi:"vocabularyFilterName"`
-	// Name of the custom vocabulary to use when processing Transcript events.
+	// Name of the custom vocabulary to use when processing Utterance events.
 	VocabularyName pulumi.StringPtrInput `pulumi:"vocabularyName"`
 }
 
@@ -414,21 +414,21 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput)
 }
 
-// Method for applying a vocabulary filter to Transcript events.
+// Method for applying a vocabulary filter to Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) VocabularyFilterMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.VocabularyFilterMethod
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary filter to use when processing Transcript events.
+// Name of the custom vocabulary filter to use when processing Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) VocabularyFilterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.VocabularyFilterName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary to use when processing Transcript events.
+// Name of the custom vocabulary to use when processing Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) VocabularyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		return v.VocabularyName
@@ -559,7 +559,7 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput)
 }
 
-// Method for applying a vocabulary filter to Transcript events.
+// Method for applying a vocabulary filter to Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) VocabularyFilterMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -569,7 +569,7 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary filter to use when processing Transcript events.
+// Name of the custom vocabulary filter to use when processing Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) VocabularyFilterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -579,7 +579,7 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom vocabulary to use when processing Transcript events.
+// Name of the custom vocabulary to use when processing Utterance events.
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) VocabularyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
 		if v == nil {
@@ -1162,7 +1162,7 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 }
 
 type MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration struct {
-	// SQS queue to deliver results.
+	// Kinesis Data Stream to deliver results.
 	InsightsTarget string `pulumi:"insightsTarget"`
 }
 
@@ -1178,7 +1178,7 @@ type MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration
 }
 
 type MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs struct {
-	// SQS queue to deliver results.
+	// Kinesis Data Stream to deliver results.
 	InsightsTarget pulumi.StringInput `pulumi:"insightsTarget"`
 }
 
@@ -1259,7 +1259,7 @@ func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurat
 	}).(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput)
 }
 
-// SQS queue to deliver results.
+// Kinesis Data Stream to deliver results.
 func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration) string {
 		return v.InsightsTarget
@@ -1290,7 +1290,7 @@ func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurat
 	}).(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput)
 }
 
-// SQS queue to deliver results.
+// Kinesis Data Stream to deliver results.
 func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput) InsightsTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration) *string {
 		if v == nil {
@@ -1301,7 +1301,7 @@ func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurat
 }
 
 type MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration struct {
-	// SQS queue to deliver results.
+	// Lambda Function to deliver results.
 	InsightsTarget string `pulumi:"insightsTarget"`
 }
 
@@ -1317,7 +1317,7 @@ type MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationInp
 }
 
 type MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs struct {
-	// SQS queue to deliver results.
+	// Lambda Function to deliver results.
 	InsightsTarget pulumi.StringInput `pulumi:"insightsTarget"`
 }
 
@@ -1398,7 +1398,7 @@ func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput)
 }
 
-// SQS queue to deliver results.
+// Lambda Function to deliver results.
 func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration) string {
 		return v.InsightsTarget
@@ -1429,7 +1429,7 @@ func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput)
 }
 
-// SQS queue to deliver results.
+// Lambda Function to deliver results.
 func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput) InsightsTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration) *string {
 		if v == nil {
@@ -1579,7 +1579,7 @@ func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtr
 }
 
 type MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration struct {
-	// SQS queue to deliver results.
+	// SNS topic to deliver results.
 	InsightsTarget string `pulumi:"insightsTarget"`
 }
 
@@ -1595,7 +1595,7 @@ type MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationInput int
 }
 
 type MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs struct {
-	// SQS queue to deliver results.
+	// SNS topic to deliver results.
 	InsightsTarget pulumi.StringInput `pulumi:"insightsTarget"`
 }
 
@@ -1676,7 +1676,7 @@ func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput
 	}).(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput)
 }
 
-// SQS queue to deliver results.
+// SNS topic to deliver results.
 func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration) string {
 		return v.InsightsTarget
@@ -1707,7 +1707,7 @@ func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOut
 	}).(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput)
 }
 
-// SQS queue to deliver results.
+// SNS topic to deliver results.
 func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput) InsightsTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration) *string {
 		if v == nil {

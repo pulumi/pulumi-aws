@@ -14,8 +14,6 @@ namespace Pulumi.Aws.CodeCatalyst.Inputs
     {
         /// <summary>
         /// The name of the branch in a source repository.
-        /// 
-        /// persistent storage (` persistent_storage`) supports the following:
         /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }

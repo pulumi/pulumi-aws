@@ -97,8 +97,6 @@ export class ConfiguredTable extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      */
     public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference>;
     /**
@@ -196,8 +194,6 @@ export interface ConfiguredTableState {
     name?: pulumi.Input<string>;
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      */
     tableReference?: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference>;
     /**
@@ -236,8 +232,6 @@ export interface ConfiguredTableArgs {
     name?: pulumi.Input<string>;
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      */
     tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference>;
     /**

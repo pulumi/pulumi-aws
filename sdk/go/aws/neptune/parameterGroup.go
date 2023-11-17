@@ -64,7 +64,7 @@ type ParameterGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The family of the Neptune parameter group.
 	Family pulumi.StringOutput `pulumi:"family"`
-	// The name of the Neptune parameter.
+	// The name of the Neptune parameter group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of Neptune parameters to apply.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
@@ -119,7 +119,7 @@ type parameterGroupState struct {
 	Description *string `pulumi:"description"`
 	// The family of the Neptune parameter group.
 	Family *string `pulumi:"family"`
-	// The name of the Neptune parameter.
+	// The name of the Neptune parameter group.
 	Name *string `pulumi:"name"`
 	// A list of Neptune parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
@@ -138,7 +138,7 @@ type ParameterGroupState struct {
 	Description pulumi.StringPtrInput
 	// The family of the Neptune parameter group.
 	Family pulumi.StringPtrInput
-	// The name of the Neptune parameter.
+	// The name of the Neptune parameter group.
 	Name pulumi.StringPtrInput
 	// A list of Neptune parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
@@ -159,7 +159,7 @@ type parameterGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// The family of the Neptune parameter group.
 	Family string `pulumi:"family"`
-	// The name of the Neptune parameter.
+	// The name of the Neptune parameter group.
 	Name *string `pulumi:"name"`
 	// A list of Neptune parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
@@ -173,7 +173,7 @@ type ParameterGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The family of the Neptune parameter group.
 	Family pulumi.StringInput
-	// The name of the Neptune parameter.
+	// The name of the Neptune parameter group.
 	Name pulumi.StringPtrInput
 	// A list of Neptune parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
@@ -283,7 +283,7 @@ func (o ParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
-// The name of the Neptune parameter.
+// The name of the Neptune parameter group.
 func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

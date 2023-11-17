@@ -75,7 +75,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      */
     public readonly family!: pulumi.Output<string>;
     /**
-     * The name of the neptune parameter.
+     * The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export interface ClusterParameterGroupState {
      */
     family?: pulumi.Input<string>;
     /**
-     * The name of the neptune parameter.
+     * The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface ClusterParameterGroupArgs {
      */
     family: pulumi.Input<string>;
     /**
-     * The name of the neptune parameter.
+     * The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**

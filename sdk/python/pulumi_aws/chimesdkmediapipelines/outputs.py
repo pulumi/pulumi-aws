@@ -241,9 +241,9 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
         :param str partial_results_stability: Level of stability to use when partial results stabilization is enabled.
         :param str pii_entity_types: Types of personally identifiable information (PII) to redact from a Transcript event.
         :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs' post_call_analytics_settings: Settings for post call analytics.
-        :param str vocabulary_filter_method: Method for applying a vocabulary filter to Transcript events.
-        :param str vocabulary_filter_name: Name of the custom vocabulary filter to use when processing Transcript events.
-        :param str vocabulary_name: Name of the custom vocabulary to use when processing Transcript events.
+        :param str vocabulary_filter_method: Method for applying a vocabulary filter to Utterance events.
+        :param str vocabulary_filter_name: Name of the custom vocabulary filter to use when processing Utterance events.
+        :param str vocabulary_name: Name of the custom vocabulary to use when processing Utterance events.
         """
         pulumi.set(__self__, "language_code", language_code)
         if call_analytics_stream_categories is not None:
@@ -355,7 +355,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="vocabularyFilterMethod")
     def vocabulary_filter_method(self) -> Optional[str]:
         """
-        Method for applying a vocabulary filter to Transcript events.
+        Method for applying a vocabulary filter to Utterance events.
         """
         return pulumi.get(self, "vocabulary_filter_method")
 
@@ -363,7 +363,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="vocabularyFilterName")
     def vocabulary_filter_name(self) -> Optional[str]:
         """
-        Name of the custom vocabulary filter to use when processing Transcript events.
+        Name of the custom vocabulary filter to use when processing Utterance events.
         """
         return pulumi.get(self, "vocabulary_filter_name")
 
@@ -371,7 +371,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> Optional[str]:
         """
-        Name of the custom vocabulary to use when processing Transcript events.
+        Name of the custom vocabulary to use when processing Utterance events.
         """
         return pulumi.get(self, "vocabulary_name")
 
@@ -663,7 +663,7 @@ class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguratio
     def __init__(__self__, *,
                  insights_target: str):
         """
-        :param str insights_target: SQS queue to deliver results.
+        :param str insights_target: Kinesis Data Stream to deliver results.
         """
         pulumi.set(__self__, "insights_target", insights_target)
 
@@ -671,7 +671,7 @@ class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguratio
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> str:
         """
-        SQS queue to deliver results.
+        Kinesis Data Stream to deliver results.
         """
         return pulumi.get(self, "insights_target")
 
@@ -698,7 +698,7 @@ class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration(d
     def __init__(__self__, *,
                  insights_target: str):
         """
-        :param str insights_target: SQS queue to deliver results.
+        :param str insights_target: Lambda Function to deliver results.
         """
         pulumi.set(__self__, "insights_target", insights_target)
 
@@ -706,7 +706,7 @@ class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration(d
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> str:
         """
-        SQS queue to deliver results.
+        Lambda Function to deliver results.
         """
         return pulumi.get(self, "insights_target")
 
@@ -752,7 +752,7 @@ class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration(dict):
     def __init__(__self__, *,
                  insights_target: str):
         """
-        :param str insights_target: SQS queue to deliver results.
+        :param str insights_target: SNS topic to deliver results.
         """
         pulumi.set(__self__, "insights_target", insights_target)
 
@@ -760,7 +760,7 @@ class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration(dict):
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> str:
         """
-        SQS queue to deliver results.
+        SNS topic to deliver results.
         """
         return pulumi.get(self, "insights_target")
 

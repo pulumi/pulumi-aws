@@ -63,14 +63,14 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+     * (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
      * 
      */
     @Import(name="matcher")
     private @Nullable Output<String> matcher;
 
     /**
-     * @return Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+     * @return (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
      * 
      */
     public Optional<Output<String>> matcher() {
@@ -78,14 +78,14 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+     * (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+     * @return (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
      * 
      */
     public Optional<Output<String>> path() {
@@ -248,7 +248,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param matcher Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+         * @param matcher (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param matcher Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+         * @param matcher (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * @param path (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * @param path (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          * 
          * @return builder
          * 

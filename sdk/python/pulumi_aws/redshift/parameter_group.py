@@ -25,7 +25,7 @@ class ParameterGroupArgs:
         The set of arguments for constructing a ParameterGroup resource.
         :param pulumi.Input[str] family: The family of the Redshift parameter group.
         :param pulumi.Input[str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] name: The name of the Redshift parameter.
+        :param pulumi.Input[str] name: The name of the Redshift parameter group.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: A list of Redshift parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -71,7 +71,7 @@ class ParameterGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Redshift parameter.
+        The name of the Redshift parameter group.
         """
         return pulumi.get(self, "name")
 
@@ -121,7 +121,7 @@ class _ParameterGroupState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of parameter group
         :param pulumi.Input[str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the Redshift parameter group.
-        :param pulumi.Input[str] name: The name of the Redshift parameter.
+        :param pulumi.Input[str] name: The name of the Redshift parameter group.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: A list of Redshift parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -188,7 +188,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Redshift parameter.
+        The name of the Redshift parameter group.
         """
         return pulumi.get(self, "name")
 
@@ -288,7 +288,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the Redshift parameter group.
-        :param pulumi.Input[str] name: The name of the Redshift parameter.
+        :param pulumi.Input[str] name: The name of the Redshift parameter group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of Redshift parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -404,7 +404,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of parameter group
         :param pulumi.Input[str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the Redshift parameter group.
-        :param pulumi.Input[str] name: The name of the Redshift parameter.
+        :param pulumi.Input[str] name: The name of the Redshift parameter group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of Redshift parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -452,7 +452,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Redshift parameter.
+        The name of the Redshift parameter group.
         """
         return pulumi.get(self, "name")
 

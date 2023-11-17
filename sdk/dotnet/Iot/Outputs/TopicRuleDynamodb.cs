@@ -51,6 +51,8 @@ namespace Pulumi.Aws.Iot.Outputs
         public readonly string RoleArn;
         /// <summary>
         /// The name of the DynamoDB table.
+        /// 
+        /// The `dynamodbv2` object takes the following arguments:
         /// </summary>
         public readonly string TableName;
 

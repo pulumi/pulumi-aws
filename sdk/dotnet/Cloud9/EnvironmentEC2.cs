@@ -141,14 +141,6 @@ namespace Pulumi.Aws.Cloud9
 
         /// <summary>
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        /// * `amazonlinux-1-x86_64`
-        /// * `amazonlinux-2-x86_64`
-        /// * `ubuntu-18.04-x86_64`
-        /// * `ubuntu-22.04-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
         [Output("imageId")]
         public Output<string?> ImageId { get; private set; } = null!;
@@ -265,14 +257,6 @@ namespace Pulumi.Aws.Cloud9
 
         /// <summary>
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        /// * `amazonlinux-1-x86_64`
-        /// * `amazonlinux-2-x86_64`
-        /// * `ubuntu-18.04-x86_64`
-        /// * `ubuntu-22.04-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
@@ -347,14 +331,6 @@ namespace Pulumi.Aws.Cloud9
 
         /// <summary>
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        /// * `amazonlinux-1-x86_64`
-        /// * `amazonlinux-2-x86_64`
-        /// * `ubuntu-18.04-x86_64`
-        /// * `ubuntu-22.04-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }

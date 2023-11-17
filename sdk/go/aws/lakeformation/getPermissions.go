@@ -128,7 +128,7 @@ func LookupPermissions(ctx *pulumi.Context, args *LookupPermissionsArgs, opts ..
 
 // A collection of arguments for invoking getPermissions.
 type LookupPermissionsArgs struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource *bool `pulumi:"catalogResource"`
@@ -186,7 +186,7 @@ func LookupPermissionsOutput(ctx *pulumi.Context, args LookupPermissionsOutputAr
 
 // A collection of arguments for invoking getPermissions.
 type LookupPermissionsOutputArgs struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrInput `pulumi:"catalogResource"`

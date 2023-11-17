@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleKafkaHeader
     {
         /// <summary>
-        /// The name of the HTTP header.
+        /// The object key.
         /// </summary>
         public readonly string Key;
         /// <summary>

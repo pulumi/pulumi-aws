@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string? ApplyMethod;
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         public readonly string Name;
         /// <summary>

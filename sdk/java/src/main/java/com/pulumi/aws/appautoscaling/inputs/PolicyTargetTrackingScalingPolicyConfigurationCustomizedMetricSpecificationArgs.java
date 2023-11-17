@@ -19,14 +19,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     public static final PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs();
 
     /**
-     * Dimensions of the metric.
+     * Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs>> dimensions;
 
     /**
-     * @return Dimensions of the metric.
+     * @return Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
      * 
      */
     public Optional<Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs>>> dimensions() {
@@ -94,14 +94,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     }
 
     /**
-     * Unit of the metrics to return.
+     * Unit of the metric.
      * 
      */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
     /**
-     * @return Unit of the metrics to return.
+     * @return Unit of the metric.
      * 
      */
     public Optional<Output<String>> unit() {
@@ -138,7 +138,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param dimensions Dimensions of the metric.
+         * @param dimensions Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param dimensions Dimensions of the metric.
+         * @param dimensions Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param dimensions Dimensions of the metric.
+         * @param dimensions Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param unit Unit of the metrics to return.
+         * @param unit Unit of the metric.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param unit Unit of the metrics to return.
+         * @param unit Unit of the metric.
          * 
          * @return builder
          * 

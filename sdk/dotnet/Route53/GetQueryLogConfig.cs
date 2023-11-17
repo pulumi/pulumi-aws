@@ -172,8 +172,6 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Map of tags to assign to the service.
-        /// 
-        /// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -222,8 +220,6 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Map of tags to assign to the service.
-        /// 
-        /// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
         /// </summary>
         public InputMap<string> Tags
         {

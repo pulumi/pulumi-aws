@@ -460,7 +460,7 @@ type FileCacheDataRepositoryAssociation struct {
 	FileSystemId          *string `pulumi:"fileSystemId"`
 	FileSystemPath        *string `pulumi:"fileSystemPath"`
 	ImportedFileChunkSize *int    `pulumi:"importedFileChunkSize"`
-	// (Optional) See the `nfs` configuration block.
+	// See the `nfs` configuration block.
 	Nfs         []FileCacheDataRepositoryAssociationNf `pulumi:"nfs"`
 	ResourceArn *string                                `pulumi:"resourceArn"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -491,7 +491,7 @@ type FileCacheDataRepositoryAssociationArgs struct {
 	FileSystemId          pulumi.StringPtrInput `pulumi:"fileSystemId"`
 	FileSystemPath        pulumi.StringPtrInput `pulumi:"fileSystemPath"`
 	ImportedFileChunkSize pulumi.IntPtrInput    `pulumi:"importedFileChunkSize"`
-	// (Optional) See the `nfs` configuration block.
+	// See the `nfs` configuration block.
 	Nfs         FileCacheDataRepositoryAssociationNfArrayInput `pulumi:"nfs"`
 	ResourceArn pulumi.StringPtrInput                          `pulumi:"resourceArn"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -585,7 +585,7 @@ func (o FileCacheDataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *int { return v.ImportedFileChunkSize }).(pulumi.IntPtrOutput)
 }
 
-// (Optional) See the `nfs` configuration block.
+// See the `nfs` configuration block.
 func (o FileCacheDataRepositoryAssociationOutput) Nfs() FileCacheDataRepositoryAssociationNfArrayOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) []FileCacheDataRepositoryAssociationNf { return v.Nfs }).(FileCacheDataRepositoryAssociationNfArrayOutput)
 }

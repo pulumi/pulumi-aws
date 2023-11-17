@@ -69,21 +69,9 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.availabilityZoneId);
     }
 
-    /**
-     * The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * SINGLE - Assigns one availability zone per cluster.
-     * * MULTI - Assigns all the availability zones per cluster.
-     * 
-     */
     @Import(name="azMode")
     private @Nullable Output<String> azMode;
 
-    /**
-     * @return The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * SINGLE - Assigns one availability zone per cluster.
-     * * MULTI - Assigns all the availability zones per cluster.
-     * 
-     */
     public Optional<Output<String>> azMode() {
         return Optional.ofNullable(this.azMode);
     }
@@ -500,27 +488,11 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
             return availabilityZoneId(Output.of(availabilityZoneId));
         }
 
-        /**
-         * @param azMode The number of availability zones you want to assign per cluster. This can be one of the following:
-         * * SINGLE - Assigns one availability zone per cluster.
-         * * MULTI - Assigns all the availability zones per cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder azMode(@Nullable Output<String> azMode) {
             $.azMode = azMode;
             return this;
         }
 
-        /**
-         * @param azMode The number of availability zones you want to assign per cluster. This can be one of the following:
-         * * SINGLE - Assigns one availability zone per cluster.
-         * * MULTI - Assigns all the availability zones per cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder azMode(String azMode) {
             return azMode(Output.of(azMode));
         }

@@ -34,7 +34,6 @@ export function getReplicationTask(args: GetReplicationTaskArgs, opts?: pulumi.I
 export interface GetReplicationTaskArgs {
     /**
      * The replication task identifier.
-     *
      * - Must contain from 1 to 255 alphanumeric characters or hyphens.
      * - First character must be a letter.
      * - Cannot end with a hyphen.
@@ -124,7 +123,6 @@ export function getReplicationTaskOutput(args: GetReplicationTaskOutputArgs, opt
 export interface GetReplicationTaskOutputArgs {
     /**
      * The replication task identifier.
-     *
      * - Must contain from 1 to 255 alphanumeric characters or hyphens.
      * - First character must be a letter.
      * - Cannot end with a hyphen.

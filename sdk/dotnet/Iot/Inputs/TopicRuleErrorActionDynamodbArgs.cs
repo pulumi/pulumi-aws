@@ -68,6 +68,8 @@ namespace Pulumi.Aws.Iot.Inputs
 
         /// <summary>
         /// The name of the DynamoDB table.
+        /// 
+        /// The `dynamodbv2` object takes the following arguments:
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;

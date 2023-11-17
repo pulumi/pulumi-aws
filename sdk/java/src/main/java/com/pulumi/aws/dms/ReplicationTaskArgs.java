@@ -79,7 +79,6 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * The replication task identifier.
-     * 
      * - Must contain from 1 to 255 alphanumeric characters or hyphens.
      * - First character must be a letter.
      * - Cannot end with a hyphen.
@@ -91,7 +90,6 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return The replication task identifier.
-     * 
      * - Must contain from 1 to 255 alphanumeric characters or hyphens.
      * - First character must be a letter.
      * - Cannot end with a hyphen.
@@ -312,7 +310,6 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param replicationTaskId The replication task identifier.
-         * 
          * - Must contain from 1 to 255 alphanumeric characters or hyphens.
          * - First character must be a letter.
          * - Cannot end with a hyphen.
@@ -328,7 +325,6 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param replicationTaskId The replication task identifier.
-         * 
          * - Must contain from 1 to 255 alphanumeric characters or hyphens.
          * - First character must be a letter.
          * - Cannot end with a hyphen.

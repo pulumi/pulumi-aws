@@ -921,7 +921,6 @@ class TargetGroupConfigHealthCheck(dict):
         :param bool enabled: Indicates whether health checking is enabled. Defaults to `true`.
         :param int health_check_interval_seconds: The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
         :param int health_check_timeout_seconds: The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-               * `healthy_threshold_count ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
         :param 'TargetGroupConfigHealthCheckMatcherArgs' matcher: The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
         :param str path: The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
         :param int port: The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
@@ -971,7 +970,6 @@ class TargetGroupConfigHealthCheck(dict):
     def health_check_timeout_seconds(self) -> Optional[int]:
         """
         The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-        * `healthy_threshold_count ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
         """
         return pulumi.get(self, "health_check_timeout_seconds")
 

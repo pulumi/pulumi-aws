@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttp2RouteMatchQueryParameterMatch
     {
         /// <summary>
-        /// The exact path to match on.
+        /// Header value sent by the client must match the specified value exactly.
         /// </summary>
         public readonly string? Exact;
 

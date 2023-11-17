@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Iot.Inputs
         }
 
         /// <summary>
-        /// The Kafka message key.
+        /// The object key.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

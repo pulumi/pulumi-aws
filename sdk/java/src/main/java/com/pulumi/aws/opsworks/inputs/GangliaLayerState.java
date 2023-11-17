@@ -185,14 +185,14 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
     @Import(name="ebsVolumes")
     private @Nullable Output<List<GangliaLayerEbsVolumeArgs>> ebsVolumes;
 
     /**
-     * @return `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+     * @return blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
     public Optional<Output<List<GangliaLayerEbsVolumeArgs>>> ebsVolumes() {
@@ -388,14 +388,14 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
+     * (Optiona) The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
+     * @return (Optiona) The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
      * 
      */
     public Optional<Output<String>> username() {
@@ -706,7 +706,7 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ebsVolumes `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+         * @param ebsVolumes blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ebsVolumes `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+         * @param ebsVolumes blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
          * 
          * @return builder
          * 
@@ -727,7 +727,7 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ebsVolumes `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+         * @param ebsVolumes blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
          * 
          * @return builder
          * 
@@ -1003,7 +1003,7 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
+         * @param username (Optiona) The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
          * 
          * @return builder
          * 
@@ -1014,7 +1014,7 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
+         * @param username (Optiona) The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
          * 
          * @return builder
          * 

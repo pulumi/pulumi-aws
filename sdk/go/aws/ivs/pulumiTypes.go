@@ -300,7 +300,7 @@ func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) BucketName() 
 type RecordingConfigurationThumbnailConfiguration struct {
 	// Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
 	RecordingMode *string `pulumi:"recordingMode"`
-	// The targeted thumbnail-generation interval in seconds.
+	// (Configurable [and required] only if `recordingMode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
 	TargetIntervalSeconds *int `pulumi:"targetIntervalSeconds"`
 }
 
@@ -318,7 +318,7 @@ type RecordingConfigurationThumbnailConfigurationInput interface {
 type RecordingConfigurationThumbnailConfigurationArgs struct {
 	// Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
 	RecordingMode pulumi.StringPtrInput `pulumi:"recordingMode"`
-	// The targeted thumbnail-generation interval in seconds.
+	// (Configurable [and required] only if `recordingMode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
 	TargetIntervalSeconds pulumi.IntPtrInput `pulumi:"targetIntervalSeconds"`
 }
 
@@ -404,7 +404,7 @@ func (o RecordingConfigurationThumbnailConfigurationOutput) RecordingMode() pulu
 	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) *string { return v.RecordingMode }).(pulumi.StringPtrOutput)
 }
 
-// The targeted thumbnail-generation interval in seconds.
+// (Configurable [and required] only if `recordingMode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
 func (o RecordingConfigurationThumbnailConfigurationOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) *int { return v.TargetIntervalSeconds }).(pulumi.IntPtrOutput)
 }
@@ -443,7 +443,7 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) RecordingMode() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The targeted thumbnail-generation interval in seconds.
+// (Configurable [and required] only if `recordingMode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
 func (o RecordingConfigurationThumbnailConfigurationPtrOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationThumbnailConfiguration) *int {
 		if v == nil {

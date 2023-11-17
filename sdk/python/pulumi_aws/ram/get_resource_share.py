@@ -176,7 +176,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
 
 
     :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-    :param str name: Name of the tag key to filter on.
+    :param str name: Name of the resource share to retrieve.
     :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
     :param Mapping[str, str] tags: Tags attached to the resource share.
@@ -238,7 +238,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
 
     :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-    :param str name: Name of the tag key to filter on.
+    :param str name: Name of the resource share to retrieve.
     :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
     :param Mapping[str, str] tags: Tags attached to the resource share.

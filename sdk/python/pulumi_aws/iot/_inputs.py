@@ -993,6 +993,8 @@ class TopicRuleDynamodbArgs:
         :param pulumi.Input[str] hash_key_value: The hash key value.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access to the DynamoDB table.
         :param pulumi.Input[str] table_name: The name of the DynamoDB table.
+               
+               The `dynamodbv2` object takes the following arguments:
         :param pulumi.Input[str] hash_key_type: The hash key type. Valid values are "STRING" or "NUMBER".
         :param pulumi.Input[str] operation: The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
         :param pulumi.Input[str] payload_field: The action payload.
@@ -1058,6 +1060,8 @@ class TopicRuleDynamodbArgs:
     def table_name(self) -> pulumi.Input[str]:
         """
         The name of the DynamoDB table.
+
+        The `dynamodbv2` object takes the following arguments:
         """
         return pulumi.get(self, "table_name")
 
@@ -1144,7 +1148,7 @@ class TopicRuleDynamodbv2Args:
                  role_arn: pulumi.Input[str],
                  put_item: Optional[pulumi.Input['TopicRuleDynamodbv2PutItemArgs']] = None):
         """
-        :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
         :param pulumi.Input['TopicRuleDynamodbv2PutItemArgs'] put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -1155,7 +1159,7 @@ class TopicRuleDynamodbv2Args:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The IAM role ARN that allows access to the CloudWatch alarm.
+        The ARN of the role that grants permission to write to the Amazon Timestream database table.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1733,6 +1737,8 @@ class TopicRuleErrorActionDynamodbArgs:
         :param pulumi.Input[str] hash_key_value: The hash key value.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access to the DynamoDB table.
         :param pulumi.Input[str] table_name: The name of the DynamoDB table.
+               
+               The `dynamodbv2` object takes the following arguments:
         :param pulumi.Input[str] hash_key_type: The hash key type. Valid values are "STRING" or "NUMBER".
         :param pulumi.Input[str] operation: The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
         :param pulumi.Input[str] payload_field: The action payload.
@@ -1798,6 +1804,8 @@ class TopicRuleErrorActionDynamodbArgs:
     def table_name(self) -> pulumi.Input[str]:
         """
         The name of the DynamoDB table.
+
+        The `dynamodbv2` object takes the following arguments:
         """
         return pulumi.get(self, "table_name")
 
@@ -1884,7 +1892,7 @@ class TopicRuleErrorActionDynamodbv2Args:
                  role_arn: pulumi.Input[str],
                  put_item: Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgs']] = None):
         """
-        :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
         :param pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgs'] put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -1895,7 +1903,7 @@ class TopicRuleErrorActionDynamodbv2Args:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The IAM role ARN that allows access to the CloudWatch alarm.
+        The ARN of the role that grants permission to write to the Amazon Timestream database table.
         """
         return pulumi.get(self, "role_arn")
 
@@ -2316,7 +2324,7 @@ class TopicRuleErrorActionKafkaArgs:
         :param pulumi.Input[str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         :param pulumi.Input[str] topic: The Kafka topic for messages to be sent to the Kafka broker.
         :param pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]] headers: The list of Kafka headers that you specify. Nested arguments below.
-        :param pulumi.Input[str] key: The Kafka message key.
+        :param pulumi.Input[str] key: The object key.
         :param pulumi.Input[str] partition: The Kafka message partition.
         """
         pulumi.set(__self__, "client_properties", client_properties)
@@ -2381,7 +2389,7 @@ class TopicRuleErrorActionKafkaArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Kafka message key.
+        The object key.
         """
         return pulumi.get(self, "key")
 
@@ -2408,7 +2416,7 @@ class TopicRuleErrorActionKafkaHeaderArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The name of the HTTP header.
+        :param pulumi.Input[str] key: The object key.
         :param pulumi.Input[str] value: The value of the HTTP header.
         """
         pulumi.set(__self__, "key", key)
@@ -2418,7 +2426,7 @@ class TopicRuleErrorActionKafkaHeaderArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The name of the HTTP header.
+        The object key.
         """
         return pulumi.get(self, "key")
 
@@ -2580,8 +2588,8 @@ class TopicRuleErrorActionS3Args:
                  canned_acl: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_name: The Amazon S3 bucket name.
-        :param pulumi.Input[str] key: The name of the HTTP header.
-        :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param pulumi.Input[str] key: The object key.
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
         :param pulumi.Input[str] canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -2606,7 +2614,7 @@ class TopicRuleErrorActionS3Args:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The name of the HTTP header.
+        The object key.
         """
         return pulumi.get(self, "key")
 
@@ -2618,7 +2626,7 @@ class TopicRuleErrorActionS3Args:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The IAM role ARN that allows access to the CloudWatch alarm.
+        The ARN of the role that grants permission to write to the Amazon Timestream database table.
         """
         return pulumi.get(self, "role_arn")
 
@@ -2924,7 +2932,7 @@ class TopicRuleErrorActionTimestreamTimestampArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-        :param pulumi.Input[str] value: The value of the HTTP header.
+        :param pulumi.Input[str] value: An expression that returns a long epoch time value.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -2945,7 +2953,7 @@ class TopicRuleErrorActionTimestreamTimestampArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of the HTTP header.
+        An expression that returns a long epoch time value.
         """
         return pulumi.get(self, "value")
 
@@ -3250,7 +3258,7 @@ class TopicRuleKafkaArgs:
         :param pulumi.Input[str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         :param pulumi.Input[str] topic: The Kafka topic for messages to be sent to the Kafka broker.
         :param pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]] headers: The list of Kafka headers that you specify. Nested arguments below.
-        :param pulumi.Input[str] key: The Kafka message key.
+        :param pulumi.Input[str] key: The object key.
         :param pulumi.Input[str] partition: The Kafka message partition.
         """
         pulumi.set(__self__, "client_properties", client_properties)
@@ -3315,7 +3323,7 @@ class TopicRuleKafkaArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Kafka message key.
+        The object key.
         """
         return pulumi.get(self, "key")
 
@@ -3342,7 +3350,7 @@ class TopicRuleKafkaHeaderArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The name of the HTTP header.
+        :param pulumi.Input[str] key: The object key.
         :param pulumi.Input[str] value: The value of the HTTP header.
         """
         pulumi.set(__self__, "key", key)
@@ -3352,7 +3360,7 @@ class TopicRuleKafkaHeaderArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The name of the HTTP header.
+        The object key.
         """
         return pulumi.get(self, "key")
 
@@ -3514,8 +3522,8 @@ class TopicRuleS3Args:
                  canned_acl: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_name: The Amazon S3 bucket name.
-        :param pulumi.Input[str] key: The name of the HTTP header.
-        :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param pulumi.Input[str] key: The object key.
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
         :param pulumi.Input[str] canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -3540,7 +3548,7 @@ class TopicRuleS3Args:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The name of the HTTP header.
+        The object key.
         """
         return pulumi.get(self, "key")
 
@@ -3552,7 +3560,7 @@ class TopicRuleS3Args:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The IAM role ARN that allows access to the CloudWatch alarm.
+        The ARN of the role that grants permission to write to the Amazon Timestream database table.
         """
         return pulumi.get(self, "role_arn")
 
@@ -3858,7 +3866,7 @@ class TopicRuleTimestreamTimestampArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-        :param pulumi.Input[str] value: The value of the HTTP header.
+        :param pulumi.Input[str] value: An expression that returns a long epoch time value.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -3879,7 +3887,7 @@ class TopicRuleTimestreamTimestampArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of the HTTP header.
+        An expression that returns a long epoch time value.
         """
         return pulumi.get(self, "value")
 

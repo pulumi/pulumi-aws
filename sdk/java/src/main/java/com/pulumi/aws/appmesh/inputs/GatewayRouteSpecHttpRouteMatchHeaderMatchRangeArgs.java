@@ -29,14 +29,14 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs extends co
     }
 
     /**
-     * Start of the range.
+     * (Requited) Start of the range.
      * 
      */
     @Import(name="start", required=true)
     private Output<Integer> start;
 
     /**
-     * @return Start of the range.
+     * @return (Requited) Start of the range.
      * 
      */
     public Output<Integer> start() {
@@ -90,7 +90,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs extends co
         }
 
         /**
-         * @param start Start of the range.
+         * @param start (Requited) Start of the range.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs extends co
         }
 
         /**
-         * @param start Start of the range.
+         * @param start (Requited) Start of the range.
          * 
          * @return builder
          * 

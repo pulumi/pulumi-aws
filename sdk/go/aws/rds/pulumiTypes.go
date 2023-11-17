@@ -133,7 +133,7 @@ type ClusterParameterGroupParameter struct {
 	// engines can't apply some parameters without a reboot, and you will need to
 	// specify "pending-reboot" here.
 	ApplyMethod *string `pulumi:"applyMethod"`
-	// The name of the DB parameter.
+	// The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
 	Name string `pulumi:"name"`
 	// The value of the DB parameter.
 	Value string `pulumi:"value"`
@@ -155,7 +155,7 @@ type ClusterParameterGroupParameterArgs struct {
 	// engines can't apply some parameters without a reboot, and you will need to
 	// specify "pending-reboot" here.
 	ApplyMethod pulumi.StringPtrInput `pulumi:"applyMethod"`
-	// The name of the DB parameter.
+	// The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the DB parameter.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -219,7 +219,7 @@ func (o ClusterParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ClusterParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
-// The name of the DB parameter.
+// The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
 func (o ClusterParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1294,13 +1294,6 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 type InstanceBlueGreenUpdate struct {
 	// Enables low-downtime updates when `true`.
 	// Default is `false`.
-	//
-	// [instance-replication]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-	// [instance-maintenance]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-	// [blue-green]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1318,13 +1311,6 @@ type InstanceBlueGreenUpdateInput interface {
 type InstanceBlueGreenUpdateArgs struct {
 	// Enables low-downtime updates when `true`.
 	// Default is `false`.
-	//
-	// [instance-replication]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-	// [instance-maintenance]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-	// [blue-green]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1407,13 +1393,6 @@ func (o InstanceBlueGreenUpdateOutput) ToInstanceBlueGreenUpdatePtrOutputWithCon
 
 // Enables low-downtime updates when `true`.
 // Default is `false`.
-//
-// [instance-replication]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-// [instance-maintenance]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-// [blue-green]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 func (o InstanceBlueGreenUpdateOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceBlueGreenUpdate) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1444,13 +1423,6 @@ func (o InstanceBlueGreenUpdatePtrOutput) Elem() InstanceBlueGreenUpdateOutput {
 
 // Enables low-downtime updates when `true`.
 // Default is `false`.
-//
-// [instance-replication]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-// [instance-maintenance]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-// [blue-green]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 func (o InstanceBlueGreenUpdatePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceBlueGreenUpdate) *bool {
 		if v == nil {
@@ -2380,7 +2352,7 @@ type ParameterGroupParameter struct {
 	// engines can't apply some parameters without a reboot, and you will need to
 	// specify "pending-reboot" here.
 	ApplyMethod *string `pulumi:"applyMethod"`
-	// The name of the DB parameter.
+	// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
 	Name string `pulumi:"name"`
 	// The value of the DB parameter.
 	Value string `pulumi:"value"`
@@ -2402,7 +2374,7 @@ type ParameterGroupParameterArgs struct {
 	// engines can't apply some parameters without a reboot, and you will need to
 	// specify "pending-reboot" here.
 	ApplyMethod pulumi.StringPtrInput `pulumi:"applyMethod"`
-	// The name of the DB parameter.
+	// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the DB parameter.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -2466,7 +2438,7 @@ func (o ParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
-// The name of the DB parameter.
+// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }

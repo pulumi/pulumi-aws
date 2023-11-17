@@ -357,8 +357,7 @@ type Instance struct {
 	// Name of the DB parameter group to
 	// associate.
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
-	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+	// Password for the master DB user. Note that this may show up in
 	// logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -428,8 +427,7 @@ type Instance struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone pulumi.StringOutput `pulumi:"timezone"`
-	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user. Cannot be specified for a replica.
+	// Username for the master DB user. Cannot be specified for a replica.
 	Username pulumi.StringOutput `pulumi:"username"`
 	// List of VPC security groups to
 	// associate.
@@ -631,8 +629,7 @@ type instanceState struct {
 	// Name of the DB parameter group to
 	// associate.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
-	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+	// Password for the master DB user. Note that this may show up in
 	// logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password *string `pulumi:"password"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -702,8 +699,7 @@ type instanceState struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone *string `pulumi:"timezone"`
-	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user. Cannot be specified for a replica.
+	// Username for the master DB user. Cannot be specified for a replica.
 	Username *string `pulumi:"username"`
 	// List of VPC security groups to
 	// associate.
@@ -865,8 +861,7 @@ type InstanceState struct {
 	// Name of the DB parameter group to
 	// associate.
 	ParameterGroupName pulumi.StringPtrInput
-	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+	// Password for the master DB user. Note that this may show up in
 	// logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrInput
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -936,8 +931,7 @@ type InstanceState struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone pulumi.StringPtrInput
-	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user. Cannot be specified for a replica.
+	// Username for the master DB user. Cannot be specified for a replica.
 	Username pulumi.StringPtrInput
 	// List of VPC security groups to
 	// associate.
@@ -1087,8 +1081,7 @@ type instanceArgs struct {
 	// Name of the DB parameter group to
 	// associate.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
-	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+	// Password for the master DB user. Note that this may show up in
 	// logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password *string `pulumi:"password"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -1149,8 +1142,7 @@ type instanceArgs struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone *string `pulumi:"timezone"`
-	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user. Cannot be specified for a replica.
+	// Username for the master DB user. Cannot be specified for a replica.
 	Username *string `pulumi:"username"`
 	// List of VPC security groups to
 	// associate.
@@ -1297,8 +1289,7 @@ type InstanceArgs struct {
 	// Name of the DB parameter group to
 	// associate.
 	ParameterGroupName pulumi.StringPtrInput
-	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+	// Password for the master DB user. Note that this may show up in
 	// logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrInput
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -1359,8 +1350,7 @@ type InstanceArgs struct {
 	// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 	// for more information.
 	Timezone pulumi.StringPtrInput
-	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user. Cannot be specified for a replica.
+	// Username for the master DB user. Cannot be specified for a replica.
 	Username pulumi.StringPtrInput
 	// List of VPC security groups to
 	// associate.
@@ -1761,8 +1751,7 @@ func (o InstanceOutput) ParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
 }
 
-// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+// Password for the master DB user. Note that this may show up in
 // logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 func (o InstanceOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
@@ -1895,8 +1884,7 @@ func (o InstanceOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Timezone }).(pulumi.StringOutput)
 }
 
-// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-// is provided) Username for the master DB user. Cannot be specified for a replica.
+// Username for the master DB user. Cannot be specified for a replica.
 func (o InstanceOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

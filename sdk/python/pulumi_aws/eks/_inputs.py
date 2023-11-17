@@ -167,10 +167,11 @@ class ClusterKubernetesNetworkConfigArgs:
         """
         :param pulumi.Input[str] ip_family: The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
         :param pulumi.Input[str] service_ipv4_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
-               
                * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
                
+               
                * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+               
                
                * Between /24 and /12.
         """
@@ -198,10 +199,11 @@ class ClusterKubernetesNetworkConfigArgs:
     def service_ipv4_cidr(self) -> Optional[pulumi.Input[str]]:
         """
         The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
-
         * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
 
+
         * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+
 
         * Between /24 and /12.
         """
@@ -229,10 +231,11 @@ class ClusterOutpostConfigArgs:
                  control_plane_placement: Optional[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs']] = None):
         """
         :param pulumi.Input[str] control_plane_instance_type: The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-               
                * 1–20 nodes, then we recommend specifying a large instance type.
                
+               
                * 21–100 nodes, then we recommend specifying an xlarge instance type.
+               
                
                * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
                
@@ -251,10 +254,11 @@ class ClusterOutpostConfigArgs:
     def control_plane_instance_type(self) -> pulumi.Input[str]:
         """
         The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-
         * 1–20 nodes, then we recommend specifying a large instance type.
 
+
         * 21–100 nodes, then we recommend specifying an xlarge instance type.
+
 
         * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
 

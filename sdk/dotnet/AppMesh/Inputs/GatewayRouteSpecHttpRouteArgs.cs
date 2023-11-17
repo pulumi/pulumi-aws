@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.GatewayRouteSpecHttpRouteActionArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// Criteria for determining a request match.
+        /// Method and value to match the header value sent with a request. Specify one match method.
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.GatewayRouteSpecHttpRouteMatchArgs> Match { get; set; } = null!;

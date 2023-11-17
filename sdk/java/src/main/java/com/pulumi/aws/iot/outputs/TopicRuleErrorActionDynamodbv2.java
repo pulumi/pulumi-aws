@@ -18,7 +18,7 @@ public final class TopicRuleErrorActionDynamodbv2 {
      */
     private @Nullable TopicRuleErrorActionDynamodbv2PutItem putItem;
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
     private String roleArn;
@@ -32,7 +32,7 @@ public final class TopicRuleErrorActionDynamodbv2 {
         return Optional.ofNullable(this.putItem);
     }
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
     public String roleArn() {

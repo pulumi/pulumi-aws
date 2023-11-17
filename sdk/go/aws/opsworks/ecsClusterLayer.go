@@ -65,7 +65,7 @@ type EcsClusterLayer struct {
 	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes EcsClusterLayerEbsVolumeArrayOutput `pulumi:"ebsVolumes"`
 	// The ECS Cluster ARN of the layer.
 	EcsClusterArn pulumi.StringOutput `pulumi:"ecsClusterArn"`
@@ -156,7 +156,7 @@ type ecsClusterLayerState struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []EcsClusterLayerEbsVolume `pulumi:"ebsVolumes"`
 	// The ECS Cluster ARN of the layer.
 	EcsClusterArn *string `pulumi:"ecsClusterArn"`
@@ -208,7 +208,7 @@ type EcsClusterLayerState struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes EcsClusterLayerEbsVolumeArrayInput
 	// The ECS Cluster ARN of the layer.
 	EcsClusterArn pulumi.StringPtrInput
@@ -262,7 +262,7 @@ type ecsClusterLayerArgs struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []EcsClusterLayerEbsVolume `pulumi:"ebsVolumes"`
 	// The ECS Cluster ARN of the layer.
 	EcsClusterArn string `pulumi:"ecsClusterArn"`
@@ -311,7 +311,7 @@ type EcsClusterLayerArgs struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes EcsClusterLayerEbsVolumeArrayInput
 	// The ECS Cluster ARN of the layer.
 	EcsClusterArn pulumi.StringInput
@@ -491,7 +491,7 @@ func (o EcsClusterLayerOutput) DrainElbOnShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.BoolPtrOutput { return v.DrainElbOnShutdown }).(pulumi.BoolPtrOutput)
 }
 
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (o EcsClusterLayerOutput) EbsVolumes() EcsClusterLayerEbsVolumeArrayOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) EcsClusterLayerEbsVolumeArrayOutput { return v.EbsVolumes }).(EcsClusterLayerEbsVolumeArrayOutput)
 }

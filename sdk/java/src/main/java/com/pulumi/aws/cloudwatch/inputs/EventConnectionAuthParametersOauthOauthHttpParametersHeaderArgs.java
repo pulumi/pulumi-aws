@@ -32,14 +32,14 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersHeaderAr
     }
 
     /**
-     * Header Name.
+     * The key for the parameter.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return Header Name.
+     * @return The key for the parameter.
      * 
      */
     public Optional<Output<String>> key() {
@@ -47,14 +47,14 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersHeaderAr
     }
 
     /**
-     * Header Value. Created and stored in AWS Secrets Manager.
+     * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Header Value. Created and stored in AWS Secrets Manager.
+     * @return The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
      * 
      */
     public Optional<Output<String>> value() {
@@ -109,7 +109,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersHeaderAr
         }
 
         /**
-         * @param key Header Name.
+         * @param key The key for the parameter.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersHeaderAr
         }
 
         /**
-         * @param key Header Name.
+         * @param key The key for the parameter.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersHeaderAr
         }
 
         /**
-         * @param value Header Value. Created and stored in AWS Secrets Manager.
+         * @param value The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersHeaderAr
         }
 
         /**
-         * @param value Header Value. Created and stored in AWS Secrets Manager.
+         * @param value The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          * 
          * @return builder
          * 

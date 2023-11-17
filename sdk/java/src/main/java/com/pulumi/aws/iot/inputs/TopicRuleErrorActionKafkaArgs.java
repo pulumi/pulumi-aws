@@ -64,14 +64,14 @@ public final class TopicRuleErrorActionKafkaArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Kafka message key.
+     * The object key.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The Kafka message key.
+     * @return The object key.
      * 
      */
     public Optional<Output<String>> key() {
@@ -211,7 +211,7 @@ public final class TopicRuleErrorActionKafkaArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param key The Kafka message key.
+         * @param key The object key.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class TopicRuleErrorActionKafkaArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param key The Kafka message key.
+         * @param key The object key.
          * 
          * @return builder
          * 

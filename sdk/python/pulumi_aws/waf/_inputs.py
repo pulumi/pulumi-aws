@@ -991,8 +991,7 @@ class WebAclRuleActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-               e.g., `ALLOW` or `BLOCK`
+        :param pulumi.Input[str] type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         pulumi.set(__self__, "type", type)
 
@@ -1000,8 +999,7 @@ class WebAclRuleActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-        e.g., `ALLOW` or `BLOCK`
+        The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         return pulumi.get(self, "type")
 
@@ -1015,8 +1013,7 @@ class WebAclRuleOverrideActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-               e.g., `ALLOW` or `BLOCK`
+        :param pulumi.Input[str] type: valid values are: `NONE` or `COUNT`
         """
         pulumi.set(__self__, "type", type)
 
@@ -1024,8 +1021,7 @@ class WebAclRuleOverrideActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-        e.g., `ALLOW` or `BLOCK`
+        valid values are: `NONE` or `COUNT`
         """
         return pulumi.get(self, "type")
 

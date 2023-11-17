@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        /// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
         /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
         /// <summary>
-        /// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        /// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
         /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }

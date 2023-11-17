@@ -71,14 +71,14 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the attribute
+     * The name of the SSL negotiation policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the attribute
+     * @return The name of the SSL negotiation policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -216,7 +216,7 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the attribute
+         * @param name The name of the SSL negotiation policy.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the attribute
+         * @param name The name of the SSL negotiation policy.
          * 
          * @return builder
          * 

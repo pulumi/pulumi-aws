@@ -32,14 +32,14 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
     }
 
     /**
-     * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
     @Import(name="catalogId", required=true)
     private String catalogId;
 
     /**
-     * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
     public String catalogId() {
@@ -85,7 +85,7 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
          * 
          * @return builder
          * 

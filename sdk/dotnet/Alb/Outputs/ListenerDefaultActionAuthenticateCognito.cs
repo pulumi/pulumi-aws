@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Alb.Outputs
     public sealed class ListenerDefaultActionAuthenticateCognito
     {
         /// <summary>
-        /// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        /// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
         /// <summary>
-        /// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+        /// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         /// </summary>
         public readonly string? OnUnauthenticatedRequest;
         /// <summary>

@@ -30,14 +30,6 @@ class EnvironmentEC2Args:
         :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-1-x86_64`
-               * `amazonlinux-2-x86_64`
-               * `ubuntu-18.04-x86_64`
-               * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
@@ -114,14 +106,6 @@ class EnvironmentEC2Args:
     def image_id(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-1-x86_64`
-        * `amazonlinux-2-x86_64`
-        * `ubuntu-18.04-x86_64`
-        * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         """
         return pulumi.get(self, "image_id")
 
@@ -200,14 +184,6 @@ class _EnvironmentEC2State:
         :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-1-x86_64`
-               * `amazonlinux-2-x86_64`
-               * `ubuntu-18.04-x86_64`
-               * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
@@ -297,14 +273,6 @@ class _EnvironmentEC2State:
     def image_id(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-1-x86_64`
-        * `amazonlinux-2-x86_64`
-        * `ubuntu-18.04-x86_64`
-        * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         """
         return pulumi.get(self, "image_id")
 
@@ -466,14 +434,6 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-1-x86_64`
-               * `amazonlinux-2-x86_64`
-               * `ubuntu-18.04-x86_64`
-               * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
@@ -614,14 +574,6 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-1-x86_64`
-               * `amazonlinux-2-x86_64`
-               * `ubuntu-18.04-x86_64`
-               * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
@@ -685,14 +637,6 @@ class EnvironmentEC2(pulumi.CustomResource):
     def image_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-1-x86_64`
-        * `amazonlinux-2-x86_64`
-        * `ubuntu-18.04-x86_64`
-        * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         """
         return pulumi.get(self, "image_id")
 

@@ -144,14 +144,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return this.firewallPolicyArn;
     }
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      * 
      */
     @Export(name="firewallPolicyChangeProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> firewallPolicyChangeProtection;
 
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * @return (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> firewallPolicyChangeProtection() {

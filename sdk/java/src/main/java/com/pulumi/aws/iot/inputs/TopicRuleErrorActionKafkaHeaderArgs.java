@@ -14,14 +14,14 @@ public final class TopicRuleErrorActionKafkaHeaderArgs extends com.pulumi.resour
     public static final TopicRuleErrorActionKafkaHeaderArgs Empty = new TopicRuleErrorActionKafkaHeaderArgs();
 
     /**
-     * The name of the HTTP header.
+     * The object key.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The name of the HTTP header.
+     * @return The object key.
      * 
      */
     public Output<String> key() {
@@ -69,7 +69,7 @@ public final class TopicRuleErrorActionKafkaHeaderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param key The name of the HTTP header.
+         * @param key The object key.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class TopicRuleErrorActionKafkaHeaderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param key The name of the HTTP header.
+         * @param key The object key.
          * 
          * @return builder
          * 

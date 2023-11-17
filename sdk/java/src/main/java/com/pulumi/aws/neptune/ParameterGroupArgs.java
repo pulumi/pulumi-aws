@@ -49,14 +49,14 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the Neptune parameter.
+     * The name of the Neptune parameter group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Neptune parameter.
+     * @return The name of the Neptune parameter group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -164,7 +164,7 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the Neptune parameter.
+         * @param name The name of the Neptune parameter group.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the Neptune parameter.
+         * @param name The name of the Neptune parameter group.
          * 
          * @return builder
          * 

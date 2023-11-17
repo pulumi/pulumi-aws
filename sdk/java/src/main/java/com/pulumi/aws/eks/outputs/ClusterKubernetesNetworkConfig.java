@@ -18,7 +18,6 @@ public final class ClusterKubernetesNetworkConfig {
     private @Nullable String ipFamily;
     /**
      * @return The CIDR block to assign Kubernetes pod and service IP addresses from. If you don&#39;t specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
-     * 
      * * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
      * 
      * * Doesn&#39;t overlap with any CIDR block assigned to the VPC that you selected for VPC.
@@ -39,7 +38,6 @@ public final class ClusterKubernetesNetworkConfig {
     }
     /**
      * @return The CIDR block to assign Kubernetes pod and service IP addresses from. If you don&#39;t specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
-     * 
      * * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
      * 
      * * Doesn&#39;t overlap with any CIDR block assigned to the VPC that you selected for VPC.

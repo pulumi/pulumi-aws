@@ -53,7 +53,7 @@ class GangliaLayerArgs:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -66,7 +66,7 @@ class GangliaLayerArgs:
                lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
+        :param pulumi.Input[str] username: (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "stack_id", stack_id)
@@ -285,7 +285,7 @@ class GangliaLayerArgs:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -406,7 +406,7 @@ class GangliaLayerArgs:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        The username to use for Ganglia. Defaults to "opsworks".
+        (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         """
         return pulumi.get(self, "username")
 
@@ -456,7 +456,7 @@ class _GangliaLayerState:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -472,7 +472,7 @@ class _GangliaLayerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
+        :param pulumi.Input[str] username: (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -688,7 +688,7 @@ class _GangliaLayerState:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -848,7 +848,7 @@ class _GangliaLayerState:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        The username to use for Ganglia. Defaults to "opsworks".
+        (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         """
         return pulumi.get(self, "username")
 
@@ -912,7 +912,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -927,7 +927,7 @@ class GangliaLayer(pulumi.CustomResource):
                lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
+        :param pulumi.Input[str] username: (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         """
         ...
     @overload
@@ -1086,7 +1086,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -1102,7 +1102,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
+        :param pulumi.Input[str] username: (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1236,7 +1236,7 @@ class GangliaLayer(pulumi.CustomResource):
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.GangliaLayerEbsVolume']]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -1344,7 +1344,7 @@ class GangliaLayer(pulumi.CustomResource):
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
         """
-        The username to use for Ganglia. Defaults to "opsworks".
+        (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         """
         return pulumi.get(self, "username")
 

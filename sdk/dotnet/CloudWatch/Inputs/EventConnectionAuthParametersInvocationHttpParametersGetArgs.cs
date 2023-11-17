@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("bodies")]
         private InputList<Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyGetArgs>? _bodies;
-
-        /// <summary>
-        /// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        /// </summary>
         public InputList<Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyGetArgs> Bodies
         {
             get => _bodies ?? (_bodies = new InputList<Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
         [Input("headers")]
         private InputList<Inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderGetArgs>? _headers;
-
-        /// <summary>
-        /// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        /// </summary>
         public InputList<Inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderGetArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderGetArgs>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
         [Input("queryStrings")]
         private InputList<Inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringGetArgs>? _queryStrings;
-
-        /// <summary>
-        /// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        /// </summary>
         public InputList<Inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringGetArgs> QueryStrings
         {
             get => _queryStrings ?? (_queryStrings = new InputList<Inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringGetArgs>());

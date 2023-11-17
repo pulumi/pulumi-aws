@@ -159,8 +159,6 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
     }
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      * 
      */
     @Export(name="tableReference", refs={ConfiguredTableTableReference.class}, tree="[0]")
@@ -168,8 +166,6 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      * 
      */
     public Output<ConfiguredTableTableReference> tableReference() {

@@ -188,7 +188,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * A stage block. Stages are documented below.
+     * (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStage[]>;
     /**
@@ -269,7 +269,7 @@ export interface PipelineState {
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * A stage block. Stages are documented below.
+     * (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
@@ -301,7 +301,7 @@ export interface PipelineArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * A stage block. Stages are documented below.
+     * (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**

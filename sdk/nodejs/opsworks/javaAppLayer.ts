@@ -94,7 +94,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
      */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.JavaAppLayerEbsVolume[]>;
     /**
@@ -290,7 +290,7 @@ export interface JavaAppLayerState {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.JavaAppLayerEbsVolume>[]>;
     /**
@@ -397,7 +397,7 @@ export interface JavaAppLayerArgs {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.JavaAppLayerEbsVolume>[]>;
     /**

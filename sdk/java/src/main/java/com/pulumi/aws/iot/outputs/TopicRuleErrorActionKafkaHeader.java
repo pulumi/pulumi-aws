@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class TopicRuleErrorActionKafkaHeader {
     /**
-     * @return The name of the HTTP header.
+     * @return The object key.
      * 
      */
     private String key;
@@ -22,7 +22,7 @@ public final class TopicRuleErrorActionKafkaHeader {
 
     private TopicRuleErrorActionKafkaHeader() {}
     /**
-     * @return The name of the HTTP header.
+     * @return The object key.
      * 
      */
     public String key() {

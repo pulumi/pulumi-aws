@@ -14,7 +14,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
     public sealed class KxClusterCacheStorageConfiguration
     {
         /// <summary>
-        /// Size of cache in Gigabytes.
+        /// Size of temporary storage in gigabytes. Must be between 10 and 16000.
         /// </summary>
         public readonly int Size;
         /// <summary>

@@ -22,14 +22,14 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final SecurityGroupArgs Empty = new SecurityGroupArgs();
 
     /**
-     * Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
+     * Description of this egress rule.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
+     * @return Description of this egress rule.
      * 
      */
     public Optional<Output<String>> description() {
@@ -173,7 +173,7 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
+         * @param description Description of this egress rule.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
+         * @param description Description of this egress rule.
          * 
          * @return builder
          * 

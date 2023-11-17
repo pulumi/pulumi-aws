@@ -229,7 +229,7 @@ func (o EnvironmentLastUpdatedErrorArrayOutput) Index(i pulumi.IntInput) Environ
 }
 
 type EnvironmentLoggingConfiguration struct {
-	// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+	// Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
 	DagProcessingLogs *EnvironmentLoggingConfigurationDagProcessingLogs `pulumi:"dagProcessingLogs"`
 	// Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
 	SchedulerLogs *EnvironmentLoggingConfigurationSchedulerLogs `pulumi:"schedulerLogs"`
@@ -253,7 +253,7 @@ type EnvironmentLoggingConfigurationInput interface {
 }
 
 type EnvironmentLoggingConfigurationArgs struct {
-	// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+	// Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
 	DagProcessingLogs EnvironmentLoggingConfigurationDagProcessingLogsPtrInput `pulumi:"dagProcessingLogs"`
 	// Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
 	SchedulerLogs EnvironmentLoggingConfigurationSchedulerLogsPtrInput `pulumi:"schedulerLogs"`
@@ -342,7 +342,7 @@ func (o EnvironmentLoggingConfigurationOutput) ToEnvironmentLoggingConfiguration
 	}).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
-// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+// Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationOutput) DagProcessingLogs() EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationDagProcessingLogs {
 		return v.DagProcessingLogs
@@ -399,7 +399,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) Elem() EnvironmentLoggingConfi
 	}).(EnvironmentLoggingConfigurationOutput)
 }
 
-// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+// Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationPtrOutput) DagProcessingLogs() EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationDagProcessingLogs {
 		if v == nil {

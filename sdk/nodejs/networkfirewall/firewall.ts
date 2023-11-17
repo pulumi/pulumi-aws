@@ -86,7 +86,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly firewallPolicyArn!: pulumi.Output<string>;
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      */
     public readonly firewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -209,7 +209,7 @@ export interface FirewallState {
      */
     firewallPolicyArn?: pulumi.Input<string>;
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      */
     firewallPolicyChangeProtection?: pulumi.Input<boolean>;
     /**
@@ -269,7 +269,7 @@ export interface FirewallArgs {
      */
     firewallPolicyArn: pulumi.Input<string>;
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      */
     firewallPolicyChangeProtection?: pulumi.Input<boolean>;
     /**

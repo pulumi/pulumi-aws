@@ -85,8 +85,6 @@ class DevEnvironmentRepositoryArgs:
         """
         :param pulumi.Input[str] repository_name: The name of the source repository.
         :param pulumi.Input[str] branch_name: The name of the branch in a source repository.
-               
-               persistent storage (` persistent_storage`) supports the following:
         """
         pulumi.set(__self__, "repository_name", repository_name)
         if branch_name is not None:
@@ -109,8 +107,6 @@ class DevEnvironmentRepositoryArgs:
     def branch_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the branch in a source repository.
-
-        persistent storage (` persistent_storage`) supports the following:
         """
         return pulumi.get(self, "branch_name")
 

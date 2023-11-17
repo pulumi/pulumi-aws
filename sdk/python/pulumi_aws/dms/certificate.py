@@ -21,7 +21,6 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] certificate_id: The certificate identifier.
-               
                - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
@@ -40,7 +39,6 @@ class CertificateArgs:
     def certificate_id(self) -> pulumi.Input[str]:
         """
         The certificate identifier.
-
         - Must contain from 1 to 255 alphanumeric characters and hyphens.
         """
         return pulumi.get(self, "certificate_id")
@@ -99,7 +97,6 @@ class _CertificateState:
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[str] certificate_id: The certificate identifier.
-               
                - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
@@ -139,7 +136,6 @@ class _CertificateState:
     def certificate_id(self) -> Optional[pulumi.Input[str]]:
         """
         The certificate identifier.
-
         - Must contain from 1 to 255 alphanumeric characters and hyphens.
         """
         return pulumi.get(self, "certificate_id")
@@ -239,7 +235,6 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: The certificate identifier.
-               
                - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
@@ -340,7 +335,6 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[str] certificate_id: The certificate identifier.
-               
                - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
@@ -372,7 +366,6 @@ class Certificate(pulumi.CustomResource):
     def certificate_id(self) -> pulumi.Output[str]:
         """
         The certificate identifier.
-
         - Must contain from 1 to 255 alphanumeric characters and hyphens.
         """
         return pulumi.get(self, "certificate_id")

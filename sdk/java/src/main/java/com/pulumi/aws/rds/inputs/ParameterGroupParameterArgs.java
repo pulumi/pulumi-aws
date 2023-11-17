@@ -35,14 +35,14 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the DB parameter.
+     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -116,7 +116,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the DB parameter.
+         * @param name The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the DB parameter.
+         * @param name The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
          * 
          * @return builder
          * 

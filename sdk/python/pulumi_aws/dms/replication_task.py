@@ -30,7 +30,6 @@ class ReplicationTaskArgs:
         :param pulumi.Input[str] migration_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
-               
                - Must contain from 1 to 255 alphanumeric characters or hyphens.
                - First character must be a letter.
                - Cannot end with a hyphen.
@@ -90,7 +89,6 @@ class ReplicationTaskArgs:
     def replication_task_id(self) -> pulumi.Input[str]:
         """
         The replication task identifier.
-
         - Must contain from 1 to 255 alphanumeric characters or hyphens.
         - First character must be a letter.
         - Cannot end with a hyphen.
@@ -224,7 +222,6 @@ class _ReplicationTaskState:
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_task_arn: The Amazon Resource Name (ARN) for the replication task.
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
-               
                - Must contain from 1 to 255 alphanumeric characters or hyphens.
                - First character must be a letter.
                - Cannot end with a hyphen.
@@ -335,7 +332,6 @@ class _ReplicationTaskState:
     def replication_task_id(self) -> Optional[pulumi.Input[str]]:
         """
         The replication task identifier.
-
         - Must contain from 1 to 255 alphanumeric characters or hyphens.
         - First character must be a letter.
         - Cannot end with a hyphen.
@@ -505,7 +501,6 @@ class ReplicationTask(pulumi.CustomResource):
         :param pulumi.Input[str] migration_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
-               
                - Must contain from 1 to 255 alphanumeric characters or hyphens.
                - First character must be a letter.
                - Cannot end with a hyphen.
@@ -657,7 +652,6 @@ class ReplicationTask(pulumi.CustomResource):
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_task_arn: The Amazon Resource Name (ARN) for the replication task.
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
-               
                - Must contain from 1 to 255 alphanumeric characters or hyphens.
                - First character must be a letter.
                - Cannot end with a hyphen.
@@ -736,7 +730,6 @@ class ReplicationTask(pulumi.CustomResource):
     def replication_task_id(self) -> pulumi.Output[str]:
         """
         The replication task identifier.
-
         - Must contain from 1 to 255 alphanumeric characters or hyphens.
         - First character must be a letter.
         - Cannot end with a hyphen.

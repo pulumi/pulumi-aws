@@ -149,14 +149,14 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
         return this.loadBalancer;
     }
     /**
-     * The name of the attribute
+     * The name of the SSL negotiation policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the attribute
+     * @return The name of the SSL negotiation policy.
      * 
      */
     public Output<String> name() {

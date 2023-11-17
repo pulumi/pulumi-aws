@@ -18,7 +18,7 @@ namespace Pulumi.Aws.DocDB.Outputs
         /// </summary>
         public readonly string? ApplyMethod;
         /// <summary>
-        /// The name of the DocumentDB parameter.
+        /// The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
         /// </summary>
         public readonly string Name;
         /// <summary>

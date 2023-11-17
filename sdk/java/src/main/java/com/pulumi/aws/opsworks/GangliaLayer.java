@@ -207,14 +207,14 @@ public class GangliaLayer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.drainElbOnShutdown);
     }
     /**
-     * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
     @Export(name="ebsVolumes", refs={List.class,GangliaLayerEbsVolume.class}, tree="[0,1]")
     private Output<List<GangliaLayerEbsVolume>> ebsVolumes;
 
     /**
-     * @return `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+     * @return blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
     public Output<List<GangliaLayerEbsVolume>> ebsVolumes() {
@@ -393,14 +393,14 @@ public class GangliaLayer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.useEbsOptimizedInstances);
     }
     /**
-     * The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
+     * (Optiona) The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**
-     * @return The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
+     * @return (Optiona) The username to use for Ganglia. Defaults to &#34;opsworks&#34;.
      * 
      */
     public Output<Optional<String>> username() {

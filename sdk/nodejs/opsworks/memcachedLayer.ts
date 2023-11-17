@@ -90,7 +90,7 @@ export class MemcachedLayer extends pulumi.CustomResource {
      */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.MemcachedLayerEbsVolume[]>;
     /**
@@ -262,7 +262,7 @@ export interface MemcachedLayerState {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.MemcachedLayerEbsVolume>[]>;
     /**
@@ -353,7 +353,7 @@ export interface MemcachedLayerArgs {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.MemcachedLayerEbsVolume>[]>;
     /**

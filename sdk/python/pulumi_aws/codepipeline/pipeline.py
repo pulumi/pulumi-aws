@@ -25,7 +25,7 @@ class PipelineArgs:
         The set of arguments for constructing a Pipeline resource.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -65,7 +65,7 @@ class PipelineArgs:
     @pulumi.getter
     def stages(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]:
         """
-        A stage block. Stages are documented below.
+        (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         """
         return pulumi.get(self, "stages")
 
@@ -114,7 +114,7 @@ class _PipelineState:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -188,7 +188,7 @@ class _PipelineState:
     @pulumi.getter
     def stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]]:
         """
-        A stage block. Stages are documented below.
+        (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         """
         return pulumi.get(self, "stages")
 
@@ -367,7 +367,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -575,7 +575,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -628,7 +628,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter
     def stages(self) -> pulumi.Output[Sequence['outputs.PipelineStage']]:
         """
-        A stage block. Stages are documented below.
+        (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         """
         return pulumi.get(self, "stages")
 

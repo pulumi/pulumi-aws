@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ram
         }
 
         /// <summary>
-        /// Name of the tag key to filter on.
+        /// Name of the resource share to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Ram
         }
 
         /// <summary>
-        /// Name of the tag key to filter on.
+        /// Name of the resource share to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -15,14 +15,14 @@ public final class KxClusterCacheStorageConfigurationArgs extends com.pulumi.res
     public static final KxClusterCacheStorageConfigurationArgs Empty = new KxClusterCacheStorageConfigurationArgs();
 
     /**
-     * Size of cache in Gigabytes.
+     * Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
     /**
-     * @return Size of cache in Gigabytes.
+     * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
     public Output<Integer> size() {
@@ -76,7 +76,7 @@ public final class KxClusterCacheStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param size Size of cache in Gigabytes.
+         * @param size Size of temporary storage in gigabytes. Must be between 10 and 16000.
          * 
          * @return builder
          * 
@@ -87,7 +87,7 @@ public final class KxClusterCacheStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param size Size of cache in Gigabytes.
+         * @param size Size of temporary storage in gigabytes. Must be between 10 and 16000.
          * 
          * @return builder
          * 

@@ -57,14 +57,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     * If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
      * 
      */
     @Import(name="bisectBatchOnFunctionError")
     private @Nullable Output<Boolean> bisectBatchOnFunctionError;
 
     /**
-     * @return - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     * @return If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> bisectBatchOnFunctionError() {
@@ -72,14 +72,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      * 
      */
     @Import(name="destinationConfig")
     private @Nullable Output<EventSourceMappingDestinationConfigArgs> destinationConfig;
 
     /**
-     * @return - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * @return An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      * 
      */
     public Optional<Output<EventSourceMappingDestinationConfigArgs>> destinationConfig() {
@@ -87,14 +87,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     * Configuration settings for a DocumentDB event source. Detailed below.
      * 
      */
     @Import(name="documentDbEventSourceConfig")
     private @Nullable Output<EventSourceMappingDocumentDbEventSourceConfigArgs> documentDbEventSourceConfig;
 
     /**
-     * @return - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     * @return Configuration settings for a DocumentDB event source. Detailed below.
      * 
      */
     public Optional<Output<EventSourceMappingDocumentDbEventSourceConfigArgs>> documentDbEventSourceConfig() {
@@ -237,14 +237,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     * The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      * 
      */
     @Import(name="maximumRecordAgeInSeconds")
     private @Nullable Output<Integer> maximumRecordAgeInSeconds;
 
     /**
-     * @return - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     * @return The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      * 
      */
     public Optional<Output<Integer>> maximumRecordAgeInSeconds() {
@@ -252,14 +252,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     * The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      * 
      */
     @Import(name="maximumRetryAttempts")
     private @Nullable Output<Integer> maximumRetryAttempts;
 
     /**
-     * @return - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     * @return The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      * 
      */
     public Optional<Output<Integer>> maximumRetryAttempts() {
@@ -267,14 +267,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     * The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
     @Import(name="parallelizationFactor")
     private @Nullable Output<Integer> parallelizationFactor;
 
     /**
-     * @return - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     * @return The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
     public Optional<Output<Integer>> parallelizationFactor() {
@@ -312,14 +312,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+     * For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
      * 
      */
     @Import(name="selfManagedEventSource")
     private @Nullable Output<EventSourceMappingSelfManagedEventSourceArgs> selfManagedEventSource;
 
     /**
-     * @return - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+     * @return For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
      * 
      */
     public Optional<Output<EventSourceMappingSelfManagedEventSourceArgs>> selfManagedEventSource() {
@@ -556,7 +556,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bisectBatchOnFunctionError - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+         * @param bisectBatchOnFunctionError If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bisectBatchOnFunctionError - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+         * @param bisectBatchOnFunctionError If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationConfig - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+         * @param destinationConfig An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationConfig - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+         * @param destinationConfig An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param documentDbEventSourceConfig - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+         * @param documentDbEventSourceConfig Configuration settings for a DocumentDB event source. Detailed below.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param documentDbEventSourceConfig - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+         * @param documentDbEventSourceConfig Configuration settings for a DocumentDB event source. Detailed below.
          * 
          * @return builder
          * 
@@ -818,7 +818,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maximumRecordAgeInSeconds - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+         * @param maximumRecordAgeInSeconds The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
          * 
          * @return builder
          * 
@@ -829,7 +829,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maximumRecordAgeInSeconds - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+         * @param maximumRecordAgeInSeconds The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
          * 
          * @return builder
          * 
@@ -839,7 +839,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maximumRetryAttempts - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+         * @param maximumRetryAttempts The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
          * 
          * @return builder
          * 
@@ -850,7 +850,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maximumRetryAttempts - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+         * @param maximumRetryAttempts The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
          * 
          * @return builder
          * 
@@ -860,7 +860,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param parallelizationFactor - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+         * @param parallelizationFactor The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param parallelizationFactor - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+         * @param parallelizationFactor The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
          * 
          * @return builder
          * 
@@ -923,7 +923,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selfManagedEventSource - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+         * @param selfManagedEventSource For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
          * 
          * @return builder
          * 
@@ -934,7 +934,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selfManagedEventSource - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+         * @param selfManagedEventSource For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
          * 
          * @return builder
          * 

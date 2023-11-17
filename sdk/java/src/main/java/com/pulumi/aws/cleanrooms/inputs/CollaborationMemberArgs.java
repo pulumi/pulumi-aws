@@ -16,23 +16,47 @@ public final class CollaborationMemberArgs extends com.pulumi.resources.Resource
 
     public static final CollaborationMemberArgs Empty = new CollaborationMemberArgs();
 
+    /**
+     * The account id for the invited member.
+     * 
+     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
+    /**
+     * @return The account id for the invited member.
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
+    /**
+     * The display name for the invited member.
+     * 
+     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
+    /**
+     * @return The display name for the invited member.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
 
+    /**
+     * The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+     * 
+     */
     @Import(name="memberAbilities", required=true)
     private Output<List<String>> memberAbilities;
 
+    /**
+     * @return The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+     * 
+     */
     public Output<List<String>> memberAbilities() {
         return this.memberAbilities;
     }
@@ -71,33 +95,75 @@ public final class CollaborationMemberArgs extends com.pulumi.resources.Resource
             $ = new CollaborationMemberArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The account id for the invited member.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId The account id for the invited member.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
+        /**
+         * @param displayName The display name for the invited member.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName The display name for the invited member.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
+        /**
+         * @param memberAbilities The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+         * 
+         * @return builder
+         * 
+         */
         public Builder memberAbilities(Output<List<String>> memberAbilities) {
             $.memberAbilities = memberAbilities;
             return this;
         }
 
+        /**
+         * @param memberAbilities The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+         * 
+         * @return builder
+         * 
+         */
         public Builder memberAbilities(List<String> memberAbilities) {
             return memberAbilities(Output.of(memberAbilities));
         }
 
+        /**
+         * @param memberAbilities The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+         * 
+         * @return builder
+         * 
+         */
         public Builder memberAbilities(String... memberAbilities) {
             return memberAbilities(List.of(memberAbilities));
         }

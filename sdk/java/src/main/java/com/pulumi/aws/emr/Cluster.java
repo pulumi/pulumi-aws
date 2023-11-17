@@ -526,20 +526,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *     public static void stack(Context ctx) {
      *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
      *             .configurationsJson(&#34;&#34;&#34;
-     * [
-     * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
-     * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
-     * }
-     * }
-     * ],
-     * &#34;Properties&#34;: {}
-     * }
-     * ]
+     *   [
+     *     {
+     *       &#34;Classification&#34;: &#34;hadoop-env&#34;,
+     *       &#34;Configurations&#34;: [
+     *         {
+     *           &#34;Classification&#34;: &#34;export&#34;,
+     *           &#34;Properties&#34;: {
+     *             &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     *           }
+     *         }
+     *       ],
+     *       &#34;Properties&#34;: {}
+     *     }
+     *   ]
      * 
      *             &#34;&#34;&#34;)
      *             .build());
@@ -579,20 +579,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *     public static void stack(Context ctx) {
      *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
      *             .configurationsJson(&#34;&#34;&#34;
-     * [
-     * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
-     * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
-     * }
-     * }
-     * ],
-     * &#34;Properties&#34;: {}
-     * }
-     * ]
+     *   [
+     *     {
+     *       &#34;Classification&#34;: &#34;hadoop-env&#34;,
+     *       &#34;Configurations&#34;: [
+     *         {
+     *           &#34;Classification&#34;: &#34;export&#34;,
+     *           &#34;Properties&#34;: {
+     *             &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     *           }
+     *         }
+     *       ],
+     *       &#34;Properties&#34;: {}
+     *     }
+     *   ]
      * 
      *             &#34;&#34;&#34;)
      *             .build());

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ElastiCache.Inputs
     public sealed class ParameterGroupParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the ElastiCache parameter.
+        /// The name of the ElastiCache parameter group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

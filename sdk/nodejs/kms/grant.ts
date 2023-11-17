@@ -79,7 +79,7 @@ export class Grant extends pulumi.CustomResource {
      */
     public readonly operations!: pulumi.Output<string[]>;
     /**
-     * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+     * (Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
     public readonly retireOnDelete!: pulumi.Output<boolean | undefined>;
@@ -175,7 +175,7 @@ export interface GrantState {
      */
     operations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+     * (Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
     retireOnDelete?: pulumi.Input<boolean>;
@@ -214,7 +214,7 @@ export interface GrantArgs {
      */
     operations: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+     * (Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
     retireOnDelete?: pulumi.Input<boolean>;

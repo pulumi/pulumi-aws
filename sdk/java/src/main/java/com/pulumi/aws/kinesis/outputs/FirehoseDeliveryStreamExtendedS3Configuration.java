@@ -84,7 +84,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration s3BackupConfiguration;
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
      * 
      */
     private @Nullable String s3BackupMode;
@@ -183,7 +183,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         return Optional.ofNullable(this.s3BackupConfiguration);
     }
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
      * 
      */
     public Optional<String> s3BackupMode() {

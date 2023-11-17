@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<int> End { get; set; } = null!;
 
         /// <summary>
-        /// Start of the range.
+        /// (Requited) Start of the range.
         /// </summary>
         [Input("start", required: true)]
         public Input<int> Start { get; set; } = null!;

@@ -246,7 +246,7 @@ func (o KxClusterAutoScalingConfigurationPtrOutput) ScaleOutCooldownSeconds() pu
 }
 
 type KxClusterCacheStorageConfiguration struct {
-	// Size of cache in Gigabytes.
+	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 	Size int `pulumi:"size"`
 	// Type of KDB database. The following types are available:
 	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -267,7 +267,7 @@ type KxClusterCacheStorageConfigurationInput interface {
 }
 
 type KxClusterCacheStorageConfigurationArgs struct {
-	// Size of cache in Gigabytes.
+	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 	Size pulumi.IntInput `pulumi:"size"`
 	// Type of KDB database. The following types are available:
 	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -327,7 +327,7 @@ func (o KxClusterCacheStorageConfigurationOutput) ToKxClusterCacheStorageConfigu
 	return o
 }
 
-// Size of cache in Gigabytes.
+// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 func (o KxClusterCacheStorageConfigurationOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterCacheStorageConfiguration) int { return v.Size }).(pulumi.IntOutput)
 }
@@ -1112,7 +1112,6 @@ type KxClusterVpcConfiguration struct {
 	// IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
 	IpAddressType string `pulumi:"ipAddressType"`
 	// Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-	// * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	SubnetIds        []string `pulumi:"subnetIds"`
 	// Identifier of the VPC endpoint
@@ -1134,7 +1133,6 @@ type KxClusterVpcConfigurationArgs struct {
 	// IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
 	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-	// * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// Identifier of the VPC endpoint
@@ -1224,7 +1222,6 @@ func (o KxClusterVpcConfigurationOutput) IpAddressType() pulumi.StringOutput {
 }
 
 // Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-// * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 func (o KxClusterVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KxClusterVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -1273,7 +1270,6 @@ func (o KxClusterVpcConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutp
 }
 
 // Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-// * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 func (o KxClusterVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KxClusterVpcConfiguration) []string {
 		if v == nil {

@@ -697,11 +697,8 @@ func (o EventConnectionAuthParametersBasicPtrOutput) Username() pulumi.StringPtr
 }
 
 type EventConnectionAuthParametersInvocationHttpParameters struct {
-	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-	Bodies []EventConnectionAuthParametersInvocationHttpParametersBody `pulumi:"bodies"`
-	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-	Headers []EventConnectionAuthParametersInvocationHttpParametersHeader `pulumi:"headers"`
-	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies       []EventConnectionAuthParametersInvocationHttpParametersBody        `pulumi:"bodies"`
+	Headers      []EventConnectionAuthParametersInvocationHttpParametersHeader      `pulumi:"headers"`
 	QueryStrings []EventConnectionAuthParametersInvocationHttpParametersQueryString `pulumi:"queryStrings"`
 }
 
@@ -717,11 +714,8 @@ type EventConnectionAuthParametersInvocationHttpParametersInput interface {
 }
 
 type EventConnectionAuthParametersInvocationHttpParametersArgs struct {
-	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-	Bodies EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput `pulumi:"bodies"`
-	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-	Headers EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput `pulumi:"headers"`
-	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies       EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput        `pulumi:"bodies"`
+	Headers      EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput      `pulumi:"headers"`
 	QueryStrings EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput `pulumi:"queryStrings"`
 }
 
@@ -802,21 +796,18 @@ func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToEventConn
 	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
 }
 
-// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersOutput) Bodies() EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersBody {
 		return v.Bodies
 	}).(EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput)
 }
 
-// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersOutput) Headers() EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersHeader {
 		return v.Headers
 	}).(EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput)
 }
 
-// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersOutput) QueryStrings() EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersQueryString {
 		return v.QueryStrings
@@ -847,7 +838,6 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Elem() E
 	}).(EventConnectionAuthParametersInvocationHttpParametersOutput)
 }
 
-// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Bodies() EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersBody {
 		if v == nil {
@@ -857,7 +847,6 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Bodies()
 	}).(EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput)
 }
 
-// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Headers() EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersHeader {
 		if v == nil {
@@ -867,7 +856,6 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Headers(
 	}).(EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput)
 }
 
-// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) QueryStrings() EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersQueryString {
 		if v == nil {
@@ -880,9 +868,9 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) QueryStr
 type EventConnectionAuthParametersInvocationHttpParametersBody struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -900,9 +888,9 @@ type EventConnectionAuthParametersInvocationHttpParametersBodyInput interface {
 type EventConnectionAuthParametersInvocationHttpParametersBodyArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -962,12 +950,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) IsValue
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -995,9 +983,9 @@ func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) In
 type EventConnectionAuthParametersInvocationHttpParametersHeader struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -1015,9 +1003,9 @@ type EventConnectionAuthParametersInvocationHttpParametersHeaderInput interface 
 type EventConnectionAuthParametersInvocationHttpParametersHeaderArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1077,12 +1065,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) IsVal
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1110,9 +1098,9 @@ func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) 
 type EventConnectionAuthParametersInvocationHttpParametersQueryString struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -1130,9 +1118,9 @@ type EventConnectionAuthParametersInvocationHttpParametersQueryStringInput inter
 type EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1192,12 +1180,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) 
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1577,11 +1565,8 @@ func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ClientSecre
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParameters struct {
-	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-	Bodies []EventConnectionAuthParametersOauthOauthHttpParametersBody `pulumi:"bodies"`
-	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-	Headers []EventConnectionAuthParametersOauthOauthHttpParametersHeader `pulumi:"headers"`
-	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies       []EventConnectionAuthParametersOauthOauthHttpParametersBody        `pulumi:"bodies"`
+	Headers      []EventConnectionAuthParametersOauthOauthHttpParametersHeader      `pulumi:"headers"`
 	QueryStrings []EventConnectionAuthParametersOauthOauthHttpParametersQueryString `pulumi:"queryStrings"`
 }
 
@@ -1597,11 +1582,8 @@ type EventConnectionAuthParametersOauthOauthHttpParametersInput interface {
 }
 
 type EventConnectionAuthParametersOauthOauthHttpParametersArgs struct {
-	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-	Bodies EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput `pulumi:"bodies"`
-	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-	Headers EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput `pulumi:"headers"`
-	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies       EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput        `pulumi:"bodies"`
+	Headers      EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput      `pulumi:"headers"`
 	QueryStrings EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput `pulumi:"queryStrings"`
 }
 
@@ -1682,21 +1664,18 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToEventConn
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput)
 }
 
-// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) Bodies() EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersBody {
 		return v.Bodies
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput)
 }
 
-// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) Headers() EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersHeader {
 		return v.Headers
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput)
 }
 
-// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) QueryStrings() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersQueryString {
 		return v.QueryStrings
@@ -1727,7 +1706,6 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Elem() E
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersOutput)
 }
 
-// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Bodies() EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersBody {
 		if v == nil {
@@ -1737,7 +1715,6 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Bodies()
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput)
 }
 
-// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Headers() EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersHeader {
 		if v == nil {
@@ -1747,7 +1724,6 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Headers(
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput)
 }
 
-// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
 func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) QueryStrings() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersQueryString {
 		if v == nil {
@@ -1760,9 +1736,9 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) QueryStr
 type EventConnectionAuthParametersOauthOauthHttpParametersBody struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -1780,9 +1756,9 @@ type EventConnectionAuthParametersOauthOauthHttpParametersBodyInput interface {
 type EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1842,12 +1818,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) IsValue
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1875,9 +1851,9 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) In
 type EventConnectionAuthParametersOauthOauthHttpParametersHeader struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -1895,9 +1871,9 @@ type EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput interface 
 type EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1957,12 +1933,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) IsVal
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1990,9 +1966,9 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) 
 type EventConnectionAuthParametersOauthOauthHttpParametersQueryString struct {
 	// Specified whether the value is secret.
 	IsValueSecret *bool `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key *string `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value *string `pulumi:"value"`
 }
 
@@ -2010,9 +1986,9 @@ type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput inter
 type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs struct {
 	// Specified whether the value is secret.
 	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
-	// Header Name.
+	// The key for the parameter.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Header Value. Created and stored in AWS Secrets Manager.
+	// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2072,12 +2048,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) 
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Header Name.
+// The key for the parameter.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Header Value. Created and stored in AWS Secrets Manager.
+// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

@@ -31,7 +31,6 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
     /**
      * Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
      * 
      */
     @Import(name="securityGroupIds", required=true)
@@ -39,7 +38,6 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
     /**
      * @return Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -118,7 +116,6 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param securityGroupIds Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
          * 
          * @return builder
          * 
@@ -130,7 +127,6 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param securityGroupIds Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
          * 
          * @return builder
          * 
@@ -141,7 +137,6 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param securityGroupIds Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
          * 
          * @return builder
          * 

@@ -66,8 +66,6 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
      * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied.
      * 
-     * The `CORS` object supports the following:
-     * 
      */
     @Import(name="routingRules")
     private @Nullable Output<Either<String,List<String>>> routingRules;
@@ -75,8 +73,6 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied.
-     * 
-     * The `CORS` object supports the following:
      * 
      */
     public Optional<Output<Either<String,List<String>>>> routingRules() {
@@ -177,8 +173,6 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
          * @param routingRules A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
          * 
-         * The `CORS` object supports the following:
-         * 
          * @return builder
          * 
          */
@@ -191,8 +185,6 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
          * @param routingRules A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
          * 
-         * The `CORS` object supports the following:
-         * 
          * @return builder
          * 
          */
@@ -204,8 +196,6 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
          * @param routingRules A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
          * 
-         * The `CORS` object supports the following:
-         * 
          * @return builder
          * 
          */
@@ -216,8 +206,6 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param routingRules A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
-         * 
-         * The `CORS` object supports the following:
          * 
          * @return builder
          * 

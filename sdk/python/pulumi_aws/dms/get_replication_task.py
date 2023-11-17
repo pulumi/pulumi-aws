@@ -212,7 +212,6 @@ def get_replication_task(replication_task_id: Optional[str] = None,
 
 
     :param str replication_task_id: The replication task identifier.
-           
            - Must contain from 1 to 255 alphanumeric characters or hyphens.
            - First character must be a letter.
            - Cannot end with a hyphen.
@@ -260,7 +259,6 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
 
 
     :param str replication_task_id: The replication task identifier.
-           
            - Must contain from 1 to 255 alphanumeric characters or hyphens.
            - First character must be a letter.
            - Cannot end with a hyphen.

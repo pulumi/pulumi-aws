@@ -329,14 +329,14 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
+     * Description of this egress rule.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
+     * @return Description of this egress rule.
      * 
      */
     public Output<String> description() {

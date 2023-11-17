@@ -34,10 +34,7 @@ type KxCluster struct {
 	AutoScalingConfiguration KxClusterAutoScalingConfigurationPtrOutput `pulumi:"autoScalingConfiguration"`
 	// The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
 	AvailabilityZoneId pulumi.StringPtrOutput `pulumi:"availabilityZoneId"`
-	// The number of availability zones you want to assign per cluster. This can be one of the following:
-	// * SINGLE - Assigns one availability zone per cluster.
-	// * MULTI - Assigns all the availability zones per cluster.
-	AzMode pulumi.StringOutput `pulumi:"azMode"`
+	AzMode             pulumi.StringOutput    `pulumi:"azMode"`
 	// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
 	CacheStorageConfigurations KxClusterCacheStorageConfigurationArrayOutput `pulumi:"cacheStorageConfigurations"`
 	// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
@@ -143,10 +140,7 @@ type kxClusterState struct {
 	AutoScalingConfiguration *KxClusterAutoScalingConfiguration `pulumi:"autoScalingConfiguration"`
 	// The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	// The number of availability zones you want to assign per cluster. This can be one of the following:
-	// * SINGLE - Assigns one availability zone per cluster.
-	// * MULTI - Assigns all the availability zones per cluster.
-	AzMode *string `pulumi:"azMode"`
+	AzMode             *string `pulumi:"azMode"`
 	// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
 	CacheStorageConfigurations []KxClusterCacheStorageConfiguration `pulumi:"cacheStorageConfigurations"`
 	// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
@@ -201,10 +195,7 @@ type KxClusterState struct {
 	AutoScalingConfiguration KxClusterAutoScalingConfigurationPtrInput
 	// The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
 	AvailabilityZoneId pulumi.StringPtrInput
-	// The number of availability zones you want to assign per cluster. This can be one of the following:
-	// * SINGLE - Assigns one availability zone per cluster.
-	// * MULTI - Assigns all the availability zones per cluster.
-	AzMode pulumi.StringPtrInput
+	AzMode             pulumi.StringPtrInput
 	// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
 	CacheStorageConfigurations KxClusterCacheStorageConfigurationArrayInput
 	// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
@@ -261,10 +252,7 @@ type kxClusterArgs struct {
 	AutoScalingConfiguration *KxClusterAutoScalingConfiguration `pulumi:"autoScalingConfiguration"`
 	// The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	// The number of availability zones you want to assign per cluster. This can be one of the following:
-	// * SINGLE - Assigns one availability zone per cluster.
-	// * MULTI - Assigns all the availability zones per cluster.
-	AzMode string `pulumi:"azMode"`
+	AzMode             string  `pulumi:"azMode"`
 	// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
 	CacheStorageConfigurations []KxClusterCacheStorageConfiguration `pulumi:"cacheStorageConfigurations"`
 	// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
@@ -308,10 +296,7 @@ type KxClusterArgs struct {
 	AutoScalingConfiguration KxClusterAutoScalingConfigurationPtrInput
 	// The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
 	AvailabilityZoneId pulumi.StringPtrInput
-	// The number of availability zones you want to assign per cluster. This can be one of the following:
-	// * SINGLE - Assigns one availability zone per cluster.
-	// * MULTI - Assigns all the availability zones per cluster.
-	AzMode pulumi.StringInput
+	AzMode             pulumi.StringInput
 	// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
 	CacheStorageConfigurations KxClusterCacheStorageConfigurationArrayInput
 	// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
@@ -451,9 +436,6 @@ func (o KxClusterOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxCluster) pulumi.StringPtrOutput { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
-// The number of availability zones you want to assign per cluster. This can be one of the following:
-// * SINGLE - Assigns one availability zone per cluster.
-// * MULTI - Assigns all the availability zones per cluster.
 func (o KxClusterOutput) AzMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.AzMode }).(pulumi.StringOutput)
 }

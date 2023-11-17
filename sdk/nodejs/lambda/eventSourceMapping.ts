@@ -167,15 +167,15 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly batchSize!: pulumi.Output<number | undefined>;
     /**
-     * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     * If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
      */
     public readonly bisectBatchOnFunctionError!: pulumi.Output<boolean | undefined>;
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      */
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
     /**
-     * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     * Configuration settings for a DocumentDB event source. Detailed below.
      */
     public readonly documentDbEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDbEventSourceConfig | undefined>;
     /**
@@ -215,15 +215,15 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly maximumBatchingWindowInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     * The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      */
     public readonly maximumRecordAgeInSeconds!: pulumi.Output<number>;
     /**
-     * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     * The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      */
     public readonly maximumRetryAttempts!: pulumi.Output<number>;
     /**
-     * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     * The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      */
     public readonly parallelizationFactor!: pulumi.Output<number>;
     /**
@@ -235,7 +235,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly scalingConfig!: pulumi.Output<outputs.lambda.EventSourceMappingScalingConfig | undefined>;
     /**
-     * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
+     * For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
      */
     public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
     /**
@@ -370,15 +370,15 @@ export interface EventSourceMappingState {
      */
     batchSize?: pulumi.Input<number>;
     /**
-     * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     * If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
      */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
     /**
-     * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     * Configuration settings for a DocumentDB event source. Detailed below.
      */
     documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDbEventSourceConfig>;
     /**
@@ -418,15 +418,15 @@ export interface EventSourceMappingState {
      */
     maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     /**
-     * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     * The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      */
     maximumRecordAgeInSeconds?: pulumi.Input<number>;
     /**
-     * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     * The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      */
     maximumRetryAttempts?: pulumi.Input<number>;
     /**
-     * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     * The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      */
     parallelizationFactor?: pulumi.Input<number>;
     /**
@@ -438,7 +438,7 @@ export interface EventSourceMappingState {
      */
     scalingConfig?: pulumi.Input<inputs.lambda.EventSourceMappingScalingConfig>;
     /**
-     * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
+     * For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
      */
     selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSource>;
     /**
@@ -492,15 +492,15 @@ export interface EventSourceMappingArgs {
      */
     batchSize?: pulumi.Input<number>;
     /**
-     * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     * If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
      */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
     /**
-     * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     * Configuration settings for a DocumentDB event source. Detailed below.
      */
     documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDbEventSourceConfig>;
     /**
@@ -528,15 +528,15 @@ export interface EventSourceMappingArgs {
      */
     maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     /**
-     * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     * The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      */
     maximumRecordAgeInSeconds?: pulumi.Input<number>;
     /**
-     * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     * The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      */
     maximumRetryAttempts?: pulumi.Input<number>;
     /**
-     * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     * The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      */
     parallelizationFactor?: pulumi.Input<number>;
     /**
@@ -548,7 +548,7 @@ export interface EventSourceMappingArgs {
      */
     scalingConfig?: pulumi.Input<inputs.lambda.EventSourceMappingScalingConfig>;
     /**
-     * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
+     * For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
      */
     selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSource>;
     /**

@@ -344,13 +344,13 @@ namespace Pulumi.Aws.LB
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
         /// <summary>
-        /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        /// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        /// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -462,13 +462,13 @@ namespace Pulumi.Aws.LB
         public Input<string> LoadBalancerArn { get; set; } = null!;
 
         /// <summary>
-        /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        /// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        /// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -542,13 +542,13 @@ namespace Pulumi.Aws.LB
         public Input<string>? LoadBalancerArn { get; set; }
 
         /// <summary>
-        /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        /// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        /// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

@@ -2215,15 +2215,15 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatra
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken *string `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId string `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret string `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest `pulumi:"oauthRequest"`
-	// The refresh token used to refresh an expired access token.
+	// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 	RefreshToken *string `pulumi:"refreshToken"`
 }
 
@@ -2239,15 +2239,15 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnal
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrInput `pulumi:"oauthRequest"`
-	// The refresh token used to refresh an expired access token.
+	// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
 
@@ -2328,7 +2328,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics) *string {
 		return v.AccessToken
@@ -2349,14 +2349,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 	}).(pulumi.StringOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest {
 		return v.OauthRequest
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput)
 }
 
-// The refresh token used to refresh an expired access token.
+// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics) *string {
 		return v.RefreshToken
@@ -2387,7 +2387,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics) *string {
 		if v == nil {
@@ -2417,7 +2417,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest {
 		if v == nil {
@@ -2427,7 +2427,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput)
 }
 
-// The refresh token used to refresh an expired access token.
+// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics) *string {
 		if v == nil {
@@ -2598,11 +2598,11 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken *string `pulumi:"accessToken"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest `pulumi:"oauthRequest"`
-	// The refresh token used to refresh an expired access token.
+	// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 	RefreshToken *string `pulumi:"refreshToken"`
 }
 
@@ -2618,11 +2618,11 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeI
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrInput `pulumi:"oauthRequest"`
-	// The refresh token used to refresh an expired access token.
+	// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
 
@@ -2703,21 +2703,21 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode) *string {
 		return v.AccessToken
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest {
 		return v.OauthRequest
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput)
 }
 
-// The refresh token used to refresh an expired access token.
+// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode) *string {
 		return v.RefreshToken
@@ -2748,7 +2748,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode) *string {
 		if v == nil {
@@ -2758,7 +2758,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest {
 		if v == nil {
@@ -2768,7 +2768,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput)
 }
 
-// The refresh token used to refresh an expired access token.
+// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode) *string {
 		if v == nil {
@@ -3141,13 +3141,13 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken *string `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId string `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret string `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest `pulumi:"oauthRequest"`
 }
 
@@ -3163,13 +3163,13 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoInp
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrInput `pulumi:"oauthRequest"`
 }
 
@@ -3250,7 +3250,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo) *string {
 		return v.AccessToken
@@ -3271,7 +3271,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 	}).(pulumi.StringOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest {
 		return v.OauthRequest
@@ -3302,7 +3302,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo) *string {
 		if v == nil {
@@ -3332,7 +3332,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest {
 		if v == nil {
@@ -3663,7 +3663,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshif
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken *string `pulumi:"accessToken"`
 	// The secret manager ARN, which contains the client ID and client secret of the connected app.
 	ClientCredentialsArn *string `pulumi:"clientCredentialsArn"`
@@ -3671,9 +3671,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 	JwtToken *string `pulumi:"jwtToken"`
 	// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
 	Oauth2GrantType *string `pulumi:"oauth2GrantType"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest `pulumi:"oauthRequest"`
-	// The refresh token used to refresh an expired access token.
+	// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 	RefreshToken *string `pulumi:"refreshToken"`
 }
 
@@ -3689,7 +3689,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// The secret manager ARN, which contains the client ID and client secret of the connected app.
 	ClientCredentialsArn pulumi.StringPtrInput `pulumi:"clientCredentialsArn"`
@@ -3697,9 +3697,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 	JwtToken pulumi.StringPtrInput `pulumi:"jwtToken"`
 	// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
 	Oauth2GrantType pulumi.StringPtrInput `pulumi:"oauth2GrantType"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrInput `pulumi:"oauthRequest"`
-	// The refresh token used to refresh an expired access token.
+	// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
 
@@ -3780,7 +3780,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
 		return v.AccessToken
@@ -3808,14 +3808,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest {
 		return v.OauthRequest
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput)
 }
 
-// The refresh token used to refresh an expired access token.
+// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
 		return v.RefreshToken
@@ -3846,7 +3846,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
 		if v == nil {
@@ -3886,7 +3886,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest {
 		if v == nil {
@@ -3896,7 +3896,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput)
 }
 
-// The refresh token used to refresh an expired access token.
+// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
 		if v == nil {
@@ -4387,15 +4387,15 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials struct {
-	// The access token used to access the connector on your behalf.
+	// The access token used to access protected SAPOData resources.
 	AccessToken *string `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId string `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret string `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest `pulumi:"oauthRequest"`
-	// The refresh token used to refresh an expired access token.
+	// The refresh token used to refresh expired access token.
 	RefreshToken *string `pulumi:"refreshToken"`
 }
 
@@ -4411,15 +4411,15 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOa
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs struct {
-	// The access token used to access the connector on your behalf.
+	// The access token used to access protected SAPOData resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrInput `pulumi:"oauthRequest"`
-	// The refresh token used to refresh an expired access token.
+	// The refresh token used to refresh expired access token.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
 
@@ -4500,7 +4500,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The access token used to access protected SAPOData resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials) *string {
 		return v.AccessToken
@@ -4521,14 +4521,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(pulumi.StringOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest {
 		return v.OauthRequest
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput)
 }
 
-// The refresh token used to refresh an expired access token.
+// The refresh token used to refresh expired access token.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials) *string {
 		return v.RefreshToken
@@ -4559,7 +4559,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The access token used to access protected SAPOData resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials) *string {
 		if v == nil {
@@ -4589,7 +4589,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest {
 		if v == nil {
@@ -4599,7 +4599,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput)
 }
 
-// The refresh token used to refresh an expired access token.
+// The refresh token used to refresh expired access token.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials) *string {
 		if v == nil {
@@ -5069,13 +5069,13 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingula
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken *string `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId string `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret string `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest `pulumi:"oauthRequest"`
 }
 
@@ -5091,13 +5091,13 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackInput
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrInput `pulumi:"oauthRequest"`
 }
 
@@ -5178,7 +5178,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack) *string {
 		return v.AccessToken
@@ -5199,7 +5199,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOu
 	}).(pulumi.StringOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest {
 		return v.OauthRequest
@@ -5230,7 +5230,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPt
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack) *string {
 		if v == nil {
@@ -5260,7 +5260,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest {
 		if v == nil {
@@ -5890,13 +5890,13 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPt
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken *string `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId string `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret string `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest `pulumi:"oauthRequest"`
 }
 
@@ -5912,13 +5912,13 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskInp
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs struct {
-	// The access token used to access the connector on your behalf.
+	// The credentials used to access protected Google Analytics resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// The identifier for the desired client.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+	// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 	OauthRequest ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrInput `pulumi:"oauthRequest"`
 }
 
@@ -5999,7 +5999,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk) *string {
 		return v.AccessToken
@@ -6020,7 +6020,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 	}).(pulumi.StringOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest {
 		return v.OauthRequest
@@ -6051,7 +6051,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutput)
 }
 
-// The access token used to access the connector on your behalf.
+// The credentials used to access protected Google Analytics resources.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk) *string {
 		if v == nil {
@@ -6081,7 +6081,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest {
 		if v == nil {

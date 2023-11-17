@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecGrpcRouteMatchMetadataMatch {
     /**
-     * @return The exact path to match on.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     private @Nullable String exact;
@@ -28,7 +28,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatch {
      */
     private @Nullable RouteSpecGrpcRouteMatchMetadataMatchRange range;
     /**
-     * @return The regex used to match the path.
+     * @return Header value sent by the client must include the specified characters.
      * 
      */
     private @Nullable String regex;
@@ -40,7 +40,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatch {
 
     private RouteSpecGrpcRouteMatchMetadataMatch() {}
     /**
-     * @return The exact path to match on.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     public Optional<String> exact() {
@@ -61,7 +61,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatch {
         return Optional.ofNullable(this.range);
     }
     /**
-     * @return The regex used to match the path.
+     * @return Header value sent by the client must include the specified characters.
      * 
      */
     public Optional<String> regex() {

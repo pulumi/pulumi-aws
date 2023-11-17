@@ -88,7 +88,7 @@ export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetPermissionsArgs {
     /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      */
     catalogId?: string;
     /**
@@ -224,7 +224,7 @@ export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulu
  */
 export interface GetPermissionsOutputArgs {
     /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      */
     catalogId?: pulumi.Input<string>;
     /**

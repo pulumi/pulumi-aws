@@ -142,21 +142,9 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> availabilityZoneId() {
         return Codegen.optional(this.availabilityZoneId);
     }
-    /**
-     * The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * SINGLE - Assigns one availability zone per cluster.
-     * * MULTI - Assigns all the availability zones per cluster.
-     * 
-     */
     @Export(name="azMode", refs={String.class}, tree="[0]")
     private Output<String> azMode;
 
-    /**
-     * @return The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * SINGLE - Assigns one availability zone per cluster.
-     * * MULTI - Assigns all the availability zones per cluster.
-     * 
-     */
     public Output<String> azMode() {
         return this.azMode;
     }

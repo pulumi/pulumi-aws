@@ -3151,9 +3151,9 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBasel
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max *float64 `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -3169,9 +3169,9 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGi
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -3252,14 +3252,14 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		return v.Min
@@ -3290,7 +3290,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -3300,7 +3300,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -3791,9 +3791,9 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max *float64 `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -3809,9 +3809,9 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLoc
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -3892,14 +3892,14 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Min
@@ -3930,7 +3930,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -3940,7 +3940,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {

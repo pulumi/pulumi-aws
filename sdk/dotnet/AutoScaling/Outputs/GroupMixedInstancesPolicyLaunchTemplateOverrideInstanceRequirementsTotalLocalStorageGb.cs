@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb
     {
         /// <summary>
-        /// Maximum.
+        /// Maximum. May be a decimal number, e.g. `0.5`.
         /// </summary>
         public readonly double? Max;
         /// <summary>
-        /// Minimum.
+        /// Minimum. May be a decimal number, e.g. `0.5`.
         /// </summary>
         public readonly double? Min;
 

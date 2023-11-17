@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

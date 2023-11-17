@@ -133,7 +133,6 @@ export class Instance extends pulumi.CustomResource {
     public readonly multiPartyConferenceEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether outbound calls are enabled.
-     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
     public readonly outboundCallsEnabled!: pulumi.Output<boolean>;
     /**
@@ -253,7 +252,6 @@ export interface InstanceState {
     multiPartyConferenceEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies whether outbound calls are enabled.
-     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
     outboundCallsEnabled?: pulumi.Input<boolean>;
     /**
@@ -308,7 +306,6 @@ export interface InstanceArgs {
     multiPartyConferenceEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies whether outbound calls are enabled.
-     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
     outboundCallsEnabled: pulumi.Input<boolean>;
 }

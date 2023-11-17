@@ -118,14 +118,14 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return this.family;
     }
     /**
-     * The name of the Redshift parameter.
+     * The name of the Redshift parameter group.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Redshift parameter.
+     * @return The name of the Redshift parameter group.
      * 
      */
     public Output<String> name() {

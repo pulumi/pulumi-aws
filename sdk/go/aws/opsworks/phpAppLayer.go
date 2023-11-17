@@ -74,7 +74,7 @@ type PhpAppLayer struct {
 	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes PhpAppLayerEbsVolumeArrayOutput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrOutput `pulumi:"elasticLoadBalancer"`
@@ -162,7 +162,7 @@ type phpAppLayerState struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []PhpAppLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -214,7 +214,7 @@ type PhpAppLayerState struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes PhpAppLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput
@@ -268,7 +268,7 @@ type phpAppLayerArgs struct {
 	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes []PhpAppLayerEbsVolume `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
@@ -315,7 +315,7 @@ type PhpAppLayerArgs struct {
 	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes PhpAppLayerEbsVolumeArrayInput
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer pulumi.StringPtrInput
@@ -491,7 +491,7 @@ func (o PhpAppLayerOutput) DrainElbOnShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PhpAppLayer) pulumi.BoolPtrOutput { return v.DrainElbOnShutdown }).(pulumi.BoolPtrOutput)
 }
 
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (o PhpAppLayerOutput) EbsVolumes() PhpAppLayerEbsVolumeArrayOutput {
 	return o.ApplyT(func(v *PhpAppLayer) PhpAppLayerEbsVolumeArrayOutput { return v.EbsVolumes }).(PhpAppLayerEbsVolumeArrayOutput)
 }

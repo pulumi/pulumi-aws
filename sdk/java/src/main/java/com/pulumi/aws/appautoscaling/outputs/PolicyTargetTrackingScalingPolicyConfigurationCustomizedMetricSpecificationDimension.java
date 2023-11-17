@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
     /**
-     * @return Name of the policy. Must be between 1 and 255 characters in length.
+     * @return Name of the dimension.
      * 
      */
     private String name;
@@ -22,7 +22,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
 
     private PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension() {}
     /**
-     * @return Name of the policy. Must be between 1 and 255 characters in length.
+     * @return Name of the dimension.
      * 
      */
     public String name() {

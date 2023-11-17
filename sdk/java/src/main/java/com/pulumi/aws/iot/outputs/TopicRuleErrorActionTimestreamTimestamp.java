@@ -15,7 +15,7 @@ public final class TopicRuleErrorActionTimestreamTimestamp {
      */
     private String unit;
     /**
-     * @return The value of the HTTP header.
+     * @return An expression that returns a long epoch time value.
      * 
      */
     private String value;
@@ -29,7 +29,7 @@ public final class TopicRuleErrorActionTimestreamTimestamp {
         return this.unit;
     }
     /**
-     * @return The value of the HTTP header.
+     * @return An expression that returns a long epoch time value.
      * 
      */
     public String value() {

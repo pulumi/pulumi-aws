@@ -35,7 +35,7 @@ class PermissionsArgs:
                > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
                
                One of the following is required:
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         :param pulumi.Input['PermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input['PermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
@@ -100,7 +100,7 @@ class PermissionsArgs:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -223,7 +223,7 @@ class _PermissionsState:
                  table_with_columns: Optional[pulumi.Input['PermissionsTableWithColumnsArgs']] = None):
         """
         Input properties used for looking up and filtering Permissions resources.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         :param pulumi.Input['PermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input['PermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
@@ -268,7 +268,7 @@ class _PermissionsState:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -565,7 +565,7 @@ class Permissions(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']] database: Configuration block for a database resource. Detailed below.
@@ -810,7 +810,7 @@ class Permissions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']] database: Configuration block for a database resource. Detailed below.
@@ -849,7 +849,7 @@ class Permissions(pulumi.CustomResource):
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         return pulumi.get(self, "catalog_id")
 

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         public readonly string? FileSystemPath;
         public readonly int? ImportedFileChunkSize;
         /// <summary>
-        /// (Optional) See the `nfs` configuration block.
+        /// See the `nfs` configuration block.
         /// </summary>
         public readonly ImmutableArray<Outputs.FileCacheDataRepositoryAssociationNf> Nfs;
         public readonly string? ResourceArn;

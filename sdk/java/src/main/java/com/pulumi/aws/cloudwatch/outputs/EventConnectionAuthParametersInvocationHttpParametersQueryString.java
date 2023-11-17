@@ -18,12 +18,12 @@ public final class EventConnectionAuthParametersInvocationHttpParametersQueryStr
      */
     private @Nullable Boolean isValueSecret;
     /**
-     * @return Header Name.
+     * @return The key for the parameter.
      * 
      */
     private @Nullable String key;
     /**
-     * @return Header Value. Created and stored in AWS Secrets Manager.
+     * @return The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
      * 
      */
     private @Nullable String value;
@@ -37,14 +37,14 @@ public final class EventConnectionAuthParametersInvocationHttpParametersQueryStr
         return Optional.ofNullable(this.isValueSecret);
     }
     /**
-     * @return Header Name.
+     * @return The key for the parameter.
      * 
      */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return Header Value. Created and stored in AWS Secrets Manager.
+     * @return The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
      * 
      */
     public Optional<String> value() {

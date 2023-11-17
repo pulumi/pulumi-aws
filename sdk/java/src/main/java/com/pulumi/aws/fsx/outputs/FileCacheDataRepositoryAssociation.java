@@ -40,7 +40,7 @@ public final class FileCacheDataRepositoryAssociation {
     private @Nullable String fileSystemPath;
     private @Nullable Integer importedFileChunkSize;
     /**
-     * @return (Optional) See the `nfs` configuration block.
+     * @return See the `nfs` configuration block.
      * 
      */
     private @Nullable List<FileCacheDataRepositoryAssociationNf> nfs;
@@ -93,7 +93,7 @@ public final class FileCacheDataRepositoryAssociation {
         return Optional.ofNullable(this.importedFileChunkSize);
     }
     /**
-     * @return (Optional) See the `nfs` configuration block.
+     * @return See the `nfs` configuration block.
      * 
      */
     public List<FileCacheDataRepositoryAssociationNf> nfs() {

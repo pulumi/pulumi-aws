@@ -165,8 +165,6 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
 
 
     :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
-           
-           [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param str id: ID of the gateway.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
     """
@@ -219,8 +217,6 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
 
 
     :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
-           
-           [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param str id: ID of the gateway.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
     """

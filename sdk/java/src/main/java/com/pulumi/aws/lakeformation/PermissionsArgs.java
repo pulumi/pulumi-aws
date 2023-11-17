@@ -24,14 +24,14 @@ public final class PermissionsArgs extends com.pulumi.resources.ResourceArgs {
     public static final PermissionsArgs Empty = new PermissionsArgs();
 
     /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -235,7 +235,7 @@ public final class PermissionsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class PermissionsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
          * 
          * @return builder
          * 

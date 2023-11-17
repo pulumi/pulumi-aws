@@ -18,7 +18,7 @@ public final class RecordingConfigurationThumbnailConfiguration {
      */
     private @Nullable String recordingMode;
     /**
-     * @return The targeted thumbnail-generation interval in seconds.
+     * @return (Configurable [and required] only if `recording_mode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
      * 
      */
     private @Nullable Integer targetIntervalSeconds;
@@ -32,7 +32,7 @@ public final class RecordingConfigurationThumbnailConfiguration {
         return Optional.ofNullable(this.recordingMode);
     }
     /**
-     * @return The targeted thumbnail-generation interval in seconds.
+     * @return (Configurable [and required] only if `recording_mode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
      * 
      */
     public Optional<Integer> targetIntervalSeconds() {

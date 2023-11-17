@@ -73,8 +73,6 @@ export interface GetQueryLogConfigArgs {
     resolverQueryLogConfigId?: string;
     /**
      * Map of tags to assign to the service.
-     *
-     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
      */
     tags?: {[key: string]: string};
 }
@@ -154,8 +152,6 @@ export interface GetQueryLogConfigOutputArgs {
     resolverQueryLogConfigId?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the service.
-     *
-     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

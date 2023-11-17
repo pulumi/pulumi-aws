@@ -17,7 +17,7 @@ public final class GetPermissionsDataLocation {
      */
     private String arn;
     /**
-     * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
     private String catalogId;
@@ -33,7 +33,7 @@ public final class GetPermissionsDataLocation {
         return this.arn;
     }
     /**
-     * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
     public String catalogId() {

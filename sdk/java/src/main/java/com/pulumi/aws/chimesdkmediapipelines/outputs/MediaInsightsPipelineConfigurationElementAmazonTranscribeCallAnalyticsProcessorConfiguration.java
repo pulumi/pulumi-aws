@@ -65,17 +65,17 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
      */
     private @Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings postCallAnalyticsSettings;
     /**
-     * @return Method for applying a vocabulary filter to Transcript events.
+     * @return Method for applying a vocabulary filter to Utterance events.
      * 
      */
     private @Nullable String vocabularyFilterMethod;
     /**
-     * @return Name of the custom vocabulary filter to use when processing Transcript events.
+     * @return Name of the custom vocabulary filter to use when processing Utterance events.
      * 
      */
     private @Nullable String vocabularyFilterName;
     /**
-     * @return Name of the custom vocabulary to use when processing Transcript events.
+     * @return Name of the custom vocabulary to use when processing Utterance events.
      * 
      */
     private @Nullable String vocabularyName;
@@ -152,21 +152,21 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         return Optional.ofNullable(this.postCallAnalyticsSettings);
     }
     /**
-     * @return Method for applying a vocabulary filter to Transcript events.
+     * @return Method for applying a vocabulary filter to Utterance events.
      * 
      */
     public Optional<String> vocabularyFilterMethod() {
         return Optional.ofNullable(this.vocabularyFilterMethod);
     }
     /**
-     * @return Name of the custom vocabulary filter to use when processing Transcript events.
+     * @return Name of the custom vocabulary filter to use when processing Utterance events.
      * 
      */
     public Optional<String> vocabularyFilterName() {
         return Optional.ofNullable(this.vocabularyFilterName);
     }
     /**
-     * @return Name of the custom vocabulary to use when processing Transcript events.
+     * @return Name of the custom vocabulary to use when processing Utterance events.
      * 
      */
     public Optional<String> vocabularyName() {

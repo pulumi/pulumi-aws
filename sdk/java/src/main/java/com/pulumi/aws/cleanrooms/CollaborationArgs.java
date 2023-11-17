@@ -51,14 +51,6 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-     * * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-     *   field.
-     * * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-     *   boolean field.
-     * * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-     *   n any other Fingerprint column with a different name. This is a boolean field.
-     * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-     *   or cryptographically processed (false).
      * 
      */
     @Import(name="dataEncryptionMetadata")
@@ -66,14 +58,6 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-     * * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-     *   field.
-     * * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-     *   boolean field.
-     * * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-     *   n any other Fingerprint column with a different name. This is a boolean field.
-     * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-     *   or cryptographically processed (false).
      * 
      */
     public Optional<Output<CollaborationDataEncryptionMetadataArgs>> dataEncryptionMetadata() {
@@ -97,9 +81,6 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Additional members of the collaboration which will be invited to join the collaboration.
-     * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-     * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-     * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
     @Import(name="members")
@@ -107,9 +88,6 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Additional members of the collaboration which will be invited to join the collaboration.
-     * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-     * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-     * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
     public Optional<Output<List<CollaborationMemberArgs>>> members() {
@@ -248,14 +226,6 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dataEncryptionMetadata a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-         * * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-         *   field.
-         * * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-         *   boolean field.
-         * * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-         *   n any other Fingerprint column with a different name. This is a boolean field.
-         * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-         *   or cryptographically processed (false).
          * 
          * @return builder
          * 
@@ -267,14 +237,6 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dataEncryptionMetadata a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-         * * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-         *   field.
-         * * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-         *   boolean field.
-         * * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-         *   n any other Fingerprint column with a different name. This is a boolean field.
-         * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-         *   or cryptographically processed (false).
          * 
          * @return builder
          * 
@@ -306,9 +268,6 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param members Additional members of the collaboration which will be invited to join the collaboration.
-         * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-         * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-         * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
          * 
          * @return builder
          * 
@@ -320,9 +279,6 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param members Additional members of the collaboration which will be invited to join the collaboration.
-         * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-         * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-         * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
          * 
          * @return builder
          * 
@@ -333,9 +289,6 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param members Additional members of the collaboration which will be invited to join the collaboration.
-         * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-         * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-         * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
          * 
          * @return builder
          * 

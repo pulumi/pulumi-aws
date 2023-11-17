@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Iot.Inputs
         public Input<string> Unit { get; set; } = null!;
 
         /// <summary>
-        /// The value of the HTTP header.
+        /// An expression that returns a long epoch time value.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

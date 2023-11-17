@@ -12,9 +12,15 @@ namespace Pulumi.Aws.CleanRooms.Inputs
 
     public sealed class ConfiguredTableTableReferenceGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the AWS Glue database which contains the table.
+        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the AWS Glue table which will be used to create the configured table.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 

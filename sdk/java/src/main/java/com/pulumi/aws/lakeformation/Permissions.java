@@ -288,14 +288,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lakeformation/permissions:Permissions")
 public class Permissions extends com.pulumi.resources.CustomResource {
     /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> catalogId;
 
     /**
-     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
     public Output<Optional<String>> catalogId() {

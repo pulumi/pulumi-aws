@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack {
     /**
-     * @return The access token used to access the connector on your behalf.
+     * @return The credentials used to access protected Google Analytics resources.
      * 
      */
     private @Nullable String accessToken;
@@ -28,14 +28,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private String clientSecret;
     /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest oauthRequest;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack() {}
     /**
-     * @return The access token used to access the connector on your behalf.
+     * @return The credentials used to access protected Google Analytics resources.
      * 
      */
     public Optional<String> accessToken() {
@@ -56,7 +56,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return this.clientSecret;
     }
     /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest> oauthRequest() {

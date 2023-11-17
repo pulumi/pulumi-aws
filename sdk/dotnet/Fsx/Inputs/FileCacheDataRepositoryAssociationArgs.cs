@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.FileCacheDataRepositoryAssociationNfArgs>? _nfs;
 
         /// <summary>
-        /// (Optional) See the `nfs` configuration block.
+        /// See the `nfs` configuration block.
         /// </summary>
         public InputList<Inputs.FileCacheDataRepositoryAssociationNfArgs> Nfs
         {

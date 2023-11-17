@@ -54,15 +54,15 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
         /// </summary>
         public readonly Outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings? PostCallAnalyticsSettings;
         /// <summary>
-        /// Method for applying a vocabulary filter to Transcript events.
+        /// Method for applying a vocabulary filter to Utterance events.
         /// </summary>
         public readonly string? VocabularyFilterMethod;
         /// <summary>
-        /// Name of the custom vocabulary filter to use when processing Transcript events.
+        /// Name of the custom vocabulary filter to use when processing Utterance events.
         /// </summary>
         public readonly string? VocabularyFilterName;
         /// <summary>
-        /// Name of the custom vocabulary to use when processing Transcript events.
+        /// Name of the custom vocabulary to use when processing Utterance events.
         /// </summary>
         public readonly string? VocabularyName;
 

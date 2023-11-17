@@ -206,7 +206,7 @@ class ParameterGroupParameterArgs:
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the ElastiCache parameter.
+        :param pulumi.Input[str] name: The name of the ElastiCache parameter group.
         :param pulumi.Input[str] value: The value of the ElastiCache parameter.
         """
         pulumi.set(__self__, "name", name)
@@ -216,7 +216,7 @@ class ParameterGroupParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the ElastiCache parameter.
+        The name of the ElastiCache parameter group.
         """
         return pulumi.get(self, "name")
 

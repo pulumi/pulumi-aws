@@ -84,14 +84,14 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+     * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+     * @return Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -99,14 +99,14 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+     * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+     * @return Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -277,7 +277,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+         * @param port Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+         * @param port Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+         * @param protocol Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+         * @param protocol Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          * 
          * @return builder
          * 

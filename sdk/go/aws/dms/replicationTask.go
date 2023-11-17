@@ -75,7 +75,6 @@ type ReplicationTask struct {
 	// The Amazon Resource Name (ARN) for the replication task.
 	ReplicationTaskArn pulumi.StringOutput `pulumi:"replicationTaskArn"`
 	// The replication task identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
 	// - First character must be a letter.
 	// - Cannot end with a hyphen.
@@ -164,7 +163,6 @@ type replicationTaskState struct {
 	// The Amazon Resource Name (ARN) for the replication task.
 	ReplicationTaskArn *string `pulumi:"replicationTaskArn"`
 	// The replication task identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
 	// - First character must be a letter.
 	// - Cannot end with a hyphen.
@@ -202,7 +200,6 @@ type ReplicationTaskState struct {
 	// The Amazon Resource Name (ARN) for the replication task.
 	ReplicationTaskArn pulumi.StringPtrInput
 	// The replication task identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
 	// - First character must be a letter.
 	// - Cannot end with a hyphen.
@@ -242,7 +239,6 @@ type replicationTaskArgs struct {
 	// The Amazon Resource Name (ARN) of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
 	// The replication task identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
 	// - First character must be a letter.
 	// - Cannot end with a hyphen.
@@ -273,7 +269,6 @@ type ReplicationTaskArgs struct {
 	// The Amazon Resource Name (ARN) of the replication instance.
 	ReplicationInstanceArn pulumi.StringInput
 	// The replication task identifier.
-	//
 	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
 	// - First character must be a letter.
 	// - Cannot end with a hyphen.
@@ -406,7 +401,6 @@ func (o ReplicationTaskOutput) ReplicationTaskArn() pulumi.StringOutput {
 }
 
 // The replication task identifier.
-//
 // - Must contain from 1 to 255 alphanumeric characters or hyphens.
 // - First character must be a letter.
 // - Cannot end with a hyphen.

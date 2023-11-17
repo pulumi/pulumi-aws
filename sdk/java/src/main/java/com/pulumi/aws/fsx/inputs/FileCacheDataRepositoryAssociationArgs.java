@@ -108,14 +108,14 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
     }
 
     /**
-     * (Optional) See the `nfs` configuration block.
+     * See the `nfs` configuration block.
      * 
      */
     @Import(name="nfs")
     private @Nullable Output<List<FileCacheDataRepositoryAssociationNfArgs>> nfs;
 
     /**
-     * @return (Optional) See the `nfs` configuration block.
+     * @return See the `nfs` configuration block.
      * 
      */
     public Optional<Output<List<FileCacheDataRepositoryAssociationNfArgs>>> nfs() {
@@ -309,7 +309,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param nfs (Optional) See the `nfs` configuration block.
+         * @param nfs See the `nfs` configuration block.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param nfs (Optional) See the `nfs` configuration block.
+         * @param nfs See the `nfs` configuration block.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param nfs (Optional) See the `nfs` configuration block.
+         * @param nfs See the `nfs` configuration block.
          * 
          * @return builder
          * 

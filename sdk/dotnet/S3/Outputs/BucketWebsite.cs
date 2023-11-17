@@ -28,8 +28,6 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         /// describing redirect behavior and when redirects are applied.
-        /// 
-        /// The `CORS` object supports the following:
         /// </summary>
         public readonly Union<string, ImmutableArray<string>>? RoutingRules;
 

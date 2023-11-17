@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class ParameterGroupParameter {
     /**
-     * @return The name of the ElastiCache parameter.
+     * @return The name of the ElastiCache parameter group.
      * 
      */
     private String name;
@@ -22,7 +22,7 @@ public final class ParameterGroupParameter {
 
     private ParameterGroupParameter() {}
     /**
-     * @return The name of the ElastiCache parameter.
+     * @return The name of the ElastiCache parameter group.
      * 
      */
     public String name() {

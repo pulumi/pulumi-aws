@@ -229,10 +229,6 @@ export class Permission extends pulumi.CustomResource {
     public readonly principal!: pulumi.Output<string>;
     /**
      * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-     *
-     * [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-     * [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-     * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
      */
     public readonly principalOrgId!: pulumi.Output<string | undefined>;
     /**
@@ -338,10 +334,6 @@ export interface PermissionState {
     principal?: pulumi.Input<string>;
     /**
      * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-     *
-     * [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-     * [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-     * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
      */
     principalOrgId?: pulumi.Input<string>;
     /**
@@ -396,10 +388,6 @@ export interface PermissionArgs {
     principal: pulumi.Input<string>;
     /**
      * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-     *
-     * [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-     * [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-     * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
      */
     principalOrgId?: pulumi.Input<string>;
     /**

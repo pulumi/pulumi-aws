@@ -228,7 +228,7 @@ def get_dev_environment(alias: Optional[str] = None,
 
     :param str alias: The user-specified alias for the Dev Environment.
     :param str creator_id: The system-generated unique ID of the user who created the Dev Environment.
-    :param str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
+    :param str env_id: The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param str project_name: The name of the project in the space.
     :param Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArgs']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param str space_name: The name of the space.
@@ -289,7 +289,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = No
 
     :param str alias: The user-specified alias for the Dev Environment.
     :param str creator_id: The system-generated unique ID of the user who created the Dev Environment.
-    :param str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
+    :param str env_id: The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param str project_name: The name of the project in the space.
     :param Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArgs']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param str space_name: The name of the space.

@@ -86,21 +86,10 @@ type Collaboration struct {
 	// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	CreatorMemberAbilities pulumi.StringArrayOutput `pulumi:"creatorMemberAbilities"`
 	// a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-	// * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-	//   field.
-	// * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-	//   boolean field.
-	// * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-	//   n any other Fingerprint column with a different name. This is a boolean field.
-	// * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-	//   or cryptographically processed (false).
 	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrOutput `pulumi:"dataEncryptionMetadata"`
 	// A description for a collaboration.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Additional members of the collaboration which will be invited to join the collaboration.
-	// * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-	// * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-	// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	Members CollaborationMemberArrayOutput `pulumi:"members"`
 	// The name of the collaboration.  Collaboration names do not need to be unique.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -170,21 +159,10 @@ type collaborationState struct {
 	// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	CreatorMemberAbilities []string `pulumi:"creatorMemberAbilities"`
 	// a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-	// * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-	//   field.
-	// * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-	//   boolean field.
-	// * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-	//   n any other Fingerprint column with a different name. This is a boolean field.
-	// * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-	//   or cryptographically processed (false).
 	DataEncryptionMetadata *CollaborationDataEncryptionMetadata `pulumi:"dataEncryptionMetadata"`
 	// A description for a collaboration.
 	Description *string `pulumi:"description"`
 	// Additional members of the collaboration which will be invited to join the collaboration.
-	// * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-	// * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-	// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	Members []CollaborationMember `pulumi:"members"`
 	// The name of the collaboration.  Collaboration names do not need to be unique.
 	Name *string `pulumi:"name"`
@@ -209,21 +187,10 @@ type CollaborationState struct {
 	// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	CreatorMemberAbilities pulumi.StringArrayInput
 	// a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-	// * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-	//   field.
-	// * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-	//   boolean field.
-	// * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-	//   n any other Fingerprint column with a different name. This is a boolean field.
-	// * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-	//   or cryptographically processed (false).
 	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrInput
 	// A description for a collaboration.
 	Description pulumi.StringPtrInput
 	// Additional members of the collaboration which will be invited to join the collaboration.
-	// * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-	// * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-	// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	Members CollaborationMemberArrayInput
 	// The name of the collaboration.  Collaboration names do not need to be unique.
 	Name pulumi.StringPtrInput
@@ -247,21 +214,10 @@ type collaborationArgs struct {
 	// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	CreatorMemberAbilities []string `pulumi:"creatorMemberAbilities"`
 	// a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-	// * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-	//   field.
-	// * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-	//   boolean field.
-	// * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-	//   n any other Fingerprint column with a different name. This is a boolean field.
-	// * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-	//   or cryptographically processed (false).
 	DataEncryptionMetadata *CollaborationDataEncryptionMetadata `pulumi:"dataEncryptionMetadata"`
 	// A description for a collaboration.
 	Description string `pulumi:"description"`
 	// Additional members of the collaboration which will be invited to join the collaboration.
-	// * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-	// * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-	// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	Members []CollaborationMember `pulumi:"members"`
 	// The name of the collaboration.  Collaboration names do not need to be unique.
 	Name *string `pulumi:"name"`
@@ -279,21 +235,10 @@ type CollaborationArgs struct {
 	// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	CreatorMemberAbilities pulumi.StringArrayInput
 	// a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-	// * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-	//   field.
-	// * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-	//   boolean field.
-	// * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-	//   n any other Fingerprint column with a different name. This is a boolean field.
-	// * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-	//   or cryptographically processed (false).
 	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrInput
 	// A description for a collaboration.
 	Description pulumi.StringInput
 	// Additional members of the collaboration which will be invited to join the collaboration.
-	// * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-	// * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-	// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	Members CollaborationMemberArrayInput
 	// The name of the collaboration.  Collaboration names do not need to be unique.
 	Name pulumi.StringPtrInput
@@ -413,14 +358,6 @@ func (o CollaborationOutput) CreatorMemberAbilities() pulumi.StringArrayOutput {
 }
 
 // a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-//   - `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-//     field.
-//   - `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-//     boolean field.
-//   - `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-//     n any other Fingerprint column with a different name. This is a boolean field.
-//   - `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-//     or cryptographically processed (false).
 func (o CollaborationOutput) DataEncryptionMetadata() CollaborationDataEncryptionMetadataPtrOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationDataEncryptionMetadataPtrOutput { return v.DataEncryptionMetadata }).(CollaborationDataEncryptionMetadataPtrOutput)
 }
@@ -431,9 +368,6 @@ func (o CollaborationOutput) Description() pulumi.StringOutput {
 }
 
 // Additional members of the collaboration which will be invited to join the collaboration.
-// * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-// * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 func (o CollaborationOutput) Members() CollaborationMemberArrayOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationMemberArrayOutput { return v.Members }).(CollaborationMemberArrayOutput)
 }

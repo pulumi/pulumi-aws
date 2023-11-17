@@ -117,7 +117,7 @@ export class ResourceLfTags extends pulumi.CustomResource {
     }
 
     /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      */
     public readonly catalogId!: pulumi.Output<string>;
     /**
@@ -180,7 +180,7 @@ export class ResourceLfTags extends pulumi.CustomResource {
  */
 export interface ResourceLfTagsState {
     /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      */
     catalogId?: pulumi.Input<string>;
     /**
@@ -210,7 +210,7 @@ export interface ResourceLfTagsState {
  */
 export interface ResourceLfTagsArgs {
     /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      */
     catalogId?: pulumi.Input<string>;
     /**

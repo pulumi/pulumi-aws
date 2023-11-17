@@ -36,16 +36,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     /**
      * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
      * 
-     * The `s3_reference_data_source` object supports the following:
-     * 
      */
     @Import(name="recordEncoding")
     private @Nullable Output<String> recordEncoding;
 
     /**
      * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-     * 
-     * The `s3_reference_data_source` object supports the following:
      * 
      */
     public Optional<Output<String>> recordEncoding() {
@@ -127,8 +123,6 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         /**
          * @param recordEncoding Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
          * 
-         * The `s3_reference_data_source` object supports the following:
-         * 
          * @return builder
          * 
          */
@@ -139,8 +133,6 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         /**
          * @param recordEncoding Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-         * 
-         * The `s3_reference_data_source` object supports the following:
          * 
          * @return builder
          * 

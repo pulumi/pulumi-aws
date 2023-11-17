@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly string Unit;
         /// <summary>
-        /// The value of the HTTP header.
+        /// An expression that returns a long epoch time value.
         /// </summary>
         public readonly string Value;
 

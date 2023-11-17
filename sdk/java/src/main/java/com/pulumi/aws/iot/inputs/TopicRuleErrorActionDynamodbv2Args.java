@@ -32,14 +32,14 @@ public final class TopicRuleErrorActionDynamodbv2Args extends com.pulumi.resourc
     }
 
     /**
-     * The IAM role ARN that allows access to the CloudWatch alarm.
+     * The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
+     * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
     public Output<String> roleArn() {
@@ -93,7 +93,7 @@ public final class TopicRuleErrorActionDynamodbv2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
+         * @param roleArn The ARN of the role that grants permission to write to the Amazon Timestream database table.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class TopicRuleErrorActionDynamodbv2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
+         * @param roleArn The ARN of the role that grants permission to write to the Amazon Timestream database table.
          * 
          * @return builder
          * 

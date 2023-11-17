@@ -901,8 +901,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+     * Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
@@ -910,8 +909,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> password;
 
     /**
-     * @return (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+     * @return Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
@@ -1272,16 +1270,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Username for the master DB user. Cannot be specified for a replica.
+     * Username for the master DB user. Cannot be specified for a replica.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Username for the master DB user. Cannot be specified for a replica.
+     * @return Username for the master DB user. Cannot be specified for a replica.
      * 
      */
     public Optional<Output<String>> username() {
@@ -2632,8 +2628,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+         * @param password Password for the master DB user. Note that this may show up in
          * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
          * 
          * @return builder
@@ -2645,8 +2640,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+         * @param password Password for the master DB user. Note that this may show up in
          * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
          * 
          * @return builder
@@ -3155,8 +3149,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username (Required unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided) Username for the master DB user. Cannot be specified for a replica.
+         * @param username Username for the master DB user. Cannot be specified for a replica.
          * 
          * @return builder
          * 
@@ -3167,8 +3160,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username (Required unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided) Username for the master DB user. Cannot be specified for a replica.
+         * @param username Username for the master DB user. Cannot be specified for a replica.
          * 
          * @return builder
          * 

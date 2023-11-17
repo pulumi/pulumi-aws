@@ -2401,8 +2401,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[int] min: The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2413,7 +2413,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2425,7 +2425,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2440,8 +2440,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[int] min: The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2452,7 +2452,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2464,7 +2464,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2479,8 +2479,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
+        :param pulumi.Input[int] min: The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2491,7 +2491,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
         """
         return pulumi.get(self, "max")
 
@@ -2503,7 +2503,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
         """
         return pulumi.get(self, "min")
 
@@ -2518,8 +2518,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[float] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[float] max: The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[float] min: The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2530,7 +2530,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2542,7 +2542,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2557,8 +2557,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
                  min: pulumi.Input[int],
                  max: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[int] min: The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         pulumi.set(__self__, "min", min)
         if max is not None:
@@ -2568,7 +2568,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
     @pulumi.getter
     def min(self) -> pulumi.Input[int]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
         """
         return pulumi.get(self, "min")
 
@@ -2580,7 +2580,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2595,8 +2595,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsA
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[float] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[float] max: The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[float] min: The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2607,7 +2607,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsA
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2619,7 +2619,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsA
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2634,8 +2634,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[int] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[int] max: The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[int] min: The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2646,7 +2646,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2658,7 +2658,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -2673,8 +2673,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
-        :param pulumi.Input[float] min: The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        :param pulumi.Input[float] max: The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
+        :param pulumi.Input[float] min: The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -2685,7 +2685,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
         """
         return pulumi.get(self, "max")
 
@@ -2697,7 +2697,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
         """
         return pulumi.get(self, "min")
 
@@ -5611,8 +5611,8 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -5623,7 +5623,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -5635,7 +5635,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -5766,8 +5766,8 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -5778,7 +5778,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -5790,7 +5790,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -12401,11 +12401,11 @@ class SecurityGroupIngressArgs:
                > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
-        :param pulumi.Input[str] description: Description of this ingress rule.
+        :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
-        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule.
+        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -12479,7 +12479,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of this ingress rule.
+        Description of this egress rule.
         """
         return pulumi.get(self, "description")
 
@@ -12527,7 +12527,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the security group itself will be added as a source to this ingress rule.
+        Whether the security group itself will be added as a source to this egress rule.
         """
         return pulumi.get(self, "self")
 
@@ -13819,8 +13819,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -13831,7 +13831,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -13843,7 +13843,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 
@@ -13975,8 +13975,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
+        :param pulumi.Input[float] max: Maximum. May be a decimal number, e.g. `0.5`.
+        :param pulumi.Input[float] min: Minimum. May be a decimal number, e.g. `0.5`.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -13987,7 +13987,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "max")
 
@@ -13999,7 +13999,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum.
+        Minimum. May be a decimal number, e.g. `0.5`.
         """
         return pulumi.get(self, "min")
 

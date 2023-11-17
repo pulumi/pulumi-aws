@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Iot.Inputs
         public Input<Inputs.TopicRuleErrorActionDynamodbv2PutItemGetArgs>? PutItem { get; set; }
 
         /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
+        /// The ARN of the role that grants permission to write to the Amazon Timestream database table.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

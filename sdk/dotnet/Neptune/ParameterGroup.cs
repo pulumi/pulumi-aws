@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Neptune parameter.
+        /// The name of the Neptune parameter group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Neptune parameter.
+        /// The name of the Neptune parameter group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the Neptune parameter.
+        /// The name of the Neptune parameter group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -65,7 +65,6 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly certificateArn!: pulumi.Output<string>;
     /**
      * The certificate identifier.
-     *
      * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      */
     public readonly certificateId!: pulumi.Output<string>;
@@ -136,7 +135,6 @@ export interface CertificateState {
     certificateArn?: pulumi.Input<string>;
     /**
      * The certificate identifier.
-     *
      * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      */
     certificateId?: pulumi.Input<string>;
@@ -166,7 +164,6 @@ export interface CertificateState {
 export interface CertificateArgs {
     /**
      * The certificate identifier.
-     *
      * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      */
     certificateId: pulumi.Input<string>;

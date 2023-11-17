@@ -108,7 +108,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<bool?> DrainElbOnShutdown { get; private set; } = null!;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
         public Output<ImmutableArray<Outputs.PhpAppLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.PhpAppLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.PhpAppLayerEbsVolumeArgs> EbsVolumes
         {
@@ -503,7 +503,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.PhpAppLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.PhpAppLayerEbsVolumeGetArgs> EbsVolumes
         {

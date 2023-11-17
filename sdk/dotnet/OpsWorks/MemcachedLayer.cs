@@ -106,7 +106,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<bool?> DrainElbOnShutdown { get; private set; } = null!;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
         public Output<ImmutableArray<Outputs.MemcachedLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.MemcachedLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.MemcachedLayerEbsVolumeArgs> EbsVolumes
         {
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.MemcachedLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.MemcachedLayerEbsVolumeGetArgs> EbsVolumes
         {

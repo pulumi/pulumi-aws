@@ -79,8 +79,6 @@ type ConfiguredTable struct {
 	// The name of the configured table.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
-	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference ConfiguredTableTableReferenceOutput `pulumi:"tableReference"`
 	// Key value pairs which tag the configured table.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -146,8 +144,6 @@ type configuredTableState struct {
 	// The name of the configured table.
 	Name *string `pulumi:"name"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
-	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference *ConfiguredTableTableReference `pulumi:"tableReference"`
 	// Key value pairs which tag the configured table.
 	Tags map[string]string `pulumi:"tags"`
@@ -171,8 +167,6 @@ type ConfiguredTableState struct {
 	// The name of the configured table.
 	Name pulumi.StringPtrInput
 	// A reference to the AWS Glue table which will be used to create the configured table.
-	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference ConfiguredTableTableReferencePtrInput
 	// Key value pairs which tag the configured table.
 	Tags pulumi.StringMapInput
@@ -196,8 +190,6 @@ type configuredTableArgs struct {
 	// The name of the configured table.
 	Name *string `pulumi:"name"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
-	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference ConfiguredTableTableReference `pulumi:"tableReference"`
 	// Key value pairs which tag the configured table.
 	Tags map[string]string `pulumi:"tags"`
@@ -214,8 +206,6 @@ type ConfiguredTableArgs struct {
 	// The name of the configured table.
 	Name pulumi.StringPtrInput
 	// A reference to the AWS Glue table which will be used to create the configured table.
-	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference ConfiguredTableTableReferenceInput
 	// Key value pairs which tag the configured table.
 	Tags pulumi.StringMapInput
@@ -339,8 +329,6 @@ func (o ConfiguredTableOutput) Name() pulumi.StringOutput {
 }
 
 // A reference to the AWS Glue table which will be used to create the configured table.
-// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 func (o ConfiguredTableOutput) TableReference() ConfiguredTableTableReferenceOutput {
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableTableReferenceOutput { return v.TableReference }).(ConfiguredTableTableReferenceOutput)
 }

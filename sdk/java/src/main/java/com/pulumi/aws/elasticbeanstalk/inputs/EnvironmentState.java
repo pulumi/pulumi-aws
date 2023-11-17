@@ -395,7 +395,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum
+     * (Default `20m`) The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for an Elastic Beanstalk Environment to be in a ready state before timing
      * out.
@@ -405,7 +405,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> waitForReadyTimeout;
 
     /**
-     * @return The maximum
+     * @return (Default `20m`) The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for an Elastic Beanstalk Environment to be in a ready state before timing
      * out.
@@ -1056,7 +1056,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForReadyTimeout The maximum
+         * @param waitForReadyTimeout (Default `20m`) The maximum
          * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
          * wait for an Elastic Beanstalk Environment to be in a ready state before timing
          * out.
@@ -1070,7 +1070,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForReadyTimeout The maximum
+         * @param waitForReadyTimeout (Default `20m`) The maximum
          * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
          * wait for an Elastic Beanstalk Environment to be in a ready state before timing
          * out.

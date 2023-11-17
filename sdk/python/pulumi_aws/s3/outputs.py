@@ -392,8 +392,6 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
                  s3_bucket_destination: 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination'):
         """
         :param 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs' s3_bucket_destination: Analytics data export currently only supports an S3 bucket destination (documented below).
-               
-               The `s3_bucket_destination` configuration supports the following:
         """
         pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
 
@@ -402,8 +400,6 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
     def s3_bucket_destination(self) -> 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination':
         """
         Analytics data export currently only supports an S3 bucket destination (documented below).
-
-        The `s3_bucket_destination` configuration supports the following:
         """
         return pulumi.get(self, "s3_bucket_destination")
 
@@ -5426,8 +5422,6 @@ class BucketWebsite(dict):
         :param str redirect_all_requests_to: A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         :param Union[str, Sequence[str]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied.
-               
-               The `CORS` object supports the following:
         """
         if error_document is not None:
             pulumi.set(__self__, "error_document", error_document)
@@ -5468,8 +5462,6 @@ class BucketWebsite(dict):
         """
         A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied.
-
-        The `CORS` object supports the following:
         """
         return pulumi.get(self, "routing_rules")
 

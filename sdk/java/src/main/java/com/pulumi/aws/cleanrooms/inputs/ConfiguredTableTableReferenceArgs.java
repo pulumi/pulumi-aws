@@ -13,16 +13,32 @@ public final class ConfiguredTableTableReferenceArgs extends com.pulumi.resource
 
     public static final ConfiguredTableTableReferenceArgs Empty = new ConfiguredTableTableReferenceArgs();
 
+    /**
+     * The name of the AWS Glue database which contains the table.
+     * 
+     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
+    /**
+     * @return The name of the AWS Glue database which contains the table.
+     * 
+     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
+    /**
+     * The name of the AWS Glue table which will be used to create the configured table.
+     * 
+     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
+    /**
+     * @return The name of the AWS Glue table which will be used to create the configured table.
+     * 
+     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -52,20 +68,44 @@ public final class ConfiguredTableTableReferenceArgs extends com.pulumi.resource
             $ = new ConfiguredTableTableReferenceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param databaseName The name of the AWS Glue database which contains the table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
+        /**
+         * @param databaseName The name of the AWS Glue database which contains the table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
+        /**
+         * @param tableName The name of the AWS Glue table which will be used to create the configured table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
+        /**
+         * @param tableName The name of the AWS Glue table which will be used to create the configured table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

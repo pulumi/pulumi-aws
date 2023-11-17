@@ -105,7 +105,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<bool?> DrainElbOnShutdown { get; private set; } = null!;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
         public Output<ImmutableArray<Outputs.StaticWebLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.StaticWebLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.StaticWebLayerEbsVolumeArgs> EbsVolumes
         {
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.StaticWebLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.StaticWebLayerEbsVolumeGetArgs> EbsVolumes
         {

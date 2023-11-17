@@ -20,16 +20,12 @@ public final class GetCustomerGatewayPlainArgs extends com.pulumi.resources.Invo
     /**
      * One or more [name-value pairs][dcg-filters] to filter by.
      * 
-     * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
-     * 
      */
     @Import(name="filters")
     private @Nullable List<GetCustomerGatewayFilter> filters;
 
     /**
      * @return One or more [name-value pairs][dcg-filters] to filter by.
-     * 
-     * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
      * 
      */
     public Optional<List<GetCustomerGatewayFilter>> filters() {
@@ -95,8 +91,6 @@ public final class GetCustomerGatewayPlainArgs extends com.pulumi.resources.Invo
         /**
          * @param filters One or more [name-value pairs][dcg-filters] to filter by.
          * 
-         * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
-         * 
          * @return builder
          * 
          */
@@ -107,8 +101,6 @@ public final class GetCustomerGatewayPlainArgs extends com.pulumi.resources.Invo
 
         /**
          * @param filters One or more [name-value pairs][dcg-filters] to filter by.
-         * 
-         * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
          * 
          * @return builder
          * 

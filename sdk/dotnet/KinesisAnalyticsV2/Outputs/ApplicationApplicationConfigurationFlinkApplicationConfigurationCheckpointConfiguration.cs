@@ -23,9 +23,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         public readonly bool? CheckpointingEnabled;
         /// <summary>
         /// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-        /// * `checkpointing_enabled = true`
-        /// * `checkpoint_interval = 60000`
-        /// * `min_pause_between_checkpoints = 5000`
         /// </summary>
         public readonly string ConfigurationType;
         /// <summary>

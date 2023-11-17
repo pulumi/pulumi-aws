@@ -416,20 +416,20 @@ type Cluster struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -567,20 +567,20 @@ type clusterState struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -679,20 +679,20 @@ type ClusterState struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -792,20 +792,20 @@ type clusterArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -896,20 +896,20 @@ type ClusterArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -1114,21 +1114,20 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-//				ConfigurationsJson: pulumi.String(`[
-//
-// {
-// "Classification": "hadoop-env",
-// "Configurations": [
-// {
-// "Classification": "export",
-// "Properties": {
-// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-// }
-// }
-// ],
-// "Properties": {}
-// }
-// ]
+//				ConfigurationsJson: pulumi.String(`  [
+//	    {
+//	      "Classification": "hadoop-env",
+//	      "Configurations": [
+//	        {
+//	          "Classification": "export",
+//	          "Properties": {
+//	            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//	          }
+//	        }
+//	      ],
+//	      "Properties": {}
+//	    }
+//	  ]
 //
 // `),
 //

@@ -222,7 +222,7 @@ class ParameterGroupParameter(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The name of the ElastiCache parameter.
+        :param str name: The name of the ElastiCache parameter group.
         :param str value: The value of the ElastiCache parameter.
         """
         pulumi.set(__self__, "name", name)
@@ -232,7 +232,7 @@ class ParameterGroupParameter(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the ElastiCache parameter.
+        The name of the ElastiCache parameter group.
         """
         return pulumi.get(self, "name")
 

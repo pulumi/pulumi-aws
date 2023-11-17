@@ -13,9 +13,25 @@ namespace Pulumi.Aws.CleanRooms.Outputs
     [OutputType]
     public sealed class CollaborationDataEncryptionMetadata
     {
+        /// <summary>
+        /// Indicates whether encrypted tables can contain cleartext data. This is a boolea
+        /// field.
+        /// </summary>
         public readonly bool AllowClearText;
+        /// <summary>
+        /// Indicates whether Fingerprint columns can contain duplicate entries. This is a
+        /// boolean field.
+        /// </summary>
         public readonly bool AllowDuplicates;
+        /// <summary>
+        /// Indicates whether Fingerprint columns can be joined
+        /// n any other Fingerprint column with a different name. This is a boolean field.
+        /// </summary>
         public readonly bool AllowJoinsOnColumnsWithDifferentNames;
+        /// <summary>
+        /// Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+        /// or cryptographically processed (false).
+        /// </summary>
         public readonly bool PreserveNulls;
 
         [OutputConstructor]

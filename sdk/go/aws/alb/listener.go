@@ -373,9 +373,9 @@ type Listener struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
-	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringOutput `pulumi:"sslPolicy"`
@@ -449,9 +449,9 @@ type listenerState struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
-	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port *int `pulumi:"port"`
-	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol *string `pulumi:"protocol"`
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy *string `pulumi:"sslPolicy"`
@@ -480,9 +480,9 @@ type ListenerState struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringPtrInput
-	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port pulumi.IntPtrInput
-	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol pulumi.StringPtrInput
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringPtrInput
@@ -511,9 +511,9 @@ type listenerArgs struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
-	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port *int `pulumi:"port"`
-	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol *string `pulumi:"protocol"`
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy *string `pulumi:"sslPolicy"`
@@ -535,9 +535,9 @@ type ListenerArgs struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringInput
-	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+	// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 	Port pulumi.IntPtrInput
-	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+	// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 	Protocol pulumi.StringPtrInput
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringPtrInput
@@ -663,12 +663,12 @@ func (o ListenerOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
 }
 
-// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+// Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
 func (o ListenerOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+// Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
 func (o ListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }

@@ -56,7 +56,7 @@ class HaproxyLayerArgs:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['HaproxyLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['HaproxyLayerEbsVolumeArgs']]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[str] healthcheck_method: HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
         :param pulumi.Input[str] healthcheck_url: URL path to use for instance healthchecks. Defaults to "/".
@@ -297,7 +297,7 @@ class HaproxyLayerArgs:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -507,7 +507,7 @@ class _HaproxyLayerState:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['HaproxyLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['HaproxyLayerEbsVolumeArgs']]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[str] healthcheck_method: HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
         :param pulumi.Input[str] healthcheck_url: URL path to use for instance healthchecks. Defaults to "/".
@@ -748,7 +748,7 @@ class _HaproxyLayerState:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -1011,7 +1011,7 @@ class HaproxyLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HaproxyLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HaproxyLayerEbsVolumeArgs']]]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[str] healthcheck_method: HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
         :param pulumi.Input[str] healthcheck_url: URL path to use for instance healthchecks. Defaults to "/".
@@ -1197,7 +1197,7 @@ class HaproxyLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HaproxyLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HaproxyLayerEbsVolumeArgs']]]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[str] healthcheck_method: HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
         :param pulumi.Input[str] healthcheck_url: URL path to use for instance healthchecks. Defaults to "/".
@@ -1353,7 +1353,7 @@ class HaproxyLayer(pulumi.CustomResource):
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.HaproxyLayerEbsVolume']]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 

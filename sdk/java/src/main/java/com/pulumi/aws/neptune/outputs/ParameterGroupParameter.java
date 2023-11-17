@@ -17,7 +17,7 @@ public final class ParameterGroupParameter {
      */
     private @Nullable String applyMethod;
     /**
-     * @return The name of the Neptune parameter.
+     * @return The name of the Neptune parameter group.
      * 
      */
     private String name;
@@ -36,7 +36,7 @@ public final class ParameterGroupParameter {
         return Optional.ofNullable(this.applyMethod);
     }
     /**
-     * @return The name of the Neptune parameter.
+     * @return The name of the Neptune parameter group.
      * 
      */
     public String name() {

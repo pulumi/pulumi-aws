@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int End;
         /// <summary>
-        /// Start of the range.
+        /// (Requited) Start of the range.
         /// </summary>
         public readonly int Start;
 

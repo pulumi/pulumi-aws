@@ -442,8 +442,6 @@ type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent 
 	// Information about the Amazon S3 bucket containing the application code.
 	S3ContentLocation *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation `pulumi:"s3ContentLocation"`
 	// The text-format code for the application.
-	//
-	// The `s3ContentLocation` object supports the following:
 	TextContent *string `pulumi:"textContent"`
 }
 
@@ -462,8 +460,6 @@ type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentA
 	// Information about the Amazon S3 bucket containing the application code.
 	S3ContentLocation ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrInput `pulumi:"s3ContentLocation"`
 	// The text-format code for the application.
-	//
-	// The `s3ContentLocation` object supports the following:
 	TextContent pulumi.StringPtrInput `pulumi:"textContent"`
 }
 
@@ -552,8 +548,6 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 }
 
 // The text-format code for the application.
-//
-// The `s3ContentLocation` object supports the following:
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *string {
 		return v.TextContent
@@ -595,8 +589,6 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 }
 
 // The text-format code for the application.
-//
-// The `s3ContentLocation` object supports the following:
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *string {
 		if v == nil {
@@ -1362,9 +1354,6 @@ type ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointC
 	// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
 	CheckpointingEnabled *bool `pulumi:"checkpointingEnabled"`
 	// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-	// * `checkpointingEnabled = true`
-	// * `checkpointInterval = 60000`
-	// * `minPauseBetweenCheckpoints = 5000`
 	ConfigurationType string `pulumi:"configurationType"`
 	// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
 	MinPauseBetweenCheckpoints *int `pulumi:"minPauseBetweenCheckpoints"`
@@ -1387,9 +1376,6 @@ type ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointC
 	// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
 	CheckpointingEnabled pulumi.BoolPtrInput `pulumi:"checkpointingEnabled"`
 	// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-	// * `checkpointingEnabled = true`
-	// * `checkpointInterval = 60000`
-	// * `minPauseBetweenCheckpoints = 5000`
 	ConfigurationType pulumi.StringInput `pulumi:"configurationType"`
 	// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
 	MinPauseBetweenCheckpoints pulumi.IntPtrInput `pulumi:"minPauseBetweenCheckpoints"`
@@ -1487,9 +1473,6 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 }
 
 // Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-// * `checkpointingEnabled = true`
-// * `checkpointInterval = 60000`
-// * `minPauseBetweenCheckpoints = 5000`
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput) ConfigurationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) string {
 		return v.ConfigurationType
@@ -1548,9 +1531,6 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 }
 
 // Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-// * `checkpointingEnabled = true`
-// * `checkpointInterval = 60000`
-// * `minPauseBetweenCheckpoints = 5000`
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *string {
 		if v == nil {
@@ -5433,8 +5413,6 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 	// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
 	RecordColumns []ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn `pulumi:"recordColumns"`
 	// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-	//
-	// The `s3ReferenceDataSource` object supports the following:
 	RecordEncoding *string `pulumi:"recordEncoding"`
 	// Specifies the format of the records on the streaming source.
 	RecordFormat ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat `pulumi:"recordFormat"`
@@ -5455,8 +5433,6 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 	// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
 	RecordColumns ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayInput `pulumi:"recordColumns"`
 	// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-	//
-	// The `s3ReferenceDataSource` object supports the following:
 	RecordEncoding pulumi.StringPtrInput `pulumi:"recordEncoding"`
 	// Specifies the format of the records on the streaming source.
 	RecordFormat ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatInput `pulumi:"recordFormat"`
@@ -5547,8 +5523,6 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 // Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-//
-// The `s3ReferenceDataSource` object supports the following:
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *string {
 		return v.RecordEncoding
@@ -5597,8 +5571,6 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 // Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-//
-// The `s3ReferenceDataSource` object supports the following:
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *string {
 		if v == nil {

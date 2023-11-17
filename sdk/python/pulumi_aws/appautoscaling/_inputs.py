@@ -316,12 +316,12 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  statistic: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]] dimensions: Dimensions of the metric.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]] dimensions: Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs']]] metrics: Metrics to include, as a metric data query.
         :param pulumi.Input[str] namespace: Namespace of the metric.
         :param pulumi.Input[str] statistic: Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-        :param pulumi.Input[str] unit: Unit of the metrics to return.
+        :param pulumi.Input[str] unit: Unit of the metric.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -340,7 +340,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]]]:
         """
-        Dimensions of the metric.
+        Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
         """
         return pulumi.get(self, "dimensions")
 
@@ -400,7 +400,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[str]]:
         """
-        Unit of the metrics to return.
+        Unit of the metric.
         """
         return pulumi.get(self, "unit")
 
@@ -415,7 +415,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of the policy. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] name: Name of the dimension.
         :param pulumi.Input[str] value: Value of the dimension.
         """
         pulumi.set(__self__, "name", name)
@@ -425,7 +425,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the policy. Must be between 1 and 255 characters in length.
+        Name of the dimension.
         """
         return pulumi.get(self, "name")
 
@@ -644,7 +644,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of the policy. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[str] name: Name of the dimension.
         :param pulumi.Input[str] value: Value of the dimension.
         """
         pulumi.set(__self__, "name", name)
@@ -654,7 +654,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the policy. Must be between 1 and 255 characters in length.
+        Name of the dimension.
         """
         return pulumi.get(self, "name")
 

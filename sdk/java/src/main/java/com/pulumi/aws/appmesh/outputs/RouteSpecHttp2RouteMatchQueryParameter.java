@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttp2RouteMatchQueryParameter {
     /**
-     * @return Criteria for determining an gRPC request match.
+     * @return The query parameter to match on.
      * 
      */
     private @Nullable RouteSpecHttp2RouteMatchQueryParameterMatch match;
     /**
-     * @return Name to use for the route. Must be between 1 and 255 characters in length.
+     * @return Name for the query parameter that will be matched on.
      * 
      */
     private String name;
 
     private RouteSpecHttp2RouteMatchQueryParameter() {}
     /**
-     * @return Criteria for determining an gRPC request match.
+     * @return The query parameter to match on.
      * 
      */
     public Optional<RouteSpecHttp2RouteMatchQueryParameterMatch> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return Name to use for the route. Must be between 1 and 255 characters in length.
+     * @return Name for the query parameter that will be matched on.
      * 
      */
     public String name() {

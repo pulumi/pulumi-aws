@@ -94,7 +94,7 @@ type ContactList struct {
 	ContactListName pulumi.StringOutput `pulumi:"contactListName"`
 	// A timestamp noting when the contact list was created in ISO 8601 format.
 	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
-	// A description of what the contact list is about.
+	// A description of what the topic is about, which the contact will see.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A timestamp noting the last time the contact list was updated in ISO 8601 format.
 	LastUpdatedTimestamp pulumi.StringOutput `pulumi:"lastUpdatedTimestamp"`
@@ -150,7 +150,7 @@ type contactListState struct {
 	ContactListName *string `pulumi:"contactListName"`
 	// A timestamp noting when the contact list was created in ISO 8601 format.
 	CreatedTimestamp *string `pulumi:"createdTimestamp"`
-	// A description of what the contact list is about.
+	// A description of what the topic is about, which the contact will see.
 	Description *string `pulumi:"description"`
 	// A timestamp noting the last time the contact list was updated in ISO 8601 format.
 	LastUpdatedTimestamp *string `pulumi:"lastUpdatedTimestamp"`
@@ -170,7 +170,7 @@ type ContactListState struct {
 	ContactListName pulumi.StringPtrInput
 	// A timestamp noting when the contact list was created in ISO 8601 format.
 	CreatedTimestamp pulumi.StringPtrInput
-	// A description of what the contact list is about.
+	// A description of what the topic is about, which the contact will see.
 	Description pulumi.StringPtrInput
 	// A timestamp noting the last time the contact list was updated in ISO 8601 format.
 	LastUpdatedTimestamp pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type contactListArgs struct {
 	//
 	// The following arguments are optional:
 	ContactListName string `pulumi:"contactListName"`
-	// A description of what the contact list is about.
+	// A description of what the topic is about, which the contact will see.
 	Description *string `pulumi:"description"`
 	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -205,7 +205,7 @@ type ContactListArgs struct {
 	//
 	// The following arguments are optional:
 	ContactListName pulumi.StringInput
-	// A description of what the contact list is about.
+	// A description of what the topic is about, which the contact will see.
 	Description pulumi.StringPtrInput
 	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -316,7 +316,7 @@ func (o ContactListOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
-// A description of what the contact list is about.
+// A description of what the topic is about, which the contact will see.
 func (o ContactListOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

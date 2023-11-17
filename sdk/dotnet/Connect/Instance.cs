@@ -156,7 +156,6 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Output("outboundCallsEnabled")]
         public Output<bool> OutboundCallsEnabled { get; private set; } = null!;
@@ -275,7 +274,6 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Input("outboundCallsEnabled", required: true)]
         public Input<bool> OutboundCallsEnabled { get; set; } = null!;
@@ -356,7 +354,6 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Input("outboundCallsEnabled")]
         public Input<bool>? OutboundCallsEnabled { get; set; }

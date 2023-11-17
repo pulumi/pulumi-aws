@@ -89,7 +89,7 @@ export class EcsClusterLayer extends pulumi.CustomResource {
      */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.EcsClusterLayerEbsVolume[]>;
     /**
@@ -262,7 +262,7 @@ export interface EcsClusterLayerState {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.EcsClusterLayerEbsVolume>[]>;
     /**
@@ -351,7 +351,7 @@ export interface EcsClusterLayerArgs {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.EcsClusterLayerEbsVolume>[]>;
     /**

@@ -216,7 +216,7 @@ def get_permissions(catalog_id: Optional[str] = None,
     ```
 
 
-    :param str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+    :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
     :param bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
     :param pulumi.InputType['GetPermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
     :param pulumi.InputType['GetPermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
@@ -324,7 +324,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     ```
 
 
-    :param str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+    :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
     :param bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
     :param pulumi.InputType['GetPermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
     :param pulumi.InputType['GetPermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.

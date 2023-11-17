@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? ApplyMethod { get; set; }
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

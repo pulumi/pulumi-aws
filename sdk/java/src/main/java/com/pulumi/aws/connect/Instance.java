@@ -286,7 +286,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies whether outbound calls are enabled.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     @Export(name="outboundCallsEnabled", refs={Boolean.class}, tree="[0]")
@@ -294,7 +293,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies whether outbound calls are enabled.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     public Output<Boolean> outboundCallsEnabled() {

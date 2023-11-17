@@ -66,20 +66,20 @@ class ClusterArgs:
                import pulumi
                import pulumi_aws as aws
                
-               cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
+               cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"  [
+                   {
+                     "Classification": "hadoop-env",
+                     "Configurations": [
+                       {
+                         "Classification": "export",
+                         "Properties": {
+                           "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                         }
+                       }
+                     ],
+                     "Properties": {}
+                   }
+                 ]
                
                \"\"\")
                ```
@@ -274,20 +274,20 @@ class ClusterArgs:
         import pulumi
         import pulumi_aws as aws
 
-        cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"[
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
+        cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"  [
+            {
+              "Classification": "hadoop-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            }
+          ]
 
         \"\"\")
         ```
@@ -605,20 +605,20 @@ class _ClusterState:
                import pulumi
                import pulumi_aws as aws
                
-               cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
+               cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"  [
+                   {
+                     "Classification": "hadoop-env",
+                     "Configurations": [
+                       {
+                         "Classification": "export",
+                         "Properties": {
+                           "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                         }
+                       }
+                     ],
+                     "Properties": {}
+                   }
+                 ]
                
                \"\"\")
                ```
@@ -827,20 +827,20 @@ class _ClusterState:
         import pulumi
         import pulumi_aws as aws
 
-        cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"[
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
+        cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"  [
+            {
+              "Classification": "hadoop-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            }
+          ]
 
         \"\"\")
         ```
@@ -1475,20 +1475,20 @@ class Cluster(pulumi.CustomResource):
                import pulumi
                import pulumi_aws as aws
                
-               cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
+               cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"  [
+                   {
+                     "Classification": "hadoop-env",
+                     "Configurations": [
+                       {
+                         "Classification": "export",
+                         "Properties": {
+                           "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                         }
+                       }
+                     ],
+                     "Properties": {}
+                   }
+                 ]
                
                \"\"\")
                ```
@@ -1950,20 +1950,20 @@ class Cluster(pulumi.CustomResource):
                import pulumi
                import pulumi_aws as aws
                
-               cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
+               cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"  [
+                   {
+                     "Classification": "hadoop-env",
+                     "Configurations": [
+                       {
+                         "Classification": "export",
+                         "Properties": {
+                           "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                         }
+                       }
+                     ],
+                     "Properties": {}
+                   }
+                 ]
                
                \"\"\")
                ```
@@ -2108,20 +2108,20 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"[
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
+        cluster = aws.emr.Cluster("cluster", configurations_json=\"\"\"  [
+            {
+              "Classification": "hadoop-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            }
+          ]
 
         \"\"\")
         ```

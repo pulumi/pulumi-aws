@@ -98,8 +98,6 @@ type GetQueryLogConfigArgs struct {
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
 	// Map of tags to assign to the service.
-	//
-	// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -143,8 +141,6 @@ type GetQueryLogConfigOutputArgs struct {
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId pulumi.StringPtrInput `pulumi:"resolverQueryLogConfigId"`
 	// Map of tags to assign to the service.
-	//
-	// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

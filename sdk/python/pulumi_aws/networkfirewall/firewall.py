@@ -34,7 +34,7 @@ class FirewallArgs:
         :param pulumi.Input[bool] delete_protection: A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
         :param pulumi.Input[str] description: A friendly description of the firewall.
         :param pulumi.Input['FirewallEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        :param pulumi.Input[bool] firewall_policy_change_protection: (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         :param pulumi.Input[str] name: A friendly name of the firewall.
         :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -133,7 +133,7 @@ class FirewallArgs:
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         """
         return pulumi.get(self, "firewall_policy_change_protection")
 
@@ -202,7 +202,7 @@ class _FirewallState:
         :param pulumi.Input[str] description: A friendly description of the firewall.
         :param pulumi.Input['FirewallEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        :param pulumi.Input[bool] firewall_policy_change_protection: (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusArgs']]] firewall_statuses: Nested list of information about the current status of the firewall.
         :param pulumi.Input[str] name: A friendly name of the firewall.
         :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
@@ -308,7 +308,7 @@ class _FirewallState:
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         """
         return pulumi.get(self, "firewall_policy_change_protection")
 
@@ -467,7 +467,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] description: A friendly description of the firewall.
         :param pulumi.Input[pulumi.InputType['FirewallEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        :param pulumi.Input[bool] firewall_policy_change_protection: (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         :param pulumi.Input[str] name: A friendly name of the firewall.
         :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallSubnetMappingArgs']]]] subnet_mappings: Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
@@ -601,7 +601,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] description: A friendly description of the firewall.
         :param pulumi.Input[pulumi.InputType['FirewallEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        :param pulumi.Input[bool] firewall_policy_change_protection: (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFirewallStatusArgs']]]] firewall_statuses: Nested list of information about the current status of the firewall.
         :param pulumi.Input[str] name: A friendly name of the firewall.
         :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
@@ -675,7 +675,7 @@ class Firewall(pulumi.CustomResource):
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> pulumi.Output[Optional[bool]]:
         """
-        A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         """
         return pulumi.get(self, "firewall_policy_change_protection")
 

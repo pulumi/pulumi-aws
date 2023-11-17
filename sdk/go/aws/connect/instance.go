@@ -138,7 +138,6 @@ type Instance struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled pulumi.BoolPtrOutput `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolOutput `pulumi:"outboundCallsEnabled"`
 	// The service role of the instance.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
@@ -208,7 +207,6 @@ type instanceState struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled *bool `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled *bool `pulumi:"outboundCallsEnabled"`
 	// The service role of the instance.
 	ServiceRole *string `pulumi:"serviceRole"`
@@ -240,7 +238,6 @@ type InstanceState struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled pulumi.BoolPtrInput
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolPtrInput
 	// The service role of the instance.
 	ServiceRole pulumi.StringPtrInput
@@ -272,7 +269,6 @@ type instanceArgs struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled *bool `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled bool `pulumi:"outboundCallsEnabled"`
 }
 
@@ -297,7 +293,6 @@ type InstanceArgs struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled pulumi.BoolPtrInput
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolInput
 }
 
@@ -444,7 +439,6 @@ func (o InstanceOutput) MultiPartyConferenceEnabled() pulumi.BoolPtrOutput {
 }
 
 // Specifies whether outbound calls are enabled.
-// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 func (o InstanceOutput) OutboundCallsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.OutboundCallsEnabled }).(pulumi.BoolOutput)
 }

@@ -45,6 +45,16 @@ class CollaborationDataEncryptionMetadata(dict):
                  allow_duplicates: bool,
                  allow_joins_on_columns_with_different_names: bool,
                  preserve_nulls: bool):
+        """
+        :param bool allow_clear_text: Indicates whether encrypted tables can contain cleartext data. This is a boolea
+               field.
+        :param bool allow_duplicates: Indicates whether Fingerprint columns can contain duplicate entries. This is a
+               boolean field.
+        :param bool allow_joins_on_columns_with_different_names: Indicates whether Fingerprint columns can be joined
+               n any other Fingerprint column with a different name. This is a boolean field.
+        :param bool preserve_nulls: Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+               or cryptographically processed (false).
+        """
         pulumi.set(__self__, "allow_clear_text", allow_clear_text)
         pulumi.set(__self__, "allow_duplicates", allow_duplicates)
         pulumi.set(__self__, "allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
@@ -53,21 +63,37 @@ class CollaborationDataEncryptionMetadata(dict):
     @property
     @pulumi.getter(name="allowClearText")
     def allow_clear_text(self) -> bool:
+        """
+        Indicates whether encrypted tables can contain cleartext data. This is a boolea
+        field.
+        """
         return pulumi.get(self, "allow_clear_text")
 
     @property
     @pulumi.getter(name="allowDuplicates")
     def allow_duplicates(self) -> bool:
+        """
+        Indicates whether Fingerprint columns can contain duplicate entries. This is a
+        boolean field.
+        """
         return pulumi.get(self, "allow_duplicates")
 
     @property
     @pulumi.getter(name="allowJoinsOnColumnsWithDifferentNames")
     def allow_joins_on_columns_with_different_names(self) -> bool:
+        """
+        Indicates whether Fingerprint columns can be joined
+        n any other Fingerprint column with a different name. This is a boolean field.
+        """
         return pulumi.get(self, "allow_joins_on_columns_with_different_names")
 
     @property
     @pulumi.getter(name="preserveNulls")
     def preserve_nulls(self) -> bool:
+        """
+        Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+        or cryptographically processed (false).
+        """
         return pulumi.get(self, "preserve_nulls")
 
 
@@ -99,6 +125,11 @@ class CollaborationMember(dict):
                  display_name: str,
                  member_abilities: Sequence[str],
                  status: Optional[str] = None):
+        """
+        :param str account_id: The account id for the invited member.
+        :param str display_name: The display name for the invited member.
+        :param Sequence[str] member_abilities: The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "member_abilities", member_abilities)
@@ -108,16 +139,25 @@ class CollaborationMember(dict):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
+        """
+        The account id for the invited member.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
+        """
+        The display name for the invited member.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="memberAbilities")
     def member_abilities(self) -> Sequence[str]:
+        """
+        The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        """
         return pulumi.get(self, "member_abilities")
 
     @property
@@ -150,17 +190,27 @@ class ConfiguredTableTableReference(dict):
     def __init__(__self__, *,
                  database_name: str,
                  table_name: str):
+        """
+        :param str database_name: The name of the AWS Glue database which contains the table.
+        :param str table_name: The name of the AWS Glue table which will be used to create the configured table.
+        """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
+        """
+        The name of the AWS Glue database which contains the table.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
+        """
+        The name of the AWS Glue table which will be used to create the configured table.
+        """
         return pulumi.get(self, "table_name")
 
 

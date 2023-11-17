@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttp2RouteMatchHeaderMatch {
     /**
-     * @return Header value sent by the client must match the specified value exactly.
+     * @return The exact query parameter to match on.
      * 
      */
     private @Nullable String exact;
@@ -40,7 +40,7 @@ public final class GatewayRouteSpecHttp2RouteMatchHeaderMatch {
 
     private GatewayRouteSpecHttp2RouteMatchHeaderMatch() {}
     /**
-     * @return Header value sent by the client must match the specified value exactly.
+     * @return The exact query parameter to match on.
      * 
      */
     public Optional<String> exact() {

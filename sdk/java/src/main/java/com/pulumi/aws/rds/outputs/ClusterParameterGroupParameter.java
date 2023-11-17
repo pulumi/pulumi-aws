@@ -19,7 +19,7 @@ public final class ClusterParameterGroupParameter {
      */
     private @Nullable String applyMethod;
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     private String name;
@@ -40,7 +40,7 @@ public final class ClusterParameterGroupParameter {
         return Optional.ofNullable(this.applyMethod);
     }
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public String name() {

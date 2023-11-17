@@ -26,7 +26,7 @@ class SecurityGroupArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityGroup resource.
-        :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[str] name: Name of the security group. If omitted, the provider will assign a random, unique name.
@@ -58,7 +58,7 @@ class SecurityGroupArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        Description of this egress rule.
         """
         return pulumi.get(self, "description")
 
@@ -168,7 +168,7 @@ class _SecurityGroupState:
         """
         Input properties used for looking up and filtering SecurityGroup resources.
         :param pulumi.Input[str] arn: ARN of the security group.
-        :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[str] name: Name of the security group. If omitted, the provider will assign a random, unique name.
@@ -223,7 +223,7 @@ class _SecurityGroupState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        Description of this egress rule.
         """
         return pulumi.get(self, "description")
 
@@ -510,7 +510,7 @@ class SecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[str] name: Name of the security group. If omitted, the provider will assign a random, unique name.
@@ -752,7 +752,7 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the security group.
-        :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[str] name: Name of the security group. If omitted, the provider will assign a random, unique name.
@@ -792,7 +792,7 @@ class SecurityGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
+        Description of this egress rule.
         """
         return pulumi.get(self, "description")
 

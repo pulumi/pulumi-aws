@@ -154,7 +154,7 @@ class EnvironmentLoggingConfiguration(dict):
                  webserver_logs: Optional['outputs.EnvironmentLoggingConfigurationWebserverLogs'] = None,
                  worker_logs: Optional['outputs.EnvironmentLoggingConfigurationWorkerLogs'] = None):
         """
-        :param 'EnvironmentLoggingConfigurationDagProcessingLogsArgs' dag_processing_logs: (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+        :param 'EnvironmentLoggingConfigurationDagProcessingLogsArgs' dag_processing_logs: Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
         :param 'EnvironmentLoggingConfigurationSchedulerLogsArgs' scheduler_logs: Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
         :param 'EnvironmentLoggingConfigurationTaskLogsArgs' task_logs: Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
         :param 'EnvironmentLoggingConfigurationWebserverLogsArgs' webserver_logs: Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
@@ -175,7 +175,7 @@ class EnvironmentLoggingConfiguration(dict):
     @pulumi.getter(name="dagProcessingLogs")
     def dag_processing_logs(self) -> Optional['outputs.EnvironmentLoggingConfigurationDagProcessingLogs']:
         """
-        (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+        Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
         """
         return pulumi.get(self, "dag_processing_logs")
 

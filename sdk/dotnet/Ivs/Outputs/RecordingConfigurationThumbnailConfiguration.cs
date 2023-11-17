@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ivs.Outputs
         /// </summary>
         public readonly string? RecordingMode;
         /// <summary>
-        /// The targeted thumbnail-generation interval in seconds.
+        /// (Configurable [and required] only if `recording_mode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
         /// </summary>
         public readonly int? TargetIntervalSeconds;
 

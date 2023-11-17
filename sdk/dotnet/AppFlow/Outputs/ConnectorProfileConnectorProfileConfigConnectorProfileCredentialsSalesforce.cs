@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
     {
         /// <summary>
-        /// The access token used to access the connector on your behalf.
+        /// The credentials used to access protected Google Analytics resources.
         /// </summary>
         public readonly string? AccessToken;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? Oauth2GrantType;
         /// <summary>
-        /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        /// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest? OauthRequest;
         /// <summary>
-        /// The refresh token used to refresh an expired access token.
+        /// The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
         /// </summary>
         public readonly string? RefreshToken;
 

@@ -60,11 +60,6 @@ export class KxCluster extends pulumi.CustomResource {
      * The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      */
     public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
-    /**
-     * The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * SINGLE - Assigns one availability zone per cluster.
-     * * MULTI - Assigns all the availability zones per cluster.
-     */
     public readonly azMode!: pulumi.Output<string>;
     /**
      * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
@@ -253,11 +248,6 @@ export interface KxClusterState {
      * The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      */
     availabilityZoneId?: pulumi.Input<string>;
-    /**
-     * The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * SINGLE - Assigns one availability zone per cluster.
-     * * MULTI - Assigns all the availability zones per cluster.
-     */
     azMode?: pulumi.Input<string>;
     /**
      * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
@@ -354,11 +344,6 @@ export interface KxClusterArgs {
      * The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      */
     availabilityZoneId?: pulumi.Input<string>;
-    /**
-     * The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * SINGLE - Assigns one availability zone per cluster.
-     * * MULTI - Assigns all the availability zones per cluster.
-     */
     azMode: pulumi.Input<string>;
     /**
      * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.

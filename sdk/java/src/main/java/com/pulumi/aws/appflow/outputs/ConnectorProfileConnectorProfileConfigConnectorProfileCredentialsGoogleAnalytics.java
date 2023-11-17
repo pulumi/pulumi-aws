@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics {
     /**
-     * @return The access token used to access the connector on your behalf.
+     * @return The credentials used to access protected Google Analytics resources.
      * 
      */
     private @Nullable String accessToken;
@@ -28,19 +28,19 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private String clientSecret;
     /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest oauthRequest;
     /**
-     * @return The refresh token used to refresh an expired access token.
+     * @return The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
      * 
      */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics() {}
     /**
-     * @return The access token used to access the connector on your behalf.
+     * @return The credentials used to access protected Google Analytics resources.
      * 
      */
     public Optional<String> accessToken() {
@@ -61,14 +61,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return this.clientSecret;
     }
     /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
     /**
-     * @return The refresh token used to refresh an expired access token.
+     * @return The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
      * 
      */
     public Optional<String> refreshToken() {

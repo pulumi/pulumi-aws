@@ -60,14 +60,14 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of what the contact list is about.
+     * A description of what the topic is about, which the contact will see.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of what the contact list is about.
+     * @return A description of what the topic is about, which the contact will see.
      * 
      */
     public Optional<Output<String>> description() {
@@ -225,7 +225,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of what the contact list is about.
+         * @param description A description of what the topic is about, which the contact will see.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of what the contact list is about.
+         * @param description A description of what the topic is about, which the contact will see.
          * 
          * @return builder
          * 

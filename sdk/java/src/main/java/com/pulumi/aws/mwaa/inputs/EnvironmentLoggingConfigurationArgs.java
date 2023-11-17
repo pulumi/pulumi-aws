@@ -20,14 +20,14 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
     public static final EnvironmentLoggingConfigurationArgs Empty = new EnvironmentLoggingConfigurationArgs();
 
     /**
-     * (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+     * Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
      * 
      */
     @Import(name="dagProcessingLogs")
     private @Nullable Output<EnvironmentLoggingConfigurationDagProcessingLogsArgs> dagProcessingLogs;
 
     /**
-     * @return (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+     * @return Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
      * 
      */
     public Optional<Output<EnvironmentLoggingConfigurationDagProcessingLogsArgs>> dagProcessingLogs() {
@@ -123,7 +123,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param dagProcessingLogs (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+         * @param dagProcessingLogs Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param dagProcessingLogs (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+         * @param dagProcessingLogs Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
          * 
          * @return builder
          * 

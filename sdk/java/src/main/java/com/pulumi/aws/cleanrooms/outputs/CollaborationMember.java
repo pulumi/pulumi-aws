@@ -12,18 +12,42 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CollaborationMember {
+    /**
+     * @return The account id for the invited member.
+     * 
+     */
     private String accountId;
+    /**
+     * @return The display name for the invited member.
+     * 
+     */
     private String displayName;
+    /**
+     * @return The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+     * 
+     */
     private List<String> memberAbilities;
     private @Nullable String status;
 
     private CollaborationMember() {}
+    /**
+     * @return The account id for the invited member.
+     * 
+     */
     public String accountId() {
         return this.accountId;
     }
+    /**
+     * @return The display name for the invited member.
+     * 
+     */
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+     * 
+     */
     public List<String> memberAbilities() {
         return this.memberAbilities;
     }

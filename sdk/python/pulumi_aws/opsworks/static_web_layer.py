@@ -48,7 +48,7 @@ class StaticWebLayerArgs:
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -258,7 +258,7 @@ class StaticWebLayerArgs:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -401,7 +401,7 @@ class _StaticWebLayerState:
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -621,7 +621,7 @@ class _StaticWebLayerState:
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]]]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
@@ -811,7 +811,7 @@ class StaticWebLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArgs']]]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -976,7 +976,7 @@ class StaticWebLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArgs']]]] ebs_volumes: blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -1117,7 +1117,7 @@ class StaticWebLayer(pulumi.CustomResource):
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.StaticWebLayerEbsVolume']]:
         """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 

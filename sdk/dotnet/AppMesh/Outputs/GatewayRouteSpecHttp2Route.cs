@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteAction Action;
         /// <summary>
-        /// Criteria for determining a request match.
+        /// Method and value to match the header value sent with a request. Specify one match method.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteMatch Match;
 

@@ -16,14 +16,14 @@ public final class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs ext
     public static final LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs Empty = new LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs();
 
     /**
-     * Maximum.
+     * Maximum. May be a decimal number, e.g. `0.5`.
      * 
      */
     @Import(name="max")
     private @Nullable Output<Double> max;
 
     /**
-     * @return Maximum.
+     * @return Maximum. May be a decimal number, e.g. `0.5`.
      * 
      */
     public Optional<Output<Double>> max() {
@@ -31,14 +31,14 @@ public final class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs ext
     }
 
     /**
-     * Minimum.
+     * Minimum. May be a decimal number, e.g. `0.5`.
      * 
      */
     @Import(name="min")
     private @Nullable Output<Double> min;
 
     /**
-     * @return Minimum.
+     * @return Minimum. May be a decimal number, e.g. `0.5`.
      * 
      */
     public Optional<Output<Double>> min() {
@@ -71,7 +71,7 @@ public final class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs ext
         }
 
         /**
-         * @param max Maximum.
+         * @param max Maximum. May be a decimal number, e.g. `0.5`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs ext
         }
 
         /**
-         * @param max Maximum.
+         * @param max Maximum. May be a decimal number, e.g. `0.5`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs ext
         }
 
         /**
-         * @param min Minimum.
+         * @param min Minimum. May be a decimal number, e.g. `0.5`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs ext
         }
 
         /**
-         * @param min Minimum.
+         * @param min Minimum. May be a decimal number, e.g. `0.5`.
          * 
          * @return builder
          * 

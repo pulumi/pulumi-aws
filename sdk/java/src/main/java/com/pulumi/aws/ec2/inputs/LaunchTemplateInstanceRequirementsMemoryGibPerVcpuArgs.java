@@ -16,14 +16,14 @@ public final class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs extend
     public static final LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs Empty = new LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs();
 
     /**
-     * Maximum.
+     * Maximum. May be a decimal number, e.g. `0.5`.
      * 
      */
     @Import(name="max")
     private @Nullable Output<Double> max;
 
     /**
-     * @return Maximum.
+     * @return Maximum. May be a decimal number, e.g. `0.5`.
      * 
      */
     public Optional<Output<Double>> max() {
@@ -31,14 +31,14 @@ public final class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs extend
     }
 
     /**
-     * Minimum.
+     * Minimum. May be a decimal number, e.g. `0.5`.
      * 
      */
     @Import(name="min")
     private @Nullable Output<Double> min;
 
     /**
-     * @return Minimum.
+     * @return Minimum. May be a decimal number, e.g. `0.5`.
      * 
      */
     public Optional<Output<Double>> min() {
@@ -71,7 +71,7 @@ public final class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs extend
         }
 
         /**
-         * @param max Maximum.
+         * @param max Maximum. May be a decimal number, e.g. `0.5`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs extend
         }
 
         /**
-         * @param max Maximum.
+         * @param max Maximum. May be a decimal number, e.g. `0.5`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs extend
         }
 
         /**
-         * @param min Minimum.
+         * @param min Minimum. May be a decimal number, e.g. `0.5`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs extend
         }
 
         /**
-         * @param min Minimum.
+         * @param min Minimum. May be a decimal number, e.g. `0.5`.
          * 
          * @return builder
          * 

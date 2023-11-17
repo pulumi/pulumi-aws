@@ -5906,7 +5906,7 @@ type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
 	S3BackupConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration `pulumi:"s3BackupConfiguration"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 }
 
@@ -5949,7 +5949,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
 	S3BackupConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 }
 
@@ -6106,7 +6106,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) S3BackupConfigurati
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
@@ -6266,7 +6266,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) S3BackupConfigur
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {

@@ -101,7 +101,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<bool?> DrainElbOnShutdown { get; private set; } = null!;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
         public Output<ImmutableArray<Outputs.GangliaLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<bool?> UseEbsOptimizedInstances { get; private set; } = null!;
 
         /// <summary>
-        /// The username to use for Ganglia. Defaults to "opsworks".
+        /// (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.GangliaLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.GangliaLayerEbsVolumeArgs> EbsVolumes
         {
@@ -418,7 +418,7 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? UseEbsOptimizedInstances { get; set; }
 
         /// <summary>
-        /// The username to use for Ganglia. Defaults to "opsworks".
+        /// (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
@@ -532,7 +532,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.GangliaLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.GangliaLayerEbsVolumeGetArgs> EbsVolumes
         {
@@ -637,7 +637,7 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? UseEbsOptimizedInstances { get; set; }
 
         /// <summary>
-        /// The username to use for Ganglia. Defaults to "opsworks".
+        /// (Optiona) The username to use for Ganglia. Defaults to "opsworks".
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

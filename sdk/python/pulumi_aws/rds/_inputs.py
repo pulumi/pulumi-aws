@@ -97,7 +97,7 @@ class ClusterParameterGroupParameterArgs:
                  value: pulumi.Input[str],
                  apply_method: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the DB parameter.
+        :param pulumi.Input[str] name: The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] value: The value of the DB parameter.
         :param pulumi.Input[str] apply_method: "immediate" (default), or "pending-reboot". Some
                engines can't apply some parameters without a reboot, and you will need to
@@ -112,7 +112,7 @@ class ClusterParameterGroupParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the DB parameter.
+        The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -505,13 +505,6 @@ class InstanceBlueGreenUpdateArgs:
         """
         :param pulumi.Input[bool] enabled: Enables low-downtime updates when `true`.
                Default is `false`.
-               
-               [instance-replication]:
-               https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-               [instance-maintenance]:
-               https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-               [blue-green]:
-               https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -522,13 +515,6 @@ class InstanceBlueGreenUpdateArgs:
         """
         Enables low-downtime updates when `true`.
         Default is `false`.
-
-        [instance-replication]:
-        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-        [instance-maintenance]:
-        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-        [blue-green]:
-        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
         """
         return pulumi.get(self, "enabled")
 
@@ -969,7 +955,7 @@ class ParameterGroupParameterArgs:
                  value: pulumi.Input[str],
                  apply_method: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the DB parameter.
+        :param pulumi.Input[str] name: The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] value: The value of the DB parameter.
         :param pulumi.Input[str] apply_method: "immediate" (default), or "pending-reboot". Some
                engines can't apply some parameters without a reboot, and you will need to
@@ -984,7 +970,7 @@ class ParameterGroupParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the DB parameter.
+        The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 

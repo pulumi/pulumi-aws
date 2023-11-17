@@ -32,8 +32,6 @@ public final class BucketWebsite {
      * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied.
      * 
-     * The `CORS` object supports the following:
-     * 
      */
     private @Nullable Either<String,List<String>> routingRules;
 
@@ -62,8 +60,6 @@ public final class BucketWebsite {
     /**
      * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied.
-     * 
-     * The `CORS` object supports the following:
      * 
      */
     public Optional<Either<String,List<String>>> routingRules() {

@@ -96,8 +96,6 @@ namespace Pulumi.Aws.CleanRooms
 
         /// <summary>
         /// A reference to the AWS Glue table which will be used to create the configured table.
-        /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-        /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         /// </summary>
         [Output("tableReference")]
         public Output<Outputs.ConfiguredTableTableReference> TableReference { get; private set; } = null!;
@@ -199,8 +197,6 @@ namespace Pulumi.Aws.CleanRooms
 
         /// <summary>
         /// A reference to the AWS Glue table which will be used to create the configured table.
-        /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-        /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         /// </summary>
         [Input("tableReference", required: true)]
         public Input<Inputs.ConfiguredTableTableReferenceArgs> TableReference { get; set; } = null!;
@@ -269,8 +265,6 @@ namespace Pulumi.Aws.CleanRooms
 
         /// <summary>
         /// A reference to the AWS Glue table which will be used to create the configured table.
-        /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-        /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         /// </summary>
         [Input("tableReference")]
         public Input<Inputs.ConfiguredTableTableReferenceGetArgs>? TableReference { get; set; }

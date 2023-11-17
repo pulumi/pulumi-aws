@@ -32,14 +32,14 @@ public final class RecordingConfigurationThumbnailConfigurationArgs extends com.
     }
 
     /**
-     * The targeted thumbnail-generation interval in seconds.
+     * (Configurable [and required] only if `recording_mode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
      * 
      */
     @Import(name="targetIntervalSeconds")
     private @Nullable Output<Integer> targetIntervalSeconds;
 
     /**
-     * @return The targeted thumbnail-generation interval in seconds.
+     * @return (Configurable [and required] only if `recording_mode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
      * 
      */
     public Optional<Output<Integer>> targetIntervalSeconds() {
@@ -93,7 +93,7 @@ public final class RecordingConfigurationThumbnailConfigurationArgs extends com.
         }
 
         /**
-         * @param targetIntervalSeconds The targeted thumbnail-generation interval in seconds.
+         * @param targetIntervalSeconds (Configurable [and required] only if `recording_mode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RecordingConfigurationThumbnailConfigurationArgs extends com.
         }
 
         /**
-         * @param targetIntervalSeconds The targeted thumbnail-generation interval in seconds.
+         * @param targetIntervalSeconds (Configurable [and required] only if `recording_mode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
          * 
          * @return builder
          * 

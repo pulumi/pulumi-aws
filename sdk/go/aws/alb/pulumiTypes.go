@@ -180,9 +180,9 @@ func (o ListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) ListenerDefau
 }
 
 type ListenerDefaultActionAuthenticateCognito struct {
-	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+	// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
 	// Set of user claims to be requested from the IdP.
 	Scope *string `pulumi:"scope"`
@@ -212,9 +212,9 @@ type ListenerDefaultActionAuthenticateCognitoInput interface {
 }
 
 type ListenerDefaultActionAuthenticateCognitoArgs struct {
-	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+	// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
 	// Set of user claims to be requested from the IdP.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
@@ -309,14 +309,14 @@ func (o ListenerDefaultActionAuthenticateCognitoOutput) ToListenerDefaultActionA
 	}).(ListenerDefaultActionAuthenticateCognitoPtrOutput)
 }
 
-// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) map[string]string {
 		return v.AuthenticationRequestExtraParams
 	}).(pulumi.StringMapOutput)
 }
 
-// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 func (o ListenerDefaultActionAuthenticateCognitoOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
@@ -377,7 +377,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) Elem() ListenerDefaul
 	}).(ListenerDefaultActionAuthenticateCognitoOutput)
 }
 
-// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) map[string]string {
 		if v == nil {
@@ -387,7 +387,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) AuthenticationRequest
 	}).(pulumi.StringMapOutput)
 }
 
-// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *string {
 		if v == nil {
@@ -4512,9 +4512,9 @@ type TargetGroupHealthCheck struct {
 	HealthyThreshold *int `pulumi:"healthyThreshold"`
 	// Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
 	Interval *int `pulumi:"interval"`
-	// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+	// (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
 	Matcher *string `pulumi:"matcher"`
-	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+	// (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 	Path *string `pulumi:"path"`
 	// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
 	Port *string `pulumi:"port"`
@@ -4544,9 +4544,9 @@ type TargetGroupHealthCheckArgs struct {
 	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
 	// Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+	// (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
 	Matcher pulumi.StringPtrInput `pulumi:"matcher"`
-	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+	// (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
 	Port pulumi.StringPtrInput `pulumi:"port"`
@@ -4650,12 +4650,12 @@ func (o TargetGroupHealthCheckOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+// (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
 func (o TargetGroupHealthCheckOutput) Matcher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Matcher }).(pulumi.StringPtrOutput)
 }
 
-// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+// (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 func (o TargetGroupHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -4734,7 +4734,7 @@ func (o TargetGroupHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+// (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
 func (o TargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4744,7 +4744,7 @@ func (o TargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+// (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 func (o TargetGroupHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {

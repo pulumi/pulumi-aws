@@ -604,11 +604,11 @@ export namespace alb {
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
@@ -1090,11 +1090,11 @@ export namespace alb {
          */
         interval?: pulumi.Input<number>;
         /**
-         * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+         * (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          */
         matcher?: pulumi.Input<string>;
         /**
-         * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          */
         path?: pulumi.Input<string>;
         /**
@@ -1723,7 +1723,7 @@ export namespace appautoscaling {
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
         /**
-         * Dimensions of the metric.
+         * Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
          */
         dimensions?: pulumi.Input<pulumi.Input<inputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension>[]>;
         /**
@@ -1743,14 +1743,14 @@ export namespace appautoscaling {
          */
         statistic?: pulumi.Input<string>;
         /**
-         * Unit of the metrics to return.
+         * Unit of the metric.
          */
         unit?: pulumi.Input<string>;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
         /**
-         * Name of the policy. Must be between 1 and 255 characters in length.
+         * Name of the dimension.
          */
         name: pulumi.Input<string>;
         /**
@@ -1814,7 +1814,7 @@ export namespace appautoscaling {
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension {
         /**
-         * Name of the policy. Must be between 1 and 255 characters in length.
+         * Name of the dimension.
          */
         name: pulumi.Input<string>;
         /**
@@ -2131,7 +2131,7 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics {
         /**
-         * The access token used to access the connector on your behalf.
+         * The credentials used to access protected Google Analytics resources.
          */
         accessToken?: pulumi.Input<string>;
         /**
@@ -2143,11 +2143,11 @@ export namespace appflow {
          */
         clientSecret: pulumi.Input<string>;
         /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
          */
         oauthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest>;
         /**
-         * The refresh token used to refresh an expired access token.
+         * The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
          */
         refreshToken?: pulumi.Input<string>;
     }
@@ -2165,15 +2165,15 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode {
         /**
-         * The access token used to access the connector on your behalf.
+         * The credentials used to access protected Google Analytics resources.
          */
         accessToken?: pulumi.Input<string>;
         /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
          */
         oauthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest>;
         /**
-         * The refresh token used to refresh an expired access token.
+         * The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
          */
         refreshToken?: pulumi.Input<string>;
     }
@@ -2210,7 +2210,7 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo {
         /**
-         * The access token used to access the connector on your behalf.
+         * The credentials used to access protected Google Analytics resources.
          */
         accessToken?: pulumi.Input<string>;
         /**
@@ -2222,7 +2222,7 @@ export namespace appflow {
          */
         clientSecret: pulumi.Input<string>;
         /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
          */
         oauthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest>;
     }
@@ -2251,7 +2251,7 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
         /**
-         * The access token used to access the connector on your behalf.
+         * The credentials used to access protected Google Analytics resources.
          */
         accessToken?: pulumi.Input<string>;
         /**
@@ -2267,11 +2267,11 @@ export namespace appflow {
          */
         oauth2GrantType?: pulumi.Input<string>;
         /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
          */
         oauthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest>;
         /**
-         * The refresh token used to refresh an expired access token.
+         * The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
          */
         refreshToken?: pulumi.Input<string>;
     }
@@ -2311,7 +2311,7 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials {
         /**
-         * The access token used to access the connector on your behalf.
+         * The access token used to access protected SAPOData resources.
          */
         accessToken?: pulumi.Input<string>;
         /**
@@ -2323,11 +2323,11 @@ export namespace appflow {
          */
         clientSecret: pulumi.Input<string>;
         /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
          */
         oauthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest>;
         /**
-         * The refresh token used to refresh an expired access token.
+         * The refresh token used to refresh expired access token.
          */
         refreshToken?: pulumi.Input<string>;
     }
@@ -2363,7 +2363,7 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack {
         /**
-         * The access token used to access the connector on your behalf.
+         * The credentials used to access protected Google Analytics resources.
          */
         accessToken?: pulumi.Input<string>;
         /**
@@ -2375,7 +2375,7 @@ export namespace appflow {
          */
         clientSecret: pulumi.Input<string>;
         /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
          */
         oauthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest>;
     }
@@ -2422,7 +2422,7 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk {
         /**
-         * The access token used to access the connector on your behalf.
+         * The credentials used to access protected Google Analytics resources.
          */
         accessToken?: pulumi.Input<string>;
         /**
@@ -2434,7 +2434,7 @@ export namespace appflow {
          */
         clientSecret: pulumi.Input<string>;
         /**
-         * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
          */
         oauthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest>;
     }
@@ -3660,7 +3660,7 @@ export namespace appmesh {
          */
         action: pulumi.Input<inputs.appmesh.GatewayRouteSpecGrpcRouteAction>;
         /**
-         * Criteria for determining a request match.
+         * Method and value to match the header value sent with a request. Specify one match method.
          */
         match: pulumi.Input<inputs.appmesh.GatewayRouteSpecGrpcRouteMatch>;
     }
@@ -3707,7 +3707,7 @@ export namespace appmesh {
          */
         action: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttp2RouteAction>;
         /**
-         * Criteria for determining a request match.
+         * Method and value to match the header value sent with a request. Specify one match method.
          */
         match: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttp2RouteMatch>;
     }
@@ -3825,7 +3825,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchHeaderMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact query parameter to match on.
          */
         exact?: pulumi.Input<string>;
         /**
@@ -3852,7 +3852,7 @@ export namespace appmesh {
          */
         end: pulumi.Input<number>;
         /**
-         * Start of the range.
+         * (Requited) Start of the range.
          */
         start: pulumi.Input<number>;
     }
@@ -3892,7 +3892,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact query parameter to match on.
          */
         exact?: pulumi.Input<string>;
     }
@@ -3903,7 +3903,7 @@ export namespace appmesh {
          */
         action: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttpRouteAction>;
         /**
-         * Criteria for determining a request match.
+         * Method and value to match the header value sent with a request. Specify one match method.
          */
         match: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttpRouteMatch>;
     }
@@ -4021,7 +4021,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact query parameter to match on.
          */
         exact?: pulumi.Input<string>;
         /**
@@ -4048,7 +4048,7 @@ export namespace appmesh {
          */
         end: pulumi.Input<number>;
         /**
-         * Start of the range.
+         * (Requited) Start of the range.
          */
         start: pulumi.Input<number>;
     }
@@ -4088,7 +4088,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact query parameter to match on.
          */
         exact?: pulumi.Input<string>;
     }
@@ -4214,7 +4214,7 @@ export namespace appmesh {
 
     export interface RouteSpecGrpcRouteMatchMetadataMatch {
         /**
-         * The exact path to match on.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: pulumi.Input<string>;
         /**
@@ -4226,7 +4226,7 @@ export namespace appmesh {
          */
         range?: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteMatchMetadataMatchRange>;
         /**
-         * The regex used to match the path.
+         * Header value sent by the client must include the specified characters.
          */
         regex?: pulumi.Input<string>;
         /**
@@ -4241,7 +4241,7 @@ export namespace appmesh {
          */
         end: pulumi.Input<number>;
         /**
-         * Start of the range.
+         * (Requited) Start of the range.
          */
         start: pulumi.Input<number>;
     }
@@ -4267,6 +4267,8 @@ export namespace appmesh {
         perRetryTimeout: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout>;
         /**
          * List of TCP retry events. The only valid value is `connection-error`.
+         *
+         * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          */
         tcpRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -4405,7 +4407,7 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteMatchHeaderMatch {
         /**
-         * The exact path to match on.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: pulumi.Input<string>;
         /**
@@ -4417,7 +4419,7 @@ export namespace appmesh {
          */
         range?: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteMatchHeaderMatchRange>;
         /**
-         * The regex used to match the path.
+         * Header value sent by the client must include the specified characters.
          */
         regex?: pulumi.Input<string>;
         /**
@@ -4432,36 +4434,36 @@ export namespace appmesh {
          */
         end: pulumi.Input<number>;
         /**
-         * Start of the range.
+         * (Requited) Start of the range.
          */
         start: pulumi.Input<number>;
     }
 
     export interface RouteSpecHttp2RouteMatchPath {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact path to match on.
          */
         exact?: pulumi.Input<string>;
         /**
-         * Header value sent by the client must include the specified characters.
+         * The regex used to match the path.
          */
         regex?: pulumi.Input<string>;
     }
 
     export interface RouteSpecHttp2RouteMatchQueryParameter {
         /**
-         * Criteria for determining an gRPC request match.
+         * The query parameter to match on.
          */
         match?: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteMatchQueryParameterMatch>;
         /**
-         * Name to use for the route. Must be between 1 and 255 characters in length.
+         * Name for the query parameter that will be matched on.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RouteSpecHttp2RouteMatchQueryParameterMatch {
         /**
-         * The exact path to match on.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: pulumi.Input<string>;
     }
@@ -4482,6 +4484,8 @@ export namespace appmesh {
         perRetryTimeout: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout>;
         /**
          * List of TCP retry events. The only valid value is `connection-error`.
+         *
+         * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          */
         tcpRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -4620,7 +4624,7 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * The exact path to match on.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: pulumi.Input<string>;
         /**
@@ -4632,7 +4636,7 @@ export namespace appmesh {
          */
         range?: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange>;
         /**
-         * The regex used to match the path.
+         * Header value sent by the client must include the specified characters.
          */
         regex?: pulumi.Input<string>;
         /**
@@ -4647,36 +4651,36 @@ export namespace appmesh {
          */
         end: pulumi.Input<number>;
         /**
-         * Start of the range.
+         * (Requited) Start of the range.
          */
         start: pulumi.Input<number>;
     }
 
     export interface RouteSpecHttpRouteMatchPath {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * The exact path to match on.
          */
         exact?: pulumi.Input<string>;
         /**
-         * Header value sent by the client must include the specified characters.
+         * The regex used to match the path.
          */
         regex?: pulumi.Input<string>;
     }
 
     export interface RouteSpecHttpRouteMatchQueryParameter {
         /**
-         * Criteria for determining an gRPC request match.
+         * The query parameter to match on.
          */
         match?: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchQueryParameterMatch>;
         /**
-         * Name to use for the route. Must be between 1 and 255 characters in length.
+         * Name for the query parameter that will be matched on.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RouteSpecHttpRouteMatchQueryParameterMatch {
         /**
-         * The exact path to match on.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: pulumi.Input<string>;
     }
@@ -4697,6 +4701,8 @@ export namespace appmesh {
         perRetryTimeout: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeout>;
         /**
          * List of TCP retry events. The only valid value is `connection-error`.
+         *
+         * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          */
         tcpRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -4994,8 +5000,6 @@ export namespace appmesh {
         maxConnections: pulumi.Input<number>;
         /**
          * Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-         *
-         * The `http2` connection pool object supports the following:
          */
         maxPendingRequests?: pulumi.Input<number>;
     }
@@ -5541,8 +5545,6 @@ export namespace appmesh {
         maxConnections: pulumi.Input<number>;
         /**
          * Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-         *
-         * The `http2` connection pool object supports the following:
          */
         maxPendingRequests?: pulumi.Input<number>;
     }
@@ -7445,11 +7447,11 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: pulumi.Input<number>;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: pulumi.Input<number>;
     }
@@ -7489,11 +7491,11 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: pulumi.Input<number>;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: pulumi.Input<number>;
     }
@@ -9337,15 +9339,15 @@ export namespace chimesdkmediapipelines {
          */
         postCallAnalyticsSettings?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings>;
         /**
-         * Method for applying a vocabulary filter to Transcript events.
+         * Method for applying a vocabulary filter to Utterance events.
          */
         vocabularyFilterMethod?: pulumi.Input<string>;
         /**
-         * Name of the custom vocabulary filter to use when processing Transcript events.
+         * Name of the custom vocabulary filter to use when processing Utterance events.
          */
         vocabularyFilterName?: pulumi.Input<string>;
         /**
-         * Name of the custom vocabulary to use when processing Transcript events.
+         * Name of the custom vocabulary to use when processing Utterance events.
          */
         vocabularyName?: pulumi.Input<string>;
     }
@@ -9422,14 +9424,14 @@ export namespace chimesdkmediapipelines {
 
     export interface MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration {
         /**
-         * SQS queue to deliver results.
+         * Kinesis Data Stream to deliver results.
          */
         insightsTarget: pulumi.Input<string>;
     }
 
     export interface MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration {
         /**
-         * SQS queue to deliver results.
+         * Lambda Function to deliver results.
          */
         insightsTarget: pulumi.Input<string>;
     }
@@ -9443,7 +9445,7 @@ export namespace chimesdkmediapipelines {
 
     export interface MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration {
         /**
-         * SQS queue to deliver results.
+         * SNS topic to deliver results.
          */
         insightsTarget: pulumi.Input<string>;
     }
@@ -9536,21 +9538,52 @@ export namespace chimesdkmediapipelines {
 
 export namespace cleanrooms {
     export interface CollaborationDataEncryptionMetadata {
+        /**
+         * Indicates whether encrypted tables can contain cleartext data. This is a boolea
+         * field.
+         */
         allowClearText: pulumi.Input<boolean>;
+        /**
+         * Indicates whether Fingerprint columns can contain duplicate entries. This is a
+         * boolean field.
+         */
         allowDuplicates: pulumi.Input<boolean>;
+        /**
+         * Indicates whether Fingerprint columns can be joined
+         * n any other Fingerprint column with a different name. This is a boolean field.
+         */
         allowJoinsOnColumnsWithDifferentNames: pulumi.Input<boolean>;
+        /**
+         * Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+         * or cryptographically processed (false).
+         */
         preserveNulls: pulumi.Input<boolean>;
     }
 
     export interface CollaborationMember {
+        /**
+         * The account id for the invited member.
+         */
         accountId: pulumi.Input<string>;
+        /**
+         * The display name for the invited member.
+         */
         displayName: pulumi.Input<string>;
+        /**
+         * The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+         */
         memberAbilities: pulumi.Input<pulumi.Input<string>[]>;
         status?: pulumi.Input<string>;
     }
 
     export interface ConfiguredTableTableReference {
+        /**
+         * The name of the AWS Glue database which contains the table.
+         */
         databaseName: pulumi.Input<string>;
+        /**
+         * The name of the AWS Glue table which will be used to create the configured table.
+         */
         tableName: pulumi.Input<string>;
     }
 }
@@ -10911,17 +10944,8 @@ export namespace cloudwatch {
     }
 
     export interface EventConnectionAuthParametersInvocationHttpParameters {
-        /**
-         * Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         */
         bodies?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBody>[]>;
-        /**
-         * Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         */
         headers?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeader>[]>;
-        /**
-         * Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryString>[]>;
     }
 
@@ -10931,11 +10955,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: pulumi.Input<boolean>;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: pulumi.Input<string>;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: pulumi.Input<string>;
     }
@@ -10946,11 +10970,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: pulumi.Input<boolean>;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: pulumi.Input<string>;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: pulumi.Input<string>;
     }
@@ -10961,11 +10985,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: pulumi.Input<boolean>;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: pulumi.Input<string>;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: pulumi.Input<string>;
     }
@@ -11001,17 +11025,8 @@ export namespace cloudwatch {
     }
 
     export interface EventConnectionAuthParametersOauthOauthHttpParameters {
-        /**
-         * Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         */
         bodies?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBody>[]>;
-        /**
-         * Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         */
         headers?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeader>[]>;
-        /**
-         * Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryString>[]>;
     }
 
@@ -11021,11 +11036,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: pulumi.Input<boolean>;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: pulumi.Input<string>;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: pulumi.Input<string>;
     }
@@ -11036,11 +11051,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: pulumi.Input<boolean>;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: pulumi.Input<string>;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: pulumi.Input<string>;
     }
@@ -11051,11 +11066,11 @@ export namespace cloudwatch {
          */
         isValueSecret?: pulumi.Input<boolean>;
         /**
-         * Header Name.
+         * The key for the parameter.
          */
         key?: pulumi.Input<string>;
         /**
-         * Header Value. Created and stored in AWS Secrets Manager.
+         * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
          */
         value?: pulumi.Input<string>;
     }
@@ -12183,8 +12198,6 @@ export namespace codecatalyst {
     export interface DevEnvironmentRepository {
         /**
          * The name of the branch in a source repository.
-         *
-         * persistent storage (` persistentStorage`) supports the following:
          */
         branchName?: pulumi.Input<string>;
         /**
@@ -16467,7 +16480,6 @@ export namespace dms {
         multiAz?: pulumi.Input<boolean>;
         /**
          * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-         *
          * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
          * - Format: `ddd:hh24:mi-ddd:hh24:mi`
          * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
@@ -16492,7 +16504,7 @@ export namespace docdb {
          */
         applyMethod?: pulumi.Input<string>;
         /**
-         * The name of the DocumentDB parameter.
+         * The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
          */
         name: pulumi.Input<string>;
         /**
@@ -17423,88 +17435,88 @@ export namespace ec2 {
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
          */
         max?: pulumi.Input<number>;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
          */
         min?: pulumi.Input<number>;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
          */
         max?: pulumi.Input<number>;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
          */
         min?: pulumi.Input<number>;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
          */
         max?: pulumi.Input<number>;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
          */
         min?: pulumi.Input<number>;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
          */
         max?: pulumi.Input<number>;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
          */
         min?: pulumi.Input<number>;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
          */
         max?: pulumi.Input<number>;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
          */
         min: pulumi.Input<number>;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
          */
         max?: pulumi.Input<number>;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
          */
         min?: pulumi.Input<number>;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
          */
         max?: pulumi.Input<number>;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
          */
         min?: pulumi.Input<number>;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
         /**
-         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
          */
         max?: pulumi.Input<number>;
         /**
-         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
          */
         min?: pulumi.Input<number>;
     }
@@ -19522,11 +19534,11 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: pulumi.Input<number>;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: pulumi.Input<number>;
     }
@@ -19566,11 +19578,11 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: pulumi.Input<number>;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: pulumi.Input<number>;
     }
@@ -20853,7 +20865,7 @@ export namespace ec2 {
          */
         cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Description of this ingress rule.
+         * Description of this egress rule.
          */
         description?: pulumi.Input<string>;
         /**
@@ -20881,7 +20893,7 @@ export namespace ec2 {
          */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Whether the security group itself will be added as a source to this ingress rule.
+         * Whether the security group itself will be added as a source to this egress rule.
          */
         self?: pulumi.Input<boolean>;
         /**
@@ -21183,11 +21195,11 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: pulumi.Input<number>;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: pulumi.Input<number>;
     }
@@ -21227,11 +21239,11 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
         /**
-         * Maximum.
+         * Maximum. May be a decimal number, e.g. `0.5`.
          */
         max?: pulumi.Input<number>;
         /**
-         * Minimum.
+         * Minimum. May be a decimal number, e.g. `0.5`.
          */
         min?: pulumi.Input<number>;
     }
@@ -23255,10 +23267,11 @@ export namespace eks {
         ipFamily?: pulumi.Input<string>;
         /**
          * The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
-         *
          * * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
          *
+         *
          * * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+         *
          *
          * * Between /24 and /12.
          */
@@ -23269,10 +23282,11 @@ export namespace eks {
     export interface ClusterOutpostConfig {
         /**
          * The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-         *
          * * 1–20 nodes, then we recommend specifying a large instance type.
          *
+         *
          * * 21–100 nodes, then we recommend specifying an xlarge instance type.
+         *
          *
          * * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
          *
@@ -23519,7 +23533,7 @@ export namespace elasticache {
 
     export interface ParameterGroupParameter {
         /**
-         * The name of the ElastiCache parameter.
+         * The name of the ElastiCache parameter group.
          */
         name: pulumi.Input<string>;
         /**
@@ -25370,7 +25384,7 @@ export namespace finspace {
 
     export interface KxClusterCacheStorageConfiguration {
         /**
-         * Size of cache in Gigabytes.
+         * Size of temporary storage in gigabytes. Must be between 10 and 16000.
          */
         size: pulumi.Input<number>;
         /**
@@ -25462,7 +25476,6 @@ export namespace finspace {
         ipAddressType: pulumi.Input<string>;
         /**
          * Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * `subnetIds `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
          */
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
@@ -25815,7 +25828,7 @@ export namespace fsx {
         fileSystemPath?: pulumi.Input<string>;
         importedFileChunkSize?: pulumi.Input<number>;
         /**
-         * (Optional) See the `nfs` configuration block.
+         * See the `nfs` configuration block.
          */
         nfs?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheDataRepositoryAssociationNf>[]>;
         resourceArn?: pulumi.Input<string>;
@@ -29360,6 +29373,8 @@ export namespace iot {
         roleArn: pulumi.Input<string>;
         /**
          * The name of the DynamoDB table.
+         *
+         * The `dynamodbv2` object takes the following arguments:
          */
         tableName: pulumi.Input<string>;
     }
@@ -29370,7 +29385,7 @@ export namespace iot {
          */
         putItem?: pulumi.Input<inputs.iot.TopicRuleDynamodbv2PutItem>;
         /**
-         * The IAM role ARN that allows access to the CloudWatch alarm.
+         * The ARN of the role that grants permission to write to the Amazon Timestream database table.
          */
         roleArn: pulumi.Input<string>;
     }
@@ -29523,6 +29538,8 @@ export namespace iot {
         roleArn: pulumi.Input<string>;
         /**
          * The name of the DynamoDB table.
+         *
+         * The `dynamodbv2` object takes the following arguments:
          */
         tableName: pulumi.Input<string>;
     }
@@ -29533,7 +29550,7 @@ export namespace iot {
          */
         putItem?: pulumi.Input<inputs.iot.TopicRuleErrorActionDynamodbv2PutItem>;
         /**
-         * The IAM role ARN that allows access to the CloudWatch alarm.
+         * The ARN of the role that grants permission to write to the Amazon Timestream database table.
          */
         roleArn: pulumi.Input<string>;
     }
@@ -29661,7 +29678,7 @@ export namespace iot {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleErrorActionKafkaHeader>[]>;
         /**
-         * The Kafka message key.
+         * The object key.
          */
         key?: pulumi.Input<string>;
         /**
@@ -29676,7 +29693,7 @@ export namespace iot {
 
     export interface TopicRuleErrorActionKafkaHeader {
         /**
-         * The name of the HTTP header.
+         * The object key.
          */
         key: pulumi.Input<string>;
         /**
@@ -29734,11 +29751,11 @@ export namespace iot {
          */
         cannedAcl?: pulumi.Input<string>;
         /**
-         * The name of the HTTP header.
+         * The object key.
          */
         key: pulumi.Input<string>;
         /**
-         * The IAM role ARN that allows access to the CloudWatch alarm.
+         * The ARN of the role that grants permission to write to the Amazon Timestream database table.
          */
         roleArn: pulumi.Input<string>;
     }
@@ -29828,7 +29845,7 @@ export namespace iot {
          */
         unit: pulumi.Input<string>;
         /**
-         * The value of the HTTP header.
+         * An expression that returns a long epoch time value.
          */
         value: pulumi.Input<string>;
     }
@@ -29926,7 +29943,7 @@ export namespace iot {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafkaHeader>[]>;
         /**
-         * The Kafka message key.
+         * The object key.
          */
         key?: pulumi.Input<string>;
         /**
@@ -29941,7 +29958,7 @@ export namespace iot {
 
     export interface TopicRuleKafkaHeader {
         /**
-         * The name of the HTTP header.
+         * The object key.
          */
         key: pulumi.Input<string>;
         /**
@@ -29999,11 +30016,11 @@ export namespace iot {
          */
         cannedAcl?: pulumi.Input<string>;
         /**
-         * The name of the HTTP header.
+         * The object key.
          */
         key: pulumi.Input<string>;
         /**
-         * The IAM role ARN that allows access to the CloudWatch alarm.
+         * The ARN of the role that grants permission to write to the Amazon Timestream database table.
          */
         roleArn: pulumi.Input<string>;
     }
@@ -30093,7 +30110,7 @@ export namespace iot {
          */
         unit: pulumi.Input<string>;
         /**
-         * The value of the HTTP header.
+         * An expression that returns a long epoch time value.
          */
         value: pulumi.Input<string>;
     }
@@ -30122,7 +30139,7 @@ export namespace ivs {
          */
         recordingMode?: pulumi.Input<string>;
         /**
-         * The targeted thumbnail-generation interval in seconds.
+         * (Configurable [and required] only if `recordingMode` is `INTERVAL`) - The targeted thumbnail-generation interval in seconds.
          */
         targetIntervalSeconds?: pulumi.Input<number>;
     }
@@ -31489,7 +31506,7 @@ export namespace kinesis {
          */
         s3BackupConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration>;
         /**
-         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
          */
         s3BackupMode?: pulumi.Input<string>;
     }
@@ -32783,8 +32800,6 @@ export namespace kinesisanalyticsv2 {
         s3ContentLocation?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation>;
         /**
          * The text-format code for the application.
-         *
-         * The `s3ContentLocation` object supports the following:
          */
         textContent?: pulumi.Input<string>;
     }
@@ -32855,9 +32870,6 @@ export namespace kinesisanalyticsv2 {
         checkpointingEnabled?: pulumi.Input<boolean>;
         /**
          * Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-         * * `checkpointingEnabled = true`
-         * * `checkpointInterval = 60000`
-         * * `minPauseBetweenCheckpoints = 5000`
          */
         configurationType: pulumi.Input<string>;
         /**
@@ -33165,8 +33177,6 @@ export namespace kinesisanalyticsv2 {
         recordColumns: pulumi.Input<pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn>[]>;
         /**
          * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-         *
-         * The `s3ReferenceDataSource` object supports the following:
          */
         recordEncoding?: pulumi.Input<string>;
         /**
@@ -33381,7 +33391,7 @@ export namespace lakeformation {
          */
         arn: string;
         /**
-         * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
         catalogId?: string;
     }
@@ -33394,7 +33404,7 @@ export namespace lakeformation {
          */
         arn: pulumi.Input<string>;
         /**
-         * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
         catalogId?: pulumi.Input<string>;
     }
@@ -33623,7 +33633,7 @@ export namespace lakeformation {
          */
         arn: pulumi.Input<string>;
         /**
-         * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
         catalogId?: pulumi.Input<string>;
     }
@@ -34093,11 +34103,11 @@ export namespace lb {
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+         * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
         onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
@@ -34579,11 +34589,11 @@ export namespace lb {
          */
         interval?: pulumi.Input<number>;
         /**
-         * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+         * (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
          */
         matcher?: pulumi.Input<string>;
         /**
-         * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          */
         path?: pulumi.Input<string>;
         /**
@@ -35855,8 +35865,6 @@ export namespace macie2 {
         dailySchedule?: pulumi.Input<boolean>;
         /**
          * Specifies a monthly recurrence pattern for running the job.
-         *
-         * The `s3JobDefinition` object supports the following:
          */
         monthlySchedule?: pulumi.Input<number>;
         /**
@@ -39404,7 +39412,7 @@ export namespace mwaa {
 
     export interface EnvironmentLoggingConfiguration {
         /**
-         * (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+         * Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
          */
         dagProcessingLogs?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationDagProcessingLogs>;
         /**
@@ -39504,7 +39512,7 @@ export namespace neptune {
          */
         applyMethod?: pulumi.Input<string>;
         /**
-         * The name of the neptune parameter.
+         * The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
          */
         name: pulumi.Input<string>;
         /**
@@ -39515,11 +39523,11 @@ export namespace neptune {
 
     export interface ClusterServerlessV2ScalingConfiguration {
         /**
-         * The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+         * (default: **128**) The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
          */
         maxCapacity?: pulumi.Input<number>;
         /**
-         * The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+         * (default: **2.5**) The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
          */
         minCapacity?: pulumi.Input<number>;
     }
@@ -39541,7 +39549,7 @@ export namespace neptune {
          */
         applyMethod?: pulumi.Input<string>;
         /**
-         * The name of the Neptune parameter.
+         * The name of the Neptune parameter group.
          */
         name: pulumi.Input<string>;
         /**
@@ -44729,7 +44737,7 @@ export namespace rds {
          */
         applyMethod?: pulumi.Input<string>;
         /**
-         * The name of the DB parameter.
+         * The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
          */
         name: pulumi.Input<string>;
         /**
@@ -44891,13 +44899,6 @@ export namespace rds {
         /**
          * Enables low-downtime updates when `true`.
          * Default is `false`.
-         *
-         * [instance-replication]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-         * [instance-maintenance]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-         * [blue-green]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
          */
         enabled?: pulumi.Input<boolean>;
     }
@@ -45027,7 +45028,7 @@ export namespace rds {
          */
         applyMethod?: pulumi.Input<string>;
         /**
-         * The name of the DB parameter.
+         * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
          */
         name: pulumi.Input<string>;
         /**
@@ -46367,8 +46368,6 @@ export namespace s3 {
     export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
         /**
          * Analytics data export currently only supports an S3 bucket destination (documented below).
-         *
-         * The `s3BucketDestination` configuration supports the following:
          */
         s3BucketDestination: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination>;
     }
@@ -47780,8 +47779,6 @@ export namespace s3 {
         /**
          * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
-         *
-         * The `CORS` object supports the following:
          */
         routingRules?: pulumi.Input<string | pulumi.Input<RoutingRule>[]>;
     }
@@ -54906,7 +54903,6 @@ export namespace vpclattice {
         healthCheckIntervalSeconds?: pulumi.Input<number>;
         /**
          * The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-         * * `healthyThresholdCount ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
          */
         healthCheckTimeoutSeconds?: pulumi.Input<number>;
         healthyThresholdCount?: pulumi.Input<number>;
@@ -55243,16 +55239,14 @@ export namespace waf {
 
     export interface WebAclRuleAction {
         /**
-         * Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-         * e.g., `ALLOW` or `BLOCK`
+         * The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface WebAclRuleOverrideAction {
         /**
-         * Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-         * e.g., `ALLOW` or `BLOCK`
+         * valid values are: `NONE` or `COUNT`
          */
         type: pulumi.Input<string>;
     }
@@ -55960,7 +55954,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -56498,7 +56492,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -56773,7 +56767,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -56975,7 +56969,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -57181,7 +57175,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -57379,7 +57373,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -57577,7 +57571,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -57779,7 +57773,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -57981,7 +57975,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -58187,7 +58181,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -58385,7 +58379,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }
@@ -58583,7 +58577,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchBody {
         /**
-         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
          */
         oversizeHandling?: pulumi.Input<string>;
     }

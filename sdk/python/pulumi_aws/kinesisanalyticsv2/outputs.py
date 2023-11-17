@@ -251,8 +251,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
         """
         :param 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs' s3_content_location: Information about the Amazon S3 bucket containing the application code.
         :param str text_content: The text-format code for the application.
-               
-               The `s3_content_location` object supports the following:
         """
         if s3_content_location is not None:
             pulumi.set(__self__, "s3_content_location", s3_content_location)
@@ -272,8 +270,6 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
     def text_content(self) -> Optional[str]:
         """
         The text-format code for the application.
-
-        The `s3_content_location` object supports the following:
         """
         return pulumi.get(self, "text_content")
 
@@ -554,9 +550,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
                  min_pause_between_checkpoints: Optional[int] = None):
         """
         :param str configuration_type: Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-               * `checkpointing_enabled = true`
-               * `checkpoint_interval = 60000`
-               * `min_pause_between_checkpoints = 5000`
         :param int checkpoint_interval: Describes the interval in milliseconds between checkpoint operations.
         :param bool checkpointing_enabled: Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
         :param int min_pause_between_checkpoints: Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
@@ -574,9 +567,6 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
     def configuration_type(self) -> str:
         """
         Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-        * `checkpointing_enabled = true`
-        * `checkpoint_interval = 60000`
-        * `min_pause_between_checkpoints = 5000`
         """
         return pulumi.get(self, "configuration_type")
 
@@ -1915,8 +1905,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs'] record_columns: Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
         :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs' record_format: Specifies the format of the records on the streaming source.
         :param str record_encoding: Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-               
-               The `s3_reference_data_source` object supports the following:
         """
         pulumi.set(__self__, "record_columns", record_columns)
         pulumi.set(__self__, "record_format", record_format)
@@ -1944,8 +1932,6 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
     def record_encoding(self) -> Optional[str]:
         """
         Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-
-        The `s3_reference_data_source` object supports the following:
         """
         return pulumi.get(self, "record_encoding")
 

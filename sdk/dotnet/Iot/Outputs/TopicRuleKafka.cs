@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleKafkaHeader> Headers;
         /// <summary>
-        /// The Kafka message key.
+        /// The object key.
         /// </summary>
         public readonly string? Key;
         /// <summary>

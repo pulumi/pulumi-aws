@@ -17,7 +17,7 @@ public final class ClusterParameterGroupParameter {
      */
     private @Nullable String applyMethod;
     /**
-     * @return The name of the neptune parameter.
+     * @return The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     private String name;
@@ -36,7 +36,7 @@ public final class ClusterParameterGroupParameter {
         return Optional.ofNullable(this.applyMethod);
     }
     /**
-     * @return The name of the neptune parameter.
+     * @return The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     public String name() {

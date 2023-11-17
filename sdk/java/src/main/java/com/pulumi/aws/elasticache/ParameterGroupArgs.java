@@ -50,14 +50,14 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the ElastiCache parameter.
+     * The name of the ElastiCache parameter group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the ElastiCache parameter.
+     * @return The name of the ElastiCache parameter group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -165,7 +165,7 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the ElastiCache parameter.
+         * @param name The name of the ElastiCache parameter group.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the ElastiCache parameter.
+         * @param name The name of the ElastiCache parameter group.
          * 
          * @return builder
          * 

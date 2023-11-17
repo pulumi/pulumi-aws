@@ -97,14 +97,14 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      * 
      */
     @Import(name="firewallPolicyChangeProtection")
     private @Nullable Output<Boolean> firewallPolicyChangeProtection;
 
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * @return (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> firewallPolicyChangeProtection() {
@@ -382,7 +382,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallPolicyChangeProtection A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+         * @param firewallPolicyChangeProtection (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallPolicyChangeProtection A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+         * @param firewallPolicyChangeProtection (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Neptune.Outputs
         /// </summary>
         public readonly string? ApplyMethod;
         /// <summary>
-        /// The name of the neptune parameter.
+        /// The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         public readonly string Name;
         /// <summary>

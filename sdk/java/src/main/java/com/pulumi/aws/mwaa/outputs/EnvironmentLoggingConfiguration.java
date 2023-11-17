@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EnvironmentLoggingConfiguration {
     /**
-     * @return (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+     * @return Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
      * 
      */
     private @Nullable EnvironmentLoggingConfigurationDagProcessingLogs dagProcessingLogs;
@@ -43,7 +43,7 @@ public final class EnvironmentLoggingConfiguration {
 
     private EnvironmentLoggingConfiguration() {}
     /**
-     * @return (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+     * @return Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
      * 
      */
     public Optional<EnvironmentLoggingConfigurationDagProcessingLogs> dagProcessingLogs() {

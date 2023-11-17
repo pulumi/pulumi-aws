@@ -90,7 +90,7 @@ namespace Pulumi.Aws.CodeCatalyst
         public string? CreatorId { get; set; }
 
         /// <summary>
-        /// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
+        /// The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
         /// </summary>
         [Input("envId", required: true)]
         public string EnvId { get; set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.CodeCatalyst
         public Input<string>? CreatorId { get; set; }
 
         /// <summary>
-        /// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
+        /// The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
         /// </summary>
         [Input("envId", required: true)]
         public Input<string> EnvId { get; set; } = null!;

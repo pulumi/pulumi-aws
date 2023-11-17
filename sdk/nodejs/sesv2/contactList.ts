@@ -85,7 +85,7 @@ export class ContactList extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
     /**
-     * A description of what the contact list is about.
+     * A description of what the topic is about, which the contact will see.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -163,7 +163,7 @@ export interface ContactListState {
      */
     createdTimestamp?: pulumi.Input<string>;
     /**
-     * A description of what the contact list is about.
+     * A description of what the topic is about, which the contact will see.
      */
     description?: pulumi.Input<string>;
     /**
@@ -195,7 +195,7 @@ export interface ContactListArgs {
      */
     contactListName: pulumi.Input<string>;
     /**
-     * A description of what the contact list is about.
+     * A description of what the topic is about, which the contact will see.
      */
     description?: pulumi.Input<string>;
     /**

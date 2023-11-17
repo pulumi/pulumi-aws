@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Mwaa.Inputs
     public sealed class EnvironmentLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+        /// Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
         /// </summary>
         [Input("dagProcessingLogs")]
         public Input<Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs>? DagProcessingLogs { get; set; }

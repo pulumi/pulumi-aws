@@ -174,14 +174,14 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return this.family;
     }
     /**
-     * The name of the DB parameter.
+     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {

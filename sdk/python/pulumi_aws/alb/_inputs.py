@@ -197,8 +197,8 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
         :param pulumi.Input[str] user_pool_domain: Domain prefix or fully-qualified domain name of the Cognito user pool.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
-        :param pulumi.Input[str] on_unauthenticated_request: Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+        :param pulumi.Input[str] on_unauthenticated_request: Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         :param pulumi.Input[str] scope: Set of user claims to be requested from the IdP.
         :param pulumi.Input[str] session_cookie_name: Name of the cookie used to maintain session information.
         :param pulumi.Input[int] session_timeout: Maximum duration of the authentication session, in seconds.
@@ -259,7 +259,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
@@ -271,7 +271,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="onUnauthenticatedRequest")
     def on_unauthenticated_request(self) -> Optional[pulumi.Input[str]]:
         """
-        Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+        Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         """
         return pulumi.get(self, "on_unauthenticated_request")
 
@@ -1918,8 +1918,8 @@ class TargetGroupHealthCheckArgs:
         :param pulumi.Input[bool] enabled: Whether health checks are enabled. Defaults to `true`.
         :param pulumi.Input[int] healthy_threshold: Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
         :param pulumi.Input[int] interval: Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
-        :param pulumi.Input[str] matcher: Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
-        :param pulumi.Input[str] path: Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+        :param pulumi.Input[str] matcher: (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+        :param pulumi.Input[str] path: (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
         :param pulumi.Input[str] port: The port the load balancer uses when performing health checks on targets. Default is traffic-port.
         :param pulumi.Input[str] protocol: Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
         :param pulumi.Input[int] timeout: Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
@@ -1984,7 +1984,7 @@ class TargetGroupHealthCheckArgs:
     @pulumi.getter
     def matcher(self) -> Optional[pulumi.Input[str]]:
         """
-        Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+        (May be required) Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
         """
         return pulumi.get(self, "matcher")
 
@@ -1996,7 +1996,7 @@ class TargetGroupHealthCheckArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+        (May be required) Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
         """
         return pulumi.get(self, "path")
 

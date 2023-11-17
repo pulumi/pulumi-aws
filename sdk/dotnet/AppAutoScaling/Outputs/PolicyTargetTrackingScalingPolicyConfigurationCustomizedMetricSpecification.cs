@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     public sealed class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
     {
         /// <summary>
-        /// Dimensions of the metric.
+        /// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> Dimensions;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// </summary>
         public readonly string? Statistic;
         /// <summary>
-        /// Unit of the metrics to return.
+        /// Unit of the metric.
         /// </summary>
         public readonly string? Unit;
 

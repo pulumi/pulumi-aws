@@ -31,14 +31,14 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
     }
 
     /**
-     * The name of the DocumentDB parameter.
+     * The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the DocumentDB parameter.
+     * @return The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -108,7 +108,7 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of the DocumentDB parameter.
+         * @param name The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of the DocumentDB parameter.
+         * @param name The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 

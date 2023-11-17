@@ -32,8 +32,8 @@ class ListenerArgs:
                The following arguments are optional:
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
-        :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[int] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -108,7 +108,7 @@ class ListenerArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         """
         return pulumi.get(self, "port")
 
@@ -120,7 +120,7 @@ class ListenerArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         """
         return pulumi.get(self, "protocol")
 
@@ -179,8 +179,8 @@ class _ListenerState:
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
-        :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
-        :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[int] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -279,7 +279,7 @@ class _ListenerState:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         """
         return pulumi.get(self, "port")
 
@@ -291,7 +291,7 @@ class _ListenerState:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         """
         return pulumi.get(self, "protocol")
 
@@ -552,8 +552,8 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
-        :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
-        :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[int] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -840,8 +840,8 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
-        :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
-        :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[int] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -912,7 +912,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
         """
-        Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
+        Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         """
         return pulumi.get(self, "port")
 
@@ -920,7 +920,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[str]:
         """
-        Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         """
         return pulumi.get(self, "protocol")
 

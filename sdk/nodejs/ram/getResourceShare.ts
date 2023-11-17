@@ -58,7 +58,7 @@ export interface GetResourceShareArgs {
      */
     filters?: inputs.ram.GetResourceShareFilter[];
     /**
-     * Name of the tag key to filter on.
+     * Name of the resource share to retrieve.
      */
     name: string;
     /**
@@ -151,7 +151,7 @@ export interface GetResourceShareOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ram.GetResourceShareFilterArgs>[]>;
     /**
-     * Name of the tag key to filter on.
+     * Name of the resource share to retrieve.
      */
     name: pulumi.Input<string>;
     /**

@@ -182,7 +182,7 @@ type Environment struct {
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
 	Version pulumi.StringOutput `pulumi:"version"`
-	// The maximum
+	// (Default `20m`) The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
 	// out.
@@ -288,7 +288,7 @@ type environmentState struct {
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
 	Version *string `pulumi:"version"`
-	// The maximum
+	// (Default `20m`) The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
 	// out.
@@ -358,7 +358,7 @@ type EnvironmentState struct {
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
 	Version pulumi.StringPtrInput
-	// The maximum
+	// (Default `20m`) The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
 	// out.
@@ -407,7 +407,7 @@ type environmentArgs struct {
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
 	Version *string `pulumi:"version"`
-	// The maximum
+	// (Default `20m`) The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
 	// out.
@@ -453,7 +453,7 @@ type EnvironmentArgs struct {
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
 	Version pulumi.StringPtrInput
-	// The maximum
+	// (Default `20m`) The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
 	// out.
@@ -678,7 +678,7 @@ func (o EnvironmentOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// The maximum
+// (Default `20m`) The maximum
 // [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 // wait for an Elastic Beanstalk Environment to be in a ready state before timing
 // out.

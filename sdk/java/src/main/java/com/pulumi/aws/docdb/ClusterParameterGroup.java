@@ -110,14 +110,14 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
         return this.family;
     }
     /**
-     * The name of the DocumentDB parameter.
+     * The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DocumentDB parameter.
+     * @return The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {

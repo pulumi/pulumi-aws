@@ -94,7 +94,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
      */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.PhpAppLayerEbsVolume[]>;
     /**
@@ -260,7 +260,7 @@ export interface PhpAppLayerState {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.PhpAppLayerEbsVolume>[]>;
     /**
@@ -347,7 +347,7 @@ export interface PhpAppLayerArgs {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.PhpAppLayerEbsVolume>[]>;
     /**

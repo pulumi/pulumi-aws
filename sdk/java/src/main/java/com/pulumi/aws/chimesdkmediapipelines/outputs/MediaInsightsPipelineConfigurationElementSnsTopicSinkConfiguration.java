@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration {
     /**
-     * @return SQS queue to deliver results.
+     * @return SNS topic to deliver results.
      * 
      */
     private String insightsTarget;
 
     private MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration() {}
     /**
-     * @return SQS queue to deliver results.
+     * @return SNS topic to deliver results.
      * 
      */
     public String insightsTarget() {

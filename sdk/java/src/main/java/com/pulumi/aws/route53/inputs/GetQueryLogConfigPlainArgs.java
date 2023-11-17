@@ -73,16 +73,12 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
     /**
      * Map of tags to assign to the service.
      * 
-     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
-     * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
      * @return Map of tags to assign to the service.
-     * 
-     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -169,8 +165,6 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
 
         /**
          * @param tags Map of tags to assign to the service.
-         * 
-         * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
          * 
          * @return builder
          * 

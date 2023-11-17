@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
         /// <summary>
-        /// Description of this ingress rule.
+        /// Description of this egress rule.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// Whether the security group itself will be added as a source to this ingress rule.
+        /// Whether the security group itself will be added as a source to this egress rule.
         /// </summary>
         public readonly bool? Self;
         /// <summary>

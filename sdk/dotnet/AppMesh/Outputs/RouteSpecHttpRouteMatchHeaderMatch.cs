@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttpRouteMatchHeaderMatch
     {
         /// <summary>
-        /// The exact path to match on.
+        /// Header value sent by the client must match the specified value exactly.
         /// </summary>
         public readonly string? Exact;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.RouteSpecHttpRouteMatchHeaderMatchRange? Range;
         /// <summary>
-        /// The regex used to match the path.
+        /// Header value sent by the client must include the specified characters.
         /// </summary>
         public readonly string? Regex;
         /// <summary>

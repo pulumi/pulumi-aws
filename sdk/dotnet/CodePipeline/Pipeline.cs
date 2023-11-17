@@ -265,7 +265,7 @@ namespace Pulumi.Aws.CodePipeline
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A stage block. Stages are documented below.
+        /// (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         /// </summary>
         [Output("stages")]
         public Output<ImmutableArray<Outputs.PipelineStage>> Stages { get; private set; } = null!;
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.PipelineStageArgs>? _stages;
 
         /// <summary>
-        /// A stage block. Stages are documented below.
+        /// (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         /// </summary>
         public InputList<Inputs.PipelineStageArgs> Stages
         {
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.PipelineStageGetArgs>? _stages;
 
         /// <summary>
-        /// A stage block. Stages are documented below.
+        /// (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         /// </summary>
         public InputList<Inputs.PipelineStageGetArgs> Stages
         {

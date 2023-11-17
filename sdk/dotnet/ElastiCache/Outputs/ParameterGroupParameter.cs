@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     public sealed class ParameterGroupParameter
     {
         /// <summary>
-        /// The name of the ElastiCache parameter.
+        /// The name of the ElastiCache parameter group.
         /// </summary>
         public readonly string Name;
         /// <summary>

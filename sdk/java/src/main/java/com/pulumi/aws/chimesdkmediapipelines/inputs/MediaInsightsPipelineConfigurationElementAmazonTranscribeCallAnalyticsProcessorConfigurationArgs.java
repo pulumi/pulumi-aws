@@ -169,14 +169,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Method for applying a vocabulary filter to Transcript events.
+     * Method for applying a vocabulary filter to Utterance events.
      * 
      */
     @Import(name="vocabularyFilterMethod")
     private @Nullable Output<String> vocabularyFilterMethod;
 
     /**
-     * @return Method for applying a vocabulary filter to Transcript events.
+     * @return Method for applying a vocabulary filter to Utterance events.
      * 
      */
     public Optional<Output<String>> vocabularyFilterMethod() {
@@ -184,14 +184,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Name of the custom vocabulary filter to use when processing Transcript events.
+     * Name of the custom vocabulary filter to use when processing Utterance events.
      * 
      */
     @Import(name="vocabularyFilterName")
     private @Nullable Output<String> vocabularyFilterName;
 
     /**
-     * @return Name of the custom vocabulary filter to use when processing Transcript events.
+     * @return Name of the custom vocabulary filter to use when processing Utterance events.
      * 
      */
     public Optional<Output<String>> vocabularyFilterName() {
@@ -199,14 +199,14 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
     }
 
     /**
-     * Name of the custom vocabulary to use when processing Transcript events.
+     * Name of the custom vocabulary to use when processing Utterance events.
      * 
      */
     @Import(name="vocabularyName")
     private @Nullable Output<String> vocabularyName;
 
     /**
-     * @return Name of the custom vocabulary to use when processing Transcript events.
+     * @return Name of the custom vocabulary to use when processing Utterance events.
      * 
      */
     public Optional<Output<String>> vocabularyName() {
@@ -470,7 +470,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyFilterMethod Method for applying a vocabulary filter to Transcript events.
+         * @param vocabularyFilterMethod Method for applying a vocabulary filter to Utterance events.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyFilterMethod Method for applying a vocabulary filter to Transcript events.
+         * @param vocabularyFilterMethod Method for applying a vocabulary filter to Utterance events.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyFilterName Name of the custom vocabulary filter to use when processing Transcript events.
+         * @param vocabularyFilterName Name of the custom vocabulary filter to use when processing Utterance events.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyFilterName Name of the custom vocabulary filter to use when processing Transcript events.
+         * @param vocabularyFilterName Name of the custom vocabulary filter to use when processing Utterance events.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyName Name of the custom vocabulary to use when processing Transcript events.
+         * @param vocabularyName Name of the custom vocabulary to use when processing Utterance events.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         /**
-         * @param vocabularyName Name of the custom vocabulary to use when processing Transcript events.
+         * @param vocabularyName Name of the custom vocabulary to use when processing Utterance events.
          * 
          * @return builder
          * 

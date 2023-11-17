@@ -13,7 +13,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
     public sealed class KxClusterCacheStorageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Size of cache in Gigabytes.
+        /// Size of temporary storage in gigabytes. Must be between 10 and 16000.
         /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;

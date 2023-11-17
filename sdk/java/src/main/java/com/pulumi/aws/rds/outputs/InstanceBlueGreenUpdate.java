@@ -15,13 +15,6 @@ public final class InstanceBlueGreenUpdate {
      * @return Enables low-downtime updates when `true`.
      * Default is `false`.
      * 
-     * [instance-replication]:
-     * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-     * [instance-maintenance]:
-     * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-     * [blue-green]:
-     * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
-     * 
      */
     private @Nullable Boolean enabled;
 
@@ -29,13 +22,6 @@ public final class InstanceBlueGreenUpdate {
     /**
      * @return Enables low-downtime updates when `true`.
      * Default is `false`.
-     * 
-     * [instance-replication]:
-     * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-     * [instance-maintenance]:
-     * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-     * [blue-green]:
-     * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
      * 
      */
     public Optional<Boolean> enabled() {

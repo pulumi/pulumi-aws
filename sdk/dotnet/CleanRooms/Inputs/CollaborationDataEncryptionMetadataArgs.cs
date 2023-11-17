@@ -12,15 +12,31 @@ namespace Pulumi.Aws.CleanRooms.Inputs
 
     public sealed class CollaborationDataEncryptionMetadataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether encrypted tables can contain cleartext data. This is a boolea
+        /// field.
+        /// </summary>
         [Input("allowClearText", required: true)]
         public Input<bool> AllowClearText { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether Fingerprint columns can contain duplicate entries. This is a
+        /// boolean field.
+        /// </summary>
         [Input("allowDuplicates", required: true)]
         public Input<bool> AllowDuplicates { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether Fingerprint columns can be joined
+        /// n any other Fingerprint column with a different name. This is a boolean field.
+        /// </summary>
         [Input("allowJoinsOnColumnsWithDifferentNames", required: true)]
         public Input<bool> AllowJoinsOnColumnsWithDifferentNames { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+        /// or cryptographically processed (false).
+        /// </summary>
         [Input("preserveNulls", required: true)]
         public Input<bool> PreserveNulls { get; set; } = null!;
 

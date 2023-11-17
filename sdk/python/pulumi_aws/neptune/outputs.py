@@ -40,7 +40,7 @@ class ClusterParameterGroupParameter(dict):
                  value: str,
                  apply_method: Optional[str] = None):
         """
-        :param str name: The name of the neptune parameter.
+        :param str name: The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
         :param str value: The value of the neptune parameter.
         :param str apply_method: Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
@@ -53,7 +53,7 @@ class ClusterParameterGroupParameter(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the neptune parameter.
+        The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -99,8 +99,8 @@ class ClusterServerlessV2ScalingConfiguration(dict):
                  max_capacity: Optional[float] = None,
                  min_capacity: Optional[float] = None):
         """
-        :param float max_capacity: The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        :param float min_capacity: The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        :param float max_capacity: (default: **128**) The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        :param float min_capacity: (default: **2.5**) The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
@@ -111,7 +111,7 @@ class ClusterServerlessV2ScalingConfiguration(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[float]:
         """
-        The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        (default: **128**) The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -119,7 +119,7 @@ class ClusterServerlessV2ScalingConfiguration(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[float]:
         """
-        The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        (default: **2.5**) The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -198,7 +198,7 @@ class ParameterGroupParameter(dict):
                  value: str,
                  apply_method: Optional[str] = None):
         """
-        :param str name: The name of the Neptune parameter.
+        :param str name: The name of the Neptune parameter group.
         :param str value: The value of the Neptune parameter.
         :param str apply_method: The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
@@ -211,7 +211,7 @@ class ParameterGroupParameter(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Neptune parameter.
+        The name of the Neptune parameter group.
         """
         return pulumi.get(self, "name")
 

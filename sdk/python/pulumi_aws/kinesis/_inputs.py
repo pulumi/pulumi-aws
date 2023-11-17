@@ -2065,7 +2065,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
         :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  More details are given below.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs'] s3_backup_configuration: The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        :param pulumi.Input[str] s3_backup_mode: The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2255,7 +2255,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         """
         return pulumi.get(self, "s3_backup_mode")
 

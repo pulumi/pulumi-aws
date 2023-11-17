@@ -36,9 +36,6 @@ class KxClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a KxCluster resource.
-        :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * SINGLE - Assigns one availability zone per cluster.
-               * MULTI - Assigns all the availability zones per cluster.
         :param pulumi.Input['KxClusterCapacityConfigurationArgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         :param pulumi.Input[str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
@@ -96,11 +93,6 @@ class KxClusterArgs:
     @property
     @pulumi.getter(name="azMode")
     def az_mode(self) -> pulumi.Input[str]:
-        """
-        The number of availability zones you want to assign per cluster. This can be one of the following:
-        * SINGLE - Assigns one availability zone per cluster.
-        * MULTI - Assigns all the availability zones per cluster.
-        """
         return pulumi.get(self, "az_mode")
 
     @az_mode.setter
@@ -349,9 +341,6 @@ class _KxClusterState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
         :param pulumi.Input['KxClusterAutoScalingConfigurationArgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         :param pulumi.Input[str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * SINGLE - Assigns one availability zone per cluster.
-               * MULTI - Assigns all the availability zones per cluster.
         :param pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         :param pulumi.Input['KxClusterCapacityConfigurationArgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         :param pulumi.Input['KxClusterCodeArgs'] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
@@ -467,11 +456,6 @@ class _KxClusterState:
     @property
     @pulumi.getter(name="azMode")
     def az_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        The number of availability zones you want to assign per cluster. This can be one of the following:
-        * SINGLE - Assigns one availability zone per cluster.
-        * MULTI - Assigns all the availability zones per cluster.
-        """
         return pulumi.get(self, "az_mode")
 
     @az_mode.setter
@@ -762,9 +746,6 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArgs']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         :param pulumi.Input[str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * SINGLE - Assigns one availability zone per cluster.
-               * MULTI - Assigns all the availability zones per cluster.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArgs']]]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         :param pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArgs']] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         :param pulumi.Input[pulumi.InputType['KxClusterCodeArgs']] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
@@ -929,9 +910,6 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
         :param pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArgs']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         :param pulumi.Input[str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * SINGLE - Assigns one availability zone per cluster.
-               * MULTI - Assigns all the availability zones per cluster.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArgs']]]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         :param pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArgs']] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         :param pulumi.Input[pulumi.InputType['KxClusterCodeArgs']] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
@@ -1013,11 +991,6 @@ class KxCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="azMode")
     def az_mode(self) -> pulumi.Output[str]:
-        """
-        The number of availability zones you want to assign per cluster. This can be one of the following:
-        * SINGLE - Assigns one availability zone per cluster.
-        * MULTI - Assigns all the availability zones per cluster.
-        """
         return pulumi.get(self, "az_mode")
 
     @property

@@ -78,7 +78,6 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     }
     /**
      * The certificate identifier.
-     * 
      * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      * 
      */
@@ -87,7 +86,6 @@ public class Certificate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The certificate identifier.
-     * 
      * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      * 
      */

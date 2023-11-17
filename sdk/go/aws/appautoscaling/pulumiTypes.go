@@ -722,7 +722,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() p
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification struct {
-	// Dimensions of the metric.
+	// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
 	Dimensions []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension `pulumi:"dimensions"`
 	// Name of the metric.
 	MetricName *string `pulumi:"metricName"`
@@ -732,7 +732,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 	Namespace *string `pulumi:"namespace"`
 	// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
 	Statistic *string `pulumi:"statistic"`
-	// Unit of the metrics to return.
+	// Unit of the metric.
 	Unit *string `pulumi:"unit"`
 }
 
@@ -748,7 +748,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs struct {
-	// Dimensions of the metric.
+	// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
 	Dimensions PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayInput `pulumi:"dimensions"`
 	// Name of the metric.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
@@ -758,7 +758,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
 	Statistic pulumi.StringPtrInput `pulumi:"statistic"`
-	// Unit of the metrics to return.
+	// Unit of the metric.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
@@ -839,7 +839,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput)
 }
 
-// Dimensions of the metric.
+// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput) Dimensions() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
 		return v.Dimensions
@@ -874,7 +874,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metrics to return.
+// Unit of the metric.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *string {
 		return v.Unit
@@ -905,7 +905,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput)
 }
 
-// Dimensions of the metric.
+// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Dimensions() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
 		if v == nil {
@@ -955,7 +955,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metrics to return.
+// Unit of the metric.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *string {
 		if v == nil {
@@ -966,7 +966,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension struct {
-	// Name of the policy. Must be between 1 and 255 characters in length.
+	// Name of the dimension.
 	Name string `pulumi:"name"`
 	// Value of the dimension.
 	Value string `pulumi:"value"`
@@ -984,7 +984,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs struct {
-	// Name of the policy. Must be between 1 and 255 characters in length.
+	// Name of the dimension.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Value of the dimension.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1041,7 +1041,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return o
 }
 
-// Name of the policy. Must be between 1 and 255 characters in length.
+// Name of the dimension.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension) string {
 		return v.Name
@@ -1581,7 +1581,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension struct {
-	// Name of the policy. Must be between 1 and 255 characters in length.
+	// Name of the dimension.
 	Name string `pulumi:"name"`
 	// Value of the dimension.
 	Value string `pulumi:"value"`
@@ -1599,7 +1599,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs struct {
-	// Name of the policy. Must be between 1 and 255 characters in length.
+	// Name of the dimension.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Value of the dimension.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1656,7 +1656,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return o
 }
 
-// Name of the policy. Must be between 1 and 255 characters in length.
+// Name of the dimension.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension) string {
 		return v.Name

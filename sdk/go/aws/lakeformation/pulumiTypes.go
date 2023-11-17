@@ -230,7 +230,7 @@ type PermissionsDataLocation struct {
 	//
 	// The following argument is optional:
 	Arn string `pulumi:"arn"`
-	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
 }
 
@@ -250,7 +250,7 @@ type PermissionsDataLocationArgs struct {
 	//
 	// The following argument is optional:
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 }
 
@@ -338,7 +338,7 @@ func (o PermissionsDataLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsDataLocation) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PermissionsDataLocationOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsDataLocation) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
@@ -379,7 +379,7 @@ func (o PermissionsDataLocationPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PermissionsDataLocationPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsDataLocation) *string {
 		if v == nil {
@@ -2411,7 +2411,7 @@ type GetPermissionsDataLocation struct {
 	//
 	// The following argument is optional:
 	Arn string `pulumi:"arn"`
-	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
 }
 
@@ -2431,7 +2431,7 @@ type GetPermissionsDataLocationArgs struct {
 	//
 	// The following argument is optional:
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 }
 
@@ -2519,7 +2519,7 @@ func (o GetPermissionsDataLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDataLocation) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o GetPermissionsDataLocationOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDataLocation) string { return v.CatalogId }).(pulumi.StringOutput)
 }
@@ -2560,7 +2560,7 @@ func (o GetPermissionsDataLocationPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o GetPermissionsDataLocationPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsDataLocation) *string {
 		if v == nil {

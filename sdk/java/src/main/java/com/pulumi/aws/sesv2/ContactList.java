@@ -138,14 +138,14 @@ public class ContactList extends com.pulumi.resources.CustomResource {
         return this.createdTimestamp;
     }
     /**
-     * A description of what the contact list is about.
+     * A description of what the topic is about, which the contact will see.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of what the contact list is about.
+     * @return A description of what the topic is about, which the contact will see.
      * 
      */
     public Output<Optional<String>> description() {

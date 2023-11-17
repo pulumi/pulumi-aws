@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerDefaultActionAuthenticateCognito {
     /**
-     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
      * 
      */
     private @Nullable Map<String,String> authenticationRequestExtraParams;
     /**
-     * @return Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+     * @return Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
      * 
      */
     private @Nullable String onUnauthenticatedRequest;
@@ -58,14 +58,14 @@ public final class ListenerDefaultActionAuthenticateCognito {
 
     private ListenerDefaultActionAuthenticateCognito() {}
     /**
-     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
      * 
      */
     public Map<String,String> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams == null ? Map.of() : this.authenticationRequestExtraParams;
     }
     /**
-     * @return Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+     * @return Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
      * 
      */
     public Optional<String> onUnauthenticatedRequest() {

@@ -17,7 +17,6 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
 
     /**
      * The replication task identifier.
-     * 
      * - Must contain from 1 to 255 alphanumeric characters or hyphens.
      * - First character must be a letter.
      * - Cannot end with a hyphen.
@@ -29,7 +28,6 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
 
     /**
      * @return The replication task identifier.
-     * 
      * - Must contain from 1 to 255 alphanumeric characters or hyphens.
      * - First character must be a letter.
      * - Cannot end with a hyphen.
@@ -74,7 +72,6 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
 
         /**
          * @param replicationTaskId The replication task identifier.
-         * 
          * - Must contain from 1 to 255 alphanumeric characters or hyphens.
          * - First character must be a letter.
          * - Cannot end with a hyphen.

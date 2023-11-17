@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration {
     /**
-     * @return SQS queue to deliver results.
+     * @return Kinesis Data Stream to deliver results.
      * 
      */
     private String insightsTarget;
 
     private MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration() {}
     /**
-     * @return SQS queue to deliver results.
+     * @return Kinesis Data Stream to deliver results.
      * 
      */
     public String insightsTarget() {

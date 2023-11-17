@@ -20,7 +20,7 @@ public final class SecurityGroupIngress {
      */
     private @Nullable List<String> cidrBlocks;
     /**
-     * @return Description of this ingress rule.
+     * @return Description of this egress rule.
      * 
      */
     private @Nullable String description;
@@ -54,7 +54,7 @@ public final class SecurityGroupIngress {
      */
     private @Nullable List<String> securityGroups;
     /**
-     * @return Whether the security group itself will be added as a source to this ingress rule.
+     * @return Whether the security group itself will be added as a source to this egress rule.
      * 
      */
     private @Nullable Boolean self;
@@ -73,7 +73,7 @@ public final class SecurityGroupIngress {
         return this.cidrBlocks == null ? List.of() : this.cidrBlocks;
     }
     /**
-     * @return Description of this ingress rule.
+     * @return Description of this egress rule.
      * 
      */
     public Optional<String> description() {
@@ -119,7 +119,7 @@ public final class SecurityGroupIngress {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
     /**
-     * @return Whether the security group itself will be added as a source to this ingress rule.
+     * @return Whether the security group itself will be added as a source to this egress rule.
      * 
      */
     public Optional<Boolean> self() {

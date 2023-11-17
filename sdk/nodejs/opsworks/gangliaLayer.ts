@@ -89,7 +89,7 @@ export class GangliaLayer extends pulumi.CustomResource {
      */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.GangliaLayerEbsVolume[]>;
     /**
@@ -144,7 +144,7 @@ export class GangliaLayer extends pulumi.CustomResource {
      */
     public readonly useEbsOptimizedInstances!: pulumi.Output<boolean | undefined>;
     /**
-     * The username to use for Ganglia. Defaults to "opsworks".
+     * (Optiona) The username to use for Ganglia. Defaults to "opsworks".
      */
     public readonly username!: pulumi.Output<string | undefined>;
 
@@ -276,7 +276,7 @@ export interface GangliaLayerState {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.GangliaLayerEbsVolume>[]>;
     /**
@@ -331,7 +331,7 @@ export interface GangliaLayerState {
      */
     useEbsOptimizedInstances?: pulumi.Input<boolean>;
     /**
-     * The username to use for Ganglia. Defaults to "opsworks".
+     * (Optiona) The username to use for Ganglia. Defaults to "opsworks".
      */
     username?: pulumi.Input<string>;
 }
@@ -375,7 +375,7 @@ export interface GangliaLayerArgs {
      */
     drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.GangliaLayerEbsVolume>[]>;
     /**
@@ -424,7 +424,7 @@ export interface GangliaLayerArgs {
      */
     useEbsOptimizedInstances?: pulumi.Input<boolean>;
     /**
-     * The username to use for Ganglia. Defaults to "opsworks".
+     * (Optiona) The username to use for Ganglia. Defaults to "opsworks".
      */
     username?: pulumi.Input<string>;
 }

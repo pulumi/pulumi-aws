@@ -50,14 +50,14 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the DB parameter.
+     * The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -181,7 +181,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the DB parameter.
+         * @param name The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the DB parameter.
+         * @param name The name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 

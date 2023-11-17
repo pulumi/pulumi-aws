@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// Description of this ingress rule.
+        /// Description of this egress rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// Whether the security group itself will be added as a source to this ingress rule.
+        /// Whether the security group itself will be added as a source to this egress rule.
         /// </summary>
         [Input("self")]
         public Input<bool>? Self { get; set; }

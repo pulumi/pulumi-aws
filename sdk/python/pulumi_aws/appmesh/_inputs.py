@@ -293,7 +293,7 @@ class GatewayRouteSpecGrpcRouteArgs:
                  match: pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgs']):
         """
         :param pulumi.Input['GatewayRouteSpecGrpcRouteActionArgs'] action: Action to take if a match is determined.
-        :param pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgs'] match: Criteria for determining a request match.
+        :param pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgs'] match: Method and value to match the header value sent with a request. Specify one match method.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -314,7 +314,7 @@ class GatewayRouteSpecGrpcRouteArgs:
     @pulumi.getter
     def match(self) -> pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgs']:
         """
-        Criteria for determining a request match.
+        Method and value to match the header value sent with a request. Specify one match method.
         """
         return pulumi.get(self, "match")
 
@@ -450,7 +450,7 @@ class GatewayRouteSpecHttp2RouteArgs:
                  match: pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgs']):
         """
         :param pulumi.Input['GatewayRouteSpecHttp2RouteActionArgs'] action: Action to take if a match is determined.
-        :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgs'] match: Criteria for determining a request match.
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgs'] match: Method and value to match the header value sent with a request. Specify one match method.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -471,7 +471,7 @@ class GatewayRouteSpecHttp2RouteArgs:
     @pulumi.getter
     def match(self) -> pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgs']:
         """
-        Criteria for determining a request match.
+        Method and value to match the header value sent with a request. Specify one match method.
         """
         return pulumi.get(self, "match")
 
@@ -882,7 +882,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs:
                  regex: Optional[pulumi.Input[str]] = None,
                  suffix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: The exact query parameter to match on.
         :param pulumi.Input[str] prefix: Header value sent by the client must begin with the specified characters.
         :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs'] range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
@@ -903,7 +903,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        The exact query parameter to match on.
         """
         return pulumi.get(self, "exact")
 
@@ -967,7 +967,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs:
                  start: pulumi.Input[int]):
         """
         :param pulumi.Input[int] end: End of the range.
-        :param pulumi.Input[int] start: Start of the range.
+        :param pulumi.Input[int] start: (Requited) Start of the range.
         """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
@@ -988,7 +988,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[int]:
         """
-        Start of the range.
+        (Requited) Start of the range.
         """
         return pulumi.get(self, "start")
 
@@ -1118,7 +1118,7 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: The exact query parameter to match on.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -1127,7 +1127,7 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        The exact query parameter to match on.
         """
         return pulumi.get(self, "exact")
 
@@ -1143,7 +1143,7 @@ class GatewayRouteSpecHttpRouteArgs:
                  match: pulumi.Input['GatewayRouteSpecHttpRouteMatchArgs']):
         """
         :param pulumi.Input['GatewayRouteSpecHttpRouteActionArgs'] action: Action to take if a match is determined.
-        :param pulumi.Input['GatewayRouteSpecHttpRouteMatchArgs'] match: Criteria for determining a request match.
+        :param pulumi.Input['GatewayRouteSpecHttpRouteMatchArgs'] match: Method and value to match the header value sent with a request. Specify one match method.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -1164,7 +1164,7 @@ class GatewayRouteSpecHttpRouteArgs:
     @pulumi.getter
     def match(self) -> pulumi.Input['GatewayRouteSpecHttpRouteMatchArgs']:
         """
-        Criteria for determining a request match.
+        Method and value to match the header value sent with a request. Specify one match method.
         """
         return pulumi.get(self, "match")
 
@@ -1575,7 +1575,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs:
                  regex: Optional[pulumi.Input[str]] = None,
                  suffix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: The exact query parameter to match on.
         :param pulumi.Input[str] prefix: Header value sent by the client must begin with the specified characters.
         :param pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs'] range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
@@ -1596,7 +1596,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        The exact query parameter to match on.
         """
         return pulumi.get(self, "exact")
 
@@ -1660,7 +1660,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs:
                  start: pulumi.Input[int]):
         """
         :param pulumi.Input[int] end: End of the range.
-        :param pulumi.Input[int] start: Start of the range.
+        :param pulumi.Input[int] start: (Requited) Start of the range.
         """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
@@ -1681,7 +1681,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[int]:
         """
-        Start of the range.
+        (Requited) Start of the range.
         """
         return pulumi.get(self, "start")
 
@@ -1811,7 +1811,7 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: The exact query parameter to match on.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -1820,7 +1820,7 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        The exact query parameter to match on.
         """
         return pulumi.get(self, "exact")
 
@@ -2263,10 +2263,10 @@ class RouteSpecGrpcRouteMatchMetadataMatchArgs:
                  regex: Optional[pulumi.Input[str]] = None,
                  suffix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: The exact path to match on.
+        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
         :param pulumi.Input[str] prefix: Header value sent by the client must begin with the specified characters.
         :param pulumi.Input['RouteSpecGrpcRouteMatchMetadataMatchRangeArgs'] range: Object that specifies the range of numbers that the header value sent by the client must be included in.
-        :param pulumi.Input[str] regex: The regex used to match the path.
+        :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
         :param pulumi.Input[str] suffix: Header value sent by the client must end with the specified characters.
         """
         if exact is not None:
@@ -2284,7 +2284,7 @@ class RouteSpecGrpcRouteMatchMetadataMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        The exact path to match on.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -2320,7 +2320,7 @@ class RouteSpecGrpcRouteMatchMetadataMatchArgs:
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
         """
-        The regex used to match the path.
+        Header value sent by the client must include the specified characters.
         """
         return pulumi.get(self, "regex")
 
@@ -2348,7 +2348,7 @@ class RouteSpecGrpcRouteMatchMetadataMatchRangeArgs:
                  start: pulumi.Input[int]):
         """
         :param pulumi.Input[int] end: End of the range.
-        :param pulumi.Input[int] start: Start of the range.
+        :param pulumi.Input[int] start: (Requited) Start of the range.
         """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
@@ -2369,7 +2369,7 @@ class RouteSpecGrpcRouteMatchMetadataMatchRangeArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[int]:
         """
-        Start of the range.
+        (Requited) Start of the range.
         """
         return pulumi.get(self, "start")
 
@@ -2394,6 +2394,8 @@ class RouteSpecGrpcRouteRetryPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] http_retry_events: List of HTTP retry events.
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+               
+               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
@@ -2459,6 +2461,8 @@ class RouteSpecGrpcRouteRetryPolicyArgs:
     def tcp_retry_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
+
+        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -2945,10 +2949,10 @@ class RouteSpecHttp2RouteMatchHeaderMatchArgs:
                  regex: Optional[pulumi.Input[str]] = None,
                  suffix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: The exact path to match on.
+        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
         :param pulumi.Input[str] prefix: Header value sent by the client must begin with the specified characters.
         :param pulumi.Input['RouteSpecHttp2RouteMatchHeaderMatchRangeArgs'] range: Object that specifies the range of numbers that the header value sent by the client must be included in.
-        :param pulumi.Input[str] regex: The regex used to match the path.
+        :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
         :param pulumi.Input[str] suffix: Header value sent by the client must end with the specified characters.
         """
         if exact is not None:
@@ -2966,7 +2970,7 @@ class RouteSpecHttp2RouteMatchHeaderMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        The exact path to match on.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -3002,7 +3006,7 @@ class RouteSpecHttp2RouteMatchHeaderMatchArgs:
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
         """
-        The regex used to match the path.
+        Header value sent by the client must include the specified characters.
         """
         return pulumi.get(self, "regex")
 
@@ -3030,7 +3034,7 @@ class RouteSpecHttp2RouteMatchHeaderMatchRangeArgs:
                  start: pulumi.Input[int]):
         """
         :param pulumi.Input[int] end: End of the range.
-        :param pulumi.Input[int] start: Start of the range.
+        :param pulumi.Input[int] start: (Requited) Start of the range.
         """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
@@ -3051,7 +3055,7 @@ class RouteSpecHttp2RouteMatchHeaderMatchRangeArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[int]:
         """
-        Start of the range.
+        (Requited) Start of the range.
         """
         return pulumi.get(self, "start")
 
@@ -3066,8 +3070,8 @@ class RouteSpecHttp2RouteMatchPathArgs:
                  exact: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
-        :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
+        :param pulumi.Input[str] exact: The exact path to match on.
+        :param pulumi.Input[str] regex: The regex used to match the path.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -3078,7 +3082,7 @@ class RouteSpecHttp2RouteMatchPathArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        The exact path to match on.
         """
         return pulumi.get(self, "exact")
 
@@ -3090,7 +3094,7 @@ class RouteSpecHttp2RouteMatchPathArgs:
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must include the specified characters.
+        The regex used to match the path.
         """
         return pulumi.get(self, "regex")
 
@@ -3105,8 +3109,8 @@ class RouteSpecHttp2RouteMatchQueryParameterArgs:
                  name: pulumi.Input[str],
                  match: Optional[pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterMatchArgs']] = None):
         """
-        :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterMatchArgs'] match: Criteria for determining an gRPC request match.
+        :param pulumi.Input[str] name: Name for the query parameter that will be matched on.
+        :param pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterMatchArgs'] match: The query parameter to match on.
         """
         pulumi.set(__self__, "name", name)
         if match is not None:
@@ -3116,7 +3120,7 @@ class RouteSpecHttp2RouteMatchQueryParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name to use for the route. Must be between 1 and 255 characters in length.
+        Name for the query parameter that will be matched on.
         """
         return pulumi.get(self, "name")
 
@@ -3128,7 +3132,7 @@ class RouteSpecHttp2RouteMatchQueryParameterArgs:
     @pulumi.getter
     def match(self) -> Optional[pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterMatchArgs']]:
         """
-        Criteria for determining an gRPC request match.
+        The query parameter to match on.
         """
         return pulumi.get(self, "match")
 
@@ -3142,7 +3146,7 @@ class RouteSpecHttp2RouteMatchQueryParameterMatchArgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: The exact path to match on.
+        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -3151,7 +3155,7 @@ class RouteSpecHttp2RouteMatchQueryParameterMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        The exact path to match on.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -3173,6 +3177,8 @@ class RouteSpecHttp2RouteRetryPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] http_retry_events: List of HTTP retry events.
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+               
+               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
@@ -3223,6 +3229,8 @@ class RouteSpecHttp2RouteRetryPolicyArgs:
     def tcp_retry_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
+
+        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -3709,10 +3717,10 @@ class RouteSpecHttpRouteMatchHeaderMatchArgs:
                  regex: Optional[pulumi.Input[str]] = None,
                  suffix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: The exact path to match on.
+        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
         :param pulumi.Input[str] prefix: Header value sent by the client must begin with the specified characters.
         :param pulumi.Input['RouteSpecHttpRouteMatchHeaderMatchRangeArgs'] range: Object that specifies the range of numbers that the header value sent by the client must be included in.
-        :param pulumi.Input[str] regex: The regex used to match the path.
+        :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
         :param pulumi.Input[str] suffix: Header value sent by the client must end with the specified characters.
         """
         if exact is not None:
@@ -3730,7 +3738,7 @@ class RouteSpecHttpRouteMatchHeaderMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        The exact path to match on.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -3766,7 +3774,7 @@ class RouteSpecHttpRouteMatchHeaderMatchArgs:
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
         """
-        The regex used to match the path.
+        Header value sent by the client must include the specified characters.
         """
         return pulumi.get(self, "regex")
 
@@ -3794,7 +3802,7 @@ class RouteSpecHttpRouteMatchHeaderMatchRangeArgs:
                  start: pulumi.Input[int]):
         """
         :param pulumi.Input[int] end: End of the range.
-        :param pulumi.Input[int] start: Start of the range.
+        :param pulumi.Input[int] start: (Requited) Start of the range.
         """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
@@ -3815,7 +3823,7 @@ class RouteSpecHttpRouteMatchHeaderMatchRangeArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[int]:
         """
-        Start of the range.
+        (Requited) Start of the range.
         """
         return pulumi.get(self, "start")
 
@@ -3830,8 +3838,8 @@ class RouteSpecHttpRouteMatchPathArgs:
                  exact: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
-        :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
+        :param pulumi.Input[str] exact: The exact path to match on.
+        :param pulumi.Input[str] regex: The regex used to match the path.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -3842,7 +3850,7 @@ class RouteSpecHttpRouteMatchPathArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        The exact path to match on.
         """
         return pulumi.get(self, "exact")
 
@@ -3854,7 +3862,7 @@ class RouteSpecHttpRouteMatchPathArgs:
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must include the specified characters.
+        The regex used to match the path.
         """
         return pulumi.get(self, "regex")
 
@@ -3869,8 +3877,8 @@ class RouteSpecHttpRouteMatchQueryParameterArgs:
                  name: pulumi.Input[str],
                  match: Optional[pulumi.Input['RouteSpecHttpRouteMatchQueryParameterMatchArgs']] = None):
         """
-        :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input['RouteSpecHttpRouteMatchQueryParameterMatchArgs'] match: Criteria for determining an gRPC request match.
+        :param pulumi.Input[str] name: Name for the query parameter that will be matched on.
+        :param pulumi.Input['RouteSpecHttpRouteMatchQueryParameterMatchArgs'] match: The query parameter to match on.
         """
         pulumi.set(__self__, "name", name)
         if match is not None:
@@ -3880,7 +3888,7 @@ class RouteSpecHttpRouteMatchQueryParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name to use for the route. Must be between 1 and 255 characters in length.
+        Name for the query parameter that will be matched on.
         """
         return pulumi.get(self, "name")
 
@@ -3892,7 +3900,7 @@ class RouteSpecHttpRouteMatchQueryParameterArgs:
     @pulumi.getter
     def match(self) -> Optional[pulumi.Input['RouteSpecHttpRouteMatchQueryParameterMatchArgs']]:
         """
-        Criteria for determining an gRPC request match.
+        The query parameter to match on.
         """
         return pulumi.get(self, "match")
 
@@ -3906,7 +3914,7 @@ class RouteSpecHttpRouteMatchQueryParameterMatchArgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: The exact path to match on.
+        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -3915,7 +3923,7 @@ class RouteSpecHttpRouteMatchQueryParameterMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        The exact path to match on.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -3937,6 +3945,8 @@ class RouteSpecHttpRouteRetryPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] http_retry_events: List of HTTP retry events.
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+               
+               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
@@ -3987,6 +3997,8 @@ class RouteSpecHttpRouteRetryPolicyArgs:
     def tcp_retry_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
+
+        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -5007,8 +5019,6 @@ class VirtualGatewaySpecListenerConnectionPoolHttpArgs:
         """
         :param pulumi.Input[int] max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
         :param pulumi.Input[int] max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-               
-               The `http2` connection pool object supports the following:
         """
         pulumi.set(__self__, "max_connections", max_connections)
         if max_pending_requests is not None:
@@ -5031,8 +5041,6 @@ class VirtualGatewaySpecListenerConnectionPoolHttpArgs:
     def max_pending_requests(self) -> Optional[pulumi.Input[int]]:
         """
         Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-
-        The `http2` connection pool object supports the following:
         """
         return pulumi.get(self, "max_pending_requests")
 
@@ -6889,8 +6897,6 @@ class VirtualNodeSpecListenerConnectionPoolHttpArgs:
         """
         :param pulumi.Input[int] max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
         :param pulumi.Input[int] max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-               
-               The `http2` connection pool object supports the following:
         """
         pulumi.set(__self__, "max_connections", max_connections)
         if max_pending_requests is not None:
@@ -6913,8 +6919,6 @@ class VirtualNodeSpecListenerConnectionPoolHttpArgs:
     def max_pending_requests(self) -> Optional[pulumi.Input[int]]:
         """
         Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-
-        The `http2` connection pool object supports the following:
         """
         return pulumi.get(self, "max_pending_requests")
 

@@ -14,14 +14,14 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
     public static final TopicRuleKafkaHeaderArgs Empty = new TopicRuleKafkaHeaderArgs();
 
     /**
-     * The name of the HTTP header.
+     * The object key.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The name of the HTTP header.
+     * @return The object key.
      * 
      */
     public Output<String> key() {
@@ -69,7 +69,7 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key The name of the HTTP header.
+         * @param key The object key.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class TopicRuleKafkaHeaderArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key The name of the HTTP header.
+         * @param key The object key.
          * 
          * @return builder
          * 

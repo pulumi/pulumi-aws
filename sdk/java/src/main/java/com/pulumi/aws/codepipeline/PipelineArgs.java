@@ -65,14 +65,14 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A stage block. Stages are documented below.
+     * (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      * 
      */
     @Import(name="stages", required=true)
     private Output<List<PipelineStageArgs>> stages;
 
     /**
-     * @return A stage block. Stages are documented below.
+     * @return (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      * 
      */
     public Output<List<PipelineStageArgs>> stages() {
@@ -196,7 +196,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stages A stage block. Stages are documented below.
+         * @param stages (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stages A stage block. Stages are documented below.
+         * @param stages (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stages A stage block. Stages are documented below.
+         * @param stages (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
          * 
          * @return builder
          * 

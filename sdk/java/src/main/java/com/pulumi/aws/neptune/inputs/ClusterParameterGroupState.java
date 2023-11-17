@@ -64,14 +64,14 @@ public final class ClusterParameterGroupState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the neptune parameter.
+     * The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the neptune parameter.
+     * @return The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -241,7 +241,7 @@ public final class ClusterParameterGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The name of the neptune parameter.
+         * @param name The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ClusterParameterGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The name of the neptune parameter.
+         * @param name The name of the neptune cluster parameter group. If omitted, this provider will assign a random, unique name.
          * 
          * @return builder
          * 

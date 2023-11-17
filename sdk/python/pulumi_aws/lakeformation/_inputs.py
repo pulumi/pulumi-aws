@@ -119,7 +119,7 @@ class PermissionsDataLocationArgs:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) that uniquely identifies the data location resource.
                
                The following argument is optional:
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         pulumi.set(__self__, "arn", arn)
         if catalog_id is not None:
@@ -143,7 +143,7 @@ class PermissionsDataLocationArgs:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -811,7 +811,7 @@ class GetPermissionsDataLocationArgs:
         :param str arn: ARN that uniquely identifies the data location resource.
                
                The following argument is optional:
-        :param str catalog_id: Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "catalog_id", catalog_id)
@@ -834,7 +834,7 @@ class GetPermissionsDataLocationArgs:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> str:
         """
-        Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         return pulumi.get(self, "catalog_id")
 

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class KxClusterCacheStorageConfiguration {
     /**
-     * @return Size of cache in Gigabytes.
+     * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
     private Integer size;
@@ -26,7 +26,7 @@ public final class KxClusterCacheStorageConfiguration {
 
     private KxClusterCacheStorageConfiguration() {}
     /**
-     * @return Size of cache in Gigabytes.
+     * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
     public Integer size() {

@@ -12,14 +12,24 @@ namespace Pulumi.Aws.CleanRooms.Inputs
 
     public sealed class CollaborationMemberArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account id for the invited member.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The display name for the invited member.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("memberAbilities", required: true)]
         private InputList<string>? _memberAbilities;
+
+        /// <summary>
+        /// The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        /// </summary>
         public InputList<string> MemberAbilities
         {
             get => _memberAbilities ?? (_memberAbilities = new InputList<string>());

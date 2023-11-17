@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type ClusterParameterGroupParameter struct {
 	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod *string `pulumi:"applyMethod"`
-	// The name of the DocumentDB parameter.
+	// The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
 	Name string `pulumi:"name"`
 	// The value of the DocumentDB parameter.
 	Value string `pulumi:"value"`
@@ -36,7 +36,7 @@ type ClusterParameterGroupParameterInput interface {
 type ClusterParameterGroupParameterArgs struct {
 	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod pulumi.StringPtrInput `pulumi:"applyMethod"`
-	// The name of the DocumentDB parameter.
+	// The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the DocumentDB parameter.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -98,7 +98,7 @@ func (o ClusterParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ClusterParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
-// The name of the DocumentDB parameter.
+// The name of the DocumentDB cluster parameter group. If omitted, the provider will assign a random, unique name.
 func (o ClusterParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -254,7 +254,6 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
     }
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     * 
      * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
      * - Format: `ddd:hh24:mi-ddd:hh24:mi`
      * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
@@ -266,7 +265,6 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     * 
      * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
      * - Format: `ddd:hh24:mi-ddd:hh24:mi`
      * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
@@ -320,7 +318,6 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
     }
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
-     * 
      * - Must contain from 1 to 63 alphanumeric characters or hyphens.
      * - First character must be a letter.
      * - Cannot end with a hyphen
@@ -332,7 +329,6 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The replication instance identifier. This parameter is stored as a lowercase string.
-     * 
      * - Must contain from 1 to 63 alphanumeric characters or hyphens.
      * - First character must be a letter.
      * - Cannot end with a hyphen

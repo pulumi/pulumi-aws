@@ -414,8 +414,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
-     * (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+     * Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     public readonly password!: pulumi.Output<string | undefined>;
@@ -525,8 +524,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly timezone!: pulumi.Output<string>;
     /**
-     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided) Username for the master DB user. Cannot be specified for a replica.
+     * Username for the master DB user. Cannot be specified for a replica.
      */
     public readonly username!: pulumi.Output<string>;
     /**
@@ -970,8 +968,7 @@ export interface InstanceState {
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
-     * (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+     * Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
@@ -1081,8 +1078,7 @@ export interface InstanceState {
      */
     timezone?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided) Username for the master DB user. Cannot be specified for a replica.
+     * Username for the master DB user. Cannot be specified for a replica.
      */
     username?: pulumi.Input<string>;
     /**
@@ -1321,8 +1317,7 @@ export interface InstanceArgs {
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
-     * (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+     * Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
@@ -1417,8 +1412,7 @@ export interface InstanceArgs {
      */
     timezone?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided) Username for the master DB user. Cannot be specified for a replica.
+     * Username for the master DB user. Cannot be specified for a replica.
      */
     username?: pulumi.Input<string>;
     /**

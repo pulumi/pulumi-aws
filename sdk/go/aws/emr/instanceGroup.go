@@ -78,20 +78,20 @@ type InstanceGroup struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -174,20 +174,20 @@ type instanceGroupState struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -235,20 +235,20 @@ type InstanceGroupState struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -300,20 +300,20 @@ type instanceGroupArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -358,20 +358,20 @@ type InstanceGroupArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
-	// {
-	// "Classification": "hadoop-env",
-	// "Configurations": [
-	// {
-	// "Classification": "export",
-	// "Properties": {
-	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-	// }
-	// }
-	// ],
-	// "Properties": {}
-	// }
-	// ]
+	// 			ConfigurationsJson: pulumi.String(`  [
+	//     {
+	//       "Classification": "hadoop-env",
+	//       "Configurations": [
+	//         {
+	//           "Classification": "export",
+	//           "Properties": {
+	//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	//           }
+	//         }
+	//       ],
+	//       "Properties": {}
+	//     }
+	//   ]
 	//
 	// `),
 	// 		})
@@ -512,21 +512,20 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-//				ConfigurationsJson: pulumi.String(`[
-//
-// {
-// "Classification": "hadoop-env",
-// "Configurations": [
-// {
-// "Classification": "export",
-// "Properties": {
-// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-// }
-// }
-// ],
-// "Properties": {}
-// }
-// ]
+//				ConfigurationsJson: pulumi.String(`  [
+//	    {
+//	      "Classification": "hadoop-env",
+//	      "Configurations": [
+//	        {
+//	          "Classification": "export",
+//	          "Properties": {
+//	            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//	          }
+//	        }
+//	      ],
+//	      "Properties": {}
+//	    }
+//	  ]
 //
 // `),
 //

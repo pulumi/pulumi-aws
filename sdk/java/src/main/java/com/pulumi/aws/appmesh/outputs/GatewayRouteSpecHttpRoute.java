@@ -16,7 +16,7 @@ public final class GatewayRouteSpecHttpRoute {
      */
     private GatewayRouteSpecHttpRouteAction action;
     /**
-     * @return Criteria for determining a request match.
+     * @return Method and value to match the header value sent with a request. Specify one match method.
      * 
      */
     private GatewayRouteSpecHttpRouteMatch match;
@@ -30,7 +30,7 @@ public final class GatewayRouteSpecHttpRoute {
         return this.action;
     }
     /**
-     * @return Criteria for determining a request match.
+     * @return Method and value to match the header value sent with a request. Specify one match method.
      * 
      */
     public GatewayRouteSpecHttpRouteMatch match() {

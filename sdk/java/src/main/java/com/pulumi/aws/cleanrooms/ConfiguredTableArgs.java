@@ -80,8 +80,6 @@ public final class ConfiguredTableArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      * 
      */
     @Import(name="tableReference", required=true)
@@ -89,8 +87,6 @@ public final class ConfiguredTableArgs extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      * 
      */
     public Output<ConfiguredTableTableReferenceArgs> tableReference() {
@@ -237,8 +233,6 @@ public final class ConfiguredTableArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tableReference A reference to the AWS Glue table which will be used to create the configured table.
-         * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-         * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
          * 
          * @return builder
          * 
@@ -250,8 +244,6 @@ public final class ConfiguredTableArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tableReference A reference to the AWS Glue table which will be used to create the configured table.
-         * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-         * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
          * 
          * @return builder
          * 

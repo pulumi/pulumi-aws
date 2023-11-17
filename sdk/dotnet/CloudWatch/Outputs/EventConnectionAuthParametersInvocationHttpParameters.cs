@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventConnectionAuthParametersInvocationHttpParameters
     {
-        /// <summary>
-        /// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        /// </summary>
         public readonly ImmutableArray<Outputs.EventConnectionAuthParametersInvocationHttpParametersBody> Bodies;
-        /// <summary>
-        /// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        /// </summary>
         public readonly ImmutableArray<Outputs.EventConnectionAuthParametersInvocationHttpParametersHeader> Headers;
-        /// <summary>
-        /// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        /// </summary>
         public readonly ImmutableArray<Outputs.EventConnectionAuthParametersInvocationHttpParametersQueryString> QueryStrings;
 
         [OutputConstructor]

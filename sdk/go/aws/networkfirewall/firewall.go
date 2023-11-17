@@ -72,7 +72,7 @@ type Firewall struct {
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringOutput `pulumi:"firewallPolicyArn"`
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrOutput `pulumi:"firewallPolicyChangeProtection"`
 	// Nested list of information about the current status of the firewall.
 	FirewallStatuses FirewallFirewallStatusArrayOutput `pulumi:"firewallStatuses"`
@@ -147,7 +147,7 @@ type firewallState struct {
 	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn *string `pulumi:"firewallPolicyArn"`
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
 	// Nested list of information about the current status of the firewall.
 	FirewallStatuses []FirewallFirewallStatus `pulumi:"firewallStatuses"`
@@ -180,7 +180,7 @@ type FirewallState struct {
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringPtrInput
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
 	// Nested list of information about the current status of the firewall.
 	FirewallStatuses FirewallFirewallStatusArrayInput
@@ -215,7 +215,7 @@ type firewallArgs struct {
 	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
 	// A friendly name of the firewall.
 	Name *string `pulumi:"name"`
@@ -239,7 +239,7 @@ type FirewallArgs struct {
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringInput
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
 	// A friendly name of the firewall.
 	Name pulumi.StringPtrInput
@@ -365,7 +365,7 @@ func (o FirewallOutput) FirewallPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.FirewallPolicyArn }).(pulumi.StringOutput)
 }
 
-// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+// (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
 func (o FirewallOutput) FirewallPolicyChangeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.FirewallPolicyChangeProtection }).(pulumi.BoolPtrOutput)
 }

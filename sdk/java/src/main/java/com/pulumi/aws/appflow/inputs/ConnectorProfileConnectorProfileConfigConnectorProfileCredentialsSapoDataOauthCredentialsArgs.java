@@ -17,14 +17,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs();
 
     /**
-     * The access token used to access the connector on your behalf.
+     * The access token used to access protected SAPOData resources.
      * 
      */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return The access token used to access the connector on your behalf.
+     * @return The access token used to access protected SAPOData resources.
      * 
      */
     public Optional<Output<String>> accessToken() {
@@ -62,14 +62,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
     @Import(name="oauthRequest")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs> oauthRequest;
 
     /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs>> oauthRequest() {
@@ -77,14 +77,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The refresh token used to refresh an expired access token.
+     * The refresh token used to refresh expired access token.
      * 
      */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
     /**
-     * @return The refresh token used to refresh an expired access token.
+     * @return The refresh token used to refresh expired access token.
      * 
      */
     public Optional<Output<String>> refreshToken() {
@@ -120,7 +120,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param accessToken The access token used to access the connector on your behalf.
+         * @param accessToken The access token used to access protected SAPOData resources.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param accessToken The access token used to access the connector on your behalf.
+         * @param accessToken The access token used to access protected SAPOData resources.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * @param oauthRequest The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+         * @param oauthRequest The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param refreshToken The refresh token used to refresh an expired access token.
+         * @param refreshToken The refresh token used to refresh expired access token.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param refreshToken The refresh token used to refresh an expired access token.
+         * @param refreshToken The refresh token used to refresh expired access token.
          * 
          * @return builder
          * 

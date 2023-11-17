@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Iot.Inputs
         public Input<string>? CannedAcl { get; set; }
 
         /// <summary>
-        /// The name of the HTTP header.
+        /// The object key.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
+        /// The ARN of the role that grants permission to write to the Amazon Timestream database table.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

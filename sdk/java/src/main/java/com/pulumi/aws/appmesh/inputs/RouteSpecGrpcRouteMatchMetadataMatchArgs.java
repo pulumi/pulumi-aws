@@ -17,14 +17,14 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
     public static final RouteSpecGrpcRouteMatchMetadataMatchArgs Empty = new RouteSpecGrpcRouteMatchMetadataMatchArgs();
 
     /**
-     * The exact path to match on.
+     * Header value sent by the client must match the specified value exactly.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return The exact path to match on.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -62,14 +62,14 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
     }
 
     /**
-     * The regex used to match the path.
+     * Header value sent by the client must include the specified characters.
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return The regex used to match the path.
+     * @return Header value sent by the client must include the specified characters.
      * 
      */
     public Optional<Output<String>> regex() {
@@ -120,7 +120,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param exact The exact path to match on.
+         * @param exact Header value sent by the client must match the specified value exactly.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param exact The exact path to match on.
+         * @param exact Header value sent by the client must match the specified value exactly.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param regex The regex used to match the path.
+         * @param regex Header value sent by the client must include the specified characters.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param regex The regex used to match the path.
+         * @param regex Header value sent by the client must include the specified characters.
          * 
          * @return builder
          * 

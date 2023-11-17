@@ -142,14 +142,6 @@ type EnvironmentEC2 struct {
 	// The description of the environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
-	// * `amazonlinux-2-x86_64`
-	// * `ubuntu-18.04-x86_64`
-	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
 	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
@@ -215,14 +207,6 @@ type environmentEC2State struct {
 	// The description of the environment.
 	Description *string `pulumi:"description"`
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
-	// * `amazonlinux-2-x86_64`
-	// * `ubuntu-18.04-x86_64`
-	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
 	ImageId *string `pulumi:"imageId"`
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType *string `pulumi:"instanceType"`
@@ -252,14 +236,6 @@ type EnvironmentEC2State struct {
 	// The description of the environment.
 	Description pulumi.StringPtrInput
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
-	// * `amazonlinux-2-x86_64`
-	// * `ubuntu-18.04-x86_64`
-	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
 	ImageId pulumi.StringPtrInput
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType pulumi.StringPtrInput
@@ -291,14 +267,6 @@ type environmentEC2Args struct {
 	// The description of the environment.
 	Description *string `pulumi:"description"`
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
-	// * `amazonlinux-2-x86_64`
-	// * `ubuntu-18.04-x86_64`
-	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
 	ImageId *string `pulumi:"imageId"`
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType string `pulumi:"instanceType"`
@@ -321,14 +289,6 @@ type EnvironmentEC2Args struct {
 	// The description of the environment.
 	Description pulumi.StringPtrInput
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
-	// * `amazonlinux-2-x86_64`
-	// * `ubuntu-18.04-x86_64`
-	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
 	ImageId pulumi.StringPtrInput
 	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType pulumi.StringInput
@@ -450,14 +410,6 @@ func (o EnvironmentEC2Output) Description() pulumi.StringPtrOutput {
 }
 
 // The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-// * `amazonlinux-1-x86_64`
-// * `amazonlinux-2-x86_64`
-// * `ubuntu-18.04-x86_64`
-// * `ubuntu-22.04-x86_64`
-// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
-// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
 func (o EnvironmentEC2Output) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
 }

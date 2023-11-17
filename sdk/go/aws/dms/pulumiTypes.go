@@ -2506,7 +2506,6 @@ type ReplicationConfigComputeConfig struct {
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
 	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
 	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
@@ -2543,7 +2542,6 @@ type ReplicationConfigComputeConfigArgs struct {
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput `pulumi:"multiAz"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
 	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
 	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
@@ -2663,7 +2661,6 @@ func (o ReplicationConfigComputeConfigOutput) MultiAz() pulumi.BoolPtrOutput {
 }
 
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-//
 // - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
 // - Format: `ddd:hh24:mi-ddd:hh24:mi`
 // - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
@@ -2767,7 +2764,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) MultiAz() pulumi.BoolPtrOutput 
 }
 
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-//
 // - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
 // - Format: `ddd:hh24:mi-ddd:hh24:mi`
 // - Valid Days: `mon, tue, wed, thu, fri, sat, sun`

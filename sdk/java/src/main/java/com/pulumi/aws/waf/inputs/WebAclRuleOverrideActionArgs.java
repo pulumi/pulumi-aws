@@ -14,16 +14,14 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
     public static final WebAclRuleOverrideActionArgs Empty = new WebAclRuleOverrideActionArgs();
 
     /**
-     * Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
-     * e.g., `ALLOW` or `BLOCK`
+     * valid values are: `NONE` or `COUNT`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
-     * e.g., `ALLOW` or `BLOCK`
+     * @return valid values are: `NONE` or `COUNT`
      * 
      */
     public Output<String> type() {
@@ -55,8 +53,7 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
-         * e.g., `ALLOW` or `BLOCK`
+         * @param type valid values are: `NONE` or `COUNT`
          * 
          * @return builder
          * 
@@ -67,8 +64,7 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
-         * e.g., `ALLOW` or `BLOCK`
+         * @param type valid values are: `NONE` or `COUNT`
          * 
          * @return builder
          * 

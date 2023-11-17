@@ -220,7 +220,7 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class GetPermissionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
         [Input("catalogId")]
         public string? CatalogId { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class GetPermissionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }

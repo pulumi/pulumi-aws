@@ -29,14 +29,14 @@ public final class TopicRuleErrorActionTimestreamTimestampArgs extends com.pulum
     }
 
     /**
-     * The value of the HTTP header.
+     * An expression that returns a long epoch time value.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the HTTP header.
+     * @return An expression that returns a long epoch time value.
      * 
      */
     public Output<String> value() {
@@ -90,7 +90,7 @@ public final class TopicRuleErrorActionTimestreamTimestampArgs extends com.pulum
         }
 
         /**
-         * @param value The value of the HTTP header.
+         * @param value An expression that returns a long epoch time value.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class TopicRuleErrorActionTimestreamTimestampArgs extends com.pulum
         }
 
         /**
-         * @param value The value of the HTTP header.
+         * @param value An expression that returns a long epoch time value.
          * 
          * @return builder
          * 

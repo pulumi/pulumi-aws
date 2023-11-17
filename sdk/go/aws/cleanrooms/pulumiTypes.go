@@ -14,10 +14,18 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CollaborationDataEncryptionMetadata struct {
-	AllowClearText                        bool `pulumi:"allowClearText"`
-	AllowDuplicates                       bool `pulumi:"allowDuplicates"`
+	// Indicates whether encrypted tables can contain cleartext data. This is a boolea
+	// field.
+	AllowClearText bool `pulumi:"allowClearText"`
+	// Indicates whether Fingerprint columns can contain duplicate entries. This is a
+	// boolean field.
+	AllowDuplicates bool `pulumi:"allowDuplicates"`
+	// Indicates whether Fingerprint columns can be joined
+	// n any other Fingerprint column with a different name. This is a boolean field.
 	AllowJoinsOnColumnsWithDifferentNames bool `pulumi:"allowJoinsOnColumnsWithDifferentNames"`
-	PreserveNulls                         bool `pulumi:"preserveNulls"`
+	// Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+	// or cryptographically processed (false).
+	PreserveNulls bool `pulumi:"preserveNulls"`
 }
 
 // CollaborationDataEncryptionMetadataInput is an input type that accepts CollaborationDataEncryptionMetadataArgs and CollaborationDataEncryptionMetadataOutput values.
@@ -32,10 +40,18 @@ type CollaborationDataEncryptionMetadataInput interface {
 }
 
 type CollaborationDataEncryptionMetadataArgs struct {
-	AllowClearText                        pulumi.BoolInput `pulumi:"allowClearText"`
-	AllowDuplicates                       pulumi.BoolInput `pulumi:"allowDuplicates"`
+	// Indicates whether encrypted tables can contain cleartext data. This is a boolea
+	// field.
+	AllowClearText pulumi.BoolInput `pulumi:"allowClearText"`
+	// Indicates whether Fingerprint columns can contain duplicate entries. This is a
+	// boolean field.
+	AllowDuplicates pulumi.BoolInput `pulumi:"allowDuplicates"`
+	// Indicates whether Fingerprint columns can be joined
+	// n any other Fingerprint column with a different name. This is a boolean field.
 	AllowJoinsOnColumnsWithDifferentNames pulumi.BoolInput `pulumi:"allowJoinsOnColumnsWithDifferentNames"`
-	PreserveNulls                         pulumi.BoolInput `pulumi:"preserveNulls"`
+	// Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+	// or cryptographically processed (false).
+	PreserveNulls pulumi.BoolInput `pulumi:"preserveNulls"`
 }
 
 func (CollaborationDataEncryptionMetadataArgs) ElementType() reflect.Type {
@@ -115,18 +131,26 @@ func (o CollaborationDataEncryptionMetadataOutput) ToCollaborationDataEncryption
 	}).(CollaborationDataEncryptionMetadataPtrOutput)
 }
 
+// Indicates whether encrypted tables can contain cleartext data. This is a boolea
+// field.
 func (o CollaborationDataEncryptionMetadataOutput) AllowClearText() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.AllowClearText }).(pulumi.BoolOutput)
 }
 
+// Indicates whether Fingerprint columns can contain duplicate entries. This is a
+// boolean field.
 func (o CollaborationDataEncryptionMetadataOutput) AllowDuplicates() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.AllowDuplicates }).(pulumi.BoolOutput)
 }
 
+// Indicates whether Fingerprint columns can be joined
+// n any other Fingerprint column with a different name. This is a boolean field.
 func (o CollaborationDataEncryptionMetadataOutput) AllowJoinsOnColumnsWithDifferentNames() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.AllowJoinsOnColumnsWithDifferentNames }).(pulumi.BoolOutput)
 }
 
+// Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+// or cryptographically processed (false).
 func (o CollaborationDataEncryptionMetadataOutput) PreserveNulls() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.PreserveNulls }).(pulumi.BoolOutput)
 }
@@ -155,6 +179,8 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) Elem() CollaborationDataEn
 	}).(CollaborationDataEncryptionMetadataOutput)
 }
 
+// Indicates whether encrypted tables can contain cleartext data. This is a boolea
+// field.
 func (o CollaborationDataEncryptionMetadataPtrOutput) AllowClearText() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -164,6 +190,8 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) AllowClearText() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether Fingerprint columns can contain duplicate entries. This is a
+// boolean field.
 func (o CollaborationDataEncryptionMetadataPtrOutput) AllowDuplicates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -173,6 +201,8 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) AllowDuplicates() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether Fingerprint columns can be joined
+// n any other Fingerprint column with a different name. This is a boolean field.
 func (o CollaborationDataEncryptionMetadataPtrOutput) AllowJoinsOnColumnsWithDifferentNames() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -182,6 +212,8 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) AllowJoinsOnColumnsWithDif
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+// or cryptographically processed (false).
 func (o CollaborationDataEncryptionMetadataPtrOutput) PreserveNulls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -192,8 +224,11 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) PreserveNulls() pulumi.Boo
 }
 
 type CollaborationMember struct {
-	AccountId       string   `pulumi:"accountId"`
-	DisplayName     string   `pulumi:"displayName"`
+	// The account id for the invited member.
+	AccountId string `pulumi:"accountId"`
+	// The display name for the invited member.
+	DisplayName string `pulumi:"displayName"`
+	// The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	MemberAbilities []string `pulumi:"memberAbilities"`
 	Status          *string  `pulumi:"status"`
 }
@@ -210,8 +245,11 @@ type CollaborationMemberInput interface {
 }
 
 type CollaborationMemberArgs struct {
-	AccountId       pulumi.StringInput      `pulumi:"accountId"`
-	DisplayName     pulumi.StringInput      `pulumi:"displayName"`
+	// The account id for the invited member.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// The display name for the invited member.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	MemberAbilities pulumi.StringArrayInput `pulumi:"memberAbilities"`
 	Status          pulumi.StringPtrInput   `pulumi:"status"`
 }
@@ -267,14 +305,17 @@ func (o CollaborationMemberOutput) ToCollaborationMemberOutputWithContext(ctx co
 	return o
 }
 
+// The account id for the invited member.
 func (o CollaborationMemberOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v CollaborationMember) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// The display name for the invited member.
 func (o CollaborationMemberOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v CollaborationMember) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 func (o CollaborationMemberOutput) MemberAbilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CollaborationMember) []string { return v.MemberAbilities }).(pulumi.StringArrayOutput)
 }
@@ -304,8 +345,10 @@ func (o CollaborationMemberArrayOutput) Index(i pulumi.IntInput) CollaborationMe
 }
 
 type ConfiguredTableTableReference struct {
+	// The name of the AWS Glue database which contains the table.
 	DatabaseName string `pulumi:"databaseName"`
-	TableName    string `pulumi:"tableName"`
+	// The name of the AWS Glue table which will be used to create the configured table.
+	TableName string `pulumi:"tableName"`
 }
 
 // ConfiguredTableTableReferenceInput is an input type that accepts ConfiguredTableTableReferenceArgs and ConfiguredTableTableReferenceOutput values.
@@ -320,8 +363,10 @@ type ConfiguredTableTableReferenceInput interface {
 }
 
 type ConfiguredTableTableReferenceArgs struct {
+	// The name of the AWS Glue database which contains the table.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	TableName    pulumi.StringInput `pulumi:"tableName"`
+	// The name of the AWS Glue table which will be used to create the configured table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (ConfiguredTableTableReferenceArgs) ElementType() reflect.Type {
@@ -401,10 +446,12 @@ func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferencePtrO
 	}).(ConfiguredTableTableReferencePtrOutput)
 }
 
+// The name of the AWS Glue database which contains the table.
 func (o ConfiguredTableTableReferenceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfiguredTableTableReference) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name of the AWS Glue table which will be used to create the configured table.
 func (o ConfiguredTableTableReferenceOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfiguredTableTableReference) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -433,6 +480,7 @@ func (o ConfiguredTableTableReferencePtrOutput) Elem() ConfiguredTableTableRefer
 	}).(ConfiguredTableTableReferenceOutput)
 }
 
+// The name of the AWS Glue database which contains the table.
 func (o ConfiguredTableTableReferencePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfiguredTableTableReference) *string {
 		if v == nil {
@@ -442,6 +490,7 @@ func (o ConfiguredTableTableReferencePtrOutput) DatabaseName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the AWS Glue table which will be used to create the configured table.
 func (o ConfiguredTableTableReferencePtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfiguredTableTableReference) *string {
 		if v == nil {

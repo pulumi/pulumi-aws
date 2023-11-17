@@ -887,9 +887,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-        :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
+        :param pulumi.Input[str] access_token: The credentials used to access protected Google Analytics resources.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        :param pulumi.Input[str] refresh_token: The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -928,7 +928,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The access token used to access the connector on your behalf.
+        The credentials used to access protected Google Analytics resources.
         """
         return pulumi.get(self, "access_token")
 
@@ -940,7 +940,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs']]:
         """
-        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -952,7 +952,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The refresh token used to refresh an expired access token.
+        The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1007,9 +1007,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
                  oauth_request: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs']] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-        :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
+        :param pulumi.Input[str] access_token: The credentials used to access protected Google Analytics resources.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        :param pulumi.Input[str] refresh_token: The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -1022,7 +1022,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The access token used to access the connector on your behalf.
+        The credentials used to access protected Google Analytics resources.
         """
         return pulumi.get(self, "access_token")
 
@@ -1034,7 +1034,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs']]:
         """
-        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1046,7 +1046,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The refresh token used to refresh an expired access token.
+        The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1171,8 +1171,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoAr
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param pulumi.Input[str] access_token: The credentials used to access protected Google Analytics resources.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1209,7 +1209,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoAr
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The access token used to access the connector on your behalf.
+        The credentials used to access protected Google Analytics resources.
         """
         return pulumi.get(self, "access_token")
 
@@ -1221,7 +1221,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoAr
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs']]:
         """
-        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1316,12 +1316,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
                  oauth_request: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs']] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
+        :param pulumi.Input[str] access_token: The credentials used to access protected Google Analytics resources.
         :param pulumi.Input[str] client_credentials_arn: The secret manager ARN, which contains the client ID and client secret of the connected app.
         :param pulumi.Input[str] jwt_token: A JSON web token (JWT) that authorizes access to Salesforce records.
         :param pulumi.Input[str] oauth2_grant_type: The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-        :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        :param pulumi.Input[str] refresh_token: The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -1340,7 +1340,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The access token used to access the connector on your behalf.
+        The credentials used to access protected Google Analytics resources.
         """
         return pulumi.get(self, "access_token")
 
@@ -1388,7 +1388,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs']]:
         """
-        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1400,7 +1400,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The refresh token used to refresh an expired access token.
+        The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1535,9 +1535,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-        :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
+        :param pulumi.Input[str] access_token: The access token used to access protected SAPOData resources.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        :param pulumi.Input[str] refresh_token: The refresh token used to refresh expired access token.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1576,7 +1576,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The access token used to access the connector on your behalf.
+        The access token used to access protected SAPOData resources.
         """
         return pulumi.get(self, "access_token")
 
@@ -1588,7 +1588,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs']]:
         """
-        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1600,7 +1600,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The refresh token used to refresh an expired access token.
+        The refresh token used to refresh expired access token.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1717,8 +1717,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param pulumi.Input[str] access_token: The credentials used to access protected Google Analytics resources.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1755,7 +1755,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The access token used to access the connector on your behalf.
+        The credentials used to access protected Google Analytics resources.
         """
         return pulumi.get(self, "access_token")
 
@@ -1767,7 +1767,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs']]:
         """
-        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1921,8 +1921,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskAr
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param pulumi.Input[str] access_token: The credentials used to access protected Google Analytics resources.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1959,7 +1959,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskAr
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The access token used to access the connector on your behalf.
+        The credentials used to access protected Google Analytics resources.
         """
         return pulumi.get(self, "access_token")
 
@@ -1971,7 +1971,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskAr
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs']]:
         """
-        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 

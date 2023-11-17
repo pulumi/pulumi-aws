@@ -3003,9 +3003,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) VcpuCoun
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -3021,9 +3021,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput 
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -3104,12 +3104,12 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOut
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -3138,7 +3138,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
 		if v == nil {
@@ -3148,7 +3148,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
 		if v == nil {
@@ -3159,9 +3159,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -3177,9 +3177,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemory
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -3260,14 +3260,14 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMem
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		return v.Min
@@ -3298,7 +3298,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMem
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		if v == nil {
@@ -3308,7 +3308,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMem
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		if v == nil {
@@ -3319,9 +3319,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMem
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
 	Max *int `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
 	Min *int `pulumi:"min"`
 }
 
@@ -3337,9 +3337,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMb
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -3420,14 +3420,14 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidt
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		return v.Min
@@ -3458,7 +3458,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidt
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -3468,7 +3468,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidt
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -3479,9 +3479,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidt
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -3497,9 +3497,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput 
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -3580,12 +3580,12 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOut
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -3614,7 +3614,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -3624,7 +3624,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -3635,9 +3635,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
 	Min int `pulumi:"min"`
 }
 
@@ -3653,9 +3653,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput interfa
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
 	Min pulumi.IntInput `pulumi:"min"`
 }
 
@@ -3736,12 +3736,12 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) To
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) int { return v.Min }).(pulumi.IntOutput)
 }
@@ -3770,7 +3770,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int {
 		if v == nil {
@@ -3780,7 +3780,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int {
 		if v == nil {
@@ -3791,9 +3791,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -3809,9 +3809,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsIn
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -3892,14 +3892,14 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbp
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		return v.Min
@@ -3930,7 +3930,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbp
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -3940,7 +3940,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -3951,9 +3951,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbp
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -3969,9 +3969,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountI
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -4052,12 +4052,12 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCou
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -4086,7 +4086,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCou
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
 		if v == nil {
@@ -4096,7 +4096,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCou
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
 		if v == nil {
@@ -4107,9 +4107,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCou
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -4125,9 +4125,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInp
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs struct {
-	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+	// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+	// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -4208,14 +4208,14 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Min
@@ -4246,7 +4246,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
-// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -4256,7 +4256,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -12329,9 +12329,9 @@ func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min
 }
 
 type LaunchTemplateInstanceRequirementsMemoryGibPerVcpu struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max *float64 `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -12347,9 +12347,9 @@ type LaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -12430,12 +12430,12 @@ func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToLaunchTempla
 	}).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -12464,7 +12464,7 @@ func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Elem() Laun
 	}).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -12474,7 +12474,7 @@ func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -12953,9 +12953,9 @@ func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() 
 }
 
 type LaunchTemplateInstanceRequirementsTotalLocalStorageGb struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max *float64 `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -12971,9 +12971,9 @@ type LaunchTemplateInstanceRequirementsTotalLocalStorageGbInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -13054,12 +13054,12 @@ func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToLaunchTem
 	}).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -13088,7 +13088,7 @@ func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Elem() L
 	}).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -13098,7 +13098,7 @@ func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -25542,7 +25542,7 @@ func (o SecurityGroupEgressArrayOutput) Index(i pulumi.IntInput) SecurityGroupEg
 type SecurityGroupIngress struct {
 	// List of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// Description of this ingress rule.
+	// Description of this egress rule.
 	Description *string `pulumi:"description"`
 	// Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
 	FromPort int `pulumi:"fromPort"`
@@ -25558,7 +25558,7 @@ type SecurityGroupIngress struct {
 	Protocol string `pulumi:"protocol"`
 	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// Whether the security group itself will be added as a source to this ingress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self *bool `pulumi:"self"`
 	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort int `pulumi:"toPort"`
@@ -25578,7 +25578,7 @@ type SecurityGroupIngressInput interface {
 type SecurityGroupIngressArgs struct {
 	// List of CIDR blocks.
 	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
-	// Description of this ingress rule.
+	// Description of this egress rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
@@ -25594,7 +25594,7 @@ type SecurityGroupIngressArgs struct {
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// Whether the security group itself will be added as a source to this ingress rule.
+	// Whether the security group itself will be added as a source to this egress rule.
 	Self pulumi.BoolPtrInput `pulumi:"self"`
 	// End range port (or ICMP code if protocol is `icmp`).
 	ToPort pulumi.IntInput `pulumi:"toPort"`
@@ -25656,7 +25656,7 @@ func (o SecurityGroupIngressOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// Description of this ingress rule.
+// Description of this egress rule.
 func (o SecurityGroupIngressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -25690,7 +25690,7 @@ func (o SecurityGroupIngressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// Whether the security group itself will be added as a source to this ingress rule.
+// Whether the security group itself will be added as a source to this egress rule.
 func (o SecurityGroupIngressOutput) Self() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) *bool { return v.Self }).(pulumi.BoolPtrOutput)
 }
@@ -28161,9 +28161,9 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaseline
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max *float64 `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -28179,9 +28179,9 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPe
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -28262,14 +28262,14 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGi
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		return v.Min
@@ -28300,7 +28300,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGi
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -28310,7 +28310,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGi
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -28797,9 +28797,9 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max *float64 `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -28815,9 +28815,9 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalS
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs struct {
-	// Maximum.
+	// Maximum. May be a decimal number, e.g. `0.5`.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// Minimum.
+	// Minimum. May be a decimal number, e.g. `0.5`.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -28898,14 +28898,14 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Min
@@ -28936,7 +28936,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
-// Maximum.
+// Maximum. May be a decimal number, e.g. `0.5`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -28946,7 +28946,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// Minimum. May be a decimal number, e.g. `0.5`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {

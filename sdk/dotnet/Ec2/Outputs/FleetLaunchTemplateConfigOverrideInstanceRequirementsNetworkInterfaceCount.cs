@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
     {
         /// <summary>
-        /// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        /// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
         /// </summary>
         public readonly int? Max;
         /// <summary>
-        /// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        /// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
         /// </summary>
         public readonly int? Min;
 

@@ -135,7 +135,7 @@ import (
 type ResourceLfTags struct {
 	pulumi.CustomResourceState
 
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Configuration block for a database resource. See below.
 	Database ResourceLfTagsDatabaseOutput `pulumi:"database"`
@@ -184,7 +184,7 @@ func GetResourceLfTags(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceLfTags resources.
 type resourceLfTagsState struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
 	// Configuration block for a database resource. See below.
 	Database *ResourceLfTagsDatabase `pulumi:"database"`
@@ -201,7 +201,7 @@ type resourceLfTagsState struct {
 }
 
 type ResourceLfTagsState struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput
 	// Configuration block for a database resource. See below.
 	Database ResourceLfTagsDatabasePtrInput
@@ -222,7 +222,7 @@ func (ResourceLfTagsState) ElementType() reflect.Type {
 }
 
 type resourceLfTagsArgs struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
 	// Configuration block for a database resource. See below.
 	Database *ResourceLfTagsDatabase `pulumi:"database"`
@@ -240,7 +240,7 @@ type resourceLfTagsArgs struct {
 
 // The set of arguments for constructing a ResourceLfTags resource.
 type ResourceLfTagsArgs struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput
 	// Configuration block for a database resource. See below.
 	Database ResourceLfTagsDatabasePtrInput
@@ -343,7 +343,7 @@ func (o ResourceLfTagsOutput) ToResourceLfTagsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o ResourceLfTagsOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceLfTags) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }

@@ -254,14 +254,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.roleArn;
     }
     /**
-     * A stage block. Stages are documented below.
+     * (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      * 
      */
     @Export(name="stages", refs={List.class,PipelineStage.class}, tree="[0,1]")
     private Output<List<PipelineStage>> stages;
 
     /**
-     * @return A stage block. Stages are documented below.
+     * @return (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      * 
      */
     public Output<List<PipelineStage>> stages() {

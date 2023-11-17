@@ -112,7 +112,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<bool?> DrainElbOnShutdown { get; private set; } = null!;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
         public Output<ImmutableArray<Outputs.RailsAppLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.RailsAppLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.RailsAppLayerEbsVolumeArgs> EbsVolumes
         {
@@ -579,7 +579,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.RailsAppLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
-        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         public InputList<Inputs.RailsAppLayerEbsVolumeGetArgs> EbsVolumes
         {

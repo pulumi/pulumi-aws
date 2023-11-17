@@ -15,7 +15,7 @@ public final class GatewayRouteSpecHttp2RouteMatchHeaderMatchRange {
      */
     private Integer end;
     /**
-     * @return Start of the range.
+     * @return (Requited) Start of the range.
      * 
      */
     private Integer start;
@@ -29,7 +29,7 @@ public final class GatewayRouteSpecHttp2RouteMatchHeaderMatchRange {
         return this.end;
     }
     /**
-     * @return Start of the range.
+     * @return (Requited) Start of the range.
      * 
      */
     public Integer start() {

@@ -78,7 +78,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Redshift parameter.
+        /// The name of the Redshift parameter group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Redshift parameter.
+        /// The name of the Redshift parameter group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the Redshift parameter.
+        /// The name of the Redshift parameter group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

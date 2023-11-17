@@ -56,7 +56,7 @@ class EnvironmentArgs:
                or `WebServer`. If tier is left blank `WebServer` will be used.
         :param pulumi.Input[str] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
-        :param pulumi.Input[str] wait_for_ready_timeout: The maximum
+        :param pulumi.Input[str] wait_for_ready_timeout: (Default `20m`) The maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for an Elastic Beanstalk Environment to be in a ready state before timing
                out.
@@ -248,7 +248,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="waitForReadyTimeout")
     def wait_for_ready_timeout(self) -> Optional[pulumi.Input[str]]:
         """
-        The maximum
+        (Default `20m`) The maximum
         [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         wait for an Elastic Beanstalk Environment to be in a ready state before timing
         out.
@@ -326,7 +326,7 @@ class _EnvironmentState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] triggers: Autoscaling triggers in use by this Environment.
         :param pulumi.Input[str] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
-        :param pulumi.Input[str] wait_for_ready_timeout: The maximum
+        :param pulumi.Input[str] wait_for_ready_timeout: (Default `20m`) The maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for an Elastic Beanstalk Environment to be in a ready state before timing
                out.
@@ -678,7 +678,7 @@ class _EnvironmentState:
     @pulumi.getter(name="waitForReadyTimeout")
     def wait_for_ready_timeout(self) -> Optional[pulumi.Input[str]]:
         """
-        The maximum
+        (Default `20m`) The maximum
         [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         wait for an Elastic Beanstalk Environment to be in a ready state before timing
         out.
@@ -799,7 +799,7 @@ class Environment(pulumi.CustomResource):
                or `WebServer`. If tier is left blank `WebServer` will be used.
         :param pulumi.Input[str] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
-        :param pulumi.Input[str] wait_for_ready_timeout: The maximum
+        :param pulumi.Input[str] wait_for_ready_timeout: (Default `20m`) The maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for an Elastic Beanstalk Environment to be in a ready state before timing
                out.
@@ -1016,7 +1016,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] triggers: Autoscaling triggers in use by this Environment.
         :param pulumi.Input[str] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
-        :param pulumi.Input[str] wait_for_ready_timeout: The maximum
+        :param pulumi.Input[str] wait_for_ready_timeout: (Default `20m`) The maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for an Elastic Beanstalk Environment to be in a ready state before timing
                out.
@@ -1254,7 +1254,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="waitForReadyTimeout")
     def wait_for_ready_timeout(self) -> pulumi.Output[Optional[str]]:
         """
-        The maximum
+        (Default `20m`) The maximum
         [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         wait for an Elastic Beanstalk Environment to be in a ready state before timing
         out.

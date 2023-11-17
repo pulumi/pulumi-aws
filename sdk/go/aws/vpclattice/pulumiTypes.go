@@ -2484,7 +2484,6 @@ type TargetGroupConfigHealthCheck struct {
 	// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
 	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
 	// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-	// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
 	HealthCheckTimeoutSeconds *int `pulumi:"healthCheckTimeoutSeconds"`
 	HealthyThresholdCount     *int `pulumi:"healthyThresholdCount"`
 	// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
@@ -2518,7 +2517,6 @@ type TargetGroupConfigHealthCheckArgs struct {
 	// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
 	HealthCheckIntervalSeconds pulumi.IntPtrInput `pulumi:"healthCheckIntervalSeconds"`
 	// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-	// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
 	HealthCheckTimeoutSeconds pulumi.IntPtrInput `pulumi:"healthCheckTimeoutSeconds"`
 	HealthyThresholdCount     pulumi.IntPtrInput `pulumi:"healthyThresholdCount"`
 	// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
@@ -2623,7 +2621,6 @@ func (o TargetGroupConfigHealthCheckOutput) HealthCheckIntervalSeconds() pulumi.
 }
 
 // The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
 func (o TargetGroupConfigHealthCheckOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.HealthCheckTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -2707,7 +2704,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) HealthCheckIntervalSeconds() pulu
 }
 
 // The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
 func (o TargetGroupConfigHealthCheckPtrOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
 		if v == nil {

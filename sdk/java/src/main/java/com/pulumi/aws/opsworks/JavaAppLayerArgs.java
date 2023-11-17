@@ -200,14 +200,14 @@ public final class JavaAppLayerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+     * blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
     @Import(name="ebsVolumes")
     private @Nullable Output<List<JavaAppLayerEbsVolumeArgs>> ebsVolumes;
 
     /**
-     * @return `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+     * @return blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
     public Optional<Output<List<JavaAppLayerEbsVolumeArgs>>> ebsVolumes() {
@@ -719,7 +719,7 @@ public final class JavaAppLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ebsVolumes `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+         * @param ebsVolumes blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class JavaAppLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ebsVolumes `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+         * @param ebsVolumes blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class JavaAppLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ebsVolumes `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
+         * @param ebsVolumes blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
          * 
          * @return builder
          * 

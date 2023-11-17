@@ -1439,7 +1439,6 @@ class ReplicationConfigComputeConfig(dict):
         :param int min_capacity_units: Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
         :param bool multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param str preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-               
                - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
                - Format: `ddd:hh24:mi-ddd:hh24:mi`
                - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
@@ -1525,7 +1524,6 @@ class ReplicationConfigComputeConfig(dict):
     def preferred_maintenance_window(self) -> Optional[str]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-
         - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
         - Format: `ddd:hh24:mi-ddd:hh24:mi`
         - Valid Days: `mon, tue, wed, thu, fri, sat, sun`

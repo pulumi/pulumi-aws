@@ -283,11 +283,6 @@ class EventConnectionAuthParametersInvocationHttpParameters(dict):
                  bodies: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersBody']] = None,
                  headers: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersHeader']] = None,
                  query_strings: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersQueryString']] = None):
-        """
-        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersBodyArgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         if bodies is not None:
             pulumi.set(__self__, "bodies", bodies)
         if headers is not None:
@@ -298,25 +293,16 @@ class EventConnectionAuthParametersInvocationHttpParameters(dict):
     @property
     @pulumi.getter
     def bodies(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersBody']]:
-        """
-        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "bodies")
 
     @property
     @pulumi.getter
     def headers(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersHeader']]:
-        """
-        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersQueryString']]:
-        """
-        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "query_strings")
 
 
@@ -345,8 +331,8 @@ class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -367,7 +353,7 @@ class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -375,7 +361,7 @@ class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -405,8 +391,8 @@ class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -427,7 +413,7 @@ class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -435,7 +421,7 @@ class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -465,8 +451,8 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -487,7 +473,7 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -495,7 +481,7 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -646,11 +632,6 @@ class EventConnectionAuthParametersOauthOauthHttpParameters(dict):
                  bodies: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody']] = None,
                  headers: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader']] = None,
                  query_strings: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString']] = None):
-        """
-        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         if bodies is not None:
             pulumi.set(__self__, "bodies", bodies)
         if headers is not None:
@@ -661,25 +642,16 @@ class EventConnectionAuthParametersOauthOauthHttpParameters(dict):
     @property
     @pulumi.getter
     def bodies(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody']]:
-        """
-        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "bodies")
 
     @property
     @pulumi.getter
     def headers(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader']]:
-        """
-        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString']]:
-        """
-        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "query_strings")
 
 
@@ -708,8 +680,8 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -730,7 +702,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -738,7 +710,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -768,8 +740,8 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -790,7 +762,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -798,7 +770,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -828,8 +800,8 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -850,7 +822,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -858,7 +830,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 

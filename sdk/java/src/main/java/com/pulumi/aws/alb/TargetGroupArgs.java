@@ -159,14 +159,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * (May be required, Forces new resource) Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * @return (May be required, Forces new resource) Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -189,14 +189,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * (May be required, Forces new resource) Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * @return (May be required, Forces new resource) Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -309,7 +309,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * (May be required, Forces new resource) Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
@@ -324,7 +324,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> targetType;
 
     /**
-     * @return Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * @return (May be required, Forces new resource) Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
@@ -588,7 +588,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param port (May be required, Forces new resource) Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param port (May be required, Forces new resource) Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param protocol (May be required, Forces new resource) Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param protocol (May be required, Forces new resource) Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
          * 
          * @return builder
          * 
@@ -818,7 +818,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetType Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+         * @param targetType (May be required, Forces new resource) Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
          * 
          * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
          * 
@@ -837,7 +837,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetType Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+         * @param targetType (May be required, Forces new resource) Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
          * 
          * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
          * 

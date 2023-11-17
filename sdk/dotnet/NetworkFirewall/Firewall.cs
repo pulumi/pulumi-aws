@@ -85,7 +85,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        /// (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         /// </summary>
         [Output("firewallPolicyChangeProtection")]
         public Output<bool?> FirewallPolicyChangeProtection { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string> FirewallPolicyArn { get; set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        /// (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? FirewallPolicyArn { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        /// (Option) A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }

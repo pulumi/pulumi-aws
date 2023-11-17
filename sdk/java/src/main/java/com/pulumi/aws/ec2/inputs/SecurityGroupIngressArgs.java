@@ -34,14 +34,14 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Description of this ingress rule.
+     * Description of this egress rule.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of this ingress rule.
+     * @return Description of this egress rule.
      * 
      */
     public Optional<Output<String>> description() {
@@ -132,14 +132,14 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Whether the security group itself will be added as a source to this ingress rule.
+     * Whether the security group itself will be added as a source to this egress rule.
      * 
      */
     @Import(name="self")
     private @Nullable Output<Boolean> self;
 
     /**
-     * @return Whether the security group itself will be added as a source to this ingress rule.
+     * @return Whether the security group itself will be added as a source to this egress rule.
      * 
      */
     public Optional<Output<Boolean>> self() {
@@ -225,7 +225,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description Description of this ingress rule.
+         * @param description Description of this egress rule.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description Description of this ingress rule.
+         * @param description Description of this egress rule.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param self Whether the security group itself will be added as a source to this ingress rule.
+         * @param self Whether the security group itself will be added as a source to this egress rule.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param self Whether the security group itself will be added as a source to this ingress rule.
+         * @param self Whether the security group itself will be added as a source to this egress rule.
          * 
          * @return builder
          * 

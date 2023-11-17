@@ -49,9 +49,6 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
     /**
      * Describes whether the application uses Kinesis Data Analytics&#39; default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-     * * `checkpointing_enabled = true`
-     * * `checkpoint_interval = 60000`
-     * * `min_pause_between_checkpoints = 5000`
      * 
      */
     @Import(name="configurationType", required=true)
@@ -59,9 +56,6 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
     /**
      * @return Describes whether the application uses Kinesis Data Analytics&#39; default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-     * * `checkpointing_enabled = true`
-     * * `checkpoint_interval = 60000`
-     * * `min_pause_between_checkpoints = 5000`
      * 
      */
     public Output<String> configurationType() {
@@ -154,9 +148,6 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
         /**
          * @param configurationType Describes whether the application uses Kinesis Data Analytics&#39; default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-         * * `checkpointing_enabled = true`
-         * * `checkpoint_interval = 60000`
-         * * `min_pause_between_checkpoints = 5000`
          * 
          * @return builder
          * 
@@ -168,9 +159,6 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
         /**
          * @param configurationType Describes whether the application uses Kinesis Data Analytics&#39; default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-         * * `checkpointing_enabled = true`
-         * * `checkpoint_interval = 60000`
-         * * `min_pause_between_checkpoints = 5000`
          * 
          * @return builder
          * 

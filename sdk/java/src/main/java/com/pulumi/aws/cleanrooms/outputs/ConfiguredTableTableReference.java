@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ConfiguredTableTableReference {
+    /**
+     * @return The name of the AWS Glue database which contains the table.
+     * 
+     */
     private String databaseName;
+    /**
+     * @return The name of the AWS Glue table which will be used to create the configured table.
+     * 
+     */
     private String tableName;
 
     private ConfiguredTableTableReference() {}
+    /**
+     * @return The name of the AWS Glue database which contains the table.
+     * 
+     */
     public String databaseName() {
         return this.databaseName;
     }
+    /**
+     * @return The name of the AWS Glue table which will be used to create the configured table.
+     * 
+     */
     public String tableName() {
         return this.tableName;
     }

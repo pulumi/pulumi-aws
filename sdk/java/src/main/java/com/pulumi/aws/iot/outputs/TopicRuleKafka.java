@@ -30,7 +30,7 @@ public final class TopicRuleKafka {
      */
     private @Nullable List<TopicRuleKafkaHeader> headers;
     /**
-     * @return The Kafka message key.
+     * @return The object key.
      * 
      */
     private @Nullable String key;
@@ -68,7 +68,7 @@ public final class TopicRuleKafka {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return The Kafka message key.
+     * @return The object key.
      * 
      */
     public Optional<String> key() {
