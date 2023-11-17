@@ -1,0 +1,97 @@
+provider: aws
+lint: false
+major-version: 5
+parallel: 1
+timeout: 150
+generate-nightly-test-workflow: true
+providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVersion
+env:
+  PULUMI_MISSING_DOCS_ERROR: true
+  AWS_REGION: "us-west-2"
+makeTemplate: bridged
+checkoutSubmodules: true
+# TODO: remove XrunUpstreamTools flag after work to add docs replacement strategies to resources.go is completed
+# Tracked in in https://github.com/pulumi/pulumi-aws/issues/2757
+XrunUpstreamTools: true
+plugins:
+  - name: archive
+    version: "0.0.1"
+  - name: tls
+    version: "4.10.0"
+  - name: github
+    version: "4.10.0"
+  - name: kubernetes
+    version: "3.17.0"
+  - name: random
+    version: "4.8.2"
+  - name: github
+    version: "5.14.0"
+team: ecosystem
+goBuildParallelism: 2
+javaGenVersion: "v0.9.5"
+runner:
+  publish: pulumi-ubuntu-8core
+  buildSdk: pulumi-ubuntu-8core
+actions:
+  setupPulumi:
+    - name: Install Pulumi CLI
+      uses: pulumi/actions@v4
+      with:
+        pulumi-version: v3.77.1
+  preTest:
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-region: ${{ env.AWS_REGION }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        role-duration-seconds: 3600
+        role-session-name: ${{ env.PROVIDER }}@githubActions
+        role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+    - name: Make upstream
+      run: make upstream
+    - name: Run provider tests
+      run: |
+        cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+  preBuild:
+    - name: Clear GitHub Actions Ubuntu runner disk space
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        dotnet: false
+        android: true
+        haskell: true
+        swap-storage: true
+        # TODO: enable once transient error with azure is resolved
+        #
+        # E: Failed to fetch
+        # http://azure.archive.ubuntu.com/ubuntu/pool/universe/d/dotnet7/aspnetcore-targeting-pack-7.0_7.0.105-0ubuntu1%7e22.04.1_amd64.deb
+        # 404 Not Found [IP: 40.81.13.82 80]
+        large-packages: false
+extraTests:
+  go_test_shim:
+    name: Run test of provider shim
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ env.PR_COMMIT_SHA }}
+        submodules: true
+    - name: Make upstream
+      run: make upstream
+    - uses: actions/setup-go@v4
+      with:
+       go-version-file: 'provider/go.mod'
+       cache-dependency-path: 'provider/go.sum'
+    - name: go test
+      run: |
+        cd upstream
+        go get github.com/hashicorp/aws-sdk-go-base@v1.1.0
+        cd shim
+        go test -v -coverprofile="coverage.txt" .
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      env:
+       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
