@@ -1,0 +1,49 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Fri, 4 Nov 2022 17:32:49 +0000
+Subject: [PATCH 09/29] Add EKS cluster certificate_authorities (plural)
+
+
+diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
+index eb8a035219..06d996e1ef 100644
+--- a/internal/service/eks/cluster.go
++++ b/internal/service/eks/cluster.go
+@@ -54,9 +54,24 @@ func ResourceCluster() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Computed: true,
+ 			},
++			// FORK: Stack72: Renamed certificate_authority list to be certificate_authorities and map in the Pulumi provider
++			"certificate_authorities": {
++				Type:     schema.TypeList,
++				Computed: true,
++				Elem: &schema.Resource{
++					Schema: map[string]*schema.Schema{
++						"data": {
++							Type:     schema.TypeString,
++							Computed: true,
++						},
++					},
++				},
++			},
++			// FORK: Stack72: Added a singular backward compatible value for certificate authorities
+ 			"certificate_authority": {
+ 				Type:     schema.TypeList,
+ 				Computed: true,
++				//MaxItems: 1,
+ 				Elem: &schema.Resource{
+ 					Schema: map[string]*schema.Schema{
+ 						"data": {
+@@ -382,6 +397,13 @@ func resourceClusterRead(ctx context.Context, d *schema.ResourceData, meta inter
+ 	}
+ 
+ 	d.Set("arn", cluster.Arn)
++
++	// FORK: Stack72: Renamed certificate_authority list to be certificate_authorities and map in the Pulumi provider
++	if err := d.Set("certificate_authorities", flattenCertificate(cluster.CertificateAuthority)); err != nil {
++		return diag.Errorf("error setting certificate_authorities: %w", err)
++	}
++
++	// FORK: Stack72: Adding a single certificate authority to ensure backwards compatibility
+ 	if err := d.Set("certificate_authority", flattenCertificate(cluster.CertificateAuthority)); err != nil {
+ 		return diag.Errorf("setting certificate_authority: %s", err)
+ 	}

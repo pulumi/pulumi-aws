@@ -1,0 +1,23 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Thu, 9 Mar 2023 14:50:36 +0000
+Subject: [PATCH 22/29] Fixup eks formatting
+
+
+diff --git a/internal/service/eks/wait.go b/internal/service/eks/wait.go
+index 8039919c31..fcb7b3c6a7 100644
+--- a/internal/service/eks/wait.go
++++ b/internal/service/eks/wait.go
+@@ -11,9 +11,9 @@ import (
+ )
+ 
+ const (
+-	addonCreatedTimeout = 20 * time.Minute
+-	addonUpdatedTimeout = 20 * time.Minute
+-	addonDeletedTimeout = 40 * time.Minute
++	addonCreatedTimeout       = 20 * time.Minute
++	addonUpdatedTimeout       = 20 * time.Minute
++	addonDeletedTimeout       = 40 * time.Minute
+ 	clusterDeleteRetryTimeout = 60 * time.Minute
+ )
+ 

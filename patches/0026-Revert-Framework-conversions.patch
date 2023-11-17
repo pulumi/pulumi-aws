@@ -1,0 +1,823 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Thomas Kappler <tkappler@pulumi.com>
+Date: Tue, 28 Mar 2023 15:09:00 -0700
+Subject: [PATCH 26/29] Revert Framework conversions
+
+https://github.com/hashicorp/terraform-provider-aws/tree/main/internal/service/cognitoidp
+
+analogous to bc79efb
+
+diff --git a/internal/framework/flex/flex.go b/internal/framework/flex/flex.go
+index 8b79c26538..d19d8406a0 100644
+--- a/internal/framework/flex/flex.go
++++ b/internal/framework/flex/flex.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package flex
+ 
+ import (
+diff --git a/internal/provider/provider.go b/internal/provider/provider.go
+index 12ec3fe625..95ed90469e 100644
+--- a/internal/provider/provider.go
++++ b/internal/provider/provider.go
+@@ -8,6 +8,7 @@ import (
+ 	"regexp"
+ 	"time"
+ 
++	"github.com/hashicorp/terraform-provider-aws/internal/service/cognitoidp"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/globalaccelerator"
+@@ -268,6 +269,11 @@ func New(ctx context.Context) (*schema.Provider, error) {
+ 			"aws_service":                 meta.DataSourceService(),
+ 
+ 			"aws_caller_identity": sts.DataSourceCallerIdentity(),
++
++			"aws_cognito_user_pool_client":              cognitoidp.DataSourceUserPoolClient(),
++			"aws_cognito_user_pool_clients":             cognitoidp.DataSourceUserPoolClients(),
++			"aws_cognito_user_pool_signing_certificate": cognitoidp.DataSourceUserPoolSigningCertificate(),
++			"aws_cognito_user_pools":                    cognitoidp.DataSourceUserPools(),
+ 		},
+ 
+ 		ResourcesMap: map[string]*schema.Resource{
+@@ -281,6 +287,17 @@ func New(ctx context.Context) (*schema.Provider, error) {
+ 
+ 			"aws_gamelift_matchmaking_configuration": gamelift.ResourceMatchMakingConfiguration(),
+ 			"aws_gamelift_matchmaking_rule_set":      gamelift.ResourceMatchmakingRuleSet(),
++
++			"aws_cognito_identity_provider":          cognitoidp.ResourceIdentityProvider(),
++			"aws_cognito_resource_server":            cognitoidp.ResourceResourceServer(),
++			"aws_cognito_risk_configuration":         cognitoidp.ResourceRiskConfiguration(),
++			"aws_cognito_user":                       cognitoidp.ResourceUser(),
++			"aws_cognito_user_group":                 cognitoidp.ResourceUserGroup(),
++			"aws_cognito_user_in_group":              cognitoidp.ResourceUserInGroup(),
++			"aws_cognito_user_pool":                  cognitoidp.ResourceUserPool(),
++			"aws_cognito_user_pool_client":           cognitoidp.ResourceUserPoolClient(),
++			"aws_cognito_user_pool_domain":           cognitoidp.ResourceUserPoolDomain(),
++			"aws_cognito_user_pool_ui_customization": cognitoidp.ResourceUserPoolUICustomization(),
+ 		},
+ 	}
+ 
+diff --git a/internal/provider/service_packages_gen.go b/internal/provider/service_packages_gen.go
+index 5e86dd274e..052b7ed81e 100644
+--- a/internal/provider/service_packages_gen.go
++++ b/internal/provider/service_packages_gen.go
+@@ -51,7 +51,6 @@ import (
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/codestarconnections"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/codestarnotifications"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/cognitoidentity"
+-	"github.com/hashicorp/terraform-provider-aws/internal/service/cognitoidp"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/comprehend"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/computeoptimizer"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/configservice"
+@@ -258,7 +257,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+ 		codestarconnections.ServicePackage,
+ 		codestarnotifications.ServicePackage,
+ 		cognitoidentity.ServicePackage,
+-		cognitoidp.ServicePackage,
++		// cognitoidp.ServicePackage,
+ 		comprehend.ServicePackage,
+ 		computeoptimizer.ServicePackage,
+ 		configservice.ServicePackage,
+diff --git a/internal/service/cognitoidp/managed_user_pool_client.go b/internal/service/cognitoidp/managed_user_pool_client.go
+index e29cdd9663..9063f6faf0 100644
+--- a/internal/service/cognitoidp/managed_user_pool_client.go
++++ b/internal/service/cognitoidp/managed_user_pool_client.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package cognitoidp
+ 
+ import (
+@@ -26,7 +28,6 @@ import (
+ 	"github.com/hashicorp/terraform-plugin-framework/types"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/create"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/framework"
+-	"github.com/hashicorp/terraform-provider-aws/internal/framework/flex"
+ 	fwstringplanmodifier "github.com/hashicorp/terraform-provider-aws/internal/framework/stringplanmodifier"
+ 	fwtypes "github.com/hashicorp/terraform-provider-aws/internal/framework/types"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+diff --git a/internal/service/cognitoidp/managed_user_pool_client_test.go b/internal/service/cognitoidp/managed_user_pool_client_test.go
+index 159397323f..7a02dd594b 100644
+--- a/internal/service/cognitoidp/managed_user_pool_client_test.go
++++ b/internal/service/cognitoidp/managed_user_pool_client_test.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package cognitoidp_test
+ 
+ import (
+diff --git a/internal/service/cognitoidp/service_package_gen.go b/internal/service/cognitoidp/service_package_gen.go
+index 920f4f4435..c2b084887f 100644
+--- a/internal/service/cognitoidp/service_package_gen.go
++++ b/internal/service/cognitoidp/service_package_gen.go
+@@ -1,3 +1,4 @@
++//go:build ignores
+ // Code generated by internal/generate/servicepackages/main.go; DO NOT EDIT.
+ 
+ package cognitoidp
+diff --git a/internal/service/cognitoidp/tags_gen.go b/internal/service/cognitoidp/tags_gen.go
+index efa1eb0564..b3012c5001 100644
+--- a/internal/service/cognitoidp/tags_gen.go
++++ b/internal/service/cognitoidp/tags_gen.go
+@@ -8,7 +8,6 @@ import (
+ 	"github.com/aws/aws-sdk-go/aws"
+ 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
+ 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider/cognitoidentityprovideriface"
+-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+ 	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/types"
+ 	"github.com/hashicorp/terraform-provider-aws/names"
+@@ -31,21 +30,19 @@ func ListTags(ctx context.Context, conn cognitoidentityprovideriface.CognitoIden
+ 	return KeyValueTags(ctx, output.Tags), nil
+ }
+ 
+-// ListTags lists cognitoidp service tags and set them in Context.
+-// It is called from outside this package.
+-func (p *servicePackage) ListTags(ctx context.Context, meta any, identifier string) error {
+-	tags, err := ListTags(ctx, meta.(*conns.AWSClient).CognitoIDPConn(), identifier)
++// func (p *servicePackage) ListTags(ctx context.Context, meta any, identifier string) error {
++// 	tags, err := ListTags(ctx, meta.(*conns.AWSClient).CognitoIDPConn(), identifier)
+ 
+-	if err != nil {
+-		return err
+-	}
++// 	if err != nil {
++// 		return err
++// 	}
+ 
+-	if inContext, ok := tftags.FromContext(ctx); ok {
+-		inContext.TagsOut = types.Some(tags)
+-	}
++// 	if inContext, ok := tftags.FromContext(ctx); ok {
++// 		inContext.TagsOut = types.Some(tags)
++// 	}
+ 
+-	return nil
+-}
++// 	return nil
++// }
+ 
+ // map[string]*string handling
+ 
+@@ -118,8 +115,8 @@ func UpdateTags(ctx context.Context, conn cognitoidentityprovideriface.CognitoId
+ 	return nil
+ }
+ 
+-// UpdateTags updates cognitoidp service tags.
+-// It is called from outside this package.
+-func (p *servicePackage) UpdateTags(ctx context.Context, meta any, identifier string, oldTags, newTags any) error {
+-	return UpdateTags(ctx, meta.(*conns.AWSClient).CognitoIDPConn(), identifier, oldTags, newTags)
+-}
++// // UpdateTags updates cognitoidp service tags.
++// // It is called from outside this package.
++// func (p *servicePackage) UpdateTags(ctx context.Context, meta any, identifier string, oldTags, newTags any) error {
++// 	return UpdateTags(ctx, meta.(*conns.AWSClient).CognitoIDPConn(), identifier, oldTags, newTags)
++// }
+diff --git a/internal/service/cognitoidp/user_pool_client.go b/internal/service/cognitoidp/user_pool_client.go
+index e3231f4db0..c380e97977 100644
+--- a/internal/service/cognitoidp/user_pool_client.go
++++ b/internal/service/cognitoidp/user_pool_client.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package cognitoidp
+ 
+ import (
+@@ -29,7 +31,6 @@ import (
+ 	"github.com/hashicorp/terraform-plugin-log/tflog"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/create"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/framework"
+-	"github.com/hashicorp/terraform-provider-aws/internal/framework/flex"
+ 	fwstringplanmodifier "github.com/hashicorp/terraform-provider-aws/internal/framework/stringplanmodifier"
+ 	fwtypes "github.com/hashicorp/terraform-provider-aws/internal/framework/types"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+diff --git a/internal/service/cognitoidp/user_pool_client_reverted.go b/internal/service/cognitoidp/user_pool_client_reverted.go
+new file mode 100644
+index 0000000000..db6646271f
+--- /dev/null
++++ b/internal/service/cognitoidp/user_pool_client_reverted.go
+@@ -0,0 +1,606 @@
++package cognitoidp
++
++import (
++	"context"
++	"fmt"
++	"log"
++	"regexp"
++	"strings"
++	"time"
++
++	"github.com/aws/aws-sdk-go/aws"
++	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
++	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	"github.com/hashicorp/terraform-provider-aws/internal/create"
++	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
++	"github.com/hashicorp/terraform-provider-aws/internal/flex"
++	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
++	"github.com/hashicorp/terraform-provider-aws/internal/verify"
++	"github.com/hashicorp/terraform-provider-aws/names"
++)
++
++// @SDKResource("aws_cognito_user_pool_client")
++func ResourceUserPoolClient() *schema.Resource {
++	return &schema.Resource{
++		CreateWithoutTimeout: resourceUserPoolClientCreate,
++		ReadWithoutTimeout:   resourceUserPoolClientRead,
++		UpdateWithoutTimeout: resourceUserPoolClientUpdate,
++		DeleteWithoutTimeout: resourceUserPoolClientDelete,
++
++		Importer: &schema.ResourceImporter{
++			StateContext: resourceUserPoolClientImport,
++		},
++
++		// https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html
++		Schema: map[string]*schema.Schema{
++			"access_token_validity": {
++				Type:         schema.TypeInt,
++				Optional:     true,
++				ValidateFunc: validation.IntBetween(1, 86400),
++			},
++			"allowed_oauth_flows": {
++				Type:     schema.TypeSet,
++				Optional: true,
++				MaxItems: 3,
++				Elem: &schema.Schema{
++					Type:         schema.TypeString,
++					ValidateFunc: validation.StringInSlice(cognitoidentityprovider.OAuthFlowType_Values(), false),
++				},
++			},
++			"allowed_oauth_flows_user_pool_client": {
++				Type:     schema.TypeBool,
++				Optional: true,
++			},
++			"allowed_oauth_scopes": {
++				Type:     schema.TypeSet,
++				Optional: true,
++				MaxItems: 50,
++				Elem: &schema.Schema{
++					Type: schema.TypeString,
++					// https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html
++					// System reserved scopes are openid, email, phone, profile, and aws.cognito.signin.user.admin.
++					// https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html#CognitoUserPools-CreateUserPoolClient-request-AllowedOAuthScopes
++					// Constraints seem like to be designed for custom scopes which are not supported yet?
++				},
++			},
++			"analytics_configuration": {
++				Type:     schema.TypeList,
++				Optional: true,
++				MaxItems: 1,
++				MinItems: 1,
++				Elem: &schema.Resource{
++					Schema: map[string]*schema.Schema{
++						"application_id": {
++							Type:         schema.TypeString,
++							Optional:     true,
++							ExactlyOneOf: []string{"analytics_configuration.0.application_id", "analytics_configuration.0.application_arn"},
++						},
++						"application_arn": {
++							Type:          schema.TypeString,
++							Optional:      true,
++							ExactlyOneOf:  []string{"analytics_configuration.0.application_id", "analytics_configuration.0.application_arn"},
++							ConflictsWith: []string{"analytics_configuration.0.external_id", "analytics_configuration.0.role_arn"},
++							ValidateFunc:  verify.ValidARN,
++						},
++						"external_id": {
++							Type:          schema.TypeString,
++							ConflictsWith: []string{"analytics_configuration.0.application_arn"},
++							Optional:      true,
++						},
++						"role_arn": {
++							Type:          schema.TypeString,
++							Optional:      true,
++							Computed:      true,
++							ConflictsWith: []string{"analytics_configuration.0.application_arn"},
++							ValidateFunc:  verify.ValidARN,
++						},
++						"user_data_shared": {
++							Type:     schema.TypeBool,
++							Optional: true,
++						},
++					},
++				},
++			},
++			"auth_session_validity": {
++				Type:         schema.TypeInt,
++				Optional:     true,
++				Default:      3,
++				ValidateFunc: validation.IntBetween(3, 15),
++			},
++			"callback_urls": {
++				Type:     schema.TypeSet,
++				Optional: true,
++				Computed: true,
++				MaxItems: 100,
++				Elem: &schema.Schema{
++					Type: schema.TypeString,
++					ValidateFunc: validation.All(
++						validation.StringLenBetween(1, 1024),
++						validation.StringMatch(regexp.MustCompile(`[\p{L}\p{M}\p{S}\p{N}\p{P}]+`),
++							"must satisfy regular expression pattern: [\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+`"),
++					),
++				},
++			},
++			"client_secret": {
++				Type:      schema.TypeString,
++				Computed:  true,
++				Sensitive: true,
++			},
++			"default_redirect_uri": {
++				Type:     schema.TypeString,
++				Optional: true,
++				ValidateFunc: validation.All(
++					validation.StringLenBetween(1, 1024),
++					validation.StringMatch(regexp.MustCompile(`[\p{L}\p{M}\p{S}\p{N}\p{P}]+`),
++						"must satisfy regular expression pattern: [\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+`"),
++				),
++			},
++			"enable_token_revocation": {
++				Type:     schema.TypeBool,
++				Optional: true,
++				Computed: true,
++			},
++			"enable_propagate_additional_user_context_data": {
++				Type:     schema.TypeBool,
++				Optional: true,
++			},
++			"explicit_auth_flows": {
++				Type:     schema.TypeSet,
++				Optional: true,
++				Elem: &schema.Schema{
++					Type:         schema.TypeString,
++					ValidateFunc: validation.StringInSlice(cognitoidentityprovider.ExplicitAuthFlowsType_Values(), false),
++				},
++			},
++			"generate_secret": {
++				Type:     schema.TypeBool,
++				Optional: true,
++				ForceNew: true,
++			},
++			"id_token_validity": {
++				Type:         schema.TypeInt,
++				Optional:     true,
++				ValidateFunc: validation.IntBetween(1, 86400),
++			},
++			"logout_urls": {
++				Type:     schema.TypeSet,
++				Optional: true,
++				Computed: true,
++				MaxItems: 100,
++				Elem: &schema.Schema{
++					Type: schema.TypeString,
++					ValidateFunc: validation.All(
++						validation.StringLenBetween(1, 1024),
++						validation.StringMatch(regexp.MustCompile(`[\p{L}\p{M}\p{S}\p{N}\p{P}]+`),
++							"must satisfy regular expression pattern: [\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+`"),
++					),
++				},
++			},
++			"name": {
++				Type:     schema.TypeString,
++				Required: true,
++				ValidateFunc: validation.All(
++					validation.StringLenBetween(1, 128),
++					validation.StringMatch(regexp.MustCompile(`[\w\s+=,.@-]+`),
++						"must satisfy regular expression pattern: `[\\w\\s+=,.@-]+`"),
++				),
++			},
++			"prevent_user_existence_errors": {
++				Type:         schema.TypeString,
++				Optional:     true,
++				Computed:     true,
++				ValidateFunc: validation.StringInSlice(cognitoidentityprovider.PreventUserExistenceErrorTypes_Values(), false),
++			},
++			"read_attributes": {
++				Type:     schema.TypeSet,
++				Optional: true,
++				Elem: &schema.Schema{
++					Type: schema.TypeString,
++				},
++			},
++			"refresh_token_validity": {
++				Type:         schema.TypeInt,
++				Optional:     true,
++				Default:      30,
++				ValidateFunc: validation.IntBetween(0, 315360000),
++			},
++			"supported_identity_providers": {
++				Type:     schema.TypeSet,
++				Optional: true,
++				Elem: &schema.Schema{
++					Type: schema.TypeString,
++					ValidateFunc: validation.All(
++						validation.StringLenBetween(1, 32),
++						validation.StringMatch(regexp.MustCompile(`[\p{L}\p{M}\p{S}\p{N}\p{P}]+`),
++							"must satisfy regular expression pattern: [\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+`"),
++					),
++				},
++			},
++			"token_validity_units": {
++				Type:     schema.TypeList,
++				Optional: true,
++				MaxItems: 1,
++				Elem: &schema.Resource{
++					Schema: map[string]*schema.Schema{
++						"access_token": {
++							Type:         schema.TypeString,
++							Optional:     true,
++							Default:      cognitoidentityprovider.TimeUnitsTypeHours,
++							ValidateFunc: validation.StringInSlice(cognitoidentityprovider.TimeUnitsType_Values(), false),
++						},
++						"id_token": {
++							Type:         schema.TypeString,
++							Optional:     true,
++							Default:      cognitoidentityprovider.TimeUnitsTypeHours,
++							ValidateFunc: validation.StringInSlice(cognitoidentityprovider.TimeUnitsType_Values(), false),
++						},
++						"refresh_token": {
++							Type:         schema.TypeString,
++							Optional:     true,
++							Default:      cognitoidentityprovider.TimeUnitsTypeDays,
++							ValidateFunc: validation.StringInSlice(cognitoidentityprovider.TimeUnitsType_Values(), false),
++						},
++					},
++				},
++			},
++			"user_pool_id": {
++				Type:     schema.TypeString,
++				Required: true,
++				ForceNew: true,
++			},
++			"write_attributes": {
++				Type:     schema.TypeSet,
++				Optional: true,
++				Elem: &schema.Schema{
++					Type: schema.TypeString,
++				},
++			},
++		},
++	}
++}
++
++func resourceUserPoolClientCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).CognitoIDPConn()
++
++	params := &cognitoidentityprovider.CreateUserPoolClientInput{
++		ClientName: aws.String(d.Get("name").(string)),
++		UserPoolId: aws.String(d.Get("user_pool_id").(string)),
++	}
++
++	if v, ok := d.GetOk("auth_session_validity"); ok {
++		params.AuthSessionValidity = aws.Int64(int64(v.(int)))
++	}
++
++	if v, ok := d.GetOk("generate_secret"); ok {
++		params.GenerateSecret = aws.Bool(v.(bool))
++	}
++
++	if v, ok := d.GetOk("explicit_auth_flows"); ok {
++		params.ExplicitAuthFlows = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("read_attributes"); ok {
++		params.ReadAttributes = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("write_attributes"); ok {
++		params.WriteAttributes = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("refresh_token_validity"); ok {
++		params.RefreshTokenValidity = aws.Int64(int64(v.(int)))
++	}
++
++	if v, ok := d.GetOk("access_token_validity"); ok {
++		params.AccessTokenValidity = aws.Int64(int64(v.(int)))
++	}
++
++	if v, ok := d.GetOk("id_token_validity"); ok {
++		params.IdTokenValidity = aws.Int64(int64(v.(int)))
++	}
++
++	if v, ok := d.GetOk("allowed_oauth_flows"); ok {
++		params.AllowedOAuthFlows = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("allowed_oauth_flows_user_pool_client"); ok {
++		params.AllowedOAuthFlowsUserPoolClient = aws.Bool(v.(bool))
++	}
++
++	if v, ok := d.GetOk("allowed_oauth_scopes"); ok {
++		params.AllowedOAuthScopes = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("callback_urls"); ok {
++		params.CallbackURLs = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("default_redirect_uri"); ok {
++		params.DefaultRedirectURI = aws.String(v.(string))
++	}
++
++	if v, ok := d.GetOk("logout_urls"); ok {
++		params.LogoutURLs = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("supported_identity_providers"); ok {
++		params.SupportedIdentityProviders = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("analytics_configuration"); ok {
++		params.AnalyticsConfiguration = expandUserPoolClientAnalyticsConfig(v.([]interface{}))
++	}
++
++	if v, ok := d.GetOk("token_validity_units"); ok {
++		params.TokenValidityUnits = expandUserPoolClientTokenValidityUnitsType(v.([]interface{}))
++	}
++
++	if v, ok := d.GetOk("prevent_user_existence_errors"); ok {
++		params.PreventUserExistenceErrors = aws.String(v.(string))
++	}
++
++	if v, ok := d.GetOk("enable_token_revocation"); ok {
++		params.EnableTokenRevocation = aws.Bool(v.(bool))
++	}
++
++	if v, ok := d.GetOk("enable_propagate_additional_user_context_data"); ok {
++		params.EnablePropagateAdditionalUserContextData = aws.Bool(v.(bool))
++	}
++
++	log.Printf("[DEBUG] Creating Cognito User Pool Client: %s", params)
++
++	resp, err := conn.CreateUserPoolClientWithContext(ctx, params)
++
++	if err != nil {
++		return sdkdiag.AppendErrorf(diags, "creating Cognito User Pool Client (%s): %s", d.Get("name").(string), err)
++	}
++
++	d.SetId(aws.StringValue(resp.UserPoolClient.ClientId))
++
++	return append(diags, resourceUserPoolClientRead(ctx, d, meta)...)
++}
++
++func resourceUserPoolClientRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).CognitoIDPConn()
++
++	userPoolClient, err := FindCognitoUserPoolClientByID(ctx, conn, d.Get("user_pool_id").(string), d.Id())
++
++	if !d.IsNewResource() && tfresource.NotFound(err) {
++		create.LogNotFoundRemoveState(names.CognitoIDP, create.ErrActionReading, ResNameUserPoolClient, d.Id())
++		d.SetId("")
++		return diags
++	}
++
++	if err != nil {
++		return create.DiagError(names.CognitoIDP, create.ErrActionReading, ResNameUserPoolClient, d.Id(), err)
++	}
++
++	d.Set("user_pool_id", userPoolClient.UserPoolId)
++	d.Set("name", userPoolClient.ClientName)
++	d.Set("explicit_auth_flows", flex.FlattenStringSet(userPoolClient.ExplicitAuthFlows))
++	d.Set("read_attributes", flex.FlattenStringSet(userPoolClient.ReadAttributes))
++	d.Set("write_attributes", flex.FlattenStringSet(userPoolClient.WriteAttributes))
++	d.Set("refresh_token_validity", userPoolClient.RefreshTokenValidity)
++	d.Set("access_token_validity", userPoolClient.AccessTokenValidity)
++	d.Set("id_token_validity", userPoolClient.IdTokenValidity)
++	d.Set("client_secret", userPoolClient.ClientSecret)
++	d.Set("allowed_oauth_flows", flex.FlattenStringSet(userPoolClient.AllowedOAuthFlows))
++	d.Set("allowed_oauth_flows_user_pool_client", userPoolClient.AllowedOAuthFlowsUserPoolClient)
++	d.Set("allowed_oauth_scopes", flex.FlattenStringSet(userPoolClient.AllowedOAuthScopes))
++	d.Set("callback_urls", flex.FlattenStringSet(userPoolClient.CallbackURLs))
++	d.Set("default_redirect_uri", userPoolClient.DefaultRedirectURI)
++	d.Set("logout_urls", flex.FlattenStringSet(userPoolClient.LogoutURLs))
++	d.Set("prevent_user_existence_errors", userPoolClient.PreventUserExistenceErrors)
++	d.Set("supported_identity_providers", flex.FlattenStringSet(userPoolClient.SupportedIdentityProviders))
++	d.Set("enable_token_revocation", userPoolClient.EnableTokenRevocation)
++	d.Set("enable_propagate_additional_user_context_data", userPoolClient.EnablePropagateAdditionalUserContextData)
++	d.Set("auth_session_validity", userPoolClient.AuthSessionValidity)
++
++	if err := d.Set("analytics_configuration", flattenUserPoolClientAnalyticsConfig(userPoolClient.AnalyticsConfiguration)); err != nil {
++		return sdkdiag.AppendErrorf(diags, "setting analytics_configuration: %s", err)
++	}
++
++	if err := d.Set("token_validity_units", flattenUserPoolClientTokenValidityUnitsType(userPoolClient.TokenValidityUnits)); err != nil {
++		return sdkdiag.AppendErrorf(diags, "setting token_validity_units: %s", err)
++	}
++
++	return diags
++}
++
++func resourceUserPoolClientUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).CognitoIDPConn()
++
++	params := &cognitoidentityprovider.UpdateUserPoolClientInput{
++		ClientId:              aws.String(d.Id()),
++		UserPoolId:            aws.String(d.Get("user_pool_id").(string)),
++		EnableTokenRevocation: aws.Bool(d.Get("enable_token_revocation").(bool)),
++	}
++
++	if v, ok := d.GetOk("name"); ok {
++		params.ClientName = aws.String(v.(string))
++	}
++
++	if v, ok := d.GetOk("explicit_auth_flows"); ok {
++		params.ExplicitAuthFlows = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("read_attributes"); ok {
++		params.ReadAttributes = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("write_attributes"); ok {
++		params.WriteAttributes = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("refresh_token_validity"); ok {
++		params.RefreshTokenValidity = aws.Int64(int64(v.(int)))
++	}
++
++	if v, ok := d.GetOk("access_token_validity"); ok {
++		params.AccessTokenValidity = aws.Int64(int64(v.(int)))
++	}
++
++	if v, ok := d.GetOk("id_token_validity"); ok {
++		params.IdTokenValidity = aws.Int64(int64(v.(int)))
++	}
++
++	if v, ok := d.GetOk("allowed_oauth_flows"); ok {
++		params.AllowedOAuthFlows = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("allowed_oauth_flows_user_pool_client"); ok {
++		params.AllowedOAuthFlowsUserPoolClient = aws.Bool(v.(bool))
++	}
++
++	if v, ok := d.GetOk("allowed_oauth_scopes"); ok {
++		params.AllowedOAuthScopes = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("callback_urls"); ok {
++		params.CallbackURLs = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("default_redirect_uri"); ok {
++		params.DefaultRedirectURI = aws.String(v.(string))
++	}
++
++	if v, ok := d.GetOk("logout_urls"); ok {
++		params.LogoutURLs = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("prevent_user_existence_errors"); ok {
++		params.PreventUserExistenceErrors = aws.String(v.(string))
++	}
++
++	if v, ok := d.GetOk("supported_identity_providers"); ok {
++		params.SupportedIdentityProviders = flex.ExpandStringSet(v.(*schema.Set))
++	}
++
++	if v, ok := d.GetOk("analytics_configuration"); ok {
++		params.AnalyticsConfiguration = expandUserPoolClientAnalyticsConfig(v.([]interface{}))
++	}
++
++	if v, ok := d.GetOk("token_validity_units"); ok {
++		params.TokenValidityUnits = expandUserPoolClientTokenValidityUnitsType(v.([]interface{}))
++	}
++
++	if v, ok := d.GetOk("enable_propagate_additional_user_context_data"); ok {
++		params.EnablePropagateAdditionalUserContextData = aws.Bool(v.(bool))
++	}
++
++	if v, ok := d.GetOk("auth_session_validity"); ok {
++		params.AuthSessionValidity = aws.Int64(int64(v.(int)))
++	}
++
++	log.Printf("[DEBUG] Updating Cognito User Pool Client: %s", params)
++
++	_, err := tfresource.RetryWhenAWSErrCodeEquals(ctx, 2*time.Minute, func() (interface{}, error) {
++		return conn.UpdateUserPoolClientWithContext(ctx, params)
++	}, cognitoidentityprovider.ErrCodeConcurrentModificationException)
++	if err != nil {
++		return sdkdiag.AppendErrorf(diags, "updating Cognito User Pool Client (%s): %s", d.Id(), err)
++	}
++
++	return append(diags, resourceUserPoolClientRead(ctx, d, meta)...)
++}
++
++func resourceUserPoolClientDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).CognitoIDPConn()
++
++	params := &cognitoidentityprovider.DeleteUserPoolClientInput{
++		ClientId:   aws.String(d.Id()),
++		UserPoolId: aws.String(d.Get("user_pool_id").(string)),
++	}
++
++	log.Printf("[DEBUG] Deleting Cognito User Pool Client: %s", params)
++
++	_, err := conn.DeleteUserPoolClientWithContext(ctx, params)
++
++	if tfawserr.ErrCodeEquals(err, cognitoidentityprovider.ErrCodeResourceNotFoundException) {
++		return diags
++	}
++
++	if err != nil {
++		return sdkdiag.AppendErrorf(diags, "deleting Cognito User Pool Client (%s): %s", d.Id(), err)
++	}
++
++	return diags
++}
++
++func resourceUserPoolClientImport(ctx context.Context, d *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
++	parts := strings.Split(d.Id(), "/")
++	if len(parts) != 2 {
++		return []*schema.ResourceData{}, fmt.Errorf("wrong format of import ID (%s), use: 'user-pool-id/client-id'", d.Id())
++	}
++	userPoolId := parts[0]
++	clientId := parts[1]
++	d.SetId(clientId)
++	d.Set("user_pool_id", userPoolId)
++	log.Printf("[DEBUG] Importing Cognito User Pool Client %q for User Pool %q", clientId, userPoolId)
++
++	return []*schema.ResourceData{d}, nil
++}
++
++func expandUserPoolClientAnalyticsConfig(l []interface{}) *cognitoidentityprovider.AnalyticsConfigurationType {
++	if len(l) == 0 {
++		return nil
++	}
++
++	m := l[0].(map[string]interface{})
++
++	analyticsConfig := &cognitoidentityprovider.AnalyticsConfigurationType{}
++
++	if v, ok := m["role_arn"]; ok && v != "" {
++		analyticsConfig.RoleArn = aws.String(v.(string))
++	}
++
++	if v, ok := m["external_id"]; ok && v != "" {
++		analyticsConfig.ExternalId = aws.String(v.(string))
++	}
++
++	if v, ok := m["application_id"]; ok && v != "" {
++		analyticsConfig.ApplicationId = aws.String(v.(string))
++	}
++
++	if v, ok := m["application_arn"]; ok && v != "" {
++		analyticsConfig.ApplicationArn = aws.String(v.(string))
++	}
++
++	if v, ok := m["user_data_shared"]; ok {
++		analyticsConfig.UserDataShared = aws.Bool(v.(bool))
++	}
++
++	return analyticsConfig
++}
++
++func expandUserPoolClientTokenValidityUnitsType(l []interface{}) *cognitoidentityprovider.TokenValidityUnitsType {
++	if len(l) == 0 {
++		return nil
++	}
++
++	m := l[0].(map[string]interface{})
++
++	tokenValidityConfig := &cognitoidentityprovider.TokenValidityUnitsType{}
++
++	if v, ok := m["access_token"]; ok {
++		tokenValidityConfig.AccessToken = aws.String(v.(string))
++	}
++
++	if v, ok := m["id_token"]; ok {
++		tokenValidityConfig.IdToken = aws.String(v.(string))
++	}
++
++	if v, ok := m["refresh_token"]; ok {
++		tokenValidityConfig.RefreshToken = aws.String(v.(string))
++	}
++
++	return tokenValidityConfig
++}
+diff --git a/internal/service/globalaccelerator/accelerator_data_source_reverted.go b/internal/service/globalaccelerator/accelerator_data_source_reverted.go
+index 1259a80d52..14ffd5329a 100644
+--- a/internal/service/globalaccelerator/accelerator_data_source_reverted.go
++++ b/internal/service/globalaccelerator/accelerator_data_source_reverted.go
+@@ -85,6 +85,11 @@ func DataSourceAccelerator() *schema.Resource {
+ 	}
+ }
+ 
++// Global Route53 Zone ID for Global Accelerators, exported as a
++// convenience attribute for Route53 aliases (see
++// https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html).
++const route53ZoneID = "Z2BJ6XQ5FK7U4H"
++
+ func dataSourceAcceleratorRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GlobalAcceleratorConn()
+ 	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig

@@ -1,0 +1,34 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Fri, 4 Nov 2022 17:03:31 +0000
+Subject: [PATCH 02/29] Conns user agent
+
+Replace the useragent used for AWS client connections with a
+Pulumi-flavoured one.
+
+diff --git a/internal/conns/conns.go b/internal/conns/conns.go
+index 3283a23e50..d7f0a5d3a2 100644
+--- a/internal/conns/conns.go
++++ b/internal/conns/conns.go
+@@ -9,7 +9,6 @@ import (
+ 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
+ 	awsbasev1 "github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/types"
+-	"github.com/hashicorp/terraform-provider-aws/version"
+ )
+ 
+ // ServicePackage is the minimal interface exported from each AWS service package.
+@@ -77,10 +76,10 @@ func NewSessionForRegion(cfg *aws.Config, region, terraformVersion string) (*ses
+ 
+ func StdUserAgentProducts(terraformVersion string) *awsbase.APNInfo {
+ 	return &awsbase.APNInfo{
+-		PartnerName: "HashiCorp",
++		PartnerName: "Pulumi",
+ 		Products: []awsbase.UserAgentProduct{
+-			{Name: "Terraform", Version: terraformVersion, Comment: "+https://www.terraform.io"},
+-			{Name: "terraform-provider-aws", Version: version.ProviderVersion, Comment: "+https://registry.terraform.io/providers/hashicorp/aws"},
++			{Name: "Pulumi", Version: "1.0"},
++			{Name: "Pulumi-Aws", Version: terraformVersion, Comment: "+https://www.pulumi.com"},
+ 		},
+ 	}
+ }

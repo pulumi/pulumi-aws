@@ -1,0 +1,1482 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Fri, 4 Nov 2022 17:42:19 +0000
+Subject: [PATCH 12/29] Revert framework conversions
+
+This commit reverts resources and data sources that were ported to the
+plugin framework, back to their previous implementation. The upstream
+implementations are kept in their files, but with an `ignores` build tag
+so they won't be compiled. This means changes upstream are much less
+likely to cause conflicts. The reverted implementations are in the files
+*_reverted.go.
+
+diff --git a/internal/framework/types/arn.go b/internal/framework/types/arn.go
+index bae74fc7c1..fa0c107fba 100644
+--- a/internal/framework/types/arn.go
++++ b/internal/framework/types/arn.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package types
+ 
+ import (
+diff --git a/internal/framework/types/arn_reverted.go b/internal/framework/types/arn_reverted.go
+new file mode 100644
+index 0000000000..9f1b58046f
+--- /dev/null
++++ b/internal/framework/types/arn_reverted.go
+@@ -0,0 +1,61 @@
++package types
++
++import (
++	"context"
++	"fmt"
++
++	"github.com/aws/aws-sdk-go-v2/aws/arn"
++	"github.com/hashicorp/terraform-plugin-go/tftypes"
++)
++
++type arnType uint8
++
++const (
++	ARNType arnType = iota
++)
++
++func (t arnType) TerraformType(_ context.Context) tftypes.Type {
++	return tftypes.String
++}
++
++// ApplyTerraform5AttributePathStep applies the given AttributePathStep to the
++// type.
++func (t arnType) ApplyTerraform5AttributePathStep(step tftypes.AttributePathStep) (interface{}, error) {
++	return nil, fmt.Errorf("cannot apply AttributePathStep %T to %s", step, t.String())
++}
++
++// String returns a human-friendly description of the ARNType.
++func (t arnType) String() string {
++	return "types.ARNType"
++}
++
++func (t arnType) Description() string {
++	return `An Amazon Resource Name.`
++}
++
++type ARN struct {
++	Unknown bool
++	Null    bool
++	Value   arn.ARN
++}
++
++func (a ARN) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
++	t := ARNType.TerraformType(ctx)
++	if a.Null {
++		return tftypes.NewValue(t, nil), nil
++	}
++	if a.Unknown {
++		return tftypes.NewValue(t, tftypes.UnknownValue), nil
++	}
++	return tftypes.NewValue(t, a.Value.String()), nil
++}
++
++// IsNull returns true if the Value is not set, or is explicitly set to null.
++func (a ARN) IsNull() bool {
++	return a.Null
++}
++
++// IsUnknown returns true if the Value is not yet known.
++func (a ARN) IsUnknown() bool {
++	return a.Unknown
++}
+diff --git a/internal/provider/provider.go b/internal/provider/provider.go
+index 03dc9cea6c..764e4987a4 100644
+--- a/internal/provider/provider.go
++++ b/internal/provider/provider.go
+@@ -9,7 +9,11 @@ import (
+ 	"time"
+ 
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"
++	"github.com/hashicorp/terraform-provider-aws/internal/service/globalaccelerator"
++	"github.com/hashicorp/terraform-provider-aws/internal/service/meta"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
++	"github.com/hashicorp/terraform-provider-aws/internal/service/simpledb"
++	"github.com/hashicorp/terraform-provider-aws/internal/service/sts"
+ 
+ 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
+ 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
+@@ -250,10 +254,29 @@ func New(ctx context.Context) (*schema.Provider, error) {
+ 		// rather than adding directly to these maps.
+ 		DataSourcesMap: map[string]*schema.Resource{
+ 			"aws_ecr_credentials": ecr.DataSourceCredentials(),
++
++			"aws_globalaccelerator_accelerator": globalaccelerator.DataSourceAccelerator(),
++
++			"aws_arn":                     meta.DataSourceARN(),
++			"aws_billing_service_account": meta.DataSourceBillingServiceAccount(),
++			"aws_default_tags":            meta.DataSourceDefaultTags(),
++			"aws_ip_ranges":               meta.DataSourceIPRanges(),
++			"aws_partition":               meta.DataSourcePartition(),
++			"aws_region":                  meta.DataSourceRegion(),
++			"aws_regions":                 meta.DataSourceRegions(),
++			"aws_service":                 meta.DataSourceService(),
++
++			"aws_caller_identity": sts.DataSourceCallerIdentity(),
+ 		},
+ 
+ 		ResourcesMap: map[string]*schema.Resource{
+ 			"aws_s3_bucket_legacy": s3legacy.ResourceBucketLegacy(),
++
++			"aws_simpledb_domain": simpledb.ResourceDomain(),
++
++			"aws_globalaccelerator_accelerator":    globalaccelerator.ResourceAccelerator(),
++			"aws_globalaccelerator_endpoint_group": globalaccelerator.ResourceEndpointGroup(),
++			"aws_globalaccelerator_listener":       globalaccelerator.ResourceListener(),
+ 		},
+ 	}
+ 
+diff --git a/internal/provider/service_packages_gen.go b/internal/provider/service_packages_gen.go
+index 68aad25056..5e86dd274e 100644
+--- a/internal/provider/service_packages_gen.go
++++ b/internal/provider/service_packages_gen.go
+@@ -95,7 +95,7 @@ import (
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/fsx"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/glacier"
+-	"github.com/hashicorp/terraform-provider-aws/internal/service/globalaccelerator"
++
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/glue"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/grafana"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/greengrass"
+@@ -136,7 +136,7 @@ import (
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/mediapackage"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/mediastore"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/memorydb"
+-	"github.com/hashicorp/terraform-provider-aws/internal/service/meta"
++
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/mq"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/mwaa"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/neptune"
+@@ -187,7 +187,7 @@ import (
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/sfn"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/shield"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/signer"
+-	"github.com/hashicorp/terraform-provider-aws/internal/service/simpledb"
++
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/sns"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/sqs"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/ssm"
+@@ -195,7 +195,7 @@ import (
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/ssmincidents"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/ssoadmin"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/storagegateway"
+-	"github.com/hashicorp/terraform-provider-aws/internal/service/sts"
++
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/swf"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/synthetics"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/timestreamwrite"
+@@ -302,7 +302,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+ 		fsx.ServicePackage,
+ 		gamelift.ServicePackage,
+ 		glacier.ServicePackage,
+-		globalaccelerator.ServicePackage,
++		// globalaccelerator.ServicePackage,
+ 		glue.ServicePackage,
+ 		grafana.ServicePackage,
+ 		greengrass.ServicePackage,
+@@ -343,7 +343,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+ 		mediapackage.ServicePackage,
+ 		mediastore.ServicePackage,
+ 		memorydb.ServicePackage,
+-		meta.ServicePackage,
++		// meta.ServicePackage,
+ 		mq.ServicePackage,
+ 		mwaa.ServicePackage,
+ 		neptune.ServicePackage,
+@@ -394,7 +394,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+ 		sfn.ServicePackage,
+ 		shield.ServicePackage,
+ 		signer.ServicePackage,
+-		simpledb.ServicePackage,
++		// simpledb.ServicePackage,
+ 		sns.ServicePackage,
+ 		sqs.ServicePackage,
+ 		ssm.ServicePackage,
+@@ -402,7 +402,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+ 		ssmincidents.ServicePackage,
+ 		ssoadmin.ServicePackage,
+ 		storagegateway.ServicePackage,
+-		sts.ServicePackage,
++		// sts.ServicePackage,
+ 		swf.ServicePackage,
+ 		synthetics.ServicePackage,
+ 		timestreamwrite.ServicePackage,
+diff --git a/internal/service/globalaccelerator/accelerator_data_source.go b/internal/service/globalaccelerator/accelerator_data_source.go
+index 39815b73f4..5506f5aa3f 100644
+--- a/internal/service/globalaccelerator/accelerator_data_source.go
++++ b/internal/service/globalaccelerator/accelerator_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package globalaccelerator
+ 
+ import (
+diff --git a/internal/service/globalaccelerator/accelerator_data_source_reverted.go b/internal/service/globalaccelerator/accelerator_data_source_reverted.go
+new file mode 100644
+index 0000000000..3bd69472c8
+--- /dev/null
++++ b/internal/service/globalaccelerator/accelerator_data_source_reverted.go
+@@ -0,0 +1,154 @@
++package globalaccelerator
++
++import (
++	"context"
++
++	"github.com/aws/aws-sdk-go/aws"
++	"github.com/aws/aws-sdk-go/service/globalaccelerator"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
++)
++
++func DataSourceAccelerator() *schema.Resource {
++	return &schema.Resource{
++		ReadWithoutTimeout: dataSourceAcceleratorRead,
++
++		Schema: map[string]*schema.Schema{
++			"arn": {
++				Type:     schema.TypeString,
++				Optional: true,
++				Computed: true,
++			},
++			"name": {
++				Type:     schema.TypeString,
++				Optional: true,
++				Computed: true,
++			},
++			"ip_address_type": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++			"enabled": {
++				Type:     schema.TypeBool,
++				Computed: true,
++			},
++			"dns_name": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++			"hosted_zone_id": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++			"ip_sets": {
++				Type:     schema.TypeList,
++				Computed: true,
++				Elem: &schema.Resource{
++					Schema: map[string]*schema.Schema{
++						"ip_addresses": {
++							Type:     schema.TypeList,
++							Computed: true,
++							Elem:     &schema.Schema{Type: schema.TypeString},
++						},
++						"ip_family": {
++							Type:     schema.TypeString,
++							Computed: true,
++						},
++					},
++				},
++			},
++			"attributes": {
++				Type:     schema.TypeList,
++				Computed: true,
++				Elem: &schema.Resource{
++					Schema: map[string]*schema.Schema{
++						"flow_logs_enabled": {
++							Type:     schema.TypeBool,
++							Computed: true,
++						},
++						"flow_logs_s3_bucket": {
++							Type:     schema.TypeString,
++							Computed: true,
++						},
++						"flow_logs_s3_prefix": {
++							Type:     schema.TypeString,
++							Computed: true,
++						},
++					},
++				},
++			},
++
++			"tags": tftags.TagsSchemaComputed(),
++		},
++	}
++}
++
++func dataSourceAcceleratorRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	conn := meta.(*conns.AWSClient).GlobalAcceleratorConn()
++	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
++
++	var results []*globalaccelerator.Accelerator
++
++	err := conn.ListAcceleratorsPages(&globalaccelerator.ListAcceleratorsInput{}, func(page *globalaccelerator.ListAcceleratorsOutput, lastPage bool) bool {
++		if page == nil {
++			return !lastPage
++		}
++
++		for _, l := range page.Accelerators {
++			if l == nil {
++				continue
++			}
++
++			if v, ok := d.GetOk("arn"); ok && v.(string) != aws.StringValue(l.AcceleratorArn) {
++				continue
++			}
++
++			if v, ok := d.GetOk("name"); ok && v.(string) != aws.StringValue(l.Name) {
++				continue
++			}
++
++			results = append(results, l)
++		}
++
++		return !lastPage
++	})
++
++	if err != nil {
++		return diag.Errorf("error reading AWS Global Accelerator: %w", err)
++	}
++
++	if len(results) != 1 {
++		return diag.Errorf("Search returned %d results, please revise so only one is returned", len(results))
++	}
++
++	accelerator := results[0]
++	d.SetId(aws.StringValue(accelerator.AcceleratorArn))
++	d.Set("arn", accelerator.AcceleratorArn)
++	d.Set("enabled", accelerator.Enabled)
++	d.Set("dns_name", accelerator.DnsName)
++	d.Set("hosted_zone_id", route53ZoneID)
++	d.Set("name", accelerator.Name)
++	d.Set("ip_address_type", accelerator.IpAddressType)
++	d.Set("ip_sets", flattenIPSets(accelerator.IpSets))
++
++	acceleratorAttributes, err := FindAcceleratorAttributesByARN(ctx, conn, d.Id())
++	if err != nil {
++		return diag.Errorf("error reading Global Accelerator Accelerator (%s) attributes: %w", d.Id(), err)
++	}
++
++	if err := d.Set("attributes", []interface{}{flattenAcceleratorAttributes(acceleratorAttributes)}); err != nil {
++		return diag.Errorf("error setting attributes: %w", err)
++	}
++
++	tags, err := ListTags(context.Background(), conn, d.Id())
++	if err != nil {
++		return diag.Errorf("error listing tags for Global Accelerator Accelerator (%s): %w", d.Id(), err)
++	}
++
++	if err := d.Set("tags", tags.IgnoreAWS().IgnoreConfig(ignoreTagsConfig).Map()); err != nil {
++		return diag.Errorf("error setting tags: %w", err)
++	}
++	return nil
++}
+diff --git a/internal/service/globalaccelerator/service_package_gen.go b/internal/service/globalaccelerator/service_package_gen.go
+index 4dc8fca71e..53bd6c4fcf 100644
+--- a/internal/service/globalaccelerator/service_package_gen.go
++++ b/internal/service/globalaccelerator/service_package_gen.go
+@@ -13,9 +13,13 @@ type servicePackage struct{}
+ 
+ func (p *servicePackage) FrameworkDataSources(ctx context.Context) []*types.ServicePackageFrameworkDataSource {
+ 	return []*types.ServicePackageFrameworkDataSource{
+-		{
+-			Factory: newDataSourceAccelerator,
+-		},
++		// The commented-out section refers to code that was reverted (away from the framework) in
++		// https://github.com/pulumi/terraform-provider-aws/commit/c6b632ffb8b676c8393cfba6cacaabe937bfae98. _Not_
++		// referring to it means this file doesn't need to be ignored, which lets it compile. Since
++		// we don't care about framework code for now, specifying the Factory here doesn't matter.
++		// {
++		// 	Factory: newDataSourceAccelerator,
++		// },
+ 	}
+ }
+ 
+diff --git a/internal/service/meta/arn.go b/internal/service/meta/arn.go
+new file mode 100644
+index 0000000000..6cb4854667
+--- /dev/null
++++ b/internal/service/meta/arn.go
+@@ -0,0 +1,71 @@
++package meta
++
++import (
++	"context"
++	"fmt"
++	"github.com/aws/aws-sdk-go-v2/aws/arn"
++	"github.com/hashicorp/terraform-plugin-go/tftypes"
++)
++
++type arnType uint8
++
++const (
++	ARNType arnType = iota
++)
++
++func (t arnType) TerraformType(_ context.Context) tftypes.Type {
++	return tftypes.String
++}
++
++// ApplyTerraform5AttributePathStep applies the given AttributePathStep to the
++// type.
++func (t arnType) ApplyTerraform5AttributePathStep(step tftypes.AttributePathStep) (interface{}, error) {
++	return nil, fmt.Errorf("cannot apply AttributePathStep %T to %s", step, t.String())
++}
++
++// String returns a human-friendly description of the ARNType.
++func (t arnType) String() string {
++	return "types.ARNType"
++}
++
++func (t arnType) Description() string {
++	return `An Amazon Resource Name.`
++}
++
++type ARN struct {
++	Unknown bool
++	Null    bool
++	Value   arn.ARN
++}
++
++func (a ARN) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
++	t := ARNType.TerraformType(ctx)
++	if a.Null {
++		return tftypes.NewValue(t, nil), nil
++	}
++	if a.Unknown {
++		return tftypes.NewValue(t, tftypes.UnknownValue), nil
++	}
++	return tftypes.NewValue(t, a.Value.String()), nil
++}
++
++// IsNull returns true if the Value is not set, or is explicitly set to null.
++func (a ARN) IsNull() bool {
++	return a.Null
++}
++
++// IsUnknown returns true if the Value is not yet known.
++func (a ARN) IsUnknown() bool {
++	return a.Unknown
++}
++
++// String returns a summary representation of either the underlying Value,
++// or UnknownValueString (`<unknown>`) when IsUnknown() returns true,
++// or NullValueString (`<null>`) when IsNull() return true.
++//
++// This is an intentionally lossy representation, that are best suited for
++// logging and error reporting, as they are not protected by
++// compatibility guarantees within the framework.
++func (a ARN) String() string {
++	return a.Value.String()
++}
+diff --git a/internal/service/meta/arn_data_source.go b/internal/service/meta/arn_data_source.go
+index ea1e1a53a4..6dec3a541c 100644
+--- a/internal/service/meta/arn_data_source.go
++++ b/internal/service/meta/arn_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ // Code generated by tools/tfsdk2fw/main.go. Manual editing is required.
+ 
+ package meta
+diff --git a/internal/service/meta/arn_data_source_reverted.go b/internal/service/meta/arn_data_source_reverted.go
+new file mode 100644
+index 0000000000..6a75cd3975
+--- /dev/null
++++ b/internal/service/meta/arn_data_source_reverted.go
+@@ -0,0 +1,60 @@
++package meta
++
++import (
++	"fmt"
++
++	"github.com/aws/aws-sdk-go/aws/arn"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/verify"
++)
++
++func DataSourceARN() *schema.Resource {
++	return &schema.Resource{
++		Read: dataSourceARNRead,
++
++		Schema: map[string]*schema.Schema{
++			"arn": {
++				Type:         schema.TypeString,
++				Required:     true,
++				ValidateFunc: verify.ValidARN,
++			},
++			"partition": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++			"service": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++			"region": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++			"account": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++			"resource": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++		},
++	}
++}
++
++func dataSourceARNRead(d *schema.ResourceData, meta interface{}) error {
++	v := d.Get("arn").(string)
++	arn, err := arn.Parse(v)
++	if err != nil {
++		return fmt.Errorf("Error parsing '%s': %w", v, err)
++	}
++
++	d.SetId(arn.String())
++	d.Set("partition", arn.Partition)
++	d.Set("service", arn.Service)
++	d.Set("region", arn.Region)
++	d.Set("account", arn.AccountID)
++	d.Set("resource", arn.Resource)
++
++	return nil
++}
+diff --git a/internal/service/meta/billing_service_account_data_source.go b/internal/service/meta/billing_service_account_data_source.go
+index 319502dfd5..7a7df6f5ca 100644
+--- a/internal/service/meta/billing_service_account_data_source.go
++++ b/internal/service/meta/billing_service_account_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package meta
+ 
+ import (
+diff --git a/internal/service/meta/billing_service_account_data_source_reverted.go b/internal/service/meta/billing_service_account_data_source_reverted.go
+new file mode 100644
+index 0000000000..5205e6bc84
+--- /dev/null
++++ b/internal/service/meta/billing_service_account_data_source_reverted.go
+@@ -0,0 +1,36 @@
++package meta
++
++import (
++	"github.com/aws/aws-sdk-go/aws/arn"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++)
++
++// See http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2
++var billingAccountId = "386209384616"
++
++func DataSourceBillingServiceAccount() *schema.Resource {
++	return &schema.Resource{
++		Read: dataSourceBillingServiceAccountRead,
++
++		Schema: map[string]*schema.Schema{
++			"arn": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++		},
++	}
++}
++
++func dataSourceBillingServiceAccountRead(d *schema.ResourceData, meta interface{}) error {
++	d.SetId(billingAccountId)
++	arn := arn.ARN{
++		Partition: meta.(*conns.AWSClient).Partition,
++		Service:   "iam",
++		AccountID: billingAccountId,
++		Resource:  "root",
++	}.String()
++	d.Set("arn", arn)
++
++	return nil
++}
+diff --git a/internal/service/meta/default_tags_data_source.go b/internal/service/meta/default_tags_data_source.go
+index 0d0516f1c4..b4eaeacba5 100644
+--- a/internal/service/meta/default_tags_data_source.go
++++ b/internal/service/meta/default_tags_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ // Code generated by tools/tfsdk2fw/main.go. Manual editing is required.
+ 
+ package meta
+diff --git a/internal/service/meta/default_tags_data_source_reverted.go b/internal/service/meta/default_tags_data_source_reverted.go
+new file mode 100644
+index 0000000000..e775cffb09
+--- /dev/null
++++ b/internal/service/meta/default_tags_data_source_reverted.go
+@@ -0,0 +1,38 @@
++package meta
++
++import (
++	"fmt"
++
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
++)
++
++func DataSourceDefaultTags() *schema.Resource {
++	return &schema.Resource{
++		Read: dataSourceDefaultTagsRead,
++
++		Schema: map[string]*schema.Schema{
++			"tags": tftags.TagsSchemaComputed(),
++		},
++	}
++}
++
++func dataSourceDefaultTagsRead(d *schema.ResourceData, meta interface{}) error {
++	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
++	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
++
++	d.SetId(meta.(*conns.AWSClient).Partition)
++
++	tags := defaultTagsConfig.GetTags()
++
++	if tags != nil {
++		if err := d.Set("tags", tags.IgnoreAWS().IgnoreConfig(ignoreTagsConfig).Map()); err != nil {
++			return fmt.Errorf("error setting tags: %w", err)
++		}
++	} else {
++		d.Set("tags", nil)
++	}
++
++	return nil
++}
+diff --git a/internal/service/meta/ip_ranges_data_source.go b/internal/service/meta/ip_ranges_data_source.go
+index 8537a89e89..fc6061a860 100644
+--- a/internal/service/meta/ip_ranges_data_source.go
++++ b/internal/service/meta/ip_ranges_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package meta
+ 
+ import (
+diff --git a/internal/service/meta/ip_ranges_data_source_reverted.go b/internal/service/meta/ip_ranges_data_source_reverted.go
+new file mode 100644
+index 0000000000..2ad149767f
+--- /dev/null
++++ b/internal/service/meta/ip_ranges_data_source_reverted.go
+@@ -0,0 +1,177 @@
++package meta
++
++import (
++	"encoding/json"
++	"fmt"
++	"io"
++	"log"
++	"sort"
++	"strconv"
++	"strings"
++
++	"github.com/hashicorp/go-cleanhttp"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++)
++
++type dataSourceAwsIPRangesResult struct {
++	CreateDate   string
++	Prefixes     []dataSourceAwsIPRangesPrefix
++	Ipv6Prefixes []dataSourceAwsIPRangesIpv6Prefix `json:"ipv6_prefixes"`
++	SyncToken    string
++}
++
++type dataSourceAwsIPRangesPrefix struct {
++	IpPrefix string `json:"ip_prefix"`
++	Region   string
++	Service  string
++}
++
++type dataSourceAwsIPRangesIpv6Prefix struct {
++	Ipv6Prefix string `json:"ipv6_prefix"`
++	Region     string
++	Service    string
++}
++
++func DataSourceIPRanges() *schema.Resource {
++	return &schema.Resource{
++		Read: dataSourceIPRangesRead,
++
++		Schema: map[string]*schema.Schema{
++			"cidr_blocks": {
++				Type:     schema.TypeList,
++				Computed: true,
++				Elem:     &schema.Schema{Type: schema.TypeString},
++			},
++			"create_date": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++			"ipv6_cidr_blocks": {
++				Type:     schema.TypeList,
++				Computed: true,
++				Elem:     &schema.Schema{Type: schema.TypeString},
++			},
++			"regions": {
++				Type:     schema.TypeSet,
++				Elem:     &schema.Schema{Type: schema.TypeString},
++				Optional: true,
++			},
++			"services": {
++				Type:     schema.TypeSet,
++				Required: true,
++				Elem:     &schema.Schema{Type: schema.TypeString},
++			},
++			"sync_token": {
++				Type:     schema.TypeInt,
++				Computed: true,
++			},
++			"url": {
++				Type:     schema.TypeString,
++				Optional: true,
++				Default:  "https://ip-ranges.amazonaws.com/ip-ranges.json",
++			},
++		},
++	}
++}
++
++func dataSourceIPRangesRead(d *schema.ResourceData, meta interface{}) error {
++
++	conn := cleanhttp.DefaultClient()
++	url := d.Get("url").(string)
++
++	log.Printf("[DEBUG] Reading IP ranges from %s", url)
++
++	res, err := conn.Get(url)
++
++	if err != nil {
++		return fmt.Errorf("Error listing IP ranges from (%s): %w", url, err)
++	}
++
++	defer res.Body.Close()
++
++	data, err := io.ReadAll(res.Body)
++
++	if err != nil {
++		return fmt.Errorf("Error reading response body from (%s): %w", url, err)
++	}
++
++	result := new(dataSourceAwsIPRangesResult)
++
++	if err := json.Unmarshal(data, result); err != nil {
++		return fmt.Errorf("Error parsing result from (%s): %w", url, err)
++	}
++
++	if err := d.Set("create_date", result.CreateDate); err != nil {
++		return fmt.Errorf("Error setting create date: %w", err)
++	}
++
++	syncToken, err := strconv.Atoi(result.SyncToken)
++
++	if err != nil {
++		return fmt.Errorf("Error while converting sync token: %w", err)
++	}
++
++	d.SetId(result.SyncToken)
++
++	if err := d.Set("sync_token", syncToken); err != nil {
++		return fmt.Errorf("Error setting sync token: %w", err)
++	}
++
++	get := func(key string) *schema.Set {
++
++		set := d.Get(key).(*schema.Set)
++
++		for _, e := range set.List() {
++
++			s := e.(string)
++
++			set.Remove(s)
++			set.Add(strings.ToLower(s))
++
++		}
++
++		return set
++
++	}
++
++	var (
++		regions        = get("regions")
++		services       = get("services")
++		noRegionFilter = regions.Len() == 0
++		ipPrefixes     []string
++		ipv6Prefixes   []string
++	)
++
++	matchFilter := func(region, service string) bool {
++		matchRegion := noRegionFilter || regions.Contains(strings.ToLower(region))
++		matchService := services.Contains(strings.ToLower(service))
++		return matchRegion && matchService
++	}
++
++	for _, e := range result.Prefixes {
++		if matchFilter(e.Region, e.Service) {
++			ipPrefixes = append(ipPrefixes, e.IpPrefix)
++		}
++	}
++
++	for _, e := range result.Ipv6Prefixes {
++		if matchFilter(e.Region, e.Service) {
++			ipv6Prefixes = append(ipv6Prefixes, e.Ipv6Prefix)
++		}
++	}
++
++	sort.Strings(ipPrefixes)
++
++	if err := d.Set("cidr_blocks", ipPrefixes); err != nil {
++		return fmt.Errorf("Error setting cidr_blocks: %w", err)
++	}
++
++	sort.Strings(ipv6Prefixes)
++
++	if err := d.Set("ipv6_cidr_blocks", ipv6Prefixes); err != nil {
++		return fmt.Errorf("Error setting ipv6_cidr_blocks: %w", err)
++	}
++
++	return nil
++
++}
+diff --git a/internal/service/meta/partition_data_source.go b/internal/service/meta/partition_data_source.go
+index 368737def3..2e172da24d 100644
+--- a/internal/service/meta/partition_data_source.go
++++ b/internal/service/meta/partition_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package meta
+ 
+ import (
+diff --git a/internal/service/meta/partition_data_source_reverted.go b/internal/service/meta/partition_data_source_reverted.go
+new file mode 100644
+index 0000000000..0a66f5331f
+--- /dev/null
++++ b/internal/service/meta/partition_data_source_reverted.go
+@@ -0,0 +1,49 @@
++package meta
++
++import (
++	"log"
++
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++)
++
++func DataSourcePartition() *schema.Resource {
++	return &schema.Resource{
++		Read: dataSourcePartitionRead,
++
++		Schema: map[string]*schema.Schema{
++			"partition": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++
++			"dns_suffix": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++
++			"reverse_dns_prefix": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++		},
++	}
++}
++
++func dataSourcePartitionRead(d *schema.ResourceData, meta interface{}) error {
++	client := meta.(*conns.AWSClient)
++
++	log.Printf("[DEBUG] Reading Partition.")
++	d.SetId(meta.(*conns.AWSClient).Partition)
++
++	log.Printf("[DEBUG] Setting AWS Partition to %s.", client.Partition)
++	d.Set("partition", meta.(*conns.AWSClient).Partition)
++
++	log.Printf("[DEBUG] Setting AWS URL Suffix to %s.", client.DNSSuffix)
++	d.Set("dns_suffix", meta.(*conns.AWSClient).DNSSuffix)
++
++	d.Set("reverse_dns_prefix", meta.(*conns.AWSClient).ReverseDNSPrefix)
++	log.Printf("[DEBUG] Setting service prefix to %s.", meta.(*conns.AWSClient).ReverseDNSPrefix)
++
++	return nil
++}
+diff --git a/internal/service/meta/region_data_source.go b/internal/service/meta/region_data_source.go
+index 732732f5c7..8fa6630ad5 100644
+--- a/internal/service/meta/region_data_source.go
++++ b/internal/service/meta/region_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package meta
+ 
+ import (
+diff --git a/internal/service/meta/region_data_source_reverted.go b/internal/service/meta/region_data_source_reverted.go
+new file mode 100644
+index 0000000000..253da23125
+--- /dev/null
++++ b/internal/service/meta/region_data_source_reverted.go
+@@ -0,0 +1,111 @@
++package meta
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/aws/aws-sdk-go/aws/endpoints"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++)
++
++func DataSourceRegion() *schema.Resource {
++	return &schema.Resource{
++		Read: dataSourceRegionRead,
++
++		Schema: map[string]*schema.Schema{
++			"name": {
++				Type:     schema.TypeString,
++				Optional: true,
++				Computed: true,
++			},
++
++			"endpoint": {
++				Type:     schema.TypeString,
++				Optional: true,
++				Computed: true,
++			},
++
++			"description": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++		},
++	}
++}
++
++func dataSourceRegionRead(d *schema.ResourceData, meta interface{}) error {
++	providerRegion := meta.(*conns.AWSClient).Region
++
++	var region *endpoints.Region
++
++	if v, ok := d.GetOk("endpoint"); ok {
++		endpoint := v.(string)
++		matchingRegion, err := FindRegionByEndpoint(endpoint)
++		if err != nil {
++			return err
++		}
++		region = matchingRegion
++	}
++
++	if v, ok := d.GetOk("name"); ok {
++		name := v.(string)
++		matchingRegion, err := FindRegionByName(name)
++		if err != nil {
++			return err
++		}
++		if region != nil && region.ID() != matchingRegion.ID() {
++			return fmt.Errorf("multiple regions matched; use additional constraints to reduce matches to a single region")
++		}
++		region = matchingRegion
++	}
++
++	// Default to provider current region if no other filters matched
++	if region == nil {
++		matchingRegion, err := FindRegionByName(providerRegion)
++		if err != nil {
++			return err
++		}
++		region = matchingRegion
++	}
++
++	d.SetId(region.ID())
++
++	regionEndpointEc2, err := region.ResolveEndpoint(endpoints.Ec2ServiceID)
++	if err != nil {
++		return err
++	}
++	d.Set("endpoint", strings.TrimPrefix(regionEndpointEc2.URL, "https://"))
++
++	d.Set("name", region.ID())
++
++	d.Set("description", region.Description())
++
++	return nil
++}
++
++func FindRegionByEndpoint(endpoint string) (*endpoints.Region, error) {
++	for _, partition := range endpoints.DefaultPartitions() {
++		for _, region := range partition.Regions() {
++			regionEndpointEc2, err := region.ResolveEndpoint(endpoints.Ec2ServiceID)
++			if err != nil {
++				return nil, err
++			}
++			if strings.TrimPrefix(regionEndpointEc2.URL, "https://") == endpoint {
++				return &region, nil
++			}
++		}
++	}
++	return nil, fmt.Errorf("region not found for endpoint %q", endpoint)
++}
++
++func FindRegionByName(name string) (*endpoints.Region, error) {
++	for _, partition := range endpoints.DefaultPartitions() {
++		for _, region := range partition.Regions() {
++			if region.ID() == name {
++				return &region, nil
++			}
++		}
++	}
++	return nil, fmt.Errorf("region not found for name %q", name)
++}
+diff --git a/internal/service/meta/regions_data_source.go b/internal/service/meta/regions_data_source.go
+index 031b9dae90..97c0abab6c 100644
+--- a/internal/service/meta/regions_data_source.go
++++ b/internal/service/meta/regions_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package meta
+ 
+ import (
+diff --git a/internal/service/meta/regions_data_source_reverted.go b/internal/service/meta/regions_data_source_reverted.go
+new file mode 100644
+index 0000000000..efe02e777f
+--- /dev/null
++++ b/internal/service/meta/regions_data_source_reverted.go
+@@ -0,0 +1,63 @@
++package meta
++
++import (
++	"fmt"
++	"log"
++
++	"github.com/aws/aws-sdk-go/aws"
++	"github.com/aws/aws-sdk-go/service/ec2"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
++)
++
++func DataSourceRegions() *schema.Resource {
++	return &schema.Resource{
++		Read: dataSourceRegionsRead,
++
++		Schema: map[string]*schema.Schema{
++			"filter": tfec2.DataSourceFiltersSchema(),
++			"names": {
++				Type:     schema.TypeSet,
++				Computed: true,
++				Elem:     &schema.Schema{Type: schema.TypeString},
++			},
++
++			"all_regions": {
++				Type:     schema.TypeBool,
++				Optional: true,
++			},
++		},
++	}
++}
++
++func dataSourceRegionsRead(d *schema.ResourceData, meta interface{}) error {
++	connection := meta.(*conns.AWSClient).EC2Conn()
++
++	log.Printf("[DEBUG] Reading regions.")
++	request := &ec2.DescribeRegionsInput{}
++	if v, ok := d.GetOk("filter"); ok {
++		request.Filters = tfec2.BuildFiltersDataSource(v.(*schema.Set))
++	}
++	if v, ok := d.GetOk("all_regions"); ok {
++		request.AllRegions = aws.Bool(v.(bool))
++	}
++
++	log.Printf("[DEBUG] Reading regions for request: %s", request)
++	response, err := connection.DescribeRegions(request)
++	if err != nil {
++		return fmt.Errorf("Error fetching Regions: %w", err)
++	}
++
++	names := []string{}
++	for _, v := range response.Regions {
++		names = append(names, aws.StringValue(v.RegionName))
++	}
++
++	d.SetId(meta.(*conns.AWSClient).Partition)
++	if err := d.Set("names", names); err != nil {
++		return fmt.Errorf("error setting names: %w", err)
++	}
++
++	return nil
++}
+diff --git a/internal/service/meta/service_data_source.go b/internal/service/meta/service_data_source.go
+index adb00eb94f..8b43277832 100644
+--- a/internal/service/meta/service_data_source.go
++++ b/internal/service/meta/service_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package meta
+ 
+ import (
+diff --git a/internal/service/meta/service_data_source_reverted.go b/internal/service/meta/service_data_source_reverted.go
+new file mode 100644
+index 0000000000..1ca781bef7
+--- /dev/null
++++ b/internal/service/meta/service_data_source_reverted.go
+@@ -0,0 +1,121 @@
++package meta
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/aws/aws-sdk-go/aws/endpoints"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++)
++
++func DataSourceService() *schema.Resource {
++	return &schema.Resource{
++		Read: dataSourceServiceRead,
++
++		Schema: map[string]*schema.Schema{
++			"dns_name": {
++				Type:         schema.TypeString,
++				Computed:     true,
++				Optional:     true,
++				ExactlyOneOf: []string{"dns_name", "reverse_dns_name", "service_id"},
++			},
++			"partition": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++			"region": {
++				Type:          schema.TypeString,
++				Computed:      true,
++				Optional:      true,
++				ConflictsWith: []string{"dns_name", "reverse_dns_name"},
++			},
++			"reverse_dns_name": {
++				Type:         schema.TypeString,
++				Computed:     true,
++				Optional:     true,
++				ExactlyOneOf: []string{"dns_name", "reverse_dns_name", "service_id"},
++			},
++			"reverse_dns_prefix": {
++				Type:          schema.TypeString,
++				Computed:      true,
++				Optional:      true,
++				ConflictsWith: []string{"dns_name", "reverse_dns_name"},
++			},
++			"service_id": {
++				Type:         schema.TypeString,
++				Computed:     true,
++				Optional:     true,
++				ExactlyOneOf: []string{"dns_name", "reverse_dns_name", "service_id"},
++			},
++			"supported": {
++				Type:     schema.TypeBool,
++				Computed: true,
++			},
++		},
++	}
++}
++
++func dataSourceServiceRead(d *schema.ResourceData, meta interface{}) error {
++	client := meta.(*conns.AWSClient)
++
++	if v, ok := d.GetOk("reverse_dns_name"); ok {
++		serviceParts := strings.Split(v.(string), ".")
++		if len(serviceParts) < 4 {
++			return fmt.Errorf("reverse service DNS names must have at least 4 parts (%s has %d)", v.(string), len(serviceParts))
++		}
++
++		d.Set("service_id", serviceParts[len(serviceParts)-1])
++		d.Set("region", serviceParts[len(serviceParts)-2])
++		d.Set("reverse_dns_prefix", strings.Join(serviceParts[0:len(serviceParts)-2], "."))
++	}
++
++	if v, ok := d.GetOk("dns_name"); ok {
++		serviceParts := InvertStringSlice(strings.Split(v.(string), "."))
++		if len(serviceParts) < 4 {
++			return fmt.Errorf("service DNS names must have at least 4 parts (%s has %d)", v.(string), len(serviceParts))
++		}
++
++		d.Set("service_id", serviceParts[len(serviceParts)-1])
++		d.Set("region", serviceParts[len(serviceParts)-2])
++		d.Set("reverse_dns_prefix", strings.Join(serviceParts[0:len(serviceParts)-2], "."))
++	}
++
++	if _, ok := d.GetOk("region"); !ok {
++		d.Set("region", client.Region)
++	}
++
++	if _, ok := d.GetOk("service_id"); !ok {
++		return fmt.Errorf("service ID not provided directly or through a DNS name")
++	}
++
++	if _, ok := d.GetOk("reverse_dns_prefix"); !ok {
++		dnsParts := strings.Split(meta.(*conns.AWSClient).DNSSuffix, ".")
++		d.Set("reverse_dns_prefix", strings.Join(InvertStringSlice(dnsParts), "."))
++	}
++
++	reverseDNS := fmt.Sprintf("%s.%s.%s", d.Get("reverse_dns_prefix").(string), d.Get("region").(string), d.Get("service_id").(string))
++	d.Set("reverse_dns_name", reverseDNS)
++	d.Set("dns_name", strings.ToLower(strings.Join(InvertStringSlice(strings.Split(reverseDNS, ".")), ".")))
++
++	d.Set("supported", true)
++	if partition, ok := endpoints.PartitionForRegion(endpoints.DefaultPartitions(), d.Get("region").(string)); ok {
++		d.Set("partition", partition.ID())
++		if _, ok := partition.Services()[d.Get("service_id").(string)]; !ok {
++			d.Set("supported", false)
++		}
++	}
++
++	d.SetId(reverseDNS)
++
++	return nil
++}
++
++// invertStringSlice returns inverted string slice without sorting slice like sort.Reverse()
++func InvertStringSlice(slice []string) []string {
++	inverse := make([]string, 0)
++	for i := 0; i < len(slice); i++ {
++		inverse = append(inverse, slice[len(slice)-i-1])
++	}
++	return inverse
++}
+diff --git a/internal/service/meta/service_package_gen.go b/internal/service/meta/service_package_gen.go
+index 6bbd72b1a5..70189fbb91 100644
+--- a/internal/service/meta/service_package_gen.go
++++ b/internal/service/meta/service_package_gen.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ // Code generated by internal/generate/servicepackages/main.go; DO NOT EDIT.
+ 
+ package meta
+diff --git a/internal/service/simpledb/domain.go b/internal/service/simpledb/domain.go
+index c99ae6f523..3ced22eb2c 100644
+--- a/internal/service/simpledb/domain.go
++++ b/internal/service/simpledb/domain.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package simpledb
+ 
+ import (
+diff --git a/internal/service/simpledb/domain_reverted.go b/internal/service/simpledb/domain_reverted.go
+new file mode 100644
+index 0000000000..fc0f83feab
+--- /dev/null
++++ b/internal/service/simpledb/domain_reverted.go
+@@ -0,0 +1,83 @@
++package simpledb
++
++import (
++	"fmt"
++	"log"
++
++	"github.com/aws/aws-sdk-go/aws"
++	"github.com/aws/aws-sdk-go/aws/awserr"
++	"github.com/aws/aws-sdk-go/service/simpledb"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++)
++
++func ResourceDomain() *schema.Resource {
++	return &schema.Resource{
++		Create: resourceDomainCreate,
++		Read:   resourceDomainRead,
++		Delete: resourceDomainDelete,
++		Importer: &schema.ResourceImporter{
++			State: schema.ImportStatePassthrough,
++		},
++
++		Schema: map[string]*schema.Schema{
++			"name": {
++				Type:     schema.TypeString,
++				Required: true,
++				ForceNew: true,
++			},
++		},
++	}
++}
++
++func resourceDomainCreate(d *schema.ResourceData, meta interface{}) error {
++	conn := meta.(*conns.AWSClient).SimpleDBConn()
++
++	name := d.Get("name").(string)
++	input := &simpledb.CreateDomainInput{
++		DomainName: aws.String(name),
++	}
++	_, err := conn.CreateDomain(input)
++	if err != nil {
++		return fmt.Errorf("Create SimpleDB Domain failed: %s", err)
++	}
++
++	d.SetId(name)
++	return nil
++}
++
++func resourceDomainRead(d *schema.ResourceData, meta interface{}) error {
++	conn := meta.(*conns.AWSClient).SimpleDBConn()
++
++	input := &simpledb.DomainMetadataInput{
++		DomainName: aws.String(d.Id()),
++	}
++	_, err := conn.DomainMetadata(input)
++	if awsErr, ok := err.(awserr.Error); ok {
++		if awsErr.Code() == "NoSuchDomain" {
++			log.Printf("[WARN] Removing SimpleDB domain %q because it's gone.", d.Id())
++			d.SetId("")
++			return nil
++		}
++	}
++	if err != nil {
++		return err
++	}
++
++	d.Set("name", d.Id())
++	return nil
++}
++
++func resourceDomainDelete(d *schema.ResourceData, meta interface{}) error {
++	conn := meta.(*conns.AWSClient).SimpleDBConn()
++
++	input := &simpledb.DeleteDomainInput{
++		DomainName: aws.String(d.Id()),
++	}
++	_, err := conn.DeleteDomain(input)
++	if err != nil {
++		return fmt.Errorf("Delete SimpleDB Domain failed: %s", err)
++	}
++
++	return nil
++}
+diff --git a/internal/service/simpledb/domain_test.go b/internal/service/simpledb/domain_test.go
+index 48eaf51cf7..320fe8175d 100644
+--- a/internal/service/simpledb/domain_test.go
++++ b/internal/service/simpledb/domain_test.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package simpledb_test
+ 
+ import (
+diff --git a/internal/service/simpledb/exports_test.go b/internal/service/simpledb/exports_test.go
+index 8c66737d1c..624e68ffcb 100644
+--- a/internal/service/simpledb/exports_test.go
++++ b/internal/service/simpledb/exports_test.go
+@@ -1,4 +1,5 @@
+ package simpledb
+ 
+ // Exports for use in tests only.
+-var ResourceDomain = newResourceDomain
++// Removed because the reverted code already exports this name
++// var ResourceDomain = newResourceDomain
+diff --git a/internal/service/simpledb/service_package_gen.go b/internal/service/simpledb/service_package_gen.go
+index 78faa16465..ab023d3453 100644
+--- a/internal/service/simpledb/service_package_gen.go
++++ b/internal/service/simpledb/service_package_gen.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ // Code generated by internal/generate/servicepackages/main.go; DO NOT EDIT.
+ 
+ package simpledb
+diff --git a/internal/service/sts/caller_identity_data_source.go b/internal/service/sts/caller_identity_data_source.go
+index 09c82fcfe4..b75ece7473 100644
+--- a/internal/service/sts/caller_identity_data_source.go
++++ b/internal/service/sts/caller_identity_data_source.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ package sts
+ 
+ import (
+diff --git a/internal/service/sts/caller_identity_data_source_reverted.go b/internal/service/sts/caller_identity_data_source_reverted.go
+new file mode 100644
+index 0000000000..a885bdfc8e
+--- /dev/null
++++ b/internal/service/sts/caller_identity_data_source_reverted.go
+@@ -0,0 +1,54 @@
++package sts
++
++import (
++	"fmt"
++	"log"
++
++	"github.com/aws/aws-sdk-go/aws"
++	"github.com/aws/aws-sdk-go/service/sts"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++)
++
++func DataSourceCallerIdentity() *schema.Resource {
++	return &schema.Resource{
++		Read: dataSourceCallerIdentityRead,
++
++		Schema: map[string]*schema.Schema{
++			"account_id": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++
++			"arn": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++
++			"user_id": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++		},
++	}
++}
++
++func dataSourceCallerIdentityRead(d *schema.ResourceData, meta interface{}) error {
++	client := meta.(*conns.AWSClient).STSConn()
++
++	log.Printf("[DEBUG] Reading Caller Identity")
++	res, err := client.GetCallerIdentity(&sts.GetCallerIdentityInput{})
++
++	if err != nil {
++		return fmt.Errorf("getting Caller Identity: %w", err)
++	}
++
++	log.Printf("[DEBUG] Received Caller Identity: %s", res)
++
++	d.SetId(aws.StringValue(res.Account))
++	d.Set("account_id", res.Account)
++	d.Set("arn", res.Arn)
++	d.Set("user_id", res.UserId)
++
++	return nil
++}
+diff --git a/internal/service/sts/service_package_gen.go b/internal/service/sts/service_package_gen.go
+index 295656d10f..5d22134127 100644
+--- a/internal/service/sts/service_package_gen.go
++++ b/internal/service/sts/service_package_gen.go
+@@ -1,3 +1,5 @@
++//go:build ignores
++
+ // Code generated by internal/generate/servicepackages/main.go; DO NOT EDIT.
+ 
+ package sts

@@ -1,0 +1,22 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Fri, 4 Nov 2022 16:49:08 +0000
+Subject: [PATCH 01/29] Add TagsSchemaTrulyComputed definition
+
+
+diff --git a/internal/tags/tags.go b/internal/tags/tags.go
+index fbe5fe2385..d0d269ff89 100644
+--- a/internal/tags/tags.go
++++ b/internal/tags/tags.go
+@@ -30,3 +30,11 @@ func TagsSchemaForceNew() *schema.Schema {
+ 		Elem:     &schema.Schema{Type: schema.TypeString},
+ 	}
+ }
++
++func TagsSchemaTrulyComputed() *schema.Schema {
++	return &schema.Schema{
++		Type:     schema.TypeMap,
++		Computed: true,
++		Elem:     &schema.Schema{Type: schema.TypeString},
++	}
++}

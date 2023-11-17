@@ -1,0 +1,29 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Thu, 17 Nov 2022 09:55:46 +0000
+Subject: [PATCH 16/29] Un-deprecate RDS instance name
+
+We don't have a good migration story yet so this just adds noise for users.
+
+Reference: https://github.com/pulumi/pulumi-aws/issues/2203
+
+diff --git a/internal/service/rds/instance.go b/internal/service/rds/instance.go
+index 9ee36fd86e..eb26a7b9d5 100644
+--- a/internal/service/rds/instance.go
++++ b/internal/service/rds/instance.go
+@@ -385,11 +385,10 @@ func ResourceInstance() *schema.Resource {
+ 				Computed: true,
+ 			},
+ 			"name": {
+-				Type:       schema.TypeString,
+-				Optional:   true,
+-				Computed:   true,
+-				Deprecated: "Use db_name instead",
+-				ForceNew:   true,
++				Type:     schema.TypeString,
++				Optional: true,
++				Computed: true,
++				ForceNew: true,
+ 				ConflictsWith: []string{
+ 					"db_name",
+ 					"replicate_source_db",
