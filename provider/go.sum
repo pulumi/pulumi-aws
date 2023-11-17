@@ -2367,12 +2367,12 @@ github.com/pulumi/providertest v0.0.3 h1:DLcAvVGgeP4mHEi1Ftk5zTX9QHjcrO6u5w5GCZr
 github.com/pulumi/providertest v0.0.3/go.mod h1:kZYBA14iemv3X4G4xsBKaa72zVbn//IyL5HTYKpLuy0=
 github.com/pulumi/pulumi-java/pkg v0.9.8 h1:c8mYsalnRXA2Ibgvv6scefOn6mW1Vb0UT0mcDqjsivQ=
 github.com/pulumi/pulumi-java/pkg v0.9.8/go.mod h1:c6rSw/+q4O0IImgJ9axxoC6QesbPYWBaG5gimbHouUQ=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.19.1-0.20231115184059-6e919a078572 h1:gKrZ4zmE1MxpN0qvBlWKR29RN2lih35MAVtfAuh6GDI=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.19.1-0.20231115184059-6e919a078572/go.mod h1:A68h9Hs13U56M4C4J148/RWIZEZ5vB8/Ayz62jvM2pQ=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.19.1-0.20231117214246-27a2e69fd393 h1:a+smlDzyeafvhWjkUzyIY44QlIv9S3qQSHn3hfvld7k=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.19.1-0.20231117214246-27a2e69fd393/go.mod h1:QffDZjBZkJ5eiVO/g5yV52UUb7vYfmVa7OnY2sf/7ck=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1 h1:SCg1gjfY9N4yn8U8peIUYATifjoDABkyR7H9lmefsfc=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1/go.mod h1:7OeUPH8rpt5ipyj9EFcnXpuzQ8SHL0dyqdfa8nOacdk=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.65.1-0.20231115184059-6e919a078572 h1:u7we5RMudCHjYq62OwHEXs4ur1kYzjpbzqFU+NotdLo=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.65.1-0.20231115184059-6e919a078572/go.mod h1:xs+jm130x0f6wl99ACQIagAU4m/TP0+cTO+qARnDYAE=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.65.1-0.20231117214246-27a2e69fd393 h1:IrfEll9HsamlhmvJMJAdNFGV6Ytk67lb5cuDtNGRcQM=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.65.1-0.20231117214246-27a2e69fd393/go.mod h1:nD6WrXZnT15wXDnZWwci6BblExOaz3oRlCYYzCN34do=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096 h1:1nzT9XuyTHdcWJboYNMPPdW0B0mQdXYg8Az5tF96MXY=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096/go.mod h1:1pLAP9kryYta3Xrw99oh7BmxY6PYb+z2m7ENNCJMIRQ=
 github.com/pulumi/pulumi-yaml v1.4.0 h1:vIm+F18aPXqHcgCZcD+PCEtA96Fbs96wHoW8RPVxJfk=
@@ -2598,6 +2598,8 @@ github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9dec
 github.com/yuin/goldmark v1.3.5/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
 github.com/yuin/goldmark v1.4.1/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
+github.com/yuin/goldmark v1.5.2 h1:ALmeCk/px5FSm1MAcFBAsVKZjDuMVj8Tm7FFIlMJnqU=
+github.com/yuin/goldmark v1.5.2/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 github.com/yvasiyarov/go-metrics v0.0.0-20140926110328-57bccd1ccd43/go.mod h1:aX5oPXxHm3bOH+xeAttToC8pqch2ScQN/JoXYupl6xs=
 github.com/yvasiyarov/gorelic v0.0.0-20141212073537-a9bba5b9ab50/go.mod h1:NUSPSUX/bi6SeDMUh6brw0nXpxHnc96TguQh0+r/ssA=
 github.com/yvasiyarov/newrelic_platform_go v0.0.0-20140908184405-b21fdbd4370f/go.mod h1:GlGEuHIJweS1mbCqG+7vt2nvWLzLLnRHbXz5JKd/Qbg=
