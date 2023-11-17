@@ -26,11 +26,14 @@ builds:
   - darwin
   - windows
   - linux
+  hooks:
+    post:
+    - env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -cache
+    - env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -modcache
   ignore: []
   ldflags:
   - -X github.com/pulumi/pulumi-aws/provider/v5/pkg/version.Version={{.Tag}}
-  - -X
-    github.com/hashicorp/terraform-provider-aws/version.ProviderVersion={{.Tag}}
+  - -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion={{.Tag}}
   main: ./cmd/pulumi-resource-aws/
 changelog:
   skip: true
@@ -38,3 +41,4 @@ release:
   disable: true
 snapshot:
   name_template: "{{ .Tag }}-SNAPSHOT"
+project_name: "pulumi-aws"
