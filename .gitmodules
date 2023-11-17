@@ -2,3 +2,5 @@
 	path = upstream
 	url = https://github.com/pulumi/terraform-provider-aws.git
 	ignore = dirty
+[submodule "upstream"]
+	url = https://github.com/hashicorp/terraform-provider-aws.git
