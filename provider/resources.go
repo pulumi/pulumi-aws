@@ -6818,6 +6818,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Namespaces: namespaceMap,
 		},
+
+		SchemaPostProcessor: func(spec *schema.PackageSpec) {
+			py, err := enablePyProject(spec.Language["python"])
+			contract.AssertNoErrorf(err, "failed enabling pyproject.toml in the schema")
+			spec.Language["python"] = py
+		},
 	}
 
 	// Fix the spelling mistake on `aws_ses_configuration_set` Tok
