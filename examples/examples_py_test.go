@@ -97,17 +97,9 @@ func TestAccFifoSqsQueuePy(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "sqs-fifo-queue", "python"),
 			RunUpdateTest: false,
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				expect := map[string]string{
-					"operatingSystemFamily": "LINUX",
-					"cpuArchitecture":       "ARM64",
-				}
-				for k, v := range expect {
-					assert.Contains(t, stack.Outputs[k].(string), v)
-				}
-
+				assert.Contains(t, stack.Outputs["name"].(string), ".fifo")
 			},
 		})
-
 	integration.ProgramTest(t, &test)
 }
 
