@@ -1,4 +1,5 @@
-// Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+// Copyright 2016-2023, Pulumi Corporation.  All rights reserved.
+//go:build python || all
 // +build python all
 
 package examples
@@ -7,8 +8,13 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/batch"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
 func TestAccBucketPy(t *testing.T) {
@@ -93,7 +99,49 @@ func TestAccFifoSqsQueuePy(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "sqs-fifo-queue", "python"),
 			RunUpdateTest: false,
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				assert.Contains(t, stack.Outputs["name"].(string), ".fifo")
+				expect := map[string]string{
+					"operatingSystemFamily": "LINUX",
+					"cpuArchitecture":       "ARM64",
+				}
+				for k, v := range expect {
+					assert.Contains(t, stack.Outputs[k].(string), v)
+				}
+
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccArm64JobDefinition(t *testing.T) {
+	check := func(t *testing.T) {
+		active := "ACTIVE"
+		envRegion := getEnvRegion(t)
+
+		sess, err := session.NewSession(&aws.Config{
+			Region: &envRegion,
+		})
+		require.NoError(t, err)
+		svc := batch.New(sess)
+		input := &batch.DescribeJobDefinitionsInput{
+			Status: &active,
+		}
+
+		result, err := svc.DescribeJobDefinitions(input)
+		require.NoError(t, err)
+
+		for _, jd := range result.JobDefinitions {
+			rp := jd.ContainerProperties.RuntimePlatform
+			require.Equal(t, "LINUX", rp.OperatingSystemFamily)
+			require.Equal(t, "ARM64", rp.CpuArchitecture)
+		}
+	}
+
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "arm64-job-definition"),
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				check(t)
 			},
 		})
 
