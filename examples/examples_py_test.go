@@ -8,8 +8,6 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/batch"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -116,12 +114,7 @@ func TestAccFifoSqsQueuePy(t *testing.T) {
 func TestAccArm64JobDefinition(t *testing.T) {
 	check := func(t *testing.T) {
 		active := "ACTIVE"
-		envRegion := getEnvRegion(t)
-
-		sess, err := session.NewSession(&aws.Config{
-			Region: &envRegion,
-		})
-		require.NoError(t, err)
+		sess := getAwsSession(t)
 		svc := batch.New(sess)
 		input := &batch.DescribeJobDefinitionsInput{
 			Status: &active,
@@ -132,8 +125,16 @@ func TestAccArm64JobDefinition(t *testing.T) {
 
 		for _, jd := range result.JobDefinitions {
 			rp := jd.ContainerProperties.RuntimePlatform
-			require.Equal(t, "LINUX", rp.OperatingSystemFamily)
-			require.Equal(t, "ARM64", rp.CpuArchitecture)
+			var osFamily string
+			if rp.OperatingSystemFamily != nil {
+				osFamily = *rp.OperatingSystemFamily
+			}
+			var cpuArch string
+			if rp.CpuArchitecture != nil {
+				cpuArch = *rp.CpuArchitecture
+			}
+			require.Equal(t, "LINUX", osFamily)
+			require.Equal(t, "ARM64", cpuArch)
 		}
 	}
 

@@ -9,7 +9,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
@@ -71,4 +74,17 @@ func validateAPITest(isValid func(body string)) func(t *testing.T, stack integra
 		assert.NoError(t, err)
 		isValid(string(body))
 	}
+}
+
+func getAwsSession(t *testing.T) *session.Session {
+	region := getEnvRegion(t)
+	sess, err := session.NewSessionWithOptions(session.Options{
+		SharedConfigState: session.SharedConfigEnable,
+		Config: aws.Config{
+			Region:                        aws.String(region),
+			CredentialsChainVerboseErrors: aws.Bool(true),
+		},
+	})
+	require.NoError(t, err)
+	return sess
 }

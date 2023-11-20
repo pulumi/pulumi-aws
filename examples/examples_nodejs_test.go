@@ -11,11 +11,9 @@ import (
 	"testing"
 
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 )
 
 /* see https://github.com/pulumi/pulumi-aws/issues/1264
@@ -465,17 +463,4 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	})
 
 	return baseJS
-}
-
-func getAwsSession(t *testing.T) *session.Session {
-	region := getEnvRegion(t)
-	sess, err := session.NewSessionWithOptions(session.Options{
-		SharedConfigState: session.SharedConfigEnable,
-		Config: aws.Config{
-			Region:                        aws.String(region),
-			CredentialsChainVerboseErrors: aws.Bool(true),
-		},
-	})
-	require.NoError(t, err)
-	return sess
 }
