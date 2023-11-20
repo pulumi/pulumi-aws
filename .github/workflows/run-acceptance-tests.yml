@@ -397,8 +397,12 @@ on:
     - master
     - main
     - v6
+    - v5
     paths-ignore:
     - CHANGELOG.md
   repository_dispatch:
     types:
     - run-acceptance-tests-command
+  workflow_dispatch:
+    inputs:
+      {}
