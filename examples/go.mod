@@ -8,6 +8,9 @@ require (
 	github.com/stretchr/testify v1.8.3
 )
 
+// Mirror from provider/go.mod
+replace github.com/aws/aws-sdk-go => github.com/aws/aws-sdk-go v1.44.295
+
 require (
 	cloud.google.com/go v0.110.0 // indirect
 	cloud.google.com/go/compute v1.18.0 // indirect
