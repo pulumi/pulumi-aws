@@ -34,7 +34,7 @@ import (
 
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -2396,6 +2396,13 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 
 			// IOT
 			"aws_iot_certificate": {Tok: awsResource(iotMod, "Certificate")},
+			"aws_iot_event_configurations": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"event_configurations": {
+						CSharpName: "Configurations",
+					},
+				},
+			},
 			"aws_iot_policy": {
 				Tok:      awsResource(iotMod, "Policy"),
 				IDFields: []string{"name"},
@@ -7163,12 +7170,10 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 		prov.Resources[k] = v
 	}
 
-	if err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
+	prov.MustComputeTokens(tks.MappedModules("aws_", "", moduleMap,
 		func(mod, name string) (string, error) {
 			return awsResource(mod, name).String(), nil
-		})); err != nil {
-		contract.AssertNoErrorf(err, "failed to apply default token mappings")
-	}
+		}))
 
 	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
 		// Skip resources that don't have tags.
