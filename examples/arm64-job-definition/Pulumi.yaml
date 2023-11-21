@@ -1,0 +1,5 @@
+name: arm64-job-definition
+runtime:
+  name: python
+  options:
+    virtualenv: venv

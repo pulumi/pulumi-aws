@@ -13,6 +13,7 @@ require (
 )
 
 replace (
+	github.com/aws/aws-sdk-go => github.com/aws/aws-sdk-go v1.44.295
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230327102345-3fa930f86570
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/hashicorp/terraform-provider-aws/shim => ./shim
