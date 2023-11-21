@@ -25,7 +25,7 @@ jobs:
   build_sdk:
     name: build_sdk
     needs: prerequisites
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -130,7 +130,7 @@ jobs:
   create_docs_build:
     name: create_docs_build
     needs: tag_sdk
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
@@ -143,7 +143,7 @@ jobs:
         ${GITHUB_REF#refs/tags/}
   prerequisites:
     name: prerequisites
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -346,7 +346,7 @@ jobs:
   publish_sdk:
     name: publish_sdk
     needs: publish
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -432,7 +432,7 @@ jobs:
   tag_sdk:
     name: tag_sdk
     needs: publish_sdk
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -448,7 +448,7 @@ jobs:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
     name: Run test of provider shim
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     timeout-minutes: 60
     steps:
     - name: Checkout Repo
@@ -471,7 +471,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3

@@ -25,7 +25,7 @@ jobs:
   build_sdk:
     name: build_sdk
     needs: prerequisites
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -129,7 +129,7 @@ jobs:
         - "3.9"
   prerequisites:
     name: prerequisites
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -333,7 +333,7 @@ jobs:
   publish_sdk:
     name: publish_sdk
     needs: publish
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -421,7 +421,7 @@ jobs:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
     name: Run test of provider shim
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     timeout-minutes: 60
     steps:
     - name: Checkout Repo
@@ -444,7 +444,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
