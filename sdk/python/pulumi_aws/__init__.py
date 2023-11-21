@@ -73,6 +73,8 @@ if typing.TYPE_CHECKING:
     batch = __batch
     import pulumi_aws.bedrockfoundation as __bedrockfoundation
     bedrockfoundation = __bedrockfoundation
+    import pulumi_aws.bedrockmodel as __bedrockmodel
+    bedrockmodel = __bedrockmodel
     import pulumi_aws.budgets as __budgets
     budgets = __budgets
     import pulumi_aws.cfg as __cfg
@@ -433,6 +435,7 @@ else:
     backup = _utilities.lazy_import('pulumi_aws.backup')
     batch = _utilities.lazy_import('pulumi_aws.batch')
     bedrockfoundation = _utilities.lazy_import('pulumi_aws.bedrockfoundation')
+    bedrockmodel = _utilities.lazy_import('pulumi_aws.bedrockmodel')
     budgets = _utilities.lazy_import('pulumi_aws.budgets')
     cfg = _utilities.lazy_import('pulumi_aws.cfg')
     chime = _utilities.lazy_import('pulumi_aws.chime')
@@ -1746,6 +1749,14 @@ _utilities.register(
   "fqn": "pulumi_aws.batch",
   "classes": {
    "aws:batch/schedulingPolicy:SchedulingPolicy": "SchedulingPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrockmodel/invocationLoggingConfiguration",
+  "fqn": "pulumi_aws.bedrockmodel",
+  "classes": {
+   "aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration": "InvocationLoggingConfiguration"
   }
  },
  {
@@ -5982,6 +5993,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iot/billingGroup",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/billingGroup:BillingGroup": "BillingGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "iot/caCertificate",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/caCertificate:CaCertificate": "CaCertificate"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iot/certificate",
   "fqn": "pulumi_aws.iot",
   "classes": {
@@ -5994,6 +6021,14 @@ _utilities.register(
   "fqn": "pulumi_aws.iot",
   "classes": {
    "aws:iot/domainConfiguration:DomainConfiguration": "DomainConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "iot/eventConfigurations",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/eventConfigurations:EventConfigurations": "EventConfigurations"
   }
  },
  {

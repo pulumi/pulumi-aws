@@ -484,6 +484,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.connect);
     }
 
+    @Import(name="connectcases")
+    private @Nullable Output<String> connectcases;
+
+    public Optional<Output<String>> connectcases() {
+        return Optional.ofNullable(this.connectcases);
+    }
+
     @Import(name="controltower")
     private @Nullable Output<String> controltower;
 
@@ -510,6 +517,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> cur() {
         return Optional.ofNullable(this.cur);
+    }
+
+    @Import(name="customerprofiles")
+    private @Nullable Output<String> customerprofiles;
+
+    public Optional<Output<String>> customerprofiles() {
+        return Optional.ofNullable(this.customerprofiles);
     }
 
     @Import(name="databasemigration")
@@ -1226,6 +1240,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.opensearch);
     }
 
+    @Import(name="opensearchingestion")
+    private @Nullable Output<String> opensearchingestion;
+
+    public Optional<Output<String>> opensearchingestion() {
+        return Optional.ofNullable(this.opensearchingestion);
+    }
+
     @Import(name="opensearchserverless")
     private @Nullable Output<String> opensearchserverless;
 
@@ -1252,6 +1273,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> organizations() {
         return Optional.ofNullable(this.organizations);
+    }
+
+    @Import(name="osis")
+    private @Nullable Output<String> osis;
+
+    public Optional<Output<String>> osis() {
+        return Optional.ofNullable(this.osis);
     }
 
     @Import(name="outposts")
@@ -1842,10 +1870,12 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.config = $.config;
         this.configservice = $.configservice;
         this.connect = $.connect;
+        this.connectcases = $.connectcases;
         this.controltower = $.controltower;
         this.costandusagereportservice = $.costandusagereportservice;
         this.costexplorer = $.costexplorer;
         this.cur = $.cur;
+        this.customerprofiles = $.customerprofiles;
         this.databasemigration = $.databasemigration;
         this.databasemigrationservice = $.databasemigrationservice;
         this.dataexchange = $.dataexchange;
@@ -1948,10 +1978,12 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.networkmanager = $.networkmanager;
         this.oam = $.oam;
         this.opensearch = $.opensearch;
+        this.opensearchingestion = $.opensearchingestion;
         this.opensearchserverless = $.opensearchserverless;
         this.opensearchservice = $.opensearchservice;
         this.opsworks = $.opsworks;
         this.organizations = $.organizations;
+        this.osis = $.osis;
         this.outposts = $.outposts;
         this.pinpoint = $.pinpoint;
         this.pipes = $.pipes;
@@ -2649,6 +2681,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return connect(Output.of(connect));
         }
 
+        public Builder connectcases(@Nullable Output<String> connectcases) {
+            $.connectcases = connectcases;
+            return this;
+        }
+
+        public Builder connectcases(String connectcases) {
+            return connectcases(Output.of(connectcases));
+        }
+
         public Builder controltower(@Nullable Output<String> controltower) {
             $.controltower = controltower;
             return this;
@@ -2683,6 +2724,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder cur(String cur) {
             return cur(Output.of(cur));
+        }
+
+        public Builder customerprofiles(@Nullable Output<String> customerprofiles) {
+            $.customerprofiles = customerprofiles;
+            return this;
+        }
+
+        public Builder customerprofiles(String customerprofiles) {
+            return customerprofiles(Output.of(customerprofiles));
         }
 
         public Builder databasemigration(@Nullable Output<String> databasemigration) {
@@ -3603,6 +3653,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return opensearch(Output.of(opensearch));
         }
 
+        public Builder opensearchingestion(@Nullable Output<String> opensearchingestion) {
+            $.opensearchingestion = opensearchingestion;
+            return this;
+        }
+
+        public Builder opensearchingestion(String opensearchingestion) {
+            return opensearchingestion(Output.of(opensearchingestion));
+        }
+
         public Builder opensearchserverless(@Nullable Output<String> opensearchserverless) {
             $.opensearchserverless = opensearchserverless;
             return this;
@@ -3637,6 +3696,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder organizations(String organizations) {
             return organizations(Output.of(organizations));
+        }
+
+        public Builder osis(@Nullable Output<String> osis) {
+            $.osis = osis;
+            return this;
+        }
+
+        public Builder osis(String osis) {
+            return osis(Output.of(osis));
         }
 
         public Builder outposts(@Nullable Output<String> outposts) {

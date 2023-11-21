@@ -90,6 +90,10 @@ namespace Pulumi.Aws.Grafana
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "key",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -145,11 +149,21 @@ namespace Pulumi.Aws.Grafana
 
     public sealed class WorkspaceApiKeyState : global::Pulumi.ResourceArgs
     {
+        [Input("key")]
+        private Input<string>? _key;
+
         /// <summary>
         /// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the API key. Key names must be unique to the workspace.

@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.vpc.SecurityGroupIngressRule;
  * import com.pulumi.aws.vpc.SecurityGroupIngressRuleArgs;
  * import java.util.List;
@@ -49,8 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroupIngressRule(&#34;example&#34;, SecurityGroupIngressRuleArgs.builder()        
- *             .securityGroupId(aws_security_group.example().id())
+ *         var exampleSecurityGroup = new SecurityGroup(&#34;exampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
+ *             .description(&#34;example&#34;)
+ *             .vpcId(aws_vpc.main().id())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .build());
+ * 
+ *         var exampleSecurityGroupIngressRule = new SecurityGroupIngressRule(&#34;exampleSecurityGroupIngressRule&#34;, SecurityGroupIngressRuleArgs.builder()        
+ *             .securityGroupId(exampleSecurityGroup.id())
  *             .cidrIpv4(&#34;10.0.0.0/8&#34;)
  *             .fromPort(80)
  *             .ipProtocol(&#34;tcp&#34;)

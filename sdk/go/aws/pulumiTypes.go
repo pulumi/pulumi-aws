@@ -690,10 +690,12 @@ type ProviderEndpoint struct {
 	Config                               *string `pulumi:"config"`
 	Configservice                        *string `pulumi:"configservice"`
 	Connect                              *string `pulumi:"connect"`
+	Connectcases                         *string `pulumi:"connectcases"`
 	Controltower                         *string `pulumi:"controltower"`
 	Costandusagereportservice            *string `pulumi:"costandusagereportservice"`
 	Costexplorer                         *string `pulumi:"costexplorer"`
 	Cur                                  *string `pulumi:"cur"`
+	Customerprofiles                     *string `pulumi:"customerprofiles"`
 	Databasemigration                    *string `pulumi:"databasemigration"`
 	Databasemigrationservice             *string `pulumi:"databasemigrationservice"`
 	Dataexchange                         *string `pulumi:"dataexchange"`
@@ -796,10 +798,12 @@ type ProviderEndpoint struct {
 	Networkmanager                       *string `pulumi:"networkmanager"`
 	Oam                                  *string `pulumi:"oam"`
 	Opensearch                           *string `pulumi:"opensearch"`
+	Opensearchingestion                  *string `pulumi:"opensearchingestion"`
 	Opensearchserverless                 *string `pulumi:"opensearchserverless"`
 	Opensearchservice                    *string `pulumi:"opensearchservice"`
 	Opsworks                             *string `pulumi:"opsworks"`
 	Organizations                        *string `pulumi:"organizations"`
+	Osis                                 *string `pulumi:"osis"`
 	Outposts                             *string `pulumi:"outposts"`
 	Pinpoint                             *string `pulumi:"pinpoint"`
 	Pipes                                *string `pulumi:"pipes"`
@@ -955,10 +959,12 @@ type ProviderEndpointArgs struct {
 	Config                               pulumi.StringPtrInput `pulumi:"config"`
 	Configservice                        pulumi.StringPtrInput `pulumi:"configservice"`
 	Connect                              pulumi.StringPtrInput `pulumi:"connect"`
+	Connectcases                         pulumi.StringPtrInput `pulumi:"connectcases"`
 	Controltower                         pulumi.StringPtrInput `pulumi:"controltower"`
 	Costandusagereportservice            pulumi.StringPtrInput `pulumi:"costandusagereportservice"`
 	Costexplorer                         pulumi.StringPtrInput `pulumi:"costexplorer"`
 	Cur                                  pulumi.StringPtrInput `pulumi:"cur"`
+	Customerprofiles                     pulumi.StringPtrInput `pulumi:"customerprofiles"`
 	Databasemigration                    pulumi.StringPtrInput `pulumi:"databasemigration"`
 	Databasemigrationservice             pulumi.StringPtrInput `pulumi:"databasemigrationservice"`
 	Dataexchange                         pulumi.StringPtrInput `pulumi:"dataexchange"`
@@ -1061,10 +1067,12 @@ type ProviderEndpointArgs struct {
 	Networkmanager                       pulumi.StringPtrInput `pulumi:"networkmanager"`
 	Oam                                  pulumi.StringPtrInput `pulumi:"oam"`
 	Opensearch                           pulumi.StringPtrInput `pulumi:"opensearch"`
+	Opensearchingestion                  pulumi.StringPtrInput `pulumi:"opensearchingestion"`
 	Opensearchserverless                 pulumi.StringPtrInput `pulumi:"opensearchserverless"`
 	Opensearchservice                    pulumi.StringPtrInput `pulumi:"opensearchservice"`
 	Opsworks                             pulumi.StringPtrInput `pulumi:"opsworks"`
 	Organizations                        pulumi.StringPtrInput `pulumi:"organizations"`
+	Osis                                 pulumi.StringPtrInput `pulumi:"osis"`
 	Outposts                             pulumi.StringPtrInput `pulumi:"outposts"`
 	Pinpoint                             pulumi.StringPtrInput `pulumi:"pinpoint"`
 	Pipes                                pulumi.StringPtrInput `pulumi:"pipes"`
@@ -1460,6 +1468,10 @@ func (o ProviderEndpointOutput) Connect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Connect }).(pulumi.StringPtrOutput)
 }
 
+func (o ProviderEndpointOutput) Connectcases() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Connectcases }).(pulumi.StringPtrOutput)
+}
+
 func (o ProviderEndpointOutput) Controltower() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Controltower }).(pulumi.StringPtrOutput)
 }
@@ -1474,6 +1486,10 @@ func (o ProviderEndpointOutput) Costexplorer() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Cur() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Cur }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Customerprofiles() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Customerprofiles }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Databasemigration() pulumi.StringPtrOutput {
@@ -1884,6 +1900,10 @@ func (o ProviderEndpointOutput) Opensearch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Opensearch }).(pulumi.StringPtrOutput)
 }
 
+func (o ProviderEndpointOutput) Opensearchingestion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Opensearchingestion }).(pulumi.StringPtrOutput)
+}
+
 func (o ProviderEndpointOutput) Opensearchserverless() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Opensearchserverless }).(pulumi.StringPtrOutput)
 }
@@ -1898,6 +1918,10 @@ func (o ProviderEndpointOutput) Opsworks() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Organizations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Organizations }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Osis() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Osis }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Outposts() pulumi.StringPtrOutput {

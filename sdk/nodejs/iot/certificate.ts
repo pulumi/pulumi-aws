@@ -78,6 +78,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The certificate ID of the CA certificate used to sign the certificate.
+     */
+    public /*out*/ readonly caCertificateId!: pulumi.Output<string>;
+    /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      */
     public readonly caPem!: pulumi.Output<string | undefined>;
@@ -121,6 +125,7 @@ export class Certificate extends pulumi.CustomResource {
             const state = argsOrState as CertificateState | undefined;
             resourceInputs["active"] = state ? state.active : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["caCertificateId"] = state ? state.caCertificateId : undefined;
             resourceInputs["caPem"] = state ? state.caPem : undefined;
             resourceInputs["certificatePem"] = state ? state.certificatePem : undefined;
             resourceInputs["csr"] = state ? state.csr : undefined;
@@ -136,6 +141,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificatePem"] = args?.certificatePem ? pulumi.secret(args.certificatePem) : undefined;
             resourceInputs["csr"] = args ? args.csr : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["caCertificateId"] = undefined /*out*/;
             resourceInputs["privateKey"] = undefined /*out*/;
             resourceInputs["publicKey"] = undefined /*out*/;
         }
@@ -158,6 +164,10 @@ export interface CertificateState {
      * The ARN of the created certificate.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The certificate ID of the CA certificate used to sign the certificate.
+     */
+    caCertificateId?: pulumi.Input<string>;
     /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      */

@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'GroupInitialLifecycleHookArgs',
+    'GroupInstanceMaintenancePolicyArgs',
     'GroupInstanceRefreshArgs',
     'GroupInstanceRefreshPreferencesArgs',
     'GroupLaunchTemplateArgs',
@@ -163,6 +164,43 @@ class GroupInitialLifecycleHookArgs:
 
 
 @pulumi.input_type
+class GroupInstanceMaintenancePolicyArgs:
+    def __init__(__self__, *,
+                 max_healthy_percentage: pulumi.Input[int],
+                 min_healthy_percentage: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_healthy_percentage: Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+        :param pulumi.Input[int] min_healthy_percentage: Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+        """
+        pulumi.set(__self__, "max_healthy_percentage", max_healthy_percentage)
+        pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
+
+    @property
+    @pulumi.getter(name="maxHealthyPercentage")
+    def max_healthy_percentage(self) -> pulumi.Input[int]:
+        """
+        Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+        """
+        return pulumi.get(self, "max_healthy_percentage")
+
+    @max_healthy_percentage.setter
+    def max_healthy_percentage(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_healthy_percentage", value)
+
+    @property
+    @pulumi.getter(name="minHealthyPercentage")
+    def min_healthy_percentage(self) -> pulumi.Input[int]:
+        """
+        Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+        """
+        return pulumi.get(self, "min_healthy_percentage")
+
+    @min_healthy_percentage.setter
+    def min_healthy_percentage(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_healthy_percentage", value)
+
+
+@pulumi.input_type
 class GroupInstanceRefreshArgs:
     def __init__(__self__, *,
                  strategy: pulumi.Input[str],
@@ -248,7 +286,7 @@ class GroupInstanceRefreshPreferencesArgs:
         :param pulumi.Input[str] checkpoint_delay: Number of seconds to wait after a checkpoint. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param pulumi.Input[str] instance_warmup: Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
-        :param pulumi.Input[int] min_healthy_percentage: Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+        :param pulumi.Input[int] min_healthy_percentage: Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
         :param pulumi.Input[str] scale_in_protected_instances: Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
         :param pulumi.Input[bool] skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
         :param pulumi.Input[str] standby_instances: Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
@@ -322,7 +360,7 @@ class GroupInstanceRefreshPreferencesArgs:
     @pulumi.getter(name="minHealthyPercentage")
     def min_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+        Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
         """
         return pulumi.get(self, "min_healthy_percentage")
 

@@ -11,6 +11,10 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'BillingGroupMetadata',
+    'BillingGroupProperties',
+    'CaCertificateRegistrationConfig',
+    'CaCertificateValidity',
     'DomainConfigurationAuthorizerConfig',
     'DomainConfigurationTlsConfig',
     'IndexingConfigurationThingGroupIndexingConfiguration',
@@ -77,6 +81,169 @@ __all__ = [
     'TopicRuleTimestreamDimension',
     'TopicRuleTimestreamTimestamp',
 ]
+
+@pulumi.output_type
+class BillingGroupMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BillingGroupMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BillingGroupMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BillingGroupMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_date: Optional[str] = None):
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[str]:
+        return pulumi.get(self, "creation_date")
+
+
+@pulumi.output_type
+class BillingGroupProperties(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None):
+        """
+        :param str description: A description of the Billing Group.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the Billing Group.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class CaCertificateRegistrationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "templateBody":
+            suggest = "template_body"
+        elif key == "templateName":
+            suggest = "template_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CaCertificateRegistrationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CaCertificateRegistrationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CaCertificateRegistrationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: Optional[bool] = None,
+                 template_body: Optional[str] = None,
+                 template_name: Optional[str] = None):
+        """
+        :param bool role_arn: The ARN of the role.
+        :param str template_body: The template body.
+        :param str template_name: The name of the provisioning template.
+        """
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if template_body is not None:
+            pulumi.set(__self__, "template_body", template_body)
+        if template_name is not None:
+            pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[bool]:
+        """
+        The ARN of the role.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="templateBody")
+    def template_body(self) -> Optional[str]:
+        """
+        The template body.
+        """
+        return pulumi.get(self, "template_body")
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> Optional[str]:
+        """
+        The name of the provisioning template.
+        """
+        return pulumi.get(self, "template_name")
+
+
+@pulumi.output_type
+class CaCertificateValidity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notAfter":
+            suggest = "not_after"
+        elif key == "notBefore":
+            suggest = "not_before"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CaCertificateValidity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CaCertificateValidity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CaCertificateValidity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 not_after: Optional[str] = None,
+                 not_before: Optional[str] = None):
+        """
+        :param str not_after: The certificate is not valid after this date.
+        :param str not_before: The certificate is not valid before this date.
+        """
+        if not_after is not None:
+            pulumi.set(__self__, "not_after", not_after)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+
+    @property
+    @pulumi.getter(name="notAfter")
+    def not_after(self) -> Optional[str]:
+        """
+        The certificate is not valid after this date.
+        """
+        return pulumi.get(self, "not_after")
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[str]:
+        """
+        The certificate is not valid before this date.
+        """
+        return pulumi.get(self, "not_before")
+
 
 @pulumi.output_type
 class DomainConfigurationAuthorizerConfig(dict):

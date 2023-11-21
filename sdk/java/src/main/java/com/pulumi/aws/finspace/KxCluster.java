@@ -83,6 +83,7 @@ import javax.annotation.Nullable;
  *                 .s3Bucket(aws_s3_bucket.test().id())
  *                 .s3Key(aws_s3_object.object().key())
  *                 .build())
+ *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

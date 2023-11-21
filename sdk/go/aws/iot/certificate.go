@@ -119,6 +119,8 @@ type Certificate struct {
 	Active pulumi.BoolOutput `pulumi:"active"`
 	// The ARN of the created certificate.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The certificate ID of the CA certificate used to sign the certificate.
+	CaCertificateId pulumi.StringOutput `pulumi:"caCertificateId"`
 	// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
 	CaPem pulumi.StringPtrOutput `pulumi:"caPem"`
 	// The certificate to be registered. If `caPem` is unspecified, review
@@ -189,6 +191,8 @@ type certificateState struct {
 	Active *bool `pulumi:"active"`
 	// The ARN of the created certificate.
 	Arn *string `pulumi:"arn"`
+	// The certificate ID of the CA certificate used to sign the certificate.
+	CaCertificateId *string `pulumi:"caCertificateId"`
 	// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
 	CaPem *string `pulumi:"caPem"`
 	// The certificate to be registered. If `caPem` is unspecified, review
@@ -214,6 +218,8 @@ type CertificateState struct {
 	Active pulumi.BoolPtrInput
 	// The ARN of the created certificate.
 	Arn pulumi.StringPtrInput
+	// The certificate ID of the CA certificate used to sign the certificate.
+	CaCertificateId pulumi.StringPtrInput
 	// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
 	CaPem pulumi.StringPtrInput
 	// The certificate to be registered. If `caPem` is unspecified, review
@@ -372,6 +378,11 @@ func (o CertificateOutput) Active() pulumi.BoolOutput {
 // The ARN of the created certificate.
 func (o CertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The certificate ID of the CA certificate used to sign the certificate.
+func (o CertificateOutput) CaCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CaCertificateId }).(pulumi.StringOutput)
 }
 
 // The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.

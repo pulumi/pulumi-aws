@@ -77,6 +77,10 @@ export interface GetGroupResult {
      */
     readonly id: string;
     /**
+     * Instance maintenance policy for the group.
+     */
+    readonly instanceMaintenancePolicies: outputs.autoscaling.GetGroupInstanceMaintenancePolicy[];
+    /**
      * The name of the associated launch configuration.
      */
     readonly launchConfiguration: string;

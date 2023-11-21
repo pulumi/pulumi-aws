@@ -306,6 +306,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+     * 
+     */
+    @Import(name="deleteAutomatedBackups")
+    private @Nullable Output<Boolean> deleteAutomatedBackups;
+
+    /**
+     * @return Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> deleteAutomatedBackups() {
+        return Optional.ofNullable(this.deleteAutomatedBackups);
+    }
+
+    /**
      * If the DB cluster should have deletion protection enabled.
      * The database can&#39;t be deleted when this value is set to `true`.
      * The default is `false`.
@@ -917,6 +932,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.dbInstanceParameterGroupName = $.dbInstanceParameterGroupName;
         this.dbSubnetGroupName = $.dbSubnetGroupName;
         this.dbSystemId = $.dbSystemId;
+        this.deleteAutomatedBackups = $.deleteAutomatedBackups;
         this.deletionProtection = $.deletionProtection;
         this.enableGlobalWriteForwarding = $.enableGlobalWriteForwarding;
         this.enableHttpEndpoint = $.enableHttpEndpoint;
@@ -1383,6 +1399,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dbSystemId(String dbSystemId) {
             return dbSystemId(Output.of(dbSystemId));
+        }
+
+        /**
+         * @param deleteAutomatedBackups Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteAutomatedBackups(@Nullable Output<Boolean> deleteAutomatedBackups) {
+            $.deleteAutomatedBackups = deleteAutomatedBackups;
+            return this;
+        }
+
+        /**
+         * @param deleteAutomatedBackups Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteAutomatedBackups(Boolean deleteAutomatedBackups) {
+            return deleteAutomatedBackups(Output.of(deleteAutomatedBackups));
         }
 
         /**

@@ -111,13 +111,25 @@ Object.defineProperty(exports, "forbiddenAccountIds", {
 });
 
 /**
- * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
- * `HTTPS_PROXY` environment variables.
+ * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+ * `http_proxy` environment variables.
  */
 export declare const httpProxy: string | undefined;
 Object.defineProperty(exports, "httpProxy", {
     get() {
         return __config.get("httpProxy");
+    },
+    enumerable: true,
+});
+
+/**
+ * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+ * `https_proxy` environment variables.
+ */
+export declare const httpsProxy: string | undefined;
+Object.defineProperty(exports, "httpsProxy", {
+    get() {
+        return __config.get("httpsProxy");
     },
     enumerable: true,
 });
@@ -151,6 +163,18 @@ export declare const maxRetries: number | undefined;
 Object.defineProperty(exports, "maxRetries", {
     get() {
         return __config.getObject<number>("maxRetries");
+    },
+    enumerable: true,
+});
+
+/**
+ * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+ * `no_proxy` environment variables.
+ */
+export declare const noProxy: string | undefined;
+Object.defineProperty(exports, "noProxy", {
+    get() {
+        return __config.get("noProxy");
     },
     enumerable: true,
 });

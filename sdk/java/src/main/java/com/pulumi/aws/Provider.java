@@ -85,20 +85,52 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.ec2MetadataServiceEndpointMode);
     }
     /**
-     * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-     * `HTTPS_PROXY` environment variables.
+     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+     * `http_proxy` environment variables.
      * 
      */
     @Export(name="httpProxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpProxy;
 
     /**
-     * @return The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-     * `HTTPS_PROXY` environment variables.
+     * @return URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+     * `http_proxy` environment variables.
      * 
      */
     public Output<Optional<String>> httpProxy() {
         return Codegen.optional(this.httpProxy);
+    }
+    /**
+     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+     * `https_proxy` environment variables.
+     * 
+     */
+    @Export(name="httpsProxy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> httpsProxy;
+
+    /**
+     * @return URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+     * `https_proxy` environment variables.
+     * 
+     */
+    public Output<Optional<String>> httpsProxy() {
+        return Codegen.optional(this.httpsProxy);
+    }
+    /**
+     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+     * `no_proxy` environment variables.
+     * 
+     */
+    @Export(name="noProxy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> noProxy;
+
+    /**
+     * @return Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+     * `no_proxy` environment variables.
+     * 
+     */
+    public Output<Optional<String>> noProxy() {
+        return Codegen.optional(this.noProxy);
     }
     /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.autoscaling.outputs;
 
+import com.pulumi.aws.autoscaling.outputs.GetGroupInstanceMaintenancePolicy;
 import com.pulumi.aws.autoscaling.outputs.GetGroupLaunchTemplate;
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicy;
 import com.pulumi.aws.autoscaling.outputs.GetGroupTag;
@@ -58,6 +59,11 @@ public final class GetGroupResult {
      * 
      */
     private String id;
+    /**
+     * @return Instance maintenance policy for the group.
+     * 
+     */
+    private List<GetGroupInstanceMaintenancePolicy> instanceMaintenancePolicies;
     /**
      * @return The name of the associated launch configuration.
      * 
@@ -221,6 +227,13 @@ public final class GetGroupResult {
         return this.id;
     }
     /**
+     * @return Instance maintenance policy for the group.
+     * 
+     */
+    public List<GetGroupInstanceMaintenancePolicy> instanceMaintenancePolicies() {
+        return this.instanceMaintenancePolicies;
+    }
+    /**
      * @return The name of the associated launch configuration.
      * 
      */
@@ -382,6 +395,7 @@ public final class GetGroupResult {
         private Integer healthCheckGracePeriod;
         private String healthCheckType;
         private String id;
+        private List<GetGroupInstanceMaintenancePolicy> instanceMaintenancePolicies;
         private String launchConfiguration;
         private List<GetGroupLaunchTemplate> launchTemplates;
         private List<String> loadBalancers;
@@ -415,6 +429,7 @@ public final class GetGroupResult {
     	      this.healthCheckGracePeriod = defaults.healthCheckGracePeriod;
     	      this.healthCheckType = defaults.healthCheckType;
     	      this.id = defaults.id;
+    	      this.instanceMaintenancePolicies = defaults.instanceMaintenancePolicies;
     	      this.launchConfiguration = defaults.launchConfiguration;
     	      this.launchTemplates = defaults.launchTemplates;
     	      this.loadBalancers = defaults.loadBalancers;
@@ -488,6 +503,14 @@ public final class GetGroupResult {
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder instanceMaintenancePolicies(List<GetGroupInstanceMaintenancePolicy> instanceMaintenancePolicies) {
+            this.instanceMaintenancePolicies = Objects.requireNonNull(instanceMaintenancePolicies);
+            return this;
+        }
+        public Builder instanceMaintenancePolicies(GetGroupInstanceMaintenancePolicy... instanceMaintenancePolicies) {
+            return instanceMaintenancePolicies(List.of(instanceMaintenancePolicies));
         }
         @CustomType.Setter
         public Builder launchConfiguration(String launchConfiguration) {
@@ -632,6 +655,7 @@ public final class GetGroupResult {
             o.healthCheckGracePeriod = healthCheckGracePeriod;
             o.healthCheckType = healthCheckType;
             o.id = id;
+            o.instanceMaintenancePolicies = instanceMaintenancePolicies;
             o.launchConfiguration = launchConfiguration;
             o.launchTemplates = launchTemplates;
             o.loadBalancers = loadBalancers;

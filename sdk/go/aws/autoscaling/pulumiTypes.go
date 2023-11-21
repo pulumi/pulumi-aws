@@ -146,6 +146,162 @@ func (o GroupInitialLifecycleHookArrayOutput) Index(i pulumi.IntInput) GroupInit
 	}).(GroupInitialLifecycleHookOutput)
 }
 
+type GroupInstanceMaintenancePolicy struct {
+	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	MaxHealthyPercentage int `pulumi:"maxHealthyPercentage"`
+	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+	MinHealthyPercentage int `pulumi:"minHealthyPercentage"`
+}
+
+// GroupInstanceMaintenancePolicyInput is an input type that accepts GroupInstanceMaintenancePolicyArgs and GroupInstanceMaintenancePolicyOutput values.
+// You can construct a concrete instance of `GroupInstanceMaintenancePolicyInput` via:
+//
+//	GroupInstanceMaintenancePolicyArgs{...}
+type GroupInstanceMaintenancePolicyInput interface {
+	pulumi.Input
+
+	ToGroupInstanceMaintenancePolicyOutput() GroupInstanceMaintenancePolicyOutput
+	ToGroupInstanceMaintenancePolicyOutputWithContext(context.Context) GroupInstanceMaintenancePolicyOutput
+}
+
+type GroupInstanceMaintenancePolicyArgs struct {
+	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	MaxHealthyPercentage pulumi.IntInput `pulumi:"maxHealthyPercentage"`
+	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+	MinHealthyPercentage pulumi.IntInput `pulumi:"minHealthyPercentage"`
+}
+
+func (GroupInstanceMaintenancePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (i GroupInstanceMaintenancePolicyArgs) ToGroupInstanceMaintenancePolicyOutput() GroupInstanceMaintenancePolicyOutput {
+	return i.ToGroupInstanceMaintenancePolicyOutputWithContext(context.Background())
+}
+
+func (i GroupInstanceMaintenancePolicyArgs) ToGroupInstanceMaintenancePolicyOutputWithContext(ctx context.Context) GroupInstanceMaintenancePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceMaintenancePolicyOutput)
+}
+
+func (i GroupInstanceMaintenancePolicyArgs) ToGroupInstanceMaintenancePolicyPtrOutput() GroupInstanceMaintenancePolicyPtrOutput {
+	return i.ToGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GroupInstanceMaintenancePolicyArgs) ToGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) GroupInstanceMaintenancePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceMaintenancePolicyOutput).ToGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx)
+}
+
+// GroupInstanceMaintenancePolicyPtrInput is an input type that accepts GroupInstanceMaintenancePolicyArgs, GroupInstanceMaintenancePolicyPtr and GroupInstanceMaintenancePolicyPtrOutput values.
+// You can construct a concrete instance of `GroupInstanceMaintenancePolicyPtrInput` via:
+//
+//	        GroupInstanceMaintenancePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type GroupInstanceMaintenancePolicyPtrInput interface {
+	pulumi.Input
+
+	ToGroupInstanceMaintenancePolicyPtrOutput() GroupInstanceMaintenancePolicyPtrOutput
+	ToGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Context) GroupInstanceMaintenancePolicyPtrOutput
+}
+
+type groupInstanceMaintenancePolicyPtrType GroupInstanceMaintenancePolicyArgs
+
+func GroupInstanceMaintenancePolicyPtr(v *GroupInstanceMaintenancePolicyArgs) GroupInstanceMaintenancePolicyPtrInput {
+	return (*groupInstanceMaintenancePolicyPtrType)(v)
+}
+
+func (*groupInstanceMaintenancePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (i *groupInstanceMaintenancePolicyPtrType) ToGroupInstanceMaintenancePolicyPtrOutput() GroupInstanceMaintenancePolicyPtrOutput {
+	return i.ToGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *groupInstanceMaintenancePolicyPtrType) ToGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) GroupInstanceMaintenancePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceMaintenancePolicyPtrOutput)
+}
+
+type GroupInstanceMaintenancePolicyOutput struct{ *pulumi.OutputState }
+
+func (GroupInstanceMaintenancePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (o GroupInstanceMaintenancePolicyOutput) ToGroupInstanceMaintenancePolicyOutput() GroupInstanceMaintenancePolicyOutput {
+	return o
+}
+
+func (o GroupInstanceMaintenancePolicyOutput) ToGroupInstanceMaintenancePolicyOutputWithContext(ctx context.Context) GroupInstanceMaintenancePolicyOutput {
+	return o
+}
+
+func (o GroupInstanceMaintenancePolicyOutput) ToGroupInstanceMaintenancePolicyPtrOutput() GroupInstanceMaintenancePolicyPtrOutput {
+	return o.ToGroupInstanceMaintenancePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GroupInstanceMaintenancePolicyOutput) ToGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) GroupInstanceMaintenancePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInstanceMaintenancePolicy) *GroupInstanceMaintenancePolicy {
+		return &v
+	}).(GroupInstanceMaintenancePolicyPtrOutput)
+}
+
+// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+func (o GroupInstanceMaintenancePolicyOutput) MaxHealthyPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v GroupInstanceMaintenancePolicy) int { return v.MaxHealthyPercentage }).(pulumi.IntOutput)
+}
+
+// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+func (o GroupInstanceMaintenancePolicyOutput) MinHealthyPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v GroupInstanceMaintenancePolicy) int { return v.MinHealthyPercentage }).(pulumi.IntOutput)
+}
+
+type GroupInstanceMaintenancePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupInstanceMaintenancePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (o GroupInstanceMaintenancePolicyPtrOutput) ToGroupInstanceMaintenancePolicyPtrOutput() GroupInstanceMaintenancePolicyPtrOutput {
+	return o
+}
+
+func (o GroupInstanceMaintenancePolicyPtrOutput) ToGroupInstanceMaintenancePolicyPtrOutputWithContext(ctx context.Context) GroupInstanceMaintenancePolicyPtrOutput {
+	return o
+}
+
+func (o GroupInstanceMaintenancePolicyPtrOutput) Elem() GroupInstanceMaintenancePolicyOutput {
+	return o.ApplyT(func(v *GroupInstanceMaintenancePolicy) GroupInstanceMaintenancePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GroupInstanceMaintenancePolicy
+		return ret
+	}).(GroupInstanceMaintenancePolicyOutput)
+}
+
+// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+func (o GroupInstanceMaintenancePolicyPtrOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupInstanceMaintenancePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxHealthyPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+func (o GroupInstanceMaintenancePolicyPtrOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupInstanceMaintenancePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinHealthyPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
 type GroupInstanceRefresh struct {
 	// Override default parameters for Instance Refresh.
 	Preferences *GroupInstanceRefreshPreferences `pulumi:"preferences"`
@@ -362,7 +518,7 @@ type GroupInstanceRefreshPreferences struct {
 	CheckpointPercentages []int `pulumi:"checkpointPercentages"`
 	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup *string `pulumi:"instanceWarmup"`
-	// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
 	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
 	ScaleInProtectedInstances *string `pulumi:"scaleInProtectedInstances"`
@@ -392,7 +548,7 @@ type GroupInstanceRefreshPreferencesArgs struct {
 	CheckpointPercentages pulumi.IntArrayInput `pulumi:"checkpointPercentages"`
 	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup pulumi.StringPtrInput `pulumi:"instanceWarmup"`
-	// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
 	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
 	ScaleInProtectedInstances pulumi.StringPtrInput `pulumi:"scaleInProtectedInstances"`
@@ -499,7 +655,7 @@ func (o GroupInstanceRefreshPreferencesOutput) InstanceWarmup() pulumi.StringPtr
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.InstanceWarmup }).(pulumi.StringPtrOutput)
 }
 
-// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 func (o GroupInstanceRefreshPreferencesOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *int { return v.MinHealthyPercentage }).(pulumi.IntPtrOutput)
 }
@@ -583,7 +739,7 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) InstanceWarmup() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 func (o GroupInstanceRefreshPreferencesPtrOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *int {
 		if v == nil {
@@ -10004,6 +10160,112 @@ func (o GetAmiIdsFilterArrayOutput) Index(i pulumi.IntInput) GetAmiIdsFilterOutp
 	}).(GetAmiIdsFilterOutput)
 }
 
+type GetGroupInstanceMaintenancePolicy struct {
+	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	MaxHealthyPercentage int `pulumi:"maxHealthyPercentage"`
+	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+	MinHealthyPercentage int `pulumi:"minHealthyPercentage"`
+}
+
+// GetGroupInstanceMaintenancePolicyInput is an input type that accepts GetGroupInstanceMaintenancePolicyArgs and GetGroupInstanceMaintenancePolicyOutput values.
+// You can construct a concrete instance of `GetGroupInstanceMaintenancePolicyInput` via:
+//
+//	GetGroupInstanceMaintenancePolicyArgs{...}
+type GetGroupInstanceMaintenancePolicyInput interface {
+	pulumi.Input
+
+	ToGetGroupInstanceMaintenancePolicyOutput() GetGroupInstanceMaintenancePolicyOutput
+	ToGetGroupInstanceMaintenancePolicyOutputWithContext(context.Context) GetGroupInstanceMaintenancePolicyOutput
+}
+
+type GetGroupInstanceMaintenancePolicyArgs struct {
+	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	MaxHealthyPercentage pulumi.IntInput `pulumi:"maxHealthyPercentage"`
+	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+	MinHealthyPercentage pulumi.IntInput `pulumi:"minHealthyPercentage"`
+}
+
+func (GetGroupInstanceMaintenancePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (i GetGroupInstanceMaintenancePolicyArgs) ToGetGroupInstanceMaintenancePolicyOutput() GetGroupInstanceMaintenancePolicyOutput {
+	return i.ToGetGroupInstanceMaintenancePolicyOutputWithContext(context.Background())
+}
+
+func (i GetGroupInstanceMaintenancePolicyArgs) ToGetGroupInstanceMaintenancePolicyOutputWithContext(ctx context.Context) GetGroupInstanceMaintenancePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupInstanceMaintenancePolicyOutput)
+}
+
+// GetGroupInstanceMaintenancePolicyArrayInput is an input type that accepts GetGroupInstanceMaintenancePolicyArray and GetGroupInstanceMaintenancePolicyArrayOutput values.
+// You can construct a concrete instance of `GetGroupInstanceMaintenancePolicyArrayInput` via:
+//
+//	GetGroupInstanceMaintenancePolicyArray{ GetGroupInstanceMaintenancePolicyArgs{...} }
+type GetGroupInstanceMaintenancePolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupInstanceMaintenancePolicyArrayOutput() GetGroupInstanceMaintenancePolicyArrayOutput
+	ToGetGroupInstanceMaintenancePolicyArrayOutputWithContext(context.Context) GetGroupInstanceMaintenancePolicyArrayOutput
+}
+
+type GetGroupInstanceMaintenancePolicyArray []GetGroupInstanceMaintenancePolicyInput
+
+func (GetGroupInstanceMaintenancePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (i GetGroupInstanceMaintenancePolicyArray) ToGetGroupInstanceMaintenancePolicyArrayOutput() GetGroupInstanceMaintenancePolicyArrayOutput {
+	return i.ToGetGroupInstanceMaintenancePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupInstanceMaintenancePolicyArray) ToGetGroupInstanceMaintenancePolicyArrayOutputWithContext(ctx context.Context) GetGroupInstanceMaintenancePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupInstanceMaintenancePolicyArrayOutput)
+}
+
+type GetGroupInstanceMaintenancePolicyOutput struct{ *pulumi.OutputState }
+
+func (GetGroupInstanceMaintenancePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (o GetGroupInstanceMaintenancePolicyOutput) ToGetGroupInstanceMaintenancePolicyOutput() GetGroupInstanceMaintenancePolicyOutput {
+	return o
+}
+
+func (o GetGroupInstanceMaintenancePolicyOutput) ToGetGroupInstanceMaintenancePolicyOutputWithContext(ctx context.Context) GetGroupInstanceMaintenancePolicyOutput {
+	return o
+}
+
+// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+func (o GetGroupInstanceMaintenancePolicyOutput) MaxHealthyPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGroupInstanceMaintenancePolicy) int { return v.MaxHealthyPercentage }).(pulumi.IntOutput)
+}
+
+// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+func (o GetGroupInstanceMaintenancePolicyOutput) MinHealthyPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGroupInstanceMaintenancePolicy) int { return v.MinHealthyPercentage }).(pulumi.IntOutput)
+}
+
+type GetGroupInstanceMaintenancePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupInstanceMaintenancePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupInstanceMaintenancePolicy)(nil)).Elem()
+}
+
+func (o GetGroupInstanceMaintenancePolicyArrayOutput) ToGetGroupInstanceMaintenancePolicyArrayOutput() GetGroupInstanceMaintenancePolicyArrayOutput {
+	return o
+}
+
+func (o GetGroupInstanceMaintenancePolicyArrayOutput) ToGetGroupInstanceMaintenancePolicyArrayOutputWithContext(ctx context.Context) GetGroupInstanceMaintenancePolicyArrayOutput {
+	return o
+}
+
+func (o GetGroupInstanceMaintenancePolicyArrayOutput) Index(i pulumi.IntInput) GetGroupInstanceMaintenancePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupInstanceMaintenancePolicy {
+		return vs[0].([]GetGroupInstanceMaintenancePolicy)[vs[1].(int)]
+	}).(GetGroupInstanceMaintenancePolicyOutput)
+}
+
 type GetGroupLaunchTemplate struct {
 	// ID of the launch template.
 	Id string `pulumi:"id"`
@@ -12621,6 +12883,8 @@ func (o GetGroupWarmPoolInstanceReusePolicyArrayOutput) Index(i pulumi.IntInput)
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitialLifecycleHookInput)(nil)).Elem(), GroupInitialLifecycleHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitialLifecycleHookArrayInput)(nil)).Elem(), GroupInitialLifecycleHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceMaintenancePolicyInput)(nil)).Elem(), GroupInstanceMaintenancePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceMaintenancePolicyPtrInput)(nil)).Elem(), GroupInstanceMaintenancePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceRefreshInput)(nil)).Elem(), GroupInstanceRefreshArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceRefreshPtrInput)(nil)).Elem(), GroupInstanceRefreshArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceRefreshPreferencesInput)(nil)).Elem(), GroupInstanceRefreshPreferencesArgs{})
@@ -12731,6 +12995,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficSourceAttachmentTrafficSourcePtrInput)(nil)).Elem(), TrafficSourceAttachmentTrafficSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiIdsFilterInput)(nil)).Elem(), GetAmiIdsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiIdsFilterArrayInput)(nil)).Elem(), GetAmiIdsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupInstanceMaintenancePolicyInput)(nil)).Elem(), GetGroupInstanceMaintenancePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupInstanceMaintenancePolicyArrayInput)(nil)).Elem(), GetGroupInstanceMaintenancePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupLaunchTemplateInput)(nil)).Elem(), GetGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupLaunchTemplateArrayInput)(nil)).Elem(), GetGroupLaunchTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupMixedInstancesPolicyInput)(nil)).Elem(), GetGroupMixedInstancesPolicyArgs{})
@@ -12775,6 +13041,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupWarmPoolInstanceReusePolicyArrayInput)(nil)).Elem(), GetGroupWarmPoolInstanceReusePolicyArray{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookOutput{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookArrayOutput{})
+	pulumi.RegisterOutputType(GroupInstanceMaintenancePolicyOutput{})
+	pulumi.RegisterOutputType(GroupInstanceMaintenancePolicyPtrOutput{})
 	pulumi.RegisterOutputType(GroupInstanceRefreshOutput{})
 	pulumi.RegisterOutputType(GroupInstanceRefreshPtrOutput{})
 	pulumi.RegisterOutputType(GroupInstanceRefreshPreferencesOutput{})
@@ -12885,6 +13153,8 @@ func init() {
 	pulumi.RegisterOutputType(TrafficSourceAttachmentTrafficSourcePtrOutput{})
 	pulumi.RegisterOutputType(GetAmiIdsFilterOutput{})
 	pulumi.RegisterOutputType(GetAmiIdsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupInstanceMaintenancePolicyOutput{})
+	pulumi.RegisterOutputType(GetGroupInstanceMaintenancePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(GetGroupLaunchTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupMixedInstancesPolicyOutput{})

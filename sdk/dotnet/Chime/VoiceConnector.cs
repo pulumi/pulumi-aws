@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Chime
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         /// </summary>
         [Output("awsRegion")]
-        public Output<string?> AwsRegion { get; private set; } = null!;
+        public Output<string> AwsRegion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Amazon Chime Voice Connector.

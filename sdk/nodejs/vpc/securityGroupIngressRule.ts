@@ -20,8 +20,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpc.SecurityGroupIngressRule("example", {
- *     securityGroupId: aws_security_group.example.id,
+ * const exampleSecurityGroup = new aws.ec2.SecurityGroup("exampleSecurityGroup", {
+ *     description: "example",
+ *     vpcId: aws_vpc.main.id,
+ *     tags: {
+ *         Name: "example",
+ *     },
+ * });
+ * const exampleSecurityGroupIngressRule = new aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule", {
+ *     securityGroupId: exampleSecurityGroup.id,
  *     cidrIpv4: "10.0.0.0/8",
  *     fromPort: 80,
  *     ipProtocol: "tcp",

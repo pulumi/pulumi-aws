@@ -85,6 +85,12 @@ namespace Pulumi.Aws.Iot
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The certificate ID of the CA certificate used to sign the certificate.
+        /// </summary>
+        [Output("caCertificateId")]
+        public Output<string> CaCertificateId { get; private set; } = null!;
+
+        /// <summary>
         /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         /// </summary>
         [Output("caPem")]
@@ -246,6 +252,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The certificate ID of the CA certificate used to sign the certificate.
+        /// </summary>
+        [Input("caCertificateId")]
+        public Input<string>? CaCertificateId { get; set; }
 
         [Input("caPem")]
         private Input<string>? _caPem;

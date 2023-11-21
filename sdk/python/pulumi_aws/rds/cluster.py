@@ -34,6 +34,7 @@ class ClusterArgs:
                  db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  db_system_id: Optional[pulumi.Input[str]] = None,
+                 delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -89,6 +90,7 @@ class ClusterArgs:
         :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB cluster.
                **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[str] db_system_id: For use with RDS Custom.
+        :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
@@ -156,6 +158,8 @@ class ClusterArgs:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if db_system_id is not None:
             pulumi.set(__self__, "db_system_id", db_system_id)
+        if delete_automated_backups is not None:
+            pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enable_global_write_forwarding is not None:
@@ -428,6 +432,18 @@ class ClusterArgs:
     @db_system_id.setter
     def db_system_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "db_system_id", value)
+
+    @property
+    @pulumi.getter(name="deleteAutomatedBackups")
+    def delete_automated_backups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+        """
+        return pulumi.get(self, "delete_automated_backups")
+
+    @delete_automated_backups.setter
+    def delete_automated_backups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_automated_backups", value)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -834,6 +850,7 @@ class _ClusterState:
                  db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  db_system_id: Optional[pulumi.Input[str]] = None,
+                 delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -897,6 +914,7 @@ class _ClusterState:
         :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB cluster.
                **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[str] db_system_id: For use with RDS Custom.
+        :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
@@ -975,6 +993,8 @@ class _ClusterState:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if db_system_id is not None:
             pulumi.set(__self__, "db_system_id", db_system_id)
+        if delete_automated_backups is not None:
+            pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enable_global_write_forwarding is not None:
@@ -1276,6 +1296,18 @@ class _ClusterState:
     @db_system_id.setter
     def db_system_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "db_system_id", value)
+
+    @property
+    @pulumi.getter(name="deleteAutomatedBackups")
+    def delete_automated_backups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+        """
+        return pulumi.get(self, "delete_automated_backups")
+
+    @delete_automated_backups.setter
+    def delete_automated_backups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_automated_backups", value)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -1770,6 +1802,7 @@ class Cluster(pulumi.CustomResource):
                  db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  db_system_id: Optional[pulumi.Input[str]] = None,
+                 delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -2035,6 +2068,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB cluster.
                **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[str] db_system_id: For use with RDS Custom.
+        :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
@@ -2316,6 +2350,7 @@ class Cluster(pulumi.CustomResource):
                  db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  db_system_id: Optional[pulumi.Input[str]] = None,
+                 delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -2374,6 +2409,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["db_instance_parameter_group_name"] = db_instance_parameter_group_name
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["db_system_id"] = db_system_id
+            __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
             __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
@@ -2447,6 +2483,7 @@ class Cluster(pulumi.CustomResource):
             db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
             db_system_id: Optional[pulumi.Input[str]] = None,
+            delete_automated_backups: Optional[pulumi.Input[bool]] = None,
             deletion_protection: Optional[pulumi.Input[bool]] = None,
             enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
             enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -2515,6 +2552,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB cluster.
                **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[str] db_system_id: For use with RDS Custom.
+        :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
@@ -2579,6 +2617,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["db_instance_parameter_group_name"] = db_instance_parameter_group_name
         __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
         __props__.__dict__["db_system_id"] = db_system_id
+        __props__.__dict__["delete_automated_backups"] = delete_automated_backups
         __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
         __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
@@ -2767,6 +2806,14 @@ class Cluster(pulumi.CustomResource):
         For use with RDS Custom.
         """
         return pulumi.get(self, "db_system_id")
+
+    @property
+    @pulumi.getter(name="deleteAutomatedBackups")
+    def delete_automated_backups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+        """
+        return pulumi.get(self, "delete_automated_backups")
 
     @property
     @pulumi.getter(name="deletionProtection")

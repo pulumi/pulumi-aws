@@ -62,6 +62,9 @@ namespace Pulumi.Aws.CodeCommit
         [Output("repositoryName")]
         public Output<string> RepositoryName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the trigger.
+        /// </summary>
         [Output("triggers")]
         public Output<ImmutableArray<Outputs.TriggerTrigger>> Triggers { get; private set; } = null!;
 
@@ -119,6 +122,10 @@ namespace Pulumi.Aws.CodeCommit
 
         [Input("triggers", required: true)]
         private InputList<Inputs.TriggerTriggerArgs>? _triggers;
+
+        /// <summary>
+        /// The name of the trigger.
+        /// </summary>
         public InputList<Inputs.TriggerTriggerArgs> Triggers
         {
             get => _triggers ?? (_triggers = new InputList<Inputs.TriggerTriggerArgs>());
@@ -147,6 +154,10 @@ namespace Pulumi.Aws.CodeCommit
 
         [Input("triggers")]
         private InputList<Inputs.TriggerTriggerGetArgs>? _triggers;
+
+        /// <summary>
+        /// The name of the trigger.
+        /// </summary>
         public InputList<Inputs.TriggerTriggerGetArgs> Triggers
         {
             get => _triggers ?? (_triggers = new InputList<Inputs.TriggerTriggerGetArgs>());

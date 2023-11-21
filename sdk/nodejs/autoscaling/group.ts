@@ -438,6 +438,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly initialLifecycleHooks!: pulumi.Output<outputs.autoscaling.GroupInitialLifecycleHook[] | undefined>;
     /**
+     * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+     */
+    public readonly instanceMaintenancePolicy!: pulumi.Output<outputs.autoscaling.GroupInstanceMaintenancePolicy | undefined>;
+    /**
      * If this block is configured, start an
      * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
      * when this Auto Scaling Group is updated. Defined below.
@@ -592,6 +596,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["healthCheckType"] = state ? state.healthCheckType : undefined;
             resourceInputs["ignoreFailedScalingActivities"] = state ? state.ignoreFailedScalingActivities : undefined;
             resourceInputs["initialLifecycleHooks"] = state ? state.initialLifecycleHooks : undefined;
+            resourceInputs["instanceMaintenancePolicy"] = state ? state.instanceMaintenancePolicy : undefined;
             resourceInputs["instanceRefresh"] = state ? state.instanceRefresh : undefined;
             resourceInputs["launchConfiguration"] = state ? state.launchConfiguration : undefined;
             resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
@@ -640,6 +645,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["healthCheckType"] = args ? args.healthCheckType : undefined;
             resourceInputs["ignoreFailedScalingActivities"] = args ? args.ignoreFailedScalingActivities : undefined;
             resourceInputs["initialLifecycleHooks"] = args ? args.initialLifecycleHooks : undefined;
+            resourceInputs["instanceMaintenancePolicy"] = args ? args.instanceMaintenancePolicy : undefined;
             resourceInputs["instanceRefresh"] = args ? args.instanceRefresh : undefined;
             resourceInputs["launchConfiguration"] = args ? args.launchConfiguration : undefined;
             resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
@@ -749,6 +755,10 @@ export interface GroupState {
      * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
     initialLifecycleHooks?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupInitialLifecycleHook>[]>;
+    /**
+     * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+     */
+    instanceMaintenancePolicy?: pulumi.Input<inputs.autoscaling.GroupInstanceMaintenancePolicy>;
     /**
      * If this block is configured, start an
      * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
@@ -949,6 +959,10 @@ export interface GroupArgs {
      * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
     initialLifecycleHooks?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupInitialLifecycleHook>[]>;
+    /**
+     * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+     */
+    instanceMaintenancePolicy?: pulumi.Input<inputs.autoscaling.GroupInstanceMaintenancePolicy>;
     /**
      * If this block is configured, start an
      * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)

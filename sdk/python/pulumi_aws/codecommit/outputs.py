@@ -44,7 +44,7 @@ class TriggerTrigger(dict):
         :param str destination_arn: The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
         :param Sequence[str] events: The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
         :param str name: The name of the trigger.
-        :param Sequence[str] branches: The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+        :param Sequence[str] branches: The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
         :param str custom_data: Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
@@ -83,7 +83,7 @@ class TriggerTrigger(dict):
     @pulumi.getter
     def branches(self) -> Optional[Sequence[str]]:
         """
-        The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+        The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
         """
         return pulumi.get(self, "branches")
 

@@ -23,10 +23,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:iot/authorizer:Authorizer":
 		r = &Authorizer{}
+	case "aws:iot/billingGroup:BillingGroup":
+		r = &BillingGroup{}
+	case "aws:iot/caCertificate:CaCertificate":
+		r = &CaCertificate{}
 	case "aws:iot/certificate:Certificate":
 		r = &Certificate{}
 	case "aws:iot/domainConfiguration:DomainConfiguration":
 		r = &DomainConfiguration{}
+	case "aws:iot/eventConfigurations:EventConfigurations":
+		r = &EventConfigurations{}
 	case "aws:iot/indexingConfiguration:IndexingConfiguration":
 		r = &IndexingConfiguration{}
 	case "aws:iot/loggingOptions:LoggingOptions":
@@ -73,12 +79,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"iot/billingGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iot/caCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"iot/certificate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iot/domainConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iot/eventConfigurations",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

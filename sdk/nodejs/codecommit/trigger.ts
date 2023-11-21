@@ -63,6 +63,9 @@ export class Trigger extends pulumi.CustomResource {
      * The name for the repository. This needs to be less than 100 characters.
      */
     public readonly repositoryName!: pulumi.Output<string>;
+    /**
+     * The name of the trigger.
+     */
     public readonly triggers!: pulumi.Output<outputs.codecommit.TriggerTrigger[]>;
 
     /**
@@ -110,6 +113,9 @@ export interface TriggerState {
      * The name for the repository. This needs to be less than 100 characters.
      */
     repositoryName?: pulumi.Input<string>;
+    /**
+     * The name of the trigger.
+     */
     triggers?: pulumi.Input<pulumi.Input<inputs.codecommit.TriggerTrigger>[]>;
 }
 
@@ -121,5 +127,8 @@ export interface TriggerArgs {
      * The name for the repository. This needs to be less than 100 characters.
      */
     repositoryName: pulumi.Input<string>;
+    /**
+     * The name of the trigger.
+     */
     triggers: pulumi.Input<pulumi.Input<inputs.codecommit.TriggerTrigger>[]>;
 }

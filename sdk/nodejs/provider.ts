@@ -50,10 +50,20 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly ec2MetadataServiceEndpointMode!: pulumi.Output<string | undefined>;
     /**
-     * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-     * `HTTPS_PROXY` environment variables.
+     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+     * `http_proxy` environment variables.
      */
     public readonly httpProxy!: pulumi.Output<string | undefined>;
+    /**
+     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+     * `https_proxy` environment variables.
+     */
+    public readonly httpsProxy!: pulumi.Output<string | undefined>;
+    /**
+     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+     * `no_proxy` environment variables.
+     */
+    public readonly noProxy!: pulumi.Output<string | undefined>;
     /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      */
@@ -108,9 +118,11 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
             resourceInputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
             resourceInputs["httpProxy"] = args ? args.httpProxy : undefined;
+            resourceInputs["httpsProxy"] = args ? args.httpsProxy : undefined;
             resourceInputs["ignoreTags"] = pulumi.output(args ? args.ignoreTags : undefined).apply(JSON.stringify);
             resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
+            resourceInputs["noProxy"] = args ? args.noProxy : undefined;
             resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             resourceInputs["retryMode"] = args ? args.retryMode : undefined;
@@ -166,10 +178,15 @@ export interface ProviderArgs {
     endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpoint>[]>;
     forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-     * `HTTPS_PROXY` environment variables.
+     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+     * `http_proxy` environment variables.
      */
     httpProxy?: pulumi.Input<string>;
+    /**
+     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+     * `https_proxy` environment variables.
+     */
+    httpsProxy?: pulumi.Input<string>;
     /**
      * Configuration block with settings to ignore resource tags across all resources.
      */
@@ -182,6 +199,11 @@ export interface ProviderArgs {
      * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
      */
     maxRetries?: pulumi.Input<number>;
+    /**
+     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+     * `no_proxy` environment variables.
+     */
+    noProxy?: pulumi.Input<string>;
     /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      */

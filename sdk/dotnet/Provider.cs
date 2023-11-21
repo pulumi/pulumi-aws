@@ -46,11 +46,25 @@ namespace Pulumi.Aws
         public Output<string?> Ec2MetadataServiceEndpointMode { get; private set; } = null!;
 
         /// <summary>
-        /// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-        /// `HTTPS_PROXY` environment variables.
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+        /// `http_proxy` environment variables.
         /// </summary>
         [Output("httpProxy")]
         public Output<string?> HttpProxy { get; private set; } = null!;
+
+        /// <summary>
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+        /// `https_proxy` environment variables.
+        /// </summary>
+        [Output("httpsProxy")]
+        public Output<string?> HttpsProxy { get; private set; } = null!;
+
+        /// <summary>
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+        /// `no_proxy` environment variables.
+        /// </summary>
+        [Output("noProxy")]
+        public Output<string?> NoProxy { get; private set; } = null!;
 
         /// <summary>
         /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
@@ -189,11 +203,18 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-        /// `HTTPS_PROXY` environment variables.
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+        /// `http_proxy` environment variables.
         /// </summary>
         [Input("httpProxy")]
         public Input<string>? HttpProxy { get; set; }
+
+        /// <summary>
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+        /// `https_proxy` environment variables.
+        /// </summary>
+        [Input("httpsProxy")]
+        public Input<string>? HttpsProxy { get; set; }
 
         /// <summary>
         /// Configuration block with settings to ignore resource tags across all resources.
@@ -212,6 +233,13 @@ namespace Pulumi.Aws
         /// </summary>
         [Input("maxRetries", json: true)]
         public Input<int>? MaxRetries { get; set; }
+
+        /// <summary>
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+        /// `no_proxy` environment variables.
+        /// </summary>
+        [Input("noProxy")]
+        public Input<string>? NoProxy { get; set; }
 
         /// <summary>
         /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.

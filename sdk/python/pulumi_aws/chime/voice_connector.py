@@ -381,7 +381,7 @@ class VoiceConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsRegion")
-    def aws_region(self) -> pulumi.Output[Optional[str]]:
+    def aws_region(self) -> pulumi.Output[str]:
         """
         The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         """

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodeCommit.Outputs
     public sealed class TriggerTrigger
     {
         /// <summary>
-        /// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+        /// The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
         /// </summary>
         public readonly ImmutableArray<string> Branches;
         /// <summary>

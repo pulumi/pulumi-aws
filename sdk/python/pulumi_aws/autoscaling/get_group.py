@@ -22,7 +22,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, desired_capacity_type=None, enabled_metrics=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration=None, launch_templates=None, load_balancers=None, max_instance_lifetime=None, max_size=None, min_size=None, mixed_instances_policies=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, predicted_capacity=None, service_linked_role_arn=None, status=None, suspended_processes=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None, warm_pool_size=None, warm_pools=None):
+    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, desired_capacity_type=None, enabled_metrics=None, health_check_grace_period=None, health_check_type=None, id=None, instance_maintenance_policies=None, launch_configuration=None, launch_templates=None, load_balancers=None, max_instance_lifetime=None, max_size=None, min_size=None, mixed_instances_policies=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, predicted_capacity=None, service_linked_role_arn=None, status=None, suspended_processes=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None, warm_pool_size=None, warm_pools=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if instance_maintenance_policies and not isinstance(instance_maintenance_policies, list):
+            raise TypeError("Expected argument 'instance_maintenance_policies' to be a list")
+        pulumi.set(__self__, "instance_maintenance_policies", instance_maintenance_policies)
         if launch_configuration and not isinstance(launch_configuration, str):
             raise TypeError("Expected argument 'launch_configuration' to be a str")
         pulumi.set(__self__, "launch_configuration", launch_configuration)
@@ -182,6 +185,14 @@ class GetGroupResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceMaintenancePolicies")
+    def instance_maintenance_policies(self) -> Sequence['outputs.GetGroupInstanceMaintenancePolicyResult']:
+        """
+        Instance maintenance policy for the group.
+        """
+        return pulumi.get(self, "instance_maintenance_policies")
 
     @property
     @pulumi.getter(name="launchConfiguration")
@@ -364,6 +375,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             health_check_grace_period=self.health_check_grace_period,
             health_check_type=self.health_check_type,
             id=self.id,
+            instance_maintenance_policies=self.instance_maintenance_policies,
             launch_configuration=self.launch_configuration,
             launch_templates=self.launch_templates,
             load_balancers=self.load_balancers,
@@ -419,6 +431,7 @@ def get_group(name: Optional[str] = None,
         health_check_grace_period=pulumi.get(__ret__, 'health_check_grace_period'),
         health_check_type=pulumi.get(__ret__, 'health_check_type'),
         id=pulumi.get(__ret__, 'id'),
+        instance_maintenance_policies=pulumi.get(__ret__, 'instance_maintenance_policies'),
         launch_configuration=pulumi.get(__ret__, 'launch_configuration'),
         launch_templates=pulumi.get(__ret__, 'launch_templates'),
         load_balancers=pulumi.get(__ret__, 'load_balancers'),

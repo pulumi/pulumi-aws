@@ -60,8 +60,9 @@ type Trigger struct {
 	// System-generated unique identifier.
 	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName pulumi.StringOutput       `pulumi:"repositoryName"`
-	Triggers       TriggerTriggerArrayOutput `pulumi:"triggers"`
+	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
+	// The name of the trigger.
+	Triggers TriggerTriggerArrayOutput `pulumi:"triggers"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
@@ -103,8 +104,9 @@ type triggerState struct {
 	// System-generated unique identifier.
 	ConfigurationId *string `pulumi:"configurationId"`
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName *string          `pulumi:"repositoryName"`
-	Triggers       []TriggerTrigger `pulumi:"triggers"`
+	RepositoryName *string `pulumi:"repositoryName"`
+	// The name of the trigger.
+	Triggers []TriggerTrigger `pulumi:"triggers"`
 }
 
 type TriggerState struct {
@@ -112,7 +114,8 @@ type TriggerState struct {
 	ConfigurationId pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringPtrInput
-	Triggers       TriggerTriggerArrayInput
+	// The name of the trigger.
+	Triggers TriggerTriggerArrayInput
 }
 
 func (TriggerState) ElementType() reflect.Type {
@@ -121,15 +124,17 @@ func (TriggerState) ElementType() reflect.Type {
 
 type triggerArgs struct {
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName string           `pulumi:"repositoryName"`
-	Triggers       []TriggerTrigger `pulumi:"triggers"`
+	RepositoryName string `pulumi:"repositoryName"`
+	// The name of the trigger.
+	Triggers []TriggerTrigger `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput
-	Triggers       TriggerTriggerArrayInput
+	// The name of the trigger.
+	Triggers TriggerTriggerArrayInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {
@@ -229,6 +234,7 @@ func (o TriggerOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
+// The name of the trigger.
 func (o TriggerOutput) Triggers() TriggerTriggerArrayOutput {
 	return o.ApplyT(func(v *Trigger) TriggerTriggerArrayOutput { return v.Triggers }).(TriggerTriggerArrayOutput)
 }

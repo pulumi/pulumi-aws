@@ -26,9 +26,11 @@ class ProviderArgs:
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
+                 https_proxy: Optional[pulumi.Input[str]] = None,
                  ignore_tags: Optional[pulumi.Input['ProviderIgnoreTagsArgs']] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 no_proxy: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  retry_mode: Optional[pulumi.Input[str]] = None,
@@ -55,11 +57,15 @@ class ProviderArgs:
                `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         :param pulumi.Input[str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
                `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
-        :param pulumi.Input[str] http_proxy: The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-               `HTTPS_PROXY` environment variables.
+        :param pulumi.Input[str] http_proxy: URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+               `http_proxy` environment variables.
+        :param pulumi.Input[str] https_proxy: URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+               `https_proxy` environment variables.
         :param pulumi.Input['ProviderIgnoreTagsArgs'] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+        :param pulumi.Input[str] no_proxy: Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+               `no_proxy` environment variables.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         :param pulumi.Input[str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
@@ -106,12 +112,16 @@ class ProviderArgs:
             pulumi.set(__self__, "forbidden_account_ids", forbidden_account_ids)
         if http_proxy is not None:
             pulumi.set(__self__, "http_proxy", http_proxy)
+        if https_proxy is not None:
+            pulumi.set(__self__, "https_proxy", https_proxy)
         if ignore_tags is not None:
             pulumi.set(__self__, "ignore_tags", ignore_tags)
         if insecure is not None:
             pulumi.set(__self__, "insecure", insecure)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
+        if no_proxy is not None:
+            pulumi.set(__self__, "no_proxy", no_proxy)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
         if region is None:
@@ -265,14 +275,27 @@ class ProviderArgs:
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-        `HTTPS_PROXY` environment variables.
+        URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+        `http_proxy` environment variables.
         """
         return pulumi.get(self, "http_proxy")
 
     @http_proxy.setter
     def http_proxy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_proxy", value)
+
+    @property
+    @pulumi.getter(name="httpsProxy")
+    def https_proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+        `https_proxy` environment variables.
+        """
+        return pulumi.get(self, "https_proxy")
+
+    @https_proxy.setter
+    def https_proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_proxy", value)
 
     @property
     @pulumi.getter(name="ignoreTags")
@@ -309,6 +332,19 @@ class ProviderArgs:
     @max_retries.setter
     def max_retries(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_retries", value)
+
+    @property
+    @pulumi.getter(name="noProxy")
+    def no_proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+        `no_proxy` environment variables.
+        """
+        return pulumi.get(self, "no_proxy")
+
+    @no_proxy.setter
+    def no_proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "no_proxy", value)
 
     @property
     @pulumi.getter
@@ -526,9 +562,11 @@ class Provider(pulumi.ProviderResource):
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
+                 https_proxy: Optional[pulumi.Input[str]] = None,
                  ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 no_proxy: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  retry_mode: Optional[pulumi.Input[str]] = None,
@@ -562,11 +600,15 @@ class Provider(pulumi.ProviderResource):
                `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         :param pulumi.Input[str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
                `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
-        :param pulumi.Input[str] http_proxy: The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-               `HTTPS_PROXY` environment variables.
+        :param pulumi.Input[str] http_proxy: URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+               `http_proxy` environment variables.
+        :param pulumi.Input[str] https_proxy: URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+               `https_proxy` environment variables.
         :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+        :param pulumi.Input[str] no_proxy: Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+               `no_proxy` environment variables.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         :param pulumi.Input[str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
@@ -629,9 +671,11 @@ class Provider(pulumi.ProviderResource):
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
+                 https_proxy: Optional[pulumi.Input[str]] = None,
                  ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 no_proxy: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  retry_mode: Optional[pulumi.Input[str]] = None,
@@ -668,9 +712,11 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["endpoints"] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
             __props__.__dict__["forbidden_account_ids"] = pulumi.Output.from_input(forbidden_account_ids).apply(pulumi.runtime.to_json) if forbidden_account_ids is not None else None
             __props__.__dict__["http_proxy"] = http_proxy
+            __props__.__dict__["https_proxy"] = https_proxy
             __props__.__dict__["ignore_tags"] = pulumi.Output.from_input(ignore_tags).apply(pulumi.runtime.to_json) if ignore_tags is not None else None
             __props__.__dict__["insecure"] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
+            __props__.__dict__["no_proxy"] = no_proxy
             __props__.__dict__["profile"] = profile
             if region is None:
                 region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
@@ -740,10 +786,28 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> pulumi.Output[Optional[str]]:
         """
-        The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-        `HTTPS_PROXY` environment variables.
+        URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+        `http_proxy` environment variables.
         """
         return pulumi.get(self, "http_proxy")
+
+    @property
+    @pulumi.getter(name="httpsProxy")
+    def https_proxy(self) -> pulumi.Output[Optional[str]]:
+        """
+        URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+        `https_proxy` environment variables.
+        """
+        return pulumi.get(self, "https_proxy")
+
+    @property
+    @pulumi.getter(name="noProxy")
+    def no_proxy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+        `no_proxy` environment variables.
+        """
+        return pulumi.get(self, "no_proxy")
 
     @property
     @pulumi.getter

@@ -431,8 +431,14 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpc.SecurityGroupIngressRule("example",
-            security_group_id=aws_security_group["example"]["id"],
+        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
+            description="example",
+            vpc_id=aws_vpc["main"]["id"],
+            tags={
+                "Name": "example",
+            })
+        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
+            security_group_id=example_security_group.id,
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",
@@ -482,8 +488,14 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpc.SecurityGroupIngressRule("example",
-            security_group_id=aws_security_group["example"]["id"],
+        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
+            description="example",
+            vpc_id=aws_vpc["main"]["id"],
+            tags={
+                "Name": "example",
+            })
+        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
+            security_group_id=example_security_group.id,
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",
