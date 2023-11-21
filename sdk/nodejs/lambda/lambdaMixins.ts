@@ -271,7 +271,7 @@ export function createFunctionFromEventHandler<E, R>(
  * details on this process.
  * If no IAM Role is specified, CallbackFunction will automatically use the following managed policies:
  * `AWSLambda_FullAccess`
- * `CloudWatchFullAccess`
+ * `CloudWatchFullAccessV2`
  * `CloudWatchEventsFullAccess`
  * `AmazonS3FullAccess`
  * `AmazonDynamoDBFullAccess`
@@ -313,7 +313,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
 
             if (!args.policies) {
 
-                const policies = [iam.ManagedPolicy.LambdaFullAccess, iam.ManagedPolicy.CloudWatchFullAccess,
+                const policies = [iam.ManagedPolicy.LambdaFullAccess, iam.ManagedPolicy.CloudWatchFullAccessV2,
                     iam.ManagedPolicy.CloudWatchEventsFullAccess, iam.ManagedPolicy.AmazonS3FullAccess,
                     iam.ManagedPolicy.AmazonDynamoDBFullAccess, iam.ManagedPolicy.AmazonSQSFullAccess,
                     iam.ManagedPolicy.AmazonKinesisFullAccess, iam.ManagedPolicy.AmazonCognitoPowerUser,
