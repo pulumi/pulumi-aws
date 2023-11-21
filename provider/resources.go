@@ -73,6 +73,7 @@ const (
 	backupMod                   = "Backup"                   // Backup
 	batchMod                    = "Batch"                    // Batch
 	bedrockFoundationMod        = "BedrockFoundation"        // BedrockFoundation
+	bedrockModelMod             = "BedrockModel"             // BedrockFoundation
 	budgetsMod                  = "Budgets"                  // Budgets
 	chimeMod                    = "Chime"                    // Chime
 	chimeSDKMediaPipelinesMod   = "ChimeSDKMediaPipelines"   // Chime SDK Media Pipelines
@@ -275,6 +276,7 @@ var moduleMap = map[string]string{
 	"autoscalingplans":                autoscalingPlansMod,
 	"backup":                          backupMod,
 	"bedrock_foundation":              bedrockFoundationMod,
+	"bedrock_model":                   bedrockModelMod,
 	"batch":                           batchMod,
 	"budgets":                         budgetsMod,
 	"chime":                           chimeMod,
@@ -653,6 +655,7 @@ var runtimeMetadata []byte
 func Provider() *tfbridge.ProviderInfo {
 	return ProviderFromMeta(tfbridge.NewProviderMetadata(metadata))
 }
+
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func RuntimeProvider() *tfbridge.ProviderInfo {
 	return ProviderFromMeta(tfbridge.NewProviderMetadata(runtimeMetadata))
