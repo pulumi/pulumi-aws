@@ -47,9 +47,17 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.repositoryName);
     }
 
+    /**
+     * The name of the trigger.
+     * 
+     */
     @Import(name="triggers")
     private @Nullable Output<List<TriggerTriggerArgs>> triggers;
 
+    /**
+     * @return The name of the trigger.
+     * 
+     */
     public Optional<Output<List<TriggerTriggerArgs>>> triggers() {
         return Optional.ofNullable(this.triggers);
     }
@@ -122,15 +130,33 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
             return repositoryName(Output.of(repositoryName));
         }
 
+        /**
+         * @param triggers The name of the trigger.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(@Nullable Output<List<TriggerTriggerArgs>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
+        /**
+         * @param triggers The name of the trigger.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(List<TriggerTriggerArgs> triggers) {
             return triggers(Output.of(triggers));
         }
 
+        /**
+         * @param triggers The name of the trigger.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(TriggerTriggerArgs... triggers) {
             return triggers(List.of(triggers));
         }

@@ -247,6 +247,9 @@ func (o KxClusterAutoScalingConfigurationPtrOutput) ScaleOutCooldownSeconds() pu
 
 type KxClusterCacheStorageConfiguration struct {
 	// Size of cache in Gigabytes.
+	//
+	// Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
+	// volume of data being cached, as noted in the example configuration.
 	Size int `pulumi:"size"`
 	// Type of KDB database. The following types are available:
 	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -268,6 +271,9 @@ type KxClusterCacheStorageConfigurationInput interface {
 
 type KxClusterCacheStorageConfigurationArgs struct {
 	// Size of cache in Gigabytes.
+	//
+	// Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
+	// volume of data being cached, as noted in the example configuration.
 	Size pulumi.IntInput `pulumi:"size"`
 	// Type of KDB database. The following types are available:
 	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -328,6 +334,9 @@ func (o KxClusterCacheStorageConfigurationOutput) ToKxClusterCacheStorageConfigu
 }
 
 // Size of cache in Gigabytes.
+//
+// Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
+// volume of data being cached, as noted in the example configuration.
 func (o KxClusterCacheStorageConfigurationOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterCacheStorageConfiguration) int { return v.Size }).(pulumi.IntOutput)
 }

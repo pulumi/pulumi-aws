@@ -91,9 +91,17 @@ public class Trigger extends com.pulumi.resources.CustomResource {
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
+    /**
+     * The name of the trigger.
+     * 
+     */
     @Export(name="triggers", refs={List.class,TriggerTrigger.class}, tree="[0,1]")
     private Output<List<TriggerTrigger>> triggers;
 
+    /**
+     * @return The name of the trigger.
+     * 
+     */
     public Output<List<TriggerTrigger>> triggers() {
         return this.triggers;
     }

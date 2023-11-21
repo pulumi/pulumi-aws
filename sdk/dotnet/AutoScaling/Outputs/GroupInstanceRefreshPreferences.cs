@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly string? InstanceWarmup;
         /// <summary>
-        /// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+        /// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
         /// </summary>
         public readonly int? MinHealthyPercentage;
         /// <summary>

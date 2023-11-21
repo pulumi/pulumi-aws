@@ -81,14 +81,14 @@ public class VoiceConnector extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="awsRegion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> awsRegion;
+    private Output<String> awsRegion;
 
     /**
      * @return The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      * 
      */
-    public Output<Optional<String>> awsRegion() {
-        return Codegen.optional(this.awsRegion);
+    public Output<String> awsRegion() {
+        return this.awsRegion;
     }
     /**
      * The name of the Amazon Chime Voice Connector.

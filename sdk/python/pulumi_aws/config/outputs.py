@@ -238,10 +238,12 @@ class Endpoints(dict):
                  config: Optional[str] = None,
                  configservice: Optional[str] = None,
                  connect: Optional[str] = None,
+                 connectcases: Optional[str] = None,
                  controltower: Optional[str] = None,
                  costandusagereportservice: Optional[str] = None,
                  costexplorer: Optional[str] = None,
                  cur: Optional[str] = None,
+                 customerprofiles: Optional[str] = None,
                  databasemigration: Optional[str] = None,
                  databasemigrationservice: Optional[str] = None,
                  dataexchange: Optional[str] = None,
@@ -344,10 +346,12 @@ class Endpoints(dict):
                  networkmanager: Optional[str] = None,
                  oam: Optional[str] = None,
                  opensearch: Optional[str] = None,
+                 opensearchingestion: Optional[str] = None,
                  opensearchserverless: Optional[str] = None,
                  opensearchservice: Optional[str] = None,
                  opsworks: Optional[str] = None,
                  organizations: Optional[str] = None,
+                 osis: Optional[str] = None,
                  outposts: Optional[str] = None,
                  pinpoint: Optional[str] = None,
                  pipes: Optional[str] = None,
@@ -556,6 +560,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "configservice", configservice)
         if connect is not None:
             pulumi.set(__self__, "connect", connect)
+        if connectcases is not None:
+            pulumi.set(__self__, "connectcases", connectcases)
         if controltower is not None:
             pulumi.set(__self__, "controltower", controltower)
         if costandusagereportservice is not None:
@@ -564,6 +570,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "costexplorer", costexplorer)
         if cur is not None:
             pulumi.set(__self__, "cur", cur)
+        if customerprofiles is not None:
+            pulumi.set(__self__, "customerprofiles", customerprofiles)
         if databasemigration is not None:
             pulumi.set(__self__, "databasemigration", databasemigration)
         if databasemigrationservice is not None:
@@ -768,6 +776,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "oam", oam)
         if opensearch is not None:
             pulumi.set(__self__, "opensearch", opensearch)
+        if opensearchingestion is not None:
+            pulumi.set(__self__, "opensearchingestion", opensearchingestion)
         if opensearchserverless is not None:
             pulumi.set(__self__, "opensearchserverless", opensearchserverless)
         if opensearchservice is not None:
@@ -776,6 +786,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "opsworks", opsworks)
         if organizations is not None:
             pulumi.set(__self__, "organizations", organizations)
+        if osis is not None:
+            pulumi.set(__self__, "osis", osis)
         if outposts is not None:
             pulumi.set(__self__, "outposts", outposts)
         if pinpoint is not None:
@@ -1262,6 +1274,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def connectcases(self) -> Optional[str]:
+        return pulumi.get(self, "connectcases")
+
+    @property
+    @pulumi.getter
     def controltower(self) -> Optional[str]:
         return pulumi.get(self, "controltower")
 
@@ -1279,6 +1296,11 @@ class Endpoints(dict):
     @pulumi.getter
     def cur(self) -> Optional[str]:
         return pulumi.get(self, "cur")
+
+    @property
+    @pulumi.getter
+    def customerprofiles(self) -> Optional[str]:
+        return pulumi.get(self, "customerprofiles")
 
     @property
     @pulumi.getter
@@ -1792,6 +1814,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def opensearchingestion(self) -> Optional[str]:
+        return pulumi.get(self, "opensearchingestion")
+
+    @property
+    @pulumi.getter
     def opensearchserverless(self) -> Optional[str]:
         return pulumi.get(self, "opensearchserverless")
 
@@ -1809,6 +1836,11 @@ class Endpoints(dict):
     @pulumi.getter
     def organizations(self) -> Optional[str]:
         return pulumi.get(self, "organizations")
+
+    @property
+    @pulumi.getter
+    def osis(self) -> Optional[str]:
+        return pulumi.get(self, "osis")
 
     @property
     @pulumi.getter

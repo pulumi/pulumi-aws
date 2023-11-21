@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.autoscaling.GroupArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupState;
 import com.pulumi.aws.autoscaling.outputs.GroupInitialLifecycleHook;
+import com.pulumi.aws.autoscaling.outputs.GroupInstanceMaintenancePolicy;
 import com.pulumi.aws.autoscaling.outputs.GroupInstanceRefresh;
 import com.pulumi.aws.autoscaling.outputs.GroupLaunchTemplate;
 import com.pulumi.aws.autoscaling.outputs.GroupMixedInstancesPolicy;
@@ -43,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.PlacementGroupArgs;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupInstanceMaintenancePolicyArgs;
  * import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
  * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -75,6 +77,10 @@ import javax.annotation.Nullable;
  *             .vpcZoneIdentifiers(            
  *                 aws_subnet.example1().id(),
  *                 aws_subnet.example2().id())
+ *             .instanceMaintenancePolicy(GroupInstanceMaintenancePolicyArgs.builder()
+ *                 .minHealthyPercentage(90)
+ *                 .maxHealthyPercentage(120)
+ *                 .build())
  *             .initialLifecycleHooks(GroupInitialLifecycleHookArgs.builder()
  *                 .name(&#34;foobar&#34;)
  *                 .defaultResult(&#34;CONTINUE&#34;)
@@ -919,6 +925,20 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<GroupInitialLifecycleHook>>> initialLifecycleHooks() {
         return Codegen.optional(this.initialLifecycleHooks);
+    }
+    /**
+     * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+     * 
+     */
+    @Export(name="instanceMaintenancePolicy", refs={GroupInstanceMaintenancePolicy.class}, tree="[0]")
+    private Output</* @Nullable */ GroupInstanceMaintenancePolicy> instanceMaintenancePolicy;
+
+    /**
+     * @return If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+     * 
+     */
+    public Output<Optional<GroupInstanceMaintenancePolicy>> instanceMaintenancePolicy() {
+        return Codegen.optional(this.instanceMaintenancePolicy);
     }
     /**
      * If this block is configured, start an

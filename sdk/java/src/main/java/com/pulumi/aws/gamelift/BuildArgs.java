@@ -33,14 +33,14 @@ public final class BuildArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+     * Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
      * 
      */
     @Import(name="operatingSystem", required=true)
     private Output<String> operatingSystem;
 
     /**
-     * @return Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+     * @return Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
      * 
      */
     public Output<String> operatingSystem() {
@@ -142,7 +142,7 @@ public final class BuildArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingSystem Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+         * @param operatingSystem Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class BuildArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingSystem Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+         * @param operatingSystem Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
          * 
          * @return builder
          * 

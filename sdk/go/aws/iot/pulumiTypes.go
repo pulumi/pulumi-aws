@@ -13,6 +13,518 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type BillingGroupMetadata struct {
+	CreationDate *string `pulumi:"creationDate"`
+}
+
+// BillingGroupMetadataInput is an input type that accepts BillingGroupMetadataArgs and BillingGroupMetadataOutput values.
+// You can construct a concrete instance of `BillingGroupMetadataInput` via:
+//
+//	BillingGroupMetadataArgs{...}
+type BillingGroupMetadataInput interface {
+	pulumi.Input
+
+	ToBillingGroupMetadataOutput() BillingGroupMetadataOutput
+	ToBillingGroupMetadataOutputWithContext(context.Context) BillingGroupMetadataOutput
+}
+
+type BillingGroupMetadataArgs struct {
+	CreationDate pulumi.StringPtrInput `pulumi:"creationDate"`
+}
+
+func (BillingGroupMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingGroupMetadata)(nil)).Elem()
+}
+
+func (i BillingGroupMetadataArgs) ToBillingGroupMetadataOutput() BillingGroupMetadataOutput {
+	return i.ToBillingGroupMetadataOutputWithContext(context.Background())
+}
+
+func (i BillingGroupMetadataArgs) ToBillingGroupMetadataOutputWithContext(ctx context.Context) BillingGroupMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupMetadataOutput)
+}
+
+// BillingGroupMetadataArrayInput is an input type that accepts BillingGroupMetadataArray and BillingGroupMetadataArrayOutput values.
+// You can construct a concrete instance of `BillingGroupMetadataArrayInput` via:
+//
+//	BillingGroupMetadataArray{ BillingGroupMetadataArgs{...} }
+type BillingGroupMetadataArrayInput interface {
+	pulumi.Input
+
+	ToBillingGroupMetadataArrayOutput() BillingGroupMetadataArrayOutput
+	ToBillingGroupMetadataArrayOutputWithContext(context.Context) BillingGroupMetadataArrayOutput
+}
+
+type BillingGroupMetadataArray []BillingGroupMetadataInput
+
+func (BillingGroupMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingGroupMetadata)(nil)).Elem()
+}
+
+func (i BillingGroupMetadataArray) ToBillingGroupMetadataArrayOutput() BillingGroupMetadataArrayOutput {
+	return i.ToBillingGroupMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i BillingGroupMetadataArray) ToBillingGroupMetadataArrayOutputWithContext(ctx context.Context) BillingGroupMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupMetadataArrayOutput)
+}
+
+type BillingGroupMetadataOutput struct{ *pulumi.OutputState }
+
+func (BillingGroupMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingGroupMetadata)(nil)).Elem()
+}
+
+func (o BillingGroupMetadataOutput) ToBillingGroupMetadataOutput() BillingGroupMetadataOutput {
+	return o
+}
+
+func (o BillingGroupMetadataOutput) ToBillingGroupMetadataOutputWithContext(ctx context.Context) BillingGroupMetadataOutput {
+	return o
+}
+
+func (o BillingGroupMetadataOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingGroupMetadata) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
+}
+
+type BillingGroupMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (BillingGroupMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingGroupMetadata)(nil)).Elem()
+}
+
+func (o BillingGroupMetadataArrayOutput) ToBillingGroupMetadataArrayOutput() BillingGroupMetadataArrayOutput {
+	return o
+}
+
+func (o BillingGroupMetadataArrayOutput) ToBillingGroupMetadataArrayOutputWithContext(ctx context.Context) BillingGroupMetadataArrayOutput {
+	return o
+}
+
+func (o BillingGroupMetadataArrayOutput) Index(i pulumi.IntInput) BillingGroupMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingGroupMetadata {
+		return vs[0].([]BillingGroupMetadata)[vs[1].(int)]
+	}).(BillingGroupMetadataOutput)
+}
+
+type BillingGroupProperties struct {
+	// A description of the Billing Group.
+	Description *string `pulumi:"description"`
+}
+
+// BillingGroupPropertiesInput is an input type that accepts BillingGroupPropertiesArgs and BillingGroupPropertiesOutput values.
+// You can construct a concrete instance of `BillingGroupPropertiesInput` via:
+//
+//	BillingGroupPropertiesArgs{...}
+type BillingGroupPropertiesInput interface {
+	pulumi.Input
+
+	ToBillingGroupPropertiesOutput() BillingGroupPropertiesOutput
+	ToBillingGroupPropertiesOutputWithContext(context.Context) BillingGroupPropertiesOutput
+}
+
+type BillingGroupPropertiesArgs struct {
+	// A description of the Billing Group.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+}
+
+func (BillingGroupPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingGroupProperties)(nil)).Elem()
+}
+
+func (i BillingGroupPropertiesArgs) ToBillingGroupPropertiesOutput() BillingGroupPropertiesOutput {
+	return i.ToBillingGroupPropertiesOutputWithContext(context.Background())
+}
+
+func (i BillingGroupPropertiesArgs) ToBillingGroupPropertiesOutputWithContext(ctx context.Context) BillingGroupPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupPropertiesOutput)
+}
+
+func (i BillingGroupPropertiesArgs) ToBillingGroupPropertiesPtrOutput() BillingGroupPropertiesPtrOutput {
+	return i.ToBillingGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BillingGroupPropertiesArgs) ToBillingGroupPropertiesPtrOutputWithContext(ctx context.Context) BillingGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupPropertiesOutput).ToBillingGroupPropertiesPtrOutputWithContext(ctx)
+}
+
+// BillingGroupPropertiesPtrInput is an input type that accepts BillingGroupPropertiesArgs, BillingGroupPropertiesPtr and BillingGroupPropertiesPtrOutput values.
+// You can construct a concrete instance of `BillingGroupPropertiesPtrInput` via:
+//
+//	        BillingGroupPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BillingGroupPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBillingGroupPropertiesPtrOutput() BillingGroupPropertiesPtrOutput
+	ToBillingGroupPropertiesPtrOutputWithContext(context.Context) BillingGroupPropertiesPtrOutput
+}
+
+type billingGroupPropertiesPtrType BillingGroupPropertiesArgs
+
+func BillingGroupPropertiesPtr(v *BillingGroupPropertiesArgs) BillingGroupPropertiesPtrInput {
+	return (*billingGroupPropertiesPtrType)(v)
+}
+
+func (*billingGroupPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BillingGroupProperties)(nil)).Elem()
+}
+
+func (i *billingGroupPropertiesPtrType) ToBillingGroupPropertiesPtrOutput() BillingGroupPropertiesPtrOutput {
+	return i.ToBillingGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *billingGroupPropertiesPtrType) ToBillingGroupPropertiesPtrOutputWithContext(ctx context.Context) BillingGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupPropertiesPtrOutput)
+}
+
+type BillingGroupPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BillingGroupPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingGroupProperties)(nil)).Elem()
+}
+
+func (o BillingGroupPropertiesOutput) ToBillingGroupPropertiesOutput() BillingGroupPropertiesOutput {
+	return o
+}
+
+func (o BillingGroupPropertiesOutput) ToBillingGroupPropertiesOutputWithContext(ctx context.Context) BillingGroupPropertiesOutput {
+	return o
+}
+
+func (o BillingGroupPropertiesOutput) ToBillingGroupPropertiesPtrOutput() BillingGroupPropertiesPtrOutput {
+	return o.ToBillingGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BillingGroupPropertiesOutput) ToBillingGroupPropertiesPtrOutputWithContext(ctx context.Context) BillingGroupPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BillingGroupProperties) *BillingGroupProperties {
+		return &v
+	}).(BillingGroupPropertiesPtrOutput)
+}
+
+// A description of the Billing Group.
+func (o BillingGroupPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingGroupProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type BillingGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BillingGroupPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BillingGroupProperties)(nil)).Elem()
+}
+
+func (o BillingGroupPropertiesPtrOutput) ToBillingGroupPropertiesPtrOutput() BillingGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o BillingGroupPropertiesPtrOutput) ToBillingGroupPropertiesPtrOutputWithContext(ctx context.Context) BillingGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o BillingGroupPropertiesPtrOutput) Elem() BillingGroupPropertiesOutput {
+	return o.ApplyT(func(v *BillingGroupProperties) BillingGroupProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BillingGroupProperties
+		return ret
+	}).(BillingGroupPropertiesOutput)
+}
+
+// A description of the Billing Group.
+func (o BillingGroupPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+type CaCertificateRegistrationConfig struct {
+	// The ARN of the role.
+	RoleArn *bool `pulumi:"roleArn"`
+	// The template body.
+	TemplateBody *string `pulumi:"templateBody"`
+	// The name of the provisioning template.
+	TemplateName *string `pulumi:"templateName"`
+}
+
+// CaCertificateRegistrationConfigInput is an input type that accepts CaCertificateRegistrationConfigArgs and CaCertificateRegistrationConfigOutput values.
+// You can construct a concrete instance of `CaCertificateRegistrationConfigInput` via:
+//
+//	CaCertificateRegistrationConfigArgs{...}
+type CaCertificateRegistrationConfigInput interface {
+	pulumi.Input
+
+	ToCaCertificateRegistrationConfigOutput() CaCertificateRegistrationConfigOutput
+	ToCaCertificateRegistrationConfigOutputWithContext(context.Context) CaCertificateRegistrationConfigOutput
+}
+
+type CaCertificateRegistrationConfigArgs struct {
+	// The ARN of the role.
+	RoleArn pulumi.BoolPtrInput `pulumi:"roleArn"`
+	// The template body.
+	TemplateBody pulumi.StringPtrInput `pulumi:"templateBody"`
+	// The name of the provisioning template.
+	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
+}
+
+func (CaCertificateRegistrationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateRegistrationConfig)(nil)).Elem()
+}
+
+func (i CaCertificateRegistrationConfigArgs) ToCaCertificateRegistrationConfigOutput() CaCertificateRegistrationConfigOutput {
+	return i.ToCaCertificateRegistrationConfigOutputWithContext(context.Background())
+}
+
+func (i CaCertificateRegistrationConfigArgs) ToCaCertificateRegistrationConfigOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateRegistrationConfigOutput)
+}
+
+func (i CaCertificateRegistrationConfigArgs) ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput {
+	return i.ToCaCertificateRegistrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CaCertificateRegistrationConfigArgs) ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateRegistrationConfigOutput).ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx)
+}
+
+// CaCertificateRegistrationConfigPtrInput is an input type that accepts CaCertificateRegistrationConfigArgs, CaCertificateRegistrationConfigPtr and CaCertificateRegistrationConfigPtrOutput values.
+// You can construct a concrete instance of `CaCertificateRegistrationConfigPtrInput` via:
+//
+//	        CaCertificateRegistrationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CaCertificateRegistrationConfigPtrInput interface {
+	pulumi.Input
+
+	ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput
+	ToCaCertificateRegistrationConfigPtrOutputWithContext(context.Context) CaCertificateRegistrationConfigPtrOutput
+}
+
+type caCertificateRegistrationConfigPtrType CaCertificateRegistrationConfigArgs
+
+func CaCertificateRegistrationConfigPtr(v *CaCertificateRegistrationConfigArgs) CaCertificateRegistrationConfigPtrInput {
+	return (*caCertificateRegistrationConfigPtrType)(v)
+}
+
+func (*caCertificateRegistrationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaCertificateRegistrationConfig)(nil)).Elem()
+}
+
+func (i *caCertificateRegistrationConfigPtrType) ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput {
+	return i.ToCaCertificateRegistrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *caCertificateRegistrationConfigPtrType) ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateRegistrationConfigPtrOutput)
+}
+
+type CaCertificateRegistrationConfigOutput struct{ *pulumi.OutputState }
+
+func (CaCertificateRegistrationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateRegistrationConfig)(nil)).Elem()
+}
+
+func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfigOutput() CaCertificateRegistrationConfigOutput {
+	return o
+}
+
+func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfigOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigOutput {
+	return o
+}
+
+func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput {
+	return o.ToCaCertificateRegistrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaCertificateRegistrationConfig) *CaCertificateRegistrationConfig {
+		return &v
+	}).(CaCertificateRegistrationConfigPtrOutput)
+}
+
+// The ARN of the role.
+func (o CaCertificateRegistrationConfigOutput) RoleArn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CaCertificateRegistrationConfig) *bool { return v.RoleArn }).(pulumi.BoolPtrOutput)
+}
+
+// The template body.
+func (o CaCertificateRegistrationConfigOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaCertificateRegistrationConfig) *string { return v.TemplateBody }).(pulumi.StringPtrOutput)
+}
+
+// The name of the provisioning template.
+func (o CaCertificateRegistrationConfigOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaCertificateRegistrationConfig) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
+}
+
+type CaCertificateRegistrationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CaCertificateRegistrationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaCertificateRegistrationConfig)(nil)).Elem()
+}
+
+func (o CaCertificateRegistrationConfigPtrOutput) ToCaCertificateRegistrationConfigPtrOutput() CaCertificateRegistrationConfigPtrOutput {
+	return o
+}
+
+func (o CaCertificateRegistrationConfigPtrOutput) ToCaCertificateRegistrationConfigPtrOutputWithContext(ctx context.Context) CaCertificateRegistrationConfigPtrOutput {
+	return o
+}
+
+func (o CaCertificateRegistrationConfigPtrOutput) Elem() CaCertificateRegistrationConfigOutput {
+	return o.ApplyT(func(v *CaCertificateRegistrationConfig) CaCertificateRegistrationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CaCertificateRegistrationConfig
+		return ret
+	}).(CaCertificateRegistrationConfigOutput)
+}
+
+// The ARN of the role.
+func (o CaCertificateRegistrationConfigPtrOutput) RoleArn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The template body.
+func (o CaCertificateRegistrationConfigPtrOutput) TemplateBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateBody
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the provisioning template.
+func (o CaCertificateRegistrationConfigPtrOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+type CaCertificateValidity struct {
+	// The certificate is not valid after this date.
+	NotAfter *string `pulumi:"notAfter"`
+	// The certificate is not valid before this date.
+	NotBefore *string `pulumi:"notBefore"`
+}
+
+// CaCertificateValidityInput is an input type that accepts CaCertificateValidityArgs and CaCertificateValidityOutput values.
+// You can construct a concrete instance of `CaCertificateValidityInput` via:
+//
+//	CaCertificateValidityArgs{...}
+type CaCertificateValidityInput interface {
+	pulumi.Input
+
+	ToCaCertificateValidityOutput() CaCertificateValidityOutput
+	ToCaCertificateValidityOutputWithContext(context.Context) CaCertificateValidityOutput
+}
+
+type CaCertificateValidityArgs struct {
+	// The certificate is not valid after this date.
+	NotAfter pulumi.StringPtrInput `pulumi:"notAfter"`
+	// The certificate is not valid before this date.
+	NotBefore pulumi.StringPtrInput `pulumi:"notBefore"`
+}
+
+func (CaCertificateValidityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateValidity)(nil)).Elem()
+}
+
+func (i CaCertificateValidityArgs) ToCaCertificateValidityOutput() CaCertificateValidityOutput {
+	return i.ToCaCertificateValidityOutputWithContext(context.Background())
+}
+
+func (i CaCertificateValidityArgs) ToCaCertificateValidityOutputWithContext(ctx context.Context) CaCertificateValidityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateValidityOutput)
+}
+
+// CaCertificateValidityArrayInput is an input type that accepts CaCertificateValidityArray and CaCertificateValidityArrayOutput values.
+// You can construct a concrete instance of `CaCertificateValidityArrayInput` via:
+//
+//	CaCertificateValidityArray{ CaCertificateValidityArgs{...} }
+type CaCertificateValidityArrayInput interface {
+	pulumi.Input
+
+	ToCaCertificateValidityArrayOutput() CaCertificateValidityArrayOutput
+	ToCaCertificateValidityArrayOutputWithContext(context.Context) CaCertificateValidityArrayOutput
+}
+
+type CaCertificateValidityArray []CaCertificateValidityInput
+
+func (CaCertificateValidityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CaCertificateValidity)(nil)).Elem()
+}
+
+func (i CaCertificateValidityArray) ToCaCertificateValidityArrayOutput() CaCertificateValidityArrayOutput {
+	return i.ToCaCertificateValidityArrayOutputWithContext(context.Background())
+}
+
+func (i CaCertificateValidityArray) ToCaCertificateValidityArrayOutputWithContext(ctx context.Context) CaCertificateValidityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaCertificateValidityArrayOutput)
+}
+
+type CaCertificateValidityOutput struct{ *pulumi.OutputState }
+
+func (CaCertificateValidityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaCertificateValidity)(nil)).Elem()
+}
+
+func (o CaCertificateValidityOutput) ToCaCertificateValidityOutput() CaCertificateValidityOutput {
+	return o
+}
+
+func (o CaCertificateValidityOutput) ToCaCertificateValidityOutputWithContext(ctx context.Context) CaCertificateValidityOutput {
+	return o
+}
+
+// The certificate is not valid after this date.
+func (o CaCertificateValidityOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaCertificateValidity) *string { return v.NotAfter }).(pulumi.StringPtrOutput)
+}
+
+// The certificate is not valid before this date.
+func (o CaCertificateValidityOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaCertificateValidity) *string { return v.NotBefore }).(pulumi.StringPtrOutput)
+}
+
+type CaCertificateValidityArrayOutput struct{ *pulumi.OutputState }
+
+func (CaCertificateValidityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CaCertificateValidity)(nil)).Elem()
+}
+
+func (o CaCertificateValidityArrayOutput) ToCaCertificateValidityArrayOutput() CaCertificateValidityArrayOutput {
+	return o
+}
+
+func (o CaCertificateValidityArrayOutput) ToCaCertificateValidityArrayOutputWithContext(ctx context.Context) CaCertificateValidityArrayOutput {
+	return o
+}
+
+func (o CaCertificateValidityArrayOutput) Index(i pulumi.IntInput) CaCertificateValidityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CaCertificateValidity {
+		return vs[0].([]CaCertificateValidity)[vs[1].(int)]
+	}).(CaCertificateValidityOutput)
+}
+
 type DomainConfigurationAuthorizerConfig struct {
 	// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
 	AllowAuthorizerOverride *bool `pulumi:"allowAuthorizerOverride"`
@@ -9939,6 +10451,14 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupMetadataInput)(nil)).Elem(), BillingGroupMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupMetadataArrayInput)(nil)).Elem(), BillingGroupMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupPropertiesInput)(nil)).Elem(), BillingGroupPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupPropertiesPtrInput)(nil)).Elem(), BillingGroupPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateRegistrationConfigInput)(nil)).Elem(), CaCertificateRegistrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateRegistrationConfigPtrInput)(nil)).Elem(), CaCertificateRegistrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateValidityInput)(nil)).Elem(), CaCertificateValidityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateValidityArrayInput)(nil)).Elem(), CaCertificateValidityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigPtrInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTlsConfigInput)(nil)).Elem(), DomainConfigurationTlsConfigArgs{})
@@ -10069,6 +10589,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamDimensionArrayInput)(nil)).Elem(), TopicRuleTimestreamDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamTimestampInput)(nil)).Elem(), TopicRuleTimestreamTimestampArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamTimestampPtrInput)(nil)).Elem(), TopicRuleTimestreamTimestampArgs{})
+	pulumi.RegisterOutputType(BillingGroupMetadataOutput{})
+	pulumi.RegisterOutputType(BillingGroupMetadataArrayOutput{})
+	pulumi.RegisterOutputType(BillingGroupPropertiesOutput{})
+	pulumi.RegisterOutputType(BillingGroupPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CaCertificateRegistrationConfigOutput{})
+	pulumi.RegisterOutputType(CaCertificateRegistrationConfigPtrOutput{})
+	pulumi.RegisterOutputType(CaCertificateValidityOutput{})
+	pulumi.RegisterOutputType(CaCertificateValidityArrayOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationTlsConfigOutput{})

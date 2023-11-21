@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TriggerTrigger {
     /**
-     * @return The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+     * @return The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
      * 
      */
     private @Nullable List<String> branches;
@@ -40,7 +40,7 @@ public final class TriggerTrigger {
 
     private TriggerTrigger() {}
     /**
-     * @return The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+     * @return The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
      * 
      */
     public List<String> branches() {

@@ -103,6 +103,7 @@ class _CertificateState:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[bool]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_id: Optional[pulumi.Input[str]] = None,
                  ca_pem: Optional[pulumi.Input[str]] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  csr: Optional[pulumi.Input[str]] = None,
@@ -112,6 +113,7 @@ class _CertificateState:
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
         :param pulumi.Input[str] arn: The ARN of the created certificate.
+        :param pulumi.Input[str] ca_certificate_id: The certificate ID of the CA certificate used to sign the certificate.
         :param pulumi.Input[str] ca_pem: The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         :param pulumi.Input[str] certificate_pem: The certificate to be registered. If `ca_pem` is unspecified, review
                [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
@@ -130,6 +132,8 @@ class _CertificateState:
             pulumi.set(__self__, "active", active)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if ca_certificate_id is not None:
+            pulumi.set(__self__, "ca_certificate_id", ca_certificate_id)
         if ca_pem is not None:
             pulumi.set(__self__, "ca_pem", ca_pem)
         if certificate_pem is not None:
@@ -164,6 +168,18 @@ class _CertificateState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="caCertificateId")
+    def ca_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate ID of the CA certificate used to sign the certificate.
+        """
+        return pulumi.get(self, "ca_certificate_id")
+
+    @ca_certificate_id.setter
+    def ca_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_certificate_id", value)
 
     @property
     @pulumi.getter(name="caPem")
@@ -366,6 +382,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_pem"] = None if certificate_pem is None else pulumi.Output.secret(certificate_pem)
             __props__.__dict__["csr"] = csr
             __props__.__dict__["arn"] = None
+            __props__.__dict__["ca_certificate_id"] = None
             __props__.__dict__["private_key"] = None
             __props__.__dict__["public_key"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["caPem", "certificatePem", "privateKey", "publicKey"])
@@ -382,6 +399,7 @@ class Certificate(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            ca_certificate_id: Optional[pulumi.Input[str]] = None,
             ca_pem: Optional[pulumi.Input[str]] = None,
             certificate_pem: Optional[pulumi.Input[str]] = None,
             csr: Optional[pulumi.Input[str]] = None,
@@ -396,6 +414,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
         :param pulumi.Input[str] arn: The ARN of the created certificate.
+        :param pulumi.Input[str] ca_certificate_id: The certificate ID of the CA certificate used to sign the certificate.
         :param pulumi.Input[str] ca_pem: The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         :param pulumi.Input[str] certificate_pem: The certificate to be registered. If `ca_pem` is unspecified, review
                [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
@@ -416,6 +435,7 @@ class Certificate(pulumi.CustomResource):
 
         __props__.__dict__["active"] = active
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["ca_certificate_id"] = ca_certificate_id
         __props__.__dict__["ca_pem"] = ca_pem
         __props__.__dict__["certificate_pem"] = certificate_pem
         __props__.__dict__["csr"] = csr
@@ -438,6 +458,14 @@ class Certificate(pulumi.CustomResource):
         The ARN of the created certificate.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="caCertificateId")
+    def ca_certificate_id(self) -> pulumi.Output[str]:
+        """
+        The certificate ID of the CA certificate used to sign the certificate.
+        """
+        return pulumi.get(self, "ca_certificate_id")
 
     @property
     @pulumi.getter(name="caPem")

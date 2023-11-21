@@ -425,6 +425,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbSystemId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+        /// </summary>
+        [Output("deleteAutomatedBackups")]
+        public Output<bool?> DeleteAutomatedBackups { get; private set; } = null!;
+
+        /// <summary>
         /// If the DB cluster should have deletion protection enabled.
         /// The database can't be deleted when this value is set to `true`.
         /// The default is `false`.
@@ -822,6 +828,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSystemId { get; set; }
 
         /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+        /// </summary>
+        [Input("deleteAutomatedBackups")]
+        public Input<bool>? DeleteAutomatedBackups { get; set; }
+
+        /// <summary>
         /// If the DB cluster should have deletion protection enabled.
         /// The database can't be deleted when this value is set to `true`.
         /// The default is `false`.
@@ -1183,6 +1195,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("dbSystemId")]
         public Input<string>? DbSystemId { get; set; }
+
+        /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+        /// </summary>
+        [Input("deleteAutomatedBackups")]
+        public Input<bool>? DeleteAutomatedBackups { get; set; }
 
         /// <summary>
         /// If the DB cluster should have deletion protection enabled.

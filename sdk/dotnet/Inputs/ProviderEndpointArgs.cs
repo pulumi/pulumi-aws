@@ -213,6 +213,9 @@ namespace Pulumi.Aws.Inputs
         [Input("connect")]
         public Input<string>? Connect { get; set; }
 
+        [Input("connectcases")]
+        public Input<string>? Connectcases { get; set; }
+
         [Input("controltower")]
         public Input<string>? Controltower { get; set; }
 
@@ -224,6 +227,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("cur")]
         public Input<string>? Cur { get; set; }
+
+        [Input("customerprofiles")]
+        public Input<string>? Customerprofiles { get; set; }
 
         [Input("databasemigration")]
         public Input<string>? Databasemigration { get; set; }
@@ -531,6 +537,9 @@ namespace Pulumi.Aws.Inputs
         [Input("opensearch")]
         public Input<string>? Opensearch { get; set; }
 
+        [Input("opensearchingestion")]
+        public Input<string>? Opensearchingestion { get; set; }
+
         [Input("opensearchserverless")]
         public Input<string>? Opensearchserverless { get; set; }
 
@@ -542,6 +551,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("organizations")]
         public Input<string>? Organizations { get; set; }
+
+        [Input("osis")]
+        public Input<string>? Osis { get; set; }
 
         [Input("outposts")]
         public Input<string>? Outposts { get; set; }

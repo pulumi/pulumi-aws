@@ -168,10 +168,12 @@ export interface ProviderEndpoint {
     config?: pulumi.Input<string>;
     configservice?: pulumi.Input<string>;
     connect?: pulumi.Input<string>;
+    connectcases?: pulumi.Input<string>;
     controltower?: pulumi.Input<string>;
     costandusagereportservice?: pulumi.Input<string>;
     costexplorer?: pulumi.Input<string>;
     cur?: pulumi.Input<string>;
+    customerprofiles?: pulumi.Input<string>;
     databasemigration?: pulumi.Input<string>;
     databasemigrationservice?: pulumi.Input<string>;
     dataexchange?: pulumi.Input<string>;
@@ -274,10 +276,12 @@ export interface ProviderEndpoint {
     networkmanager?: pulumi.Input<string>;
     oam?: pulumi.Input<string>;
     opensearch?: pulumi.Input<string>;
+    opensearchingestion?: pulumi.Input<string>;
     opensearchserverless?: pulumi.Input<string>;
     opensearchservice?: pulumi.Input<string>;
     opsworks?: pulumi.Input<string>;
     organizations?: pulumi.Input<string>;
+    osis?: pulumi.Input<string>;
     outposts?: pulumi.Input<string>;
     pinpoint?: pulumi.Input<string>;
     pipes?: pulumi.Input<string>;
@@ -7125,6 +7129,17 @@ export namespace autoscaling {
         roleArn?: pulumi.Input<string>;
     }
 
+    export interface GroupInstanceMaintenancePolicy {
+        /**
+         * Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         */
+        maxHealthyPercentage: pulumi.Input<number>;
+        /**
+         * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+         */
+        minHealthyPercentage: pulumi.Input<number>;
+    }
+
     export interface GroupInstanceRefresh {
         /**
          * Override default parameters for Instance Refresh.
@@ -7166,7 +7181,7 @@ export namespace autoscaling {
          */
         instanceWarmup?: pulumi.Input<string>;
         /**
-         * Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+         * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
          */
         minHealthyPercentage?: pulumi.Input<number>;
         /**
@@ -8752,6 +8767,74 @@ export namespace bedrockfoundation {
          * Indicates whether the model supports streaming.
          */
         responseStreamingSupported?: pulumi.Input<boolean>;
+    }
+}
+
+export namespace bedrockmodel {
+    export interface InvocationLoggingConfigurationLoggingConfig {
+        /**
+         * CloudWatch logging configuration. See `cloudwatchConfig`.
+         */
+        cloudwatchConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig>;
+        /**
+         * Set to include embeddings data in the log delivery.
+         */
+        embeddingDataDeliveryEnabled: pulumi.Input<boolean>;
+        /**
+         * Set to include image data in the log delivery.
+         */
+        imageDataDeliveryEnabled: pulumi.Input<boolean>;
+        /**
+         * S3 configuration for storing log data. See `s3Config`.
+         */
+        s3Config?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigS3Config>;
+        /**
+         * Set to include text data in the log delivery.
+         */
+        textDataDeliveryEnabled: pulumi.Input<boolean>;
+    }
+
+    export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
+        /**
+         * S3 configuration for delivering a large amount of data. See `s3Config`.
+         */
+        largeDataDeliveryS3Config?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config>;
+        /**
+         * Log group name.
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * IAM Role ARN.
+         *
+         * The following arguments are optional:
+         */
+        roleArn?: pulumi.Input<string>;
+    }
+
+    export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
+        /**
+         * S3 bucket name.
+         *
+         * The following arguments are optional:
+         */
+        bucketName?: pulumi.Input<string>;
+        /**
+         * S3 object key prefix.
+         */
+        keyPrefix?: pulumi.Input<string>;
+    }
+
+    export interface InvocationLoggingConfigurationLoggingConfigS3Config {
+        /**
+         * S3 bucket name.
+         *
+         * The following arguments are optional:
+         */
+        bucketName?: pulumi.Input<string>;
+        /**
+         * S3 object key prefix.
+         */
+        keyPrefix?: pulumi.Input<string>;
     }
 }
 
@@ -12207,7 +12290,7 @@ export namespace codecatalyst {
 export namespace codecommit {
     export interface TriggerTrigger {
         /**
-         * The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+         * The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
          */
         branches?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -25371,6 +25454,9 @@ export namespace finspace {
     export interface KxClusterCacheStorageConfiguration {
         /**
          * Size of cache in Gigabytes.
+         *
+         * Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
+         * volume of data being cached, as noted in the example configuration.
          */
         size: pulumi.Input<number>;
         /**
@@ -29076,6 +29162,43 @@ export namespace inspector2 {
 }
 
 export namespace iot {
+    export interface BillingGroupMetadata {
+        creationDate?: pulumi.Input<string>;
+    }
+
+    export interface BillingGroupProperties {
+        /**
+         * A description of the Billing Group.
+         */
+        description?: pulumi.Input<string>;
+    }
+
+    export interface CaCertificateRegistrationConfig {
+        /**
+         * The ARN of the role.
+         */
+        roleArn?: pulumi.Input<boolean>;
+        /**
+         * The template body.
+         */
+        templateBody?: pulumi.Input<string>;
+        /**
+         * The name of the provisioning template.
+         */
+        templateName?: pulumi.Input<string>;
+    }
+
+    export interface CaCertificateValidity {
+        /**
+         * The certificate is not valid after this date.
+         */
+        notAfter?: pulumi.Input<string>;
+        /**
+         * The certificate is not valid before this date.
+         */
+        notBefore?: pulumi.Input<string>;
+    }
+
     export interface DomainConfigurationAuthorizerConfig {
         /**
          * A Boolean that specifies whether the domain configuration's authorization service can be overridden.

@@ -135,6 +135,10 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Instance maintenance policy for the group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetGroupInstanceMaintenancePolicyResult> InstanceMaintenancePolicies;
+        /// <summary>
         /// The name of the associated launch configuration.
         /// </summary>
         public readonly string LaunchConfiguration;
@@ -236,6 +240,8 @@ namespace Pulumi.Aws.AutoScaling
 
             string id,
 
+            ImmutableArray<Outputs.GetGroupInstanceMaintenancePolicyResult> instanceMaintenancePolicies,
+
             string launchConfiguration,
 
             ImmutableArray<Outputs.GetGroupLaunchTemplateResult> launchTemplates,
@@ -287,6 +293,7 @@ namespace Pulumi.Aws.AutoScaling
             HealthCheckGracePeriod = healthCheckGracePeriod;
             HealthCheckType = healthCheckType;
             Id = id;
+            InstanceMaintenancePolicies = instanceMaintenancePolicies;
             LaunchConfiguration = launchConfiguration;
             LaunchTemplates = launchTemplates;
             LoadBalancers = loadBalancers;

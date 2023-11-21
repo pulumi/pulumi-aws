@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CodeCommit.Inputs
         private InputList<string>? _branches;
 
         /// <summary>
-        /// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+        /// The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
         /// </summary>
         public InputList<string> Branches
         {

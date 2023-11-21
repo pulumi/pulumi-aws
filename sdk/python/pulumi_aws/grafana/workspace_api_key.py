@@ -265,6 +265,8 @@ class WorkspaceApiKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["key"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WorkspaceApiKey, __self__).__init__(
             'aws:grafana/workspaceApiKey:WorkspaceApiKey',
             resource_name,

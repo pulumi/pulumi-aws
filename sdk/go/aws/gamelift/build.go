@@ -61,7 +61,7 @@ type Build struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the build
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationOutput `pulumi:"storageLocation"`
@@ -119,7 +119,7 @@ type buildState struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the build
 	Name *string `pulumi:"name"`
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation *BuildStorageLocation `pulumi:"storageLocation"`
@@ -138,7 +138,7 @@ type BuildState struct {
 	Arn pulumi.StringPtrInput
 	// Name of the build
 	Name pulumi.StringPtrInput
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem pulumi.StringPtrInput
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationPtrInput
@@ -159,7 +159,7 @@ func (BuildState) ElementType() reflect.Type {
 type buildArgs struct {
 	// Name of the build
 	Name *string `pulumi:"name"`
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem string `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocation `pulumi:"storageLocation"`
@@ -173,7 +173,7 @@ type buildArgs struct {
 type BuildArgs struct {
 	// Name of the build
 	Name pulumi.StringPtrInput
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+	// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 	OperatingSystem pulumi.StringInput
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationInput
@@ -280,7 +280,7 @@ func (o BuildOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
 func (o BuildOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
 }

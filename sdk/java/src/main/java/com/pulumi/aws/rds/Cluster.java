@@ -691,6 +691,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.dbSystemId;
     }
     /**
+     * Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+     * 
+     */
+    @Export(name="deleteAutomatedBackups", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> deleteAutomatedBackups;
+
+    /**
+     * @return Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> deleteAutomatedBackups() {
+        return Codegen.optional(this.deleteAutomatedBackups);
+    }
+    /**
      * If the DB cluster should have deletion protection enabled.
      * The database can&#39;t be deleted when this value is set to `true`.
      * The default is `false`.

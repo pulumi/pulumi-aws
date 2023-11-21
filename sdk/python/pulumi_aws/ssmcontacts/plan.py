@@ -162,6 +162,12 @@ class Plan(pulumi.CustomResource):
                             contact_id=contact_two.arn,
                         ),
                     ),
+                    aws.ssmcontacts.PlanStageTargetArgs(
+                        channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
+                            retry_interval_in_minutes=2,
+                            contact_channel_id=aws_ssmcontacts_contact_channel["channel"]["arn"],
+                        ),
+                    ),
                 ],
             )])
         ```
@@ -246,6 +252,12 @@ class Plan(pulumi.CustomResource):
                         contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
                             is_essential=True,
                             contact_id=contact_two.arn,
+                        ),
+                    ),
+                    aws.ssmcontacts.PlanStageTargetArgs(
+                        channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
+                            retry_interval_in_minutes=2,
+                            contact_channel_id=aws_ssmcontacts_contact_channel["channel"]["arn"],
                         ),
                     ),
                 ],

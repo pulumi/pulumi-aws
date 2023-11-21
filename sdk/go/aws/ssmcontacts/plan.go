@@ -135,6 +135,12 @@ import (
 //									ContactId:   contactTwo.Arn,
 //								},
 //							},
+//							&ssmcontacts.PlanStageTargetArgs{
+//								ChannelTargetInfo: &ssmcontacts.PlanStageTargetChannelTargetInfoArgs{
+//									RetryIntervalInMinutes: pulumi.Int(2),
+//									ContactChannelId:       pulumi.Any(aws_ssmcontacts_contact_channel.Channel.Arn),
+//								},
+//							},
 //						},
 //					},
 //				},

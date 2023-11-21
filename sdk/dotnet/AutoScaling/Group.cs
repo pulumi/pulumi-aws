@@ -581,6 +581,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<Outputs.GroupInitialLifecycleHook>> InitialLifecycleHooks { get; private set; } = null!;
 
         /// <summary>
+        /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+        /// </summary>
+        [Output("instanceMaintenancePolicy")]
+        public Output<Outputs.GroupInstanceMaintenancePolicy?> InstanceMaintenancePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// If this block is configured, start an
         /// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
         /// when this Auto Scaling Group is updated. Defined below.
@@ -919,6 +925,12 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
+        /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+        /// </summary>
+        [Input("instanceMaintenancePolicy")]
+        public Input<Inputs.GroupInstanceMaintenancePolicyArgs>? InstanceMaintenancePolicy { get; set; }
+
+        /// <summary>
         /// If this block is configured, start an
         /// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
         /// when this Auto Scaling Group is updated. Defined below.
@@ -1253,6 +1265,12 @@ namespace Pulumi.Aws.AutoScaling
             get => _initialLifecycleHooks ?? (_initialLifecycleHooks = new InputList<Inputs.GroupInitialLifecycleHookGetArgs>());
             set => _initialLifecycleHooks = value;
         }
+
+        /// <summary>
+        /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+        /// </summary>
+        [Input("instanceMaintenancePolicy")]
+        public Input<Inputs.GroupInstanceMaintenancePolicyGetArgs>? InstanceMaintenancePolicy { get; set; }
 
         /// <summary>
         /// If this block is configured, start an

@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 /**
  * Provides an IoT policy.
  * 
+ * &gt; **NOTE on policy versions:** Updating this resource creates a new, default policy version. If updating the resource would exceed the maximum number of versions (5), the oldest non-default version of the policy is deleted before the new policy version is created.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

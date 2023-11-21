@@ -21,6 +21,7 @@ class TriggerArgs:
         """
         The set of arguments for constructing a Trigger resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]] triggers: The name of the trigger.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "triggers", triggers)
@@ -40,6 +41,9 @@ class TriggerArgs:
     @property
     @pulumi.getter
     def triggers(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]:
+        """
+        The name of the trigger.
+        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -57,6 +61,7 @@ class _TriggerState:
         Input properties used for looking up and filtering Trigger resources.
         :param pulumi.Input[str] configuration_id: System-generated unique identifier.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]] triggers: The name of the trigger.
         """
         if configuration_id is not None:
             pulumi.set(__self__, "configuration_id", configuration_id)
@@ -92,6 +97,9 @@ class _TriggerState:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]]:
+        """
+        The name of the trigger.
+        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -129,6 +137,7 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]] triggers: The name of the trigger.
         """
         ...
     @overload
@@ -210,6 +219,7 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_id: System-generated unique identifier.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]] triggers: The name of the trigger.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -239,5 +249,8 @@ class Trigger(pulumi.CustomResource):
     @property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Sequence['outputs.TriggerTrigger']]:
+        """
+        The name of the trigger.
+        """
         return pulumi.get(self, "triggers")
 

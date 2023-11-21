@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type TriggerTrigger struct {
-	// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+	// The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
 	Branches []string `pulumi:"branches"`
 	// Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
 	CustomData *string `pulumi:"customData"`
@@ -38,7 +38,7 @@ type TriggerTriggerInput interface {
 }
 
 type TriggerTriggerArgs struct {
-	// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+	// The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
 	Branches pulumi.StringArrayInput `pulumi:"branches"`
 	// Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
@@ -101,7 +101,7 @@ func (o TriggerTriggerOutput) ToTriggerTriggerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+// The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
 func (o TriggerTriggerOutput) Branches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TriggerTrigger) []string { return v.Branches }).(pulumi.StringArrayOutput)
 }

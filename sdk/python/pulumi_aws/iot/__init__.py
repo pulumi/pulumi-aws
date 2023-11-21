@@ -6,9 +6,13 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .authorizer import *
+from .billing_group import *
+from .ca_certificate import *
 from .certificate import *
 from .domain_configuration import *
+from .event_configurations import *
 from .get_endpoint import *
+from .get_registration_code import *
 from .indexing_configuration import *
 from .logging_options import *
 from .policy import *

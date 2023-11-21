@@ -10,6 +10,16 @@ export type Authorizer = import("./authorizer").Authorizer;
 export const Authorizer: typeof import("./authorizer").Authorizer = null as any;
 utilities.lazyLoad(exports, ["Authorizer"], () => require("./authorizer"));
 
+export { BillingGroupArgs, BillingGroupState } from "./billingGroup";
+export type BillingGroup = import("./billingGroup").BillingGroup;
+export const BillingGroup: typeof import("./billingGroup").BillingGroup = null as any;
+utilities.lazyLoad(exports, ["BillingGroup"], () => require("./billingGroup"));
+
+export { CaCertificateArgs, CaCertificateState } from "./caCertificate";
+export type CaCertificate = import("./caCertificate").CaCertificate;
+export const CaCertificate: typeof import("./caCertificate").CaCertificate = null as any;
+utilities.lazyLoad(exports, ["CaCertificate"], () => require("./caCertificate"));
+
 export { CertificateArgs, CertificateState } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
@@ -20,10 +30,20 @@ export type DomainConfiguration = import("./domainConfiguration").DomainConfigur
 export const DomainConfiguration: typeof import("./domainConfiguration").DomainConfiguration = null as any;
 utilities.lazyLoad(exports, ["DomainConfiguration"], () => require("./domainConfiguration"));
 
+export { EventConfigurationsArgs, EventConfigurationsState } from "./eventConfigurations";
+export type EventConfigurations = import("./eventConfigurations").EventConfigurations;
+export const EventConfigurations: typeof import("./eventConfigurations").EventConfigurations = null as any;
+utilities.lazyLoad(exports, ["EventConfigurations"], () => require("./eventConfigurations"));
+
 export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+
+export { GetRegistrationCodeResult } from "./getRegistrationCode";
+export const getRegistrationCode: typeof import("./getRegistrationCode").getRegistrationCode = null as any;
+export const getRegistrationCodeOutput: typeof import("./getRegistrationCode").getRegistrationCodeOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistrationCode","getRegistrationCodeOutput"], () => require("./getRegistrationCode"));
 
 export { IndexingConfigurationArgs, IndexingConfigurationState } from "./indexingConfiguration";
 export type IndexingConfiguration = import("./indexingConfiguration").IndexingConfiguration;
@@ -97,10 +117,16 @@ const _module = {
         switch (type) {
             case "aws:iot/authorizer:Authorizer":
                 return new Authorizer(name, <any>undefined, { urn })
+            case "aws:iot/billingGroup:BillingGroup":
+                return new BillingGroup(name, <any>undefined, { urn })
+            case "aws:iot/caCertificate:CaCertificate":
+                return new CaCertificate(name, <any>undefined, { urn })
             case "aws:iot/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "aws:iot/domainConfiguration:DomainConfiguration":
                 return new DomainConfiguration(name, <any>undefined, { urn })
+            case "aws:iot/eventConfigurations:EventConfigurations":
+                return new EventConfigurations(name, <any>undefined, { urn })
             case "aws:iot/indexingConfiguration:IndexingConfiguration":
                 return new IndexingConfiguration(name, <any>undefined, { urn })
             case "aws:iot/loggingOptions:LoggingOptions":
@@ -133,8 +159,11 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "iot/authorizer", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/billingGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/caCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/domainConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/eventConfigurations", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/indexingConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/loggingOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/policy", _module)

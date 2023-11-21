@@ -20,7 +20,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIA47VOQ2KPR7LLRZ6D
+//	$ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
 //
 // ```
 type BucketAccessKey struct {

@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.inputs;
 
 import com.pulumi.aws.autoscaling.enums.MetricsGranularity;
 import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
+import com.pulumi.aws.autoscaling.inputs.GroupInstanceMaintenancePolicyArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupLaunchTemplateArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
@@ -274,6 +275,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<GroupInitialLifecycleHookArgs>>> initialLifecycleHooks() {
         return Optional.ofNullable(this.initialLifecycleHooks);
+    }
+
+    /**
+     * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+     * 
+     */
+    @Import(name="instanceMaintenancePolicy")
+    private @Nullable Output<GroupInstanceMaintenancePolicyArgs> instanceMaintenancePolicy;
+
+    /**
+     * @return If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+     * 
+     */
+    public Optional<Output<GroupInstanceMaintenancePolicyArgs>> instanceMaintenancePolicy() {
+        return Optional.ofNullable(this.instanceMaintenancePolicy);
     }
 
     /**
@@ -728,6 +744,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.healthCheckType = $.healthCheckType;
         this.ignoreFailedScalingActivities = $.ignoreFailedScalingActivities;
         this.initialLifecycleHooks = $.initialLifecycleHooks;
+        this.instanceMaintenancePolicy = $.instanceMaintenancePolicy;
         this.instanceRefresh = $.instanceRefresh;
         this.launchConfiguration = $.launchConfiguration;
         this.launchTemplate = $.launchTemplate;
@@ -1147,6 +1164,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder initialLifecycleHooks(GroupInitialLifecycleHookArgs... initialLifecycleHooks) {
             return initialLifecycleHooks(List.of(initialLifecycleHooks));
+        }
+
+        /**
+         * @param instanceMaintenancePolicy If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMaintenancePolicy(@Nullable Output<GroupInstanceMaintenancePolicyArgs> instanceMaintenancePolicy) {
+            $.instanceMaintenancePolicy = instanceMaintenancePolicy;
+            return this;
+        }
+
+        /**
+         * @param instanceMaintenancePolicy If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMaintenancePolicy(GroupInstanceMaintenancePolicyArgs instanceMaintenancePolicy) {
+            return instanceMaintenancePolicy(Output.of(instanceMaintenancePolicy));
         }
 
         /**

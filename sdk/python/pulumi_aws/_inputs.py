@@ -310,10 +310,12 @@ class ProviderEndpointArgs:
                  config: Optional[pulumi.Input[str]] = None,
                  configservice: Optional[pulumi.Input[str]] = None,
                  connect: Optional[pulumi.Input[str]] = None,
+                 connectcases: Optional[pulumi.Input[str]] = None,
                  controltower: Optional[pulumi.Input[str]] = None,
                  costandusagereportservice: Optional[pulumi.Input[str]] = None,
                  costexplorer: Optional[pulumi.Input[str]] = None,
                  cur: Optional[pulumi.Input[str]] = None,
+                 customerprofiles: Optional[pulumi.Input[str]] = None,
                  databasemigration: Optional[pulumi.Input[str]] = None,
                  databasemigrationservice: Optional[pulumi.Input[str]] = None,
                  dataexchange: Optional[pulumi.Input[str]] = None,
@@ -416,10 +418,12 @@ class ProviderEndpointArgs:
                  networkmanager: Optional[pulumi.Input[str]] = None,
                  oam: Optional[pulumi.Input[str]] = None,
                  opensearch: Optional[pulumi.Input[str]] = None,
+                 opensearchingestion: Optional[pulumi.Input[str]] = None,
                  opensearchserverless: Optional[pulumi.Input[str]] = None,
                  opensearchservice: Optional[pulumi.Input[str]] = None,
                  opsworks: Optional[pulumi.Input[str]] = None,
                  organizations: Optional[pulumi.Input[str]] = None,
+                 osis: Optional[pulumi.Input[str]] = None,
                  outposts: Optional[pulumi.Input[str]] = None,
                  pinpoint: Optional[pulumi.Input[str]] = None,
                  pipes: Optional[pulumi.Input[str]] = None,
@@ -628,6 +632,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "configservice", configservice)
         if connect is not None:
             pulumi.set(__self__, "connect", connect)
+        if connectcases is not None:
+            pulumi.set(__self__, "connectcases", connectcases)
         if controltower is not None:
             pulumi.set(__self__, "controltower", controltower)
         if costandusagereportservice is not None:
@@ -636,6 +642,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "costexplorer", costexplorer)
         if cur is not None:
             pulumi.set(__self__, "cur", cur)
+        if customerprofiles is not None:
+            pulumi.set(__self__, "customerprofiles", customerprofiles)
         if databasemigration is not None:
             pulumi.set(__self__, "databasemigration", databasemigration)
         if databasemigrationservice is not None:
@@ -840,6 +848,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "oam", oam)
         if opensearch is not None:
             pulumi.set(__self__, "opensearch", opensearch)
+        if opensearchingestion is not None:
+            pulumi.set(__self__, "opensearchingestion", opensearchingestion)
         if opensearchserverless is not None:
             pulumi.set(__self__, "opensearchserverless", opensearchserverless)
         if opensearchservice is not None:
@@ -848,6 +858,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "opsworks", opsworks)
         if organizations is not None:
             pulumi.set(__self__, "organizations", organizations)
+        if osis is not None:
+            pulumi.set(__self__, "osis", osis)
         if outposts is not None:
             pulumi.set(__self__, "outposts", outposts)
         if pinpoint is not None:
@@ -1602,6 +1614,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def connectcases(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "connectcases")
+
+    @connectcases.setter
+    def connectcases(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connectcases", value)
+
+    @property
+    @pulumi.getter
     def controltower(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "controltower")
 
@@ -1635,6 +1656,15 @@ class ProviderEndpointArgs:
     @cur.setter
     def cur(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cur", value)
+
+    @property
+    @pulumi.getter
+    def customerprofiles(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "customerprofiles")
+
+    @customerprofiles.setter
+    def customerprofiles(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customerprofiles", value)
 
     @property
     @pulumi.getter
@@ -2556,6 +2586,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def opensearchingestion(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "opensearchingestion")
+
+    @opensearchingestion.setter
+    def opensearchingestion(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "opensearchingestion", value)
+
+    @property
+    @pulumi.getter
     def opensearchserverless(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "opensearchserverless")
 
@@ -2589,6 +2628,15 @@ class ProviderEndpointArgs:
     @organizations.setter
     def organizations(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organizations", value)
+
+    @property
+    @pulumi.getter
+    def osis(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "osis")
+
+    @osis.setter
+    def osis(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "osis", value)
 
     @property
     @pulumi.getter

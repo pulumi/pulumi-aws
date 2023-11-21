@@ -427,6 +427,8 @@ type Cluster struct {
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
 	// For use with RDS Custom.
 	DbSystemId pulumi.StringOutput `pulumi:"dbSystemId"`
+	// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+	DeleteAutomatedBackups pulumi.BoolPtrOutput `pulumi:"deleteAutomatedBackups"`
 	// If the DB cluster should have deletion protection enabled.
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
@@ -592,6 +594,8 @@ type clusterState struct {
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// For use with RDS Custom.
 	DbSystemId *string `pulumi:"dbSystemId"`
+	// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// If the DB cluster should have deletion protection enabled.
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
@@ -717,6 +721,8 @@ type ClusterState struct {
 	DbSubnetGroupName pulumi.StringPtrInput
 	// For use with RDS Custom.
 	DbSystemId pulumi.StringPtrInput
+	// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+	DeleteAutomatedBackups pulumi.BoolPtrInput
 	// If the DB cluster should have deletion protection enabled.
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
@@ -842,6 +848,8 @@ type clusterArgs struct {
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// For use with RDS Custom.
 	DbSystemId *string `pulumi:"dbSystemId"`
+	// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// If the DB cluster should have deletion protection enabled.
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
@@ -949,6 +957,8 @@ type ClusterArgs struct {
 	DbSubnetGroupName pulumi.StringPtrInput
 	// For use with RDS Custom.
 	DbSystemId pulumi.StringPtrInput
+	// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+	DeleteAutomatedBackups pulumi.BoolPtrInput
 	// If the DB cluster should have deletion protection enabled.
 	// The database can't be deleted when this value is set to `true`.
 	// The default is `false`.
@@ -1197,6 +1207,11 @@ func (o ClusterOutput) DbSubnetGroupName() pulumi.StringOutput {
 // For use with RDS Custom.
 func (o ClusterOutput) DbSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DbSystemId }).(pulumi.StringOutput)
+}
+
+// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+func (o ClusterOutput) DeleteAutomatedBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DeleteAutomatedBackups }).(pulumi.BoolPtrOutput)
 }
 
 // If the DB cluster should have deletion protection enabled.

@@ -121,6 +121,14 @@ namespace Pulumi.Aws.SsmContacts
     ///                             ContactId = contactTwo.Arn,
     ///                         },
     ///                     },
+    ///                     new Aws.SsmContacts.Inputs.PlanStageTargetArgs
+    ///                     {
+    ///                         ChannelTargetInfo = new Aws.SsmContacts.Inputs.PlanStageTargetChannelTargetInfoArgs
+    ///                         {
+    ///                             RetryIntervalInMinutes = 2,
+    ///                             ContactChannelId = aws_ssmcontacts_contact_channel.Channel.Arn,
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

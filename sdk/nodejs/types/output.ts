@@ -8040,6 +8040,17 @@ export namespace autoscaling {
         values: string[];
     }
 
+    export interface GetGroupInstanceMaintenancePolicy {
+        /**
+         * Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         */
+        maxHealthyPercentage: number;
+        /**
+         * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+         */
+        minHealthyPercentage: number;
+    }
+
     export interface GetGroupLaunchTemplate {
         /**
          * ID of the launch template.
@@ -8404,6 +8415,17 @@ export namespace autoscaling {
         roleArn?: string;
     }
 
+    export interface GroupInstanceMaintenancePolicy {
+        /**
+         * Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         */
+        maxHealthyPercentage: number;
+        /**
+         * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+         */
+        minHealthyPercentage: number;
+    }
+
     export interface GroupInstanceRefresh {
         /**
          * Override default parameters for Instance Refresh.
@@ -8445,7 +8467,7 @@ export namespace autoscaling {
          */
         instanceWarmup?: string;
         /**
-         * Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+         * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
          */
         minHealthyPercentage?: number;
         /**
@@ -10107,6 +10129,75 @@ export namespace bedrockfoundation {
          * Indicates whether the model supports streaming.
          */
         responseStreamingSupported: boolean;
+    }
+
+}
+
+export namespace bedrockmodel {
+    export interface InvocationLoggingConfigurationLoggingConfig {
+        /**
+         * CloudWatch logging configuration. See `cloudwatchConfig`.
+         */
+        cloudwatchConfig?: outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig;
+        /**
+         * Set to include embeddings data in the log delivery.
+         */
+        embeddingDataDeliveryEnabled: boolean;
+        /**
+         * Set to include image data in the log delivery.
+         */
+        imageDataDeliveryEnabled: boolean;
+        /**
+         * S3 configuration for storing log data. See `s3Config`.
+         */
+        s3Config?: outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigS3Config;
+        /**
+         * Set to include text data in the log delivery.
+         */
+        textDataDeliveryEnabled: boolean;
+    }
+
+    export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
+        /**
+         * S3 configuration for delivering a large amount of data. See `s3Config`.
+         */
+        largeDataDeliveryS3Config?: outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config;
+        /**
+         * Log group name.
+         */
+        logGroupName?: string;
+        /**
+         * IAM Role ARN.
+         *
+         * The following arguments are optional:
+         */
+        roleArn?: string;
+    }
+
+    export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
+        /**
+         * S3 bucket name.
+         *
+         * The following arguments are optional:
+         */
+        bucketName?: string;
+        /**
+         * S3 object key prefix.
+         */
+        keyPrefix?: string;
+    }
+
+    export interface InvocationLoggingConfigurationLoggingConfigS3Config {
+        /**
+         * S3 bucket name.
+         *
+         * The following arguments are optional:
+         */
+        bucketName?: string;
+        /**
+         * S3 object key prefix.
+         */
+        keyPrefix?: string;
     }
 
 }
@@ -13985,7 +14076,7 @@ export namespace codecatalyst {
 export namespace codecommit {
     export interface TriggerTrigger {
         /**
-         * The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+         * The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
          */
         branches?: string[];
         /**
@@ -15562,10 +15653,12 @@ export namespace config {
         config?: string;
         configservice?: string;
         connect?: string;
+        connectcases?: string;
         controltower?: string;
         costandusagereportservice?: string;
         costexplorer?: string;
         cur?: string;
+        customerprofiles?: string;
         databasemigration?: string;
         databasemigrationservice?: string;
         dataexchange?: string;
@@ -15668,10 +15761,12 @@ export namespace config {
         networkmanager?: string;
         oam?: string;
         opensearch?: string;
+        opensearchingestion?: string;
         opensearchserverless?: string;
         opensearchservice?: string;
         opsworks?: string;
         organizations?: string;
+        osis?: string;
         outposts?: string;
         pinpoint?: string;
         pipes?: string;
@@ -29618,6 +29713,9 @@ export namespace finspace {
     export interface KxClusterCacheStorageConfiguration {
         /**
          * Size of cache in Gigabytes.
+         *
+         * Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
+         * volume of data being cached, as noted in the example configuration.
          */
         size: number;
         /**
@@ -34082,6 +34180,43 @@ export namespace inspector2 {
 }
 
 export namespace iot {
+    export interface BillingGroupMetadata {
+        creationDate: string;
+    }
+
+    export interface BillingGroupProperties {
+        /**
+         * A description of the Billing Group.
+         */
+        description?: string;
+    }
+
+    export interface CaCertificateRegistrationConfig {
+        /**
+         * The ARN of the role.
+         */
+        roleArn?: boolean;
+        /**
+         * The template body.
+         */
+        templateBody?: string;
+        /**
+         * The name of the provisioning template.
+         */
+        templateName?: string;
+    }
+
+    export interface CaCertificateValidity {
+        /**
+         * The certificate is not valid after this date.
+         */
+        notAfter: string;
+        /**
+         * The certificate is not valid before this date.
+         */
+        notBefore: string;
+    }
+
     export interface DomainConfigurationAuthorizerConfig {
         /**
          * A Boolean that specifies whether the domain configuration's authorization service can be overridden.

@@ -10,6 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'BillingGroupMetadataArgs',
+    'BillingGroupPropertiesArgs',
+    'CaCertificateRegistrationConfigArgs',
+    'CaCertificateValidityArgs',
     'DomainConfigurationAuthorizerConfigArgs',
     'DomainConfigurationTlsConfigArgs',
     'IndexingConfigurationThingGroupIndexingConfigurationArgs',
@@ -76,6 +80,140 @@ __all__ = [
     'TopicRuleTimestreamDimensionArgs',
     'TopicRuleTimestreamTimestampArgs',
 ]
+
+@pulumi.input_type
+class BillingGroupMetadataArgs:
+    def __init__(__self__, *,
+                 creation_date: Optional[pulumi.Input[str]] = None):
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "creation_date")
+
+    @creation_date.setter
+    def creation_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_date", value)
+
+
+@pulumi.input_type
+class BillingGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: A description of the Billing Group.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the Billing Group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class CaCertificateRegistrationConfigArgs:
+    def __init__(__self__, *,
+                 role_arn: Optional[pulumi.Input[bool]] = None,
+                 template_body: Optional[pulumi.Input[str]] = None,
+                 template_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] role_arn: The ARN of the role.
+        :param pulumi.Input[str] template_body: The template body.
+        :param pulumi.Input[str] template_name: The name of the provisioning template.
+        """
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if template_body is not None:
+            pulumi.set(__self__, "template_body", template_body)
+        if template_name is not None:
+            pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The ARN of the role.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="templateBody")
+    def template_body(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template body.
+        """
+        return pulumi.get(self, "template_body")
+
+    @template_body.setter
+    def template_body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_body", value)
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the provisioning template.
+        """
+        return pulumi.get(self, "template_name")
+
+    @template_name.setter
+    def template_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_name", value)
+
+
+@pulumi.input_type
+class CaCertificateValidityArgs:
+    def __init__(__self__, *,
+                 not_after: Optional[pulumi.Input[str]] = None,
+                 not_before: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] not_after: The certificate is not valid after this date.
+        :param pulumi.Input[str] not_before: The certificate is not valid before this date.
+        """
+        if not_after is not None:
+            pulumi.set(__self__, "not_after", not_after)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+
+    @property
+    @pulumi.getter(name="notAfter")
+    def not_after(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate is not valid after this date.
+        """
+        return pulumi.get(self, "not_after")
+
+    @not_after.setter
+    def not_after(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_after", value)
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate is not valid before this date.
+        """
+        return pulumi.get(self, "not_before")
+
+    @not_before.setter
+    def not_before(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_before", value)
+
 
 @pulumi.input_type
 class DomainConfigurationAuthorizerConfigArgs:

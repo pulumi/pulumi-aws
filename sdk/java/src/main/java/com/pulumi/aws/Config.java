@@ -73,12 +73,20 @@ public final class Config {
         return Codegen.objectProp("forbiddenAccountIds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
- * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
- * `HTTPS_PROXY` environment variables.
+ * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+ * `http_proxy` environment variables.
  * 
  */
     public Optional<String> httpProxy() {
         return Codegen.stringProp("httpProxy").config(config).get();
+    }
+/**
+ * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+ * `https_proxy` environment variables.
+ * 
+ */
+    public Optional<String> httpsProxy() {
+        return Codegen.stringProp("httpsProxy").config(config).get();
     }
 /**
  * Configuration block with settings to ignore resource tags across all resources.
@@ -100,6 +108,14 @@ public final class Config {
  */
     public Optional<Integer> maxRetries() {
         return Codegen.integerProp("maxRetries").config(config).get();
+    }
+/**
+ * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+ * `no_proxy` environment variables.
+ * 
+ */
+    public Optional<String> noProxy() {
+        return Codegen.stringProp("noProxy").config(config).get();
     }
 /**
  * The profile for API operations. If not set, the default profile created with `aws configure` will be used.

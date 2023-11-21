@@ -334,6 +334,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbSystemId!: pulumi.Output<string>;
     /**
+     * Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+     */
+    public readonly deleteAutomatedBackups!: pulumi.Output<boolean | undefined>;
+    /**
      * If the DB cluster should have deletion protection enabled.
      * The database can't be deleted when this value is set to `true`.
      * The default is `false`.
@@ -523,6 +527,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dbInstanceParameterGroupName"] = state ? state.dbInstanceParameterGroupName : undefined;
             resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             resourceInputs["dbSystemId"] = state ? state.dbSystemId : undefined;
+            resourceInputs["deleteAutomatedBackups"] = state ? state.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             resourceInputs["enableGlobalWriteForwarding"] = state ? state.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = state ? state.enableHttpEndpoint : undefined;
@@ -583,6 +588,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dbInstanceParameterGroupName"] = args ? args.dbInstanceParameterGroupName : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["dbSystemId"] = args ? args.dbSystemId : undefined;
+            resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["enableGlobalWriteForwarding"] = args ? args.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
@@ -712,6 +718,10 @@ export interface ClusterState {
      * For use with RDS Custom.
      */
     dbSystemId?: pulumi.Input<string>;
+    /**
+     * Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+     */
+    deleteAutomatedBackups?: pulumi.Input<boolean>;
     /**
      * If the DB cluster should have deletion protection enabled.
      * The database can't be deleted when this value is set to `true`.
@@ -944,6 +954,10 @@ export interface ClusterArgs {
      * For use with RDS Custom.
      */
     dbSystemId?: pulumi.Input<string>;
+    /**
+     * Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+     */
+    deleteAutomatedBackups?: pulumi.Input<boolean>;
     /**
      * If the DB cluster should have deletion protection enabled.
      * The database can't be deleted when this value is set to `true`.

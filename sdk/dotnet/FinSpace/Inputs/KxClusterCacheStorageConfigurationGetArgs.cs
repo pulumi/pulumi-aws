@@ -14,6 +14,9 @@ namespace Pulumi.Aws.FinSpace.Inputs
     {
         /// <summary>
         /// Size of cache in Gigabytes.
+        /// 
+        /// Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
+        /// volume of data being cached, as noted in the example configuration.
         /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;

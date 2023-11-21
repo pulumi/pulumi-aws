@@ -28,6 +28,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -35,8 +36,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.NewSecurityGroupIngressRule(ctx, "example", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
+//			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "exampleSecurityGroup", &ec2.SecurityGroupArgs{
+//				Description: pulumi.String("example"),
+//				VpcId:       pulumi.Any(aws_vpc.Main.Id),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "exampleSecurityGroupIngressRule", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: exampleSecurityGroup.ID(),
 //				CidrIpv4:        pulumi.String("10.0.0.0/8"),
 //				FromPort:        pulumi.Int(80),
 //				IpProtocol:      pulumi.String("tcp"),

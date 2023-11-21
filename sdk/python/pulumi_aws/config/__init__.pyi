@@ -50,8 +50,14 @@ forbiddenAccountIds: Optional[str]
 
 httpProxy: Optional[str]
 """
-The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-`HTTPS_PROXY` environment variables.
+URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+`http_proxy` environment variables.
+"""
+
+httpsProxy: Optional[str]
+"""
+URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+`https_proxy` environment variables.
 """
 
 ignoreTags: Optional[str]
@@ -67,6 +73,12 @@ Explicitly allow the provider to perform "insecure" SSL requests. If omitted, de
 maxRetries: Optional[int]
 """
 The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+"""
+
+noProxy: Optional[str]
+"""
+Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+`no_proxy` environment variables.
 """
 
 profile: Optional[str]

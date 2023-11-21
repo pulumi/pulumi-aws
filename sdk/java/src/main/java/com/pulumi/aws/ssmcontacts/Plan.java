@@ -148,6 +148,12 @@ import javax.annotation.Nullable;
  *                             .isEssential(true)
  *                             .contactId(contactTwo.arn())
  *                             .build())
+ *                         .build(),
+ *                     PlanStageTargetArgs.builder()
+ *                         .channelTargetInfo(PlanStageTargetChannelTargetInfoArgs.builder()
+ *                             .retryIntervalInMinutes(2)
+ *                             .contactChannelId(aws_ssmcontacts_contact_channel.channel().arn())
+ *                             .build())
  *                         .build())
  *                 .build())
  *             .build());

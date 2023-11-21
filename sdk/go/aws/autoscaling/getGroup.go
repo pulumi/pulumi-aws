@@ -73,6 +73,8 @@ type LookupGroupResult struct {
 	HealthCheckType string `pulumi:"healthCheckType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Instance maintenance policy for the group.
+	InstanceMaintenancePolicies []GetGroupInstanceMaintenancePolicy `pulumi:"instanceMaintenancePolicies"`
 	// The name of the associated launch configuration.
 	LaunchConfiguration string `pulumi:"launchConfiguration"`
 	// List of launch templates along with the overrides.
@@ -196,6 +198,11 @@ func (o LookupGroupResultOutput) HealthCheckType() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Instance maintenance policy for the group.
+func (o LookupGroupResultOutput) InstanceMaintenancePolicies() GetGroupInstanceMaintenancePolicyArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GetGroupInstanceMaintenancePolicy { return v.InstanceMaintenancePolicies }).(GetGroupInstanceMaintenancePolicyArrayOutput)
 }
 
 // The name of the associated launch configuration.

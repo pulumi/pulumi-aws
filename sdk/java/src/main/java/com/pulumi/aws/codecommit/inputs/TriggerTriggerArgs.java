@@ -17,14 +17,14 @@ public final class TriggerTriggerArgs extends com.pulumi.resources.ResourceArgs 
     public static final TriggerTriggerArgs Empty = new TriggerTriggerArgs();
 
     /**
-     * The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+     * The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
      * 
      */
     @Import(name="branches")
     private @Nullable Output<List<String>> branches;
 
     /**
-     * @return The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+     * @return The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
      * 
      */
     public Optional<Output<List<String>>> branches() {
@@ -120,7 +120,7 @@ public final class TriggerTriggerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branches The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+         * @param branches The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class TriggerTriggerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branches The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+         * @param branches The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class TriggerTriggerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param branches The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+         * @param branches The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
          * 
          * @return builder
          * 

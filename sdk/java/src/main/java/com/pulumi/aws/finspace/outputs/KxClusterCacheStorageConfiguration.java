@@ -13,6 +13,9 @@ public final class KxClusterCacheStorageConfiguration {
     /**
      * @return Size of cache in Gigabytes.
      * 
+     * Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
+     * volume of data being cached, as noted in the example configuration.
+     * 
      */
     private Integer size;
     /**
@@ -27,6 +30,9 @@ public final class KxClusterCacheStorageConfiguration {
     private KxClusterCacheStorageConfiguration() {}
     /**
      * @return Size of cache in Gigabytes.
+     * 
+     * Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
+     * volume of data being cached, as noted in the example configuration.
      * 
      */
     public Integer size() {

@@ -122,13 +122,24 @@ namespace Pulumi.Aws
 
         private static readonly __Value<string?> _httpProxy = new __Value<string?>(() => __config.Get("httpProxy"));
         /// <summary>
-        /// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-        /// `HTTPS_PROXY` environment variables.
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+        /// `http_proxy` environment variables.
         /// </summary>
         public static string? HttpProxy
         {
             get => _httpProxy.Get();
             set => _httpProxy.Set(value);
+        }
+
+        private static readonly __Value<string?> _httpsProxy = new __Value<string?>(() => __config.Get("httpsProxy"));
+        /// <summary>
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+        /// `https_proxy` environment variables.
+        /// </summary>
+        public static string? HttpsProxy
+        {
+            get => _httpsProxy.Get();
+            set => _httpsProxy.Set(value);
         }
 
         private static readonly __Value<Pulumi.Aws.Config.Types.IgnoreTags?> _ignoreTags = new __Value<Pulumi.Aws.Config.Types.IgnoreTags?>(() => __config.GetObject<Pulumi.Aws.Config.Types.IgnoreTags>("ignoreTags"));
@@ -159,6 +170,17 @@ namespace Pulumi.Aws
         {
             get => _maxRetries.Get();
             set => _maxRetries.Set(value);
+        }
+
+        private static readonly __Value<string?> _noProxy = new __Value<string?>(() => __config.Get("noProxy"));
+        /// <summary>
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+        /// `no_proxy` environment variables.
+        /// </summary>
+        public static string? NoProxy
+        {
+            get => _noProxy.Get();
+            set => _noProxy.Set(value);
         }
 
         private static readonly __Value<string?> _profile = new __Value<string?>(() => __config.Get("profile"));
@@ -429,10 +451,12 @@ namespace Pulumi.Aws
                 public string? Config { get; set; } = null!;
                 public string? Configservice { get; set; } = null!;
                 public string? Connect { get; set; } = null!;
+                public string? Connectcases { get; set; } = null!;
                 public string? Controltower { get; set; } = null!;
                 public string? Costandusagereportservice { get; set; } = null!;
                 public string? Costexplorer { get; set; } = null!;
                 public string? Cur { get; set; } = null!;
+                public string? Customerprofiles { get; set; } = null!;
                 public string? Databasemigration { get; set; } = null!;
                 public string? Databasemigrationservice { get; set; } = null!;
                 public string? Dataexchange { get; set; } = null!;
@@ -535,10 +559,12 @@ namespace Pulumi.Aws
                 public string? Networkmanager { get; set; } = null!;
                 public string? Oam { get; set; } = null!;
                 public string? Opensearch { get; set; } = null!;
+                public string? Opensearchingestion { get; set; } = null!;
                 public string? Opensearchserverless { get; set; } = null!;
                 public string? Opensearchservice { get; set; } = null!;
                 public string? Opsworks { get; set; } = null!;
                 public string? Organizations { get; set; } = null!;
+                public string? Osis { get; set; } = null!;
                 public string? Outposts { get; set; } = null!;
                 public string? Pinpoint { get; set; } = null!;
                 public string? Pipes { get; set; } = null!;

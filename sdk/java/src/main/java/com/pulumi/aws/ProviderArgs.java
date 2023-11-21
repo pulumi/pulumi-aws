@@ -141,20 +141,37 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-     * `HTTPS_PROXY` environment variables.
+     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+     * `http_proxy` environment variables.
      * 
      */
     @Import(name="httpProxy")
     private @Nullable Output<String> httpProxy;
 
     /**
-     * @return The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-     * `HTTPS_PROXY` environment variables.
+     * @return URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+     * `http_proxy` environment variables.
      * 
      */
     public Optional<Output<String>> httpProxy() {
         return Optional.ofNullable(this.httpProxy);
+    }
+
+    /**
+     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+     * `https_proxy` environment variables.
+     * 
+     */
+    @Import(name="httpsProxy")
+    private @Nullable Output<String> httpsProxy;
+
+    /**
+     * @return URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+     * `https_proxy` environment variables.
+     * 
+     */
+    public Optional<Output<String>> httpsProxy() {
+        return Optional.ofNullable(this.httpsProxy);
     }
 
     /**
@@ -200,6 +217,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> maxRetries() {
         return Optional.ofNullable(this.maxRetries);
+    }
+
+    /**
+     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+     * `no_proxy` environment variables.
+     * 
+     */
+    @Import(name="noProxy")
+    private @Nullable Output<String> noProxy;
+
+    /**
+     * @return Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+     * `no_proxy` environment variables.
+     * 
+     */
+    public Optional<Output<String>> noProxy() {
+        return Optional.ofNullable(this.noProxy);
     }
 
     /**
@@ -470,9 +504,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.endpoints = $.endpoints;
         this.forbiddenAccountIds = $.forbiddenAccountIds;
         this.httpProxy = $.httpProxy;
+        this.httpsProxy = $.httpsProxy;
         this.ignoreTags = $.ignoreTags;
         this.insecure = $.insecure;
         this.maxRetries = $.maxRetries;
+        this.noProxy = $.noProxy;
         this.profile = $.profile;
         this.region = $.region;
         this.retryMode = $.retryMode;
@@ -678,8 +714,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpProxy The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-         * `HTTPS_PROXY` environment variables.
+         * @param httpProxy URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+         * `http_proxy` environment variables.
          * 
          * @return builder
          * 
@@ -690,14 +726,37 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpProxy The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-         * `HTTPS_PROXY` environment variables.
+         * @param httpProxy URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+         * `http_proxy` environment variables.
          * 
          * @return builder
          * 
          */
         public Builder httpProxy(String httpProxy) {
             return httpProxy(Output.of(httpProxy));
+        }
+
+        /**
+         * @param httpsProxy URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+         * `https_proxy` environment variables.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpsProxy(@Nullable Output<String> httpsProxy) {
+            $.httpsProxy = httpsProxy;
+            return this;
+        }
+
+        /**
+         * @param httpsProxy URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+         * `https_proxy` environment variables.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpsProxy(String httpsProxy) {
+            return httpsProxy(Output.of(httpsProxy));
         }
 
         /**
@@ -761,6 +820,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maxRetries(Integer maxRetries) {
             return maxRetries(Output.of(maxRetries));
+        }
+
+        /**
+         * @param noProxy Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+         * `no_proxy` environment variables.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noProxy(@Nullable Output<String> noProxy) {
+            $.noProxy = noProxy;
+            return this;
+        }
+
+        /**
+         * @param noProxy Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+         * `no_proxy` environment variables.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noProxy(String noProxy) {
+            return noProxy(Output.of(noProxy));
         }
 
         /**

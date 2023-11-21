@@ -547,6 +547,8 @@ type Group struct {
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks GroupInitialLifecycleHookArrayOutput `pulumi:"initialLifecycleHooks"`
+	// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+	InstanceMaintenancePolicy GroupInstanceMaintenancePolicyPtrOutput `pulumi:"instanceMaintenancePolicy"`
 	// If this block is configured, start an
 	// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
 	// when this Auto Scaling Group is updated. Defined below.
@@ -701,6 +703,8 @@ type groupState struct {
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks []GroupInitialLifecycleHook `pulumi:"initialLifecycleHooks"`
+	// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+	InstanceMaintenancePolicy *GroupInstanceMaintenancePolicy `pulumi:"instanceMaintenancePolicy"`
 	// If this block is configured, start an
 	// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
 	// when this Auto Scaling Group is updated. Defined below.
@@ -820,6 +824,8 @@ type GroupState struct {
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks GroupInitialLifecycleHookArrayInput
+	// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+	InstanceMaintenancePolicy GroupInstanceMaintenancePolicyPtrInput
 	// If this block is configured, start an
 	// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
 	// when this Auto Scaling Group is updated. Defined below.
@@ -941,6 +947,8 @@ type groupArgs struct {
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks []GroupInitialLifecycleHook `pulumi:"initialLifecycleHooks"`
+	// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+	InstanceMaintenancePolicy *GroupInstanceMaintenancePolicy `pulumi:"instanceMaintenancePolicy"`
 	// If this block is configured, start an
 	// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
 	// when this Auto Scaling Group is updated. Defined below.
@@ -1055,6 +1063,8 @@ type GroupArgs struct {
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks GroupInitialLifecycleHookArrayInput
+	// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+	InstanceMaintenancePolicy GroupInstanceMaintenancePolicyPtrInput
 	// If this block is configured, start an
 	// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
 	// when this Auto Scaling Group is updated. Defined below.
@@ -1299,6 +1309,11 @@ func (o GroupOutput) IgnoreFailedScalingActivities() pulumi.BoolPtrOutput {
 // a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 func (o GroupOutput) InitialLifecycleHooks() GroupInitialLifecycleHookArrayOutput {
 	return o.ApplyT(func(v *Group) GroupInitialLifecycleHookArrayOutput { return v.InitialLifecycleHooks }).(GroupInitialLifecycleHookArrayOutput)
+}
+
+// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+func (o GroupOutput) InstanceMaintenancePolicy() GroupInstanceMaintenancePolicyPtrOutput {
+	return o.ApplyT(func(v *Group) GroupInstanceMaintenancePolicyPtrOutput { return v.InstanceMaintenancePolicy }).(GroupInstanceMaintenancePolicyPtrOutput)
 }
 
 // If this block is configured, start an

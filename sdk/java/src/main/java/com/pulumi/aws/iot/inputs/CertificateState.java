@@ -47,6 +47,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The certificate ID of the CA certificate used to sign the certificate.
+     * 
+     */
+    @Import(name="caCertificateId")
+    private @Nullable Output<String> caCertificateId;
+
+    /**
+     * @return The certificate ID of the CA certificate used to sign the certificate.
+     * 
+     */
+    public Optional<Output<String>> caCertificateId() {
+        return Optional.ofNullable(this.caCertificateId);
+    }
+
+    /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      * 
      */
@@ -142,6 +157,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     private CertificateState(CertificateState $) {
         this.active = $.active;
         this.arn = $.arn;
+        this.caCertificateId = $.caCertificateId;
         this.caPem = $.caPem;
         this.certificatePem = $.certificatePem;
         this.csr = $.csr;
@@ -207,6 +223,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param caCertificateId The certificate ID of the CA certificate used to sign the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateId(@Nullable Output<String> caCertificateId) {
+            $.caCertificateId = caCertificateId;
+            return this;
+        }
+
+        /**
+         * @param caCertificateId The certificate ID of the CA certificate used to sign the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateId(String caCertificateId) {
+            return caCertificateId(Output.of(caCertificateId));
         }
 
         /**

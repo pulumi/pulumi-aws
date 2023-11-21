@@ -62,7 +62,7 @@ export class VoiceConnector extends pulumi.CustomResource {
     /**
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      */
-    public readonly awsRegion!: pulumi.Output<string | undefined>;
+    public readonly awsRegion!: pulumi.Output<string>;
     /**
      * The name of the Amazon Chime Voice Connector.
      */

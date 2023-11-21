@@ -33,6 +33,7 @@ class GroupArgs:
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
+                 instance_maintenance_policy: Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']] = None,
                  instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input['GroupLaunchTemplateArgs']] = None,
@@ -86,6 +87,7 @@ class GroupArgs:
                `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
+        :param pulumi.Input['GroupInstanceMaintenancePolicyArgs'] instance_maintenance_policy: If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         :param pulumi.Input['GroupInstanceRefreshArgs'] instance_refresh: If this block is configured, start an
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
@@ -160,6 +162,8 @@ class GroupArgs:
             pulumi.set(__self__, "ignore_failed_scaling_activities", ignore_failed_scaling_activities)
         if initial_lifecycle_hooks is not None:
             pulumi.set(__self__, "initial_lifecycle_hooks", initial_lifecycle_hooks)
+        if instance_maintenance_policy is not None:
+            pulumi.set(__self__, "instance_maintenance_policy", instance_maintenance_policy)
         if instance_refresh is not None:
             pulumi.set(__self__, "instance_refresh", instance_refresh)
         if launch_configuration is not None:
@@ -409,6 +413,18 @@ class GroupArgs:
     @initial_lifecycle_hooks.setter
     def initial_lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]):
         pulumi.set(self, "initial_lifecycle_hooks", value)
+
+    @property
+    @pulumi.getter(name="instanceMaintenancePolicy")
+    def instance_maintenance_policy(self) -> Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']]:
+        """
+        If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+        """
+        return pulumi.get(self, "instance_maintenance_policy")
+
+    @instance_maintenance_policy.setter
+    def instance_maintenance_policy(self, value: Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']]):
+        pulumi.set(self, "instance_maintenance_policy", value)
 
     @property
     @pulumi.getter(name="instanceRefresh")
@@ -714,6 +730,7 @@ class _GroupState:
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
+                 instance_maintenance_policy: Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']] = None,
                  instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input['GroupLaunchTemplateArgs']] = None,
@@ -769,6 +786,7 @@ class _GroupState:
                `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
+        :param pulumi.Input['GroupInstanceMaintenancePolicyArgs'] instance_maintenance_policy: If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         :param pulumi.Input['GroupInstanceRefreshArgs'] instance_refresh: If this block is configured, start an
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
@@ -848,6 +866,8 @@ class _GroupState:
             pulumi.set(__self__, "ignore_failed_scaling_activities", ignore_failed_scaling_activities)
         if initial_lifecycle_hooks is not None:
             pulumi.set(__self__, "initial_lifecycle_hooks", initial_lifecycle_hooks)
+        if instance_maintenance_policy is not None:
+            pulumi.set(__self__, "instance_maintenance_policy", instance_maintenance_policy)
         if instance_refresh is not None:
             pulumi.set(__self__, "instance_refresh", instance_refresh)
         if launch_configuration is not None:
@@ -1092,6 +1112,18 @@ class _GroupState:
     @initial_lifecycle_hooks.setter
     def initial_lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]):
         pulumi.set(self, "initial_lifecycle_hooks", value)
+
+    @property
+    @pulumi.getter(name="instanceMaintenancePolicy")
+    def instance_maintenance_policy(self) -> Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']]:
+        """
+        If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+        """
+        return pulumi.get(self, "instance_maintenance_policy")
+
+    @instance_maintenance_policy.setter
+    def instance_maintenance_policy(self, value: Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']]):
+        pulumi.set(self, "instance_maintenance_policy", value)
 
     @property
     @pulumi.getter(name="instanceRefresh")
@@ -1447,6 +1479,7 @@ class Group(pulumi.CustomResource):
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
+                 instance_maintenance_policy: Optional[pulumi.Input[pulumi.InputType['GroupInstanceMaintenancePolicyArgs']]] = None,
                  instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']]] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']]] = None,
@@ -1810,6 +1843,7 @@ class Group(pulumi.CustomResource):
                `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
+        :param pulumi.Input[pulumi.InputType['GroupInstanceMaintenancePolicyArgs']] instance_maintenance_policy: If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         :param pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']] instance_refresh: If this block is configured, start an
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
@@ -2202,6 +2236,7 @@ class Group(pulumi.CustomResource):
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
+                 instance_maintenance_policy: Optional[pulumi.Input[pulumi.InputType['GroupInstanceMaintenancePolicyArgs']]] = None,
                  instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']]] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']]] = None,
@@ -2249,6 +2284,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["health_check_type"] = health_check_type
             __props__.__dict__["ignore_failed_scaling_activities"] = ignore_failed_scaling_activities
             __props__.__dict__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
+            __props__.__dict__["instance_maintenance_policy"] = instance_maintenance_policy
             __props__.__dict__["instance_refresh"] = instance_refresh
             __props__.__dict__["launch_configuration"] = launch_configuration
             __props__.__dict__["launch_template"] = launch_template
@@ -2305,6 +2341,7 @@ class Group(pulumi.CustomResource):
             health_check_type: Optional[pulumi.Input[str]] = None,
             ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
             initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
+            instance_maintenance_policy: Optional[pulumi.Input[pulumi.InputType['GroupInstanceMaintenancePolicyArgs']]] = None,
             instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']]] = None,
             launch_configuration: Optional[pulumi.Input[str]] = None,
             launch_template: Optional[pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']]] = None,
@@ -2365,6 +2402,7 @@ class Group(pulumi.CustomResource):
                `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
+        :param pulumi.Input[pulumi.InputType['GroupInstanceMaintenancePolicyArgs']] instance_maintenance_policy: If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         :param pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']] instance_refresh: If this block is configured, start an
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
@@ -2433,6 +2471,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["health_check_type"] = health_check_type
         __props__.__dict__["ignore_failed_scaling_activities"] = ignore_failed_scaling_activities
         __props__.__dict__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
+        __props__.__dict__["instance_maintenance_policy"] = instance_maintenance_policy
         __props__.__dict__["instance_refresh"] = instance_refresh
         __props__.__dict__["launch_configuration"] = launch_configuration
         __props__.__dict__["launch_template"] = launch_template
@@ -2592,6 +2631,14 @@ class Group(pulumi.CustomResource):
         a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
         """
         return pulumi.get(self, "initial_lifecycle_hooks")
+
+    @property
+    @pulumi.getter(name="instanceMaintenancePolicy")
+    def instance_maintenance_policy(self) -> pulumi.Output[Optional['outputs.GroupInstanceMaintenancePolicy']]:
+        """
+        If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+        """
+        return pulumi.get(self, "instance_maintenance_policy")
 
     @property
     @pulumi.getter(name="instanceRefresh")

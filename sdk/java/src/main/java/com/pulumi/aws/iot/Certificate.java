@@ -142,6 +142,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * The certificate ID of the CA certificate used to sign the certificate.
+     * 
+     */
+    @Export(name="caCertificateId", refs={String.class}, tree="[0]")
+    private Output<String> caCertificateId;
+
+    /**
+     * @return The certificate ID of the CA certificate used to sign the certificate.
+     * 
+     */
+    public Output<String> caCertificateId() {
+        return this.caCertificateId;
+    }
+    /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      * 
      */

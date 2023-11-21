@@ -7,10 +7,12 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.iot.inputs.GetEndpointArgs;
 import com.pulumi.aws.iot.inputs.GetEndpointPlainArgs;
 import com.pulumi.aws.iot.outputs.GetEndpointResult;
+import com.pulumi.aws.iot.outputs.GetRegistrationCodeResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class IotFunctions {
@@ -265,5 +267,311 @@ public final class IotFunctions {
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a registration code used to register a CA certificate with AWS IoT.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getRegistrationCode();
+     * 
+     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *             .algorithm(&#34;RSA&#34;)
+     *             .build());
+     * 
+     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
+     *             .keyAlgorithm(&#34;RSA&#34;)
+     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRegistrationCodeResult> getRegistrationCode() {
+        return getRegistrationCode(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Gets a registration code used to register a CA certificate with AWS IoT.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getRegistrationCode();
+     * 
+     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *             .algorithm(&#34;RSA&#34;)
+     *             .build());
+     * 
+     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
+     *             .keyAlgorithm(&#34;RSA&#34;)
+     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain() {
+        return getRegistrationCodePlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Gets a registration code used to register a CA certificate with AWS IoT.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getRegistrationCode();
+     * 
+     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *             .algorithm(&#34;RSA&#34;)
+     *             .build());
+     * 
+     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
+     *             .keyAlgorithm(&#34;RSA&#34;)
+     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRegistrationCodeResult> getRegistrationCode(InvokeArgs args) {
+        return getRegistrationCode(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets a registration code used to register a CA certificate with AWS IoT.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getRegistrationCode();
+     * 
+     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *             .algorithm(&#34;RSA&#34;)
+     *             .build());
+     * 
+     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
+     *             .keyAlgorithm(&#34;RSA&#34;)
+     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(InvokeArgs args) {
+        return getRegistrationCodePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets a registration code used to register a CA certificate with AWS IoT.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getRegistrationCode();
+     * 
+     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *             .algorithm(&#34;RSA&#34;)
+     *             .build());
+     * 
+     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
+     *             .keyAlgorithm(&#34;RSA&#34;)
+     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRegistrationCodeResult> getRegistrationCode(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a registration code used to register a CA certificate with AWS IoT.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getRegistrationCode();
+     * 
+     *         var verificationPrivateKey = new PrivateKey(&#34;verificationPrivateKey&#34;, PrivateKeyArgs.builder()        
+     *             .algorithm(&#34;RSA&#34;)
+     *             .build());
+     * 
+     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
+     *             .keyAlgorithm(&#34;RSA&#34;)
+     *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
     }
 }

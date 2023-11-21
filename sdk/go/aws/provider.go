@@ -29,9 +29,15 @@ type Provider struct {
 	// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
 	// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
 	Ec2MetadataServiceEndpointMode pulumi.StringPtrOutput `pulumi:"ec2MetadataServiceEndpointMode"`
-	// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-	// `HTTPS_PROXY` environment variables.
+	// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+	// `http_proxy` environment variables.
 	HttpProxy pulumi.StringPtrOutput `pulumi:"httpProxy"`
+	// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+	// `https_proxy` environment variables.
+	HttpsProxy pulumi.StringPtrOutput `pulumi:"httpsProxy"`
+	// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+	// `no_proxy` environment variables.
+	NoProxy pulumi.StringPtrOutput `pulumi:"noProxy"`
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
@@ -100,15 +106,21 @@ type providerArgs struct {
 	Ec2MetadataServiceEndpointMode *string            `pulumi:"ec2MetadataServiceEndpointMode"`
 	Endpoints                      []ProviderEndpoint `pulumi:"endpoints"`
 	ForbiddenAccountIds            []string           `pulumi:"forbiddenAccountIds"`
-	// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-	// `HTTPS_PROXY` environment variables.
+	// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+	// `http_proxy` environment variables.
 	HttpProxy *string `pulumi:"httpProxy"`
+	// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+	// `https_proxy` environment variables.
+	HttpsProxy *string `pulumi:"httpsProxy"`
 	// Configuration block with settings to ignore resource tags across all resources.
 	IgnoreTags *ProviderIgnoreTags `pulumi:"ignoreTags"`
 	// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
 	Insecure *bool `pulumi:"insecure"`
 	// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 	MaxRetries *int `pulumi:"maxRetries"`
+	// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+	// `no_proxy` environment variables.
+	NoProxy *string `pulumi:"noProxy"`
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile *string `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
@@ -170,15 +182,21 @@ type ProviderArgs struct {
 	Ec2MetadataServiceEndpointMode pulumi.StringPtrInput
 	Endpoints                      ProviderEndpointArrayInput
 	ForbiddenAccountIds            pulumi.StringArrayInput
-	// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-	// `HTTPS_PROXY` environment variables.
+	// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+	// `http_proxy` environment variables.
 	HttpProxy pulumi.StringPtrInput
+	// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+	// `https_proxy` environment variables.
+	HttpsProxy pulumi.StringPtrInput
 	// Configuration block with settings to ignore resource tags across all resources.
 	IgnoreTags ProviderIgnoreTagsPtrInput
 	// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
 	Insecure pulumi.BoolPtrInput
 	// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 	MaxRetries pulumi.IntPtrInput
+	// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+	// `no_proxy` environment variables.
+	NoProxy pulumi.StringPtrInput
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrInput
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
@@ -280,10 +298,22 @@ func (o ProviderOutput) Ec2MetadataServiceEndpointMode() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Ec2MetadataServiceEndpointMode }).(pulumi.StringPtrOutput)
 }
 
-// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-// `HTTPS_PROXY` environment variables.
+// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+// `http_proxy` environment variables.
 func (o ProviderOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpProxy }).(pulumi.StringPtrOutput)
+}
+
+// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+// `https_proxy` environment variables.
+func (o ProviderOutput) HttpsProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpsProxy }).(pulumi.StringPtrOutput)
+}
+
+// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+// `no_proxy` environment variables.
+func (o ProviderOutput) NoProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.NoProxy }).(pulumi.StringPtrOutput)
 }
 
 // The profile for API operations. If not set, the default profile created with `aws configure` will be used.

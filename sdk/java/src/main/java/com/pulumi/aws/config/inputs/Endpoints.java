@@ -78,10 +78,12 @@ public final class Endpoints {
     private @Nullable String config;
     private @Nullable String configservice;
     private @Nullable String connect;
+    private @Nullable String connectcases;
     private @Nullable String controltower;
     private @Nullable String costandusagereportservice;
     private @Nullable String costexplorer;
     private @Nullable String cur;
+    private @Nullable String customerprofiles;
     private @Nullable String databasemigration;
     private @Nullable String databasemigrationservice;
     private @Nullable String dataexchange;
@@ -184,10 +186,12 @@ public final class Endpoints {
     private @Nullable String networkmanager;
     private @Nullable String oam;
     private @Nullable String opensearch;
+    private @Nullable String opensearchingestion;
     private @Nullable String opensearchserverless;
     private @Nullable String opensearchservice;
     private @Nullable String opsworks;
     private @Nullable String organizations;
+    private @Nullable String osis;
     private @Nullable String outposts;
     private @Nullable String pinpoint;
     private @Nullable String pipes;
@@ -465,6 +469,9 @@ public final class Endpoints {
     public Optional<String> connect() {
         return Optional.ofNullable(this.connect);
     }
+    public Optional<String> connectcases() {
+        return Optional.ofNullable(this.connectcases);
+    }
     public Optional<String> controltower() {
         return Optional.ofNullable(this.controltower);
     }
@@ -476,6 +483,9 @@ public final class Endpoints {
     }
     public Optional<String> cur() {
         return Optional.ofNullable(this.cur);
+    }
+    public Optional<String> customerprofiles() {
+        return Optional.ofNullable(this.customerprofiles);
     }
     public Optional<String> databasemigration() {
         return Optional.ofNullable(this.databasemigration);
@@ -783,6 +793,9 @@ public final class Endpoints {
     public Optional<String> opensearch() {
         return Optional.ofNullable(this.opensearch);
     }
+    public Optional<String> opensearchingestion() {
+        return Optional.ofNullable(this.opensearchingestion);
+    }
     public Optional<String> opensearchserverless() {
         return Optional.ofNullable(this.opensearchserverless);
     }
@@ -794,6 +807,9 @@ public final class Endpoints {
     }
     public Optional<String> organizations() {
         return Optional.ofNullable(this.organizations);
+    }
+    public Optional<String> osis() {
+        return Optional.ofNullable(this.osis);
     }
     public Optional<String> outposts() {
         return Optional.ofNullable(this.outposts);
@@ -1094,10 +1110,12 @@ public final class Endpoints {
         private @Nullable String config;
         private @Nullable String configservice;
         private @Nullable String connect;
+        private @Nullable String connectcases;
         private @Nullable String controltower;
         private @Nullable String costandusagereportservice;
         private @Nullable String costexplorer;
         private @Nullable String cur;
+        private @Nullable String customerprofiles;
         private @Nullable String databasemigration;
         private @Nullable String databasemigrationservice;
         private @Nullable String dataexchange;
@@ -1200,10 +1218,12 @@ public final class Endpoints {
         private @Nullable String networkmanager;
         private @Nullable String oam;
         private @Nullable String opensearch;
+        private @Nullable String opensearchingestion;
         private @Nullable String opensearchserverless;
         private @Nullable String opensearchservice;
         private @Nullable String opsworks;
         private @Nullable String organizations;
+        private @Nullable String osis;
         private @Nullable String outposts;
         private @Nullable String pinpoint;
         private @Nullable String pipes;
@@ -1348,10 +1368,12 @@ public final class Endpoints {
     	      this.config = defaults.config;
     	      this.configservice = defaults.configservice;
     	      this.connect = defaults.connect;
+    	      this.connectcases = defaults.connectcases;
     	      this.controltower = defaults.controltower;
     	      this.costandusagereportservice = defaults.costandusagereportservice;
     	      this.costexplorer = defaults.costexplorer;
     	      this.cur = defaults.cur;
+    	      this.customerprofiles = defaults.customerprofiles;
     	      this.databasemigration = defaults.databasemigration;
     	      this.databasemigrationservice = defaults.databasemigrationservice;
     	      this.dataexchange = defaults.dataexchange;
@@ -1454,10 +1476,12 @@ public final class Endpoints {
     	      this.networkmanager = defaults.networkmanager;
     	      this.oam = defaults.oam;
     	      this.opensearch = defaults.opensearch;
+    	      this.opensearchingestion = defaults.opensearchingestion;
     	      this.opensearchserverless = defaults.opensearchserverless;
     	      this.opensearchservice = defaults.opensearchservice;
     	      this.opsworks = defaults.opsworks;
     	      this.organizations = defaults.organizations;
+    	      this.osis = defaults.osis;
     	      this.outposts = defaults.outposts;
     	      this.pinpoint = defaults.pinpoint;
     	      this.pipes = defaults.pipes;
@@ -1870,6 +1894,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder connectcases(@Nullable String connectcases) {
+            this.connectcases = connectcases;
+            return this;
+        }
+        @CustomType.Setter
         public Builder controltower(@Nullable String controltower) {
             this.controltower = controltower;
             return this;
@@ -1887,6 +1916,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder cur(@Nullable String cur) {
             this.cur = cur;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customerprofiles(@Nullable String customerprofiles) {
+            this.customerprofiles = customerprofiles;
             return this;
         }
         @CustomType.Setter
@@ -2400,6 +2434,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder opensearchingestion(@Nullable String opensearchingestion) {
+            this.opensearchingestion = opensearchingestion;
+            return this;
+        }
+        @CustomType.Setter
         public Builder opensearchserverless(@Nullable String opensearchserverless) {
             this.opensearchserverless = opensearchserverless;
             return this;
@@ -2417,6 +2456,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder organizations(@Nullable String organizations) {
             this.organizations = organizations;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder osis(@Nullable String osis) {
+            this.osis = osis;
             return this;
         }
         @CustomType.Setter
@@ -2858,10 +2902,12 @@ public final class Endpoints {
             o.config = config;
             o.configservice = configservice;
             o.connect = connect;
+            o.connectcases = connectcases;
             o.controltower = controltower;
             o.costandusagereportservice = costandusagereportservice;
             o.costexplorer = costexplorer;
             o.cur = cur;
+            o.customerprofiles = customerprofiles;
             o.databasemigration = databasemigration;
             o.databasemigrationservice = databasemigrationservice;
             o.dataexchange = dataexchange;
@@ -2964,10 +3010,12 @@ public final class Endpoints {
             o.networkmanager = networkmanager;
             o.oam = oam;
             o.opensearch = opensearch;
+            o.opensearchingestion = opensearchingestion;
             o.opensearchserverless = opensearchserverless;
             o.opensearchservice = opensearchservice;
             o.opsworks = opsworks;
             o.organizations = organizations;
+            o.osis = osis;
             o.outposts = outposts;
             o.pinpoint = pinpoint;
             o.pipes = pipes;

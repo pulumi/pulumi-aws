@@ -54,10 +54,16 @@ func GetForbiddenAccountIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:forbiddenAccountIds")
 }
 
-// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
-// `HTTPS_PROXY` environment variables.
+// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+// `http_proxy` environment variables.
 func GetHttpProxy(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:httpProxy")
+}
+
+// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+// `https_proxy` environment variables.
+func GetHttpsProxy(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:httpsProxy")
 }
 
 // Configuration block with settings to ignore resource tags across all resources.
@@ -73,6 +79,12 @@ func GetInsecure(ctx *pulumi.Context) bool {
 // The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "aws:maxRetries")
+}
+
+// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+// `no_proxy` environment variables.
+func GetNoProxy(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:noProxy")
 }
 
 // The profile for API operations. If not set, the default profile created with `aws configure` will be used.

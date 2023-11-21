@@ -30,9 +30,17 @@ public final class TriggerArgs extends com.pulumi.resources.ResourceArgs {
         return this.repositoryName;
     }
 
+    /**
+     * The name of the trigger.
+     * 
+     */
     @Import(name="triggers", required=true)
     private Output<List<TriggerTriggerArgs>> triggers;
 
+    /**
+     * @return The name of the trigger.
+     * 
+     */
     public Output<List<TriggerTriggerArgs>> triggers() {
         return this.triggers;
     }
@@ -83,15 +91,33 @@ public final class TriggerArgs extends com.pulumi.resources.ResourceArgs {
             return repositoryName(Output.of(repositoryName));
         }
 
+        /**
+         * @param triggers The name of the trigger.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(Output<List<TriggerTriggerArgs>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
+        /**
+         * @param triggers The name of the trigger.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(List<TriggerTriggerArgs> triggers) {
             return triggers(Output.of(triggers));
         }
 
+        /**
+         * @param triggers The name of the trigger.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(TriggerTriggerArgs... triggers) {
             return triggers(List.of(triggers));
         }

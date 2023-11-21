@@ -76,6 +76,12 @@ import * as utilities from "../utilities";
  *                     contactId: contactTwo.arn,
  *                 },
  *             },
+ *             {
+ *                 channelTargetInfo: {
+ *                     retryIntervalInMinutes: 2,
+ *                     contactChannelId: aws_ssmcontacts_contact_channel.channel.arn,
+ *                 },
+ *             },
  *         ],
  *     }],
  * });
