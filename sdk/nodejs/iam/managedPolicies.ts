@@ -487,7 +487,7 @@ export module ManagedPolicies {
     export const CloudWatchEventsInvocationAccess: ARN = "arn:aws:iam::aws:policy/service-role/CloudWatchEventsInvocationAccess";
     /** Use ManagedPolicy.CloudWatchEventsReadOnlyAccess instead. */
     export const CloudWatchEventsReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess";
-    /** Use ManagedPolicy.CloudWatchFullAccess instead. */
+    /** @deprecated This policy is deprecated and will no longer be supported after December 7, 2023. Use ManagedPolicy.CloudWatchFullAccessV2 instead. */
     export const CloudWatchFullAccess: ARN = "arn:aws:iam::aws:policy/CloudWatchFullAccess";
     /** Use ManagedPolicy.CloudWatchFullAccessV2 instead. */
     export const CloudWatchFullAccessV2: ARN = "arn:aws:iam::aws:policy/CloudWatchFullAccessV2";

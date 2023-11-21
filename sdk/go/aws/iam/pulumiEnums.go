@@ -996,7 +996,7 @@ const (
 	ManagedPolicyCloudWatchEventsInvocationAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/CloudWatchEventsInvocationAccess")
 	ManagedPolicyCloudWatchEventsReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess")
 	ManagedPolicyCloudWatchEventsServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchEventsServiceRolePolicy")
-	// After December 7, 2023, "CloudWatchFullAccess" will no longer be supported. Use "CloudWatchFullAccessV2" instead.
+	// Deprecated: This policy is deprecated and will no longer be supported after December 7, 2023. Use CloudWatchFullAccessV2 instead.
 	ManagedPolicyCloudWatchFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchFullAccess")
 	ManagedPolicyCloudWatchFullAccessV2                                                 = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchFullAccessV2")
 	ManagedPolicyCloudWatchInternetMonitorServiceRolePolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy")

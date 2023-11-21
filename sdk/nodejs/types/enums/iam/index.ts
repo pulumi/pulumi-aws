@@ -1033,7 +1033,9 @@ export const ManagedPolicy = {
     CloudWatchEventsInvocationAccess: "arn:aws:iam::aws:policy/service-role/CloudWatchEventsInvocationAccess",
     CloudWatchEventsReadOnlyAccess: "arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess",
     CloudWatchEventsServiceRolePolicy: "arn:aws:iam::aws:policy/aws-service-role/CloudWatchEventsServiceRolePolicy",
-    // After December 7, 2023, "CloudWatchFullAccess" will no longer be supported. Use "CloudWatchFullAccessV2" instead.
+    /**
+     * @deprecated This policy is deprecated and will no longer be supported after December 7, 2023. Use CloudWatchFullAccessV2 instead.
+     */
     CloudWatchFullAccess: "arn:aws:iam::aws:policy/CloudWatchFullAccess",
     CloudWatchFullAccessV2: "arn:aws:iam::aws:policy/CloudWatchFullAccessV2",
     CloudWatchInternetMonitorServiceRolePolicy: "arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy",
