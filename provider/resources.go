@@ -5645,9 +5645,9 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Name: "CloudWatchEventsReadOnlyAccess", Value: "arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess"},
 					{Name: "CloudWatchEventsServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudWatchEventsServiceRolePolicy"},
 					{
-						Name: "CloudWatchFullAccess",
-						Value: "arn:aws:iam::aws:policy/CloudWatchFullAccess",
-						DeprecationMessage: "This policy is deprecated and will no longer be supported after December 7, 2023. Use CloudWatchFullAccessV2 instead.",
+						Name:               "CloudWatchFullAccess",
+						Value:              "arn:aws:iam::aws:policy/CloudWatchFullAccess",
+						DeprecationMessage: "This policy is deprecated and will no longer be supported by AWS after December 7, 2023. Use CloudWatchFullAccessV2 instead.",
 					},
 					{Name: "CloudWatchFullAccessV2", Value: "arn:aws:iam::aws:policy/CloudWatchFullAccessV2"},
 					{Name: "CloudWatchInternetMonitorServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy"},
