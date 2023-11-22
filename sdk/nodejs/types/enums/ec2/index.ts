@@ -321,7 +321,7 @@ export const InstanceType = {
     M7a_24XLarge: "m7a.24xlarge",
     M7a_32XLarge: "m7a.32xlarge",
     M7a_48XLarge: "m7a.48xlarge",
-    M7a_Metal: "m7a.metal",
+    M7a_Metal: "m7a.metal-48xl",
     Mac1_Metal: "mac1.metal",
     P2_16XLarge: "p2.16xlarge",
     P2_8XLarge: "p2.8xlarge",
