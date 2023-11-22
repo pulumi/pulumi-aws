@@ -330,7 +330,7 @@ class InstanceType(str, Enum):
     M7A_24_X_LARGE = "m7a.24xlarge"
     M7A_32_X_LARGE = "m7a.32xlarge"
     M7A_48_X_LARGE = "m7a.48xlarge"
-    M7A_METAL = "m7a.metal"
+    M7A_METAL = "m7a.metal-48xl"
     MAC1_METAL = "mac1.metal"
     P2_16_X_LARGE = "p2.16xlarge"
     P2_8_X_LARGE = "p2.8xlarge"
