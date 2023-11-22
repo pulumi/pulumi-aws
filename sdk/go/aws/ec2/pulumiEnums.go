@@ -507,7 +507,7 @@ const (
 	InstanceType_M7a_24XLarge  = InstanceType("m7a.24xlarge")
 	InstanceType_M7a_32XLarge  = InstanceType("m7a.32xlarge")
 	InstanceType_M7a_48XLarge  = InstanceType("m7a.48xlarge")
-	InstanceType_M7a_Metal     = InstanceType("m7a.metal")
+	InstanceType_M7a_Metal     = InstanceType("m7a.metal-48xl")
 	InstanceType_Mac1_Metal    = InstanceType("mac1.metal")
 	InstanceType_P2_16XLarge   = InstanceType("p2.16xlarge")
 	InstanceType_P2_8XLarge    = InstanceType("p2.8xlarge")
