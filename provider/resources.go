@@ -4486,7 +4486,7 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Name: "M7a_24XLarge", Value: "m7a.24xlarge"},
 					{Name: "M7a_32XLarge", Value: "m7a.32xlarge"},
 					{Name: "M7a_48XLarge", Value: "m7a.48xlarge"},
-					{Name: "M7a_Metal", Value: "m7a.metal"},
+					{Name: "M7a_Metal", Value: "m7a.metal-48xl"},
 					{Name: "Mac1_Metal", Value: "mac1.metal"},
 					{Name: "P2_16XLarge", Value: "p2.16xlarge"},
 					{Name: "P2_8XLarge", Value: "p2.8xlarge"},
