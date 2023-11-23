@@ -26,7 +26,14 @@ import java.util.StringJoiner;
         GroupTerminatingInstances("GroupTerminatingInstances"),
         GroupTerminatingCapacity("GroupTerminatingCapacity"),
         GroupTotalInstances("GroupTotalInstances"),
-        GroupTotalCapacity("GroupTotalCapacity");
+        GroupTotalCapacity("GroupTotalCapacity"),
+        WarmPoolDesiredCapacity("WarmPoolDesiredCapacity"),
+        WarmPoolWarmedCapacity("WarmPoolWarmedCapacity"),
+        WarmPoolPendingCapacity("WarmPoolPendingCapacity"),
+        WarmPoolTerminatingCapacity("WarmPoolTerminatingCapacity"),
+        WarmPoolTotalCapacity("WarmPoolTotalCapacity"),
+        GroupAndWarmPoolDesiredCapacity("GroupAndWarmPoolDesiredCapacity"),
+        GroupAndWarmPoolTotalCapacity("GroupAndWarmPoolTotalCapacity");
 
         private final String value;
 

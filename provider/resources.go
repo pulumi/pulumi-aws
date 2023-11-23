@@ -4137,6 +4137,13 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Value: "GroupTerminatingCapacity"},
 					{Value: "GroupTotalInstances"},
 					{Value: "GroupTotalCapacity"},
+					{Value: "WarmPoolDesiredCapacity"},
+					{Value: "WarmPoolWarmedCapacity"},
+					{Value: "WarmPoolPendingCapacity"},
+					{Value: "WarmPoolTerminatingCapacity"},
+					{Value: "WarmPoolTotalCapacity"},
+					{Value: "GroupAndWarmPoolDesiredCapacity"},
+					{Value: "GroupAndWarmPoolTotalCapacity"},
 				},
 			},
 			"aws:autoscaling/NotificationType:NotificationType": {
