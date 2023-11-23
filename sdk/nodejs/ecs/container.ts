@@ -187,10 +187,16 @@ export interface MountPoint {
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html
 export interface PortMapping {
+    appProtocol?: AppProtocol;
     containerPort?: pulumi.Input<number>;
+    containerPortRange?: pulumi.Input<string>;
     hostPort?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
     protocol?: Protocol;
 }
+
+// See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html
+export type AppProtocol = "http" | "http2" | "grpc";
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html
 export type Protocol = "tcp" | "udp";
