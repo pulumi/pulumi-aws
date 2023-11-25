@@ -18,14 +18,14 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
     public static final DistributionTrustedKeyGroupArgs Empty = new DistributionTrustedKeyGroupArgs();
 
     /**
-     * Whether Origin Shield is enabled.
+     * This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -73,7 +73,7 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
          * 
          * @return builder
          * 

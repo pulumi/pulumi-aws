@@ -40,7 +40,7 @@ class DistributionArgs:
         """
         The set of arguments for constructing a Distribution resource.
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
+        :param pulumi.Input[bool] enabled: Whether the distribution is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: One or more origins for this distribution (multiples allowed).
         :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: The restriction configuration for this distribution (maximum one).
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL configuration for this distribution (maximum one).
@@ -115,7 +115,7 @@ class DistributionArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether Origin Shield is enabled.
+        Whether the distribution is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -398,7 +398,7 @@ class _DistributionState:
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[str] domain_name: DNS domain name of either the S3 bucket, or web site of your custom origin.
-        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
+        :param pulumi.Input[bool] enabled: Whether the distribution is enabled.
         :param pulumi.Input[str] etag: Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] hosted_zone_id: CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
@@ -602,7 +602,7 @@ class _DistributionState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether Origin Shield is enabled.
+        Whether the distribution is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -1156,7 +1156,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
+        :param pulumi.Input[bool] enabled: Whether the distribution is enabled.
         :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         :param pulumi.Input[bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
         :param pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one).
@@ -1568,7 +1568,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[str] domain_name: DNS domain name of either the S3 bucket, or web site of your custom origin.
-        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
+        :param pulumi.Input[bool] enabled: Whether the distribution is enabled.
         :param pulumi.Input[str] etag: Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] hosted_zone_id: CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
@@ -1706,7 +1706,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
         """
-        Whether Origin Shield is enabled.
+        Whether the distribution is enabled.
         """
         return pulumi.get(self, "enabled")
 

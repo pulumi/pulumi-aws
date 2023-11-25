@@ -165,14 +165,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Origin Shield is enabled.
+     * Whether the distribution is enabled.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return Whether the distribution is enabled.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -782,7 +782,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled Whether the distribution is enabled.
          * 
          * @return builder
          * 
@@ -793,7 +793,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled Whether the distribution is enabled.
          * 
          * @return builder
          * 

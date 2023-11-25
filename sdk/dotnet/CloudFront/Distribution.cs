@@ -400,7 +400,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// Whether the distribution is enabled.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -636,7 +636,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? DefaultRootObject { get; set; }
 
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// Whether the distribution is enabled.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -824,7 +824,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// Whether the distribution is enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

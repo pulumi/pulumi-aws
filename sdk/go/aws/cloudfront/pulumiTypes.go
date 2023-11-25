@@ -5499,7 +5499,7 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulum
 }
 
 type DistributionTrustedKeyGroup struct {
-	// Whether Origin Shield is enabled.
+	// This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedKeyGroupItem `pulumi:"items"`
@@ -5517,7 +5517,7 @@ type DistributionTrustedKeyGroupInput interface {
 }
 
 type DistributionTrustedKeyGroupArgs struct {
-	// Whether Origin Shield is enabled.
+	// This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedKeyGroupItemArrayInput `pulumi:"items"`
@@ -5574,7 +5574,7 @@ func (o DistributionTrustedKeyGroupOutput) ToDistributionTrustedKeyGroupOutputWi
 	return o
 }
 
-// Whether Origin Shield is enabled.
+// This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
 func (o DistributionTrustedKeyGroupOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedKeyGroup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -5711,7 +5711,7 @@ func (o DistributionTrustedKeyGroupItemArrayOutput) Index(i pulumi.IntInput) Dis
 }
 
 type DistributionTrustedSigner struct {
-	// Whether Origin Shield is enabled.
+	// This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedSignerItem `pulumi:"items"`
@@ -5729,7 +5729,7 @@ type DistributionTrustedSignerInput interface {
 }
 
 type DistributionTrustedSignerArgs struct {
-	// Whether Origin Shield is enabled.
+	// This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedSignerItemArrayInput `pulumi:"items"`
@@ -5786,7 +5786,7 @@ func (o DistributionTrustedSignerOutput) ToDistributionTrustedSignerOutputWithCo
 	return o
 }
 
-// Whether Origin Shield is enabled.
+// This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
 func (o DistributionTrustedSignerOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedSigner) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

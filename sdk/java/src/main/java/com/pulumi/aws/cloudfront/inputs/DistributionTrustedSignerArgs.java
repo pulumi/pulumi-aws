@@ -18,14 +18,14 @@ public final class DistributionTrustedSignerArgs extends com.pulumi.resources.Re
     public static final DistributionTrustedSignerArgs Empty = new DistributionTrustedSignerArgs();
 
     /**
-     * Whether Origin Shield is enabled.
+     * This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -73,7 +73,7 @@ public final class DistributionTrustedSignerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DistributionTrustedSignerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
          * 
          * @return builder
          * 

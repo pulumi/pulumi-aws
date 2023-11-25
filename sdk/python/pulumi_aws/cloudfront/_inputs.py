@@ -2213,7 +2213,7 @@ class DistributionTrustedKeyGroupArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
+        :param pulumi.Input[bool] enabled: This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2225,7 +2225,7 @@ class DistributionTrustedKeyGroupArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether Origin Shield is enabled.
+        This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
         """
         return pulumi.get(self, "enabled")
 
@@ -2291,7 +2291,7 @@ class DistributionTrustedSignerArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerItemArgs']]]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
+        :param pulumi.Input[bool] enabled: This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerItemArgs']]] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2303,7 +2303,7 @@ class DistributionTrustedSignerArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether Origin Shield is enabled.
+        This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
         """
         return pulumi.get(self, "enabled")
 

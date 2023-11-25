@@ -2370,7 +2370,7 @@ class DistributionTrustedKeyGroup(dict):
                  enabled: Optional[bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedKeyGroupItem']] = None):
         """
-        :param bool enabled: Whether Origin Shield is enabled.
+        :param bool enabled: This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
         :param Sequence['DistributionTrustedKeyGroupItemArgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2382,7 +2382,7 @@ class DistributionTrustedKeyGroup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Whether Origin Shield is enabled.
+        This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
         """
         return pulumi.get(self, "enabled")
 
@@ -2451,7 +2451,7 @@ class DistributionTrustedSigner(dict):
                  enabled: Optional[bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedSignerItem']] = None):
         """
-        :param bool enabled: Whether Origin Shield is enabled.
+        :param bool enabled: This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
         :param Sequence['DistributionTrustedSignerItemArgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2463,7 +2463,7 @@ class DistributionTrustedSigner(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Whether Origin Shield is enabled.
+        This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
         """
         return pulumi.get(self, "enabled")
 

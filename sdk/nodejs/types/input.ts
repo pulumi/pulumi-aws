@@ -10329,7 +10329,7 @@ export namespace cloudfront {
 
     export interface DistributionTrustedKeyGroup {
         /**
-         * Whether Origin Shield is enabled.
+         * This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -10351,7 +10351,7 @@ export namespace cloudfront {
 
     export interface DistributionTrustedSigner {
         /**
-         * Whether Origin Shield is enabled.
+         * This field is true if any of the AWS accounts in the list are configured as trusted signers. If not, this field is false.
          */
         enabled?: pulumi.Input<boolean>;
         /**

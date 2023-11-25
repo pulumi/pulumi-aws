@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionTrustedKeyGroup
     {
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionTrustedKeyGroup {
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
      * 
      */
     private @Nullable Boolean enabled;
@@ -26,7 +26,7 @@ public final class DistributionTrustedKeyGroup {
 
     private DistributionTrustedKeyGroup() {}
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
      * 
      */
     public Optional<Boolean> enabled() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionTrustedKeyGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// This field is true if any of the key groups in the list have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is false.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
