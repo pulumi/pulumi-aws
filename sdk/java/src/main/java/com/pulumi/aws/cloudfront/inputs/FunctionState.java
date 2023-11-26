@@ -18,14 +18,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Amazon Resource Name (ARN) identifying your CloudFront Function.
-     * 
+     *
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
      * @return Amazon Resource Name (ARN) identifying your CloudFront Function.
-     * 
+     *
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
@@ -33,14 +33,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Source code of the function
-     * 
+     *
      */
     @Import(name="code")
     private @Nullable Output<String> code;
 
     /**
      * @return Source code of the function
-     * 
+     *
      */
     public Optional<Output<String>> code() {
         return Optional.ofNullable(this.code);
@@ -48,14 +48,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Comment.
-     * 
+     *
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
      * @return Comment.
-     * 
+     *
      */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
@@ -63,14 +63,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-     * 
+     *
      */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
     /**
      * @return ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-     * 
+     *
      */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
@@ -78,14 +78,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ETag hash of any `LIVE` stage of the function.
-     * 
+     *
      */
     @Import(name="liveStageEtag")
     private @Nullable Output<String> liveStageEtag;
 
     /**
      * @return ETag hash of any `LIVE` stage of the function.
-     * 
+     *
      */
     public Optional<Output<String>> liveStageEtag() {
         return Optional.ofNullable(this.liveStageEtag);
@@ -93,14 +93,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Unique name for your CloudFront Function.
-     * 
+     *
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Unique name for your CloudFront Function.
-     * 
+     *
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
@@ -108,33 +108,33 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-     * 
+     *
      */
     @Import(name="publish")
     private @Nullable Output<Boolean> publish;
 
     /**
      * @return Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-     * 
+     *
      */
     public Optional<Output<Boolean>> publish() {
         return Optional.ofNullable(this.publish);
     }
 
     /**
-     * Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
-     * 
+     * Identifier of the function&#39;s runtime. Possible values are curently `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+     *
      * The following arguments are optional:
-     * 
+     *
      */
     @Import(name="runtime")
     private @Nullable Output<String> runtime;
 
     /**
-     * @return Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
-     * 
+     * @return Identifier of the function&#39;s runtime. Possible values are curently `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+     *
      * The following arguments are optional:
-     * 
+     *
      */
     public Optional<Output<String>> runtime() {
         return Optional.ofNullable(this.runtime);
@@ -142,14 +142,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-     * 
+     *
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
      * @return Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-     * 
+     *
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
@@ -189,9 +189,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arn Amazon Resource Name (ARN) identifying your CloudFront Function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
@@ -200,9 +200,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arn Amazon Resource Name (ARN) identifying your CloudFront Function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
@@ -210,9 +210,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param code Source code of the function
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder code(@Nullable Output<String> code) {
             $.code = code;
@@ -221,9 +221,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param code Source code of the function
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder code(String code) {
             return code(Output.of(code));
@@ -231,9 +231,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param comment Comment.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
@@ -242,9 +242,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param comment Comment.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
@@ -252,9 +252,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param etag ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
@@ -263,9 +263,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param etag ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
@@ -273,9 +273,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param liveStageEtag ETag hash of any `LIVE` stage of the function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder liveStageEtag(@Nullable Output<String> liveStageEtag) {
             $.liveStageEtag = liveStageEtag;
@@ -284,9 +284,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param liveStageEtag ETag hash of any `LIVE` stage of the function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder liveStageEtag(String liveStageEtag) {
             return liveStageEtag(Output.of(liveStageEtag));
@@ -294,9 +294,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Unique name for your CloudFront Function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
@@ -305,9 +305,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Unique name for your CloudFront Function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder name(String name) {
             return name(Output.of(name));
@@ -315,9 +315,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param publish Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder publish(@Nullable Output<Boolean> publish) {
             $.publish = publish;
@@ -326,21 +326,21 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param publish Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder publish(Boolean publish) {
             return publish(Output.of(publish));
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
-         * 
+         * @param runtime Identifier of the function&#39;s runtime. Possible values are curently `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+         *
          * The following arguments are optional:
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder runtime(@Nullable Output<String> runtime) {
             $.runtime = runtime;
@@ -348,12 +348,12 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
-         * 
+         * @param runtime Identifier of the function&#39;s runtime. Possible values are curently `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+         *
          * The following arguments are optional:
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder runtime(String runtime) {
             return runtime(Output.of(runtime));
@@ -361,9 +361,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
@@ -372,9 +372,9 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(String status) {
             return status(Output.of(status));

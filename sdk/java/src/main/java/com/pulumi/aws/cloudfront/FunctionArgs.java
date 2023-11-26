@@ -18,14 +18,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Source code of the function
-     * 
+     *
      */
     @Import(name="code", required=true)
     private Output<String> code;
 
     /**
      * @return Source code of the function
-     * 
+     *
      */
     public Output<String> code() {
         return this.code;
@@ -33,14 +33,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Comment.
-     * 
+     *
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
      * @return Comment.
-     * 
+     *
      */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
@@ -48,14 +48,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Unique name for your CloudFront Function.
-     * 
+     *
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Unique name for your CloudFront Function.
-     * 
+     *
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
@@ -63,33 +63,33 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-     * 
+     *
      */
     @Import(name="publish")
     private @Nullable Output<Boolean> publish;
 
     /**
      * @return Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-     * 
+     *
      */
     public Optional<Output<Boolean>> publish() {
         return Optional.ofNullable(this.publish);
     }
 
     /**
-     * Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
-     * 
+     * Identifier of the function&#39;s runtime. Possible values are curently `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+     *
      * The following arguments are optional:
-     * 
+     *
      */
     @Import(name="runtime", required=true)
     private Output<String> runtime;
 
     /**
-     * @return Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
-     * 
+     * @return Identifier of the function&#39;s runtime. Possible values are curently `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+     *
      * The following arguments are optional:
-     * 
+     *
      */
     public Output<String> runtime() {
         return this.runtime;
@@ -125,9 +125,9 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param code Source code of the function
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder code(Output<String> code) {
             $.code = code;
@@ -136,9 +136,9 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param code Source code of the function
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder code(String code) {
             return code(Output.of(code));
@@ -146,9 +146,9 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param comment Comment.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
@@ -157,9 +157,9 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param comment Comment.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
@@ -167,9 +167,9 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Unique name for your CloudFront Function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
@@ -178,9 +178,9 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Unique name for your CloudFront Function.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder name(String name) {
             return name(Output.of(name));
@@ -188,9 +188,9 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param publish Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder publish(@Nullable Output<Boolean> publish) {
             $.publish = publish;
@@ -199,21 +199,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param publish Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder publish(Boolean publish) {
             return publish(Output.of(publish));
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
-         * 
+         * @param runtime Identifier of the function&#39;s runtime. Possible values are curently `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+         *
          * The following arguments are optional:
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder runtime(Output<String> runtime) {
             $.runtime = runtime;
@@ -221,12 +221,12 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
-         * 
+         * @param runtime Identifier of the function&#39;s runtime. Possible values are curently `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+         *
          * The following arguments are optional:
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder runtime(String runtime) {
             return runtime(Output.of(runtime));
