@@ -33,6 +33,13 @@ namespace Pulumi.Aws.AutoScaling
         public static Metric GroupTerminatingCapacity { get; } = new Metric("GroupTerminatingCapacity");
         public static Metric GroupTotalInstances { get; } = new Metric("GroupTotalInstances");
         public static Metric GroupTotalCapacity { get; } = new Metric("GroupTotalCapacity");
+        public static Metric WarmPoolDesiredCapacity { get; } = new Metric("WarmPoolDesiredCapacity");
+        public static Metric WarmPoolWarmedCapacity { get; } = new Metric("WarmPoolWarmedCapacity");
+        public static Metric WarmPoolPendingCapacity { get; } = new Metric("WarmPoolPendingCapacity");
+        public static Metric WarmPoolTerminatingCapacity { get; } = new Metric("WarmPoolTerminatingCapacity");
+        public static Metric WarmPoolTotalCapacity { get; } = new Metric("WarmPoolTotalCapacity");
+        public static Metric GroupAndWarmPoolDesiredCapacity { get; } = new Metric("GroupAndWarmPoolDesiredCapacity");
+        public static Metric GroupAndWarmPoolTotalCapacity { get; } = new Metric("GroupAndWarmPoolTotalCapacity");
 
         public static bool operator ==(Metric left, Metric right) => left.Equals(right);
         public static bool operator !=(Metric left, Metric right) => !left.Equals(right);
