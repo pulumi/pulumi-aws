@@ -999,7 +999,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy CloudWatchEventsInvocationAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/CloudWatchEventsInvocationAccess");
         public static ManagedPolicy CloudWatchEventsReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess");
         public static ManagedPolicy CloudWatchEventsServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchEventsServiceRolePolicy");
-        [Obsolete(@"This policy is deprecated and will no longer be supported by AWS after December 7, 2023. Use CloudWatchFullAccessV2 instead.")]
         public static ManagedPolicy CloudWatchFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchFullAccess");
         public static ManagedPolicy CloudWatchFullAccessV2 { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchFullAccessV2");
         public static ManagedPolicy CloudWatchInternetMonitorServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy");
