@@ -22,7 +22,6 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
-	"sync"
 	"sync/atomic"
 	"unicode"
 
@@ -622,8 +621,6 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 }
 
 // We should only run the validation once to avoid duplicating the reported errors.
-var credentialsValidationOnce sync.Once
-
 var credentialsValidationRun atomic.Bool
 
 // preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
