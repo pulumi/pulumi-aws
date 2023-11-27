@@ -18,6 +18,7 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -633,12 +634,21 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	// if we skipCredentialsValidation then we don't need to do anything in
 	// preConfigureCallback as this is an explicit operation
 	if skipCredentialsValidation {
+		log.Printf("[INFO] pulumi-aws: skip credentials validation")
 		return nil
 	}
 
 	var err error
 	if credentialsValidationRun.CompareAndSwap(false, true) {
+		log.Printf("[INFO] pulumi-aws: starting to validate credentials. " +
+			"Disable this by AWS_SKIP_CREDENTIALS_VALIDATION or " +
+			"skipCredentialsValidation option")
 		err = validateCredentials(vars, c)
+		if err == nil {
+			log.Printf("[INFO] pulumi-aws: credentials are valid")
+		} else {
+			log.Printf("[INFO] pulumi-aws: error validating credentials: %v", err)
+		}
 	}
 	return err
 }
