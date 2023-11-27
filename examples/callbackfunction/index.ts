@@ -19,9 +19,6 @@ const config = new pulumi.Config("aws");
 const provider = new aws.Provider("prov", {
     region: <aws.Region>config.require("envRegion")
 })
-// const providerOpts = {
-//     provider: provider
-// };
 
 const role = new aws.iam.Role("role", {
     assumeRolePolicy: aws.iam.assumeRolePolicyForPrincipal({ Service: "lambda.amazonaws.com" }),
