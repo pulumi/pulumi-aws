@@ -104,9 +104,18 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "AWSCloudHSMFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudHSMFullAccess"},
 		{Name: "AWSCloudHSMReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudHSMReadOnlyAccess"},
 		{Name: "AWSCloudHSMRole", Value: "arn:aws:iam::aws:policy/service-role/AWSCloudHSMRole"},
-		{Name: "AWSCloudTrailFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrailFullAccess", DeprecationMessage: "No longer supported. Use CloudTrail_FullAccess instead."},
-		{Name: "AWSCloudTrailReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess", DeprecationMessage: "No longer supported. Use CloudTrail_ReadOnlyAccess instead."},
-		{Name: "AWSCloudWatchLambdaInsightsExecutionRolePolicy", Value: "arn:aws:iam::aws:policy/AWSCloudWatchLambdaInsightsExecutionRolePolicy", DeprecationMessage: "No longer supported. Use CloudWatchLambdaInsightsExecutionRolePolicy instead."},
+		{
+			Name: "AWSCloudTrailFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrailFullAccess",
+			DeprecationMessage: "No longer supported. Use CloudTrail_FullAccess instead.",
+		},
+		{
+			Name: "AWSCloudTrailReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess",
+			DeprecationMessage: "No longer supported. Use CloudTrail_ReadOnlyAccess instead.",
+		},
+		{
+			Name: "AWSCloudWatchLambdaInsightsExecutionRolePolicy", Value: "arn:aws:iam::aws:policy/AWSCloudWatchLambdaInsightsExecutionRolePolicy",
+			DeprecationMessage: "No longer supported. Use CloudWatchLambdaInsightsExecutionRolePolicy instead.",
+		},
 		{Name: "AWSCloudMapDiscoverInstanceAccess", Value: "arn:aws:iam::aws:policy/AWSCloudMapDiscoverInstanceAccess"},
 		{Name: "AWSCloudMapFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudMapFullAccess"},
 		{Name: "AWSCloudMapReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudMapReadOnlyAccess"},
@@ -135,8 +144,14 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "AWSCodeDeployRoleForLambdaLimited", Value: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRoleForLambdaLimited"},
 		{Name: "AWSCodePipelineApproverAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineApproverAccess"},
 		{Name: "AWSCodePipelineCustomActionAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineCustomActionAccess"},
-		{Name: "AWSCodePipelineFullAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineFullAccess", DeprecationMessage: "No longer supported. Use CodePipeline_FullAccess instead."},
-		{Name: "AWSCodePipelineReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineReadOnlyAccess", DeprecationMessage: "No longer supported. Use CodePipeline_ReadOnlyAccess instead."},
+		{
+			Name: "AWSCodePipelineFullAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineFullAccess",
+			DeprecationMessage: "No longer supported. Use CodePipeline_FullAccess instead.",
+		},
+		{
+			Name: "AWSCodePipelineReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineReadOnlyAccess",
+			DeprecationMessage: "No longer supported. Use CodePipeline_ReadOnlyAccess instead.",
+		},
 		// Renamed to avoid clash with existing policies in Python where underscores are removed.
 		{Name: "CodePipeline_FullAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess"},
 		{Name: "CodePipeline_ReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipeline_ReadOnlyAccess"},
@@ -145,7 +160,8 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "AWSCodeStarServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AWSCodeStarServiceRole"},
 		// Renamed to not clash with AWSConfigRole in Python where underscores are removed.
 		{Name: "AWS_ConfigRole", Value: "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"},
-		{Name: "AWSConfigRole", Value: "arn:aws:iam::aws:policy/service-role/AWSConfigRole", DeprecationMessage: "This has been deprecated in favour of `AWS_ConfigRole`"},
+		{
+			Name: "AWSConfigRole", Value: "arn:aws:iam::aws:policy/service-role/AWSConfigRole", DeprecationMessage: "This has been deprecated in favour of `AWS_ConfigRole`"},
 		{Name: "AWSCompromisedKeyQuarantine", Value: "arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantine"},
 		{Name: "AWSCompromisedKeyQuarantineV2", Value: "arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantineV2"},
 		{Name: "AWSConfigMultiAccountSetupPolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSConfigMultiAccountSetupPolicy"},
@@ -193,12 +209,18 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "AWSECRPullThroughCache_ServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSECRPullThroughCache_ServiceRolePolicy"},
 		{Name: "AWSElasticBeanstalkCustomPlatformforEC2Role", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkCustomPlatformforEC2Role"},
 		{Name: "AWSElasticBeanstalkEnhancedHealth", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth"},
-		{Name: "AWSElasticBeanstalkFullAccess", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess", DeprecationMessage: "This policy is deprecated. Please use the AWS managed policy AdministratorAccess-AWSElasticBeanstalk instead."},
+		{
+			Name: "AWSElasticBeanstalkFullAccess", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess",
+			DeprecationMessage: "This policy is deprecated. Please use the AWS managed policy AdministratorAccess-AWSElasticBeanstalk instead.",
+		},
 		{Name: "AWSElasticBeanstalkMaintenance", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkMaintenance"},
 		{Name: "AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy"},
 		{Name: "AWSElasticBeanstalkManagedUpdatesServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkManagedUpdatesServiceRolePolicy"},
 		{Name: "AWSElasticBeanstalkMulticontainerDocker", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker"},
-		{Name: "AWSElasticBeanstalkReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnlyAccess", DeprecationMessage: "This policy is deprecated. Please use the AWS managed policy AWSElasticBeanstalkReadOnly instead."},
+		{
+			Name: "AWSElasticBeanstalkReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnlyAccess",
+			DeprecationMessage: "This policy is deprecated. Please use the AWS managed policy AWSElasticBeanstalkReadOnly instead.",
+		},
 		{Name: "AWSElasticBeanstalkReadOnly", Value: "arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnly"},
 		{Name: "AWSElasticBeanstalkRoleCWL", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleCWL"},
 		{Name: "AWSElasticBeanstalkRoleCore", Value: "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleCore"},
@@ -377,7 +399,10 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "AWSMigrationHubStrategyServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubStrategyServiceRolePolicy"},
 		{Name: "AWSMobileHub_FullAccess", Value: "arn:aws:iam::aws:policy/AWSMobileHub_FullAccess"},
 		{Name: "AWSMobileHub_ReadOnly", Value: "arn:aws:iam::aws:policy/AWSMobileHub_ReadOnly"},
-		{Name: "AWSMobileHub_ServiceUseOnly", Value: "arn:aws:iam::aws:policy/service-role/AWSMobileHub_ServiceUseOnly", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSMobileHub_FullAccess or AWSMobileHub_ReadOnly instead."},
+		{
+			Name: "AWSMobileHub_ServiceUseOnly", Value: "arn:aws:iam::aws:policy/service-role/AWSMobileHub_ServiceUseOnly",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSMobileHub_FullAccess or AWSMobileHub_ReadOnly instead.",
+		},
 		{Name: "AWSNetworkFirewallServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSNetworkFirewallServiceRolePolicy"},
 		{Name: "AWSNetworkManagerCloudWANServiceRolePolicy", Value: "arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerCloudWANServiceRolePolicy"},
 		{Name: "AWSNetworkManagerFullAccess", Value: "arn:aws:iam::aws:policy/AWSNetworkManagerFullAccess"},
@@ -386,11 +411,23 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "AWSOpsWorksCMInstanceProfileRole", Value: "arn:aws:iam::aws:policy/AWSOpsWorksCMInstanceProfileRole"},
 		{Name: "AWSOpsWorksCMServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AWSOpsWorksCMServiceRole"},
 		{Name: "AWSOpsWorksCloudWatchLogs", Value: "arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs"},
-		{Name: "AWSOpsWorksFullAccess", Value: "arn:aws:iam::aws:policy/AWSOpsWorksFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead."},
+		{
+			Name: "AWSOpsWorksFullAccess", Value: "arn:aws:iam::aws:policy/AWSOpsWorksFullAccess",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead.",
+		},
 		{Name: "AWSOpsWorksInstanceRegistration", Value: "arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration"},
-		{Name: "AWSOpsWorksRegisterCLI", Value: "arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksRegisterCLI_EC2 or AWSOpsWorksRegisterCLI_OnPremises instead."},
-		{Name: "AWSOpsWorksRole", Value: "arn:aws:iam::aws:policy/service-role/AWSOpsWorksRole", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksCMServiceRole instead."},
-		{Name: "AWSQuickSightDescribeRD", Value: "arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSQuickSightDescribeRDS instead."},
+		{
+			Name: "AWSOpsWorksRegisterCLI", Value: "arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksRegisterCLI_EC2 or AWSOpsWorksRegisterCLI_OnPremises instead.",
+		},
+		{
+			Name: "AWSOpsWorksRole", Value: "arn:aws:iam::aws:policy/service-role/AWSOpsWorksRole",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksCMServiceRole instead.",
+		},
+		{
+			Name: "AWSQuickSightDescribeRD", Value: "arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Please use AWSQuickSightDescribeRDS instead.",
+		},
 		{Name: "AWSOpsWorksRegisterCLI_EC2", Value: "arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2"},
 		{Name: "AWSOpsWorksRegisterCLI_OnPremises", Value: "arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises"},
 		// Renamed to avoid conflict with AWSOpsWorks_FullAccess in Python where underscores are removed
@@ -621,7 +658,10 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "AmazonEC2ContainerRegistryReadOnly", Value: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"},
 		{Name: "AmazonEC2ContainerServiceAutoscaleRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole"},
 		{Name: "AmazonEC2ContainerServiceEventsRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceEventsRole"},
-		{Name: "AmazonEC2ContainerServiceFullAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AmazonECS_FullAccess instead."},
+		{
+			Name: "AmazonEC2ContainerServiceFullAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AmazonECS_FullAccess instead.",
+		},
 		{Name: "AmazonEC2ContainerServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"},
 		{Name: "AmazonEC2ContainerServiceforEC2Role", Value: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"},
 		{Name: "AmazonEC2FullAccess", Value: "arn:aws:iam::aws:policy/AmazonEC2FullAccess"},
@@ -677,9 +717,18 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "AmazonElasticMapReduceRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole"},
 		{Name: "AmazonElasticMapReduceforAutoScalingRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforAutoScalingRole"},
 		{Name: "AmazonElasticMapReduceforEC2Role", Value: "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role"},
-		{Name: "AmazonElasticTranscoderFullAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoderFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_FullAccess instead."},
-		{Name: "AmazonElasticTranscoderJobsSubmitter", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoderJobsSubmitter", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_JobsSubmitter instead."},
-		{Name: "AmazonElasticTranscoderReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoderReadOnlyAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_ReadOnlyAccess instead."},
+		{
+			Name: "AmazonElasticTranscoderFullAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoderFullAccess",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_FullAccess instead.",
+		},
+		{
+			Name: "AmazonElasticTranscoderJobsSubmitter", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoderJobsSubmitter",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_JobsSubmitter instead.",
+		},
+		{
+			Name: "AmazonElasticTranscoderReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoderReadOnlyAccess",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_ReadOnlyAccess instead.",
+		},
 		{Name: "AmazonElasticTranscoderRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonElasticTranscoderRole"},
 		// Renamed to avoid naming conflicts in Python due to underscores being removed.
 		{Name: "ElasticTranscoder_FullAccess", Value: "arn:aws:iam::aws:policy/AmazonElasticTranscoder_FullAccess"},
@@ -774,7 +823,10 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "AmazonMachineLearningManageRealTimeEndpointOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMachineLearningManageRealTimeEndpointOnlyAccess"},
 		{Name: "AmazonMachineLearningReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMachineLearningReadOnlyAccess"},
 		{Name: "AmazonMachineLearningRealTimePredictionOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonMachineLearningRealTimePredictionOnlyAccess"},
-		{Name: "AmazonMachineLearningRoleforRedshiftDataSource", Value: "arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSource", DeprecationMessage: "This policy is deprecated. Use AmazonMachineLearningRoleforRedshiftDataSourceV3 instead."},
+		{
+			Name: "AmazonMachineLearningRoleforRedshiftDataSource", Value: "arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSource",
+			DeprecationMessage: "This policy is deprecated. Use AmazonMachineLearningRoleforRedshiftDataSourceV3 instead.",
+		},
 		{Name: "AmazonMachineLearningRoleforRedshiftDataSourceV3", Value: "arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSourceV3"},
 		{Name: "AmazonMacieFullAccess", Value: "arn:aws:iam::aws:policy/AmazonMacieFullAccess"},
 		{Name: "AmazonMacieHandshakeRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonMacieHandshakeRole"},
@@ -1063,11 +1115,26 @@ func iamManagedPolicyValues() []schema.EnumValueSpec {
 		{Name: "SecurityAudit", Value: "arn:aws:iam::aws:policy/SecurityAudit"},
 		{Name: "SecurityLakeServiceLinkedRole", Value: "arn:aws:iam::aws:policy/aws-service-role/SecurityLakeServiceLinkedRole"},
 		{Name: "ServerMigrationConnector", Value: "arn:aws:iam::aws:policy/ServerMigrationConnector"},
-		{Name: "ServerMigrationServiceRole", Value: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead."},
-		{Name: "ServiceCatalogAdminFullAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogAdminFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminFullAccess instead."},
-		{Name: "ServiceCatalogAdminReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogAdminReadOnlyAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminReadOnlyAccess instead."},
-		{Name: "ServiceCatalogEndUserAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogEndUserAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserReadOnlyAccess instead."},
-		{Name: "ServiceCatalogEndUserFullAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogEndUserFullAccess", DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserFullAccess instead."},
+		{
+			Name: "ServerMigrationServiceRole", Value: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead.",
+		},
+		{
+			Name: "ServiceCatalogAdminFullAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogAdminFullAccess",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminFullAccess instead.",
+		},
+		{
+			Name: "ServiceCatalogAdminReadOnlyAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogAdminReadOnlyAccess",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminReadOnlyAccess instead.",
+		},
+		{
+			Name: "ServiceCatalogEndUserAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogEndUserAccess",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserReadOnlyAccess instead.",
+		},
+		{
+			Name: "ServiceCatalogEndUserFullAccess", Value: "arn:aws:iam::aws:policy/ServiceCatalogEndUserFullAccess",
+			DeprecationMessage: "This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserFullAccess instead.",
+		},
 		{Name: "ServerMigrationServiceConsoleFullAccess", Value: "arn:aws:iam::aws:policy/ServerMigrationServiceConsoleFullAccess"},
 		{Name: "ServerMigrationServiceLaunchRole", Value: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceLaunchRole"},
 		{Name: "ServerMigrationServiceRoleForInstanceValidation", Value: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRoleForInstanceValidation"},
