@@ -267,7 +267,7 @@ export function createFunctionFromEventHandler<E, R>(
  * A CallbackFunction is a special type of aws.lambda.Function that can be created out of an actual
  * JavaScript function instance.  The function instance will be analyzed and packaged up (including
  * dependencies) into a form that can be used by AWS Lambda.  See
- * https://www.pulumi.com/docs/tutorials/aws/serializing-functions/ for additional
+ * https://www.pulumi.com/docs/concepts/inputs-outputs/function-serialization/ for additional
  * details on this process.
  * If no IAM Role is specified, CallbackFunction will automatically use the following managed policies:
  * `AWSLambda_FullAccess`
