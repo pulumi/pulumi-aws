@@ -104,6 +104,8 @@ class _AutoScalingConfigurationVersionState:
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_scaling_configuration_name: Optional[pulumi.Input[str]] = None,
                  auto_scaling_configuration_revision: Optional[pulumi.Input[int]] = None,
+                 has_associated_service: Optional[pulumi.Input[bool]] = None,
+                 is_default: Optional[pulumi.Input[bool]] = None,
                  latest: Optional[pulumi.Input[bool]] = None,
                  max_concurrency: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
@@ -130,6 +132,10 @@ class _AutoScalingConfigurationVersionState:
             pulumi.set(__self__, "auto_scaling_configuration_name", auto_scaling_configuration_name)
         if auto_scaling_configuration_revision is not None:
             pulumi.set(__self__, "auto_scaling_configuration_revision", auto_scaling_configuration_revision)
+        if has_associated_service is not None:
+            pulumi.set(__self__, "has_associated_service", has_associated_service)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
         if latest is not None:
             pulumi.set(__self__, "latest", latest)
         if max_concurrency is not None:
@@ -183,6 +189,24 @@ class _AutoScalingConfigurationVersionState:
     @auto_scaling_configuration_revision.setter
     def auto_scaling_configuration_revision(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "auto_scaling_configuration_revision", value)
+
+    @property
+    @pulumi.getter(name="hasAssociatedService")
+    def has_associated_service(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "has_associated_service")
+
+    @has_associated_service.setter
+    def has_associated_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_associated_service", value)
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_default")
+
+    @is_default.setter
+    def is_default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_default", value)
 
     @property
     @pulumi.getter
@@ -389,6 +413,8 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["auto_scaling_configuration_revision"] = None
+            __props__.__dict__["has_associated_service"] = None
+            __props__.__dict__["is_default"] = None
             __props__.__dict__["latest"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
@@ -407,6 +433,8 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             auto_scaling_configuration_name: Optional[pulumi.Input[str]] = None,
             auto_scaling_configuration_revision: Optional[pulumi.Input[int]] = None,
+            has_associated_service: Optional[pulumi.Input[bool]] = None,
+            is_default: Optional[pulumi.Input[bool]] = None,
             latest: Optional[pulumi.Input[bool]] = None,
             max_concurrency: Optional[pulumi.Input[int]] = None,
             max_size: Optional[pulumi.Input[int]] = None,
@@ -439,6 +467,8 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_scaling_configuration_name"] = auto_scaling_configuration_name
         __props__.__dict__["auto_scaling_configuration_revision"] = auto_scaling_configuration_revision
+        __props__.__dict__["has_associated_service"] = has_associated_service
+        __props__.__dict__["is_default"] = is_default
         __props__.__dict__["latest"] = latest
         __props__.__dict__["max_concurrency"] = max_concurrency
         __props__.__dict__["max_size"] = max_size
@@ -471,6 +501,16 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         The revision of this auto scaling configuration.
         """
         return pulumi.get(self, "auto_scaling_configuration_revision")
+
+    @property
+    @pulumi.getter(name="hasAssociatedService")
+    def has_associated_service(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "has_associated_service")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "is_default")
 
     @property
     @pulumi.getter

@@ -176,11 +176,14 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.DomainDefaultSpaceSettings?> DefaultSpaceSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        /// The default user settings. See Default User Settings below.
         /// </summary>
         [Output("defaultUserSettings")]
         public Output<Outputs.DomainDefaultUserSettings> DefaultUserSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
@@ -327,11 +330,14 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.DomainDefaultSpaceSettingsArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        /// The default user settings. See Default User Settings below.
         /// </summary>
         [Input("defaultUserSettings", required: true)]
         public Input<Inputs.DomainDefaultUserSettingsArgs> DefaultUserSettings { get; set; } = null!;
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
@@ -424,11 +430,14 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.DomainDefaultSpaceSettingsGetArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        /// The default user settings. See Default User Settings below.
         /// </summary>
         [Input("defaultUserSettings")]
         public Input<Inputs.DomainDefaultUserSettingsGetArgs>? DefaultUserSettings { get; set; }
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 

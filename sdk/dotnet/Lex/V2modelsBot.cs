@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Lex
     ///         },
     ///         IdleSessionTtlInSeconds = 10,
     ///         RoleArn = "bot_example_arn",
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -91,6 +95,9 @@ namespace Pulumi.Aws.Lex
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// List of tags to add to the bot. You can only add tags when you create a bot.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -106,6 +113,9 @@ namespace Pulumi.Aws.Lex
         [Output("timeouts")]
         public Output<Outputs.V2modelsBotTimeouts?> Timeouts { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -211,6 +221,10 @@ namespace Pulumi.Aws.Lex
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// List of tags to add to the bot. You can only add tags when you create a bot.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -232,6 +246,9 @@ namespace Pulumi.Aws.Lex
         [Input("timeouts")]
         public Input<Inputs.V2modelsBotTimeoutsArgs>? Timeouts { get; set; }
 
+        /// <summary>
+        /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -298,6 +315,10 @@ namespace Pulumi.Aws.Lex
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// List of tags to add to the bot. You can only add tags when you create a bot.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -332,6 +353,9 @@ namespace Pulumi.Aws.Lex
         [Input("timeouts")]
         public Input<Inputs.V2modelsBotTimeoutsGetArgs>? Timeouts { get; set; }
 
+        /// <summary>
+        /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

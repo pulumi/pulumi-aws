@@ -4512,13 +4512,27 @@ type TargetGroupHealthCheck struct {
 	HealthyThreshold *int `pulumi:"healthyThreshold"`
 	// Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
 	Interval *int `pulumi:"interval"`
-	// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+	// The HTTP or gRPC codes to use when checking for a successful response from a target.
+	// The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+	// Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+	// * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+	// * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+	// * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+	// * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
 	Matcher *string `pulumi:"matcher"`
 	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+	// * For HTTP and HTTPS health checks, the default is `/`.
+	// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
 	Path *string `pulumi:"path"`
-	// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+	// The port the load balancer uses when performing health checks on targets.
+	// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+	// Default is `traffic-port`.
 	Port *string `pulumi:"port"`
-	// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+	// Protocol the load balancer uses when performing health checks on targets.
+	// Must be one of `TCP`, `HTTP`, or `HTTPS`.
+	// The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+	// Default is `HTTP`.
+	// Cannot be specified when the `targetType` is `lambda`.
 	Protocol *string `pulumi:"protocol"`
 	// Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
 	Timeout *int `pulumi:"timeout"`
@@ -4544,13 +4558,27 @@ type TargetGroupHealthCheckArgs struct {
 	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
 	// Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+	// The HTTP or gRPC codes to use when checking for a successful response from a target.
+	// The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+	// Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+	// * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+	// * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+	// * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+	// * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
 	Matcher pulumi.StringPtrInput `pulumi:"matcher"`
 	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+	// * For HTTP and HTTPS health checks, the default is `/`.
+	// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+	// The port the load balancer uses when performing health checks on targets.
+	// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+	// Default is `traffic-port`.
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+	// Protocol the load balancer uses when performing health checks on targets.
+	// Must be one of `TCP`, `HTTP`, or `HTTPS`.
+	// The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+	// Default is `HTTP`.
+	// Cannot be specified when the `targetType` is `lambda`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
@@ -4650,22 +4678,36 @@ func (o TargetGroupHealthCheckOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+// The HTTP or gRPC codes to use when checking for a successful response from a target.
+// The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+// Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+// * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+// * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+// * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+// * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
 func (o TargetGroupHealthCheckOutput) Matcher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Matcher }).(pulumi.StringPtrOutput)
 }
 
 // Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+// * For HTTP and HTTPS health checks, the default is `/`.
+// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
 func (o TargetGroupHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+// The port the load balancer uses when performing health checks on targets.
+// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+// Default is `traffic-port`.
 func (o TargetGroupHealthCheckOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+// Protocol the load balancer uses when performing health checks on targets.
+// Must be one of `TCP`, `HTTP`, or `HTTPS`.
+// The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+// Default is `HTTP`.
+// Cannot be specified when the `targetType` is `lambda`.
 func (o TargetGroupHealthCheckOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -4734,7 +4776,13 @@ func (o TargetGroupHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+// The HTTP or gRPC codes to use when checking for a successful response from a target.
+// The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+// Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+// * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+// * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+// * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+// * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
 func (o TargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4745,6 +4793,8 @@ func (o TargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
 }
 
 // Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+// * For HTTP and HTTPS health checks, the default is `/`.
+// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
 func (o TargetGroupHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4754,7 +4804,9 @@ func (o TargetGroupHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+// The port the load balancer uses when performing health checks on targets.
+// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+// Default is `traffic-port`.
 func (o TargetGroupHealthCheckPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {
@@ -4764,7 +4816,11 @@ func (o TargetGroupHealthCheckPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+// Protocol the load balancer uses when performing health checks on targets.
+// Must be one of `TCP`, `HTTP`, or `HTTPS`.
+// The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+// Default is `HTTP`.
+// Cannot be specified when the `targetType` is `lambda`.
 func (o TargetGroupHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {

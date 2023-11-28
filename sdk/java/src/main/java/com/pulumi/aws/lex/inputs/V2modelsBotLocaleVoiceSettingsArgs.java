@@ -15,16 +15,32 @@ public final class V2modelsBotLocaleVoiceSettingsArgs extends com.pulumi.resourc
 
     public static final V2modelsBotLocaleVoiceSettingsArgs Empty = new V2modelsBotLocaleVoiceSettingsArgs();
 
+    /**
+     * Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+     * 
+     */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
+    /**
+     * @return Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+     * 
+     */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
 
+    /**
+     * Identifier of the Amazon Polly voice to use.
+     * 
+     */
     @Import(name="voiceId", required=true)
     private Output<String> voiceId;
 
+    /**
+     * @return Identifier of the Amazon Polly voice to use.
+     * 
+     */
     public Output<String> voiceId() {
         return this.voiceId;
     }
@@ -54,20 +70,44 @@ public final class V2modelsBotLocaleVoiceSettingsArgs extends com.pulumi.resourc
             $ = new V2modelsBotLocaleVoiceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param engine Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
+        /**
+         * @param engine Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
 
+        /**
+         * @param voiceId Identifier of the Amazon Polly voice to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder voiceId(Output<String> voiceId) {
             $.voiceId = voiceId;
             return this;
         }
 
+        /**
+         * @param voiceId Identifier of the Amazon Polly voice to use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder voiceId(String voiceId) {
             return voiceId(Output.of(voiceId));
         }

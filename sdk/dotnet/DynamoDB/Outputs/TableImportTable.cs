@@ -14,19 +14,24 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableImportTable
     {
         /// <summary>
-        /// Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+        /// Type of compression to be used on the input coming from the imported table.
+        /// Valid values are `GZIP`, `ZSTD` and `NONE`.
         /// </summary>
         public readonly string? InputCompressionType;
         /// <summary>
-        /// The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+        /// The format of the source data.
+        /// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
         /// </summary>
         public readonly string InputFormat;
         /// <summary>
-        /// Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+        /// Describe the format options for the data that was imported into the target table.
+        /// There is one value, `csv`.
+        /// See below.
         /// </summary>
         public readonly Outputs.TableImportTableInputFormatOptions? InputFormatOptions;
         /// <summary>
-        /// Values for the S3 bucket the source file is imported from. See below.
+        /// Values for the S3 bucket the source file is imported from.
+        /// See below.
         /// </summary>
         public readonly Outputs.TableImportTableS3BucketSource S3BucketSource;
 

@@ -19,6 +19,7 @@ class ReplicationGroupArgs:
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token: Optional[pulumi.Input[str]] = None,
+                 auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
@@ -57,6 +58,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine type `"redis"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -109,6 +111,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
         if auth_token is not None:
             pulumi.set(__self__, "auth_token", auth_token)
+        if auth_token_update_strategy is not None:
+            pulumi.set(__self__, "auth_token_update_strategy", auth_token_update_strategy)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_failover_enabled is not None:
@@ -211,6 +215,18 @@ class ReplicationGroupArgs:
     @auth_token.setter
     def auth_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auth_token", value)
+
+    @property
+    @pulumi.getter(name="authTokenUpdateStrategy")
+    def auth_token_update_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        """
+        return pulumi.get(self, "auth_token_update_strategy")
+
+    @auth_token_update_strategy.setter
+    def auth_token_update_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_token_update_strategy", value)
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -628,6 +644,7 @@ class _ReplicationGroupState:
                  arn: Optional[pulumi.Input[str]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token: Optional[pulumi.Input[str]] = None,
+                 auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  cluster_enabled: Optional[pulumi.Input[bool]] = None,
@@ -674,6 +691,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] arn: ARN of the created ElastiCache Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine type `"redis"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -735,6 +753,8 @@ class _ReplicationGroupState:
             pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
         if auth_token is not None:
             pulumi.set(__self__, "auth_token", auth_token)
+        if auth_token_update_strategy is not None:
+            pulumi.set(__self__, "auth_token_update_strategy", auth_token_update_strategy)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_failover_enabled is not None:
@@ -866,6 +886,18 @@ class _ReplicationGroupState:
     @auth_token.setter
     def auth_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auth_token", value)
+
+    @property
+    @pulumi.getter(name="authTokenUpdateStrategy")
+    def auth_token_update_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        """
+        return pulumi.get(self, "auth_token_update_strategy")
+
+    @auth_token_update_strategy.setter
+    def auth_token_update_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_token_update_strategy", value)
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -1371,6 +1403,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token: Optional[pulumi.Input[str]] = None,
+                 auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1549,6 +1582,27 @@ class ReplicationGroup(pulumi.CustomResource):
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
+        ### Redis AUTH and In-Transit Encryption Enabled
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.ReplicationGroup("example",
+            description="example with authentication",
+            node_type="cache.t2.micro",
+            num_cache_clusters=1,
+            port=6379,
+            subnet_group_name=aws_elasticache_subnet_group["example"]["name"],
+            security_group_ids=[aws_security_group["example"]["id"]],
+            parameter_group_name="default.redis5.0",
+            engine_version="5.0.6",
+            transit_encryption_enabled=True,
+            auth_token="abcdefgh1234567890",
+            auth_token_update_strategy="ROTATE")
+        ```
+
+        > When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
 
         ## Import
 
@@ -1563,6 +1617,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine type `"redis"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -1759,6 +1814,27 @@ class ReplicationGroup(pulumi.CustomResource):
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
+        ### Redis AUTH and In-Transit Encryption Enabled
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.ReplicationGroup("example",
+            description="example with authentication",
+            node_type="cache.t2.micro",
+            num_cache_clusters=1,
+            port=6379,
+            subnet_group_name=aws_elasticache_subnet_group["example"]["name"],
+            security_group_ids=[aws_security_group["example"]["id"]],
+            parameter_group_name="default.redis5.0",
+            engine_version="5.0.6",
+            transit_encryption_enabled=True,
+            auth_token="abcdefgh1234567890",
+            auth_token_update_strategy="ROTATE")
+        ```
+
+        > When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
 
         ## Import
 
@@ -1786,6 +1862,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token: Optional[pulumi.Input[str]] = None,
+                 auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1831,6 +1908,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["apply_immediately"] = apply_immediately
             __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
             __props__.__dict__["auth_token"] = None if auth_token is None else pulumi.Output.secret(auth_token)
+            __props__.__dict__["auth_token_update_strategy"] = auth_token_update_strategy
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
             __props__.__dict__["data_tiering_enabled"] = data_tiering_enabled
@@ -1888,6 +1966,7 @@ class ReplicationGroup(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             auth_token: Optional[pulumi.Input[str]] = None,
+            auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
             cluster_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1939,6 +2018,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the created ElastiCache Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine type `"redis"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -2000,6 +2080,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
         __props__.__dict__["auth_token"] = auth_token
+        __props__.__dict__["auth_token_update_strategy"] = auth_token_update_strategy
         __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
         __props__.__dict__["cluster_enabled"] = cluster_enabled
@@ -2073,6 +2154,14 @@ class ReplicationGroup(pulumi.CustomResource):
         Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         """
         return pulumi.get(self, "auth_token")
+
+    @property
+    @pulumi.getter(name="authTokenUpdateStrategy")
+    def auth_token_update_strategy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        """
+        return pulumi.get(self, "auth_token_update_strategy")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")

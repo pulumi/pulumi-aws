@@ -100,6 +100,8 @@ type BucketLoggingV2 struct {
 	TargetBucket pulumi.StringOutput `pulumi:"targetBucket"`
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants BucketLoggingV2TargetGrantArrayOutput `pulumi:"targetGrants"`
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat BucketLoggingV2TargetObjectKeyFormatPtrOutput `pulumi:"targetObjectKeyFormat"`
 	// Prefix for all log object keys.
 	TargetPrefix pulumi.StringOutput `pulumi:"targetPrefix"`
 }
@@ -151,6 +153,8 @@ type bucketLoggingV2State struct {
 	TargetBucket *string `pulumi:"targetBucket"`
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants []BucketLoggingV2TargetGrant `pulumi:"targetGrants"`
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat *BucketLoggingV2TargetObjectKeyFormat `pulumi:"targetObjectKeyFormat"`
 	// Prefix for all log object keys.
 	TargetPrefix *string `pulumi:"targetPrefix"`
 }
@@ -164,6 +168,8 @@ type BucketLoggingV2State struct {
 	TargetBucket pulumi.StringPtrInput
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants BucketLoggingV2TargetGrantArrayInput
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat BucketLoggingV2TargetObjectKeyFormatPtrInput
 	// Prefix for all log object keys.
 	TargetPrefix pulumi.StringPtrInput
 }
@@ -181,6 +187,8 @@ type bucketLoggingV2Args struct {
 	TargetBucket string `pulumi:"targetBucket"`
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants []BucketLoggingV2TargetGrant `pulumi:"targetGrants"`
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat *BucketLoggingV2TargetObjectKeyFormat `pulumi:"targetObjectKeyFormat"`
 	// Prefix for all log object keys.
 	TargetPrefix string `pulumi:"targetPrefix"`
 }
@@ -195,6 +203,8 @@ type BucketLoggingV2Args struct {
 	TargetBucket pulumi.StringInput
 	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants BucketLoggingV2TargetGrantArrayInput
+	// Amazon S3 key format for log objects. See below.
+	TargetObjectKeyFormat BucketLoggingV2TargetObjectKeyFormatPtrInput
 	// Prefix for all log object keys.
 	TargetPrefix pulumi.StringInput
 }
@@ -304,6 +314,11 @@ func (o BucketLoggingV2Output) TargetBucket() pulumi.StringOutput {
 // Set of configuration blocks with information for granting permissions. See below.
 func (o BucketLoggingV2Output) TargetGrants() BucketLoggingV2TargetGrantArrayOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) BucketLoggingV2TargetGrantArrayOutput { return v.TargetGrants }).(BucketLoggingV2TargetGrantArrayOutput)
+}
+
+// Amazon S3 key format for log objects. See below.
+func (o BucketLoggingV2Output) TargetObjectKeyFormat() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingV2) BucketLoggingV2TargetObjectKeyFormatPtrOutput { return v.TargetObjectKeyFormat }).(BucketLoggingV2TargetObjectKeyFormatPtrOutput)
 }
 
 // Prefix for all log object keys.

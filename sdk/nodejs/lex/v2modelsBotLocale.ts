@@ -18,10 +18,27 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsBotLocale("example", {
- *     botId: aws_lexv2models_bot.test.id,
+ *     botId: aws_lexv2models_bot.example.id,
  *     botVersion: "DRAFT",
  *     localeId: "en_US",
  *     nLuIntentConfidenceThreshold: 0.7,
+ * });
+ * ```
+ * ### Voice Settings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lex.V2modelsBotLocale("example", {
+ *     botId: aws_lexv2models_bot.example.id,
+ *     botVersion: "DRAFT",
+ *     localeId: "en_US",
+ *     nLuIntentConfidenceThreshold: 0.7,
+ *     voiceSettings: {
+ *         voiceId: "Kendra",
+ *         engine: "standard",
+ *     },
  * });
  * ```
  *
@@ -89,7 +106,7 @@ export class V2modelsBotLocale extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotLocaleTimeouts | undefined>;
     /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      */
     public readonly voiceSettings!: pulumi.Output<outputs.lex.V2modelsBotLocaleVoiceSettings | undefined>;
 
@@ -174,7 +191,7 @@ export interface V2modelsBotLocaleState {
     name?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts>;
     /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      */
     voiceSettings?: pulumi.Input<inputs.lex.V2modelsBotLocaleVoiceSettings>;
 }
@@ -211,7 +228,7 @@ export interface V2modelsBotLocaleArgs {
     name?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts>;
     /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      */
     voiceSettings?: pulumi.Input<inputs.lex.V2modelsBotLocaleVoiceSettings>;
 }

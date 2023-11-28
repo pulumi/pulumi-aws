@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Dms
     ///         SourceEndpointArn = aws_dms_endpoint.Source.Endpoint_arn,
     ///         TargetEndpointArn = aws_dms_endpoint.Target.Endpoint_arn,
     ///         TableMappings = @"  {
-    ///     ""rules"":[{""rule-type"":""selection"",""rule-id"":""1"",""rule-name"":""1"",""object-locator"":{""schema-name"":""%%"",""table-name"":""%%"", ""rule-action"":""include""}]
+    ///     ""rules"":[{""rule-type"":""selection"",""rule-id"":""1"",""rule-name"":""1"",""rule-action"":""include"",""object-locator"":{""schema-name"":""%%"",""table-name"":""%%""}}]
     ///   }
     /// ",
     ///         StartReplication = true,

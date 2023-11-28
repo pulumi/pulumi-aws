@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessGrantsInstanceResourcePolicyArgs, AccessGrantsInstanceResourcePolicyState } from "./accessGrantsInstanceResourcePolicy";
+export type AccessGrantsInstanceResourcePolicy = import("./accessGrantsInstanceResourcePolicy").AccessGrantsInstanceResourcePolicy;
+export const AccessGrantsInstanceResourcePolicy: typeof import("./accessGrantsInstanceResourcePolicy").AccessGrantsInstanceResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["AccessGrantsInstanceResourcePolicy"], () => require("./accessGrantsInstanceResourcePolicy"));
+
 export { AccessPointPolicyArgs, AccessPointPolicyState } from "./accessPointPolicy";
 export type AccessPointPolicy = import("./accessPointPolicy").AccessPointPolicy;
 export const AccessPointPolicy: typeof import("./accessPointPolicy").AccessPointPolicy = null as any;
@@ -60,6 +65,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy":
+                return new AccessGrantsInstanceResourcePolicy(name, <any>undefined, { urn })
             case "aws:s3control/accessPointPolicy:AccessPointPolicy":
                 return new AccessPointPolicy(name, <any>undefined, { urn })
             case "aws:s3control/bucket:Bucket":
@@ -83,6 +90,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "s3control/accessGrantsInstanceResourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/accessPointPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/bucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/bucketLifecycleConfiguration", _module)

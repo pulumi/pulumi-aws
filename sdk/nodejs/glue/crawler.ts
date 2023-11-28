@@ -199,7 +199,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly icebergTargets!: pulumi.Output<outputs.glue.CrawlerIcebergTarget[] | undefined>;
     /**
-     * List of nested JBDC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See JDBC Target below.
      */
     public readonly jdbcTargets!: pulumi.Output<outputs.glue.CrawlerJdbcTarget[] | undefined>;
     /**
@@ -379,7 +379,7 @@ export interface CrawlerState {
      */
     icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
     /**
-     * List of nested JBDC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See JDBC Target below.
      */
     jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
     /**
@@ -479,7 +479,7 @@ export interface CrawlerArgs {
      */
     icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
     /**
-     * List of nested JBDC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See JDBC Target below.
      */
     jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
     /**

@@ -36,7 +36,7 @@ import (
 //				ReplicationType:             pulumi.String("cdc"),
 //				SourceEndpointArn:           pulumi.Any(aws_dms_endpoint.Source.Endpoint_arn),
 //				TargetEndpointArn:           pulumi.Any(aws_dms_endpoint.Target.Endpoint_arn),
-//				TableMappings:               pulumi.String("  {\n    \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\", \"rule-action\":\"include\"}]\n  }\n"),
+//				TableMappings:               pulumi.String("  {\n    \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"rule-action\":\"include\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"}}]\n  }\n"),
 //				StartReplication:            pulumi.Bool(true),
 //				ComputeConfig: &dms.ReplicationConfigComputeConfigArgs{
 //					ReplicationSubnetGroupId:   pulumi.Any(aws_dms_replication_subnet_group.Default.Replication_subnet_group_id),

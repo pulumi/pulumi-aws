@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<Outputs.CrawlerIcebergTarget>> IcebergTargets { get; private set; } = null!;
 
         /// <summary>
-        /// List of nested JBDC target arguments. See JDBC Target below.
+        /// List of nested JDBC target arguments. See JDBC Target below.
         /// </summary>
         [Output("jdbcTargets")]
         public Output<ImmutableArray<Outputs.CrawlerJdbcTarget>> JdbcTargets { get; private set; } = null!;
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerJdbcTargetArgs>? _jdbcTargets;
 
         /// <summary>
-        /// List of nested JBDC target arguments. See JDBC Target below.
+        /// List of nested JDBC target arguments. See JDBC Target below.
         /// </summary>
         public InputList<Inputs.CrawlerJdbcTargetArgs> JdbcTargets
         {
@@ -704,7 +704,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerJdbcTargetGetArgs>? _jdbcTargets;
 
         /// <summary>
-        /// List of nested JBDC target arguments. See JDBC Target below.
+        /// List of nested JDBC target arguments. See JDBC Target below.
         /// </summary>
         public InputList<Inputs.CrawlerJdbcTargetGetArgs> JdbcTargets
         {

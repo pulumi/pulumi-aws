@@ -99,6 +99,10 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
      */
     public readonly targetGrants!: pulumi.Output<outputs.s3.BucketLoggingV2TargetGrant[] | undefined>;
     /**
+     * Amazon S3 key format for log objects. See below.
+     */
+    public readonly targetObjectKeyFormat!: pulumi.Output<outputs.s3.BucketLoggingV2TargetObjectKeyFormat | undefined>;
+    /**
      * Prefix for all log object keys.
      */
     public readonly targetPrefix!: pulumi.Output<string>;
@@ -120,6 +124,7 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["targetBucket"] = state ? state.targetBucket : undefined;
             resourceInputs["targetGrants"] = state ? state.targetGrants : undefined;
+            resourceInputs["targetObjectKeyFormat"] = state ? state.targetObjectKeyFormat : undefined;
             resourceInputs["targetPrefix"] = state ? state.targetPrefix : undefined;
         } else {
             const args = argsOrState as BucketLoggingV2Args | undefined;
@@ -136,6 +141,7 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["targetBucket"] = args ? args.targetBucket : undefined;
             resourceInputs["targetGrants"] = args ? args.targetGrants : undefined;
+            resourceInputs["targetObjectKeyFormat"] = args ? args.targetObjectKeyFormat : undefined;
             resourceInputs["targetPrefix"] = args ? args.targetPrefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -164,6 +170,10 @@ export interface BucketLoggingV2State {
      */
     targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
     /**
+     * Amazon S3 key format for log objects. See below.
+     */
+    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat>;
+    /**
      * Prefix for all log object keys.
      */
     targetPrefix?: pulumi.Input<string>;
@@ -189,6 +199,10 @@ export interface BucketLoggingV2Args {
      * Set of configuration blocks with information for granting permissions. See below.
      */
     targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
+    /**
+     * Amazon S3 key format for log objects. See below.
+     */
+    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat>;
     /**
      * Prefix for all log object keys.
      */

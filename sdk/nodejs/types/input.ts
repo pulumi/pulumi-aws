@@ -1094,19 +1094,33 @@ export namespace alb {
          */
         interval?: pulumi.Input<number>;
         /**
-         * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+         * The HTTP or gRPC codes to use when checking for a successful response from a target.
+         * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+         * Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+         * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+         * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+         * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+         * * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
          */
         matcher?: pulumi.Input<string>;
         /**
          * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * * For HTTP and HTTPS health checks, the default is `/`.
+         * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
          */
         path?: pulumi.Input<string>;
         /**
-         * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+         * The port the load balancer uses when performing health checks on targets.
+         * Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+         * Default is `traffic-port`.
          */
         port?: pulumi.Input<string>;
         /**
-         * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+         * Protocol the load balancer uses when performing health checks on targets.
+         * Must be one of `TCP`, `HTTP`, or `HTTPS`.
+         * The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+         * Default is `HTTP`.
+         * Cannot be specified when the `targetType` is `lambda`.
          */
         protocol?: pulumi.Input<string>;
         /**
@@ -6123,6 +6137,10 @@ export namespace apprunner {
          * Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
          */
         ingressConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfigurationIngressConfiguration>;
+        /**
+         * App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+         */
+        ipAddressType?: pulumi.Input<string>;
     }
 
     export interface ServiceNetworkConfigurationEgressConfiguration {
@@ -6197,6 +6215,10 @@ export namespace apprunner {
          * Version that should be used within the source code repository. See Source Code Version below for more details.
          */
         sourceCodeVersion: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersion>;
+        /**
+         * The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+         */
+        sourceDirectory?: pulumi.Input<string>;
     }
 
     export interface ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
@@ -16658,19 +16680,24 @@ export namespace dynamodb {
 
     export interface TableImportTable {
         /**
-         * Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+         * Type of compression to be used on the input coming from the imported table.
+         * Valid values are `GZIP`, `ZSTD` and `NONE`.
          */
         inputCompressionType?: pulumi.Input<string>;
         /**
-         * The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+         * The format of the source data.
+         * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
          */
         inputFormat: pulumi.Input<string>;
         /**
-         * Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+         * Describe the format options for the data that was imported into the target table.
+         * There is one value, `csv`.
+         * See below.
          */
         inputFormatOptions?: pulumi.Input<inputs.dynamodb.TableImportTableInputFormatOptions>;
         /**
-         * Values for the S3 bucket the source file is imported from. See below.
+         * Values for the S3 bucket the source file is imported from.
+         * See below.
          */
         s3BucketSource: pulumi.Input<inputs.dynamodb.TableImportTableS3BucketSource>;
     }
@@ -24862,6 +24889,100 @@ export namespace emr {
          * Optional release label version prefix filter. For example, `emr-5`.
          */
         prefix?: pulumi.Input<string>;
+    }
+
+    export interface GetSupportedInstanceTypesSupportedInstanceType {
+        /**
+         * CPU architecture.
+         */
+        architecture?: string;
+        /**
+         * Indicates whether the instance type supports Amazon EBS optimization.
+         */
+        ebsOptimizedAvailable?: boolean;
+        /**
+         * Indicates whether the instance type uses Amazon EBS optimization by default.
+         */
+        ebsOptimizedByDefault?: boolean;
+        /**
+         * Indicates whether the instance type only supports Amazon EBS.
+         */
+        ebsStorageOnly?: boolean;
+        /**
+         * The Amazon EC2 family and generation for the instance type.
+         */
+        instanceFamilyId?: string;
+        /**
+         * Indicates whether the instance type only supports 64-bit architecture.
+         */
+        is64BitsOnly?: boolean;
+        /**
+         * Memory that is available to Amazon EMR from the instance type.
+         */
+        memoryGb?: number;
+        /**
+         * Number of disks for the instance type.
+         */
+        numberOfDisks?: number;
+        /**
+         * Storage capacity of the instance type.
+         */
+        storageGb?: number;
+        /**
+         * Amazon EC2 instance type. For example, `m5.xlarge`.
+         */
+        type?: string;
+        /**
+         * The number of vCPUs available for the instance type.
+         */
+        vcpu?: number;
+    }
+
+    export interface GetSupportedInstanceTypesSupportedInstanceTypeArgs {
+        /**
+         * CPU architecture.
+         */
+        architecture?: pulumi.Input<string>;
+        /**
+         * Indicates whether the instance type supports Amazon EBS optimization.
+         */
+        ebsOptimizedAvailable?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether the instance type uses Amazon EBS optimization by default.
+         */
+        ebsOptimizedByDefault?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether the instance type only supports Amazon EBS.
+         */
+        ebsStorageOnly?: pulumi.Input<boolean>;
+        /**
+         * The Amazon EC2 family and generation for the instance type.
+         */
+        instanceFamilyId?: pulumi.Input<string>;
+        /**
+         * Indicates whether the instance type only supports 64-bit architecture.
+         */
+        is64BitsOnly?: pulumi.Input<boolean>;
+        /**
+         * Memory that is available to Amazon EMR from the instance type.
+         */
+        memoryGb?: pulumi.Input<number>;
+        /**
+         * Number of disks for the instance type.
+         */
+        numberOfDisks?: pulumi.Input<number>;
+        /**
+         * Storage capacity of the instance type.
+         */
+        storageGb?: pulumi.Input<number>;
+        /**
+         * Amazon EC2 instance type. For example, `m5.xlarge`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The number of vCPUs available for the instance type.
+         */
+        vcpu?: pulumi.Input<number>;
     }
 
     export interface InstanceFleetInstanceTypeConfig {
@@ -34702,19 +34823,33 @@ export namespace lb {
          */
         interval?: pulumi.Input<number>;
         /**
-         * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+         * The HTTP or gRPC codes to use when checking for a successful response from a target.
+         * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
+         * Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+         * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+         * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+         * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+         * * When the `targetType` is `lambda`, values can be between `200` and `499`. The default is `200`.
          */
         matcher?: pulumi.Input<string>;
         /**
          * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * * For HTTP and HTTPS health checks, the default is `/`.
+         * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
          */
         path?: pulumi.Input<string>;
         /**
-         * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+         * The port the load balancer uses when performing health checks on targets.
+         * Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+         * Default is `traffic-port`.
          */
         port?: pulumi.Input<string>;
         /**
-         * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+         * Protocol the load balancer uses when performing health checks on targets.
+         * Must be one of `TCP`, `HTTP`, or `HTTPS`.
+         * The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+         * Default is `HTTP`.
+         * Cannot be specified when the `targetType` is `lambda`.
          */
         protocol?: pulumi.Input<string>;
         /**
@@ -35200,7 +35335,13 @@ export namespace lex {
     }
 
     export interface V2modelsBotLocaleVoiceSettings {
+        /**
+         * Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+         */
         engine?: pulumi.Input<string>;
+        /**
+         * Identifier of the Amazon Polly voice to use.
+         */
         voiceId: pulumi.Input<string>;
     }
 
@@ -35231,6 +35372,15 @@ export namespace lex {
         create?: pulumi.Input<string>;
         delete?: pulumi.Input<string>;
         update?: pulumi.Input<string>;
+    }
+
+    export interface V2modelsBotVersionLocaleSpecification {
+        sourceBotVersion: pulumi.Input<string>;
+    }
+
+    export interface V2modelsBotVersionTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
     }
 }
 
@@ -46948,6 +47098,27 @@ export namespace s3 {
          * URI of the grantee group.
          */
         uri?: pulumi.Input<string>;
+    }
+
+    export interface BucketLoggingV2TargetObjectKeyFormat {
+        /**
+         * Partitioned S3 key for log objects. See below.
+         */
+        partitionedPrefix?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix>;
+        /**
+         * Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+         */
+        simplePrefix?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormatSimplePrefix>;
+    }
+
+    export interface BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
+        /**
+         * Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+         */
+        partitionDateSource: pulumi.Input<string>;
+    }
+
+    export interface BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
     }
 
     export interface BucketMetricFilter {

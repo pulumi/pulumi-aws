@@ -274,7 +274,7 @@ type Crawler struct {
 	HudiTargets CrawlerHudiTargetArrayOutput `pulumi:"hudiTargets"`
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayOutput `pulumi:"icebergTargets"`
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayOutput `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrOutput `pulumi:"lakeFormationConfiguration"`
@@ -366,7 +366,7 @@ type crawlerState struct {
 	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration *CrawlerLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
@@ -419,7 +419,7 @@ type CrawlerState struct {
 	HudiTargets CrawlerHudiTargetArrayInput
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayInput
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrInput
@@ -474,7 +474,7 @@ type crawlerArgs struct {
 	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration *CrawlerLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
@@ -522,7 +522,7 @@ type CrawlerArgs struct {
 	HudiTargets CrawlerHudiTargetArrayInput
 	// List of nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayInput
-	// List of nested JBDC target arguments. See JDBC Target below.
+	// List of nested JDBC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
 	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrInput
@@ -687,7 +687,7 @@ func (o CrawlerOutput) IcebergTargets() CrawlerIcebergTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerIcebergTargetArrayOutput { return v.IcebergTargets }).(CrawlerIcebergTargetArrayOutput)
 }
 
-// List of nested JBDC target arguments. See JDBC Target below.
+// List of nested JDBC target arguments. See JDBC Target below.
 func (o CrawlerOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerJdbcTargetArrayOutput { return v.JdbcTargets }).(CrawlerJdbcTargetArrayOutput)
 }

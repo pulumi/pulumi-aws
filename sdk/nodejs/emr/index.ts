@@ -20,6 +20,11 @@ export const getReleaseLabels: typeof import("./getReleaseLabels").getReleaseLab
 export const getReleaseLabelsOutput: typeof import("./getReleaseLabels").getReleaseLabelsOutput = null as any;
 utilities.lazyLoad(exports, ["getReleaseLabels","getReleaseLabelsOutput"], () => require("./getReleaseLabels"));
 
+export { GetSupportedInstanceTypesArgs, GetSupportedInstanceTypesResult, GetSupportedInstanceTypesOutputArgs } from "./getSupportedInstanceTypes";
+export const getSupportedInstanceTypes: typeof import("./getSupportedInstanceTypes").getSupportedInstanceTypes = null as any;
+export const getSupportedInstanceTypesOutput: typeof import("./getSupportedInstanceTypes").getSupportedInstanceTypesOutput = null as any;
+utilities.lazyLoad(exports, ["getSupportedInstanceTypes","getSupportedInstanceTypesOutput"], () => require("./getSupportedInstanceTypes"));
+
 export { InstanceFleetArgs, InstanceFleetState } from "./instanceFleet";
 export type InstanceFleet = import("./instanceFleet").InstanceFleet;
 export const InstanceFleet: typeof import("./instanceFleet").InstanceFleet = null as any;

@@ -249,6 +249,45 @@ import (
 //	}
 //
 // ```
+// ### Redis AUTH and In-Transit Encryption Enabled
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
+//				Description:      pulumi.String("example with authentication"),
+//				NodeType:         pulumi.String("cache.t2.micro"),
+//				NumCacheClusters: pulumi.Int(1),
+//				Port:             pulumi.Int(6379),
+//				SubnetGroupName:  pulumi.Any(aws_elasticache_subnet_group.Example.Name),
+//				SecurityGroupIds: pulumi.StringArray{
+//					aws_security_group.Example.Id,
+//				},
+//				ParameterGroupName:       pulumi.String("default.redis5.0"),
+//				EngineVersion:            pulumi.String("5.0.6"),
+//				TransitEncryptionEnabled: pulumi.Bool(true),
+//				AuthToken:                pulumi.String("abcdefgh1234567890"),
+//				AuthTokenUpdateStrategy:  pulumi.String("ROTATE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > When adding a new `authToken` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
 //
 // ## Import
 //
@@ -270,6 +309,8 @@ type ReplicationGroup struct {
 	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrOutput `pulumi:"authToken"`
+	// Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+	AuthTokenUpdateStrategy pulumi.StringPtrOutput `pulumi:"authTokenUpdateStrategy"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
@@ -412,6 +453,8 @@ type replicationGroupState struct {
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
+	// Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+	AuthTokenUpdateStrategy *string `pulumi:"authTokenUpdateStrategy"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
@@ -517,6 +560,8 @@ type ReplicationGroupState struct {
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
+	// Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+	AuthTokenUpdateStrategy pulumi.StringPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
@@ -624,6 +669,8 @@ type replicationGroupArgs struct {
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
+	// Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+	AuthTokenUpdateStrategy *string `pulumi:"authTokenUpdateStrategy"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
@@ -712,6 +759,8 @@ type ReplicationGroupArgs struct {
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
+	// Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+	AuthTokenUpdateStrategy pulumi.StringPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
@@ -897,6 +946,11 @@ func (o ReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolOutput {
 // Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 func (o ReplicationGroupOutput) AuthToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.AuthToken }).(pulumi.StringPtrOutput)
+}
+
+// Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+func (o ReplicationGroupOutput) AuthTokenUpdateStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.AuthTokenUpdateStrategy }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.

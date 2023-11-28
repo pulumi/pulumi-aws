@@ -40,6 +40,8 @@ __all__ = [
     'V2modelsBotLocaleVoiceSettingsArgs',
     'V2modelsBotMemberArgs',
     'V2modelsBotTimeoutsArgs',
+    'V2modelsBotVersionLocaleSpecificationArgs',
+    'V2modelsBotVersionTimeoutsArgs',
 ]
 
 @pulumi.input_type
@@ -1506,6 +1508,10 @@ class V2modelsBotLocaleVoiceSettingsArgs:
     def __init__(__self__, *,
                  voice_id: pulumi.Input[str],
                  engine: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] voice_id: Identifier of the Amazon Polly voice to use.
+        :param pulumi.Input[str] engine: Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+        """
         pulumi.set(__self__, "voice_id", voice_id)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
@@ -1513,6 +1519,9 @@ class V2modelsBotLocaleVoiceSettingsArgs:
     @property
     @pulumi.getter(name="voiceId")
     def voice_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the Amazon Polly voice to use.
+        """
         return pulumi.get(self, "voice_id")
 
     @voice_id.setter
@@ -1522,6 +1531,9 @@ class V2modelsBotLocaleVoiceSettingsArgs:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -1650,5 +1662,50 @@ class V2modelsBotTimeoutsArgs:
     @update.setter
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class V2modelsBotVersionLocaleSpecificationArgs:
+    def __init__(__self__, *,
+                 source_bot_version: pulumi.Input[str]):
+        pulumi.set(__self__, "source_bot_version", source_bot_version)
+
+    @property
+    @pulumi.getter(name="sourceBotVersion")
+    def source_bot_version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source_bot_version")
+
+    @source_bot_version.setter
+    def source_bot_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_bot_version", value)
+
+
+@pulumi.input_type
+class V2modelsBotVersionTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
 
 

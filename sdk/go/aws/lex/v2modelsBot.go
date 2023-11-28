@@ -37,6 +37,9 @@ import (
 //				},
 //				IdleSessionTtlInSeconds: pulumi.Int(10),
 //				RoleArn:                 pulumi.String("bot_example_arn"),
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -73,14 +76,16 @@ type V2modelsBot struct {
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
-	RoleArn pulumi.StringOutput    `pulumi:"roleArn"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// List of tags to add to the bot. You can only add tags when you create a bot.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags pulumi.StringMapOutput       `pulumi:"testBotAliasTags"`
 	Timeouts         V2modelsBotTimeoutsPtrOutput `pulumi:"timeouts"`
-	Type             pulumi.StringOutput          `pulumi:"type"`
+	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewV2modelsBot registers a new resource with the given unique name, arguments, and options.
@@ -137,14 +142,16 @@ type v2modelsBotState struct {
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
-	RoleArn *string           `pulumi:"roleArn"`
-	Tags    map[string]string `pulumi:"tags"`
+	RoleArn *string `pulumi:"roleArn"`
+	// List of tags to add to the bot. You can only add tags when you create a bot.
+	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags map[string]string    `pulumi:"testBotAliasTags"`
 	Timeouts         *V2modelsBotTimeouts `pulumi:"timeouts"`
-	Type             *string              `pulumi:"type"`
+	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+	Type *string `pulumi:"type"`
 }
 
 type V2modelsBotState struct {
@@ -163,13 +170,15 @@ type V2modelsBotState struct {
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	// List of tags to add to the bot. You can only add tags when you create a bot.
+	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags pulumi.StringMapInput
 	Timeouts         V2modelsBotTimeoutsPtrInput
-	Type             pulumi.StringPtrInput
+	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+	Type pulumi.StringPtrInput
 }
 
 func (V2modelsBotState) ElementType() reflect.Type {
@@ -190,12 +199,14 @@ type v2modelsBotArgs struct {
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
-	RoleArn string            `pulumi:"roleArn"`
-	Tags    map[string]string `pulumi:"tags"`
+	RoleArn string `pulumi:"roleArn"`
+	// List of tags to add to the bot. You can only add tags when you create a bot.
+	Tags map[string]string `pulumi:"tags"`
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags map[string]string    `pulumi:"testBotAliasTags"`
 	Timeouts         *V2modelsBotTimeouts `pulumi:"timeouts"`
-	Type             *string              `pulumi:"type"`
+	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a V2modelsBot resource.
@@ -214,11 +225,13 @@ type V2modelsBotArgs struct {
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringInput
-	Tags    pulumi.StringMapInput
+	// List of tags to add to the bot. You can only add tags when you create a bot.
+	Tags pulumi.StringMapInput
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags pulumi.StringMapInput
 	Timeouts         V2modelsBotTimeoutsPtrInput
-	Type             pulumi.StringPtrInput
+	// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+	Type pulumi.StringPtrInput
 }
 
 func (V2modelsBotArgs) ElementType() reflect.Type {
@@ -344,6 +357,7 @@ func (o V2modelsBotOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// List of tags to add to the bot. You can only add tags when you create a bot.
 func (o V2modelsBotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -362,6 +376,7 @@ func (o V2modelsBotOutput) Timeouts() V2modelsBotTimeoutsPtrOutput {
 	return o.ApplyT(func(v *V2modelsBot) V2modelsBotTimeoutsPtrOutput { return v.Timeouts }).(V2modelsBotTimeoutsPtrOutput)
 }
 
+// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
 func (o V2modelsBotOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

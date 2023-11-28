@@ -214,6 +214,38 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// ### Redis AUTH and In-Transit Encryption Enabled
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
+    ///     {
+    ///         Description = "example with authentication",
+    ///         NodeType = "cache.t2.micro",
+    ///         NumCacheClusters = 1,
+    ///         Port = 6379,
+    ///         SubnetGroupName = aws_elasticache_subnet_group.Example.Name,
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             aws_security_group.Example.Id,
+    ///         },
+    ///         ParameterGroupName = "default.redis5.0",
+    ///         EngineVersion = "5.0.6",
+    ///         TransitEncryptionEnabled = true,
+    ///         AuthToken = "abcdefgh1234567890",
+    ///         AuthTokenUpdateStrategy = "ROTATE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
     /// 
     /// ## Import
     /// 
@@ -249,6 +281,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("authToken")]
         public Output<string?> AuthToken { get; private set; } = null!;
+
+        /// <summary>
+        /// Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        /// </summary>
+        [Output("authTokenUpdateStrategy")]
+        public Output<string?> AuthTokenUpdateStrategy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -582,6 +620,12 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
+        /// Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        /// </summary>
+        [Input("authTokenUpdateStrategy")]
+        public Input<string>? AuthTokenUpdateStrategy { get; set; }
+
+        /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
         /// Defaults to `true`.
@@ -874,6 +918,12 @@ namespace Pulumi.Aws.ElastiCache
                 _authToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        /// </summary>
+        [Input("authTokenUpdateStrategy")]
+        public Input<string>? AuthTokenUpdateStrategy { get; set; }
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.

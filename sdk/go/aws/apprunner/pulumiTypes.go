@@ -823,6 +823,8 @@ type ServiceNetworkConfiguration struct {
 	EgressConfiguration *ServiceNetworkConfigurationEgressConfiguration `pulumi:"egressConfiguration"`
 	// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
 	IngressConfiguration *ServiceNetworkConfigurationIngressConfiguration `pulumi:"ingressConfiguration"`
+	// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 }
 
 // ServiceNetworkConfigurationInput is an input type that accepts ServiceNetworkConfigurationArgs and ServiceNetworkConfigurationOutput values.
@@ -841,6 +843,8 @@ type ServiceNetworkConfigurationArgs struct {
 	EgressConfiguration ServiceNetworkConfigurationEgressConfigurationPtrInput `pulumi:"egressConfiguration"`
 	// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
 	IngressConfiguration ServiceNetworkConfigurationIngressConfigurationPtrInput `pulumi:"ingressConfiguration"`
+	// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 }
 
 func (ServiceNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -934,6 +938,11 @@ func (o ServiceNetworkConfigurationOutput) IngressConfiguration() ServiceNetwork
 	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
 }
 
+// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+func (o ServiceNetworkConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceNetworkConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
 type ServiceNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkConfigurationPtrOutput) ElementType() reflect.Type {
@@ -976,6 +985,16 @@ func (o ServiceNetworkConfigurationPtrOutput) IngressConfiguration() ServiceNetw
 		}
 		return v.IngressConfiguration
 	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
+}
+
+// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+func (o ServiceNetworkConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceNetworkConfigurationEgressConfiguration struct {
@@ -1788,6 +1807,8 @@ type ServiceSourceConfigurationCodeRepository struct {
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 	// Version that should be used within the source code repository. See Source Code Version below for more details.
 	SourceCodeVersion ServiceSourceConfigurationCodeRepositorySourceCodeVersion `pulumi:"sourceCodeVersion"`
+	// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+	SourceDirectory *string `pulumi:"sourceDirectory"`
 }
 
 // ServiceSourceConfigurationCodeRepositoryInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryArgs and ServiceSourceConfigurationCodeRepositoryOutput values.
@@ -1808,6 +1829,8 @@ type ServiceSourceConfigurationCodeRepositoryArgs struct {
 	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
 	// Version that should be used within the source code repository. See Source Code Version below for more details.
 	SourceCodeVersion ServiceSourceConfigurationCodeRepositorySourceCodeVersionInput `pulumi:"sourceCodeVersion"`
+	// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+	SourceDirectory pulumi.StringPtrInput `pulumi:"sourceDirectory"`
 }
 
 func (ServiceSourceConfigurationCodeRepositoryArgs) ElementType() reflect.Type {
@@ -1906,6 +1929,11 @@ func (o ServiceSourceConfigurationCodeRepositoryOutput) SourceCodeVersion() Serv
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput)
 }
 
+// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+func (o ServiceSourceConfigurationCodeRepositoryOutput) SourceDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) *string { return v.SourceDirectory }).(pulumi.StringPtrOutput)
+}
+
 type ServiceSourceConfigurationCodeRepositoryPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceSourceConfigurationCodeRepositoryPtrOutput) ElementType() reflect.Type {
@@ -1958,6 +1986,16 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceCodeVersion() S
 		}
 		return &v.SourceCodeVersion
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput)
+}
+
+// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDirectory
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceSourceConfigurationCodeRepositoryCodeConfiguration struct {

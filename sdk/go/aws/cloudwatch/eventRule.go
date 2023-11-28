@@ -117,7 +117,11 @@ type EventRule struct {
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
-	// Whether the rule should be enabled (defaults to `true`).
+	// Whether the rule should be enabled.
+	// Defaults to `true`.
+	// Conflicts with `state`.
+	//
+	// Deprecated: Use "state" instead
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -127,6 +131,13 @@ type EventRule struct {
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
+	// State of the rule.
+	// Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+	// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// Defaults to `ENABLED`.
+	// Conflicts with `isEnabled`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -178,7 +189,11 @@ type eventRuleState struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern *string `pulumi:"eventPattern"`
-	// Whether the rule should be enabled (defaults to `true`).
+	// Whether the rule should be enabled.
+	// Defaults to `true`.
+	// Conflicts with `state`.
+	//
+	// Deprecated: Use "state" instead
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -188,6 +203,13 @@ type eventRuleState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// State of the rule.
+	// Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+	// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// Defaults to `ENABLED`.
+	// Conflicts with `isEnabled`.
+	State *string `pulumi:"state"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -206,7 +228,11 @@ type EventRuleState struct {
 	EventBusName pulumi.StringPtrInput
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern pulumi.StringPtrInput
-	// Whether the rule should be enabled (defaults to `true`).
+	// Whether the rule should be enabled.
+	// Defaults to `true`.
+	// Conflicts with `state`.
+	//
+	// Deprecated: Use "state" instead
 	IsEnabled pulumi.BoolPtrInput
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -216,6 +242,13 @@ type EventRuleState struct {
 	RoleArn pulumi.StringPtrInput
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression pulumi.StringPtrInput
+	// State of the rule.
+	// Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+	// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// Defaults to `ENABLED`.
+	// Conflicts with `isEnabled`.
+	State pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -236,7 +269,11 @@ type eventRuleArgs struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern *string `pulumi:"eventPattern"`
-	// Whether the rule should be enabled (defaults to `true`).
+	// Whether the rule should be enabled.
+	// Defaults to `true`.
+	// Conflicts with `state`.
+	//
+	// Deprecated: Use "state" instead
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -246,6 +283,13 @@ type eventRuleArgs struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// State of the rule.
+	// Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+	// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// Defaults to `ENABLED`.
+	// Conflicts with `isEnabled`.
+	State *string `pulumi:"state"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -259,7 +303,11 @@ type EventRuleArgs struct {
 	EventBusName pulumi.StringPtrInput
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern pulumi.StringPtrInput
-	// Whether the rule should be enabled (defaults to `true`).
+	// Whether the rule should be enabled.
+	// Defaults to `true`.
+	// Conflicts with `state`.
+	//
+	// Deprecated: Use "state" instead
 	IsEnabled pulumi.BoolPtrInput
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -269,6 +317,13 @@ type EventRuleArgs struct {
 	RoleArn pulumi.StringPtrInput
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression pulumi.StringPtrInput
+	// State of the rule.
+	// Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+	// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+	// Defaults to `ENABLED`.
+	// Conflicts with `isEnabled`.
+	State pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -381,7 +436,11 @@ func (o EventRuleOutput) EventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
-// Whether the rule should be enabled (defaults to `true`).
+// Whether the rule should be enabled.
+// Defaults to `true`.
+// Conflicts with `state`.
+//
+// Deprecated: Use "state" instead
 func (o EventRuleOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -404,6 +463,16 @@ func (o EventRuleOutput) RoleArn() pulumi.StringPtrOutput {
 // The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 func (o EventRuleOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+// State of the rule.
+// Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+// When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+// To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+// Defaults to `ENABLED`.
+// Conflicts with `isEnabled`.
+func (o EventRuleOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

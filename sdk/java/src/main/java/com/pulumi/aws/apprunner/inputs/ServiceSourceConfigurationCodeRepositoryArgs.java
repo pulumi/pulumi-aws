@@ -62,12 +62,28 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         return this.sourceCodeVersion;
     }
 
+    /**
+     * The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+     * 
+     */
+    @Import(name="sourceDirectory")
+    private @Nullable Output<String> sourceDirectory;
+
+    /**
+     * @return The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+     * 
+     */
+    public Optional<Output<String>> sourceDirectory() {
+        return Optional.ofNullable(this.sourceDirectory);
+    }
+
     private ServiceSourceConfigurationCodeRepositoryArgs() {}
 
     private ServiceSourceConfigurationCodeRepositoryArgs(ServiceSourceConfigurationCodeRepositoryArgs $) {
         this.codeConfiguration = $.codeConfiguration;
         this.repositoryUrl = $.repositoryUrl;
         this.sourceCodeVersion = $.sourceCodeVersion;
+        this.sourceDirectory = $.sourceDirectory;
     }
 
     public static Builder builder() {
@@ -149,6 +165,27 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
          */
         public Builder sourceCodeVersion(ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs sourceCodeVersion) {
             return sourceCodeVersion(Output.of(sourceCodeVersion));
+        }
+
+        /**
+         * @param sourceDirectory The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceDirectory(@Nullable Output<String> sourceDirectory) {
+            $.sourceDirectory = sourceDirectory;
+            return this;
+        }
+
+        /**
+         * @param sourceDirectory The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceDirectory(String sourceDirectory) {
+            return sourceDirectory(Output.of(sourceDirectory));
         }
 
         public ServiceSourceConfigurationCodeRepositoryArgs build() {

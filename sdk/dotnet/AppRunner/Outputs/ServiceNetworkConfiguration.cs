@@ -21,15 +21,22 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
         /// </summary>
         public readonly Outputs.ServiceNetworkConfigurationIngressConfiguration? IngressConfiguration;
+        /// <summary>
+        /// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+        /// </summary>
+        public readonly string? IpAddressType;
 
         [OutputConstructor]
         private ServiceNetworkConfiguration(
             Outputs.ServiceNetworkConfigurationEgressConfiguration? egressConfiguration,
 
-            Outputs.ServiceNetworkConfigurationIngressConfiguration? ingressConfiguration)
+            Outputs.ServiceNetworkConfigurationIngressConfiguration? ingressConfiguration,
+
+            string? ipAddressType)
         {
             EgressConfiguration = egressConfiguration;
             IngressConfiguration = ingressConfiguration;
+            IpAddressType = ipAddressType;
         }
     }
 }

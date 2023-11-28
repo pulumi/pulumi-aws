@@ -4025,8 +4025,10 @@ func (o V2modelsBotLocaleTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type V2modelsBotLocaleVoiceSettings struct {
-	Engine  *string `pulumi:"engine"`
-	VoiceId string  `pulumi:"voiceId"`
+	// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+	Engine *string `pulumi:"engine"`
+	// Identifier of the Amazon Polly voice to use.
+	VoiceId string `pulumi:"voiceId"`
 }
 
 // V2modelsBotLocaleVoiceSettingsInput is an input type that accepts V2modelsBotLocaleVoiceSettingsArgs and V2modelsBotLocaleVoiceSettingsOutput values.
@@ -4041,8 +4043,10 @@ type V2modelsBotLocaleVoiceSettingsInput interface {
 }
 
 type V2modelsBotLocaleVoiceSettingsArgs struct {
-	Engine  pulumi.StringPtrInput `pulumi:"engine"`
-	VoiceId pulumi.StringInput    `pulumi:"voiceId"`
+	// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+	Engine pulumi.StringPtrInput `pulumi:"engine"`
+	// Identifier of the Amazon Polly voice to use.
+	VoiceId pulumi.StringInput `pulumi:"voiceId"`
 }
 
 func (V2modelsBotLocaleVoiceSettingsArgs) ElementType() reflect.Type {
@@ -4122,10 +4126,12 @@ func (o V2modelsBotLocaleVoiceSettingsOutput) ToV2modelsBotLocaleVoiceSettingsPt
 	}).(V2modelsBotLocaleVoiceSettingsPtrOutput)
 }
 
+// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
 func (o V2modelsBotLocaleVoiceSettingsOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v V2modelsBotLocaleVoiceSettings) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the Amazon Polly voice to use.
 func (o V2modelsBotLocaleVoiceSettingsOutput) VoiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsBotLocaleVoiceSettings) string { return v.VoiceId }).(pulumi.StringOutput)
 }
@@ -4154,6 +4160,7 @@ func (o V2modelsBotLocaleVoiceSettingsPtrOutput) Elem() V2modelsBotLocaleVoiceSe
 	}).(V2modelsBotLocaleVoiceSettingsOutput)
 }
 
+// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
 func (o V2modelsBotLocaleVoiceSettingsPtrOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsBotLocaleVoiceSettings) *string {
 		if v == nil {
@@ -4163,6 +4170,7 @@ func (o V2modelsBotLocaleVoiceSettingsPtrOutput) Engine() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the Amazon Polly voice to use.
 func (o V2modelsBotLocaleVoiceSettingsPtrOutput) VoiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsBotLocaleVoiceSettings) *string {
 		if v == nil {
@@ -4468,6 +4476,248 @@ func (o V2modelsBotTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type V2modelsBotVersionLocaleSpecification struct {
+	SourceBotVersion string `pulumi:"sourceBotVersion"`
+}
+
+// V2modelsBotVersionLocaleSpecificationInput is an input type that accepts V2modelsBotVersionLocaleSpecificationArgs and V2modelsBotVersionLocaleSpecificationOutput values.
+// You can construct a concrete instance of `V2modelsBotVersionLocaleSpecificationInput` via:
+//
+//	V2modelsBotVersionLocaleSpecificationArgs{...}
+type V2modelsBotVersionLocaleSpecificationInput interface {
+	pulumi.Input
+
+	ToV2modelsBotVersionLocaleSpecificationOutput() V2modelsBotVersionLocaleSpecificationOutput
+	ToV2modelsBotVersionLocaleSpecificationOutputWithContext(context.Context) V2modelsBotVersionLocaleSpecificationOutput
+}
+
+type V2modelsBotVersionLocaleSpecificationArgs struct {
+	SourceBotVersion pulumi.StringInput `pulumi:"sourceBotVersion"`
+}
+
+func (V2modelsBotVersionLocaleSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotVersionLocaleSpecification)(nil)).Elem()
+}
+
+func (i V2modelsBotVersionLocaleSpecificationArgs) ToV2modelsBotVersionLocaleSpecificationOutput() V2modelsBotVersionLocaleSpecificationOutput {
+	return i.ToV2modelsBotVersionLocaleSpecificationOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotVersionLocaleSpecificationArgs) ToV2modelsBotVersionLocaleSpecificationOutputWithContext(ctx context.Context) V2modelsBotVersionLocaleSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotVersionLocaleSpecificationOutput)
+}
+
+// V2modelsBotVersionLocaleSpecificationMapInput is an input type that accepts V2modelsBotVersionLocaleSpecificationMap and V2modelsBotVersionLocaleSpecificationMapOutput values.
+// You can construct a concrete instance of `V2modelsBotVersionLocaleSpecificationMapInput` via:
+//
+//	V2modelsBotVersionLocaleSpecificationMap{ "key": V2modelsBotVersionLocaleSpecificationArgs{...} }
+type V2modelsBotVersionLocaleSpecificationMapInput interface {
+	pulumi.Input
+
+	ToV2modelsBotVersionLocaleSpecificationMapOutput() V2modelsBotVersionLocaleSpecificationMapOutput
+	ToV2modelsBotVersionLocaleSpecificationMapOutputWithContext(context.Context) V2modelsBotVersionLocaleSpecificationMapOutput
+}
+
+type V2modelsBotVersionLocaleSpecificationMap map[string]V2modelsBotVersionLocaleSpecificationInput
+
+func (V2modelsBotVersionLocaleSpecificationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]V2modelsBotVersionLocaleSpecification)(nil)).Elem()
+}
+
+func (i V2modelsBotVersionLocaleSpecificationMap) ToV2modelsBotVersionLocaleSpecificationMapOutput() V2modelsBotVersionLocaleSpecificationMapOutput {
+	return i.ToV2modelsBotVersionLocaleSpecificationMapOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotVersionLocaleSpecificationMap) ToV2modelsBotVersionLocaleSpecificationMapOutputWithContext(ctx context.Context) V2modelsBotVersionLocaleSpecificationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotVersionLocaleSpecificationMapOutput)
+}
+
+type V2modelsBotVersionLocaleSpecificationOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotVersionLocaleSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotVersionLocaleSpecification)(nil)).Elem()
+}
+
+func (o V2modelsBotVersionLocaleSpecificationOutput) ToV2modelsBotVersionLocaleSpecificationOutput() V2modelsBotVersionLocaleSpecificationOutput {
+	return o
+}
+
+func (o V2modelsBotVersionLocaleSpecificationOutput) ToV2modelsBotVersionLocaleSpecificationOutputWithContext(ctx context.Context) V2modelsBotVersionLocaleSpecificationOutput {
+	return o
+}
+
+func (o V2modelsBotVersionLocaleSpecificationOutput) SourceBotVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v V2modelsBotVersionLocaleSpecification) string { return v.SourceBotVersion }).(pulumi.StringOutput)
+}
+
+type V2modelsBotVersionLocaleSpecificationMapOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotVersionLocaleSpecificationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]V2modelsBotVersionLocaleSpecification)(nil)).Elem()
+}
+
+func (o V2modelsBotVersionLocaleSpecificationMapOutput) ToV2modelsBotVersionLocaleSpecificationMapOutput() V2modelsBotVersionLocaleSpecificationMapOutput {
+	return o
+}
+
+func (o V2modelsBotVersionLocaleSpecificationMapOutput) ToV2modelsBotVersionLocaleSpecificationMapOutputWithContext(ctx context.Context) V2modelsBotVersionLocaleSpecificationMapOutput {
+	return o
+}
+
+func (o V2modelsBotVersionLocaleSpecificationMapOutput) MapIndex(k pulumi.StringInput) V2modelsBotVersionLocaleSpecificationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) V2modelsBotVersionLocaleSpecification {
+		return vs[0].(map[string]V2modelsBotVersionLocaleSpecification)[vs[1].(string)]
+	}).(V2modelsBotVersionLocaleSpecificationOutput)
+}
+
+type V2modelsBotVersionTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+}
+
+// V2modelsBotVersionTimeoutsInput is an input type that accepts V2modelsBotVersionTimeoutsArgs and V2modelsBotVersionTimeoutsOutput values.
+// You can construct a concrete instance of `V2modelsBotVersionTimeoutsInput` via:
+//
+//	V2modelsBotVersionTimeoutsArgs{...}
+type V2modelsBotVersionTimeoutsInput interface {
+	pulumi.Input
+
+	ToV2modelsBotVersionTimeoutsOutput() V2modelsBotVersionTimeoutsOutput
+	ToV2modelsBotVersionTimeoutsOutputWithContext(context.Context) V2modelsBotVersionTimeoutsOutput
+}
+
+type V2modelsBotVersionTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (V2modelsBotVersionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotVersionTimeouts)(nil)).Elem()
+}
+
+func (i V2modelsBotVersionTimeoutsArgs) ToV2modelsBotVersionTimeoutsOutput() V2modelsBotVersionTimeoutsOutput {
+	return i.ToV2modelsBotVersionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotVersionTimeoutsArgs) ToV2modelsBotVersionTimeoutsOutputWithContext(ctx context.Context) V2modelsBotVersionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotVersionTimeoutsOutput)
+}
+
+func (i V2modelsBotVersionTimeoutsArgs) ToV2modelsBotVersionTimeoutsPtrOutput() V2modelsBotVersionTimeoutsPtrOutput {
+	return i.ToV2modelsBotVersionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotVersionTimeoutsArgs) ToV2modelsBotVersionTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotVersionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotVersionTimeoutsOutput).ToV2modelsBotVersionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// V2modelsBotVersionTimeoutsPtrInput is an input type that accepts V2modelsBotVersionTimeoutsArgs, V2modelsBotVersionTimeoutsPtr and V2modelsBotVersionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `V2modelsBotVersionTimeoutsPtrInput` via:
+//
+//	        V2modelsBotVersionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsBotVersionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToV2modelsBotVersionTimeoutsPtrOutput() V2modelsBotVersionTimeoutsPtrOutput
+	ToV2modelsBotVersionTimeoutsPtrOutputWithContext(context.Context) V2modelsBotVersionTimeoutsPtrOutput
+}
+
+type v2modelsBotVersionTimeoutsPtrType V2modelsBotVersionTimeoutsArgs
+
+func V2modelsBotVersionTimeoutsPtr(v *V2modelsBotVersionTimeoutsArgs) V2modelsBotVersionTimeoutsPtrInput {
+	return (*v2modelsBotVersionTimeoutsPtrType)(v)
+}
+
+func (*v2modelsBotVersionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsBotVersionTimeouts)(nil)).Elem()
+}
+
+func (i *v2modelsBotVersionTimeoutsPtrType) ToV2modelsBotVersionTimeoutsPtrOutput() V2modelsBotVersionTimeoutsPtrOutput {
+	return i.ToV2modelsBotVersionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsBotVersionTimeoutsPtrType) ToV2modelsBotVersionTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotVersionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotVersionTimeoutsPtrOutput)
+}
+
+type V2modelsBotVersionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotVersionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotVersionTimeouts)(nil)).Elem()
+}
+
+func (o V2modelsBotVersionTimeoutsOutput) ToV2modelsBotVersionTimeoutsOutput() V2modelsBotVersionTimeoutsOutput {
+	return o
+}
+
+func (o V2modelsBotVersionTimeoutsOutput) ToV2modelsBotVersionTimeoutsOutputWithContext(ctx context.Context) V2modelsBotVersionTimeoutsOutput {
+	return o
+}
+
+func (o V2modelsBotVersionTimeoutsOutput) ToV2modelsBotVersionTimeoutsPtrOutput() V2modelsBotVersionTimeoutsPtrOutput {
+	return o.ToV2modelsBotVersionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsBotVersionTimeoutsOutput) ToV2modelsBotVersionTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotVersionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsBotVersionTimeouts) *V2modelsBotVersionTimeouts {
+		return &v
+	}).(V2modelsBotVersionTimeoutsPtrOutput)
+}
+
+func (o V2modelsBotVersionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2modelsBotVersionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotVersionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2modelsBotVersionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type V2modelsBotVersionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotVersionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsBotVersionTimeouts)(nil)).Elem()
+}
+
+func (o V2modelsBotVersionTimeoutsPtrOutput) ToV2modelsBotVersionTimeoutsPtrOutput() V2modelsBotVersionTimeoutsPtrOutput {
+	return o
+}
+
+func (o V2modelsBotVersionTimeoutsPtrOutput) ToV2modelsBotVersionTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotVersionTimeoutsPtrOutput {
+	return o
+}
+
+func (o V2modelsBotVersionTimeoutsPtrOutput) Elem() V2modelsBotVersionTimeoutsOutput {
+	return o.ApplyT(func(v *V2modelsBotVersionTimeouts) V2modelsBotVersionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsBotVersionTimeouts
+		return ret
+	}).(V2modelsBotVersionTimeoutsOutput)
+}
+
+func (o V2modelsBotVersionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotVersionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotVersionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotVersionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetSlotTypeEnumerationValue struct {
 	Synonyms []string `pulumi:"synonyms"`
 	Value    string   `pulumi:"value"`
@@ -4629,6 +4879,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotMemberArrayInput)(nil)).Elem(), V2modelsBotMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotTimeoutsInput)(nil)).Elem(), V2modelsBotTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotTimeoutsPtrInput)(nil)).Elem(), V2modelsBotTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotVersionLocaleSpecificationInput)(nil)).Elem(), V2modelsBotVersionLocaleSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotVersionLocaleSpecificationMapInput)(nil)).Elem(), V2modelsBotVersionLocaleSpecificationMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotVersionTimeoutsInput)(nil)).Elem(), V2modelsBotVersionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotVersionTimeoutsPtrInput)(nil)).Elem(), V2modelsBotVersionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSlotTypeEnumerationValueInput)(nil)).Elem(), GetSlotTypeEnumerationValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSlotTypeEnumerationValueArrayInput)(nil)).Elem(), GetSlotTypeEnumerationValueArray{})
 	pulumi.RegisterOutputType(BotAbortStatementOutput{})
@@ -4691,6 +4945,10 @@ func init() {
 	pulumi.RegisterOutputType(V2modelsBotMemberArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsBotTimeoutsOutput{})
 	pulumi.RegisterOutputType(V2modelsBotTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(V2modelsBotVersionLocaleSpecificationOutput{})
+	pulumi.RegisterOutputType(V2modelsBotVersionLocaleSpecificationMapOutput{})
+	pulumi.RegisterOutputType(V2modelsBotVersionTimeoutsOutput{})
+	pulumi.RegisterOutputType(V2modelsBotVersionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetSlotTypeEnumerationValueOutput{})
 	pulumi.RegisterOutputType(GetSlotTypeEnumerationValueArrayOutput{})
 }

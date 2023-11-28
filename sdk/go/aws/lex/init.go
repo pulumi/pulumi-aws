@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &V2modelsBot{}
 	case "aws:lex/v2modelsBotLocale:V2modelsBotLocale":
 		r = &V2modelsBotLocale{}
+	case "aws:lex/v2modelsBotVersion:V2modelsBotVersion":
+		r = &V2modelsBotVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +76,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lex/v2modelsBotLocale",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lex/v2modelsBotVersion",
 		&module{version},
 	)
 }

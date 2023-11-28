@@ -108,6 +108,18 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
     public Output<Integer> autoScalingConfigurationRevision() {
         return this.autoScalingConfigurationRevision;
     }
+    @Export(name="hasAssociatedService", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> hasAssociatedService;
+
+    public Output<Boolean> hasAssociatedService() {
+        return this.hasAssociatedService;
+    }
+    @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isDefault;
+
+    public Output<Boolean> isDefault() {
+        return this.isDefault;
+    }
     /**
      * Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
      * 

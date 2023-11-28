@@ -82,23 +82,31 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * The default user settings. See Default User Settings below.
      * 
      */
     @Import(name="defaultUserSettings", required=true)
     private Output<DomainDefaultUserSettingsArgs> defaultUserSettings;
 
     /**
-     * @return The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * @return The default user settings. See Default User Settings below.
      * 
      */
     public Output<DomainDefaultUserSettingsArgs> defaultUserSettings() {
         return this.defaultUserSettings;
     }
 
+    /**
+     * The domain name.
+     * 
+     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
+    /**
+     * @return The domain name.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
@@ -317,7 +325,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+         * @param defaultUserSettings The default user settings. See Default User Settings below.
          * 
          * @return builder
          * 
@@ -328,7 +336,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+         * @param defaultUserSettings The default user settings. See Default User Settings below.
          * 
          * @return builder
          * 
@@ -337,11 +345,23 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
             return defaultUserSettings(Output.of(defaultUserSettings));
         }
 
+        /**
+         * @param domainName The domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName The domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }

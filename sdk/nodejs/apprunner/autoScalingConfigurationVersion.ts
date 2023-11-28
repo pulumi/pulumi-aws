@@ -72,6 +72,8 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
      * The revision of this auto scaling configuration.
      */
     public /*out*/ readonly autoScalingConfigurationRevision!: pulumi.Output<number>;
+    public /*out*/ readonly hasAssociatedService!: pulumi.Output<boolean>;
+    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
      * Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
      */
@@ -119,6 +121,8 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["autoScalingConfigurationName"] = state ? state.autoScalingConfigurationName : undefined;
             resourceInputs["autoScalingConfigurationRevision"] = state ? state.autoScalingConfigurationRevision : undefined;
+            resourceInputs["hasAssociatedService"] = state ? state.hasAssociatedService : undefined;
+            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
             resourceInputs["latest"] = state ? state.latest : undefined;
             resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
             resourceInputs["maxSize"] = state ? state.maxSize : undefined;
@@ -138,6 +142,8 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoScalingConfigurationRevision"] = undefined /*out*/;
+            resourceInputs["hasAssociatedService"] = undefined /*out*/;
+            resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["latest"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -165,6 +171,8 @@ export interface AutoScalingConfigurationVersionState {
      * The revision of this auto scaling configuration.
      */
     autoScalingConfigurationRevision?: pulumi.Input<number>;
+    hasAssociatedService?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
     /**
      * Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
      */

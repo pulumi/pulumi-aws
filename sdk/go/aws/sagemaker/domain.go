@@ -165,9 +165,10 @@ type Domain struct {
 	AuthMode pulumi.StringOutput `pulumi:"authMode"`
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrOutput `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettingsOutput `pulumi:"defaultUserSettings"`
-	DomainName          pulumi.StringOutput             `pulumi:"domainName"`
+	// The domain name.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The domain's settings.
 	DomainSettings DomainDomainSettingsPtrOutput `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
@@ -255,9 +256,10 @@ type domainState struct {
 	AuthMode *string `pulumi:"authMode"`
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See Default User Settings below.
 	DefaultUserSettings *DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
-	DomainName          *string                    `pulumi:"domainName"`
+	// The domain name.
+	DomainName *string `pulumi:"domainName"`
 	// The domain's settings.
 	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
@@ -297,9 +299,10 @@ type DomainState struct {
 	AuthMode pulumi.StringPtrInput
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettingsPtrInput
-	DomainName          pulumi.StringPtrInput
+	// The domain name.
+	DomainName pulumi.StringPtrInput
 	// The domain's settings.
 	DomainSettings DomainDomainSettingsPtrInput
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
@@ -341,9 +344,10 @@ type domainArgs struct {
 	AuthMode string `pulumi:"authMode"`
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
-	DomainName          string                    `pulumi:"domainName"`
+	// The domain name.
+	DomainName string `pulumi:"domainName"`
 	// The domain's settings.
 	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
@@ -370,9 +374,10 @@ type DomainArgs struct {
 	AuthMode pulumi.StringInput
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
-	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettingsInput
-	DomainName          pulumi.StringInput
+	// The domain name.
+	DomainName pulumi.StringInput
 	// The domain's settings.
 	DomainSettings DomainDomainSettingsPtrInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
@@ -501,11 +506,12 @@ func (o DomainOutput) DefaultSpaceSettings() DomainDefaultSpaceSettingsPtrOutput
 	return o.ApplyT(func(v *Domain) DomainDefaultSpaceSettingsPtrOutput { return v.DefaultSpaceSettings }).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
-// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+// The default user settings. See Default User Settings below.
 func (o DomainOutput) DefaultUserSettings() DomainDefaultUserSettingsOutput {
 	return o.ApplyT(func(v *Domain) DomainDefaultUserSettingsOutput { return v.DefaultUserSettings }).(DomainDefaultUserSettingsOutput)
 }
 
+// The domain name.
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

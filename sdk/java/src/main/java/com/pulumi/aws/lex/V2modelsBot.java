@@ -53,6 +53,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .idleSessionTtlInSeconds(10)
  *             .roleArn(&#34;bot_example_arn&#34;)
+ *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 
  *     }
@@ -164,9 +165,17 @@ public class V2modelsBot extends com.pulumi.resources.CustomResource {
     public Output<String> roleArn() {
         return this.roleArn;
     }
+    /**
+     * List of tags to add to the bot. You can only add tags when you create a bot.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return List of tags to add to the bot. You can only add tags when you create a bot.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -202,9 +211,17 @@ public class V2modelsBot extends com.pulumi.resources.CustomResource {
     public Output<Optional<V2modelsBotTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
+    /**
+     * Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

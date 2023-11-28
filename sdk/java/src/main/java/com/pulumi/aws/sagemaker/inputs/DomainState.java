@@ -97,23 +97,31 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * The default user settings. See Default User Settings below.
      * 
      */
     @Import(name="defaultUserSettings")
     private @Nullable Output<DomainDefaultUserSettingsArgs> defaultUserSettings;
 
     /**
-     * @return The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * @return The default user settings. See Default User Settings below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsArgs>> defaultUserSettings() {
         return Optional.ofNullable(this.defaultUserSettings);
     }
 
+    /**
+     * The domain name.
+     * 
+     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
+    /**
+     * @return The domain name.
+     * 
+     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
@@ -442,7 +450,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+         * @param defaultUserSettings The default user settings. See Default User Settings below.
          * 
          * @return builder
          * 
@@ -453,7 +461,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+         * @param defaultUserSettings The default user settings. See Default User Settings below.
          * 
          * @return builder
          * 
@@ -462,11 +470,23 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
             return defaultUserSettings(Output.of(defaultUserSettings));
         }
 
+        /**
+         * @param domainName The domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName The domain name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }

@@ -5168,6 +5168,193 @@ func (o GetReleaseLabelsFiltersPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetSupportedInstanceTypesSupportedInstanceType struct {
+	// CPU architecture.
+	Architecture string `pulumi:"architecture"`
+	// Indicates whether the instance type supports Amazon EBS optimization.
+	EbsOptimizedAvailable bool `pulumi:"ebsOptimizedAvailable"`
+	// Indicates whether the instance type uses Amazon EBS optimization by default.
+	EbsOptimizedByDefault bool `pulumi:"ebsOptimizedByDefault"`
+	// Indicates whether the instance type only supports Amazon EBS.
+	EbsStorageOnly bool `pulumi:"ebsStorageOnly"`
+	// The Amazon EC2 family and generation for the instance type.
+	InstanceFamilyId string `pulumi:"instanceFamilyId"`
+	// Indicates whether the instance type only supports 64-bit architecture.
+	Is64BitsOnly bool `pulumi:"is64BitsOnly"`
+	// Memory that is available to Amazon EMR from the instance type.
+	MemoryGb float64 `pulumi:"memoryGb"`
+	// Number of disks for the instance type.
+	NumberOfDisks int `pulumi:"numberOfDisks"`
+	// Storage capacity of the instance type.
+	StorageGb int `pulumi:"storageGb"`
+	// Amazon EC2 instance type. For example, `m5.xlarge`.
+	Type string `pulumi:"type"`
+	// The number of vCPUs available for the instance type.
+	Vcpu int `pulumi:"vcpu"`
+}
+
+// GetSupportedInstanceTypesSupportedInstanceTypeInput is an input type that accepts GetSupportedInstanceTypesSupportedInstanceTypeArgs and GetSupportedInstanceTypesSupportedInstanceTypeOutput values.
+// You can construct a concrete instance of `GetSupportedInstanceTypesSupportedInstanceTypeInput` via:
+//
+//	GetSupportedInstanceTypesSupportedInstanceTypeArgs{...}
+type GetSupportedInstanceTypesSupportedInstanceTypeInput interface {
+	pulumi.Input
+
+	ToGetSupportedInstanceTypesSupportedInstanceTypeOutput() GetSupportedInstanceTypesSupportedInstanceTypeOutput
+	ToGetSupportedInstanceTypesSupportedInstanceTypeOutputWithContext(context.Context) GetSupportedInstanceTypesSupportedInstanceTypeOutput
+}
+
+type GetSupportedInstanceTypesSupportedInstanceTypeArgs struct {
+	// CPU architecture.
+	Architecture pulumi.StringInput `pulumi:"architecture"`
+	// Indicates whether the instance type supports Amazon EBS optimization.
+	EbsOptimizedAvailable pulumi.BoolInput `pulumi:"ebsOptimizedAvailable"`
+	// Indicates whether the instance type uses Amazon EBS optimization by default.
+	EbsOptimizedByDefault pulumi.BoolInput `pulumi:"ebsOptimizedByDefault"`
+	// Indicates whether the instance type only supports Amazon EBS.
+	EbsStorageOnly pulumi.BoolInput `pulumi:"ebsStorageOnly"`
+	// The Amazon EC2 family and generation for the instance type.
+	InstanceFamilyId pulumi.StringInput `pulumi:"instanceFamilyId"`
+	// Indicates whether the instance type only supports 64-bit architecture.
+	Is64BitsOnly pulumi.BoolInput `pulumi:"is64BitsOnly"`
+	// Memory that is available to Amazon EMR from the instance type.
+	MemoryGb pulumi.Float64Input `pulumi:"memoryGb"`
+	// Number of disks for the instance type.
+	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
+	// Storage capacity of the instance type.
+	StorageGb pulumi.IntInput `pulumi:"storageGb"`
+	// Amazon EC2 instance type. For example, `m5.xlarge`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The number of vCPUs available for the instance type.
+	Vcpu pulumi.IntInput `pulumi:"vcpu"`
+}
+
+func (GetSupportedInstanceTypesSupportedInstanceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSupportedInstanceTypesSupportedInstanceType)(nil)).Elem()
+}
+
+func (i GetSupportedInstanceTypesSupportedInstanceTypeArgs) ToGetSupportedInstanceTypesSupportedInstanceTypeOutput() GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return i.ToGetSupportedInstanceTypesSupportedInstanceTypeOutputWithContext(context.Background())
+}
+
+func (i GetSupportedInstanceTypesSupportedInstanceTypeArgs) ToGetSupportedInstanceTypesSupportedInstanceTypeOutputWithContext(ctx context.Context) GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSupportedInstanceTypesSupportedInstanceTypeOutput)
+}
+
+// GetSupportedInstanceTypesSupportedInstanceTypeArrayInput is an input type that accepts GetSupportedInstanceTypesSupportedInstanceTypeArray and GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput values.
+// You can construct a concrete instance of `GetSupportedInstanceTypesSupportedInstanceTypeArrayInput` via:
+//
+//	GetSupportedInstanceTypesSupportedInstanceTypeArray{ GetSupportedInstanceTypesSupportedInstanceTypeArgs{...} }
+type GetSupportedInstanceTypesSupportedInstanceTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutput() GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput
+	ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutputWithContext(context.Context) GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput
+}
+
+type GetSupportedInstanceTypesSupportedInstanceTypeArray []GetSupportedInstanceTypesSupportedInstanceTypeInput
+
+func (GetSupportedInstanceTypesSupportedInstanceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSupportedInstanceTypesSupportedInstanceType)(nil)).Elem()
+}
+
+func (i GetSupportedInstanceTypesSupportedInstanceTypeArray) ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutput() GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput {
+	return i.ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetSupportedInstanceTypesSupportedInstanceTypeArray) ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutputWithContext(ctx context.Context) GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput)
+}
+
+type GetSupportedInstanceTypesSupportedInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (GetSupportedInstanceTypesSupportedInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSupportedInstanceTypesSupportedInstanceType)(nil)).Elem()
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) ToGetSupportedInstanceTypesSupportedInstanceTypeOutput() GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return o
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) ToGetSupportedInstanceTypesSupportedInstanceTypeOutputWithContext(ctx context.Context) GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return o
+}
+
+// CPU architecture.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) string { return v.Architecture }).(pulumi.StringOutput)
+}
+
+// Indicates whether the instance type supports Amazon EBS optimization.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) EbsOptimizedAvailable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) bool { return v.EbsOptimizedAvailable }).(pulumi.BoolOutput)
+}
+
+// Indicates whether the instance type uses Amazon EBS optimization by default.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) EbsOptimizedByDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) bool { return v.EbsOptimizedByDefault }).(pulumi.BoolOutput)
+}
+
+// Indicates whether the instance type only supports Amazon EBS.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) EbsStorageOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) bool { return v.EbsStorageOnly }).(pulumi.BoolOutput)
+}
+
+// The Amazon EC2 family and generation for the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) InstanceFamilyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) string { return v.InstanceFamilyId }).(pulumi.StringOutput)
+}
+
+// Indicates whether the instance type only supports 64-bit architecture.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) Is64BitsOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) bool { return v.Is64BitsOnly }).(pulumi.BoolOutput)
+}
+
+// Memory that is available to Amazon EMR from the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) MemoryGb() pulumi.Float64Output {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) float64 { return v.MemoryGb }).(pulumi.Float64Output)
+}
+
+// Number of disks for the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) NumberOfDisks() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+}
+
+// Storage capacity of the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) StorageGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) int { return v.StorageGb }).(pulumi.IntOutput)
+}
+
+// Amazon EC2 instance type. For example, `m5.xlarge`.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of vCPUs available for the instance type.
+func (o GetSupportedInstanceTypesSupportedInstanceTypeOutput) Vcpu() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSupportedInstanceTypesSupportedInstanceType) int { return v.Vcpu }).(pulumi.IntOutput)
+}
+
+type GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSupportedInstanceTypesSupportedInstanceType)(nil)).Elem()
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput) ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutput() GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput {
+	return o
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput) ToGetSupportedInstanceTypesSupportedInstanceTypeArrayOutputWithContext(ctx context.Context) GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput {
+	return o
+}
+
+func (o GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput) Index(i pulumi.IntInput) GetSupportedInstanceTypesSupportedInstanceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSupportedInstanceTypesSupportedInstanceType {
+		return vs[0].([]GetSupportedInstanceTypesSupportedInstanceType)[vs[1].(int)]
+	}).(GetSupportedInstanceTypesSupportedInstanceTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeInput)(nil)).Elem(), BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput)(nil)).Elem(), BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{})
@@ -5238,6 +5425,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyComputeLimitArrayInput)(nil)).Elem(), ManagedScalingPolicyComputeLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseLabelsFiltersInput)(nil)).Elem(), GetReleaseLabelsFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseLabelsFiltersPtrInput)(nil)).Elem(), GetReleaseLabelsFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSupportedInstanceTypesSupportedInstanceTypeInput)(nil)).Elem(), GetSupportedInstanceTypesSupportedInstanceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSupportedInstanceTypesSupportedInstanceTypeArrayInput)(nil)).Elem(), GetSupportedInstanceTypesSupportedInstanceTypeArray{})
 	pulumi.RegisterOutputType(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput{})
 	pulumi.RegisterOutputType(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyOutput{})
@@ -5307,4 +5496,6 @@ func init() {
 	pulumi.RegisterOutputType(ManagedScalingPolicyComputeLimitArrayOutput{})
 	pulumi.RegisterOutputType(GetReleaseLabelsFiltersOutput{})
 	pulumi.RegisterOutputType(GetReleaseLabelsFiltersPtrOutput{})
+	pulumi.RegisterOutputType(GetSupportedInstanceTypesSupportedInstanceTypeOutput{})
+	pulumi.RegisterOutputType(GetSupportedInstanceTypesSupportedInstanceTypeArrayOutput{})
 }
