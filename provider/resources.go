@@ -708,10 +708,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
 			},
-			"skip_get_ec2_platforms": {
-				// We don't want a default here because this setting is deprecated upstream,
-				// so setting it triggers a warning on all provider operations. #2292
-			},
 			"skip_region_validation": {
 				Default: &tfbridge.DefaultInfo{
 					Value: true,
@@ -1070,12 +1066,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
 						Name: "tags",
 					},
-					"tags": {
-						// Conflicts with the pluralized `tag` property, which is the more strongly typed option for
-						// providing tags.  We keep this dynamically typed collection of tags as an option as well, but
-						// give it a different name.
-						Name: "tagsCollection",
-					},
 				},
 			},
 			"aws_autoscaling_lifecycle_hook": {
@@ -1127,16 +1117,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
-			// Budgets
-			"aws_budgets_budget": {
-				Tok: awsResource(budgetsMod, "Budget"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"cost_filters": {
-						Name:               "costFilterLegacy",
-						DeprecationMessage: "The now-deprecated original cost filters. Use CostFilters instead.",
-					},
-				},
-			},
 			// Chime
 			"aws_chime_voice_connector":                         {Tok: awsResource(chimeMod, "VoiceConnector")},
 			"aws_chime_voice_connector_group":                   {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
