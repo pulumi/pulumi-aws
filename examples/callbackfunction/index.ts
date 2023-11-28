@@ -33,7 +33,7 @@ const policy = new aws.iam.Policy("policy", {
             Resource: "arn:aws:s3:::*",
         }],
     }
-});
+}, { provider });
 
 const functions = [
     new aws.lambda.CallbackFunction("a", {
