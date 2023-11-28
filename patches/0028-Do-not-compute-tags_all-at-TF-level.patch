@@ -22,10 +22,10 @@ index 34065d9285..5225f639af 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 85a814022b..b119e21c46 100644
+index 6dbe55dfd5..acde512855 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -413,8 +413,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -421,8 +421,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
@@ -141,18 +141,18 @@ index 0b867c6616..0bf0c7ec63 100644
  				Optional: true,
  				Validators: []validator.Int64{
 diff --git a/internal/service/lexv2models/bot.go b/internal/service/lexv2models/bot.go
-index d806a8c907..ce0d41325e 100644
+index fc553b56bc..997a513b50 100644
 --- a/internal/service/lexv2models/bot.go
 +++ b/internal/service/lexv2models/bot.go
-@@ -78,7 +78,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
- 				},
+@@ -82,7 +82,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
+ 				Required:   true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll: tftags.TagsAttribute(),
- 			"role_arn": schema.StringAttribute{
- 				CustomType: fwtypes.ARNType,
- 				Required:   true,
+ 			"test_bot_alias_tags": schema.MapAttribute{
+ 				ElementType: types.StringType,
+ 				Optional:    true,
 diff --git a/internal/service/opensearchserverless/collection.go b/internal/service/opensearchserverless/collection.go
 index e661616cd7..7744b48ac4 100644
 --- a/internal/service/opensearchserverless/collection.go

@@ -5,7 +5,7 @@ Subject: [PATCH 27/29] Restore S3ConnURICleaningDisabled
 
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index b1f8680be8..0a6f434326 100644
+index 05e58080b5..0c0f1952be 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
 @@ -11,10 +11,12 @@ import (
@@ -21,7 +21,7 @@ index b1f8680be8..0a6f434326 100644
  	baselogging "github.com/hashicorp/aws-sdk-go-base/v2/logging"
  	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
  	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -72,6 +74,13 @@ func (client *AWSClient) S3UsePathStyle() bool {
+@@ -76,6 +78,13 @@ func (client *AWSClient) S3UsePathStyle() bool {
  	return client.s3UsePathStyle
  }
  
