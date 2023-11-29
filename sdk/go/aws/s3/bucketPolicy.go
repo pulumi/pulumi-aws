@@ -14,6 +14,8 @@ import (
 
 // Attaches a policy to an S3 bucket resource.
 //
+// > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
+//
 // ## Example Usage
 // ### Basic Usage
 //

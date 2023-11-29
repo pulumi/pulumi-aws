@@ -8969,6 +8969,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/directoryBucket",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/directoryBucket:DirectoryBucket": "DirectoryBucket"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/inventory",
   "fqn": "pulumi_aws.s3",
   "classes": {

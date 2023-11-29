@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
  * ### With Versioning Enabled
  * ```java

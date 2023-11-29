@@ -22,6 +22,7 @@ public final class Endpoints {
     private @Nullable String apigatewayv2;
     private @Nullable String appautoscaling;
     private @Nullable String appconfig;
+    private @Nullable String appfabric;
     private @Nullable String appflow;
     private @Nullable String appintegrations;
     private @Nullable String appintegrationsservice;
@@ -300,6 +301,9 @@ public final class Endpoints {
     }
     public Optional<String> appconfig() {
         return Optional.ofNullable(this.appconfig);
+    }
+    public Optional<String> appfabric() {
+        return Optional.ofNullable(this.appfabric);
     }
     public Optional<String> appflow() {
         return Optional.ofNullable(this.appflow);
@@ -1054,6 +1058,7 @@ public final class Endpoints {
         private @Nullable String apigatewayv2;
         private @Nullable String appautoscaling;
         private @Nullable String appconfig;
+        private @Nullable String appfabric;
         private @Nullable String appflow;
         private @Nullable String appintegrations;
         private @Nullable String appintegrationsservice;
@@ -1312,6 +1317,7 @@ public final class Endpoints {
     	      this.apigatewayv2 = defaults.apigatewayv2;
     	      this.appautoscaling = defaults.appautoscaling;
     	      this.appconfig = defaults.appconfig;
+    	      this.appfabric = defaults.appfabric;
     	      this.appflow = defaults.appflow;
     	      this.appintegrations = defaults.appintegrations;
     	      this.appintegrationsservice = defaults.appintegrationsservice;
@@ -1611,6 +1617,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder appconfig(@Nullable String appconfig) {
             this.appconfig = appconfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder appfabric(@Nullable String appfabric) {
+            this.appfabric = appfabric;
             return this;
         }
         @CustomType.Setter
@@ -2846,6 +2857,7 @@ public final class Endpoints {
             o.apigatewayv2 = apigatewayv2;
             o.appautoscaling = appautoscaling;
             o.appconfig = appconfig;
+            o.appfabric = appfabric;
             o.appflow = appflow;
             o.appintegrations = appintegrations;
             o.appintegrationsservice = appintegrationsservice;

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
 /**
  * Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
  * ### With `routing_rule` configured
  * ```java

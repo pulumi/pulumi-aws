@@ -30,9 +30,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a S3 bucket resource.
  * 
- * &gt; This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws.s3control.Bucket` resource.
- * 
- * &gt; In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `aws.s3.BucketV2` resource.
+ * &gt; This resource provides functionality for managing S3 general purpose buckets in an AWS Partition. To manage Amazon S3 Express directory buckets, use the `aws_directory_bucket` resource. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), use the `aws.s3control.Bucket` resource.
  * 
  * ## Example Usage
  * ### Private Bucket With Tags
@@ -67,50 +65,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Static Website Hosting
- * 
- * &gt; **NOTE:** The `website` attribute is deprecated.
- * See `aws.s3.BucketWebsiteConfigurationV2` for examples with static website hosting configured.
- * 
- * ### CORS Rules
- * 
- * &gt; **NOTE:** The `cors_rule` attribute is deprecated.
- * See `aws.s3.BucketCorsConfigurationV2` for examples with CORS rules configured.
- * 
- * ### Versioning
- * 
- * &gt; **NOTE:** The `versioning` attribute is deprecated.
- * See `aws.s3.BucketVersioningV2` for examples with versioning configured.
- * 
- * ### Logging
- * 
- * &gt; **NOTE:** The `logging` attribute is deprecated.
- * See `aws.s3.BucketLoggingV2` for examples with logging enabled.
- * 
- * ### Object Lifecycle Rules
- * 
- * &gt; **NOTE:** The `lifecycle_rule` attribute is deprecated.
- * See `aws.s3.BucketLifecycleConfigurationV2` for examples with object lifecycle rules.
- * 
- * ### Object Lock Configuration
- * 
- * &gt; **NOTE:** The `object_lock_configuration` attribute is deprecated.
- * See `aws.s3.BucketObjectLockConfigurationV2` for examples with object lock configurations on both new and existing buckets.
- * 
- * ### Replication Configuration
- * 
- * &gt; **NOTE:** The `replication_configuration` attribute is deprecated.
- * See `aws.s3.BucketReplicationConfig` for examples with replication configured.
- * 
- * ### Enable SSE-KMS Server Side Encryption
- * 
- * &gt; **NOTE:** The `server_side_encryption_configuration` attribute is deprecated.
- * See `aws.s3.BucketServerSideEncryptionConfigurationV2` for examples with server side encryption configured.
- * 
- * ### ACL Policy Grants
- * 
- * &gt; **NOTE:** The `acl` and `grant` attributes are deprecated.
- * See `aws.s3.BucketAclV2` for examples with ACL grants.
  * 
  * ## Import
  * 
@@ -176,14 +130,14 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * @return Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      * 
      */
     public Output<String> bucket() {

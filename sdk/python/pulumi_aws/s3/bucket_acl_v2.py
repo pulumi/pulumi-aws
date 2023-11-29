@@ -171,6 +171,8 @@ class BucketAclV2(pulumi.CustomResource):
 
         > **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
         ### With `private` ACL
 
@@ -305,6 +307,8 @@ class BucketAclV2(pulumi.CustomResource):
         Provides an S3 bucket ACL resource.
 
         > **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
+
+        > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
         ### With `private` ACL

@@ -14,6 +14,8 @@ import (
 
 // Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
 // ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
 //

@@ -254,6 +254,7 @@ class ProviderEndpointArgs:
                  apigatewayv2: Optional[pulumi.Input[str]] = None,
                  appautoscaling: Optional[pulumi.Input[str]] = None,
                  appconfig: Optional[pulumi.Input[str]] = None,
+                 appfabric: Optional[pulumi.Input[str]] = None,
                  appflow: Optional[pulumi.Input[str]] = None,
                  appintegrations: Optional[pulumi.Input[str]] = None,
                  appintegrationsservice: Optional[pulumi.Input[str]] = None,
@@ -520,6 +521,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "appautoscaling", appautoscaling)
         if appconfig is not None:
             pulumi.set(__self__, "appconfig", appconfig)
+        if appfabric is not None:
+            pulumi.set(__self__, "appfabric", appfabric)
         if appflow is not None:
             pulumi.set(__self__, "appflow", appflow)
         if appintegrations is not None:
@@ -1107,6 +1110,15 @@ class ProviderEndpointArgs:
     @appconfig.setter
     def appconfig(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "appconfig", value)
+
+    @property
+    @pulumi.getter
+    def appfabric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "appfabric")
+
+    @appfabric.setter
+    def appfabric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "appfabric", value)
 
     @property
     @pulumi.getter

@@ -156,14 +156,16 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
      * 
      */
     @Import(name="engine", required=true)
     private Output<String> engine;
 
     /**
-     * @return Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * @return Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
      * 
      */
     public Output<String> engine() {
@@ -617,7 +619,8 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+         * @param engine Name of the database engine to be used for the RDS cluster instance.
+         * Valid Values: `aurora-mysql`, `aurora-postgresql`.
          * 
          * @return builder
          * 
@@ -628,7 +631,8 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+         * @param engine Name of the database engine to be used for the RDS cluster instance.
+         * Valid Values: `aurora-mysql`, `aurora-postgresql`.
          * 
          * @return builder
          * 

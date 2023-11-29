@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
  *
  * ```typescript

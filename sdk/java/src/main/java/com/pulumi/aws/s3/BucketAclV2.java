@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
  * ### With `private` ACL
  * ```java

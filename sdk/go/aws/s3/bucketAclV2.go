@@ -16,6 +16,8 @@ import (
 //
 // > **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
 // ### With `private` ACL
 //

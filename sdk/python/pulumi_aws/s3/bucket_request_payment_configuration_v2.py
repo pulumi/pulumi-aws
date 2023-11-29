@@ -135,6 +135,8 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
 
         > **NOTE:** Destroying an `s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
 
         ```python
@@ -179,6 +181,8 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
 
         > **NOTE:** Destroying an `s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
+
+        > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
 

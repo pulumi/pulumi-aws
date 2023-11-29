@@ -112,6 +112,7 @@ export interface ProviderEndpoint {
     apigatewayv2?: pulumi.Input<string>;
     appautoscaling?: pulumi.Input<string>;
     appconfig?: pulumi.Input<string>;
+    appfabric?: pulumi.Input<string>;
     appflow?: pulumi.Input<string>;
     appintegrations?: pulumi.Input<string>;
     appintegrationsservice?: pulumi.Input<string>;
@@ -48150,6 +48151,17 @@ export namespace s3 {
          * Specific object key to use in the redirect request. For example, redirect request to `error.html`.
          */
         replaceKeyWith?: pulumi.Input<string>;
+    }
+
+    export interface DirectoryBucketLocation {
+        /**
+         * [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Location type. Valid values: `AvailabilityZone`.
+         */
+        type?: pulumi.Input<string>;
     }
 
     export interface InventoryDestination {

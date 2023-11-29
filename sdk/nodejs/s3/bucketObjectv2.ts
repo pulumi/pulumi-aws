@@ -105,6 +105,8 @@ import {Bucket} from "./index";
  * S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
  * If the resource's own `tags` and the provider-level `defaultTags` would together lead to more than 10 tags on an S3 object, use the `overrideProvider` configuration block to suppress any provider-level `defaultTags`.
  *
+ * > S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `defaultTags` must be ignored.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

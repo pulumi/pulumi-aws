@@ -634,6 +634,7 @@ type ProviderEndpoint struct {
 	Apigatewayv2                         *string `pulumi:"apigatewayv2"`
 	Appautoscaling                       *string `pulumi:"appautoscaling"`
 	Appconfig                            *string `pulumi:"appconfig"`
+	Appfabric                            *string `pulumi:"appfabric"`
 	Appflow                              *string `pulumi:"appflow"`
 	Appintegrations                      *string `pulumi:"appintegrations"`
 	Appintegrationsservice               *string `pulumi:"appintegrationsservice"`
@@ -903,6 +904,7 @@ type ProviderEndpointArgs struct {
 	Apigatewayv2                         pulumi.StringPtrInput `pulumi:"apigatewayv2"`
 	Appautoscaling                       pulumi.StringPtrInput `pulumi:"appautoscaling"`
 	Appconfig                            pulumi.StringPtrInput `pulumi:"appconfig"`
+	Appfabric                            pulumi.StringPtrInput `pulumi:"appfabric"`
 	Appflow                              pulumi.StringPtrInput `pulumi:"appflow"`
 	Appintegrations                      pulumi.StringPtrInput `pulumi:"appintegrations"`
 	Appintegrationsservice               pulumi.StringPtrInput `pulumi:"appintegrationsservice"`
@@ -1242,6 +1244,10 @@ func (o ProviderEndpointOutput) Appautoscaling() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Appconfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Appconfig }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Appfabric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Appfabric }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Appflow() pulumi.StringPtrOutput {

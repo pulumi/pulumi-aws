@@ -12,6 +12,8 @@ namespace Pulumi.Aws.S3Control
     /// <summary>
     /// Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
     /// ### Multiple AWS Buckets in Different Regions
     /// 

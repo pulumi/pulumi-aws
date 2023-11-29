@@ -267,14 +267,16 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * @return Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
      * 
      */
     public Output<String> engine() {
@@ -509,14 +511,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> publiclyAccessible;
+    private Output<Boolean> publiclyAccessible;
 
     /**
      * @return Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
      * 
      */
-    public Output<Optional<Boolean>> publiclyAccessible() {
-        return Codegen.optional(this.publiclyAccessible);
+    public Output<Boolean> publiclyAccessible() {
+        return this.publiclyAccessible;
     }
     /**
      * Specifies whether the DB cluster is encrypted.

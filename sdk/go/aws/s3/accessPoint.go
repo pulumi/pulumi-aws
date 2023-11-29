@@ -18,8 +18,10 @@ import (
 //
 // > Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
-// ### AWS Partition Bucket
+// ### AWS Partition General Purpose Bucket
 //
 // ```go
 // package main
@@ -121,7 +123,7 @@ type AccessPoint struct {
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// ARN of the S3 Access Point.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringOutput `pulumi:"bucketAccountId"`
@@ -185,7 +187,7 @@ type accessPointState struct {
 	Alias *string `pulumi:"alias"`
 	// ARN of the S3 Access Point.
 	Arn *string `pulumi:"arn"`
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket *string `pulumi:"bucket"`
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
@@ -217,7 +219,7 @@ type AccessPointState struct {
 	Alias pulumi.StringPtrInput
 	// ARN of the S3 Access Point.
 	Arn pulumi.StringPtrInput
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringPtrInput
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrInput
@@ -249,7 +251,7 @@ func (AccessPointState) ElementType() reflect.Type {
 type accessPointArgs struct {
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket string `pulumi:"bucket"`
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
@@ -269,7 +271,7 @@ type accessPointArgs struct {
 type AccessPointArgs struct {
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
-	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringInput
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrInput
@@ -387,7 +389,7 @@ func (o AccessPointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 func (o AccessPointOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

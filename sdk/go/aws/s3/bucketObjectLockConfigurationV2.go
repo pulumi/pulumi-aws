@@ -18,6 +18,8 @@ import (
 // Thus, to **enable** Object Lock for a **new** bucket, see the Using object lock configuration section in  the `s3.BucketV2` resource or the Object Lock configuration for a new bucket example below.
 // If you want to **enable** Object Lock for an **existing** bucket, contact AWS Support and see the Object Lock configuration for an existing bucket example below.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
 // ### Object Lock configuration for a new bucket
 //
