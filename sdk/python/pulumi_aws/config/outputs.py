@@ -182,6 +182,7 @@ class Endpoints(dict):
                  apigatewayv2: Optional[str] = None,
                  appautoscaling: Optional[str] = None,
                  appconfig: Optional[str] = None,
+                 appfabric: Optional[str] = None,
                  appflow: Optional[str] = None,
                  appintegrations: Optional[str] = None,
                  appintegrationsservice: Optional[str] = None,
@@ -448,6 +449,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "appautoscaling", appautoscaling)
         if appconfig is not None:
             pulumi.set(__self__, "appconfig", appconfig)
+        if appfabric is not None:
+            pulumi.set(__self__, "appfabric", appfabric)
         if appflow is not None:
             pulumi.set(__self__, "appflow", appflow)
         if appintegrations is not None:
@@ -991,6 +994,11 @@ class Endpoints(dict):
     @pulumi.getter
     def appconfig(self) -> Optional[str]:
         return pulumi.get(self, "appconfig")
+
+    @property
+    @pulumi.getter
+    def appfabric(self) -> Optional[str]:
+        return pulumi.get(self, "appfabric")
 
     @property
     @pulumi.getter

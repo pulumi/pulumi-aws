@@ -15619,6 +15619,7 @@ export namespace config {
         apigatewayv2?: string;
         appautoscaling?: string;
         appconfig?: string;
+        appfabric?: string;
         appflow?: string;
         appintegrations?: string;
         appintegrationsservice?: string;
@@ -54446,6 +54447,17 @@ export namespace s3 {
          * Specific object key to use in the redirect request. For example, redirect request to `error.html`.
          */
         replaceKeyWith?: string;
+    }
+
+    export interface DirectoryBucketLocation {
+        /**
+         * [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+         */
+        name: string;
+        /**
+         * Location type. Valid values: `AvailabilityZone`.
+         */
+        type: string;
     }
 
     export interface InventoryDestination {

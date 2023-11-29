@@ -136,6 +136,8 @@ class BucketMetric(pulumi.CustomResource):
         """
         Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
         ### Add metrics configuration for entire S3 bucket
 
@@ -186,6 +188,8 @@ class BucketMetric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
+
+        > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
         ### Add metrics configuration for entire S3 bucket

@@ -141,7 +141,8 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
      */
     public readonly engine!: pulumi.Output<EngineType>;
     /**
@@ -211,7 +212,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
      * Specifies whether the DB cluster is encrypted.
      */
@@ -384,7 +385,8 @@ export interface ClusterInstanceState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
      */
     engine?: pulumi.Input<EngineType>;
     /**
@@ -516,7 +518,8 @@ export interface ClusterInstanceArgs {
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
      */
     engine: pulumi.Input<EngineType>;
     /**

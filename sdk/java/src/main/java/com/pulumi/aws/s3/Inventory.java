@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
  * ### Add inventory configuration
  * ```java

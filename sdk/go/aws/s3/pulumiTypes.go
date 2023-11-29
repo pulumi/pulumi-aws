@@ -15796,6 +15796,162 @@ func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ReplaceKeyWith() 
 	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRuleRedirect) *string { return v.ReplaceKeyWith }).(pulumi.StringPtrOutput)
 }
 
+type DirectoryBucketLocation struct {
+	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+	Name string `pulumi:"name"`
+	// Location type. Valid values: `AvailabilityZone`.
+	Type *string `pulumi:"type"`
+}
+
+// DirectoryBucketLocationInput is an input type that accepts DirectoryBucketLocationArgs and DirectoryBucketLocationOutput values.
+// You can construct a concrete instance of `DirectoryBucketLocationInput` via:
+//
+//	DirectoryBucketLocationArgs{...}
+type DirectoryBucketLocationInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketLocationOutput() DirectoryBucketLocationOutput
+	ToDirectoryBucketLocationOutputWithContext(context.Context) DirectoryBucketLocationOutput
+}
+
+type DirectoryBucketLocationArgs struct {
+	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Location type. Valid values: `AvailabilityZone`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DirectoryBucketLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketLocation)(nil)).Elem()
+}
+
+func (i DirectoryBucketLocationArgs) ToDirectoryBucketLocationOutput() DirectoryBucketLocationOutput {
+	return i.ToDirectoryBucketLocationOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketLocationArgs) ToDirectoryBucketLocationOutputWithContext(ctx context.Context) DirectoryBucketLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketLocationOutput)
+}
+
+func (i DirectoryBucketLocationArgs) ToDirectoryBucketLocationPtrOutput() DirectoryBucketLocationPtrOutput {
+	return i.ToDirectoryBucketLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketLocationArgs) ToDirectoryBucketLocationPtrOutputWithContext(ctx context.Context) DirectoryBucketLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketLocationOutput).ToDirectoryBucketLocationPtrOutputWithContext(ctx)
+}
+
+// DirectoryBucketLocationPtrInput is an input type that accepts DirectoryBucketLocationArgs, DirectoryBucketLocationPtr and DirectoryBucketLocationPtrOutput values.
+// You can construct a concrete instance of `DirectoryBucketLocationPtrInput` via:
+//
+//	        DirectoryBucketLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryBucketLocationPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketLocationPtrOutput() DirectoryBucketLocationPtrOutput
+	ToDirectoryBucketLocationPtrOutputWithContext(context.Context) DirectoryBucketLocationPtrOutput
+}
+
+type directoryBucketLocationPtrType DirectoryBucketLocationArgs
+
+func DirectoryBucketLocationPtr(v *DirectoryBucketLocationArgs) DirectoryBucketLocationPtrInput {
+	return (*directoryBucketLocationPtrType)(v)
+}
+
+func (*directoryBucketLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketLocation)(nil)).Elem()
+}
+
+func (i *directoryBucketLocationPtrType) ToDirectoryBucketLocationPtrOutput() DirectoryBucketLocationPtrOutput {
+	return i.ToDirectoryBucketLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryBucketLocationPtrType) ToDirectoryBucketLocationPtrOutputWithContext(ctx context.Context) DirectoryBucketLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketLocationPtrOutput)
+}
+
+type DirectoryBucketLocationOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketLocation)(nil)).Elem()
+}
+
+func (o DirectoryBucketLocationOutput) ToDirectoryBucketLocationOutput() DirectoryBucketLocationOutput {
+	return o
+}
+
+func (o DirectoryBucketLocationOutput) ToDirectoryBucketLocationOutputWithContext(ctx context.Context) DirectoryBucketLocationOutput {
+	return o
+}
+
+func (o DirectoryBucketLocationOutput) ToDirectoryBucketLocationPtrOutput() DirectoryBucketLocationPtrOutput {
+	return o.ToDirectoryBucketLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketLocationOutput) ToDirectoryBucketLocationPtrOutputWithContext(ctx context.Context) DirectoryBucketLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketLocation) *DirectoryBucketLocation {
+		return &v
+	}).(DirectoryBucketLocationPtrOutput)
+}
+
+// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+func (o DirectoryBucketLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryBucketLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Location type. Valid values: `AvailabilityZone`.
+func (o DirectoryBucketLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DirectoryBucketLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketLocation)(nil)).Elem()
+}
+
+func (o DirectoryBucketLocationPtrOutput) ToDirectoryBucketLocationPtrOutput() DirectoryBucketLocationPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketLocationPtrOutput) ToDirectoryBucketLocationPtrOutputWithContext(ctx context.Context) DirectoryBucketLocationPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketLocationPtrOutput) Elem() DirectoryBucketLocationOutput {
+	return o.ApplyT(func(v *DirectoryBucketLocation) DirectoryBucketLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketLocation
+		return ret
+	}).(DirectoryBucketLocationOutput)
+}
+
+// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+func (o DirectoryBucketLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryBucketLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Location type. Valid values: `AvailabilityZone`.
+func (o DirectoryBucketLocationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryBucketLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type InventoryDestination struct {
 	// S3 bucket configuration where inventory results are published (documented below).
 	Bucket InventoryDestinationBucket `pulumi:"bucket"`
@@ -17195,6 +17351,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleConditionInput)(nil)).Elem(), BucketWebsiteConfigurationV2RoutingRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput)(nil)).Elem(), BucketWebsiteConfigurationV2RoutingRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleRedirectInput)(nil)).Elem(), BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLocationInput)(nil)).Elem(), DirectoryBucketLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLocationPtrInput)(nil)).Elem(), DirectoryBucketLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationInput)(nil)).Elem(), InventoryDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationPtrInput)(nil)).Elem(), InventoryDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationBucketInput)(nil)).Elem(), InventoryDestinationBucketArgs{})
@@ -17431,6 +17589,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RoutingRuleConditionOutput{})
 	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput{})
 	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RoutingRuleRedirectOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketLocationOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketLocationPtrOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationPtrOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationBucketOutput{})

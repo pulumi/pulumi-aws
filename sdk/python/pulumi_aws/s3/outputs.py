@@ -124,6 +124,7 @@ __all__ = [
     'BucketWebsiteConfigurationV2RoutingRule',
     'BucketWebsiteConfigurationV2RoutingRuleCondition',
     'BucketWebsiteConfigurationV2RoutingRuleRedirect',
+    'DirectoryBucketLocation',
     'InventoryDestination',
     'InventoryDestinationBucket',
     'InventoryDestinationBucketEncryption',
@@ -5823,6 +5824,36 @@ class BucketWebsiteConfigurationV2RoutingRuleRedirect(dict):
         Specific object key to use in the redirect request. For example, redirect request to `error.html`.
         """
         return pulumi.get(self, "replace_key_with")
+
+
+@pulumi.output_type
+class DirectoryBucketLocation(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: Optional[str] = None):
+        """
+        :param str name: [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+        :param str type: Location type. Valid values: `AvailabilityZone`.
+        """
+        pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Location type. Valid values: `AvailabilityZone`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

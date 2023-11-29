@@ -123,6 +123,7 @@ __all__ = [
     'BucketWebsiteConfigurationV2RoutingRuleArgs',
     'BucketWebsiteConfigurationV2RoutingRuleConditionArgs',
     'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs',
+    'DirectoryBucketLocationArgs',
     'InventoryDestinationArgs',
     'InventoryDestinationBucketArgs',
     'InventoryDestinationBucketEncryptionArgs',
@@ -5727,6 +5728,44 @@ class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs:
     @replace_key_with.setter
     def replace_key_with(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "replace_key_with", value)
+
+
+@pulumi.input_type
+class DirectoryBucketLocationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+        :param pulumi.Input[str] type: Location type. Valid values: `AvailabilityZone`.
+        """
+        pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location type. Valid values: `AvailabilityZone`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

@@ -92,6 +92,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.appconfig);
     }
 
+    @Import(name="appfabric")
+    private @Nullable Output<String> appfabric;
+
+    public Optional<Output<String>> appfabric() {
+        return Optional.ofNullable(this.appfabric);
+    }
+
     @Import(name="appflow")
     private @Nullable Output<String> appflow;
 
@@ -1814,6 +1821,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.apigatewayv2 = $.apigatewayv2;
         this.appautoscaling = $.appautoscaling;
         this.appconfig = $.appconfig;
+        this.appfabric = $.appfabric;
         this.appflow = $.appflow;
         this.appintegrations = $.appintegrations;
         this.appintegrationsservice = $.appintegrationsservice;
@@ -2175,6 +2183,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder appconfig(String appconfig) {
             return appconfig(Output.of(appconfig));
+        }
+
+        public Builder appfabric(@Nullable Output<String> appfabric) {
+            $.appfabric = appfabric;
+            return this;
+        }
+
+        public Builder appfabric(String appfabric) {
+            return appfabric(Output.of(appfabric));
         }
 
         public Builder appflow(@Nullable Output<String> appflow) {

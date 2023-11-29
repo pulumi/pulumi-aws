@@ -14,8 +14,10 @@ import * as utilities from "../utilities";
  *
  * > Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
- * ### AWS Partition Bucket
+ * ### AWS Partition General Purpose Bucket
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -98,7 +100,7 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -208,7 +210,7 @@ export interface AccessPointState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -261,7 +263,7 @@ export interface AccessPointArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
     bucket: pulumi.Input<string>;
     /**

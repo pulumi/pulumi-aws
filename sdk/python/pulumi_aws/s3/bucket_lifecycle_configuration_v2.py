@@ -149,6 +149,8 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
         See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
         ### With neither a filter nor prefix specified
 
@@ -465,6 +467,8 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         > **NOTE:** Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
         Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
         See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
+
+        > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
         ### With neither a filter nor prefix specified

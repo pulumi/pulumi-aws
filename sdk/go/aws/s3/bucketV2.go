@@ -13,9 +13,7 @@ import (
 
 // Provides a S3 bucket resource.
 //
-// > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `s3control.Bucket` resource.
-//
-// > In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `s3.BucketV2` resource.
+// > This resource provides functionality for managing S3 general purpose buckets in an AWS Partition. To manage Amazon S3 Express directory buckets, use the `awsDirectoryBucket` resource. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), use the `s3control.Bucket` resource.
 //
 // ## Example Usage
 // ### Private Bucket With Tags
@@ -46,50 +44,6 @@ import (
 //	}
 //
 // ```
-// ### Static Website Hosting
-//
-// > **NOTE:** The `website` attribute is deprecated.
-// See `s3.BucketWebsiteConfigurationV2` for examples with static website hosting configured.
-//
-// ### CORS Rules
-//
-// > **NOTE:** The `corsRule` attribute is deprecated.
-// See `s3.BucketCorsConfigurationV2` for examples with CORS rules configured.
-//
-// ### Versioning
-//
-// > **NOTE:** The `versioning` attribute is deprecated.
-// See `s3.BucketVersioningV2` for examples with versioning configured.
-//
-// ### Logging
-//
-// > **NOTE:** The `logging` attribute is deprecated.
-// See `s3.BucketLoggingV2` for examples with logging enabled.
-//
-// ### Object Lifecycle Rules
-//
-// > **NOTE:** The `lifecycleRule` attribute is deprecated.
-// See `s3.BucketLifecycleConfigurationV2` for examples with object lifecycle rules.
-//
-// ### Object Lock Configuration
-//
-// > **NOTE:** The `objectLockConfiguration` attribute is deprecated.
-// See `s3.BucketObjectLockConfigurationV2` for examples with object lock configurations on both new and existing buckets.
-//
-// ### Replication Configuration
-//
-// > **NOTE:** The `replicationConfiguration` attribute is deprecated.
-// See `s3.BucketReplicationConfig` for examples with replication configured.
-//
-// ### Enable SSE-KMS Server Side Encryption
-//
-// > **NOTE:** The `serverSideEncryptionConfiguration` attribute is deprecated.
-// See `s3.BucketServerSideEncryptionConfigurationV2` for examples with server side encryption configured.
-//
-// ### ACL Policy Grants
-//
-// > **NOTE:** The `acl` and `grant` attributes are deprecated.
-// See `s3.BucketAclV2` for examples with ACL grants.
 //
 // ## Import
 //
@@ -114,7 +68,7 @@ type BucketV2 struct {
 	Acl pulumi.StringOutput `pulumi:"acl"`
 	// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName pulumi.StringOutput `pulumi:"bucketDomainName"`
@@ -257,7 +211,7 @@ type bucketV2State struct {
 	Acl *string `pulumi:"acl"`
 	// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn *string `pulumi:"arn"`
-	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
 	Bucket *string `pulumi:"bucket"`
 	// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName *string `pulumi:"bucketDomainName"`
@@ -361,7 +315,7 @@ type BucketV2State struct {
 	Acl pulumi.StringPtrInput
 	// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn pulumi.StringPtrInput
-	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
 	Bucket pulumi.StringPtrInput
 	// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName pulumi.StringPtrInput
@@ -467,7 +421,7 @@ type bucketV2Args struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_acl resource instead
 	Acl *string `pulumi:"acl"`
-	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
 	Bucket *string `pulumi:"bucket"`
 	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix *string `pulumi:"bucketPrefix"`
@@ -550,7 +504,7 @@ type BucketV2Args struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_acl resource instead
 	Acl pulumi.StringPtrInput
-	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+	// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
 	Bucket pulumi.StringPtrInput
 	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix pulumi.StringPtrInput
@@ -729,7 +683,7 @@ func (o BucketV2Output) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
 func (o BucketV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

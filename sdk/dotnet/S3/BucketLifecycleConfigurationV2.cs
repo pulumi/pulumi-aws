@@ -26,6 +26,8 @@ namespace Pulumi.Aws.S3
     /// Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
     /// See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
     /// ### With neither a filter nor prefix specified
     /// 

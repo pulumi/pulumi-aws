@@ -69,6 +69,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketVersioningV2{}
 	case "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2":
 		r = &BucketWebsiteConfigurationV2{}
+	case "aws:s3/directoryBucket:DirectoryBucket":
+		r = &DirectoryBucket{}
 	case "aws:s3/inventory:Inventory":
 		r = &Inventory{}
 	case "aws:s3/objectCopy:ObjectCopy":
@@ -204,6 +206,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/bucketWebsiteConfigurationV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/directoryBucket",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

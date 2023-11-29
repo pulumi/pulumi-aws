@@ -45,6 +45,9 @@ namespace Pulumi.Aws.Inputs
         [Input("appconfig")]
         public Input<string>? Appconfig { get; set; }
 
+        [Input("appfabric")]
+        public Input<string>? Appfabric { get; set; }
+
         [Input("appflow")]
         public Input<string>? Appflow { get; set; }
 

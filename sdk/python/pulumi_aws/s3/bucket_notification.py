@@ -212,6 +212,8 @@ class BucketNotification(pulumi.CustomResource):
 
         > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
 
+        > This resource cannot be used with S3 directory buckets.
+
         ## Example Usage
         ### Add notification configuration to SNS Topic
 
@@ -394,6 +396,8 @@ class BucketNotification(pulumi.CustomResource):
         Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
 
         > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
+
+        > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
         ### Add notification configuration to SNS Topic

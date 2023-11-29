@@ -25,8 +25,10 @@ import javax.annotation.Nullable;
  * 
  * &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
- * ### AWS Partition Bucket
+ * ### AWS Partition General Purpose Bucket
  * ```java
  * package generated_program;
  * 
@@ -167,14 +169,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * @return Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     public Output<String> bucket() {

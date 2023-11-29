@@ -395,6 +395,7 @@ namespace Pulumi.Aws
                 public string? Apigatewayv2 { get; set; } = null!;
                 public string? Appautoscaling { get; set; } = null!;
                 public string? Appconfig { get; set; } = null!;
+                public string? Appfabric { get; set; } = null!;
                 public string? Appflow { get; set; } = null!;
                 public string? Appintegrations { get; set; } = null!;
                 public string? Appintegrationsservice { get; set; } = null!;

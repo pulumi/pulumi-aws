@@ -24,6 +24,7 @@ import com.pulumi.aws.s3.outputs.GetBucketObjectsResult;
 import com.pulumi.aws.s3.outputs.GetBucketPolicyResult;
 import com.pulumi.aws.s3.outputs.GetBucketResult;
 import com.pulumi.aws.s3.outputs.GetCanonicalUserIdResult;
+import com.pulumi.aws.s3.outputs.GetDirectoryBucketsResult;
 import com.pulumi.aws.s3.outputs.GetObjectResult;
 import com.pulumi.aws.s3.outputs.GetObjectsResult;
 import com.pulumi.core.Output;
@@ -1467,6 +1468,210 @@ public final class S3Functions {
      */
     public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:s3/getCanonicalUserId:getCanonicalUserId", TypeShape.of(GetCanonicalUserIdResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists Amazon S3 Express directory buckets.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getDirectoryBuckets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDirectoryBucketsResult> getDirectoryBuckets() {
+        return getDirectoryBuckets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists Amazon S3 Express directory buckets.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getDirectoryBuckets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain() {
+        return getDirectoryBucketsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists Amazon S3 Express directory buckets.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getDirectoryBuckets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(InvokeArgs args) {
+        return getDirectoryBuckets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists Amazon S3 Express directory buckets.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getDirectoryBuckets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain(InvokeArgs args) {
+        return getDirectoryBucketsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists Amazon S3 Express directory buckets.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getDirectoryBuckets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getDirectoryBuckets:getDirectoryBuckets", TypeShape.of(GetDirectoryBucketsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists Amazon S3 Express directory buckets.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getDirectoryBuckets();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getDirectoryBuckets:getDirectoryBuckets", TypeShape.of(GetDirectoryBucketsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The S3 object data source allows access to the metadata and

@@ -151,7 +151,8 @@ namespace Pulumi.Aws.Rds
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+        /// Name of the database engine to be used for the RDS cluster instance.
+        /// Valid Values: `aurora-mysql`, `aurora-postgresql`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -256,7 +257,7 @@ namespace Pulumi.Aws.Rds
         /// Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         /// </summary>
         [Output("publiclyAccessible")]
-        public Output<bool?> PubliclyAccessible { get; private set; } = null!;
+        public Output<bool> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted.
@@ -387,7 +388,8 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSubnetGroupName { get; set; }
 
         /// <summary>
-        /// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+        /// Name of the database engine to be used for the RDS cluster instance.
+        /// Valid Values: `aurora-mysql`, `aurora-postgresql`.
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
@@ -563,7 +565,8 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+        /// Name of the database engine to be used for the RDS cluster instance.
+        /// Valid Values: `aurora-mysql`, `aurora-postgresql`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
