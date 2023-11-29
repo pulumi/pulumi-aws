@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsBotLocaleVoiceSettings {
+    /**
+     * @return Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+     * 
+     */
     private @Nullable String engine;
+    /**
+     * @return Identifier of the Amazon Polly voice to use.
+     * 
+     */
     private String voiceId;
 
     private V2modelsBotLocaleVoiceSettings() {}
+    /**
+     * @return Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+     * 
+     */
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
+    /**
+     * @return Identifier of the Amazon Polly voice to use.
+     * 
+     */
     public String voiceId() {
         return this.voiceId;
     }

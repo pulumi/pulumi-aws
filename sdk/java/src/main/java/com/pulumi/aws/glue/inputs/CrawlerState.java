@@ -180,14 +180,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested JBDC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See JDBC Target below.
      * 
      */
     @Import(name="jdbcTargets")
     private @Nullable Output<List<CrawlerJdbcTargetArgs>> jdbcTargets;
 
     /**
-     * @return List of nested JBDC target arguments. See JDBC Target below.
+     * @return List of nested JDBC target arguments. See JDBC Target below.
      * 
      */
     public Optional<Output<List<CrawlerJdbcTargetArgs>>> jdbcTargets() {
@@ -715,7 +715,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcTargets List of nested JBDC target arguments. See JDBC Target below.
+         * @param jdbcTargets List of nested JDBC target arguments. See JDBC Target below.
          * 
          * @return builder
          * 
@@ -726,7 +726,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcTargets List of nested JBDC target arguments. See JDBC Target below.
+         * @param jdbcTargets List of nested JDBC target arguments. See JDBC Target below.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcTargets List of nested JBDC target arguments. See JDBC Target below.
+         * @param jdbcTargets List of nested JDBC target arguments. See JDBC Target below.
          * 
          * @return builder
          * 

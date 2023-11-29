@@ -30,6 +30,12 @@ namespace Pulumi.Aws.AppRunner.Inputs
         [Input("sourceCodeVersion", required: true)]
         public Input<Inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> SourceCodeVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+        /// </summary>
+        [Input("sourceDirectory")]
+        public Input<string>? SourceDirectory { get; set; }
+
         public ServiceSourceConfigurationCodeRepositoryArgs()
         {
         }

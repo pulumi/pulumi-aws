@@ -158,14 +158,22 @@ public class EventRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventPattern);
     }
     /**
-     * Whether the rule should be enabled (defaults to `true`).
+     * Whether the rule should be enabled.
+     * Defaults to `true`.
+     * Conflicts with `state`.
+     * 
+     * @deprecated
+     * Use &#34;state&#34; instead
      * 
      */
+    @Deprecated /* Use ""state"" instead */
     @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isEnabled;
 
     /**
-     * @return Whether the rule should be enabled (defaults to `true`).
+     * @return Whether the rule should be enabled.
+     * Defaults to `true`.
+     * Conflicts with `state`.
      * 
      */
     public Output<Optional<Boolean>> isEnabled() {
@@ -226,6 +234,30 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> scheduleExpression() {
         return Codegen.optional(this.scheduleExpression);
+    }
+    /**
+     * State of the rule.
+     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * Defaults to `ENABLED`.
+     * Conflicts with `is_enabled`.
+     * 
+     */
+    @Export(name="state", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> state;
+
+    /**
+     * @return State of the rule.
+     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
+     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
+     * Defaults to `ENABLED`.
+     * Conflicts with `is_enabled`.
+     * 
+     */
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

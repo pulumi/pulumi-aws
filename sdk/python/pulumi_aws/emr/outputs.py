@@ -46,6 +46,7 @@ __all__ = [
     'InstanceGroupEbsConfig',
     'ManagedScalingPolicyComputeLimit',
     'GetReleaseLabelsFiltersResult',
+    'GetSupportedInstanceTypesSupportedInstanceTypeResult',
 ]
 
 @pulumi.output_type
@@ -2495,5 +2496,133 @@ class GetReleaseLabelsFiltersResult(dict):
         Optional release label version prefix filter. For example, `emr-5`.
         """
         return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class GetSupportedInstanceTypesSupportedInstanceTypeResult(dict):
+    def __init__(__self__, *,
+                 architecture: str,
+                 ebs_optimized_available: bool,
+                 ebs_optimized_by_default: bool,
+                 ebs_storage_only: bool,
+                 instance_family_id: str,
+                 is64_bits_only: bool,
+                 memory_gb: float,
+                 number_of_disks: int,
+                 storage_gb: int,
+                 type: str,
+                 vcpu: int):
+        """
+        :param str architecture: CPU architecture.
+        :param bool ebs_optimized_available: Indicates whether the instance type supports Amazon EBS optimization.
+        :param bool ebs_optimized_by_default: Indicates whether the instance type uses Amazon EBS optimization by default.
+        :param bool ebs_storage_only: Indicates whether the instance type only supports Amazon EBS.
+        :param str instance_family_id: The Amazon EC2 family and generation for the instance type.
+        :param bool is64_bits_only: Indicates whether the instance type only supports 64-bit architecture.
+        :param float memory_gb: Memory that is available to Amazon EMR from the instance type.
+        :param int number_of_disks: Number of disks for the instance type.
+        :param int storage_gb: Storage capacity of the instance type.
+        :param str type: Amazon EC2 instance type. For example, `m5.xlarge`.
+        :param int vcpu: The number of vCPUs available for the instance type.
+        """
+        pulumi.set(__self__, "architecture", architecture)
+        pulumi.set(__self__, "ebs_optimized_available", ebs_optimized_available)
+        pulumi.set(__self__, "ebs_optimized_by_default", ebs_optimized_by_default)
+        pulumi.set(__self__, "ebs_storage_only", ebs_storage_only)
+        pulumi.set(__self__, "instance_family_id", instance_family_id)
+        pulumi.set(__self__, "is64_bits_only", is64_bits_only)
+        pulumi.set(__self__, "memory_gb", memory_gb)
+        pulumi.set(__self__, "number_of_disks", number_of_disks)
+        pulumi.set(__self__, "storage_gb", storage_gb)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "vcpu", vcpu)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> str:
+        """
+        CPU architecture.
+        """
+        return pulumi.get(self, "architecture")
+
+    @property
+    @pulumi.getter(name="ebsOptimizedAvailable")
+    def ebs_optimized_available(self) -> bool:
+        """
+        Indicates whether the instance type supports Amazon EBS optimization.
+        """
+        return pulumi.get(self, "ebs_optimized_available")
+
+    @property
+    @pulumi.getter(name="ebsOptimizedByDefault")
+    def ebs_optimized_by_default(self) -> bool:
+        """
+        Indicates whether the instance type uses Amazon EBS optimization by default.
+        """
+        return pulumi.get(self, "ebs_optimized_by_default")
+
+    @property
+    @pulumi.getter(name="ebsStorageOnly")
+    def ebs_storage_only(self) -> bool:
+        """
+        Indicates whether the instance type only supports Amazon EBS.
+        """
+        return pulumi.get(self, "ebs_storage_only")
+
+    @property
+    @pulumi.getter(name="instanceFamilyId")
+    def instance_family_id(self) -> str:
+        """
+        The Amazon EC2 family and generation for the instance type.
+        """
+        return pulumi.get(self, "instance_family_id")
+
+    @property
+    @pulumi.getter(name="is64BitsOnly")
+    def is64_bits_only(self) -> bool:
+        """
+        Indicates whether the instance type only supports 64-bit architecture.
+        """
+        return pulumi.get(self, "is64_bits_only")
+
+    @property
+    @pulumi.getter(name="memoryGb")
+    def memory_gb(self) -> float:
+        """
+        Memory that is available to Amazon EMR from the instance type.
+        """
+        return pulumi.get(self, "memory_gb")
+
+    @property
+    @pulumi.getter(name="numberOfDisks")
+    def number_of_disks(self) -> int:
+        """
+        Number of disks for the instance type.
+        """
+        return pulumi.get(self, "number_of_disks")
+
+    @property
+    @pulumi.getter(name="storageGb")
+    def storage_gb(self) -> int:
+        """
+        Storage capacity of the instance type.
+        """
+        return pulumi.get(self, "storage_gb")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Amazon EC2 instance type. For example, `m5.xlarge`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def vcpu(self) -> int:
+        """
+        The number of vCPUs available for the instance type.
+        """
+        return pulumi.get(self, "vcpu")
 
 

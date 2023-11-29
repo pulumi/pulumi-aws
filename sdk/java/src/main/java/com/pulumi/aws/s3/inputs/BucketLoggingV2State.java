@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.aws.s3.inputs.BucketLoggingV2TargetGrantArgs;
+import com.pulumi.aws.s3.inputs.BucketLoggingV2TargetObjectKeyFormatArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -78,6 +79,21 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Amazon S3 key format for log objects. See below.
+     * 
+     */
+    @Import(name="targetObjectKeyFormat")
+    private @Nullable Output<BucketLoggingV2TargetObjectKeyFormatArgs> targetObjectKeyFormat;
+
+    /**
+     * @return Amazon S3 key format for log objects. See below.
+     * 
+     */
+    public Optional<Output<BucketLoggingV2TargetObjectKeyFormatArgs>> targetObjectKeyFormat() {
+        return Optional.ofNullable(this.targetObjectKeyFormat);
+    }
+
+    /**
      * Prefix for all log object keys.
      * 
      */
@@ -99,6 +115,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.targetBucket = $.targetBucket;
         this.targetGrants = $.targetGrants;
+        this.targetObjectKeyFormat = $.targetObjectKeyFormat;
         this.targetPrefix = $.targetPrefix;
     }
 
@@ -212,6 +229,27 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
          */
         public Builder targetGrants(BucketLoggingV2TargetGrantArgs... targetGrants) {
             return targetGrants(List.of(targetGrants));
+        }
+
+        /**
+         * @param targetObjectKeyFormat Amazon S3 key format for log objects. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetObjectKeyFormat(@Nullable Output<BucketLoggingV2TargetObjectKeyFormatArgs> targetObjectKeyFormat) {
+            $.targetObjectKeyFormat = targetObjectKeyFormat;
+            return this;
+        }
+
+        /**
+         * @param targetObjectKeyFormat Amazon S3 key format for log objects. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetObjectKeyFormat(BucketLoggingV2TargetObjectKeyFormatArgs targetObjectKeyFormat) {
+            return targetObjectKeyFormat(Output.of(targetObjectKeyFormat));
         }
 
         /**

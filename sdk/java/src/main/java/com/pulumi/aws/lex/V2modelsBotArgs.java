@@ -115,9 +115,17 @@ public final class V2modelsBotArgs extends com.pulumi.resources.ResourceArgs {
         return this.roleArn;
     }
 
+    /**
+     * List of tags to add to the bot. You can only add tags when you create a bot.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return List of tags to add to the bot. You can only add tags when you create a bot.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -144,9 +152,17 @@ public final class V2modelsBotArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.timeouts);
     }
 
+    /**
+     * Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -334,11 +350,23 @@ public final class V2modelsBotArgs extends com.pulumi.resources.ResourceArgs {
             return roleArn(Output.of(roleArn));
         }
 
+        /**
+         * @param tags List of tags to add to the bot. You can only add tags when you create a bot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags List of tags to add to the bot. You can only add tags when you create a bot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -373,11 +401,23 @@ public final class V2modelsBotArgs extends com.pulumi.resources.ResourceArgs {
             return timeouts(Output.of(timeouts));
         }
 
+        /**
+         * @param type Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

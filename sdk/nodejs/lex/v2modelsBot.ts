@@ -23,6 +23,9 @@ import * as utilities from "../utilities";
  *     }],
  *     idleSessionTtlInSeconds: 10,
  *     roleArn: "bot_example_arn",
+ *     tags: {
+ *         foo: "bar",
+ *     },
  * });
  * ```
  *
@@ -89,6 +92,9 @@ export class V2modelsBot extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * List of tags to add to the bot. You can only add tags when you create a bot.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.
@@ -99,6 +105,9 @@ export class V2modelsBot extends pulumi.CustomResource {
      */
     public readonly testBotAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotTimeouts | undefined>;
+    /**
+     * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -185,6 +194,9 @@ export interface V2modelsBotState {
      * The following arguments are optional:
      */
     roleArn?: pulumi.Input<string>;
+    /**
+     * List of tags to add to the bot. You can only add tags when you create a bot.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated Please use `tags` instead.
@@ -195,6 +207,9 @@ export interface V2modelsBotState {
      */
     testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts>;
+    /**
+     * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -228,11 +243,17 @@ export interface V2modelsBotArgs {
      * The following arguments are optional:
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * List of tags to add to the bot. You can only add tags when you create a bot.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      */
     testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts>;
+    /**
+     * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+     */
     type?: pulumi.Input<string>;
 }

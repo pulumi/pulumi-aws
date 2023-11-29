@@ -307,6 +307,8 @@ class ServiceNetworkConfiguration(dict):
             suggest = "egress_configuration"
         elif key == "ingressConfiguration":
             suggest = "ingress_configuration"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -321,15 +323,19 @@ class ServiceNetworkConfiguration(dict):
 
     def __init__(__self__, *,
                  egress_configuration: Optional['outputs.ServiceNetworkConfigurationEgressConfiguration'] = None,
-                 ingress_configuration: Optional['outputs.ServiceNetworkConfigurationIngressConfiguration'] = None):
+                 ingress_configuration: Optional['outputs.ServiceNetworkConfigurationIngressConfiguration'] = None,
+                 ip_address_type: Optional[str] = None):
         """
         :param 'ServiceNetworkConfigurationEgressConfigurationArgs' egress_configuration: Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
         :param 'ServiceNetworkConfigurationIngressConfigurationArgs' ingress_configuration: Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+        :param str ip_address_type: App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
         """
         if egress_configuration is not None:
             pulumi.set(__self__, "egress_configuration", egress_configuration)
         if ingress_configuration is not None:
             pulumi.set(__self__, "ingress_configuration", ingress_configuration)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="egressConfiguration")
@@ -346,6 +352,14 @@ class ServiceNetworkConfiguration(dict):
         Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
         """
         return pulumi.get(self, "ingress_configuration")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[str]:
+        """
+        App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+        """
+        return pulumi.get(self, "ip_address_type")
 
 
 @pulumi.output_type
@@ -622,6 +636,8 @@ class ServiceSourceConfigurationCodeRepository(dict):
             suggest = "source_code_version"
         elif key == "codeConfiguration":
             suggest = "code_configuration"
+        elif key == "sourceDirectory":
+            suggest = "source_directory"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceSourceConfigurationCodeRepository. Access the value via the '{suggest}' property getter instead.")
@@ -637,16 +653,20 @@ class ServiceSourceConfigurationCodeRepository(dict):
     def __init__(__self__, *,
                  repository_url: str,
                  source_code_version: 'outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion',
-                 code_configuration: Optional['outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration'] = None):
+                 code_configuration: Optional['outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration'] = None,
+                 source_directory: Optional[str] = None):
         """
         :param str repository_url: Location of the repository that contains the source code.
         :param 'ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs' source_code_version: Version that should be used within the source code repository. See Source Code Version below for more details.
         :param 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs' code_configuration: Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+        :param str source_directory: The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_code_version", source_code_version)
         if code_configuration is not None:
             pulumi.set(__self__, "code_configuration", code_configuration)
+        if source_directory is not None:
+            pulumi.set(__self__, "source_directory", source_directory)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -671,6 +691,14 @@ class ServiceSourceConfigurationCodeRepository(dict):
         Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
         """
         return pulumi.get(self, "code_configuration")
+
+    @property
+    @pulumi.getter(name="sourceDirectory")
+    def source_directory(self) -> Optional[str]:
+        """
+        The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+        """
+        return pulumi.get(self, "source_directory")
 
 
 @pulumi.output_type

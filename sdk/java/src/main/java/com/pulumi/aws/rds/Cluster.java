@@ -159,42 +159,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Aurora Multi-Master Cluster
- * 
- * &gt; More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.Cluster;
- * import com.pulumi.aws.rds.ClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;example&#34;)
- *             .dbSubnetGroupName(aws_db_subnet_group.example().name())
- *             .engineMode(&#34;multimaster&#34;)
- *             .masterPassword(&#34;barbarbarbar&#34;)
- *             .masterUsername(&#34;foo&#34;)
- *             .skipFinalSnapshot(true)
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### RDS Multi-AZ Cluster
  * 
  * &gt; More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
@@ -793,14 +757,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
     @Export(name="engineMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engineMode;
 
     /**
-     * @return Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * @return Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
     public Output<Optional<String>> engineMode() {

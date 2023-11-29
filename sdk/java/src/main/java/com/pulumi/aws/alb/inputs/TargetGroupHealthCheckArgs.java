@@ -63,14 +63,26 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+     * The HTTP or gRPC codes to use when checking for a successful response from a target.
+     * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `target_type` must be `lambda`.
+     * Values can be comma-separated individual values (e.g., &#34;200,202&#34;) or a range of values (e.g., &#34;200-299&#34;).
+     * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+     * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+     * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+     * * When the `target_type` is `lambda`, values can be between `200` and `499`. The default is `200`.
      * 
      */
     @Import(name="matcher")
     private @Nullable Output<String> matcher;
 
     /**
-     * @return Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+     * @return The HTTP or gRPC codes to use when checking for a successful response from a target.
+     * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `target_type` must be `lambda`.
+     * Values can be comma-separated individual values (e.g., &#34;200,202&#34;) or a range of values (e.g., &#34;200-299&#34;).
+     * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+     * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+     * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+     * * When the `target_type` is `lambda`, values can be between `200` and `499`. The default is `200`.
      * 
      */
     public Optional<Output<String>> matcher() {
@@ -79,6 +91,8 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
 
     /**
      * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+     * * For HTTP and HTTPS health checks, the default is `/`.
+     * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
      * 
      */
     @Import(name="path")
@@ -86,6 +100,8 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
 
     /**
      * @return Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+     * * For HTTP and HTTPS health checks, the default is `/`.
+     * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
      * 
      */
     public Optional<Output<String>> path() {
@@ -93,14 +109,18 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+     * The port the load balancer uses when performing health checks on targets.
+     * Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+     * Default is `traffic-port`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+     * @return The port the load balancer uses when performing health checks on targets.
+     * Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+     * Default is `traffic-port`.
      * 
      */
     public Optional<Output<String>> port() {
@@ -108,14 +128,22 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+     * Protocol the load balancer uses when performing health checks on targets.
+     * Must be one of `TCP`, `HTTP`, or `HTTPS`.
+     * The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+     * Default is `HTTP`.
+     * Cannot be specified when the `target_type` is `lambda`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+     * @return Protocol the load balancer uses when performing health checks on targets.
+     * Must be one of `TCP`, `HTTP`, or `HTTPS`.
+     * The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+     * Default is `HTTP`.
+     * Cannot be specified when the `target_type` is `lambda`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -248,7 +276,13 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param matcher Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+         * @param matcher The HTTP or gRPC codes to use when checking for a successful response from a target.
+         * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `target_type` must be `lambda`.
+         * Values can be comma-separated individual values (e.g., &#34;200,202&#34;) or a range of values (e.g., &#34;200-299&#34;).
+         * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+         * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+         * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+         * * When the `target_type` is `lambda`, values can be between `200` and `499`. The default is `200`.
          * 
          * @return builder
          * 
@@ -259,7 +293,13 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param matcher Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
+         * @param matcher The HTTP or gRPC codes to use when checking for a successful response from a target.
+         * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `target_type` must be `lambda`.
+         * Values can be comma-separated individual values (e.g., &#34;200,202&#34;) or a range of values (e.g., &#34;200-299&#34;).
+         * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is `GRPC`), values can be between `0` and `99`. The default is `12`.
+         * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocol_version` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
+         * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
+         * * When the `target_type` is `lambda`, values can be between `200` and `499`. The default is `200`.
          * 
          * @return builder
          * 
@@ -270,6 +310,8 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
 
         /**
          * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * * For HTTP and HTTPS health checks, the default is `/`.
+         * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
          * 
          * @return builder
          * 
@@ -281,6 +323,8 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
 
         /**
          * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * * For HTTP and HTTPS health checks, the default is `/`.
+         * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
          * 
          * @return builder
          * 
@@ -290,7 +334,9 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param port The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+         * @param port The port the load balancer uses when performing health checks on targets.
+         * Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+         * Default is `traffic-port`.
          * 
          * @return builder
          * 
@@ -301,7 +347,9 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param port The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+         * @param port The port the load balancer uses when performing health checks on targets.
+         * Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
+         * Default is `traffic-port`.
          * 
          * @return builder
          * 
@@ -311,7 +359,11 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param protocol Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+         * @param protocol Protocol the load balancer uses when performing health checks on targets.
+         * Must be one of `TCP`, `HTTP`, or `HTTPS`.
+         * The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+         * Default is `HTTP`.
+         * Cannot be specified when the `target_type` is `lambda`.
          * 
          * @return builder
          * 
@@ -322,7 +374,11 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param protocol Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+         * @param protocol Protocol the load balancer uses when performing health checks on targets.
+         * Must be one of `TCP`, `HTTP`, or `HTTPS`.
+         * The `TCP` protocol is not supported for health checks if the protocol of the target group is `HTTP` or `HTTPS`.
+         * Default is `HTTP`.
+         * Cannot be specified when the `target_type` is `lambda`.
          * 
          * @return builder
          * 

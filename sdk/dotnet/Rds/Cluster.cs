@@ -115,30 +115,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// ### Aurora Multi-Master Cluster
-    /// 
-    /// &gt; More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rds.Cluster("example", new()
-    ///     {
-    ///         ClusterIdentifier = "example",
-    ///         DbSubnetGroupName = aws_db_subnet_group.Example.Name,
-    ///         EngineMode = "multimaster",
-    ///         MasterPassword = "barbarbarbar",
-    ///         MasterUsername = "foo",
-    ///         SkipFinalSnapshot = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### RDS Multi-AZ Cluster
     /// 
     /// &gt; More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
@@ -469,7 +445,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Output("engineMode")]
         public Output<string?> EngineMode { get; private set; } = null!;
@@ -872,7 +848,7 @@ namespace Pulumi.Aws.Rds
         public InputUnion<string, Pulumi.Aws.Rds.EngineType> Engine { get; set; } = null!;
 
         /// <summary>
-        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
         public InputUnion<string, Pulumi.Aws.Rds.EngineMode>? EngineMode { get; set; }
@@ -1247,7 +1223,7 @@ namespace Pulumi.Aws.Rds
         public InputUnion<string, Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
-        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
         public InputUnion<string, Pulumi.Aws.Rds.EngineMode>? EngineMode { get; set; }

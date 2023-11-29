@@ -7,6 +7,7 @@ import com.pulumi.aws.apprunner.inputs.ServiceNetworkConfigurationEgressConfigur
 import com.pulumi.aws.apprunner.inputs.ServiceNetworkConfigurationIngressConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,11 +47,27 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.ingressConfiguration);
     }
 
+    /**
+     * App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
     private ServiceNetworkConfigurationArgs() {}
 
     private ServiceNetworkConfigurationArgs(ServiceNetworkConfigurationArgs $) {
         this.egressConfiguration = $.egressConfiguration;
         this.ingressConfiguration = $.ingressConfiguration;
+        this.ipAddressType = $.ipAddressType;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
          */
         public Builder ingressConfiguration(ServiceNetworkConfigurationIngressConfigurationArgs ingressConfiguration) {
             return ingressConfiguration(Output.of(ingressConfiguration));
+        }
+
+        /**
+         * @param ipAddressType App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         public ServiceNetworkConfigurationArgs build() {

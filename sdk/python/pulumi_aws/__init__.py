@@ -1305,6 +1305,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "apprunner/defaultAutoScalingConfigurationVersion",
+  "fqn": "pulumi_aws.apprunner",
+  "classes": {
+   "aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion": "DefaultAutoScalingConfigurationVersion"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "apprunner/observabilityConfiguration",
   "fqn": "pulumi_aws.apprunner",
   "classes": {
@@ -6593,6 +6601,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lex/v2modelsBotVersion",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsBotVersion:V2modelsBotVersion": "V2modelsBotVersion"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "licensemanager/association",
   "fqn": "pulumi_aws.licensemanager",
   "classes": {
@@ -8965,6 +8981,14 @@ _utilities.register(
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/objectCopy:ObjectCopy": "ObjectCopy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/accessGrantsInstanceResourcePolicy",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy": "AccessGrantsInstanceResourcePolicy"
   }
  },
  {

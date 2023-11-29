@@ -44,6 +44,9 @@ __all__ = [
     'BucketLoggingArgs',
     'BucketLoggingV2TargetGrantArgs',
     'BucketLoggingV2TargetGrantGranteeArgs',
+    'BucketLoggingV2TargetObjectKeyFormatArgs',
+    'BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs',
+    'BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs',
     'BucketMetricFilterArgs',
     'BucketNotificationLambdaFunctionArgs',
     'BucketNotificationQueueArgs',
@@ -2015,6 +2018,73 @@ class BucketLoggingV2TargetGrantGranteeArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class BucketLoggingV2TargetObjectKeyFormatArgs:
+    def __init__(__self__, *,
+                 partitioned_prefix: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs']] = None,
+                 simple_prefix: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs']] = None):
+        """
+        :param pulumi.Input['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs'] partitioned_prefix: Partitioned S3 key for log objects. See below.
+        :param pulumi.Input['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs'] simple_prefix: Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+        """
+        if partitioned_prefix is not None:
+            pulumi.set(__self__, "partitioned_prefix", partitioned_prefix)
+        if simple_prefix is not None:
+            pulumi.set(__self__, "simple_prefix", simple_prefix)
+
+    @property
+    @pulumi.getter(name="partitionedPrefix")
+    def partitioned_prefix(self) -> Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs']]:
+        """
+        Partitioned S3 key for log objects. See below.
+        """
+        return pulumi.get(self, "partitioned_prefix")
+
+    @partitioned_prefix.setter
+    def partitioned_prefix(self, value: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs']]):
+        pulumi.set(self, "partitioned_prefix", value)
+
+    @property
+    @pulumi.getter(name="simplePrefix")
+    def simple_prefix(self) -> Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs']]:
+        """
+        Use the simple format for S3 keys for log objects. To use, set `simple_prefix {}`.
+        """
+        return pulumi.get(self, "simple_prefix")
+
+    @simple_prefix.setter
+    def simple_prefix(self, value: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs']]):
+        pulumi.set(self, "simple_prefix", value)
+
+
+@pulumi.input_type
+class BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs:
+    def __init__(__self__, *,
+                 partition_date_source: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] partition_date_source: Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+        """
+        pulumi.set(__self__, "partition_date_source", partition_date_source)
+
+    @property
+    @pulumi.getter(name="partitionDateSource")
+    def partition_date_source(self) -> pulumi.Input[str]:
+        """
+        Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+        """
+        return pulumi.get(self, "partition_date_source")
+
+    @partition_date_source.setter
+    def partition_date_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "partition_date_source", value)
+
+
+@pulumi.input_type
+class BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type

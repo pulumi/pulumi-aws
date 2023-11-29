@@ -66,6 +66,12 @@ namespace Pulumi.Aws.AppRunner
         [Output("autoScalingConfigurationRevision")]
         public Output<int> AutoScalingConfigurationRevision { get; private set; } = null!;
 
+        [Output("hasAssociatedService")]
+        public Output<bool> HasAssociatedService { get; private set; } = null!;
+
+        [Output("isDefault")]
+        public Output<bool> IsDefault { get; private set; } = null!;
+
         /// <summary>
         /// Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
         /// </summary>
@@ -219,6 +225,12 @@ namespace Pulumi.Aws.AppRunner
         /// </summary>
         [Input("autoScalingConfigurationRevision")]
         public Input<int>? AutoScalingConfigurationRevision { get; set; }
+
+        [Input("hasAssociatedService")]
+        public Input<bool>? HasAssociatedService { get; set; }
+
+        [Input("isDefault")]
+        public Input<bool>? IsDefault { get; set; }
 
         /// <summary>
         /// Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.

@@ -31,7 +31,8 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.
+        :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
                
@@ -80,7 +81,7 @@ class DomainArgs:
     @pulumi.getter(name="defaultUserSettings")
     def default_user_settings(self) -> pulumi.Input['DomainDefaultUserSettingsArgs']:
         """
-        The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        The default user settings. See Default User Settings below.
         """
         return pulumi.get(self, "default_user_settings")
 
@@ -91,6 +92,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The domain name.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -236,7 +240,8 @@ class _DomainState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See Default Space Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.
+        :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain's settings.
         :param pulumi.Input[str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
@@ -355,7 +360,7 @@ class _DomainState:
     @pulumi.getter(name="defaultUserSettings")
     def default_user_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsArgs']]:
         """
-        The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        The default user settings. See Default User Settings below.
         """
         return pulumi.get(self, "default_user_settings")
 
@@ -366,6 +371,9 @@ class _DomainState:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain name.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -606,7 +614,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings. See Default Space Settings below.
-        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.
+        :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain's settings.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
@@ -800,7 +809,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings. See Default Space Settings below.
-        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.
+        :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain's settings.
         :param pulumi.Input[str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
@@ -883,13 +893,16 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="defaultUserSettings")
     def default_user_settings(self) -> pulumi.Output['outputs.DomainDefaultUserSettings']:
         """
-        The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        The default user settings. See Default User Settings below.
         """
         return pulumi.get(self, "default_user_settings")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The domain name.
+        """
         return pulumi.get(self, "domain_name")
 
     @property

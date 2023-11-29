@@ -34,7 +34,7 @@ class V2modelsBotLocaleArgs:
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the bot locale. Use this to help identify the bot locale in lists.
         :param pulumi.Input[str] name: Specified locale name.
-        :param pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs'] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        :param pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs'] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         pulumi.set(__self__, "bot_id", bot_id)
         pulumi.set(__self__, "bot_version", bot_version)
@@ -136,7 +136,7 @@ class V2modelsBotLocaleArgs:
     @pulumi.getter(name="voiceSettings")
     def voice_settings(self) -> Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']]:
         """
-        Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         return pulumi.get(self, "voice_settings")
 
@@ -166,7 +166,7 @@ class _V2modelsBotLocaleState:
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Specified locale name.
-        :param pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs'] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        :param pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs'] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         if bot_id is not None:
             pulumi.set(__self__, "bot_id", bot_id)
@@ -272,7 +272,7 @@ class _V2modelsBotLocaleState:
     @pulumi.getter(name="voiceSettings")
     def voice_settings(self) -> Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']]:
         """
-        Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         return pulumi.get(self, "voice_settings")
 
@@ -306,10 +306,26 @@ class V2modelsBotLocale(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBotLocale("example",
-            bot_id=aws_lexv2models_bot["test"]["id"],
+            bot_id=aws_lexv2models_bot["example"]["id"],
             bot_version="DRAFT",
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7)
+        ```
+        ### Voice Settings
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lex.V2modelsBotLocale("example",
+            bot_id=aws_lexv2models_bot["example"]["id"],
+            bot_version="DRAFT",
+            locale_id="en_US",
+            n_lu_intent_confidence_threshold=0.7,
+            voice_settings=aws.lex.V2modelsBotLocaleVoiceSettingsArgs(
+                voice_id="Kendra",
+                engine="standard",
+            ))
         ```
 
         ## Import
@@ -330,7 +346,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Specified locale name.
-        :param pulumi.Input[pulumi.InputType['V2modelsBotLocaleVoiceSettingsArgs']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        :param pulumi.Input[pulumi.InputType['V2modelsBotLocaleVoiceSettingsArgs']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         ...
     @overload
@@ -349,10 +365,26 @@ class V2modelsBotLocale(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBotLocale("example",
-            bot_id=aws_lexv2models_bot["test"]["id"],
+            bot_id=aws_lexv2models_bot["example"]["id"],
             bot_version="DRAFT",
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7)
+        ```
+        ### Voice Settings
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lex.V2modelsBotLocale("example",
+            bot_id=aws_lexv2models_bot["example"]["id"],
+            bot_version="DRAFT",
+            locale_id="en_US",
+            n_lu_intent_confidence_threshold=0.7,
+            voice_settings=aws.lex.V2modelsBotLocaleVoiceSettingsArgs(
+                voice_id="Kendra",
+                engine="standard",
+            ))
         ```
 
         ## Import
@@ -444,7 +476,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Specified locale name.
-        :param pulumi.Input[pulumi.InputType['V2modelsBotLocaleVoiceSettingsArgs']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        :param pulumi.Input[pulumi.InputType['V2modelsBotLocaleVoiceSettingsArgs']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -519,7 +551,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
     @pulumi.getter(name="voiceSettings")
     def voice_settings(self) -> pulumi.Output[Optional['outputs.V2modelsBotLocaleVoiceSettings']]:
         """
-        Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         return pulumi.get(self, "voice_settings")
 

@@ -368,13 +368,18 @@ func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlob
 }
 
 type TableImportTable struct {
-	// Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+	// Type of compression to be used on the input coming from the imported table.
+	// Valid values are `GZIP`, `ZSTD` and `NONE`.
 	InputCompressionType *string `pulumi:"inputCompressionType"`
-	// The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+	// The format of the source data.
+	// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
 	InputFormat string `pulumi:"inputFormat"`
-	// Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+	// Describe the format options for the data that was imported into the target table.
+	// There is one value, `csv`.
+	// See below.
 	InputFormatOptions *TableImportTableInputFormatOptions `pulumi:"inputFormatOptions"`
-	// Values for the S3 bucket the source file is imported from. See below.
+	// Values for the S3 bucket the source file is imported from.
+	// See below.
 	S3BucketSource TableImportTableS3BucketSource `pulumi:"s3BucketSource"`
 }
 
@@ -390,13 +395,18 @@ type TableImportTableInput interface {
 }
 
 type TableImportTableArgs struct {
-	// Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+	// Type of compression to be used on the input coming from the imported table.
+	// Valid values are `GZIP`, `ZSTD` and `NONE`.
 	InputCompressionType pulumi.StringPtrInput `pulumi:"inputCompressionType"`
-	// The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+	// The format of the source data.
+	// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
 	InputFormat pulumi.StringInput `pulumi:"inputFormat"`
-	// Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+	// Describe the format options for the data that was imported into the target table.
+	// There is one value, `csv`.
+	// See below.
 	InputFormatOptions TableImportTableInputFormatOptionsPtrInput `pulumi:"inputFormatOptions"`
-	// Values for the S3 bucket the source file is imported from. See below.
+	// Values for the S3 bucket the source file is imported from.
+	// See below.
 	S3BucketSource TableImportTableS3BucketSourceInput `pulumi:"s3BucketSource"`
 }
 
@@ -477,22 +487,27 @@ func (o TableImportTableOutput) ToTableImportTablePtrOutputWithContext(ctx conte
 	}).(TableImportTablePtrOutput)
 }
 
-// Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+// Type of compression to be used on the input coming from the imported table.
+// Valid values are `GZIP`, `ZSTD` and `NONE`.
 func (o TableImportTableOutput) InputCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableImportTable) *string { return v.InputCompressionType }).(pulumi.StringPtrOutput)
 }
 
-// The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+// The format of the source data.
+// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
 func (o TableImportTableOutput) InputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v TableImportTable) string { return v.InputFormat }).(pulumi.StringOutput)
 }
 
-// Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+// Describe the format options for the data that was imported into the target table.
+// There is one value, `csv`.
+// See below.
 func (o TableImportTableOutput) InputFormatOptions() TableImportTableInputFormatOptionsPtrOutput {
 	return o.ApplyT(func(v TableImportTable) *TableImportTableInputFormatOptions { return v.InputFormatOptions }).(TableImportTableInputFormatOptionsPtrOutput)
 }
 
-// Values for the S3 bucket the source file is imported from. See below.
+// Values for the S3 bucket the source file is imported from.
+// See below.
 func (o TableImportTableOutput) S3BucketSource() TableImportTableS3BucketSourceOutput {
 	return o.ApplyT(func(v TableImportTable) TableImportTableS3BucketSource { return v.S3BucketSource }).(TableImportTableS3BucketSourceOutput)
 }
@@ -521,7 +536,8 @@ func (o TableImportTablePtrOutput) Elem() TableImportTableOutput {
 	}).(TableImportTableOutput)
 }
 
-// Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+// Type of compression to be used on the input coming from the imported table.
+// Valid values are `GZIP`, `ZSTD` and `NONE`.
 func (o TableImportTablePtrOutput) InputCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportTable) *string {
 		if v == nil {
@@ -531,7 +547,8 @@ func (o TableImportTablePtrOutput) InputCompressionType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+// The format of the source data.
+// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
 func (o TableImportTablePtrOutput) InputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportTable) *string {
 		if v == nil {
@@ -541,7 +558,9 @@ func (o TableImportTablePtrOutput) InputFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+// Describe the format options for the data that was imported into the target table.
+// There is one value, `csv`.
+// See below.
 func (o TableImportTablePtrOutput) InputFormatOptions() TableImportTableInputFormatOptionsPtrOutput {
 	return o.ApplyT(func(v *TableImportTable) *TableImportTableInputFormatOptions {
 		if v == nil {
@@ -551,7 +570,8 @@ func (o TableImportTablePtrOutput) InputFormatOptions() TableImportTableInputFor
 	}).(TableImportTableInputFormatOptionsPtrOutput)
 }
 
-// Values for the S3 bucket the source file is imported from. See below.
+// Values for the S3 bucket the source file is imported from.
+// See below.
 func (o TableImportTablePtrOutput) S3BucketSource() TableImportTableS3BucketSourcePtrOutput {
 	return o.ApplyT(func(v *TableImportTable) *TableImportTableS3BucketSource {
 		if v == nil {

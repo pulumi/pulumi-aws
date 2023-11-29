@@ -277,6 +277,47 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Redis AUTH and In-Transit Encryption Enabled
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ReplicationGroup;
+ * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
+ *             .description(&#34;example with authentication&#34;)
+ *             .nodeType(&#34;cache.t2.micro&#34;)
+ *             .numCacheClusters(1)
+ *             .port(6379)
+ *             .subnetGroupName(aws_elasticache_subnet_group.example().name())
+ *             .securityGroupIds(aws_security_group.example().id())
+ *             .parameterGroupName(&#34;default.redis5.0&#34;)
+ *             .engineVersion(&#34;5.0.6&#34;)
+ *             .transitEncryptionEnabled(true)
+ *             .authToken(&#34;abcdefgh1234567890&#34;)
+ *             .authTokenUpdateStrategy(&#34;ROTATE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * &gt; When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
  * 
  * ## Import
  * 
@@ -344,6 +385,20 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> authToken() {
         return Codegen.optional(this.authToken);
+    }
+    /**
+     * Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * 
+     */
+    @Export(name="authTokenUpdateStrategy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> authTokenUpdateStrategy;
+
+    /**
+     * @return Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * 
+     */
+    public Output<Optional<String>> authTokenUpdateStrategy() {
+        return Codegen.optional(this.authTokenUpdateStrategy);
     }
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.

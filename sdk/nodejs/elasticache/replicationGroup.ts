@@ -161,6 +161,28 @@ import * as utilities from "../utilities";
  *     numCacheClusters: 1,
  * });
  * ```
+ * ### Redis AUTH and In-Transit Encryption Enabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.elasticache.ReplicationGroup("example", {
+ *     description: "example with authentication",
+ *     nodeType: "cache.t2.micro",
+ *     numCacheClusters: 1,
+ *     port: 6379,
+ *     subnetGroupName: aws_elasticache_subnet_group.example.name,
+ *     securityGroupIds: [aws_security_group.example.id],
+ *     parameterGroupName: "default.redis5.0",
+ *     engineVersion: "5.0.6",
+ *     transitEncryptionEnabled: true,
+ *     authToken: "abcdefgh1234567890",
+ *     authTokenUpdateStrategy: "ROTATE",
+ * });
+ * ```
+ *
+ * > When adding a new `authToken` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
  *
  * ## Import
  *
@@ -214,6 +236,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
     public readonly authToken!: pulumi.Output<string | undefined>;
+    /**
+     * Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     */
+    public readonly authTokenUpdateStrategy!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
@@ -406,6 +432,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
             resourceInputs["authToken"] = state ? state.authToken : undefined;
+            resourceInputs["authTokenUpdateStrategy"] = state ? state.authTokenUpdateStrategy : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             resourceInputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
             resourceInputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
@@ -451,6 +478,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             resourceInputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
             resourceInputs["authToken"] = args?.authToken ? pulumi.secret(args.authToken) : undefined;
+            resourceInputs["authTokenUpdateStrategy"] = args ? args.authTokenUpdateStrategy : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
             resourceInputs["dataTieringEnabled"] = args ? args.dataTieringEnabled : undefined;
@@ -520,6 +548,10 @@ export interface ReplicationGroupState {
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
     authToken?: pulumi.Input<string>;
+    /**
+     * Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     */
+    authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
@@ -712,6 +744,10 @@ export interface ReplicationGroupArgs {
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
     authToken?: pulumi.Input<string>;
+    /**
+     * Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     */
+    authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine type `"redis"` and if the engine version is 6 or higher.

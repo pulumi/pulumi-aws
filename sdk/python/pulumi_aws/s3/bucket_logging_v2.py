@@ -20,7 +20,8 @@ class BucketLoggingV2Args:
                  target_bucket: pulumi.Input[str],
                  target_prefix: pulumi.Input[str],
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-                 target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None):
+                 target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None,
+                 target_object_key_format: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']] = None):
         """
         The set of arguments for constructing a BucketLoggingV2 resource.
         :param pulumi.Input[str] bucket: Name of the bucket.
@@ -28,6 +29,7 @@ class BucketLoggingV2Args:
         :param pulumi.Input[str] target_prefix: Prefix for all log object keys.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs'] target_object_key_format: Amazon S3 key format for log objects. See below.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "target_bucket", target_bucket)
@@ -36,6 +38,8 @@ class BucketLoggingV2Args:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if target_grants is not None:
             pulumi.set(__self__, "target_grants", target_grants)
+        if target_object_key_format is not None:
+            pulumi.set(__self__, "target_object_key_format", target_object_key_format)
 
     @property
     @pulumi.getter
@@ -97,6 +101,18 @@ class BucketLoggingV2Args:
     def target_grants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]):
         pulumi.set(self, "target_grants", value)
 
+    @property
+    @pulumi.getter(name="targetObjectKeyFormat")
+    def target_object_key_format(self) -> Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']]:
+        """
+        Amazon S3 key format for log objects. See below.
+        """
+        return pulumi.get(self, "target_object_key_format")
+
+    @target_object_key_format.setter
+    def target_object_key_format(self, value: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']]):
+        pulumi.set(self, "target_object_key_format", value)
+
 
 @pulumi.input_type
 class _BucketLoggingV2State:
@@ -105,6 +121,7 @@ class _BucketLoggingV2State:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  target_bucket: Optional[pulumi.Input[str]] = None,
                  target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None,
+                 target_object_key_format: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']] = None,
                  target_prefix: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketLoggingV2 resources.
@@ -112,6 +129,7 @@ class _BucketLoggingV2State:
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs'] target_object_key_format: Amazon S3 key format for log objects. See below.
         :param pulumi.Input[str] target_prefix: Prefix for all log object keys.
         """
         if bucket is not None:
@@ -122,6 +140,8 @@ class _BucketLoggingV2State:
             pulumi.set(__self__, "target_bucket", target_bucket)
         if target_grants is not None:
             pulumi.set(__self__, "target_grants", target_grants)
+        if target_object_key_format is not None:
+            pulumi.set(__self__, "target_object_key_format", target_object_key_format)
         if target_prefix is not None:
             pulumi.set(__self__, "target_prefix", target_prefix)
 
@@ -174,6 +194,18 @@ class _BucketLoggingV2State:
         pulumi.set(self, "target_grants", value)
 
     @property
+    @pulumi.getter(name="targetObjectKeyFormat")
+    def target_object_key_format(self) -> Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']]:
+        """
+        Amazon S3 key format for log objects. See below.
+        """
+        return pulumi.get(self, "target_object_key_format")
+
+    @target_object_key_format.setter
+    def target_object_key_format(self, value: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']]):
+        pulumi.set(self, "target_object_key_format", value)
+
+    @property
     @pulumi.getter(name="targetPrefix")
     def target_prefix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -195,6 +227,7 @@ class BucketLoggingV2(pulumi.CustomResource):
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  target_bucket: Optional[pulumi.Input[str]] = None,
                  target_grants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetGrantArgs']]]]] = None,
+                 target_object_key_format: Optional[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetObjectKeyFormatArgs']]] = None,
                  target_prefix: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -247,6 +280,7 @@ class BucketLoggingV2(pulumi.CustomResource):
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetGrantArgs']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input[pulumi.InputType['BucketLoggingV2TargetObjectKeyFormatArgs']] target_object_key_format: Amazon S3 key format for log objects. See below.
         :param pulumi.Input[str] target_prefix: Prefix for all log object keys.
         """
         ...
@@ -318,6 +352,7 @@ class BucketLoggingV2(pulumi.CustomResource):
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  target_bucket: Optional[pulumi.Input[str]] = None,
                  target_grants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetGrantArgs']]]]] = None,
+                 target_object_key_format: Optional[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetObjectKeyFormatArgs']]] = None,
                  target_prefix: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -336,6 +371,7 @@ class BucketLoggingV2(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_bucket'")
             __props__.__dict__["target_bucket"] = target_bucket
             __props__.__dict__["target_grants"] = target_grants
+            __props__.__dict__["target_object_key_format"] = target_object_key_format
             if target_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'target_prefix'")
             __props__.__dict__["target_prefix"] = target_prefix
@@ -353,6 +389,7 @@ class BucketLoggingV2(pulumi.CustomResource):
             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
             target_bucket: Optional[pulumi.Input[str]] = None,
             target_grants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetGrantArgs']]]]] = None,
+            target_object_key_format: Optional[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetObjectKeyFormatArgs']]] = None,
             target_prefix: Optional[pulumi.Input[str]] = None) -> 'BucketLoggingV2':
         """
         Get an existing BucketLoggingV2 resource's state with the given name, id, and optional extra
@@ -365,6 +402,7 @@ class BucketLoggingV2(pulumi.CustomResource):
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetGrantArgs']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input[pulumi.InputType['BucketLoggingV2TargetObjectKeyFormatArgs']] target_object_key_format: Amazon S3 key format for log objects. See below.
         :param pulumi.Input[str] target_prefix: Prefix for all log object keys.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -375,6 +413,7 @@ class BucketLoggingV2(pulumi.CustomResource):
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
         __props__.__dict__["target_bucket"] = target_bucket
         __props__.__dict__["target_grants"] = target_grants
+        __props__.__dict__["target_object_key_format"] = target_object_key_format
         __props__.__dict__["target_prefix"] = target_prefix
         return BucketLoggingV2(resource_name, opts=opts, __props__=__props__)
 
@@ -409,6 +448,14 @@ class BucketLoggingV2(pulumi.CustomResource):
         Set of configuration blocks with information for granting permissions. See below.
         """
         return pulumi.get(self, "target_grants")
+
+    @property
+    @pulumi.getter(name="targetObjectKeyFormat")
+    def target_object_key_format(self) -> pulumi.Output[Optional['outputs.BucketLoggingV2TargetObjectKeyFormat']]:
+        """
+        Amazon S3 key format for log objects. See below.
+        """
+        return pulumi.get(self, "target_object_key_format")
 
     @property
     @pulumi.getter(name="targetPrefix")

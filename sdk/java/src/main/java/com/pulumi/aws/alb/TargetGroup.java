@@ -395,14 +395,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.preserveClientIp;
     }
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `target_type` is `instance`, `ip`, or `alb`.
+     * Does not apply when `target_type` is `lambda`.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
     /**
-     * @return Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * @return Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `target_type` is `instance`, `ip`, or `alb`.
+     * Does not apply when `target_type` is `lambda`.
      * 
      */
     public Output<Optional<String>> protocol() {
@@ -525,7 +531,9 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.targetHealthStates;
     }
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
@@ -540,7 +548,9 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> targetType;
 
     /**
-     * @return Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * @return Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 

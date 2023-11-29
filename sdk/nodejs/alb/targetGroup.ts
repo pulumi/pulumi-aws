@@ -166,7 +166,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly preserveClientIp!: pulumi.Output<string>;
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+     * Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `targetType` is `instance`, `ip`, or `alb`.
+     * Does not apply when `targetType` is `lambda`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -204,7 +207,9 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly targetHealthStates!: pulumi.Output<outputs.alb.TargetGroupTargetHealthState[]>;
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      *
@@ -350,7 +355,10 @@ export interface TargetGroupState {
      */
     preserveClientIp?: pulumi.Input<string>;
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+     * Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `targetType` is `instance`, `ip`, or `alb`.
+     * Does not apply when `targetType` is `lambda`.
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -388,7 +396,9 @@ export interface TargetGroupState {
      */
     targetHealthStates?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetHealthState>[]>;
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      *
@@ -454,7 +464,10 @@ export interface TargetGroupArgs {
      */
     preserveClientIp?: pulumi.Input<string>;
     /**
-     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+     * Protocol to use for routing traffic to the targets.
+     * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+     * Required when `targetType` is `instance`, `ip`, or `alb`.
+     * Does not apply when `targetType` is `lambda`.
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -486,7 +499,9 @@ export interface TargetGroupArgs {
      */
     targetHealthStates?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetHealthState>[]>;
     /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * Type of target that you must specify when registering targets with this target group.
+     * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+     * The default is `instance`.
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      *

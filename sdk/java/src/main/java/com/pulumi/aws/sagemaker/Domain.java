@@ -232,22 +232,30 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultSpaceSettings);
     }
     /**
-     * The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * The default user settings. See Default User Settings below.
      * 
      */
     @Export(name="defaultUserSettings", refs={DomainDefaultUserSettings.class}, tree="[0]")
     private Output<DomainDefaultUserSettings> defaultUserSettings;
 
     /**
-     * @return The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+     * @return The default user settings. See Default User Settings below.
      * 
      */
     public Output<DomainDefaultUserSettings> defaultUserSettings() {
         return this.defaultUserSettings;
     }
+    /**
+     * The domain name.
+     * 
+     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
+    /**
+     * @return The domain name.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }

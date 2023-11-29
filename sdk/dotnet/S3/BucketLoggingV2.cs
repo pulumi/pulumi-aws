@@ -97,6 +97,12 @@ namespace Pulumi.Aws.S3
         public Output<ImmutableArray<Outputs.BucketLoggingV2TargetGrant>> TargetGrants { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon S3 key format for log objects. See below.
+        /// </summary>
+        [Output("targetObjectKeyFormat")]
+        public Output<Outputs.BucketLoggingV2TargetObjectKeyFormat?> TargetObjectKeyFormat { get; private set; } = null!;
+
+        /// <summary>
         /// Prefix for all log object keys.
         /// </summary>
         [Output("targetPrefix")]
@@ -179,6 +185,12 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
+        /// Amazon S3 key format for log objects. See below.
+        /// </summary>
+        [Input("targetObjectKeyFormat")]
+        public Input<Inputs.BucketLoggingV2TargetObjectKeyFormatArgs>? TargetObjectKeyFormat { get; set; }
+
+        /// <summary>
         /// Prefix for all log object keys.
         /// </summary>
         [Input("targetPrefix", required: true)]
@@ -221,6 +233,12 @@ namespace Pulumi.Aws.S3
             get => _targetGrants ?? (_targetGrants = new InputList<Inputs.BucketLoggingV2TargetGrantGetArgs>());
             set => _targetGrants = value;
         }
+
+        /// <summary>
+        /// Amazon S3 key format for log objects. See below.
+        /// </summary>
+        [Input("targetObjectKeyFormat")]
+        public Input<Inputs.BucketLoggingV2TargetObjectKeyFormatGetArgs>? TargetObjectKeyFormat { get; set; }
 
         /// <summary>
         /// Prefix for all log object keys.

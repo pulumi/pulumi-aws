@@ -419,14 +419,14 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.icebergTargets);
     }
     /**
-     * List of nested JBDC target arguments. See JDBC Target below.
+     * List of nested JDBC target arguments. See JDBC Target below.
      * 
      */
     @Export(name="jdbcTargets", refs={List.class,CrawlerJdbcTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerJdbcTarget>> jdbcTargets;
 
     /**
-     * @return List of nested JBDC target arguments. See JDBC Target below.
+     * @return List of nested JDBC target arguments. See JDBC Target below.
      * 
      */
     public Output<Optional<List<CrawlerJdbcTarget>>> jdbcTargets() {

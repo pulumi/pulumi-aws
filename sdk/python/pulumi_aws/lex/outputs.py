@@ -41,6 +41,8 @@ __all__ = [
     'V2modelsBotLocaleVoiceSettings',
     'V2modelsBotMember',
     'V2modelsBotTimeouts',
+    'V2modelsBotVersionLocaleSpecification',
+    'V2modelsBotVersionTimeouts',
     'GetSlotTypeEnumerationValueResult',
 ]
 
@@ -1690,6 +1692,10 @@ class V2modelsBotLocaleVoiceSettings(dict):
     def __init__(__self__, *,
                  voice_id: str,
                  engine: Optional[str] = None):
+        """
+        :param str voice_id: Identifier of the Amazon Polly voice to use.
+        :param str engine: Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+        """
         pulumi.set(__self__, "voice_id", voice_id)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
@@ -1697,11 +1703,17 @@ class V2modelsBotLocaleVoiceSettings(dict):
     @property
     @pulumi.getter(name="voiceId")
     def voice_id(self) -> str:
+        """
+        Identifier of the Amazon Polly voice to use.
+        """
         return pulumi.get(self, "voice_id")
 
     @property
     @pulumi.getter
     def engine(self) -> Optional[str]:
+        """
+        Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
+        """
         return pulumi.get(self, "engine")
 
 
@@ -1813,6 +1825,56 @@ class V2modelsBotTimeouts(dict):
     @pulumi.getter
     def update(self) -> Optional[str]:
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class V2modelsBotVersionLocaleSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceBotVersion":
+            suggest = "source_bot_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsBotVersionLocaleSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsBotVersionLocaleSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsBotVersionLocaleSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_bot_version: str):
+        pulumi.set(__self__, "source_bot_version", source_bot_version)
+
+    @property
+    @pulumi.getter(name="sourceBotVersion")
+    def source_bot_version(self) -> str:
+        return pulumi.get(self, "source_bot_version")
+
+
+@pulumi.output_type
+class V2modelsBotVersionTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type

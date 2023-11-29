@@ -136,9 +136,12 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly defaultSpaceSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
     /**
-     * The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+     * The default user settings. See Default User Settings below.
      */
     public readonly defaultUserSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultUserSettings>;
+    /**
+     * The domain name.
+     */
     public readonly domainName!: pulumi.Output<string>;
     /**
      * The domain's settings.
@@ -288,9 +291,12 @@ export interface DomainState {
      */
     defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
     /**
-     * The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+     * The default user settings. See Default User Settings below.
      */
     defaultUserSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings>;
+    /**
+     * The domain name.
+     */
     domainName?: pulumi.Input<string>;
     /**
      * The domain's settings.
@@ -363,9 +369,12 @@ export interface DomainArgs {
      */
     defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
     /**
-     * The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
+     * The default user settings. See Default User Settings below.
      */
     defaultUserSettings: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings>;
+    /**
+     * The domain name.
+     */
     domainName: pulumi.Input<string>;
     /**
      * The domain's settings.

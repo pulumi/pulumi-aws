@@ -4929,6 +4929,421 @@ func (o BucketLoggingV2TargetGrantGranteeOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLoggingV2TargetGrantGrantee) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
+type BucketLoggingV2TargetObjectKeyFormat struct {
+	// Partitioned S3 key for log objects. See below.
+	PartitionedPrefix *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix `pulumi:"partitionedPrefix"`
+	// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+	SimplePrefix *BucketLoggingV2TargetObjectKeyFormatSimplePrefix `pulumi:"simplePrefix"`
+}
+
+// BucketLoggingV2TargetObjectKeyFormatInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatArgs and BucketLoggingV2TargetObjectKeyFormatOutput values.
+// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatInput` via:
+//
+//	BucketLoggingV2TargetObjectKeyFormatArgs{...}
+type BucketLoggingV2TargetObjectKeyFormatInput interface {
+	pulumi.Input
+
+	ToBucketLoggingV2TargetObjectKeyFormatOutput() BucketLoggingV2TargetObjectKeyFormatOutput
+	ToBucketLoggingV2TargetObjectKeyFormatOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatOutput
+}
+
+type BucketLoggingV2TargetObjectKeyFormatArgs struct {
+	// Partitioned S3 key for log objects. See below.
+	PartitionedPrefix BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput `pulumi:"partitionedPrefix"`
+	// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+	SimplePrefix BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput `pulumi:"simplePrefix"`
+}
+
+func (BucketLoggingV2TargetObjectKeyFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatArgs) ToBucketLoggingV2TargetObjectKeyFormatOutput() BucketLoggingV2TargetObjectKeyFormatOutput {
+	return i.ToBucketLoggingV2TargetObjectKeyFormatOutputWithContext(context.Background())
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatArgs) ToBucketLoggingV2TargetObjectKeyFormatOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatOutput)
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatArgs) ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return i.ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(context.Background())
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatArgs) ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatOutput).ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx)
+}
+
+// BucketLoggingV2TargetObjectKeyFormatPtrInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatArgs, BucketLoggingV2TargetObjectKeyFormatPtr and BucketLoggingV2TargetObjectKeyFormatPtrOutput values.
+// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatPtrInput` via:
+//
+//	        BucketLoggingV2TargetObjectKeyFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketLoggingV2TargetObjectKeyFormatPtrInput interface {
+	pulumi.Input
+
+	ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput
+	ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput
+}
+
+type bucketLoggingV2TargetObjectKeyFormatPtrType BucketLoggingV2TargetObjectKeyFormatArgs
+
+func BucketLoggingV2TargetObjectKeyFormatPtr(v *BucketLoggingV2TargetObjectKeyFormatArgs) BucketLoggingV2TargetObjectKeyFormatPtrInput {
+	return (*bucketLoggingV2TargetObjectKeyFormatPtrType)(v)
+}
+
+func (*bucketLoggingV2TargetObjectKeyFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (i *bucketLoggingV2TargetObjectKeyFormatPtrType) ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return i.ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketLoggingV2TargetObjectKeyFormatPtrType) ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatPtrOutput)
+}
+
+type BucketLoggingV2TargetObjectKeyFormatOutput struct{ *pulumi.OutputState }
+
+func (BucketLoggingV2TargetObjectKeyFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatOutput) ToBucketLoggingV2TargetObjectKeyFormatOutput() BucketLoggingV2TargetObjectKeyFormatOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatOutput) ToBucketLoggingV2TargetObjectKeyFormatOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatOutput) ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return o.ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(context.Background())
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatOutput) ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormat {
+		return &v
+	}).(BucketLoggingV2TargetObjectKeyFormatPtrOutput)
+}
+
+// Partitioned S3 key for log objects. See below.
+func (o BucketLoggingV2TargetObjectKeyFormatOutput) PartitionedPrefix() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o.ApplyT(func(v BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
+		return v.PartitionedPrefix
+	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
+}
+
+// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+func (o BucketLoggingV2TargetObjectKeyFormatOutput) SimplePrefix() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o.ApplyT(func(v BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
+		return v.SimplePrefix
+	}).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput)
+}
+
+type BucketLoggingV2TargetObjectKeyFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketLoggingV2TargetObjectKeyFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatPtrOutput() BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPtrOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) Elem() BucketLoggingV2TargetObjectKeyFormatOutput {
+	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormat) BucketLoggingV2TargetObjectKeyFormat {
+		if v != nil {
+			return *v
+		}
+		var ret BucketLoggingV2TargetObjectKeyFormat
+		return ret
+	}).(BucketLoggingV2TargetObjectKeyFormatOutput)
+}
+
+// Partitioned S3 key for log objects. See below.
+func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) PartitionedPrefix() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionedPrefix
+	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
+}
+
+// Use the simple format for S3 keys for log objects. To use, set `simplePrefix {}`.
+func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) SimplePrefix() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormat) *BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
+		if v == nil {
+			return nil
+		}
+		return v.SimplePrefix
+	}).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput)
+}
+
+type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix struct {
+	// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+	PartitionDateSource string `pulumi:"partitionDateSource"`
+}
+
+// BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs and BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput values.
+// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixInput` via:
+//
+//	BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs{...}
+type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixInput interface {
+	pulumi.Input
+
+	ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput
+	ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput
+}
+
+type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs struct {
+	// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+	PartitionDateSource pulumi.StringInput `pulumi:"partitionDateSource"`
+}
+
+func (BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
+	return i.ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutputWithContext(context.Background())
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput)
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return i.ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput).ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx)
+}
+
+// BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs, BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtr and BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput values.
+// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput` via:
+//
+//	        BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput interface {
+	pulumi.Input
+
+	ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput
+	ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput
+}
+
+type bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs
+
+func BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtr(v *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput {
+	return (*bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType)(v)
+}
+
+func (*bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
+}
+
+func (i *bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return i.ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrType) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
+}
+
+type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput struct{ *pulumi.OutputState }
+
+func (BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o.ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(context.Background())
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
+		return &v
+	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
+}
+
+// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) PartitionDateSource() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) string { return v.PartitionDateSource }).(pulumi.StringOutput)
+}
+
+type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix)(nil)).Elem()
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) Elem() BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput {
+	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
+		if v != nil {
+			return *v
+		}
+		var ret BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix
+		return ret
+	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput)
+}
+
+// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) PartitionDateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartitionDateSource
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketLoggingV2TargetObjectKeyFormatSimplePrefix struct {
+}
+
+// BucketLoggingV2TargetObjectKeyFormatSimplePrefixInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs and BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput values.
+// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatSimplePrefixInput` via:
+//
+//	BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs{...}
+type BucketLoggingV2TargetObjectKeyFormatSimplePrefixInput interface {
+	pulumi.Input
+
+	ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput
+	ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput
+}
+
+type BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs struct {
+}
+
+func (BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatSimplePrefix)(nil)).Elem()
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
+	return i.ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutputWithContext(context.Background())
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput)
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return i.ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Background())
+}
+
+func (i BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput).ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx)
+}
+
+// BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput is an input type that accepts BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs, BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtr and BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput values.
+// You can construct a concrete instance of `BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput` via:
+//
+//	        BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput interface {
+	pulumi.Input
+
+	ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput
+	ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput
+}
+
+type bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs
+
+func BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtr(v *BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput {
+	return (*bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType)(v)
+}
+
+func (*bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormatSimplePrefix)(nil)).Elem()
+}
+
+func (i *bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return i.ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrType) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput)
+}
+
+type BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput struct{ *pulumi.OutputState }
+
+func (BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatSimplePrefix)(nil)).Elem()
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o.ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(context.Background())
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingV2TargetObjectKeyFormatSimplePrefix) *BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
+		return &v
+	}).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput)
+}
+
+type BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingV2TargetObjectKeyFormatSimplePrefix)(nil)).Elem()
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput() BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) ToBucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutputWithContext(ctx context.Context) BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput {
+	return o
+}
+
+func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) Elem() BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput {
+	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormatSimplePrefix) BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
+		if v != nil {
+			return *v
+		}
+		var ret BucketLoggingV2TargetObjectKeyFormatSimplePrefix
+		return ret
+	}).(BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput)
+}
+
 type BucketMetricFilter struct {
 	// Object prefix for filtering (singular).
 	Prefix *string `pulumi:"prefix"`
@@ -16625,6 +17040,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetGrantInput)(nil)).Elem(), BucketLoggingV2TargetGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetGrantArrayInput)(nil)).Elem(), BucketLoggingV2TargetGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetGrantGranteeInput)(nil)).Elem(), BucketLoggingV2TargetGrantGranteeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPtrInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatSimplePrefixInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrInput)(nil)).Elem(), BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricFilterInput)(nil)).Elem(), BucketMetricFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricFilterPtrInput)(nil)).Elem(), BucketMetricFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationLambdaFunctionInput)(nil)).Elem(), BucketNotificationLambdaFunctionArgs{})
@@ -16855,6 +17276,12 @@ func init() {
 	pulumi.RegisterOutputType(BucketLoggingV2TargetGrantOutput{})
 	pulumi.RegisterOutputType(BucketLoggingV2TargetGrantArrayOutput{})
 	pulumi.RegisterOutputType(BucketLoggingV2TargetGrantGranteeOutput{})
+	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatOutput{})
+	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatPtrOutput{})
+	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput{})
+	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput{})
+	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatSimplePrefixOutput{})
+	pulumi.RegisterOutputType(BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput{})
 	pulumi.RegisterOutputType(BucketMetricFilterOutput{})
 	pulumi.RegisterOutputType(BucketMetricFilterPtrOutput{})
 	pulumi.RegisterOutputType(BucketNotificationLambdaFunctionOutput{})

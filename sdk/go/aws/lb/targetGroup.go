@@ -209,7 +209,10 @@ type TargetGroup struct {
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp pulumi.StringOutput `pulumi:"preserveClientIp"`
-	// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+	// Protocol to use for routing traffic to the targets.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Required when `targetType` is `instance`, `ip`, or `alb`.
+	// Does not apply when `targetType` is `lambda`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
 	ProtocolVersion pulumi.StringOutput `pulumi:"protocolVersion"`
@@ -229,7 +232,9 @@ type TargetGroup struct {
 	TargetFailovers TargetGroupTargetFailoverArrayOutput `pulumi:"targetFailovers"`
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates TargetGroupTargetHealthStateArrayOutput `pulumi:"targetHealthStates"`
-	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	// Type of target that you must specify when registering targets with this target group.
+	// See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+	// The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
 	//
@@ -309,7 +314,10 @@ type targetGroupState struct {
 	Port *int `pulumi:"port"`
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp *string `pulumi:"preserveClientIp"`
-	// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+	// Protocol to use for routing traffic to the targets.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Required when `targetType` is `instance`, `ip`, or `alb`.
+	// Does not apply when `targetType` is `lambda`.
 	Protocol *string `pulumi:"protocol"`
 	// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
 	ProtocolVersion *string `pulumi:"protocolVersion"`
@@ -329,7 +337,9 @@ type targetGroupState struct {
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates []TargetGroupTargetHealthState `pulumi:"targetHealthStates"`
-	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	// Type of target that you must specify when registering targets with this target group.
+	// See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+	// The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
 	//
@@ -370,7 +380,10 @@ type TargetGroupState struct {
 	Port pulumi.IntPtrInput
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp pulumi.StringPtrInput
-	// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+	// Protocol to use for routing traffic to the targets.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Required when `targetType` is `instance`, `ip`, or `alb`.
+	// Does not apply when `targetType` is `lambda`.
 	Protocol pulumi.StringPtrInput
 	// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
 	ProtocolVersion pulumi.StringPtrInput
@@ -390,7 +403,9 @@ type TargetGroupState struct {
 	TargetFailovers TargetGroupTargetFailoverArrayInput
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates TargetGroupTargetHealthStateArrayInput
-	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	// Type of target that you must specify when registering targets with this target group.
+	// See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+	// The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
 	//
@@ -431,7 +446,10 @@ type targetGroupArgs struct {
 	Port *int `pulumi:"port"`
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp *string `pulumi:"preserveClientIp"`
-	// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+	// Protocol to use for routing traffic to the targets.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Required when `targetType` is `instance`, `ip`, or `alb`.
+	// Does not apply when `targetType` is `lambda`.
 	Protocol *string `pulumi:"protocol"`
 	// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
 	ProtocolVersion *string `pulumi:"protocolVersion"`
@@ -447,7 +465,9 @@ type targetGroupArgs struct {
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates []TargetGroupTargetHealthState `pulumi:"targetHealthStates"`
-	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	// Type of target that you must specify when registering targets with this target group.
+	// See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+	// The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
 	//
@@ -485,7 +505,10 @@ type TargetGroupArgs struct {
 	Port pulumi.IntPtrInput
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
 	PreserveClientIp pulumi.StringPtrInput
-	// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+	// Protocol to use for routing traffic to the targets.
+	// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+	// Required when `targetType` is `instance`, `ip`, or `alb`.
+	// Does not apply when `targetType` is `lambda`.
 	Protocol pulumi.StringPtrInput
 	// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
 	ProtocolVersion pulumi.StringPtrInput
@@ -501,7 +524,9 @@ type TargetGroupArgs struct {
 	TargetFailovers TargetGroupTargetFailoverArrayInput
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
 	TargetHealthStates TargetGroupTargetHealthStateArrayInput
-	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	// Type of target that you must specify when registering targets with this target group.
+	// See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+	// The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
 	//
@@ -667,7 +692,10 @@ func (o TargetGroupOutput) PreserveClientIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.PreserveClientIp }).(pulumi.StringOutput)
 }
 
-// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
+// Protocol to use for routing traffic to the targets.
+// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
+// Required when `targetType` is `instance`, `ip`, or `alb`.
+// Does not apply when `targetType` is `lambda`.
 func (o TargetGroupOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -714,7 +742,9 @@ func (o TargetGroupOutput) TargetHealthStates() TargetGroupTargetHealthStateArra
 	return o.ApplyT(func(v *TargetGroup) TargetGroupTargetHealthStateArrayOutput { return v.TargetHealthStates }).(TargetGroupTargetHealthStateArrayOutput)
 }
 
-// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+// Type of target that you must specify when registering targets with this target group.
+// See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
+// The default is `instance`.
 //
 // Note that you can't specify targets for a target group using both instance IDs and IP addresses.
 //

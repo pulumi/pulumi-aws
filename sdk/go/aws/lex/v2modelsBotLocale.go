@@ -30,10 +30,42 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
-//				BotId:                        pulumi.Any(aws_lexv2models_bot.Test.Id),
+//				BotId:                        pulumi.Any(aws_lexv2models_bot.Example.Id),
 //				BotVersion:                   pulumi.String("DRAFT"),
 //				LocaleId:                     pulumi.String("en_US"),
 //				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Voice Settings
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
+//				BotId:                        pulumi.Any(aws_lexv2models_bot.Example.Id),
+//				BotVersion:                   pulumi.String("DRAFT"),
+//				LocaleId:                     pulumi.String("en_US"),
+//				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
+//				VoiceSettings: &lex.V2modelsBotLocaleVoiceSettingsArgs{
+//					VoiceId: pulumi.String("Kendra"),
+//					Engine:  pulumi.String("standard"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -71,7 +103,7 @@ type V2modelsBotLocale struct {
 	// Specified locale name.
 	Name     pulumi.StringOutput                `pulumi:"name"`
 	Timeouts V2modelsBotLocaleTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings V2modelsBotLocaleVoiceSettingsPtrOutput `pulumi:"voiceSettings"`
 }
 
@@ -132,7 +164,7 @@ type v2modelsBotLocaleState struct {
 	// Specified locale name.
 	Name     *string                    `pulumi:"name"`
 	Timeouts *V2modelsBotLocaleTimeouts `pulumi:"timeouts"`
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings *V2modelsBotLocaleVoiceSettings `pulumi:"voiceSettings"`
 }
 
@@ -152,7 +184,7 @@ type V2modelsBotLocaleState struct {
 	// Specified locale name.
 	Name     pulumi.StringPtrInput
 	Timeouts V2modelsBotLocaleTimeoutsPtrInput
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings V2modelsBotLocaleVoiceSettingsPtrInput
 }
 
@@ -176,7 +208,7 @@ type v2modelsBotLocaleArgs struct {
 	// Specified locale name.
 	Name     *string                    `pulumi:"name"`
 	Timeouts *V2modelsBotLocaleTimeouts `pulumi:"timeouts"`
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings *V2modelsBotLocaleVoiceSettings `pulumi:"voiceSettings"`
 }
 
@@ -197,7 +229,7 @@ type V2modelsBotLocaleArgs struct {
 	// Specified locale name.
 	Name     pulumi.StringPtrInput
 	Timeouts V2modelsBotLocaleTimeoutsPtrInput
-	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings V2modelsBotLocaleVoiceSettingsPtrInput
 }
 
@@ -324,7 +356,7 @@ func (o V2modelsBotLocaleOutput) Timeouts() V2modelsBotLocaleTimeoutsPtrOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) V2modelsBotLocaleTimeoutsPtrOutput { return v.Timeouts }).(V2modelsBotLocaleTimeoutsPtrOutput)
 }
 
-// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 func (o V2modelsBotLocaleOutput) VoiceSettings() V2modelsBotLocaleVoiceSettingsPtrOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) V2modelsBotLocaleVoiceSettingsPtrOutput { return v.VoiceSettings }).(V2modelsBotLocaleVoiceSettingsPtrOutput)
 }

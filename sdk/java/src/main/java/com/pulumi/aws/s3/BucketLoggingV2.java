@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.BucketLoggingV2Args;
 import com.pulumi.aws.s3.inputs.BucketLoggingV2State;
 import com.pulumi.aws.s3.outputs.BucketLoggingV2TargetGrant;
+import com.pulumi.aws.s3.outputs.BucketLoggingV2TargetObjectKeyFormat;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -147,6 +148,20 @@ public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<BucketLoggingV2TargetGrant>>> targetGrants() {
         return Codegen.optional(this.targetGrants);
+    }
+    /**
+     * Amazon S3 key format for log objects. See below.
+     * 
+     */
+    @Export(name="targetObjectKeyFormat", refs={BucketLoggingV2TargetObjectKeyFormat.class}, tree="[0]")
+    private Output</* @Nullable */ BucketLoggingV2TargetObjectKeyFormat> targetObjectKeyFormat;
+
+    /**
+     * @return Amazon S3 key format for log objects. See below.
+     * 
+     */
+    public Output<Optional<BucketLoggingV2TargetObjectKeyFormat>> targetObjectKeyFormat() {
+        return Codegen.optional(this.targetObjectKeyFormat);
     }
     /**
      * Prefix for all log object keys.
