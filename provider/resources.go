@@ -3772,9 +3772,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// HACK: remove this field for now as it breaks dotnet codegen due to our current type naming strategy.
 					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
-					"definition": {
-						Omit: true,
-					},
+					"definition": {Omit: true},
 				},
 			},
 			"aws_quicksight_analysis": {
@@ -3782,9 +3780,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
 					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
-					"definition": {
-						Omit: true,
-					},
+					"definition": {Omit: true},
 				},
 			},
 			"aws_quicksight_dashboard": {
@@ -3792,9 +3788,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
 					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
-					"definition": {
-						Omit: true,
-					},
+					"definition": {Omit: true},
 				},
 			},
 			// Service Quotas

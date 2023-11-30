@@ -25,7 +25,6 @@ func main() {
 
 	info.SchemaPostProcessor = func(spec *schema.PackageSpec) {
 		replaceWafV2TypesWithRecursive(spec)
-		removeUnusedQuicksightTypes(spec)
 	}
 
 	defer func() {
