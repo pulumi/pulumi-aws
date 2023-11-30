@@ -5,7 +5,7 @@ go 1.21.0
 require (
 	github.com/aws/aws-sdk-go v1.48.7
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.20.1-0.20231127160738-2f132e750bb5
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.20.1-0.20231130182140-6385710fcbc4
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3
 	github.com/pulumi/pulumi/pkg/v3 v3.94.2
 	github.com/stretchr/testify v1.8.4
@@ -276,8 +276,8 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/pulumi/esc v0.6.0 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.66.1-0.20231127160738-2f132e750bb5 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.66.1-0.20231130182140-6385710fcbc4 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20231130182140-6385710fcbc4 // indirect
 	github.com/pulumi/pulumi/sdk/v3 v3.94.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
