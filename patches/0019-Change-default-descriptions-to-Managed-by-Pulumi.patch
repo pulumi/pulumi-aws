@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
-Subject: [PATCH 19/29] Change default descriptions to "Managed by Pulumi"
+Subject: [PATCH 19/30] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
@@ -31,7 +31,7 @@ index 154306cde7..e3c6189ab2 100644
  			"api_id": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/cloudfront/origin_access_control.go b/internal/service/cloudfront/origin_access_control.go
-index 6812593087..18de58a8a7 100644
+index e9743af534..0400dba7fa 100644
 --- a/internal/service/cloudfront/origin_access_control.go
 +++ b/internal/service/cloudfront/origin_access_control.go
 @@ -37,7 +37,7 @@ func ResourceOriginAccessControl() *schema.Resource {
@@ -44,10 +44,10 @@ index 6812593087..18de58a8a7 100644
  			},
  			"etag": {
 diff --git a/internal/service/docdb/cluster_parameter_group.go b/internal/service/docdb/cluster_parameter_group.go
-index 435e139674..6f923a8ed0 100644
+index a1af860ca7..1db92c7f3f 100644
 --- a/internal/service/docdb/cluster_parameter_group.go
 +++ b/internal/service/docdb/cluster_parameter_group.go
-@@ -50,7 +50,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
+@@ -48,7 +48,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -294,10 +294,10 @@ index f8739b158d..b0c862290d 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/neptune/cluster_parameter_group.go b/internal/service/neptune/cluster_parameter_group.go
-index 7a4f6d707b..aea15d9cce 100644
+index 4085c20b4f..993effd88f 100644
 --- a/internal/service/neptune/cluster_parameter_group.go
 +++ b/internal/service/neptune/cluster_parameter_group.go
-@@ -49,7 +49,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
+@@ -48,7 +48,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -307,20 +307,20 @@ index 7a4f6d707b..aea15d9cce 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
-index 634e4f17cc..4572e60174 100644
+index 6b3466f4d2..4fe2595102 100644
 --- a/internal/service/neptune/parameter_group.go
 +++ b/internal/service/neptune/parameter_group.go
-@@ -61,7 +61,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -52,7 +52,7 @@ func ResourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"parameter": {
- 				Type:     schema.TypeSet,
+ 			"family": {
+ 				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/subnet_group.go b/internal/service/neptune/subnet_group.go
-index be08ae2bf4..3bfb5db0d6 100644
+index 359047d7ab..acc8ff375e 100644
 --- a/internal/service/neptune/subnet_group.go
 +++ b/internal/service/neptune/subnet_group.go
 @@ -44,7 +44,7 @@ func ResourceSubnetGroup() *schema.Resource {
