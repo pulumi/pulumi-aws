@@ -25,7 +25,6 @@ func TestAccBucketPy(t *testing.T) {
 func TestAccWebserverPy(t *testing.T) {
 	for _, dir := range []string{"webserver-py", "webserver-py-old"} {
 		t.Run(dir, func(t *testing.T) {
-
 			test := getPythonBaseOptions(t).
 				With(integration.ProgramTestOptions{
 					Dir: filepath.Join(getCwd(t), dir),
@@ -54,6 +53,15 @@ func TestAccFifoSqsQueuePy(t *testing.T) {
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 				assert.Contains(t, stack.Outputs["name"].(string), ".fifo")
 			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestSecretManagerPy(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "secretmanager"),
 		})
 
 	integration.ProgramTest(t, &test)
