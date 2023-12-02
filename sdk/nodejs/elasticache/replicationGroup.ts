@@ -237,7 +237,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly authToken!: pulumi.Output<string | undefined>;
     /**
-     * Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
      */
     public readonly authTokenUpdateStrategy!: pulumi.Output<string | undefined>;
     /**
@@ -549,7 +549,7 @@ export interface ReplicationGroupState {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
      */
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
@@ -745,7 +745,7 @@ export interface ReplicationGroupArgs {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Strategy to use when updating the `authToken`. Can be specified only if `transitEncryptionEnabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
      */
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**

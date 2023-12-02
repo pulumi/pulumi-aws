@@ -15664,6 +15664,7 @@ export namespace config {
         codecatalyst?: string;
         codecommit?: string;
         codedeploy?: string;
+        codeguruprofiler?: string;
         codegurureviewer?: string;
         codepipeline?: string;
         codestarconnections?: string;
@@ -15774,6 +15775,7 @@ export namespace config {
         mediaconvert?: string;
         medialive?: string;
         mediapackage?: string;
+        mediapackagev2?: string;
         mediastore?: string;
         memorydb?: string;
         mq?: string;
@@ -46486,11 +46488,14 @@ export namespace networkmanager {
 
     export interface VpcAttachmentOptions {
         /**
-         * Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+         * Indicates whether appliance mode is supported.
+         * If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+         * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          */
         applianceModeSupport?: boolean;
         /**
          * Indicates whether IPv6 is supported.
+         * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          */
         ipv6Support?: boolean;
     }

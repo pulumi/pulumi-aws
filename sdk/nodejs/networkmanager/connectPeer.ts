@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS NetworkManager Connect Peer.
+ * Resource for managing an AWS Network Manager Connect Peer.
  *
  * ## Example Usage
  *

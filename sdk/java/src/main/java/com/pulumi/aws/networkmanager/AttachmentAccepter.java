@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS NetworkManager Attachment Accepter.
+ * Resource for managing an AWS Network Manager Attachment Accepter.
  * 
  * ## Example Usage
  * ### Example with VPC attachment

@@ -226,7 +226,7 @@ class AttachmentAccepter(pulumi.CustomResource):
                  attachment_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS NetworkManager Attachment Accepter.
+        Resource for managing an AWS Network Manager Attachment Accepter.
 
         ## Example Usage
         ### Example with VPC attachment
@@ -262,7 +262,7 @@ class AttachmentAccepter(pulumi.CustomResource):
                  args: AttachmentAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS NetworkManager Attachment Accepter.
+        Resource for managing an AWS Network Manager Attachment Accepter.
 
         ## Example Usage
         ### Example with VPC attachment

@@ -66,6 +66,8 @@ type ParameterGroup struct {
 	Family pulumi.StringOutput `pulumi:"family"`
 	// The name of the Neptune parameter.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// A list of Neptune parameters to apply.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -121,6 +123,8 @@ type parameterGroupState struct {
 	Family *string `pulumi:"family"`
 	// The name of the Neptune parameter.
 	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
 	// A list of Neptune parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -140,6 +144,8 @@ type ParameterGroupState struct {
 	Family pulumi.StringPtrInput
 	// The name of the Neptune parameter.
 	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
 	// A list of Neptune parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +167,8 @@ type parameterGroupArgs struct {
 	Family string `pulumi:"family"`
 	// The name of the Neptune parameter.
 	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
 	// A list of Neptune parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -175,6 +183,8 @@ type ParameterGroupArgs struct {
 	Family pulumi.StringInput
 	// The name of the Neptune parameter.
 	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
 	// A list of Neptune parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -286,6 +296,11 @@ func (o ParameterGroupOutput) Family() pulumi.StringOutput {
 // The name of the Neptune parameter.
 func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+func (o ParameterGroupOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
 // A list of Neptune parameters to apply.

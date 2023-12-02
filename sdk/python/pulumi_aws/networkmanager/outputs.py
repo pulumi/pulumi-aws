@@ -577,8 +577,11 @@ class VpcAttachmentOptions(dict):
                  appliance_mode_support: Optional[bool] = None,
                  ipv6_support: Optional[bool] = None):
         """
-        :param bool appliance_mode_support: Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+        :param bool appliance_mode_support: Indicates whether appliance mode is supported.
+               If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+               If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         :param bool ipv6_support: Indicates whether IPv6 is supported.
+               If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
@@ -589,7 +592,9 @@ class VpcAttachmentOptions(dict):
     @pulumi.getter(name="applianceModeSupport")
     def appliance_mode_support(self) -> Optional[bool]:
         """
-        Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+        Indicates whether appliance mode is supported.
+        If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+        If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "appliance_mode_support")
 
@@ -598,6 +603,7 @@ class VpcAttachmentOptions(dict):
     def ipv6_support(self) -> Optional[bool]:
         """
         Indicates whether IPv6 is supported.
+        If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "ipv6_support")
 

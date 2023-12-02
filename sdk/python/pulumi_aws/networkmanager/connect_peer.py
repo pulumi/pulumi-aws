@@ -399,7 +399,7 @@ class ConnectPeer(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS NetworkManager Connect Peer.
+        Resource for managing an AWS Network Manager Connect Peer.
 
         ## Example Usage
 
@@ -430,7 +430,7 @@ class ConnectPeer(pulumi.CustomResource):
                  args: ConnectPeerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS NetworkManager Connect Peer.
+        Resource for managing an AWS Network Manager Connect Peer.
 
         ## Example Usage
 

@@ -157,6 +157,7 @@ export interface ProviderEndpoint {
     codecatalyst?: pulumi.Input<string>;
     codecommit?: pulumi.Input<string>;
     codedeploy?: pulumi.Input<string>;
+    codeguruprofiler?: pulumi.Input<string>;
     codegurureviewer?: pulumi.Input<string>;
     codepipeline?: pulumi.Input<string>;
     codestarconnections?: pulumi.Input<string>;
@@ -267,6 +268,7 @@ export interface ProviderEndpoint {
     mediaconvert?: pulumi.Input<string>;
     medialive?: pulumi.Input<string>;
     mediapackage?: pulumi.Input<string>;
+    mediapackagev2?: pulumi.Input<string>;
     mediastore?: pulumi.Input<string>;
     memorydb?: pulumi.Input<string>;
     mq?: pulumi.Input<string>;
@@ -40830,11 +40832,14 @@ export namespace networkmanager {
 
     export interface VpcAttachmentOptions {
         /**
-         * Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+         * Indicates whether appliance mode is supported.
+         * If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+         * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          */
         applianceModeSupport?: pulumi.Input<boolean>;
         /**
          * Indicates whether IPv6 is supported.
+         * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          */
         ipv6Support?: pulumi.Input<boolean>;
     }

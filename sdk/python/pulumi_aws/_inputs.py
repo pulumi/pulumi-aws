@@ -299,6 +299,7 @@ class ProviderEndpointArgs:
                  codecatalyst: Optional[pulumi.Input[str]] = None,
                  codecommit: Optional[pulumi.Input[str]] = None,
                  codedeploy: Optional[pulumi.Input[str]] = None,
+                 codeguruprofiler: Optional[pulumi.Input[str]] = None,
                  codegurureviewer: Optional[pulumi.Input[str]] = None,
                  codepipeline: Optional[pulumi.Input[str]] = None,
                  codestarconnections: Optional[pulumi.Input[str]] = None,
@@ -409,6 +410,7 @@ class ProviderEndpointArgs:
                  mediaconvert: Optional[pulumi.Input[str]] = None,
                  medialive: Optional[pulumi.Input[str]] = None,
                  mediapackage: Optional[pulumi.Input[str]] = None,
+                 mediapackagev2: Optional[pulumi.Input[str]] = None,
                  mediastore: Optional[pulumi.Input[str]] = None,
                  memorydb: Optional[pulumi.Input[str]] = None,
                  mq: Optional[pulumi.Input[str]] = None,
@@ -611,6 +613,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "codecommit", codecommit)
         if codedeploy is not None:
             pulumi.set(__self__, "codedeploy", codedeploy)
+        if codeguruprofiler is not None:
+            pulumi.set(__self__, "codeguruprofiler", codeguruprofiler)
         if codegurureviewer is not None:
             pulumi.set(__self__, "codegurureviewer", codegurureviewer)
         if codepipeline is not None:
@@ -831,6 +835,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "medialive", medialive)
         if mediapackage is not None:
             pulumi.set(__self__, "mediapackage", mediapackage)
+        if mediapackagev2 is not None:
+            pulumi.set(__self__, "mediapackagev2", mediapackagev2)
         if mediastore is not None:
             pulumi.set(__self__, "mediastore", mediastore)
         if memorydb is not None:
@@ -1515,6 +1521,15 @@ class ProviderEndpointArgs:
     @codedeploy.setter
     def codedeploy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "codedeploy", value)
+
+    @property
+    @pulumi.getter
+    def codeguruprofiler(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "codeguruprofiler")
+
+    @codeguruprofiler.setter
+    def codeguruprofiler(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "codeguruprofiler", value)
 
     @property
     @pulumi.getter
@@ -2505,6 +2520,15 @@ class ProviderEndpointArgs:
     @mediapackage.setter
     def mediapackage(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mediapackage", value)
+
+    @property
+    @pulumi.getter
+    def mediapackagev2(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mediapackagev2")
+
+    @mediapackagev2.setter
+    def mediapackagev2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mediapackagev2", value)
 
     @property
     @pulumi.getter

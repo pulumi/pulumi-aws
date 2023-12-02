@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS NetworkManager ConnectAttachment.
+ * Resource for managing an AWS Network Manager ConnectAttachment.
  * 
  * ## Example Usage
  * 

@@ -67,6 +67,7 @@ public final class Endpoints {
     private @Nullable String codecatalyst;
     private @Nullable String codecommit;
     private @Nullable String codedeploy;
+    private @Nullable String codeguruprofiler;
     private @Nullable String codegurureviewer;
     private @Nullable String codepipeline;
     private @Nullable String codestarconnections;
@@ -177,6 +178,7 @@ public final class Endpoints {
     private @Nullable String mediaconvert;
     private @Nullable String medialive;
     private @Nullable String mediapackage;
+    private @Nullable String mediapackagev2;
     private @Nullable String mediastore;
     private @Nullable String memorydb;
     private @Nullable String mq;
@@ -436,6 +438,9 @@ public final class Endpoints {
     }
     public Optional<String> codedeploy() {
         return Optional.ofNullable(this.codedeploy);
+    }
+    public Optional<String> codeguruprofiler() {
+        return Optional.ofNullable(this.codeguruprofiler);
     }
     public Optional<String> codegurureviewer() {
         return Optional.ofNullable(this.codegurureviewer);
@@ -766,6 +771,9 @@ public final class Endpoints {
     }
     public Optional<String> mediapackage() {
         return Optional.ofNullable(this.mediapackage);
+    }
+    public Optional<String> mediapackagev2() {
+        return Optional.ofNullable(this.mediapackagev2);
     }
     public Optional<String> mediastore() {
         return Optional.ofNullable(this.mediastore);
@@ -1103,6 +1111,7 @@ public final class Endpoints {
         private @Nullable String codecatalyst;
         private @Nullable String codecommit;
         private @Nullable String codedeploy;
+        private @Nullable String codeguruprofiler;
         private @Nullable String codegurureviewer;
         private @Nullable String codepipeline;
         private @Nullable String codestarconnections;
@@ -1213,6 +1222,7 @@ public final class Endpoints {
         private @Nullable String mediaconvert;
         private @Nullable String medialive;
         private @Nullable String mediapackage;
+        private @Nullable String mediapackagev2;
         private @Nullable String mediastore;
         private @Nullable String memorydb;
         private @Nullable String mq;
@@ -1362,6 +1372,7 @@ public final class Endpoints {
     	      this.codecatalyst = defaults.codecatalyst;
     	      this.codecommit = defaults.codecommit;
     	      this.codedeploy = defaults.codedeploy;
+    	      this.codeguruprofiler = defaults.codeguruprofiler;
     	      this.codegurureviewer = defaults.codegurureviewer;
     	      this.codepipeline = defaults.codepipeline;
     	      this.codestarconnections = defaults.codestarconnections;
@@ -1472,6 +1483,7 @@ public final class Endpoints {
     	      this.mediaconvert = defaults.mediaconvert;
     	      this.medialive = defaults.medialive;
     	      this.mediapackage = defaults.mediapackage;
+    	      this.mediapackagev2 = defaults.mediapackagev2;
     	      this.mediastore = defaults.mediastore;
     	      this.memorydb = defaults.memorydb;
     	      this.mq = defaults.mq;
@@ -1842,6 +1854,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder codedeploy(@Nullable String codedeploy) {
             this.codedeploy = codedeploy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder codeguruprofiler(@Nullable String codeguruprofiler) {
+            this.codeguruprofiler = codeguruprofiler;
             return this;
         }
         @CustomType.Setter
@@ -2395,6 +2412,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder mediapackagev2(@Nullable String mediapackagev2) {
+            this.mediapackagev2 = mediapackagev2;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mediastore(@Nullable String mediastore) {
             this.mediastore = mediastore;
             return this;
@@ -2902,6 +2924,7 @@ public final class Endpoints {
             o.codecatalyst = codecatalyst;
             o.codecommit = codecommit;
             o.codedeploy = codedeploy;
+            o.codeguruprofiler = codeguruprofiler;
             o.codegurureviewer = codegurureviewer;
             o.codepipeline = codepipeline;
             o.codestarconnections = codestarconnections;
@@ -3012,6 +3035,7 @@ public final class Endpoints {
             o.mediaconvert = mediaconvert;
             o.medialive = medialive;
             o.mediapackage = mediapackage;
+            o.mediapackagev2 = mediapackagev2;
             o.mediastore = mediastore;
             o.memorydb = memorydb;
             o.mq = mq;

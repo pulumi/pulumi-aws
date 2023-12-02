@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Resource for managing an AWS NetworkManager Attachment Accepter.
+    /// Resource for managing an AWS Network Manager Attachment Accepter.
     /// 
     /// ## Example Usage
     /// ### Example with VPC attachment

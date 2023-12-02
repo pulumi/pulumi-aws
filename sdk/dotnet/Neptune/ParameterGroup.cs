@@ -74,6 +74,12 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Output("namePrefix")]
+        public Output<string> NamePrefix { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Neptune parameters to apply.
         /// </summary>
         [Output("parameters")]
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.Neptune
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
+
         [Input("parameters")]
         private InputList<Inputs.ParameterGroupParameterArgs>? _parameters;
 
@@ -214,6 +226,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ParameterGroupParameterGetArgs>? _parameters;

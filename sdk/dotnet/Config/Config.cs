@@ -440,6 +440,7 @@ namespace Pulumi.Aws
                 public string? Codecatalyst { get; set; } = null!;
                 public string? Codecommit { get; set; } = null!;
                 public string? Codedeploy { get; set; } = null!;
+                public string? Codeguruprofiler { get; set; } = null!;
                 public string? Codegurureviewer { get; set; } = null!;
                 public string? Codepipeline { get; set; } = null!;
                 public string? Codestarconnections { get; set; } = null!;
@@ -550,6 +551,7 @@ namespace Pulumi.Aws
                 public string? Mediaconvert { get; set; } = null!;
                 public string? Medialive { get; set; } = null!;
                 public string? Mediapackage { get; set; } = null!;
+                public string? Mediapackagev2 { get; set; } = null!;
                 public string? Mediastore { get; set; } = null!;
                 public string? Memorydb { get; set; } = null!;
                 public string? Mq { get; set; } = null!;

@@ -78,6 +78,10 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    public readonly namePrefix!: pulumi.Output<string>;
+    /**
      * A list of Neptune parameters to apply.
      */
     public readonly parameters!: pulumi.Output<outputs.neptune.ParameterGroupParameter[] | undefined>;
@@ -109,6 +113,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["family"] = state ? state.family : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -120,6 +125,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["family"] = args ? args.family : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -153,6 +159,10 @@ export interface ParameterGroupState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
+    /**
      * A list of Neptune parameters to apply.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.neptune.ParameterGroupParameter>[]>;
@@ -184,6 +194,10 @@ export interface ParameterGroupArgs {
      * The name of the Neptune parameter.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * A list of Neptune parameters to apply.
      */

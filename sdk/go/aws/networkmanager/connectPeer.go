@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS NetworkManager Connect Peer.
+// Resource for managing an AWS Network Manager Connect Peer.
 //
 // ## Example Usage
 //

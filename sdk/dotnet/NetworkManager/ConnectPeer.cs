@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Resource for managing an AWS NetworkManager Connect Peer.
+    /// Resource for managing an AWS Network Manager Connect Peer.
     /// 
     /// ## Example Usage
     /// 
