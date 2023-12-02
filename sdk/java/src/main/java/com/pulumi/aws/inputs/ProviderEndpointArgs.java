@@ -407,6 +407,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.codedeploy);
     }
 
+    @Import(name="codeguruprofiler")
+    private @Nullable Output<String> codeguruprofiler;
+
+    public Optional<Output<String>> codeguruprofiler() {
+        return Optional.ofNullable(this.codeguruprofiler);
+    }
+
     @Import(name="codegurureviewer")
     private @Nullable Output<String> codegurureviewer;
 
@@ -1177,6 +1184,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.mediapackage);
     }
 
+    @Import(name="mediapackagev2")
+    private @Nullable Output<String> mediapackagev2;
+
+    public Optional<Output<String>> mediapackagev2() {
+        return Optional.ofNullable(this.mediapackagev2);
+    }
+
     @Import(name="mediastore")
     private @Nullable Output<String> mediastore;
 
@@ -1866,6 +1880,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.codecatalyst = $.codecatalyst;
         this.codecommit = $.codecommit;
         this.codedeploy = $.codedeploy;
+        this.codeguruprofiler = $.codeguruprofiler;
         this.codegurureviewer = $.codegurureviewer;
         this.codepipeline = $.codepipeline;
         this.codestarconnections = $.codestarconnections;
@@ -1976,6 +1991,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.mediaconvert = $.mediaconvert;
         this.medialive = $.medialive;
         this.mediapackage = $.mediapackage;
+        this.mediapackagev2 = $.mediapackagev2;
         this.mediastore = $.mediastore;
         this.memorydb = $.memorydb;
         this.mq = $.mq;
@@ -2588,6 +2604,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder codedeploy(String codedeploy) {
             return codedeploy(Output.of(codedeploy));
+        }
+
+        public Builder codeguruprofiler(@Nullable Output<String> codeguruprofiler) {
+            $.codeguruprofiler = codeguruprofiler;
+            return this;
+        }
+
+        public Builder codeguruprofiler(String codeguruprofiler) {
+            return codeguruprofiler(Output.of(codeguruprofiler));
         }
 
         public Builder codegurureviewer(@Nullable Output<String> codegurureviewer) {
@@ -3578,6 +3603,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder mediapackage(String mediapackage) {
             return mediapackage(Output.of(mediapackage));
+        }
+
+        public Builder mediapackagev2(@Nullable Output<String> mediapackagev2) {
+            $.mediapackagev2 = mediapackagev2;
+            return this;
+        }
+
+        public Builder mediapackagev2(String mediapackagev2) {
+            return mediapackagev2(Output.of(mediapackagev2));
         }
 
         public Builder mediastore(@Nullable Output<String> mediastore) {

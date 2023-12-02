@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Resource for managing an AWS NetworkManager SiteToSiteAttachment.
+    /// Resource for managing an AWS Network Manager SiteToSiteAttachment.
     /// 
     /// ## Example Usage
     /// ### Basic Usage

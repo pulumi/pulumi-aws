@@ -305,7 +305,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  vpn_connection_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS NetworkManager SiteToSiteAttachment.
+        Resource for managing an AWS Network Manager SiteToSiteAttachment.
 
         ## Example Usage
         ### Basic Usage
@@ -342,7 +342,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  args: SiteToSiteVpnAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS NetworkManager SiteToSiteAttachment.
+        Resource for managing an AWS Network Manager SiteToSiteAttachment.
 
         ## Example Usage
         ### Basic Usage

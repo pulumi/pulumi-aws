@@ -372,7 +372,7 @@ class VpcAttachment(pulumi.CustomResource):
                  vpc_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS NetworkManager VpcAttachment.
+        Resource for managing an AWS Network Manager VPC Attachment.
 
         ## Example Usage
         ### Basic Usage
@@ -412,7 +412,7 @@ class VpcAttachment(pulumi.CustomResource):
                  args: VpcAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS NetworkManager VpcAttachment.
+        Resource for managing an AWS Network Manager VPC Attachment.
 
         ## Example Usage
         ### Basic Usage

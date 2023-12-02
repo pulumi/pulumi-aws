@@ -283,7 +283,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> AuthToken { get; private set; } = null!;
 
         /// <summary>
-        /// Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         /// </summary>
         [Output("authTokenUpdateStrategy")]
         public Output<string?> AuthTokenUpdateStrategy { get; private set; } = null!;
@@ -620,7 +620,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }
@@ -920,7 +920,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }

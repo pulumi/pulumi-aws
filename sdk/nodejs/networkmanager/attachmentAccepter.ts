@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS NetworkManager Attachment Accepter.
+ * Resource for managing an AWS Network Manager Attachment Accepter.
  *
  * ## Example Usage
  * ### Example with VPC attachment

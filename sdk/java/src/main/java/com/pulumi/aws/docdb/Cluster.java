@@ -282,14 +282,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 
     /**
-     * @return The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+     * @return The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      * 
      */
     public Output<Optional<String>> engine() {
@@ -498,6 +498,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> storageEncrypted() {
         return Codegen.optional(this.storageEncrypted);
+    }
+    /**
+     * The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+     * 
+     */
+    @Export(name="storageType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> storageType;
+
+    /**
+     * @return The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+     * 
+     */
+    public Output<Optional<String>> storageType() {
+        return Codegen.optional(this.storageType);
     }
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

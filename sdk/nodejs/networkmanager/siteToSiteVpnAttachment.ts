@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS NetworkManager SiteToSiteAttachment.
+ * Resource for managing an AWS Network Manager SiteToSiteAttachment.
  *
  * ## Example Usage
  * ### Basic Usage

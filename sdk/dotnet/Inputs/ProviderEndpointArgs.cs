@@ -180,6 +180,9 @@ namespace Pulumi.Aws.Inputs
         [Input("codedeploy")]
         public Input<string>? Codedeploy { get; set; }
 
+        [Input("codeguruprofiler")]
+        public Input<string>? Codeguruprofiler { get; set; }
+
         [Input("codegurureviewer")]
         public Input<string>? Codegurureviewer { get; set; }
 
@@ -509,6 +512,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("mediapackage")]
         public Input<string>? Mediapackage { get; set; }
+
+        [Input("mediapackagev2")]
+        public Input<string>? Mediapackagev2 { get; set; }
 
         [Input("mediastore")]
         public Input<string>? Mediastore { get; set; }

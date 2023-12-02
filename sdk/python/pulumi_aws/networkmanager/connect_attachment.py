@@ -367,7 +367,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS NetworkManager ConnectAttachment.
+        Resource for managing an AWS Network Manager ConnectAttachment.
 
         ## Example Usage
 
@@ -396,7 +396,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  args: ConnectAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS NetworkManager ConnectAttachment.
+        Resource for managing an AWS Network Manager ConnectAttachment.
 
         ## Example Usage
 

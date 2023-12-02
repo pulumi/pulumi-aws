@@ -98,7 +98,7 @@ type Cluster struct {
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the DocumentDB instance
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
@@ -132,6 +132,8 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -213,7 +215,7 @@ type clusterState struct {
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the DocumentDB instance
 	Endpoint *string `pulumi:"endpoint"`
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
 	Engine *string `pulumi:"engine"`
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -247,6 +249,8 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -291,7 +295,7 @@ type ClusterState struct {
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The DNS address of the DocumentDB instance
 	Endpoint pulumi.StringPtrInput
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
 	Engine pulumi.StringPtrInput
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion pulumi.StringPtrInput
@@ -325,6 +329,8 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted pulumi.BoolPtrInput
+	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -367,7 +373,7 @@ type clusterArgs struct {
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
 	Engine *string `pulumi:"engine"`
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -397,6 +403,8 @@ type clusterArgs struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate
@@ -432,7 +440,7 @@ type ClusterArgs struct {
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
 	Engine pulumi.StringPtrInput
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion pulumi.StringPtrInput
@@ -462,6 +470,8 @@ type ClusterArgs struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted pulumi.BoolPtrInput
+	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate
@@ -630,7 +640,7 @@ func (o ClusterOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
 func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
@@ -707,6 +717,11 @@ func (o ClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 // Specifies whether the DB cluster is encrypted. The default is `false`.
 func (o ClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+func (o ClusterOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

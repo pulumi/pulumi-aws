@@ -81,14 +81,14 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
      * 
      */
     @Import(name="authTokenUpdateStrategy")
     private @Nullable Output<String> authTokenUpdateStrategy;
 
     /**
-     * @return Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * @return Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
      * 
      */
     public Optional<Output<String>> authTokenUpdateStrategy() {
@@ -880,7 +880,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authTokenUpdateStrategy Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+         * @param authTokenUpdateStrategy Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
          * 
          * @return builder
          * 
@@ -891,7 +891,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authTokenUpdateStrategy Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+         * @param authTokenUpdateStrategy Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
          * 
          * @return builder
          * 

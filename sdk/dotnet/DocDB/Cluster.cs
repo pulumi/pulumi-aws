@@ -145,7 +145,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -237,6 +237,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+        /// </summary>
+        [Output("storageType")]
+        public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -397,7 +403,7 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -487,6 +493,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        /// <summary>
+        /// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -628,7 +640,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -730,6 +742,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        /// <summary>
+        /// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

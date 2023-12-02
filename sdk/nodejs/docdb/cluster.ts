@@ -130,7 +130,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -194,6 +194,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
+     * The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+     */
+    public readonly storageType!: pulumi.Output<string | undefined>;
+    /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -251,6 +255,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
@@ -280,6 +285,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -361,7 +367,7 @@ export interface ClusterState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -424,6 +430,10 @@ export interface ClusterState {
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+     */
+    storageType?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -494,7 +504,7 @@ export interface ClusterArgs {
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+     * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -549,6 +559,10 @@ export interface ClusterArgs {
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+     */
+    storageType?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

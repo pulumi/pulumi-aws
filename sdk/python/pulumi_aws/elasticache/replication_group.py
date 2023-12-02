@@ -58,7 +58,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine type `"redis"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -220,7 +220,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="authTokenUpdateStrategy")
     def auth_token_update_strategy(self) -> Optional[pulumi.Input[str]]:
         """
-        Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         """
         return pulumi.get(self, "auth_token_update_strategy")
 
@@ -691,7 +691,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] arn: ARN of the created ElastiCache Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine type `"redis"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -891,7 +891,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="authTokenUpdateStrategy")
     def auth_token_update_strategy(self) -> Optional[pulumi.Input[str]]:
         """
-        Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         """
         return pulumi.get(self, "auth_token_update_strategy")
 
@@ -1617,7 +1617,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine type `"redis"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -2018,7 +2018,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the created ElastiCache Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine type `"redis"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -2159,7 +2159,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="authTokenUpdateStrategy")
     def auth_token_update_strategy(self) -> pulumi.Output[Optional[str]]:
         """
-        Strategy to use when updating the `auth_token`. Can be specified only if `transit_encryption_enabled = true`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+        Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         """
         return pulumi.get(self, "auth_token_update_strategy")
 

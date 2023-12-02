@@ -301,6 +301,7 @@ type Endpoints struct {
 	Codecatalyst                         *string `pulumi:"codecatalyst"`
 	Codecommit                           *string `pulumi:"codecommit"`
 	Codedeploy                           *string `pulumi:"codedeploy"`
+	Codeguruprofiler                     *string `pulumi:"codeguruprofiler"`
 	Codegurureviewer                     *string `pulumi:"codegurureviewer"`
 	Codepipeline                         *string `pulumi:"codepipeline"`
 	Codestarconnections                  *string `pulumi:"codestarconnections"`
@@ -411,6 +412,7 @@ type Endpoints struct {
 	Mediaconvert                         *string `pulumi:"mediaconvert"`
 	Medialive                            *string `pulumi:"medialive"`
 	Mediapackage                         *string `pulumi:"mediapackage"`
+	Mediapackagev2                       *string `pulumi:"mediapackagev2"`
 	Mediastore                           *string `pulumi:"mediastore"`
 	Memorydb                             *string `pulumi:"memorydb"`
 	Mq                                   *string `pulumi:"mq"`
@@ -571,6 +573,7 @@ type EndpointsArgs struct {
 	Codecatalyst                         pulumi.StringPtrInput `pulumi:"codecatalyst"`
 	Codecommit                           pulumi.StringPtrInput `pulumi:"codecommit"`
 	Codedeploy                           pulumi.StringPtrInput `pulumi:"codedeploy"`
+	Codeguruprofiler                     pulumi.StringPtrInput `pulumi:"codeguruprofiler"`
 	Codegurureviewer                     pulumi.StringPtrInput `pulumi:"codegurureviewer"`
 	Codepipeline                         pulumi.StringPtrInput `pulumi:"codepipeline"`
 	Codestarconnections                  pulumi.StringPtrInput `pulumi:"codestarconnections"`
@@ -681,6 +684,7 @@ type EndpointsArgs struct {
 	Mediaconvert                         pulumi.StringPtrInput `pulumi:"mediaconvert"`
 	Medialive                            pulumi.StringPtrInput `pulumi:"medialive"`
 	Mediapackage                         pulumi.StringPtrInput `pulumi:"mediapackage"`
+	Mediapackagev2                       pulumi.StringPtrInput `pulumi:"mediapackagev2"`
 	Mediastore                           pulumi.StringPtrInput `pulumi:"mediastore"`
 	Memorydb                             pulumi.StringPtrInput `pulumi:"memorydb"`
 	Mq                                   pulumi.StringPtrInput `pulumi:"mq"`
@@ -1046,6 +1050,10 @@ func (o EndpointsOutput) Codecommit() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Codedeploy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codedeploy }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Codeguruprofiler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Codeguruprofiler }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Codegurureviewer() pulumi.StringPtrOutput {
@@ -1486,6 +1494,10 @@ func (o EndpointsOutput) Medialive() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Mediapackage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mediapackage }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Mediapackagev2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Mediapackagev2 }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Mediastore() pulumi.StringPtrOutput {

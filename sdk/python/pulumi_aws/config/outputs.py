@@ -227,6 +227,7 @@ class Endpoints(dict):
                  codecatalyst: Optional[str] = None,
                  codecommit: Optional[str] = None,
                  codedeploy: Optional[str] = None,
+                 codeguruprofiler: Optional[str] = None,
                  codegurureviewer: Optional[str] = None,
                  codepipeline: Optional[str] = None,
                  codestarconnections: Optional[str] = None,
@@ -337,6 +338,7 @@ class Endpoints(dict):
                  mediaconvert: Optional[str] = None,
                  medialive: Optional[str] = None,
                  mediapackage: Optional[str] = None,
+                 mediapackagev2: Optional[str] = None,
                  mediastore: Optional[str] = None,
                  memorydb: Optional[str] = None,
                  mq: Optional[str] = None,
@@ -539,6 +541,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "codecommit", codecommit)
         if codedeploy is not None:
             pulumi.set(__self__, "codedeploy", codedeploy)
+        if codeguruprofiler is not None:
+            pulumi.set(__self__, "codeguruprofiler", codeguruprofiler)
         if codegurureviewer is not None:
             pulumi.set(__self__, "codegurureviewer", codegurureviewer)
         if codepipeline is not None:
@@ -759,6 +763,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "medialive", medialive)
         if mediapackage is not None:
             pulumi.set(__self__, "mediapackage", mediapackage)
+        if mediapackagev2 is not None:
+            pulumi.set(__self__, "mediapackagev2", mediapackagev2)
         if mediastore is not None:
             pulumi.set(__self__, "mediastore", mediastore)
         if memorydb is not None:
@@ -1219,6 +1225,11 @@ class Endpoints(dict):
     @pulumi.getter
     def codedeploy(self) -> Optional[str]:
         return pulumi.get(self, "codedeploy")
+
+    @property
+    @pulumi.getter
+    def codeguruprofiler(self) -> Optional[str]:
+        return pulumi.get(self, "codeguruprofiler")
 
     @property
     @pulumi.getter
@@ -1769,6 +1780,11 @@ class Endpoints(dict):
     @pulumi.getter
     def mediapackage(self) -> Optional[str]:
         return pulumi.get(self, "mediapackage")
+
+    @property
+    @pulumi.getter
+    def mediapackagev2(self) -> Optional[str]:
+        return pulumi.get(self, "mediapackagev2")
 
     @property
     @pulumi.getter
