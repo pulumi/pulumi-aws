@@ -550,12 +550,14 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	}
 
 	if details, ok := vars["assumeRole"]; ok {
-
 		assumeRole := awsbase.AssumeRole{
-			RoleARN:     stringValue(details.ObjectValue(), "roleArn", []string{}),
-			ExternalID:  stringValue(details.ObjectValue(), "externalId", []string{}),
-			Policy:      stringValue(details.ObjectValue(), "policy", []string{}),
-			SessionName: stringValue(details.ObjectValue(), "sessionName", []string{}),
+			RoleARN:           stringValue(details.ObjectValue(), "roleArn", []string{}),
+			ExternalID:        stringValue(details.ObjectValue(), "externalId", []string{}),
+			Policy:            stringValue(details.ObjectValue(), "policy", []string{}),
+			PolicyARNs:        arrayValue(details.ObjectValue(), "policyArns", []string{}),
+			SessionName:       stringValue(details.ObjectValue(), "sessionName", []string{}),
+			SourceIdentity:    stringValue(details.ObjectValue(), "sourceIdentity", []string{}),
+			TransitiveTagKeys: arrayValue(details.ObjectValue(), "transitiveTagKeys", []string{}),
 		}
 		config.AssumeRole = &assumeRole
 	}
