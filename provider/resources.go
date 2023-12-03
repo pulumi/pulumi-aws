@@ -558,7 +558,18 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 			SessionName: stringValue(details.ObjectValue(), "sessionName", []string{}),
 		}
 		config.AssumeRole = &assumeRole
+	}
 
+	if details, ok := vars["assumeRoleWithWebIdentity"]; ok {
+		assumeRole := awsbase.AssumeRoleWithWebIdentity{
+			RoleARN:              stringValue(details.ObjectValue(), "roleArn", []string{}),
+			Policy:               stringValue(details.ObjectValue(), "policy", []string{}),
+			PolicyARNs:           arrayValue(details.ObjectValue(), "policyArns", []string{}),
+			SessionName:          stringValue(details.ObjectValue(), "sessionName", []string{}),
+			WebIdentityToken:     stringValue(details.ObjectValue(), "webIdentityToken", []string{}),
+			WebIdentityTokenFile: stringValue(details.ObjectValue(), "webIdentityTokenFile", []string{}),
+		}
+		config.AssumeRoleWithWebIdentity = &assumeRole
 	}
 
 	// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
