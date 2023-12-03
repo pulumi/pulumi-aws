@@ -17,10 +17,20 @@ import * as pulumi from "@pulumi/pulumi";
 // https://github.com/pulumi/pulumi-aws/issues/772
 import { Bucket } from "@pulumi/aws/s3";
 import * as aws from "@pulumi/aws";
+import * as gh from "@actions/core";
 import * as s3 from "@aws-sdk/client-s3";
 
 const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
+const providerOpts = {
+    provider: new aws.Provider("prov", {
+        region: <aws.Region>config.require("envRegion"),
+        assumeRoleWithWebIdentity: {
+            roleArn: process.env["OIDC_ROLE_ARN"],
+            webIdentityToken: gh.getIDToken("sts.amazonaws.com"),
+            sessionName: "pulumi-bucket",
+        },
+    })
+};
 
 const bucket = new Bucket("testbucket", {
     serverSideEncryptionConfiguration: {

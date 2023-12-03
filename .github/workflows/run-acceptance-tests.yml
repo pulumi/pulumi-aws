@@ -502,13 +502,13 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.4.0
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-region: ${{ env.AWS_REGION }}
-        role-duration-seconds: 3600
-        role-session-name: ${{ env.PROVIDER }}@githubActions
-        role-to-assume: arn:aws:iam::894850187425:role/github-oidc
+    # - name: Configure AWS Credentials
+    #   uses: aws-actions/configure-aws-credentials@v4
+    #   with:
+    #     aws-region: ${{ env.AWS_REGION }}
+    #     role-duration-seconds: 3600
+    #     role-session-name: ${{ env.PROVIDER }}@githubActions
+    #     role-to-assume: arn:aws:iam::894850187425:role/github-oidc
     - name: Make upstream
       run: make upstream
     - name: Run tests
