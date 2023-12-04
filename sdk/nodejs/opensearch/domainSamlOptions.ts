@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *         idp: {
  *             entityId: "https://example.com",
- *             metadataContent: fs.readFileSync("./saml-metadata.xml"),
+ *             metadataContent: fs.readFileSync("./saml-metadata.xml", "utf8"),
  *         },
  *     },
  * });

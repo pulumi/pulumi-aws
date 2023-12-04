@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * const example = new aws.networkfirewall.RuleGroup("example", {
  *     capacity: 100,
  *     type: "STATEFUL",
- *     rules: fs.readFileSync("example.rules"),
+ *     rules: fs.readFileSync("example.rules", "utf8"),
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  *             }],
  *         },
  *         rulesSource: {
- *             rulesString: fs.readFileSync("suricata_rules_file"),
+ *             rulesString: fs.readFileSync("suricata_rules_file", "utf8"),
  *         },
  *     },
  *     tags: {

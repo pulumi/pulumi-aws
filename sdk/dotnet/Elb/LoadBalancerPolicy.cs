@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     policyTypeName: "PublicKeyPolicyType",
  *     policyAttributes: [{
  *         name: "PublicKey",
- *         value: fs.readFileSync("wu-tang-pubkey"),
+ *         value: fs.readFileSync("wu-tang-pubkey", "utf8"),
  *     }],
  * });
  * const wu_tang_root_ca_backend_auth_policy = new aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {

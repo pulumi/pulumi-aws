@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * const example = new aws.worklink.Fleet("example", {});
  * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
  *     fleetArn: aws_worklink_fleet.test.arn,
- *     certificate: fs.readFileSync("certificate.pem"),
+ *     certificate: fs.readFileSync("certificate.pem", "utf8"),
  * });
  * ```
  *

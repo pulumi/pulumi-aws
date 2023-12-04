@@ -69,9 +69,9 @@ import * as utilities from "../utilities";
  * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
  *     domainName: "api.example.com",
  *     certificateName: "example-api",
- *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
+ *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`, "utf8"),
+ *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`, "utf8"),
+ *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`, "utf8"),
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.ivs.PlaybackKeyPair("example", {publicKey: fs.readFileSync("./public-key.pem")});
+ * const example = new aws.ivs.PlaybackKeyPair("example", {publicKey: fs.readFileSync("./public-key.pem", "utf8")});
  * ```
  *
  * ## Import

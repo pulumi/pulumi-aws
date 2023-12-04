@@ -26,7 +26,7 @@ import {Policy} from "./index";
  * });
  * const pubsubPolicy = new aws.iot.Policy("pubsubPolicy", {policy: pubsubPolicyDocument.then(pubsubPolicyDocument => pubsubPolicyDocument.json)});
  * const cert = new aws.iot.Certificate("cert", {
- *     csr: fs.readFileSync("csr.pem"),
+ *     csr: fs.readFileSync("csr.pem", "utf8"),
  *     active: true,
  * });
  * const att = new aws.iot.PolicyAttachment("att", {

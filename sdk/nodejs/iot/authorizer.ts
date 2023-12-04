@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     status: "ACTIVE",
  *     tokenKeyName: "Token-Header",
  *     tokenSigningPublicKeys: {
- *         Key1: fs.readFileSync("test-fixtures/iot-authorizer-signing-key.pem"),
+ *         Key1: fs.readFileSync("test-fixtures/iot-authorizer-signing-key.pem", "utf8"),
  *     },
  * });
  * ```

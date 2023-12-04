@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
  *     proxyConfiguration: {
  *         type: "APPMESH",
  *         containerName: "applicationContainerName",
@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
  *     volumes: [{
  *         name: "service-storage",
  *         dockerVolumeConfiguration: {
@@ -110,7 +110,7 @@ import * as utilities from "../utilities";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
  *     volumes: [{
  *         name: "service-storage",
  *         efsVolumeConfiguration: {
@@ -142,7 +142,7 @@ import * as utilities from "../utilities";
  * });
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
  *     volumes: [{
  *         name: "service-storage",
  *         fsxWindowsFileServerVolumeConfiguration: {
