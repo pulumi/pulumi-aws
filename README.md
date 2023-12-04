@@ -76,8 +76,9 @@ The following configuration points are available:
 - `aws:secretKey` - (Optional) This is the AWS secret key. It can also be sourced from the
   `AWS_SECRET_ACCESS_KEY` environment variable, or via a shared credentials file if `aws:profile` is specified.
 - `aws:profile` - (Optional) This is the AWS profile name as set in the shared credentials file.
-- `aws:sharedCredentialsFile` - (Optional) This is the path to the shared credentials file. If this is not set and
-  `aws:profile` is specified, `~/.aws/credentials` will be used.
+- `aws:sharedCredentialsFiles` - (Optional) List of paths to the shared credentials file. If not set and a profile
+  is used, the default value is [~/.aws/credentials]. A single value can also be set with the
+  `AWS_SHARED_CREDENTIALS_FILE` environment variable.
 - `aws:token` - (Optional) Session token for validating temporary credentials. Typically provided after successful
   identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided
   afterward, not the 6 digit MFA code used to get temporary credentials. It can also be sourced from the
@@ -99,11 +100,10 @@ The following configuration points are available:
   `tags`: Map of assume role session tags.
 - `aws:insecure` - (Optional) Explicitly allow the provider to perform "insecure" SSL requests. If omitted, the default value is `false`.
 - `aws:skipCredentialsValidation` - (Optional) Skip the credentials validation via the STS API. Useful for AWS API implementations that do not have STS available or implemented. Default value is `false`. Can be set via the environment variable `AWS_SKIP_CREDENTIALS_VALIDATION`.
-- `aws:skipGetEc2Platforms` - (Optional) Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions. Default value is `true`.
 - `aws:skipRegionValidation` - (Optional) Skip validation of provided region name. Useful for AWS-like implementations that use their own region names or to bypass the validation for regions that aren't publicly available yet. Default value is `true`.
 - `aws:skipRequestionAccountId` - (Optional) Skip requesting the account ID. Useful for AWS API implementations that do not have the IAM, STS API, or metadata API. Default value is `false`. When specified, the use of ARNs is compromised as there is no accountID available to construct the ARN.
 - `aws:skipMetadataApiCheck` - (Optional) Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. This provider from authenticating via the Metadata API by default. You may need to use other authentication methods like static credentials, configuration variables, or environment variables. Default is `true`. Can be set via the environment variable `AWS_SKIP_METADATA_API_CHECK`.
-- `aws:s3ForcePathStyle` - (Optional) Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing, `http://BUCKET.s3.amazonaws.com/KEY`, when possible. Specific to the Amazon S3 service. Default is `false`.
+- `aws:s3UsePathStyle` - (Optional) Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing, `http://BUCKET.s3.amazonaws.com/KEY`, when possible. Specific to the Amazon S3 service. Default is `false`.
 
 ### Authenticating pulumi-aws via EC2 Instance Metadata?
 
