@@ -379,7 +379,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.4.0
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: ${{ env.AWS_REGION }}
@@ -392,9 +392,25 @@ jobs:
     - name: Run provider tests
       run: |
         cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - name: Run tests
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
-        matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+    - name: Run tests with access key auth
+      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        unset-current-credentials: true
+        aws-region: ${{ env.AWS_REGION }}
+    - name: Run selected tests with manual web identity/OIDC auth
+      run: cd examples && go test -v -json -count=1 -run TestAccCloudWatchOidcManual -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        unset-current-credentials: true
+        aws-region: ${{ env.AWS_REGION }}
+        role-duration-seconds: 3600
+        role-session-name: ${{ env.PROVIDER }}@githubActions
+        role-to-assume: ${{ secrets.OIDC_ROLE_ARN }}
+    - name: Run selected tests with configure-aws-credentials web identity/OIDC auth
+     run: cd examples && go test -v -json -count=1 -run TestAccCloudWatch -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -411,117 +427,6 @@ jobs:
         - dotnet
         - go
         - java
-
-  test_oidc:
-    if: github.event_name == 'repository_dispatch' ||
-      github.event.pull_request.head.repo.full_name == github.repository
-    name: test_oidc
-    needs: build_sdk
-    permissions:
-      contents: read
-      id-token: write
-    runs-on: pulumi-ubuntu-8core
-    steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v3
-      with:
-        ref: ${{ env.PR_COMMIT_SHA }}
-        submodules: true
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v3
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
-    - name: Install Go
-      uses: actions/setup-go@v4
-      with:
-        cache-dependency-path: |
-            sdk/go.sum
-        go-version: 1.21.x
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
-      with:
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
-      with:
-        pulumi-version: v3.77.1
-    - name: Setup Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ env.NODEVERSION }}
-        registry-url: https://registry.npmjs.org
-    # - name: Setup DotNet
-    #   uses: actions/setup-dotnet@v3
-    #   with:
-    #     dotnet-version: ${{ env.DOTNETVERSION }}
-    # - name: Setup Python
-    #   uses: actions/setup-python@v2
-    #   with:
-    #     python-version: ${{ env.PYTHONVERSION }}
-    # - name: Setup Java
-    #   uses: actions/setup-java@v3
-    #   with:
-    #     cache: gradle
-    #     distribution: temurin
-    #     java-version: ${{ env.JAVAVERSION }}
-    # - name: Setup Gradle
-    #   uses: gradle/gradle-build-action@v2
-    #   with:
-    #     gradle-version: ${{ env.GRADLEVERSION }}
-    - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v2
-      with:
-        name: ${{ env.PROVIDER }}-provider.tar.gz
-        path: ${{ github.workspace }}/bin
-    - name: Untar provider binaries
-      run: >-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace}}/bin
-
-        find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
-    - run: dotnet nuget add source ${{ github.workspace }}/nuget
-    - name: Download SDK
-      uses: actions/download-artifact@v2
-      with:
-        name: ${{ matrix.language }}-sdk.tar.gz
-        path: ${{ github.workspace}}/sdk/
-    - name: Uncompress SDK folder
-      run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
-        github.workspace }}/sdk/${{ matrix.language }}
-    - name: Update path
-      run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-    # - name: Install Python deps
-    #   run: |-
-    #     pip3 install virtualenv==20.0.23
-    #     pip3 install pipenv
-    - name: Install dependencies
-      run: make install_${{ matrix.language}}_sdk
-    - name: Install gotestfmt
-      uses: GoTestTools/gotestfmt-action@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        version: v2.4.0
-    - name: Make upstream
-      run: make upstream
-    - name: Run TestAccCloudWatch with manual OIDC
-      run: cd examples && go test -v -json -count=1 -run TestAccCloudWatchOidcManual -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-region: ${{ env.AWS_REGION }}
-        role-duration-seconds: 3600
-        role-session-name: ${{ env.PROVIDER }}@githubActions
-        role-to-assume: arn:aws:iam::894850187425:role/github-oidc
-    - name: Run TestAccCloudWatch with configure-aws-credentials OIDC
-      run: cd examples && go test -v -json -count=1 -run TestAccCloudWatch -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    strategy:
-      fail-fast: false
-      matrix:
-        language:
-        - nodejs
 
   license_check:
     name: License Check
