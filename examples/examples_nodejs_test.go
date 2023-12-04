@@ -120,6 +120,16 @@ func TestAccCloudWatch(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccCloudWatchOidcManual(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "cloudwatchOidcManual"),
+			RunUpdateTest: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccLogGroup(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{

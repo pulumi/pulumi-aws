@@ -24,6 +24,7 @@ env:
   PULUMI_MISSING_DOCS_ERROR: true
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   PYTHONVERSION: "3.9"
+  OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
@@ -284,6 +285,7 @@ jobs:
       run: exit 1
     - name: Workflow is a success
       run: echo "🎉🎈🎉🎈🎉"
+
   test:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
@@ -502,18 +504,19 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.4.0
-    # - name: Configure AWS Credentials
-    #   uses: aws-actions/configure-aws-credentials@v4
-    #   with:
-    #     aws-region: ${{ env.AWS_REGION }}
-    #     role-duration-seconds: 3600
-    #     role-session-name: ${{ env.PROVIDER }}@githubActions
-    #     role-to-assume: arn:aws:iam::894850187425:role/github-oidc
     - name: Make upstream
       run: make upstream
-    - name: Run tests
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
-        matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+    - name: Run TestAccCloudWatch with manual OIDC
+      run: cd examples && go test -v -json -count=1 -run TestAccCloudWatchOidcManual -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: ${{ env.AWS_REGION }}
+        role-duration-seconds: 3600
+        role-session-name: ${{ env.PROVIDER }}@githubActions
+        role-to-assume: arn:aws:iam::894850187425:role/github-oidc
+    - name: Run TestAccCloudWatch with configure-aws-credentials OIDC
+      run: cd examples && go test -v -json -count=1 -run TestAccCloudWatch -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     strategy:
       fail-fast: false
       matrix:
