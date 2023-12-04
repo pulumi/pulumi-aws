@@ -39,7 +39,7 @@ import {RoutingRule} from "./index";
  *
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "public-read",
- *     policy: fs.readFileSync("policy.json"),
+ *     policy: fs.readFileSync("policy.json", "utf8"),
  *     website: {
  *         indexDocument: "index.html",
  *         errorDocument: "error.html",

@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * const app = new aws.pinpoint.App("app", {});
  * const apnsSandbox = new aws.pinpoint.ApnsSandboxChannel("apnsSandbox", {
  *     applicationId: app.applicationId,
- *     certificate: fs.readFileSync("./certificate.pem"),
- *     privateKey: fs.readFileSync("./private_key.key"),
+ *     certificate: fs.readFileSync("./certificate.pem", "utf8"),
+ *     privateKey: fs.readFileSync("./private_key.key", "utf8"),
  * });
  * ```
  *

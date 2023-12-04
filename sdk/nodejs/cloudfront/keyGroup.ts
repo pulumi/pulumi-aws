@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const examplePublicKey = new aws.cloudfront.PublicKey("examplePublicKey", {
  *     comment: "example public key",
- *     encodedKey: fs.readFileSync("public_key.pem"),
+ *     encodedKey: fs.readFileSync("public_key.pem", "utf8"),
  * });
  * const exampleKeyGroup = new aws.cloudfront.KeyGroup("exampleKeyGroup", {
  *     comment: "example key group",

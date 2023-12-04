@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * import * as fs from "fs";
  *
  * const testCert = new aws.iam.ServerCertificate("testCert", {
- *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
- *     privateKey: fs.readFileSync("test-key.pem"),
+ *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf8"),
+ *     privateKey: fs.readFileSync("test-key.pem", "utf8"),
  * });
  * ```
  *
@@ -67,8 +67,8 @@ import * as utilities from "../utilities";
  *
  * const testCert = new aws.iam.ServerCertificate("testCert", {
  *     namePrefix: "example-cert",
- *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
- *     privateKey: fs.readFileSync("test-key.pem"),
+ *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf8"),
+ *     privateKey: fs.readFileSync("test-key.pem", "utf8"),
  * });
  * const ourapp = new aws.elb.LoadBalancer("ourapp", {
  *     availabilityZones: ["us-west-2a"],

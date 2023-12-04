@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const example = new aws.sagemaker.HumanTaskUI("example", {
  *     humanTaskUiName: "example",
  *     uiTemplate: {
- *         content: fs.readFileSync("sagemaker-human-task-ui-template.html"),
+ *         content: fs.readFileSync("sagemaker-human-task-ui-template.html", "utf8"),
  *     },
  * });
  * ```

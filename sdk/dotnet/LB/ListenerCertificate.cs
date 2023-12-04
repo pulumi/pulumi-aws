@@ -92,7 +92,7 @@ namespace Pulumi.Aws.LB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

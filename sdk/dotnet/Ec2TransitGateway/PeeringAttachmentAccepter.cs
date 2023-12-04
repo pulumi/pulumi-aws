@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter"},
+                    new global::Pulumi.Alias { Type = "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter" },
                 },
                 AdditionalSecretOutputs =
                 {

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as fs from "fs";
  *
  * const cert = new aws.iot.Certificate("cert", {
- *     csr: fs.readFileSync("/my/csr.pem"),
+ *     csr: fs.readFileSync("/my/csr.pem", "utf8"),
  *     active: true,
  * });
  * ```
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * import * as fs from "fs";
  *
  * const cert = new aws.iot.Certificate("cert", {
- *     certificatePem: fs.readFileSync("/my/cert.pem"),
+ *     certificatePem: fs.readFileSync("/my/cert.pem", "utf8"),
  *     active: true,
  * });
  * ```

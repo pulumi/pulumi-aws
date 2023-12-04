@@ -321,7 +321,7 @@ namespace Pulumi.Aws.LB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancingv2/targetGroup:TargetGroup"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancingv2/targetGroup:TargetGroup" },
                 },
                 AdditionalSecretOutputs =
                 {

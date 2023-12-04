@@ -26,9 +26,9 @@ import {RestApi} from "./index";
  * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
  *     domainName: "example.com",
  *     certificateName: "example-api",
- *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
+ *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`, "utf8"),
+ *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`, "utf8"),
+ *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`, "utf8"),
  * });
  * const exampleBasePathMapping = new aws.apigateway.BasePathMapping("exampleBasePathMapping", {
  *     restApi: aws_api_gateway_rest_api.example.id,

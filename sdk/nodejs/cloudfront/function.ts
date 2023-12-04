@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     runtime: "cloudfront-js-1.0",
  *     comment: "my function",
  *     publish: true,
- *     code: fs.readFileSync(`${path.module}/function.js`),
+ *     code: fs.readFileSync(`${path.module}/function.js`, "utf8"),
  * });
  * ```
  *

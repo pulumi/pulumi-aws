@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ses
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:ses/confgurationSet:ConfgurationSet"},
+                    new global::Pulumi.Alias { Type = "aws:ses/confgurationSet:ConfgurationSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
