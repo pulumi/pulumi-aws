@@ -301,17 +301,18 @@ func TestAccEcr(t *testing.T) {
 }
 
 func TestAccDeleteBeforeCreate(t *testing.T) {
+	basePath := filepath.Join(getCwd(t), "delete_before_create", "mount_target")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "delete_before_create", "mount_target", "step1"),
+			Dir:           filepath.Join(basePath, "step1"),
 			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      "step2",
+					Dir:      filepath.Join(basePath, "step2"),
 					Additive: true,
 				},
 				{
-					Dir:      "step3",
+					Dir:      filepath.Join(basePath, "step3"),
 					Additive: true,
 				},
 			},
