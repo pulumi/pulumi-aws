@@ -1,0 +1,560 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-12-05T17:16:13.661056-05:00",
+            "magic": "060e346e56b968da7d1109b35f68fe9dadf011be9df57433ba381dc14e492284",
+            "version": "v3.95.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:wlO/Z2RRAPU=:v1:AumMM4VhuG2vMgUp:8CE3mAwLWZOu7ejIcV2PQkNQFCEjNQ=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2023-12-05T22:15:49.679823Z",
+                "modified": "2023-12-05T22:15:49.679823Z",
+                "sourcePosition": "project:///node_modules/@pulumi/runtime/stack.ts#36,23"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0",
+                "custom": true,
+                "id": "a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "region": "us-west-2",
+                    "version": "5.42.0"
+                },
+                "outputs": {
+                    "region": "us-west-2",
+                    "version": "5.42.0"
+                },
+                "created": "2023-12-05T22:15:51.363996Z",
+                "modified": "2023-12-05T22:15:51.363996Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::awsBatchServiceRoleRole",
+                "custom": true,
+                "id": "awsBatchServiceRoleRole-e1ec0d1",
+                "type": "aws:iam/role:Role",
+                "inputs": {
+                    "__defaults": [
+                        "forceDetachPolicies",
+                        "maxSessionDuration",
+                        "name",
+                        "path"
+                    ],
+                    "assumeRolePolicy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"batch.amazonaws.com\"\n      }\n    }\n  ]\n}",
+                    "forceDetachPolicies": false,
+                    "maxSessionDuration": 3600,
+                    "name": "awsBatchServiceRoleRole-e1ec0d1",
+                    "path": "/"
+                },
+                "outputs": {
+                    "arn": "arn:aws:iam::616138583583:role/awsBatchServiceRoleRole-e1ec0d1",
+                    "assumeRolePolicy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"batch.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+                    "createDate": "2023-12-05T22:15:52Z",
+                    "description": "",
+                    "forceDetachPolicies": false,
+                    "id": "awsBatchServiceRoleRole-e1ec0d1",
+                    "inlinePolicies": [],
+                    "managedPolicyArns": [],
+                    "maxSessionDuration": 3600,
+                    "name": "awsBatchServiceRoleRole-e1ec0d1",
+                    "namePrefix": "",
+                    "path": "/",
+                    "roleLastUseds": [
+                        {
+                            "lastUsedDate": "",
+                            "region": ""
+                        }
+                    ],
+                    "tags": {},
+                    "tagsAll": {},
+                    "uniqueId": "AROAY65FYVYPRWLQPUITK"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "assumeRolePolicy": null
+                },
+                "created": "2023-12-05T22:15:52.692757Z",
+                "modified": "2023-12-05T22:15:52.692757Z",
+                "sourcePosition": "project:///index.ts#38,19"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::ecsInstanceRoleRole",
+                "custom": true,
+                "id": "ecsInstanceRoleRole-8540893",
+                "type": "aws:iam/role:Role",
+                "inputs": {
+                    "__defaults": [
+                        "forceDetachPolicies",
+                        "maxSessionDuration",
+                        "name",
+                        "path"
+                    ],
+                    "assumeRolePolicy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      }\n    }\n  ]\n}",
+                    "forceDetachPolicies": false,
+                    "maxSessionDuration": 3600,
+                    "name": "ecsInstanceRoleRole-8540893",
+                    "path": "/"
+                },
+                "outputs": {
+                    "arn": "arn:aws:iam::616138583583:role/ecsInstanceRoleRole-8540893",
+                    "assumeRolePolicy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+                    "createDate": "2023-12-05T22:15:52Z",
+                    "description": "",
+                    "forceDetachPolicies": false,
+                    "id": "ecsInstanceRoleRole-8540893",
+                    "inlinePolicies": [],
+                    "managedPolicyArns": [],
+                    "maxSessionDuration": 3600,
+                    "name": "ecsInstanceRoleRole-8540893",
+                    "namePrefix": "",
+                    "path": "/",
+                    "roleLastUseds": [
+                        {
+                            "lastUsedDate": "",
+                            "region": ""
+                        }
+                    ],
+                    "tags": {},
+                    "tagsAll": {},
+                    "uniqueId": "AROAY65FYVYPVN5JT4RCP"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "assumeRolePolicy": null
+                },
+                "created": "2023-12-05T22:15:52.69392Z",
+                "modified": "2023-12-05T22:15:52.69392Z",
+                "sourcePosition": "project:///index.ts#14,25"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/rolePolicyAttachment:RolePolicyAttachment::awsBatchServiceRoleRolePolicyAttachment",
+                "custom": true,
+                "id": "awsBatchServiceRoleRole-e1ec0d1-20231205221552770900000001",
+                "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+                "inputs": {
+                    "__defaults": [],
+                    "policyArn": "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
+                    "role": "awsBatchServiceRoleRole-e1ec0d1"
+                },
+                "outputs": {
+                    "id": "awsBatchServiceRoleRole-e1ec0d1-20231205221552770900000001",
+                    "policyArn": "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
+                    "role": "awsBatchServiceRoleRole-e1ec0d1"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::awsBatchServiceRoleRole"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "policyArn": null,
+                    "role": [
+                        "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::awsBatchServiceRoleRole"
+                    ]
+                },
+                "created": "2023-12-05T22:15:52.803846Z",
+                "modified": "2023-12-05T22:15:52.803846Z",
+                "sourcePosition": "project:///index.ts#42,31"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/rolePolicyAttachment:RolePolicyAttachment::ecsInstanceRoleRolePolicyAttachment",
+                "custom": true,
+                "id": "ecsInstanceRoleRole-8540893-20231205221552777200000002",
+                "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+                "inputs": {
+                    "__defaults": [],
+                    "policyArn": "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
+                    "role": "ecsInstanceRoleRole-8540893"
+                },
+                "outputs": {
+                    "id": "ecsInstanceRoleRole-8540893-20231205221552777200000002",
+                    "policyArn": "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
+                    "role": "ecsInstanceRoleRole-8540893"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::ecsInstanceRoleRole"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "policyArn": null,
+                    "role": [
+                        "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::ecsInstanceRoleRole"
+                    ]
+                },
+                "created": "2023-12-05T22:15:52.822694Z",
+                "modified": "2023-12-05T22:15:52.822694Z",
+                "sourcePosition": "project:///index.ts#18,29"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/instanceProfile:InstanceProfile::ecsInstanceRoleInstanceProfile",
+                "custom": true,
+                "id": "ecsInstanceRoleInstanceProfile-912858a",
+                "type": "aws:iam/instanceProfile:InstanceProfile",
+                "inputs": {
+                    "__defaults": [
+                        "name",
+                        "path"
+                    ],
+                    "name": "ecsInstanceRoleInstanceProfile-912858a",
+                    "path": "/",
+                    "role": "ecsInstanceRoleRole-8540893"
+                },
+                "outputs": {
+                    "arn": "arn:aws:iam::616138583583:instance-profile/ecsInstanceRoleInstanceProfile-912858a",
+                    "createDate": "2023-12-05T22:15:52Z",
+                    "id": "ecsInstanceRoleInstanceProfile-912858a",
+                    "name": "ecsInstanceRoleInstanceProfile-912858a",
+                    "namePrefix": "",
+                    "path": "/",
+                    "role": "ecsInstanceRoleRole-8540893",
+                    "tags": {},
+                    "tagsAll": {},
+                    "uniqueId": "AIPAY65FYVYPSVVP7VTHQ"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::ecsInstanceRoleRole"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "role": [
+                        "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::ecsInstanceRoleRole"
+                    ]
+                },
+                "created": "2023-12-05T22:15:52.994988Z",
+                "modified": "2023-12-05T22:15:52.994988Z",
+                "sourcePosition": "project:///index.ts#23,28"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:ec2/vpc:Vpc::sampleVpc",
+                "custom": true,
+                "id": "vpc-05e191df2eca9eda7",
+                "type": "aws:ec2/vpc:Vpc",
+                "inputs": {
+                    "__defaults": [
+                        "enableDnsSupport",
+                        "instanceTenancy"
+                    ],
+                    "cidrBlock": "10.1.0.0/16",
+                    "enableDnsSupport": true,
+                    "instanceTenancy": "default"
+                },
+                "outputs": {
+                    "__meta": "{\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:vpc/vpc-05e191df2eca9eda7",
+                    "assignGeneratedIpv6CidrBlock": false,
+                    "cidrBlock": "10.1.0.0/16",
+                    "defaultNetworkAclId": "acl-033707e35c56b30de",
+                    "defaultRouteTableId": "rtb-0cbec2e3a16e31a34",
+                    "defaultSecurityGroupId": "sg-020b3587fbca162a3",
+                    "dhcpOptionsId": "dopt-1649d26e",
+                    "enableClassiclink": false,
+                    "enableClassiclinkDnsSupport": false,
+                    "enableDnsHostnames": false,
+                    "enableDnsSupport": true,
+                    "enableNetworkAddressUsageMetrics": false,
+                    "id": "vpc-05e191df2eca9eda7",
+                    "instanceTenancy": "default",
+                    "ipv6AssociationId": "",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockNetworkBorderGroup": "",
+                    "ipv6IpamPoolId": "",
+                    "ipv6NetmaskLength": 0,
+                    "mainRouteTableId": "rtb-0cbec2e3a16e31a34",
+                    "ownerId": "616138583583",
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "cidrBlock": null
+                },
+                "created": "2023-12-05T22:15:54.65335Z",
+                "modified": "2023-12-05T22:15:54.65335Z",
+                "sourcePosition": "project:///index.ts#56,13"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:ec2/securityGroup:SecurityGroup::sampleSecurityGroup",
+                "custom": true,
+                "id": "sg-0bb51dcade107992e",
+                "type": "aws:ec2/securityGroup:SecurityGroup",
+                "inputs": {
+                    "__defaults": [
+                        "name",
+                        "revokeRulesOnDelete"
+                    ],
+                    "description": "Managed by Pulumi",
+                    "egress": [
+                        {
+                            "__defaults": [
+                                "self"
+                            ],
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "fromPort": 0,
+                            "protocol": "-1",
+                            "self": false,
+                            "toPort": 0
+                        }
+                    ],
+                    "name": "sampleSecurityGroup-30c6afa",
+                    "revokeRulesOnDelete": false
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":900000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:security-group/sg-0bb51dcade107992e",
+                    "description": "Managed by Pulumi",
+                    "egress": [
+                        {
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "fromPort": 0,
+                            "ipv6CidrBlocks": [],
+                            "prefixListIds": [],
+                            "protocol": "-1",
+                            "securityGroups": [],
+                            "self": false,
+                            "toPort": 0
+                        }
+                    ],
+                    "id": "sg-0bb51dcade107992e",
+                    "ingress": [],
+                    "name": "sampleSecurityGroup-30c6afa",
+                    "namePrefix": "",
+                    "ownerId": "616138583583",
+                    "revokeRulesOnDelete": false,
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-4b82e033"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "description": null,
+                    "egress": null
+                },
+                "created": "2023-12-05T22:15:55.133505Z",
+                "modified": "2023-12-05T22:15:55.133505Z",
+                "sourcePosition": "project:///index.ts#47,12"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:ec2/subnet:Subnet::sampleSubnet",
+                "custom": true,
+                "id": "subnet-07f3a862bd9c5f1a3",
+                "type": "aws:ec2/subnet:Subnet",
+                "inputs": {
+                    "__defaults": [
+                        "assignIpv6AddressOnCreation",
+                        "enableDns64",
+                        "enableResourceNameDnsARecordOnLaunch",
+                        "enableResourceNameDnsAaaaRecordOnLaunch",
+                        "ipv6Native",
+                        "mapPublicIpOnLaunch"
+                    ],
+                    "assignIpv6AddressOnCreation": false,
+                    "cidrBlock": "10.1.1.0/24",
+                    "enableDns64": false,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "ipv6Native": false,
+                    "mapPublicIpOnLaunch": false,
+                    "vpcId": "vpc-05e191df2eca9eda7"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-07f3a862bd9c5f1a3",
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2a",
+                    "availabilityZoneId": "usw2-az2",
+                    "cidrBlock": "10.1.1.0/24",
+                    "customerOwnedIpv4Pool": "",
+                    "enableDns64": false,
+                    "enableLniAtDeviceIndex": 0,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "id": "subnet-07f3a862bd9c5f1a3",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockAssociationId": "",
+                    "ipv6Native": false,
+                    "mapCustomerOwnedIpOnLaunch": false,
+                    "mapPublicIpOnLaunch": false,
+                    "outpostArn": "",
+                    "ownerId": "616138583583",
+                    "privateDnsHostnameTypeOnLaunch": "ip-name",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-05e191df2eca9eda7"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:ec2/vpc:Vpc::sampleVpc"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "cidrBlock": null,
+                    "vpcId": [
+                        "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:ec2/vpc:Vpc::sampleVpc"
+                    ]
+                },
+                "created": "2023-12-05T22:15:55.305581Z",
+                "modified": "2023-12-05T22:15:55.305581Z",
+                "sourcePosition": "project:///index.ts#58,16"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:batch/computeEnvironment:ComputeEnvironment::sampleComputeEnvironment",
+                "custom": true,
+                "id": "terraform-20231205221555324200000003",
+                "type": "aws:batch/computeEnvironment:ComputeEnvironment",
+                "inputs": {
+                    "__defaults": [
+                        "state"
+                    ],
+                    "computeResources": {
+                        "__defaults": [],
+                        "instanceRole": "arn:aws:iam::616138583583:instance-profile/ecsInstanceRoleInstanceProfile-912858a",
+                        "instanceTypes": [
+                            "c4.large"
+                        ],
+                        "maxVcpus": 16,
+                        "minVcpus": 0,
+                        "securityGroupIds": [
+                            "sg-0bb51dcade107992e"
+                        ],
+                        "subnets": [
+                            "subnet-07f3a862bd9c5f1a3"
+                        ],
+                        "type": "EC2"
+                    },
+                    "serviceRole": "arn:aws:iam::616138583583:role/awsBatchServiceRoleRole-e1ec0d1",
+                    "state": "ENABLED",
+                    "type": "MANAGED"
+                },
+                "outputs": {
+                    "arn": "arn:aws:batch:us-west-2:616138583583:compute-environment/terraform-20231205221555324200000003",
+                    "computeEnvironmentName": "terraform-20231205221555324200000003",
+                    "computeEnvironmentNamePrefix": "terraform-",
+                    "computeResources": {
+                        "allocationStrategy": "",
+                        "bidPercentage": 0,
+                        "desiredVcpus": 0,
+                        "ec2Configuration": {
+                            "imageIdOverride": "",
+                            "imageType": "ECS_AL2"
+                        },
+                        "ec2KeyPair": "",
+                        "imageId": "",
+                        "instanceRole": "arn:aws:iam::616138583583:instance-profile/ecsInstanceRoleInstanceProfile-912858a",
+                        "instanceTypes": [
+                            "c4.large"
+                        ],
+                        "launchTemplate": null,
+                        "maxVcpus": 16,
+                        "minVcpus": 0,
+                        "securityGroupIds": [
+                            "sg-0bb51dcade107992e"
+                        ],
+                        "spotIamFleetRole": "",
+                        "subnets": [
+                            "subnet-07f3a862bd9c5f1a3"
+                        ],
+                        "tags": {},
+                        "type": "EC2"
+                    },
+                    "ecsClusterArn": "arn:aws:ecs:us-west-2:616138583583:cluster/terraform-20231205221555324200000003_Batch_d7f1d17c-69bc-3f27-9caf-2d417d13db83",
+                    "eksConfiguration": null,
+                    "id": "terraform-20231205221555324200000003",
+                    "serviceRole": "arn:aws:iam::616138583583:role/awsBatchServiceRoleRole-e1ec0d1",
+                    "state": "ENABLED",
+                    "status": "VALID",
+                    "statusReason": "ComputeEnvironment Healthy",
+                    "tags": {},
+                    "tagsAll": {},
+                    "type": "MANAGED"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/instanceProfile:InstanceProfile::ecsInstanceRoleInstanceProfile",
+                    "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:ec2/securityGroup:SecurityGroup::sampleSecurityGroup",
+                    "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:ec2/subnet:Subnet::sampleSubnet",
+                    "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::awsBatchServiceRoleRole"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "computeResources": [
+                        "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/instanceProfile:InstanceProfile::ecsInstanceRoleInstanceProfile",
+                        "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:ec2/securityGroup:SecurityGroup::sampleSecurityGroup",
+                        "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:ec2/subnet:Subnet::sampleSubnet"
+                    ],
+                    "serviceRole": [
+                        "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:iam/role:Role::awsBatchServiceRoleRole"
+                    ],
+                    "type": null
+                },
+                "created": "2023-12-05T22:16:03.180503Z",
+                "modified": "2023-12-05T22:16:03.180503Z",
+                "sourcePosition": "project:///index.ts#63,28"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:batch/jobQueue:JobQueue::testQueue",
+                "custom": true,
+                "id": "arn:aws:batch:us-west-2:616138583583:job-queue/testQueue-91d66b0",
+                "type": "aws:batch/jobQueue:JobQueue",
+                "inputs": {
+                    "__defaults": [
+                        "name"
+                    ],
+                    "computeEnvironments": [
+                        "arn:aws:batch:us-west-2:616138583583:compute-environment/terraform-20231205221555324200000003"
+                    ],
+                    "name": "testQueue-91d66b0",
+                    "priority": 1,
+                    "state": "ENABLED"
+                },
+                "outputs": {
+                    "arn": "arn:aws:batch:us-west-2:616138583583:job-queue/testQueue-91d66b0",
+                    "computeEnvironments": [
+                        "arn:aws:batch:us-west-2:616138583583:compute-environment/terraform-20231205221555324200000003"
+                    ],
+                    "id": "arn:aws:batch:us-west-2:616138583583:job-queue/testQueue-91d66b0",
+                    "name": "testQueue-91d66b0",
+                    "priority": 1,
+                    "schedulingPolicyArn": "",
+                    "state": "ENABLED",
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:pulumi:Stack::job-queue-p-it-antons-mac-job-queue-6b7e7e1e",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:batch/computeEnvironment:ComputeEnvironment::sampleComputeEnvironment"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::pulumi:providers:aws::default_5_42_0::a64dabbe-c860-4475-abd5-257d6b1f729c",
+                "propertyDependencies": {
+                    "computeEnvironments": [
+                        "urn:pulumi:p-it-antons-mac-job-queue-6b7e7e1e::job-queue::aws:batch/computeEnvironment:ComputeEnvironment::sampleComputeEnvironment"
+                    ],
+                    "priority": null,
+                    "state": null
+                },
+                "created": "2023-12-05T22:16:13.66089Z",
+                "modified": "2023-12-05T22:16:13.66089Z",
+                "sourcePosition": "project:///index.ts#78,18"
+            }
+        ]
+    }
+}
