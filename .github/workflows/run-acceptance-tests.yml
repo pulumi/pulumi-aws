@@ -394,14 +394,14 @@ jobs:
         cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - name: Run tests with access key auth
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - name: Configure AWS Credentials
+    - name: Unset AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
         unset-current-credentials: true
         aws-region: ${{ env.AWS_REGION }}
     - name: Run selected tests with manual web identity/OIDC auth
       run: cd examples && go test -v -json -count=1 -run TestAccCloudWatchOidcManual -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - name: Configure AWS Credentials
+    - name: Configure AWS Credentials for OIDC
       uses: aws-actions/configure-aws-credentials@v4
       with:
         unset-current-credentials: true
@@ -410,7 +410,7 @@ jobs:
         role-session-name: ${{ env.PROVIDER }}@githubActions
         role-to-assume: ${{ secrets.OIDC_ROLE_ARN }}
     - name: Run selected tests with configure-aws-credentials web identity/OIDC auth
-     run: cd examples && go test -v -json -count=1 -run TestAccCloudWatch -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: cd examples && go test -v -json -count=1 -run TestAccCloudWatch -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
