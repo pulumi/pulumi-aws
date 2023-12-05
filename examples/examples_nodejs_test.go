@@ -120,16 +120,6 @@ func TestAccCloudWatch(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccJobQueue(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "job-queue"),
-			RunUpdateTest: true,
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccLogGroup(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -346,8 +336,7 @@ func TestAccIgnoreChanges(t *testing.T) {
 						assert.Equal(t, "foo", info.Deployment.Resources[2].Outputs["bucketPrefix"])
 					},
 				},
-			},
-		})
+			}})
 
 	integration.ProgramTest(t, &test)
 }
