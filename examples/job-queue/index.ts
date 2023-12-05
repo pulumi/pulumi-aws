@@ -79,5 +79,4 @@ const jobQueue = new aws.batch.JobQueue("testQueue", {
     computeEnvironments: [computeEnvironment.arn],
     priority: 1,
     state: "ENABLED",
-    name: "testQueue"
 });
