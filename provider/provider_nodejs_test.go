@@ -33,6 +33,10 @@ func TestRoute53(t *testing.T) {
 	nodeTest(t, filepath.Join("..", "examples", "route53"))
 }
 
+func TestJobQueue(t *testing.T) {
+	nodeTest(t, filepath.Join("..", "examples", "job-queue"))
+}
+
 func nodeTest(t *testing.T, dir string, opts ...providertest.Option) {
 	envRegion := getEnvRegion(t)
 	opts = append(opts,
