@@ -18,7 +18,7 @@ import {ARN} from "..";
  *
  * const example = new aws.iot.Thing("example", {});
  * const cert = new aws.iot.Certificate("cert", {
- *     csr: fs.readFileSync("csr.pem"),
+ *     csr: fs.readFileSync("csr.pem", "utf8"),
  *     active: true,
  * });
  * const att = new aws.iot.ThingPrincipalAttachment("att", {

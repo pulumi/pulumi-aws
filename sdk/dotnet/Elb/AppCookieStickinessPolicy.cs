@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

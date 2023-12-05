@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.worklink.Fleet("test", {identityProvider: {
  *     type: "SAML",
- *     samlMetadata: fs.readFileSync("saml-metadata.xml"),
+ *     samlMetadata: fs.readFileSync("saml-metadata.xml", "utf8"),
  * }});
  * ```
  *

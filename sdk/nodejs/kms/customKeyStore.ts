@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     cloudHsmClusterId: _var.cloud_hsm_cluster_id,
  *     customKeyStoreName: "kms-custom-key-store-test",
  *     keyStorePassword: "noplaintextpasswords1",
- *     trustAnchorCertificate: fs.readFileSync("anchor-certificate.crt"),
+ *     trustAnchorCertificate: fs.readFileSync("anchor-certificate.crt", "utf8"),
  * });
  * ```
  *
