@@ -1,0 +1,12 @@
+diff --git a/internal/service/batch/job_queue_schema.go b/internal/service/batch/job_queue_schema.go
+index bd19814922..11cf093ece 100644
+--- a/internal/service/batch/job_queue_schema.go
++++ b/internal/service/batch/job_queue_schema.go
+@@ -92,6 +92,7 @@ func upgradeJobQueueResourceStateV0toV1(ctx context.Context, req resource.Upgrad
+ 	}
+ 
+ 	jobQueueDataV2 := resourceJobQueueData{
++		ARN:                 jobQueueDataV0.ARN,
+ 		ComputeEnvironments: jobQueueDataV0.ComputeEnvironments,
+ 		ID:                  jobQueueDataV0.ID,
+ 		Name:                jobQueueDataV0.Name,
