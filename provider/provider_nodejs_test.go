@@ -6,11 +6,13 @@
 package provider
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/providertest"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLambdaLayerNew(t *testing.T) {
@@ -34,7 +36,26 @@ func TestRoute53(t *testing.T) {
 }
 
 func TestJobQueue(t *testing.T) {
-	simpleNodeTest(t, filepath.Join("test-programs", "job-queue"))
+	simpleNodeTest(t, filepath.Join("test-programs", "job-queue"),
+		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_Quick, "Prefer PreviewOnly"),
+		providertest.WithDiffValidation(func(t *testing.T, d providertest.Diffs) {
+			for _, diff := range d {
+				if diff.URN.Name() != "testQueue" {
+					continue
+				}
+				assert.Emptyf(t, diff.Replaces, "Unexpected replace plan for testQueue")
+				for _, changedProp := range diff.Diffs {
+					// Ignoring benign update from nil to empty-map tags.
+					if changedProp == "tags" {
+						continue
+					}
+					if changedProp == "tagsAll" {
+						continue
+					}
+					assert.Fail(t, fmt.Sprintf("Unexpected update for testQueue: %s", changedProp))
+				}
+			}
+		}))
 }
 
 func nodeTest(t *testing.T, dir string, opts ...providertest.Option) {
