@@ -38,8 +38,8 @@ import * as utilities from "../utilities";
  *     }],
  *     enableSsl: true,
  *     sslConfigurations: [{
- *         privateKey: fs.readFileSync("./foobar.key"),
- *         certificate: fs.readFileSync("./foobar.crt"),
+ *         privateKey: fs.readFileSync("./foobar.key", "utf8"),
+ *         certificate: fs.readFileSync("./foobar.crt", "utf8"),
  *     }],
  *     documentRoot: "public",
  *     autoBundleOnDeploy: "true",

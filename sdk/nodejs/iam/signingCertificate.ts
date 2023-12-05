@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const testCert = new aws.iam.SigningCertificate("testCert", {
  *     username: "some_test_cert",
- *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
+ *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf8"),
  * });
  * ```
  *

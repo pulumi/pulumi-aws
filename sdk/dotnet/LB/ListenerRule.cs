@@ -354,7 +354,7 @@ namespace Pulumi.Aws.LB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancingv2/listenerRule:ListenerRule"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancingv2/listenerRule:ListenerRule" },
                 },
                 AdditionalSecretOutputs =
                 {

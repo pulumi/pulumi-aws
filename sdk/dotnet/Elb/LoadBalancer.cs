@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancer:LoadBalancer"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/loadBalancer:LoadBalancer" },
                 },
                 AdditionalSecretOutputs =
                 {

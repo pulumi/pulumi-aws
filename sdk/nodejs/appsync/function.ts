@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *     apiId: aws_appsync_graphql_api.example.id,
  *     dataSource: aws_appsync_datasource.example.name,
  *     name: "example",
- *     code: fs.readFileSync("some-code-dir"),
+ *     code: fs.readFileSync("some-code-dir", "utf8"),
  *     runtime: {
  *         name: "APPSYNC_JS",
  *         runtimeVersion: "1.0.0",

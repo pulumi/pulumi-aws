@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Alb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/loadBalancer:LoadBalancer"},
+                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/loadBalancer:LoadBalancer" },
                 },
                 AdditionalSecretOutputs =
                 {

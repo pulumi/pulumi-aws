@@ -246,7 +246,7 @@ namespace Pulumi.Aws.S3
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:s3/bucket:Bucket"},
+                    new global::Pulumi.Alias { Type = "aws:s3/bucket:Bucket" },
                 },
                 AdditionalSecretOutputs =
                 {

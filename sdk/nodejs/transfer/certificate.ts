@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as fs from "fs";
  *
  * const example = new aws.transfer.Certificate("example", {
- *     certificate: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     privateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
+ *     certificate: fs.readFileSync(`${path.module}/example.com/example.crt`, "utf8"),
+ *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`, "utf8"),
+ *     privateKey: fs.readFileSync(`${path.module}/example.com/example.key`, "utf8"),
  *     description: "example",
  *     usage: "SIGNING",
  * });
