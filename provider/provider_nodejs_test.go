@@ -34,7 +34,7 @@ func TestRoute53(t *testing.T) {
 }
 
 func TestJobQueue(t *testing.T) {
-	nodeTest(t, filepath.Join("..", "examples", "job-queue"))
+	simpleNodeTest(t, filepath.Join("test-programs", "job-queue"))
 }
 
 func nodeTest(t *testing.T, dir string, opts ...providertest.Option) {
@@ -42,6 +42,15 @@ func nodeTest(t *testing.T, dir string, opts ...providertest.Option) {
 	opts = append(opts,
 		providertest.WithConfig("aws:region", "INVALID_REGION"),
 		providertest.WithConfig("aws:envRegion", envRegion),
+	)
+	test(t, dir, opts...)
+}
+
+// This version of nodeTest does not aws:region INVALID_REGION manipulation.
+func simpleNodeTest(t *testing.T, dir string, opts ...providertest.Option) {
+	envRegion := getEnvRegion(t)
+	opts = append(opts,
+		providertest.WithConfig("aws:region", envRegion),
 	)
 	test(t, dir, opts...)
 }
