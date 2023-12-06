@@ -24,6 +24,7 @@ import (
 	"strconv"
 	"strings"
 	"sync/atomic"
+	"time"
 	"unicode"
 
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
@@ -537,6 +538,27 @@ func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []str
 	return vals
 }
 
+func durationFromConfig(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) (time.Duration, error) {
+	val, ok := vars[prop]
+	if ok && val.IsString() {
+		secondsString := val.StringValue()
+		if !strings.HasSuffix(secondsString, "s") {
+			secondsString += "s"
+		}
+		return time.ParseDuration(secondsString)
+	}
+	for _, env := range envs {
+		val, ok := os.LookupEnv(env)
+		if ok {
+			if !strings.HasSuffix(val, "s") {
+				val += "s"
+			}
+			return time.ParseDuration(val)
+		}
+	}
+	return 0, nil
+}
+
 func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error {
 	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
@@ -550,15 +572,40 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	}
 
 	if details, ok := vars["assumeRole"]; ok {
-
 		assumeRole := awsbase.AssumeRole{
-			RoleARN:     stringValue(details.ObjectValue(), "roleArn", []string{}),
-			ExternalID:  stringValue(details.ObjectValue(), "externalId", []string{}),
-			Policy:      stringValue(details.ObjectValue(), "policy", []string{}),
-			SessionName: stringValue(details.ObjectValue(), "sessionName", []string{}),
+			RoleARN:           stringValue(details.ObjectValue(), "roleArn", []string{}),
+			ExternalID:        stringValue(details.ObjectValue(), "externalId", []string{}),
+			Policy:            stringValue(details.ObjectValue(), "policy", []string{}),
+			PolicyARNs:        arrayValue(details.ObjectValue(), "policyArns", []string{}),
+			SessionName:       stringValue(details.ObjectValue(), "sessionName", []string{}),
+			SourceIdentity:    stringValue(details.ObjectValue(), "sourceIdentity", []string{}),
+			TransitiveTagKeys: arrayValue(details.ObjectValue(), "transitiveTagKeys", []string{}),
 		}
-		config.AssumeRole = &assumeRole
+		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds", []string{})
+		if err != nil {
+			return err
+		}
+		assumeRole.Duration = duration
 
+		config.AssumeRole = &assumeRole
+	}
+
+	if details, ok := vars["assumeRoleWithWebIdentity"]; ok {
+		assumeRole := awsbase.AssumeRoleWithWebIdentity{
+			RoleARN:              stringValue(details.ObjectValue(), "roleArn", []string{}),
+			Policy:               stringValue(details.ObjectValue(), "policy", []string{}),
+			PolicyARNs:           arrayValue(details.ObjectValue(), "policyArns", []string{}),
+			SessionName:          stringValue(details.ObjectValue(), "sessionName", []string{}),
+			WebIdentityToken:     stringValue(details.ObjectValue(), "webIdentityToken", []string{}),
+			WebIdentityTokenFile: stringValue(details.ObjectValue(), "webIdentityTokenFile", []string{}),
+		}
+		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds", []string{})
+		if err != nil {
+			return err
+		}
+		assumeRole.Duration = duration
+
+		config.AssumeRoleWithWebIdentity = &assumeRole
 	}
 
 	// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
