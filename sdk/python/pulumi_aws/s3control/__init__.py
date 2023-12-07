@@ -5,7 +5,10 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .access_grant import *
+from .access_grants_instance import *
 from .access_grants_instance_resource_policy import *
+from .access_grants_location import *
 from .access_point_policy import *
 from .bucket import *
 from .bucket_lifecycle_configuration import *

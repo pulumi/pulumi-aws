@@ -17,5 +17,6 @@ from .get_node_group import *
 from .get_node_groups import *
 from .identity_provider_config import *
 from .node_group import *
+from .pod_identity_association import *
 from ._inputs import *
 from . import outputs

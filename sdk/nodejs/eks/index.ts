@@ -65,6 +65,11 @@ export type NodeGroup = import("./nodeGroup").NodeGroup;
 export const NodeGroup: typeof import("./nodeGroup").NodeGroup = null as any;
 utilities.lazyLoad(exports, ["NodeGroup"], () => require("./nodeGroup"));
 
+export { PodIdentityAssociationArgs, PodIdentityAssociationState } from "./podIdentityAssociation";
+export type PodIdentityAssociation = import("./podIdentityAssociation").PodIdentityAssociation;
+export const PodIdentityAssociation: typeof import("./podIdentityAssociation").PodIdentityAssociation = null as any;
+utilities.lazyLoad(exports, ["PodIdentityAssociation"], () => require("./podIdentityAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -80,6 +85,8 @@ const _module = {
                 return new IdentityProviderConfig(name, <any>undefined, { urn })
             case "aws:eks/nodeGroup:NodeGroup":
                 return new NodeGroup(name, <any>undefined, { urn })
+            case "aws:eks/podIdentityAssociation:PodIdentityAssociation":
+                return new PodIdentityAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -90,3 +97,4 @@ pulumi.runtime.registerResourceModule("aws", "eks/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/fargateProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/identityProviderConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/nodeGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "eks/podIdentityAssociation", _module)

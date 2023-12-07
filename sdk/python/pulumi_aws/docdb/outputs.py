@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ClusterParameterGroupParameter',
+    'ElasticClusterTimeouts',
     'GlobalClusterGlobalClusterMember',
 ]
 
@@ -70,6 +71,35 @@ class ClusterParameterGroupParameter(dict):
         Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
         return pulumi.get(self, "apply_method")
+
+
+@pulumi.output_type
+class ElasticClusterTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type
