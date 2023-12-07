@@ -58,6 +58,14 @@ func TestJobQueue(t *testing.T) {
 		}))
 }
 
+func TestRegress3094(t *testing.T) {
+	simpleNodeTest(t,
+		filepath.Join("test-programs", "regress-3094"),
+		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_Quick, "Not testing upgrades"),
+		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_PreviewOnly, "Not testing upgrades"),
+	)
+}
+
 func nodeTest(t *testing.T, dir string, opts ...providertest.Option) {
 	envRegion := getEnvRegion(t)
 	opts = append(opts,
