@@ -16609,6 +16609,12 @@ export namespace docdb {
         value: pulumi.Input<string>;
     }
 
+    export interface ElasticClusterTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+        update?: pulumi.Input<string>;
+    }
+
     export interface GlobalClusterGlobalClusterMember {
         /**
          * Amazon Resource Name (ARN) of member DB Cluster.
@@ -48261,6 +48267,24 @@ export namespace s3 {
 }
 
 export namespace s3control {
+    export interface AccessGrantAccessGrantsLocationConfiguration {
+        /**
+         * Sub-prefix.
+         */
+        s3SubPrefix?: pulumi.Input<string>;
+    }
+
+    export interface AccessGrantGrantee {
+        /**
+         * Grantee identifier.
+         */
+        granteeIdentifier: pulumi.Input<string>;
+        /**
+         * Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+         */
+        granteeType: pulumi.Input<string>;
+    }
+
     export interface BucketLifecycleConfigurationRule {
         /**
          * Configuration block containing settings for abort incomplete multipart upload.

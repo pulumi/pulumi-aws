@@ -15,6 +15,59 @@ import (
 // Provides a resource to manage an S3 Access Grants instance resource policy.
 // Use a resource policy to manage cross-account access to your S3 Access Grants instance.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccessGrantsInstance, err := s3control.NewAccessGrantsInstance(ctx, "exampleAccessGrantsInstance", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3control.NewAccessGrantsInstanceResourcePolicy(ctx, "exampleAccessGrantsInstanceResourcePolicy", &s3control.AccessGrantsInstanceResourcePolicyArgs{
+//				Policy: exampleAccessGrantsInstance.AccessGrantsInstanceArn.ApplyT(func(accessGrantsInstanceArn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Id": "S3AccessGrantsPolicy",
+//	  "Statement": [{
+//	    "Sid": "AllowAccessToS3AccessGrants",
+//	    "Effect": "Allow",
+//	    "Principal": {
+//	      "AWS": "123456789456"
+//	    },
+//	    "Action": [
+//	      "s3:ListAccessGrants",
+//	      "s3:ListAccessGrantsLocations",
+//	      "s3:GetDataAccess"
+//	    ],
+//	    "Resource": "%v"
+//	  }]
+//	}
+//
+// `, accessGrantsInstanceArn), nil
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:

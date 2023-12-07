@@ -21,8 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:s3control/accessGrant:AccessGrant":
+		r = &AccessGrant{}
+	case "aws:s3control/accessGrantsInstance:AccessGrantsInstance":
+		r = &AccessGrantsInstance{}
 	case "aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy":
 		r = &AccessGrantsInstanceResourcePolicy{}
+	case "aws:s3control/accessGrantsLocation:AccessGrantsLocation":
+		r = &AccessGrantsLocation{}
 	case "aws:s3control/accessPointPolicy:AccessPointPolicy":
 		r = &AccessPointPolicy{}
 	case "aws:s3control/bucket:Bucket":
@@ -56,7 +62,22 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"s3control/accessGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3control/accessGrantsInstance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"s3control/accessGrantsInstanceResourcePolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3control/accessGrantsLocation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

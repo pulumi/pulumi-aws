@@ -17,6 +17,58 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an S3 Access Grants instance resource policy.
  * Use a resource policy to manage cross-account access to your S3 Access Grants instance.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3control.AccessGrantsInstance;
+ * import com.pulumi.aws.s3control.AccessGrantsInstanceResourcePolicy;
+ * import com.pulumi.aws.s3control.AccessGrantsInstanceResourcePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleAccessGrantsInstance = new AccessGrantsInstance(&#34;exampleAccessGrantsInstance&#34;);
+ * 
+ *         var exampleAccessGrantsInstanceResourcePolicy = new AccessGrantsInstanceResourcePolicy(&#34;exampleAccessGrantsInstanceResourcePolicy&#34;, AccessGrantsInstanceResourcePolicyArgs.builder()        
+ *             .policy(exampleAccessGrantsInstance.accessGrantsInstanceArn().applyValue(accessGrantsInstanceArn -&gt; &#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Id&#34;: &#34;S3AccessGrantsPolicy&#34;,
+ *   &#34;Statement&#34;: [{
+ *     &#34;Sid&#34;: &#34;AllowAccessToS3AccessGrants&#34;,
+ *     &#34;Effect&#34;: &#34;Allow&#34;,
+ *     &#34;Principal&#34;: {
+ *       &#34;AWS&#34;: &#34;123456789456&#34;
+ *     },
+ *     &#34;Action&#34;: [
+ *       &#34;s3:ListAccessGrants&#34;,
+ *       &#34;s3:ListAccessGrantsLocations&#34;,
+ *       &#34;s3:GetDataAccess&#34;
+ *     ],
+ *     &#34;Resource&#34;: &#34;%s&#34;
+ *   }]
+ * }
+ * 
+ * &#34;, accessGrantsInstanceArn)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:

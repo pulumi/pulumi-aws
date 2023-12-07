@@ -3473,6 +3473,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "docdb/elasticCluster",
+  "fqn": "pulumi_aws.docdb",
+  "classes": {
+   "aws:docdb/elasticCluster:ElasticCluster": "ElasticCluster"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "docdb/eventSubscription",
   "fqn": "pulumi_aws.docdb",
   "classes": {
@@ -4757,6 +4765,14 @@ _utilities.register(
   "fqn": "pulumi_aws.eks",
   "classes": {
    "aws:eks/nodeGroup:NodeGroup": "NodeGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "eks/podIdentityAssociation",
+  "fqn": "pulumi_aws.eks",
+  "classes": {
+   "aws:eks/podIdentityAssociation:PodIdentityAssociation": "PodIdentityAssociation"
   }
  },
  {
@@ -8993,10 +9009,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3control/accessGrant",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/accessGrant:AccessGrant": "AccessGrant"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/accessGrantsInstance",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/accessGrantsInstance:AccessGrantsInstance": "AccessGrantsInstance"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3control/accessGrantsInstanceResourcePolicy",
   "fqn": "pulumi_aws.s3control",
   "classes": {
    "aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy": "AccessGrantsInstanceResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/accessGrantsLocation",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/accessGrantsLocation:AccessGrantsLocation": "AccessGrantsLocation"
   }
  },
  {

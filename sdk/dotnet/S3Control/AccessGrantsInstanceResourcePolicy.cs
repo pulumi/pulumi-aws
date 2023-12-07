@@ -13,6 +13,44 @@ namespace Pulumi.Aws.S3Control
     /// Provides a resource to manage an S3 Access Grants instance resource policy.
     /// Use a resource policy to manage cross-account access to your S3 Access Grants instance.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleAccessGrantsInstance = new Aws.S3Control.AccessGrantsInstance("exampleAccessGrantsInstance");
+    /// 
+    ///     var exampleAccessGrantsInstanceResourcePolicy = new Aws.S3Control.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", new()
+    ///     {
+    ///         Policy = exampleAccessGrantsInstance.AccessGrantsInstanceArn.Apply(accessGrantsInstanceArn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Id"": ""S3AccessGrantsPolicy"",
+    ///   ""Statement"": [{{
+    ///     ""Sid"": ""AllowAccessToS3AccessGrants"",
+    ///     ""Effect"": ""Allow"",
+    ///     ""Principal"": {{
+    ///       ""AWS"": ""123456789456""
+    ///     }},
+    ///     ""Action"": [
+    ///       ""s3:ListAccessGrants"",
+    ///       ""s3:ListAccessGrantsLocations"",
+    ///       ""s3:GetDataAccess""
+    ///     ],
+    ///     ""Resource"": ""{accessGrantsInstanceArn}""
+    ///   }}]
+    /// }}
+    /// 
+    /// "),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:

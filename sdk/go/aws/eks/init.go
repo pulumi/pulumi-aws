@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentityProviderConfig{}
 	case "aws:eks/nodeGroup:NodeGroup":
 		r = &NodeGroup{}
+	case "aws:eks/podIdentityAssociation:PodIdentityAssociation":
+		r = &PodIdentityAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"eks/nodeGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"eks/podIdentityAssociation",
 		&module{version},
 	)
 }

@@ -10,6 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccessGrantAccessGrantsLocationConfigurationArgs',
+    'AccessGrantGranteeArgs',
     'BucketLifecycleConfigurationRuleArgs',
     'BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs',
     'BucketLifecycleConfigurationRuleExpirationArgs',
@@ -46,6 +48,66 @@ __all__ = [
     'StorageLensConfigurationStorageLensConfigurationExcludeArgs',
     'StorageLensConfigurationStorageLensConfigurationIncludeArgs',
 ]
+
+@pulumi.input_type
+class AccessGrantAccessGrantsLocationConfigurationArgs:
+    def __init__(__self__, *,
+                 s3_sub_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_sub_prefix: Sub-prefix.
+        """
+        if s3_sub_prefix is not None:
+            pulumi.set(__self__, "s3_sub_prefix", s3_sub_prefix)
+
+    @property
+    @pulumi.getter(name="s3SubPrefix")
+    def s3_sub_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sub-prefix.
+        """
+        return pulumi.get(self, "s3_sub_prefix")
+
+    @s3_sub_prefix.setter
+    def s3_sub_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_sub_prefix", value)
+
+
+@pulumi.input_type
+class AccessGrantGranteeArgs:
+    def __init__(__self__, *,
+                 grantee_identifier: pulumi.Input[str],
+                 grantee_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] grantee_identifier: Grantee identifier.
+        :param pulumi.Input[str] grantee_type: Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+        """
+        pulumi.set(__self__, "grantee_identifier", grantee_identifier)
+        pulumi.set(__self__, "grantee_type", grantee_type)
+
+    @property
+    @pulumi.getter(name="granteeIdentifier")
+    def grantee_identifier(self) -> pulumi.Input[str]:
+        """
+        Grantee identifier.
+        """
+        return pulumi.get(self, "grantee_identifier")
+
+    @grantee_identifier.setter
+    def grantee_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "grantee_identifier", value)
+
+    @property
+    @pulumi.getter(name="granteeType")
+    def grantee_type(self) -> pulumi.Input[str]:
+        """
+        Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+        """
+        return pulumi.get(self, "grantee_type")
+
+    @grantee_type.setter
+    def grantee_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "grantee_type", value)
+
 
 @pulumi.input_type
 class BucketLifecycleConfigurationRuleArgs:
