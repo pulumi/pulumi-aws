@@ -520,3 +520,76 @@ func TestS3BucketObjectDeprecation(t *testing.T) {
 	out := <-outC
 	assert.NotContains(t, out, "aws_s3_object")
 }
+
+func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
+	repro := `
+	[
+    {
+      "method": "/pulumirpc.ResourceProvider/Diff",
+      "request": {
+          "id": "f8af893f-869e-4861-a403-1a4fe3509754",
+          "urn": "urn:pulumi:dev::aws_esm_py::aws:lambda/eventSourceMapping:EventSourceMapping::example",
+          "olds": {
+              "amazonManagedKafkaEventSourceConfig": null,
+              "batchSize": 10,
+              "bisectBatchOnFunctionError": false,
+              "destinationConfig": null,
+              "documentDbEventSourceConfig": null,
+              "enabled": true,
+              "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
+              "filterCriteria": null,
+              "functionArn": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89",
+              "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89",
+              "functionResponseTypes": [],
+              "id": "f8af893f-869e-4861-a403-1a4fe3509754",
+              "lastModified": "2023-12-08T16:02:48Z",
+              "lastProcessingResult": "",
+              "maximumBatchingWindowInSeconds": 0,
+              "maximumRecordAgeInSeconds": 0,
+              "maximumRetryAttempts": 0,
+              "parallelizationFactor": 0,
+              "queues": [],
+              "scalingConfig": null,
+              "selfManagedEventSource": null,
+              "selfManagedKafkaEventSourceConfig": null,
+              "sourceAccessConfigurations": [],
+              "startingPosition": "",
+              "startingPositionTimestamp": "",
+              "state": "Enabled",
+              "stateTransitionReason": "USER_INITIATED",
+              "topics": [],
+              "tumblingWindowInSeconds": 0,
+              "uuid": "f8af893f-869e-4861-a403-1a4fe3509754"
+          },
+          "news": {
+              "__defaults": [
+                  "enabled"
+              ],
+              "enabled": true,
+              "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
+              "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"
+          },
+          "oldInputs": {
+              "__defaults": [
+                  "enabled"
+              ],
+              "enabled": true,
+              "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
+              "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"
+          }
+      },
+      "response": {
+          "stables": "*",
+          "changes": "DIFF_SOME",
+          "hasDetailedDiff": true
+      },
+      "metadata": {
+          "kind": "resource",
+          "mode": "client",
+          "name": "aws"
+      }
+  }
+  ]
+	`
+	replay(t, repro)
+}
