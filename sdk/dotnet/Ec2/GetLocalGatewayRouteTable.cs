@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ec2
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
+        /// using Aws = Pulumi.%[1]s;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Ec2
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
+        /// using Aws = Pulumi.%[1]s;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {

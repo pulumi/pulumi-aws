@@ -31,6 +31,7 @@ namespace Pulumi.Aws.LakeFormation
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Aws = Pulumi.%[1]s;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 

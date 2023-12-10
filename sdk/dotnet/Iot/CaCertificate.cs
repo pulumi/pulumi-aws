@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Iot
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Aws = Pulumi.%[1]s;
     /// using Aws = Pulumi.Aws;
     /// using Tls = Pulumi.Tls;
     /// 

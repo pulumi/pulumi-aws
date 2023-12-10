@@ -47,6 +47,7 @@ namespace Pulumi.Aws.Amplify
     /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
+    /// using Aws = Pulumi.%[1]s;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 

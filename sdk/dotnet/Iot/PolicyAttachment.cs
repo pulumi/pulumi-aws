@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Iot
     /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Aws = Pulumi.%[1]s;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 

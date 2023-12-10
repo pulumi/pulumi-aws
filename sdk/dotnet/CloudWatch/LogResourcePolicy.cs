@@ -19,6 +19,7 @@ namespace Pulumi.Aws.CloudWatch
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Aws = Pulumi.%[1]s;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -68,6 +69,7 @@ namespace Pulumi.Aws.CloudWatch
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Aws = Pulumi.%[1]s;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
