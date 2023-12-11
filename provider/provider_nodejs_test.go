@@ -28,7 +28,9 @@ func TestLogGroup(t *testing.T) {
 }
 
 func TestQueue(t *testing.T) {
-	nodeTest(t, filepath.Join("..", "examples", "queue"))
+	nodeTest(t, filepath.Join("..", "examples", "queue"),
+		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_Quick, "Prefer PreviewOnly"),
+		providertest.WithDiffValidation(providertest.NoReplacements()))
 }
 
 func TestRoute53(t *testing.T) {
