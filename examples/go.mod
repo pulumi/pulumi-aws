@@ -5,9 +5,9 @@ go 1.21.0
 require (
 	github.com/aws/aws-sdk-go v1.48.9
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231207205658-538570c1932f
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231211210247-792dd1fbd775
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3
-	github.com/pulumi/pulumi/pkg/v3 v3.95.0
+	github.com/pulumi/pulumi/pkg/v3 v3.96.2
 	github.com/stretchr/testify v1.8.4
 )
 
@@ -174,6 +174,7 @@ require (
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.4 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/deckarep/golang-set/v2 v2.5.0 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
@@ -281,9 +282,9 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.6.1-0.20231111193429-44b746a5b3b5 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.67.1-0.20231207205658-538570c1932f // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.67.1-0.20231211210247-792dd1fbd775 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20231130182140-6385710fcbc4 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.95.0 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.96.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
