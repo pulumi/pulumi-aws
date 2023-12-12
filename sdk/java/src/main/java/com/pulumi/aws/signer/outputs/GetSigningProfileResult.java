@@ -238,19 +238,19 @@ public final class GetSigningProfileResult {
             return this;
         }
         public GetSigningProfileResult build() {
-            final var o = new GetSigningProfileResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.platformDisplayName = platformDisplayName;
-            o.platformId = platformId;
-            o.revocationRecords = revocationRecords;
-            o.signatureValidityPeriods = signatureValidityPeriods;
-            o.status = status;
-            o.tags = tags;
-            o.version = version;
-            o.versionArn = versionArn;
-            return o;
+            final var _resultValue = new GetSigningProfileResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.platformDisplayName = platformDisplayName;
+            _resultValue.platformId = platformId;
+            _resultValue.revocationRecords = revocationRecords;
+            _resultValue.signatureValidityPeriods = signatureValidityPeriods;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            _resultValue.versionArn = versionArn;
+            return _resultValue;
         }
     }
 }

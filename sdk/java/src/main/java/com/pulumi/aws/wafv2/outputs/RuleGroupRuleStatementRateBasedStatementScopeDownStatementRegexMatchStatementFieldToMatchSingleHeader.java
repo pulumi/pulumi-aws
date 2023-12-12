@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

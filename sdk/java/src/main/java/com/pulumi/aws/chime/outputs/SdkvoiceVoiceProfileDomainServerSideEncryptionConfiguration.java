@@ -50,9 +50,9 @@ public final class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration {
             return this;
         }
         public SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration build() {
-            final var o = new SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration();
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration();
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

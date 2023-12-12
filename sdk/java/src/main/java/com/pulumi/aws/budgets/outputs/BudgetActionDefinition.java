@@ -88,11 +88,11 @@ public final class BudgetActionDefinition {
             return this;
         }
         public BudgetActionDefinition build() {
-            final var o = new BudgetActionDefinition();
-            o.iamActionDefinition = iamActionDefinition;
-            o.scpActionDefinition = scpActionDefinition;
-            o.ssmActionDefinition = ssmActionDefinition;
-            return o;
+            final var _resultValue = new BudgetActionDefinition();
+            _resultValue.iamActionDefinition = iamActionDefinition;
+            _resultValue.scpActionDefinition = scpActionDefinition;
+            _resultValue.ssmActionDefinition = ssmActionDefinition;
+            return _resultValue;
         }
     }
 }

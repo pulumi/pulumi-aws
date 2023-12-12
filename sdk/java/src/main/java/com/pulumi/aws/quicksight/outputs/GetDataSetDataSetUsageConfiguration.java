@@ -49,10 +49,10 @@ public final class GetDataSetDataSetUsageConfiguration {
             return this;
         }
         public GetDataSetDataSetUsageConfiguration build() {
-            final var o = new GetDataSetDataSetUsageConfiguration();
-            o.disableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
-            o.disableUseAsImportedSource = disableUseAsImportedSource;
-            return o;
+            final var _resultValue = new GetDataSetDataSetUsageConfiguration();
+            _resultValue.disableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
+            _resultValue.disableUseAsImportedSource = disableUseAsImportedSource;
+            return _resultValue;
         }
     }
 }

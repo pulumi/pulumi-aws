@@ -86,11 +86,11 @@ public final class FileSystemSizeInByte {
             return this;
         }
         public FileSystemSizeInByte build() {
-            final var o = new FileSystemSizeInByte();
-            o.value = value;
-            o.valueInIa = valueInIa;
-            o.valueInStandard = valueInStandard;
-            return o;
+            final var _resultValue = new FileSystemSizeInByte();
+            _resultValue.value = value;
+            _resultValue.valueInIa = valueInIa;
+            _resultValue.valueInStandard = valueInStandard;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ConfigurationSetEventDestinationEventDestinationKinesisFireho
             return this;
         }
         public ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination build() {
-            final var o = new ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination();
-            o.deliveryStreamArn = deliveryStreamArn;
-            o.iamRoleArn = iamRoleArn;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination();
+            _resultValue.deliveryStreamArn = deliveryStreamArn;
+            _resultValue.iamRoleArn = iamRoleArn;
+            return _resultValue;
         }
     }
 }

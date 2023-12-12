@@ -263,24 +263,24 @@ public final class GetVpcPeeringConnectionResult {
             return this;
         }
         public GetVpcPeeringConnectionResult build() {
-            final var o = new GetVpcPeeringConnectionResult();
-            o.accepter = accepter;
-            o.cidrBlock = cidrBlock;
-            o.cidrBlockSets = cidrBlockSets;
-            o.filters = filters;
-            o.id = id;
-            o.ownerId = ownerId;
-            o.peerCidrBlock = peerCidrBlock;
-            o.peerCidrBlockSets = peerCidrBlockSets;
-            o.peerOwnerId = peerOwnerId;
-            o.peerRegion = peerRegion;
-            o.peerVpcId = peerVpcId;
-            o.region = region;
-            o.requester = requester;
-            o.status = status;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetVpcPeeringConnectionResult();
+            _resultValue.accepter = accepter;
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.cidrBlockSets = cidrBlockSets;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ownerId = ownerId;
+            _resultValue.peerCidrBlock = peerCidrBlock;
+            _resultValue.peerCidrBlockSets = peerCidrBlockSets;
+            _resultValue.peerOwnerId = peerOwnerId;
+            _resultValue.peerRegion = peerRegion;
+            _resultValue.peerVpcId = peerVpcId;
+            _resultValue.region = region;
+            _resultValue.requester = requester;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

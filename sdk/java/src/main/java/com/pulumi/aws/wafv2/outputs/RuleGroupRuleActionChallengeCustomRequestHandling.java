@@ -50,9 +50,9 @@ public final class RuleGroupRuleActionChallengeCustomRequestHandling {
             return insertHeaders(List.of(insertHeaders));
         }
         public RuleGroupRuleActionChallengeCustomRequestHandling build() {
-            final var o = new RuleGroupRuleActionChallengeCustomRequestHandling();
-            o.insertHeaders = insertHeaders;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionChallengeCustomRequestHandling();
+            _resultValue.insertHeaders = insertHeaders;
+            return _resultValue;
         }
     }
 }

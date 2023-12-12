@@ -127,15 +127,15 @@ public final class GetLinksResult {
             return this;
         }
         public GetLinksResult build() {
-            final var o = new GetLinksResult();
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.ids = ids;
-            o.providerName = providerName;
-            o.siteId = siteId;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetLinksResult();
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.providerName = providerName;
+            _resultValue.siteId = siteId;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

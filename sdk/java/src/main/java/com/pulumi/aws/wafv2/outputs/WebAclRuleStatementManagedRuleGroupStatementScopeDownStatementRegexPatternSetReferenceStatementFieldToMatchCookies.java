@@ -89,11 +89,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies();
-            o.matchPatterns = matchPatterns;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies();
+            _resultValue.matchPatterns = matchPatterns;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

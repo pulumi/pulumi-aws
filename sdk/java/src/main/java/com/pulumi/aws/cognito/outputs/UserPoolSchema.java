@@ -165,15 +165,15 @@ public final class UserPoolSchema {
             return this;
         }
         public UserPoolSchema build() {
-            final var o = new UserPoolSchema();
-            o.attributeDataType = attributeDataType;
-            o.developerOnlyAttribute = developerOnlyAttribute;
-            o.mutable = mutable;
-            o.name = name;
-            o.numberAttributeConstraints = numberAttributeConstraints;
-            o.required = required;
-            o.stringAttributeConstraints = stringAttributeConstraints;
-            return o;
+            final var _resultValue = new UserPoolSchema();
+            _resultValue.attributeDataType = attributeDataType;
+            _resultValue.developerOnlyAttribute = developerOnlyAttribute;
+            _resultValue.mutable = mutable;
+            _resultValue.name = name;
+            _resultValue.numberAttributeConstraints = numberAttributeConstraints;
+            _resultValue.required = required;
+            _resultValue.stringAttributeConstraints = stringAttributeConstraints;
+            return _resultValue;
         }
     }
 }

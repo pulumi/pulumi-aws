@@ -40,9 +40,9 @@ public final class FlowTriggerConfigTriggerProperties {
             return this;
         }
         public FlowTriggerConfigTriggerProperties build() {
-            final var o = new FlowTriggerConfigTriggerProperties();
-            o.scheduled = scheduled;
-            return o;
+            final var _resultValue = new FlowTriggerConfigTriggerProperties();
+            _resultValue.scheduled = scheduled;
+            return _resultValue;
         }
     }
 }

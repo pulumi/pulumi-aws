@@ -51,10 +51,10 @@ public final class LoadBalancerPolicyPolicyAttribute {
             return this;
         }
         public LoadBalancerPolicyPolicyAttribute build() {
-            final var o = new LoadBalancerPolicyPolicyAttribute();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new LoadBalancerPolicyPolicyAttribute();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

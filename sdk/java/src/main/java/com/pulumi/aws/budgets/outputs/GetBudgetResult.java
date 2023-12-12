@@ -350,25 +350,25 @@ public final class GetBudgetResult {
             return this;
         }
         public GetBudgetResult build() {
-            final var o = new GetBudgetResult();
-            o.accountId = accountId;
-            o.arn = arn;
-            o.autoAdjustDatas = autoAdjustDatas;
-            o.budgetExceeded = budgetExceeded;
-            o.budgetLimits = budgetLimits;
-            o.budgetType = budgetType;
-            o.calculatedSpends = calculatedSpends;
-            o.costFilters = costFilters;
-            o.costTypes = costTypes;
-            o.id = id;
-            o.name = name;
-            o.namePrefix = namePrefix;
-            o.notifications = notifications;
-            o.plannedLimits = plannedLimits;
-            o.timePeriodEnd = timePeriodEnd;
-            o.timePeriodStart = timePeriodStart;
-            o.timeUnit = timeUnit;
-            return o;
+            final var _resultValue = new GetBudgetResult();
+            _resultValue.accountId = accountId;
+            _resultValue.arn = arn;
+            _resultValue.autoAdjustDatas = autoAdjustDatas;
+            _resultValue.budgetExceeded = budgetExceeded;
+            _resultValue.budgetLimits = budgetLimits;
+            _resultValue.budgetType = budgetType;
+            _resultValue.calculatedSpends = calculatedSpends;
+            _resultValue.costFilters = costFilters;
+            _resultValue.costTypes = costTypes;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.namePrefix = namePrefix;
+            _resultValue.notifications = notifications;
+            _resultValue.plannedLimits = plannedLimits;
+            _resultValue.timePeriodEnd = timePeriodEnd;
+            _resultValue.timePeriodStart = timePeriodStart;
+            _resultValue.timeUnit = timeUnit;
+            return _resultValue;
         }
     }
 }

@@ -54,10 +54,10 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperation {
             return tags(List.of(tags));
         }
         public GetDataSetLogicalTableMapDataTransformTagColumnOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformTagColumnOperation();
-            o.columnName = columnName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformTagColumnOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -486,32 +486,32 @@ public final class GetUserPoolClientResult {
             return writeAttributes(List.of(writeAttributes));
         }
         public GetUserPoolClientResult build() {
-            final var o = new GetUserPoolClientResult();
-            o.accessTokenValidity = accessTokenValidity;
-            o.allowedOauthFlows = allowedOauthFlows;
-            o.allowedOauthFlowsUserPoolClient = allowedOauthFlowsUserPoolClient;
-            o.allowedOauthScopes = allowedOauthScopes;
-            o.analyticsConfigurations = analyticsConfigurations;
-            o.callbackUrls = callbackUrls;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.defaultRedirectUri = defaultRedirectUri;
-            o.enablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
-            o.enableTokenRevocation = enableTokenRevocation;
-            o.explicitAuthFlows = explicitAuthFlows;
-            o.generateSecret = generateSecret;
-            o.id = id;
-            o.idTokenValidity = idTokenValidity;
-            o.logoutUrls = logoutUrls;
-            o.name = name;
-            o.preventUserExistenceErrors = preventUserExistenceErrors;
-            o.readAttributes = readAttributes;
-            o.refreshTokenValidity = refreshTokenValidity;
-            o.supportedIdentityProviders = supportedIdentityProviders;
-            o.tokenValidityUnits = tokenValidityUnits;
-            o.userPoolId = userPoolId;
-            o.writeAttributes = writeAttributes;
-            return o;
+            final var _resultValue = new GetUserPoolClientResult();
+            _resultValue.accessTokenValidity = accessTokenValidity;
+            _resultValue.allowedOauthFlows = allowedOauthFlows;
+            _resultValue.allowedOauthFlowsUserPoolClient = allowedOauthFlowsUserPoolClient;
+            _resultValue.allowedOauthScopes = allowedOauthScopes;
+            _resultValue.analyticsConfigurations = analyticsConfigurations;
+            _resultValue.callbackUrls = callbackUrls;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.defaultRedirectUri = defaultRedirectUri;
+            _resultValue.enablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
+            _resultValue.enableTokenRevocation = enableTokenRevocation;
+            _resultValue.explicitAuthFlows = explicitAuthFlows;
+            _resultValue.generateSecret = generateSecret;
+            _resultValue.id = id;
+            _resultValue.idTokenValidity = idTokenValidity;
+            _resultValue.logoutUrls = logoutUrls;
+            _resultValue.name = name;
+            _resultValue.preventUserExistenceErrors = preventUserExistenceErrors;
+            _resultValue.readAttributes = readAttributes;
+            _resultValue.refreshTokenValidity = refreshTokenValidity;
+            _resultValue.supportedIdentityProviders = supportedIdentityProviders;
+            _resultValue.tokenValidityUnits = tokenValidityUnits;
+            _resultValue.userPoolId = userPoolId;
+            _resultValue.writeAttributes = writeAttributes;
+            return _resultValue;
         }
     }
 }

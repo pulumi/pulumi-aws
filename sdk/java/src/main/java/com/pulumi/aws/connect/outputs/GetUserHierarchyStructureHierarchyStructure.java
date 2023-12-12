@@ -142,13 +142,13 @@ public final class GetUserHierarchyStructureHierarchyStructure {
             return levelTwos(List.of(levelTwos));
         }
         public GetUserHierarchyStructureHierarchyStructure build() {
-            final var o = new GetUserHierarchyStructureHierarchyStructure();
-            o.levelFives = levelFives;
-            o.levelFours = levelFours;
-            o.levelOnes = levelOnes;
-            o.levelThrees = levelThrees;
-            o.levelTwos = levelTwos;
-            return o;
+            final var _resultValue = new GetUserHierarchyStructureHierarchyStructure();
+            _resultValue.levelFives = levelFives;
+            _resultValue.levelFours = levelFours;
+            _resultValue.levelOnes = levelOnes;
+            _resultValue.levelThrees = levelThrees;
+            _resultValue.levelTwos = levelTwos;
+            return _resultValue;
         }
     }
 }

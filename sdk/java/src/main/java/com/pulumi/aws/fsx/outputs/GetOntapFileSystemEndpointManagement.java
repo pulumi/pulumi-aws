@@ -61,10 +61,10 @@ public final class GetOntapFileSystemEndpointManagement {
             return ipAddresses(List.of(ipAddresses));
         }
         public GetOntapFileSystemEndpointManagement build() {
-            final var o = new GetOntapFileSystemEndpointManagement();
-            o.dnsName = dnsName;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new GetOntapFileSystemEndpointManagement();
+            _resultValue.dnsName = dnsName;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

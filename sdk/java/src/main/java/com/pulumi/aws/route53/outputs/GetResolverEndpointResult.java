@@ -144,17 +144,17 @@ public final class GetResolverEndpointResult {
             return this;
         }
         public GetResolverEndpointResult build() {
-            final var o = new GetResolverEndpointResult();
-            o.arn = arn;
-            o.direction = direction;
-            o.filters = filters;
-            o.id = id;
-            o.ipAddresses = ipAddresses;
-            o.name = name;
-            o.resolverEndpointId = resolverEndpointId;
-            o.status = status;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetResolverEndpointResult();
+            _resultValue.arn = arn;
+            _resultValue.direction = direction;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.name = name;
+            _resultValue.resolverEndpointId = resolverEndpointId;
+            _resultValue.status = status;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

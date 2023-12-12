@@ -86,11 +86,11 @@ public final class InsightFiltersFindingProviderFieldsConfidence {
             return this;
         }
         public InsightFiltersFindingProviderFieldsConfidence build() {
-            final var o = new InsightFiltersFindingProviderFieldsConfidence();
-            o.eq = eq;
-            o.gte = gte;
-            o.lte = lte;
-            return o;
+            final var _resultValue = new InsightFiltersFindingProviderFieldsConfidence();
+            _resultValue.eq = eq;
+            _resultValue.gte = gte;
+            _resultValue.lte = lte;
+            return _resultValue;
         }
     }
 }

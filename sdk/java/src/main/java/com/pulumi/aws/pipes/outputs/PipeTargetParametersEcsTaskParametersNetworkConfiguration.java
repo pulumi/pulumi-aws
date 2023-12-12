@@ -48,9 +48,9 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfiguration {
             return this;
         }
         public PipeTargetParametersEcsTaskParametersNetworkConfiguration build() {
-            final var o = new PipeTargetParametersEcsTaskParametersNetworkConfiguration();
-            o.awsVpcConfiguration = awsVpcConfiguration;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersNetworkConfiguration();
+            _resultValue.awsVpcConfiguration = awsVpcConfiguration;
+            return _resultValue;
         }
     }
 }

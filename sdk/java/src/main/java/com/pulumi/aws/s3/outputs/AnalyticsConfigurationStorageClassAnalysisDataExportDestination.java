@@ -50,9 +50,9 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
             return this;
         }
         public AnalyticsConfigurationStorageClassAnalysisDataExportDestination build() {
-            final var o = new AnalyticsConfigurationStorageClassAnalysisDataExportDestination();
-            o.s3BucketDestination = s3BucketDestination;
-            return o;
+            final var _resultValue = new AnalyticsConfigurationStorageClassAnalysisDataExportDestination();
+            _resultValue.s3BucketDestination = s3BucketDestination;
+            return _resultValue;
         }
     }
 }

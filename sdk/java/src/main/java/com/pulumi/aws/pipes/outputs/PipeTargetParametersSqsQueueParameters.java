@@ -67,10 +67,10 @@ public final class PipeTargetParametersSqsQueueParameters {
             return this;
         }
         public PipeTargetParametersSqsQueueParameters build() {
-            final var o = new PipeTargetParametersSqsQueueParameters();
-            o.messageDeduplicationId = messageDeduplicationId;
-            o.messageGroupId = messageGroupId;
-            return o;
+            final var _resultValue = new PipeTargetParametersSqsQueueParameters();
+            _resultValue.messageDeduplicationId = messageDeduplicationId;
+            _resultValue.messageGroupId = messageGroupId;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class VirtualNodeSpecListenerTlsCertificateSds {
             return this;
         }
         public VirtualNodeSpecListenerTlsCertificateSds build() {
-            final var o = new VirtualNodeSpecListenerTlsCertificateSds();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTlsCertificateSds();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

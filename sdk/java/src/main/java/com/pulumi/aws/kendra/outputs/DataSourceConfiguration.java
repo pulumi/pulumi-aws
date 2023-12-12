@@ -68,10 +68,10 @@ public final class DataSourceConfiguration {
             return this;
         }
         public DataSourceConfiguration build() {
-            final var o = new DataSourceConfiguration();
-            o.s3Configuration = s3Configuration;
-            o.webCrawlerConfiguration = webCrawlerConfiguration;
-            return o;
+            final var _resultValue = new DataSourceConfiguration();
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.webCrawlerConfiguration = webCrawlerConfiguration;
+            return _resultValue;
         }
     }
 }

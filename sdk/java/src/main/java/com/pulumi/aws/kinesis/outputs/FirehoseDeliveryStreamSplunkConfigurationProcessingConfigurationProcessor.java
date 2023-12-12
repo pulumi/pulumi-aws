@@ -71,10 +71,10 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
             return this;
         }
         public FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor build() {
-            final var o = new FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor();
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor();
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

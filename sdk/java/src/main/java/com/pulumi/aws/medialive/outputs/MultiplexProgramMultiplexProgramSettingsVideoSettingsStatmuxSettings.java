@@ -86,11 +86,11 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxS
             return this;
         }
         public MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings build() {
-            final var o = new MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings();
-            o.maximumBitrate = maximumBitrate;
-            o.minimumBitrate = minimumBitrate;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings();
+            _resultValue.maximumBitrate = maximumBitrate;
+            _resultValue.minimumBitrate = minimumBitrate;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

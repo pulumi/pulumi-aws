@@ -105,12 +105,12 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultReso
             return this;
         }
         public DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec build() {
-            final var o = new DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec();
-            o.instanceType = instanceType;
-            o.lifecycleConfigArn = lifecycleConfigArn;
-            o.sagemakerImageArn = sagemakerImageArn;
-            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
-            return o;
+            final var _resultValue = new DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec();
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycleConfigArn = lifecycleConfigArn;
+            _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return _resultValue;
         }
     }
 }

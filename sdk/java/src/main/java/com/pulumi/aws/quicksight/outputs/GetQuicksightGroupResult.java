@@ -138,15 +138,15 @@ public final class GetQuicksightGroupResult {
             return this;
         }
         public GetQuicksightGroupResult build() {
-            final var o = new GetQuicksightGroupResult();
-            o.arn = arn;
-            o.awsAccountId = awsAccountId;
-            o.description = description;
-            o.groupName = groupName;
-            o.id = id;
-            o.namespace = namespace;
-            o.principalId = principalId;
-            return o;
+            final var _resultValue = new GetQuicksightGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.awsAccountId = awsAccountId;
+            _resultValue.description = description;
+            _resultValue.groupName = groupName;
+            _resultValue.id = id;
+            _resultValue.namespace = namespace;
+            _resultValue.principalId = principalId;
+            return _resultValue;
         }
     }
 }

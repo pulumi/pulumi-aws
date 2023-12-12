@@ -224,17 +224,17 @@ public final class IntentSlot {
             return this;
         }
         public IntentSlot build() {
-            final var o = new IntentSlot();
-            o.description = description;
-            o.name = name;
-            o.priority = priority;
-            o.responseCard = responseCard;
-            o.sampleUtterances = sampleUtterances;
-            o.slotConstraint = slotConstraint;
-            o.slotType = slotType;
-            o.slotTypeVersion = slotTypeVersion;
-            o.valueElicitationPrompt = valueElicitationPrompt;
-            return o;
+            final var _resultValue = new IntentSlot();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.responseCard = responseCard;
+            _resultValue.sampleUtterances = sampleUtterances;
+            _resultValue.slotConstraint = slotConstraint;
+            _resultValue.slotType = slotType;
+            _resultValue.slotTypeVersion = slotTypeVersion;
+            _resultValue.valueElicitationPrompt = valueElicitationPrompt;
+            return _resultValue;
         }
     }
 }

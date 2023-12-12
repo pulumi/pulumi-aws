@@ -42,9 +42,9 @@ public final class GetDataSetColumnGroup {
             return geoSpatialColumnGroups(List.of(geoSpatialColumnGroups));
         }
         public GetDataSetColumnGroup build() {
-            final var o = new GetDataSetColumnGroup();
-            o.geoSpatialColumnGroups = geoSpatialColumnGroups;
-            return o;
+            final var _resultValue = new GetDataSetColumnGroup();
+            _resultValue.geoSpatialColumnGroups = geoSpatialColumnGroups;
+            return _resultValue;
         }
     }
 }

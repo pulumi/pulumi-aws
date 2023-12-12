@@ -87,11 +87,11 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition();
-            o.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
-            o.conditionOnValue = conditionOnValue;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition();
+            _resultValue.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
+            _resultValue.conditionOnValue = conditionOnValue;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

@@ -73,10 +73,10 @@ public final class GetCoipPoolFilter {
             return values(List.of(values));
         }
         public GetCoipPoolFilter build() {
-            final var o = new GetCoipPoolFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetCoipPoolFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

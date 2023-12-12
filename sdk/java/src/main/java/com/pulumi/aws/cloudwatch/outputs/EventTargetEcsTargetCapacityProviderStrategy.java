@@ -87,11 +87,11 @@ public final class EventTargetEcsTargetCapacityProviderStrategy {
             return this;
         }
         public EventTargetEcsTargetCapacityProviderStrategy build() {
-            final var o = new EventTargetEcsTargetCapacityProviderStrategy();
-            o.base = base;
-            o.capacityProvider = capacityProvider;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new EventTargetEcsTargetCapacityProviderStrategy();
+            _resultValue.base = base;
+            _resultValue.capacityProvider = capacityProvider;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

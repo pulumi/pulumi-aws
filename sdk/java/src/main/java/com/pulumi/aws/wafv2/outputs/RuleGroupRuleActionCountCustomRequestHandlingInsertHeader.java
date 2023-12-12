@@ -65,10 +65,10 @@ public final class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
             return this;
         }
         public RuleGroupRuleActionCountCustomRequestHandlingInsertHeader build() {
-            final var o = new RuleGroupRuleActionCountCustomRequestHandlingInsertHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionCountCustomRequestHandlingInsertHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

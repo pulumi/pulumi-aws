@@ -182,16 +182,16 @@ public final class IdentityProviderConfigOidc {
             return this;
         }
         public IdentityProviderConfigOidc build() {
-            final var o = new IdentityProviderConfigOidc();
-            o.clientId = clientId;
-            o.groupsClaim = groupsClaim;
-            o.groupsPrefix = groupsPrefix;
-            o.identityProviderConfigName = identityProviderConfigName;
-            o.issuerUrl = issuerUrl;
-            o.requiredClaims = requiredClaims;
-            o.usernameClaim = usernameClaim;
-            o.usernamePrefix = usernamePrefix;
-            return o;
+            final var _resultValue = new IdentityProviderConfigOidc();
+            _resultValue.clientId = clientId;
+            _resultValue.groupsClaim = groupsClaim;
+            _resultValue.groupsPrefix = groupsPrefix;
+            _resultValue.identityProviderConfigName = identityProviderConfigName;
+            _resultValue.issuerUrl = issuerUrl;
+            _resultValue.requiredClaims = requiredClaims;
+            _resultValue.usernameClaim = usernameClaim;
+            _resultValue.usernamePrefix = usernamePrefix;
+            return _resultValue;
         }
     }
 }

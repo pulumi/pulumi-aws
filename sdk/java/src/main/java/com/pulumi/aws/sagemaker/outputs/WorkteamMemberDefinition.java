@@ -68,10 +68,10 @@ public final class WorkteamMemberDefinition {
             return this;
         }
         public WorkteamMemberDefinition build() {
-            final var o = new WorkteamMemberDefinition();
-            o.cognitoMemberDefinition = cognitoMemberDefinition;
-            o.oidcMemberDefinition = oidcMemberDefinition;
-            return o;
+            final var _resultValue = new WorkteamMemberDefinition();
+            _resultValue.cognitoMemberDefinition = cognitoMemberDefinition;
+            _resultValue.oidcMemberDefinition = oidcMemberDefinition;
+            return _resultValue;
         }
     }
 }

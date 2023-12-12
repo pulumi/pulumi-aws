@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             return this;
         }
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint();
-            o.fallbackBehavior = fallbackBehavior;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            return _resultValue;
         }
     }
 }

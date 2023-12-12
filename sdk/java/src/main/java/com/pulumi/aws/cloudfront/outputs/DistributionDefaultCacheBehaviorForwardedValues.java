@@ -113,12 +113,12 @@ public final class DistributionDefaultCacheBehaviorForwardedValues {
             return queryStringCacheKeys(List.of(queryStringCacheKeys));
         }
         public DistributionDefaultCacheBehaviorForwardedValues build() {
-            final var o = new DistributionDefaultCacheBehaviorForwardedValues();
-            o.cookies = cookies;
-            o.headers = headers;
-            o.queryString = queryString;
-            o.queryStringCacheKeys = queryStringCacheKeys;
-            return o;
+            final var _resultValue = new DistributionDefaultCacheBehaviorForwardedValues();
+            _resultValue.cookies = cookies;
+            _resultValue.headers = headers;
+            _resultValue.queryString = queryString;
+            _resultValue.queryStringCacheKeys = queryStringCacheKeys;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ConfigurationSetVdmOptionsGuardianOptions {
             return this;
         }
         public ConfigurationSetVdmOptionsGuardianOptions build() {
-            final var o = new ConfigurationSetVdmOptionsGuardianOptions();
-            o.optimizedSharedDelivery = optimizedSharedDelivery;
-            return o;
+            final var _resultValue = new ConfigurationSetVdmOptionsGuardianOptions();
+            _resultValue.optimizedSharedDelivery = optimizedSharedDelivery;
+            return _resultValue;
         }
     }
 }

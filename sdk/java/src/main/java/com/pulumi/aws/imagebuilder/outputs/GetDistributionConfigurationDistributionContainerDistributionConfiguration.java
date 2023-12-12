@@ -92,11 +92,11 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
             return targetRepositories(List.of(targetRepositories));
         }
         public GetDistributionConfigurationDistributionContainerDistributionConfiguration build() {
-            final var o = new GetDistributionConfigurationDistributionContainerDistributionConfiguration();
-            o.containerTags = containerTags;
-            o.description = description;
-            o.targetRepositories = targetRepositories;
-            return o;
+            final var _resultValue = new GetDistributionConfigurationDistributionContainerDistributionConfiguration();
+            _resultValue.containerTags = containerTags;
+            _resultValue.description = description;
+            _resultValue.targetRepositories = targetRepositories;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class EventSourceMappingScalingConfig {
             return this;
         }
         public EventSourceMappingScalingConfig build() {
-            final var o = new EventSourceMappingScalingConfig();
-            o.maximumConcurrency = maximumConcurrency;
-            return o;
+            final var _resultValue = new EventSourceMappingScalingConfig();
+            _resultValue.maximumConcurrency = maximumConcurrency;
+            return _resultValue;
         }
     }
 }

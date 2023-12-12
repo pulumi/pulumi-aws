@@ -25,8 +25,8 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTe
         }
 
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings build() {
-            final var o = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings();
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings();
+            return _resultValue;
         }
     }
 }

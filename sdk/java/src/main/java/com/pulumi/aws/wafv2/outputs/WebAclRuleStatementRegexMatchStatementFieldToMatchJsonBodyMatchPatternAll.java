@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMat
         }
 
         public WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll build() {
-            final var o = new WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll();
+            return _resultValue;
         }
     }
 }

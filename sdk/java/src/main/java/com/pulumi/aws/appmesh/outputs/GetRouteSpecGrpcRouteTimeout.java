@@ -57,10 +57,10 @@ public final class GetRouteSpecGrpcRouteTimeout {
             return perRequests(List.of(perRequests));
         }
         public GetRouteSpecGrpcRouteTimeout build() {
-            final var o = new GetRouteSpecGrpcRouteTimeout();
-            o.idles = idles;
-            o.perRequests = perRequests;
-            return o;
+            final var _resultValue = new GetRouteSpecGrpcRouteTimeout();
+            _resultValue.idles = idles;
+            _resultValue.perRequests = perRequests;
+            return _resultValue;
         }
     }
 }

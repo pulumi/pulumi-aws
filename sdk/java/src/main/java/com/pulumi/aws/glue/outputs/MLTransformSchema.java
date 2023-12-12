@@ -67,10 +67,10 @@ public final class MLTransformSchema {
             return this;
         }
         public MLTransformSchema build() {
-            final var o = new MLTransformSchema();
-            o.dataType = dataType;
-            o.name = name;
-            return o;
+            final var _resultValue = new MLTransformSchema();
+            _resultValue.dataType = dataType;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -124,13 +124,13 @@ public final class ClusterKerberosAttributes {
             return this;
         }
         public ClusterKerberosAttributes build() {
-            final var o = new ClusterKerberosAttributes();
-            o.adDomainJoinPassword = adDomainJoinPassword;
-            o.adDomainJoinUser = adDomainJoinUser;
-            o.crossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
-            o.kdcAdminPassword = kdcAdminPassword;
-            o.realm = realm;
-            return o;
+            final var _resultValue = new ClusterKerberosAttributes();
+            _resultValue.adDomainJoinPassword = adDomainJoinPassword;
+            _resultValue.adDomainJoinUser = adDomainJoinUser;
+            _resultValue.crossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
+            _resultValue.kdcAdminPassword = kdcAdminPassword;
+            _resultValue.realm = realm;
+            return _resultValue;
         }
     }
 }

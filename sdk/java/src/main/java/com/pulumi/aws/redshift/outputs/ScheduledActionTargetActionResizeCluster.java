@@ -126,13 +126,13 @@ public final class ScheduledActionTargetActionResizeCluster {
             return this;
         }
         public ScheduledActionTargetActionResizeCluster build() {
-            final var o = new ScheduledActionTargetActionResizeCluster();
-            o.classic = classic;
-            o.clusterIdentifier = clusterIdentifier;
-            o.clusterType = clusterType;
-            o.nodeType = nodeType;
-            o.numberOfNodes = numberOfNodes;
-            return o;
+            final var _resultValue = new ScheduledActionTargetActionResizeCluster();
+            _resultValue.classic = classic;
+            _resultValue.clusterIdentifier = clusterIdentifier;
+            _resultValue.clusterType = clusterType;
+            _resultValue.nodeType = nodeType;
+            _resultValue.numberOfNodes = numberOfNodes;
+            return _resultValue;
         }
     }
 }

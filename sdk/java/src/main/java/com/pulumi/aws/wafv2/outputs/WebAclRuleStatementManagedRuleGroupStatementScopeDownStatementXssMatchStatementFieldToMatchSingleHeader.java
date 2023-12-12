@@ -46,9 +46,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

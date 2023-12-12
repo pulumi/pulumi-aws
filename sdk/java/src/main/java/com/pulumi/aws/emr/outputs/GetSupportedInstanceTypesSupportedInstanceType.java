@@ -239,19 +239,19 @@ public final class GetSupportedInstanceTypesSupportedInstanceType {
             return this;
         }
         public GetSupportedInstanceTypesSupportedInstanceType build() {
-            final var o = new GetSupportedInstanceTypesSupportedInstanceType();
-            o.architecture = architecture;
-            o.ebsOptimizedAvailable = ebsOptimizedAvailable;
-            o.ebsOptimizedByDefault = ebsOptimizedByDefault;
-            o.ebsStorageOnly = ebsStorageOnly;
-            o.instanceFamilyId = instanceFamilyId;
-            o.is64BitsOnly = is64BitsOnly;
-            o.memoryGb = memoryGb;
-            o.numberOfDisks = numberOfDisks;
-            o.storageGb = storageGb;
-            o.type = type;
-            o.vcpu = vcpu;
-            return o;
+            final var _resultValue = new GetSupportedInstanceTypesSupportedInstanceType();
+            _resultValue.architecture = architecture;
+            _resultValue.ebsOptimizedAvailable = ebsOptimizedAvailable;
+            _resultValue.ebsOptimizedByDefault = ebsOptimizedByDefault;
+            _resultValue.ebsStorageOnly = ebsStorageOnly;
+            _resultValue.instanceFamilyId = instanceFamilyId;
+            _resultValue.is64BitsOnly = is64BitsOnly;
+            _resultValue.memoryGb = memoryGb;
+            _resultValue.numberOfDisks = numberOfDisks;
+            _resultValue.storageGb = storageGb;
+            _resultValue.type = type;
+            _resultValue.vcpu = vcpu;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class AnalyticsApplicationInputsSchemaRecordColumn {
             return this;
         }
         public AnalyticsApplicationInputsSchemaRecordColumn build() {
-            final var o = new AnalyticsApplicationInputsSchemaRecordColumn();
-            o.mapping = mapping;
-            o.name = name;
-            o.sqlType = sqlType;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsSchemaRecordColumn();
+            _resultValue.mapping = mapping;
+            _resultValue.name = name;
+            _resultValue.sqlType = sqlType;
+            return _resultValue;
         }
     }
 }

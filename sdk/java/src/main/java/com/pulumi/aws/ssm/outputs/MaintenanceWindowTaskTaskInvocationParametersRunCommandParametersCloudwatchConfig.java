@@ -68,10 +68,10 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig();
-            o.cloudwatchLogGroupName = cloudwatchLogGroupName;
-            o.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig();
+            _resultValue.cloudwatchLogGroupName = cloudwatchLogGroupName;
+            _resultValue.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
+            return _resultValue;
         }
     }
 }

@@ -126,13 +126,13 @@ public final class PipeSourceParametersRabbitmqBrokerParameters {
             return this;
         }
         public PipeSourceParametersRabbitmqBrokerParameters build() {
-            final var o = new PipeSourceParametersRabbitmqBrokerParameters();
-            o.batchSize = batchSize;
-            o.credentials = credentials;
-            o.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
-            o.queueName = queueName;
-            o.virtualHost = virtualHost;
-            return o;
+            final var _resultValue = new PipeSourceParametersRabbitmqBrokerParameters();
+            _resultValue.batchSize = batchSize;
+            _resultValue.credentials = credentials;
+            _resultValue.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
+            _resultValue.queueName = queueName;
+            _resultValue.virtualHost = virtualHost;
+            return _resultValue;
         }
     }
 }

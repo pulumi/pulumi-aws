@@ -244,20 +244,20 @@ public final class GetAuthorizerResult {
             return this;
         }
         public GetAuthorizerResult build() {
-            final var o = new GetAuthorizerResult();
-            o.arn = arn;
-            o.authorizerCredentials = authorizerCredentials;
-            o.authorizerId = authorizerId;
-            o.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
-            o.authorizerUri = authorizerUri;
-            o.id = id;
-            o.identitySource = identitySource;
-            o.identityValidationExpression = identityValidationExpression;
-            o.name = name;
-            o.providerArns = providerArns;
-            o.restApiId = restApiId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetAuthorizerResult();
+            _resultValue.arn = arn;
+            _resultValue.authorizerCredentials = authorizerCredentials;
+            _resultValue.authorizerId = authorizerId;
+            _resultValue.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
+            _resultValue.authorizerUri = authorizerUri;
+            _resultValue.id = id;
+            _resultValue.identitySource = identitySource;
+            _resultValue.identityValidationExpression = identityValidationExpression;
+            _resultValue.name = name;
+            _resultValue.providerArns = providerArns;
+            _resultValue.restApiId = restApiId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

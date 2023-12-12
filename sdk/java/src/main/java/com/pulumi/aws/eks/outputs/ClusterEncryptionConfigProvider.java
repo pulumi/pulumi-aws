@@ -46,9 +46,9 @@ public final class ClusterEncryptionConfigProvider {
             return this;
         }
         public ClusterEncryptionConfigProvider build() {
-            final var o = new ClusterEncryptionConfigProvider();
-            o.keyArn = keyArn;
-            return o;
+            final var _resultValue = new ClusterEncryptionConfigProvider();
+            _resultValue.keyArn = keyArn;
+            return _resultValue;
         }
     }
 }

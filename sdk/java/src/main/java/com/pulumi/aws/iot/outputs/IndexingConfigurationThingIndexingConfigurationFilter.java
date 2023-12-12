@@ -51,9 +51,9 @@ public final class IndexingConfigurationThingIndexingConfigurationFilter {
             return namedShadowNames(List.of(namedShadowNames));
         }
         public IndexingConfigurationThingIndexingConfigurationFilter build() {
-            final var o = new IndexingConfigurationThingIndexingConfigurationFilter();
-            o.namedShadowNames = namedShadowNames;
-            return o;
+            final var _resultValue = new IndexingConfigurationThingIndexingConfigurationFilter();
+            _resultValue.namedShadowNames = namedShadowNames;
+            return _resultValue;
         }
     }
 }

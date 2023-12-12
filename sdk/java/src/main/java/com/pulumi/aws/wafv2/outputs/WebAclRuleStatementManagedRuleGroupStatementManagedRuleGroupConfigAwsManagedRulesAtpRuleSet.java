@@ -108,12 +108,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet();
-            o.enableRegexInPath = enableRegexInPath;
-            o.loginPath = loginPath;
-            o.requestInspection = requestInspection;
-            o.responseInspection = responseInspection;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet();
+            _resultValue.enableRegexInPath = enableRegexInPath;
+            _resultValue.loginPath = loginPath;
+            _resultValue.requestInspection = requestInspection;
+            _resultValue.responseInspection = responseInspection;
+            return _resultValue;
         }
     }
 }

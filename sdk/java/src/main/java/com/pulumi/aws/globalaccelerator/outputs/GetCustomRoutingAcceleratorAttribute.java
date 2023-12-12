@@ -61,11 +61,11 @@ public final class GetCustomRoutingAcceleratorAttribute {
             return this;
         }
         public GetCustomRoutingAcceleratorAttribute build() {
-            final var o = new GetCustomRoutingAcceleratorAttribute();
-            o.flowLogsEnabled = flowLogsEnabled;
-            o.flowLogsS3Bucket = flowLogsS3Bucket;
-            o.flowLogsS3Prefix = flowLogsS3Prefix;
-            return o;
+            final var _resultValue = new GetCustomRoutingAcceleratorAttribute();
+            _resultValue.flowLogsEnabled = flowLogsEnabled;
+            _resultValue.flowLogsS3Bucket = flowLogsS3Bucket;
+            _resultValue.flowLogsS3Prefix = flowLogsS3Prefix;
+            return _resultValue;
         }
     }
 }

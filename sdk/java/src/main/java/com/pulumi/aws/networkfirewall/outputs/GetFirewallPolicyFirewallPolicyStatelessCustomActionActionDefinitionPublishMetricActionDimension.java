@@ -38,9 +38,9 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDef
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension build() {
-            final var o = new GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension();
-            o.value = value;
-            return o;
+            final var _resultValue = new GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

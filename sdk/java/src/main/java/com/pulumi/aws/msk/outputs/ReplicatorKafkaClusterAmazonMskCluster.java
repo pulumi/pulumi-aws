@@ -46,9 +46,9 @@ public final class ReplicatorKafkaClusterAmazonMskCluster {
             return this;
         }
         public ReplicatorKafkaClusterAmazonMskCluster build() {
-            final var o = new ReplicatorKafkaClusterAmazonMskCluster();
-            o.mskClusterArn = mskClusterArn;
-            return o;
+            final var _resultValue = new ReplicatorKafkaClusterAmazonMskCluster();
+            _resultValue.mskClusterArn = mskClusterArn;
+            return _resultValue;
         }
     }
 }

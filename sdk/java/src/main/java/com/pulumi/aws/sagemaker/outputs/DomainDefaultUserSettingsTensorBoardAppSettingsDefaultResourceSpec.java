@@ -105,12 +105,12 @@ public final class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourc
             return this;
         }
         public DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec build() {
-            final var o = new DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec();
-            o.instanceType = instanceType;
-            o.lifecycleConfigArn = lifecycleConfigArn;
-            o.sagemakerImageArn = sagemakerImageArn;
-            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec();
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycleConfigArn = lifecycleConfigArn;
+            _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return _resultValue;
         }
     }
 }

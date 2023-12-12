@@ -46,9 +46,9 @@ public final class CatalogTableOpenTableFormatInput {
             return this;
         }
         public CatalogTableOpenTableFormatInput build() {
-            final var o = new CatalogTableOpenTableFormatInput();
-            o.icebergInput = icebergInput;
-            return o;
+            final var _resultValue = new CatalogTableOpenTableFormatInput();
+            _resultValue.icebergInput = icebergInput;
+            return _resultValue;
         }
     }
 }

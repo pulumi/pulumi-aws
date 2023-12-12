@@ -67,10 +67,10 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
             return this;
         }
         public ResourceSetResourceDnsTargetResourceTargetResourceR53Resource build() {
-            final var o = new ResourceSetResourceDnsTargetResourceTargetResourceR53Resource();
-            o.domainName = domainName;
-            o.recordSetId = recordSetId;
-            return o;
+            final var _resultValue = new ResourceSetResourceDnsTargetResourceTargetResourceR53Resource();
+            _resultValue.domainName = domainName;
+            _resultValue.recordSetId = recordSetId;
+            return _resultValue;
         }
     }
 }

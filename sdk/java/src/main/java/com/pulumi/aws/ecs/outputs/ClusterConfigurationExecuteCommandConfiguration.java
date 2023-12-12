@@ -87,11 +87,11 @@ public final class ClusterConfigurationExecuteCommandConfiguration {
             return this;
         }
         public ClusterConfigurationExecuteCommandConfiguration build() {
-            final var o = new ClusterConfigurationExecuteCommandConfiguration();
-            o.kmsKeyId = kmsKeyId;
-            o.logConfiguration = logConfiguration;
-            o.logging = logging;
-            return o;
+            final var _resultValue = new ClusterConfigurationExecuteCommandConfiguration();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.logConfiguration = logConfiguration;
+            _resultValue.logging = logging;
+            return _resultValue;
         }
     }
 }

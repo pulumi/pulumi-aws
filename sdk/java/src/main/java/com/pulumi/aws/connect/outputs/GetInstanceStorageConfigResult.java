@@ -103,13 +103,13 @@ public final class GetInstanceStorageConfigResult {
             return storageConfigs(List.of(storageConfigs));
         }
         public GetInstanceStorageConfigResult build() {
-            final var o = new GetInstanceStorageConfigResult();
-            o.associationId = associationId;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.resourceType = resourceType;
-            o.storageConfigs = storageConfigs;
-            return o;
+            final var _resultValue = new GetInstanceStorageConfigResult();
+            _resultValue.associationId = associationId;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.resourceType = resourceType;
+            _resultValue.storageConfigs = storageConfigs;
+            return _resultValue;
         }
     }
 }

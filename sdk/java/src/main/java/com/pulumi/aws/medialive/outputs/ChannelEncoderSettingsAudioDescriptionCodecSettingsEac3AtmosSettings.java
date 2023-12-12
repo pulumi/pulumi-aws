@@ -163,15 +163,15 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings();
-            o.bitrate = bitrate;
-            o.codingMode = codingMode;
-            o.dialnorm = dialnorm;
-            o.drcLine = drcLine;
-            o.drcRf = drcRf;
-            o.heightTrim = heightTrim;
-            o.surroundTrim = surroundTrim;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings();
+            _resultValue.bitrate = bitrate;
+            _resultValue.codingMode = codingMode;
+            _resultValue.dialnorm = dialnorm;
+            _resultValue.drcLine = drcLine;
+            _resultValue.drcRf = drcRf;
+            _resultValue.heightTrim = heightTrim;
+            _resultValue.surroundTrim = surroundTrim;
+            return _resultValue;
         }
     }
 }

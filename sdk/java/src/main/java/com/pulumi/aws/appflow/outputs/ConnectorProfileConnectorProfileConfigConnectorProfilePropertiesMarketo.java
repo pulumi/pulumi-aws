@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo();
-            o.instanceUrl = instanceUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo();
+            _resultValue.instanceUrl = instanceUrl;
+            return _resultValue;
         }
     }
 }

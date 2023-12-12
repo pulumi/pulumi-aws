@@ -109,12 +109,12 @@ public final class RemediationConfigurationParameter {
             return staticValues(List.of(staticValues));
         }
         public RemediationConfigurationParameter build() {
-            final var o = new RemediationConfigurationParameter();
-            o.name = name;
-            o.resourceValue = resourceValue;
-            o.staticValue = staticValue;
-            o.staticValues = staticValues;
-            return o;
+            final var _resultValue = new RemediationConfigurationParameter();
+            _resultValue.name = name;
+            _resultValue.resourceValue = resourceValue;
+            _resultValue.staticValue = staticValue;
+            _resultValue.staticValues = staticValues;
+            return _resultValue;
         }
     }
 }

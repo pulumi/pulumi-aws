@@ -65,10 +65,10 @@ public final class TableSchemaDefinitionColumn {
             return this;
         }
         public TableSchemaDefinitionColumn build() {
-            final var o = new TableSchemaDefinitionColumn();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new TableSchemaDefinitionColumn();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

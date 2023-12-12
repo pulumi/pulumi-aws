@@ -38,9 +38,9 @@ public final class V2modelsBotVersionLocaleSpecification {
             return this;
         }
         public V2modelsBotVersionLocaleSpecification build() {
-            final var o = new V2modelsBotVersionLocaleSpecification();
-            o.sourceBotVersion = sourceBotVersion;
-            return o;
+            final var _resultValue = new V2modelsBotVersionLocaleSpecification();
+            _resultValue.sourceBotVersion = sourceBotVersion;
+            return _resultValue;
         }
     }
 }

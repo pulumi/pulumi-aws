@@ -42,9 +42,9 @@ public final class GetVirtualNodeSpecListenerTimeoutTcp {
             return idles(List.of(idles));
         }
         public GetVirtualNodeSpecListenerTimeoutTcp build() {
-            final var o = new GetVirtualNodeSpecListenerTimeoutTcp();
-            o.idles = idles;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTimeoutTcp();
+            _resultValue.idles = idles;
+            return _resultValue;
         }
     }
 }

@@ -133,13 +133,13 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
             return snapshotConfigurations(List.of(snapshotConfigurations));
         }
         public GetDistributionConfigurationDistributionFastLaunchConfiguration build() {
-            final var o = new GetDistributionConfigurationDistributionFastLaunchConfiguration();
-            o.accountId = accountId;
-            o.enabled = enabled;
-            o.launchTemplates = launchTemplates;
-            o.maxParallelLaunches = maxParallelLaunches;
-            o.snapshotConfigurations = snapshotConfigurations;
-            return o;
+            final var _resultValue = new GetDistributionConfigurationDistributionFastLaunchConfiguration();
+            _resultValue.accountId = accountId;
+            _resultValue.enabled = enabled;
+            _resultValue.launchTemplates = launchTemplates;
+            _resultValue.maxParallelLaunches = maxParallelLaunches;
+            _resultValue.snapshotConfigurations = snapshotConfigurations;
+            return _resultValue;
         }
     }
 }

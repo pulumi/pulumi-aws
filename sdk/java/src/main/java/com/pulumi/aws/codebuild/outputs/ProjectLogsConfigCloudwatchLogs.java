@@ -86,11 +86,11 @@ public final class ProjectLogsConfigCloudwatchLogs {
             return this;
         }
         public ProjectLogsConfigCloudwatchLogs build() {
-            final var o = new ProjectLogsConfigCloudwatchLogs();
-            o.groupName = groupName;
-            o.status = status;
-            o.streamName = streamName;
-            return o;
+            final var _resultValue = new ProjectLogsConfigCloudwatchLogs();
+            _resultValue.groupName = groupName;
+            _resultValue.status = status;
+            _resultValue.streamName = streamName;
+            return _resultValue;
         }
     }
 }

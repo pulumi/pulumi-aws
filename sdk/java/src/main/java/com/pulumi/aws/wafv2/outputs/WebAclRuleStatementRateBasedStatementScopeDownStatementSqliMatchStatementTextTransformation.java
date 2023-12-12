@@ -66,10 +66,10 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

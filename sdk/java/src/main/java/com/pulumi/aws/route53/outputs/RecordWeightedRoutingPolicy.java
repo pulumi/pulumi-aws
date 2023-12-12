@@ -46,9 +46,9 @@ public final class RecordWeightedRoutingPolicy {
             return this;
         }
         public RecordWeightedRoutingPolicy build() {
-            final var o = new RecordWeightedRoutingPolicy();
-            o.weight = weight;
-            return o;
+            final var _resultValue = new RecordWeightedRoutingPolicy();
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetUserExternalId {
             return this;
         }
         public GetUserExternalId build() {
-            final var o = new GetUserExternalId();
-            o.id = id;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new GetUserExternalId();
+            _resultValue.id = id;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class GroupInsightsConfiguration {
             return this;
         }
         public GroupInsightsConfiguration build() {
-            final var o = new GroupInsightsConfiguration();
-            o.insightsEnabled = insightsEnabled;
-            o.notificationsEnabled = notificationsEnabled;
-            return o;
+            final var _resultValue = new GroupInsightsConfiguration();
+            _resultValue.insightsEnabled = insightsEnabled;
+            _resultValue.notificationsEnabled = notificationsEnabled;
+            return _resultValue;
         }
     }
 }

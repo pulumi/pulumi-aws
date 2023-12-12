@@ -62,11 +62,11 @@ public final class JobQueueTimeouts {
             return this;
         }
         public JobQueueTimeouts build() {
-            final var o = new JobQueueTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new JobQueueTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
             return this;
         }
         public InstanceLoggingConfigurationAccessLogsCloudwatchLogs build() {
-            final var o = new InstanceLoggingConfigurationAccessLogsCloudwatchLogs();
-            o.enabled = enabled;
-            o.logGroup = logGroup;
-            return o;
+            final var _resultValue = new InstanceLoggingConfigurationAccessLogsCloudwatchLogs();
+            _resultValue.enabled = enabled;
+            _resultValue.logGroup = logGroup;
+            return _resultValue;
         }
     }
 }

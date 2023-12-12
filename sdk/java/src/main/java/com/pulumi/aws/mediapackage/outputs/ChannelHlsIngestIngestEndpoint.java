@@ -86,11 +86,11 @@ public final class ChannelHlsIngestIngestEndpoint {
             return this;
         }
         public ChannelHlsIngestIngestEndpoint build() {
-            final var o = new ChannelHlsIngestIngestEndpoint();
-            o.password = password;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new ChannelHlsIngestIngestEndpoint();
+            _resultValue.password = password;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

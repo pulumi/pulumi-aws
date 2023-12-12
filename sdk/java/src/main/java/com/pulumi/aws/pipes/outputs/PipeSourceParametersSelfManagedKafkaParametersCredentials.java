@@ -105,12 +105,12 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentials {
             return this;
         }
         public PipeSourceParametersSelfManagedKafkaParametersCredentials build() {
-            final var o = new PipeSourceParametersSelfManagedKafkaParametersCredentials();
-            o.basicAuth = basicAuth;
-            o.clientCertificateTlsAuth = clientCertificateTlsAuth;
-            o.saslScram256Auth = saslScram256Auth;
-            o.saslScram512Auth = saslScram512Auth;
-            return o;
+            final var _resultValue = new PipeSourceParametersSelfManagedKafkaParametersCredentials();
+            _resultValue.basicAuth = basicAuth;
+            _resultValue.clientCertificateTlsAuth = clientCertificateTlsAuth;
+            _resultValue.saslScram256Auth = saslScram256Auth;
+            _resultValue.saslScram512Auth = saslScram512Auth;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class ReceiptRuleAddHeaderAction {
             return this;
         }
         public ReceiptRuleAddHeaderAction build() {
-            final var o = new ReceiptRuleAddHeaderAction();
-            o.headerName = headerName;
-            o.headerValue = headerValue;
-            o.position = position;
-            return o;
+            final var _resultValue = new ReceiptRuleAddHeaderAction();
+            _resultValue.headerName = headerName;
+            _resultValue.headerValue = headerValue;
+            _resultValue.position = position;
+            return _resultValue;
         }
     }
 }

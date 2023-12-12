@@ -106,12 +106,12 @@ public final class EventTargetBatchTarget {
             return this;
         }
         public EventTargetBatchTarget build() {
-            final var o = new EventTargetBatchTarget();
-            o.arraySize = arraySize;
-            o.jobAttempts = jobAttempts;
-            o.jobDefinition = jobDefinition;
-            o.jobName = jobName;
-            return o;
+            final var _resultValue = new EventTargetBatchTarget();
+            _resultValue.arraySize = arraySize;
+            _resultValue.jobAttempts = jobAttempts;
+            _resultValue.jobDefinition = jobDefinition;
+            _resultValue.jobName = jobName;
+            return _resultValue;
         }
     }
 }

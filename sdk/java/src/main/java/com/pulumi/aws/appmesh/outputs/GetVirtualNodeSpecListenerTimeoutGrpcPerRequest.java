@@ -50,10 +50,10 @@ public final class GetVirtualNodeSpecListenerTimeoutGrpcPerRequest {
             return this;
         }
         public GetVirtualNodeSpecListenerTimeoutGrpcPerRequest build() {
-            final var o = new GetVirtualNodeSpecListenerTimeoutGrpcPerRequest();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTimeoutGrpcPerRequest();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

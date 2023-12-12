@@ -67,10 +67,10 @@ public final class FeatureEvaluationRule {
             return this;
         }
         public FeatureEvaluationRule build() {
-            final var o = new FeatureEvaluationRule();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new FeatureEvaluationRule();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

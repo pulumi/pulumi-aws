@@ -49,10 +49,10 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateF
             return this;
         }
         public GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile build() {
-            final var o = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile();
-            o.certificateChain = certificateChain;
-            o.privateKey = privateKey;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile();
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.privateKey = privateKey;
+            return _resultValue;
         }
     }
 }

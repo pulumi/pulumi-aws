@@ -110,12 +110,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce();
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.idFieldNames = idFieldNames;
-            o.object = object;
-            o.writeOperationType = writeOperationType;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce();
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.idFieldNames = idFieldNames;
+            _resultValue.object = object;
+            _resultValue.writeOperationType = writeOperationType;
+            return _resultValue;
         }
     }
 }

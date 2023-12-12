@@ -72,10 +72,10 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters();
-            o.csv = csv;
-            o.json = json;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters();
+            _resultValue.csv = csv;
+            _resultValue.json = json;
+            return _resultValue;
         }
     }
 }

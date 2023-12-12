@@ -48,9 +48,9 @@ public final class RuleGroupRuleActionCount {
             return this;
         }
         public RuleGroupRuleActionCount build() {
-            final var o = new RuleGroupRuleActionCount();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionCount();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

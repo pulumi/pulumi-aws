@@ -25,8 +25,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplex
         }
 
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings();
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings();
+            return _resultValue;
         }
     }
 }

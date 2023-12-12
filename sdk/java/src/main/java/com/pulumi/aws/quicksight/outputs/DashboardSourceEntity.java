@@ -48,9 +48,9 @@ public final class DashboardSourceEntity {
             return this;
         }
         public DashboardSourceEntity build() {
-            final var o = new DashboardSourceEntity();
-            o.sourceTemplate = sourceTemplate;
-            return o;
+            final var _resultValue = new DashboardSourceEntity();
+            _resultValue.sourceTemplate = sourceTemplate;
+            return _resultValue;
         }
     }
 }

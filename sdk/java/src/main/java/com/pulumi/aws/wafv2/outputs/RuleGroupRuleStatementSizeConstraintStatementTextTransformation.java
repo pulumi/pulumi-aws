@@ -66,10 +66,10 @@ public final class RuleGroupRuleStatementSizeConstraintStatementTextTransformati
             return this;
         }
         public RuleGroupRuleStatementSizeConstraintStatementTextTransformation build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

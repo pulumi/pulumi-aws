@@ -87,11 +87,11 @@ public final class ExtensionParameter {
             return this;
         }
         public ExtensionParameter build() {
-            final var o = new ExtensionParameter();
-            o.description = description;
-            o.name = name;
-            o.required = required;
-            return o;
+            final var _resultValue = new ExtensionParameter();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.required = required;
+            return _resultValue;
         }
     }
 }

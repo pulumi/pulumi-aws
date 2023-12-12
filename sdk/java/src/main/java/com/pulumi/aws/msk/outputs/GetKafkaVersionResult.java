@@ -92,12 +92,12 @@ public final class GetKafkaVersionResult {
             return this;
         }
         public GetKafkaVersionResult build() {
-            final var o = new GetKafkaVersionResult();
-            o.id = id;
-            o.preferredVersions = preferredVersions;
-            o.status = status;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetKafkaVersionResult();
+            _resultValue.id = id;
+            _resultValue.preferredVersions = preferredVersions;
+            _resultValue.status = status;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

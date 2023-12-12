@@ -93,11 +93,11 @@ public final class GetTagsFilterDimension {
             return values(List.of(values));
         }
         public GetTagsFilterDimension build() {
-            final var o = new GetTagsFilterDimension();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetTagsFilterDimension();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

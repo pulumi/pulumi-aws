@@ -50,10 +50,10 @@ public final class GetRouteSpecHttp2RouteTimeoutIdle {
             return this;
         }
         public GetRouteSpecHttp2RouteTimeoutIdle build() {
-            final var o = new GetRouteSpecHttp2RouteTimeoutIdle();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteTimeoutIdle();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetMulticastDomainSource {
             return this;
         }
         public GetMulticastDomainSource build() {
-            final var o = new GetMulticastDomainSource();
-            o.groupIpAddress = groupIpAddress;
-            o.networkInterfaceId = networkInterfaceId;
-            return o;
+            final var _resultValue = new GetMulticastDomainSource();
+            _resultValue.groupIpAddress = groupIpAddress;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            return _resultValue;
         }
     }
 }

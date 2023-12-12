@@ -106,12 +106,12 @@ public final class DomainDomainSettingsRStudioServerProDomainSettings {
             return this;
         }
         public DomainDomainSettingsRStudioServerProDomainSettings build() {
-            final var o = new DomainDomainSettingsRStudioServerProDomainSettings();
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.domainExecutionRoleArn = domainExecutionRoleArn;
-            o.rStudioConnectUrl = rStudioConnectUrl;
-            o.rStudioPackageManagerUrl = rStudioPackageManagerUrl;
-            return o;
+            final var _resultValue = new DomainDomainSettingsRStudioServerProDomainSettings();
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.domainExecutionRoleArn = domainExecutionRoleArn;
+            _resultValue.rStudioConnectUrl = rStudioConnectUrl;
+            _resultValue.rStudioPackageManagerUrl = rStudioPackageManagerUrl;
+            return _resultValue;
         }
     }
 }

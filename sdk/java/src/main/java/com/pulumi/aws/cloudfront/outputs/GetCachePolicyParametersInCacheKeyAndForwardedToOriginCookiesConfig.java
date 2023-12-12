@@ -70,10 +70,10 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookies
             return cookies(List.of(cookies));
         }
         public GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig build() {
-            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig();
-            o.cookieBehavior = cookieBehavior;
-            o.cookies = cookies;
-            return o;
+            final var _resultValue = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig();
+            _resultValue.cookieBehavior = cookieBehavior;
+            _resultValue.cookies = cookies;
+            return _resultValue;
         }
     }
 }

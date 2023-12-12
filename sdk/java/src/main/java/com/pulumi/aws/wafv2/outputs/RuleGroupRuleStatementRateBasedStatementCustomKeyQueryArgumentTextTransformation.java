@@ -66,10 +66,10 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumen
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

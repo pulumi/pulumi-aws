@@ -65,10 +65,10 @@ public final class MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
             return this;
         }
         public MultiplexProgramMultiplexProgramSettingsServiceDescriptor build() {
-            final var o = new MultiplexProgramMultiplexProgramSettingsServiceDescriptor();
-            o.providerName = providerName;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new MultiplexProgramMultiplexProgramSettingsServiceDescriptor();
+            _resultValue.providerName = providerName;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

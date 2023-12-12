@@ -221,17 +221,17 @@ public final class BucketLifecycleConfigurationV2Rule {
             return transitions(List.of(transitions));
         }
         public BucketLifecycleConfigurationV2Rule build() {
-            final var o = new BucketLifecycleConfigurationV2Rule();
-            o.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
-            o.expiration = expiration;
-            o.filter = filter;
-            o.id = id;
-            o.noncurrentVersionExpiration = noncurrentVersionExpiration;
-            o.noncurrentVersionTransitions = noncurrentVersionTransitions;
-            o.prefix = prefix;
-            o.status = status;
-            o.transitions = transitions;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2Rule();
+            _resultValue.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
+            _resultValue.expiration = expiration;
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.noncurrentVersionExpiration = noncurrentVersionExpiration;
+            _resultValue.noncurrentVersionTransitions = noncurrentVersionTransitions;
+            _resultValue.prefix = prefix;
+            _resultValue.status = status;
+            _resultValue.transitions = transitions;
+            return _resultValue;
         }
     }
 }

@@ -121,13 +121,13 @@ public final class GetPortfolioConstraintsResult {
             return this;
         }
         public GetPortfolioConstraintsResult build() {
-            final var o = new GetPortfolioConstraintsResult();
-            o.acceptLanguage = acceptLanguage;
-            o.details = details;
-            o.id = id;
-            o.portfolioId = portfolioId;
-            o.productId = productId;
-            return o;
+            final var _resultValue = new GetPortfolioConstraintsResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.details = details;
+            _resultValue.id = id;
+            _resultValue.portfolioId = portfolioId;
+            _resultValue.productId = productId;
+            return _resultValue;
         }
     }
 }

@@ -143,14 +143,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.region = region;
-            o.roleArn = roleArn;
-            o.tableName = tableName;
-            o.versionId = versionId;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.region = region;
+            _resultValue.roleArn = roleArn;
+            _resultValue.tableName = tableName;
+            _resultValue.versionId = versionId;
+            return _resultValue;
         }
     }
 }

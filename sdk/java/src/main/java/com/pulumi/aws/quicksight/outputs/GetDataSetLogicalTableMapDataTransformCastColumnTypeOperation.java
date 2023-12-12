@@ -60,11 +60,11 @@ public final class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation();
-            o.columnName = columnName;
-            o.format = format;
-            o.newColumnType = newColumnType;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.format = format;
+            _resultValue.newColumnType = newColumnType;
+            return _resultValue;
         }
     }
 }

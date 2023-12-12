@@ -226,18 +226,18 @@ public final class GetJobQueueResult {
             return this;
         }
         public GetJobQueueResult build() {
-            final var o = new GetJobQueueResult();
-            o.arn = arn;
-            o.computeEnvironmentOrders = computeEnvironmentOrders;
-            o.id = id;
-            o.name = name;
-            o.priority = priority;
-            o.schedulingPolicyArn = schedulingPolicyArn;
-            o.state = state;
-            o.status = status;
-            o.statusReason = statusReason;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetJobQueueResult();
+            _resultValue.arn = arn;
+            _resultValue.computeEnvironmentOrders = computeEnvironmentOrders;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.schedulingPolicyArn = schedulingPolicyArn;
+            _resultValue.state = state;
+            _resultValue.status = status;
+            _resultValue.statusReason = statusReason;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

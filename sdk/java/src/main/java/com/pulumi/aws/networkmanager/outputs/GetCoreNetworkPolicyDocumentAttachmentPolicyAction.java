@@ -106,12 +106,12 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
             return this;
         }
         public GetCoreNetworkPolicyDocumentAttachmentPolicyAction build() {
-            final var o = new GetCoreNetworkPolicyDocumentAttachmentPolicyAction();
-            o.associationMethod = associationMethod;
-            o.requireAcceptance = requireAcceptance;
-            o.segment = segment;
-            o.tagValueOfKey = tagValueOfKey;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentAttachmentPolicyAction();
+            _resultValue.associationMethod = associationMethod;
+            _resultValue.requireAcceptance = requireAcceptance;
+            _resultValue.segment = segment;
+            _resultValue.tagValueOfKey = tagValueOfKey;
+            return _resultValue;
         }
     }
 }

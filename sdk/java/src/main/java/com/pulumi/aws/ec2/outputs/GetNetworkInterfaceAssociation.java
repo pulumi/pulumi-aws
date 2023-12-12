@@ -160,15 +160,15 @@ public final class GetNetworkInterfaceAssociation {
             return this;
         }
         public GetNetworkInterfaceAssociation build() {
-            final var o = new GetNetworkInterfaceAssociation();
-            o.allocationId = allocationId;
-            o.associationId = associationId;
-            o.carrierIp = carrierIp;
-            o.customerOwnedIp = customerOwnedIp;
-            o.ipOwnerId = ipOwnerId;
-            o.publicDnsName = publicDnsName;
-            o.publicIp = publicIp;
-            return o;
+            final var _resultValue = new GetNetworkInterfaceAssociation();
+            _resultValue.allocationId = allocationId;
+            _resultValue.associationId = associationId;
+            _resultValue.carrierIp = carrierIp;
+            _resultValue.customerOwnedIp = customerOwnedIp;
+            _resultValue.ipOwnerId = ipOwnerId;
+            _resultValue.publicDnsName = publicDnsName;
+            _resultValue.publicIp = publicIp;
+            return _resultValue;
         }
     }
 }

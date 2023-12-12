@@ -208,17 +208,17 @@ public final class ClusterEc2Attributes {
             return subnetIds(List.of(subnetIds));
         }
         public ClusterEc2Attributes build() {
-            final var o = new ClusterEc2Attributes();
-            o.additionalMasterSecurityGroups = additionalMasterSecurityGroups;
-            o.additionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
-            o.emrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
-            o.emrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
-            o.instanceProfile = instanceProfile;
-            o.keyName = keyName;
-            o.serviceAccessSecurityGroup = serviceAccessSecurityGroup;
-            o.subnetId = subnetId;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ClusterEc2Attributes();
+            _resultValue.additionalMasterSecurityGroups = additionalMasterSecurityGroups;
+            _resultValue.additionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
+            _resultValue.emrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
+            _resultValue.emrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
+            _resultValue.instanceProfile = instanceProfile;
+            _resultValue.keyName = keyName;
+            _resultValue.serviceAccessSecurityGroup = serviceAccessSecurityGroup;
+            _resultValue.subnetId = subnetId;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

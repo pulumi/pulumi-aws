@@ -42,9 +42,9 @@ public final class GetRouteSpecTcpRouteTimeout {
             return idles(List.of(idles));
         }
         public GetRouteSpecTcpRouteTimeout build() {
-            final var o = new GetRouteSpecTcpRouteTimeout();
-            o.idles = idles;
-            return o;
+            final var _resultValue = new GetRouteSpecTcpRouteTimeout();
+            _resultValue.idles = idles;
+            return _resultValue;
         }
     }
 }

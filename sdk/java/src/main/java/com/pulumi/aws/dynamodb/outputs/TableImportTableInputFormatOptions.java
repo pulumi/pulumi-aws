@@ -48,9 +48,9 @@ public final class TableImportTableInputFormatOptions {
             return this;
         }
         public TableImportTableInputFormatOptions build() {
-            final var o = new TableImportTableInputFormatOptions();
-            o.csv = csv;
-            return o;
+            final var _resultValue = new TableImportTableInputFormatOptions();
+            _resultValue.csv = csv;
+            return _resultValue;
         }
     }
 }

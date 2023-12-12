@@ -145,14 +145,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe();
-            o.blockSizeBytes = blockSizeBytes;
-            o.compression = compression;
-            o.enableDictionaryCompression = enableDictionaryCompression;
-            o.maxPaddingBytes = maxPaddingBytes;
-            o.pageSizeBytes = pageSizeBytes;
-            o.writerVersion = writerVersion;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe();
+            _resultValue.blockSizeBytes = blockSizeBytes;
+            _resultValue.compression = compression;
+            _resultValue.enableDictionaryCompression = enableDictionaryCompression;
+            _resultValue.maxPaddingBytes = maxPaddingBytes;
+            _resultValue.pageSizeBytes = pageSizeBytes;
+            _resultValue.writerVersion = writerVersion;
+            return _resultValue;
         }
     }
 }

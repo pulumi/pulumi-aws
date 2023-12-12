@@ -76,11 +76,11 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.id = id;
-            o.serviceCode = serviceCode;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.id = id;
+            _resultValue.serviceCode = serviceCode;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

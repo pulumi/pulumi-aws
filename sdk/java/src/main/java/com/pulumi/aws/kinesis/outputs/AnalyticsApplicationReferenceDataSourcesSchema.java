@@ -96,11 +96,11 @@ public final class AnalyticsApplicationReferenceDataSourcesSchema {
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesSchema build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesSchema();
-            o.recordColumns = recordColumns;
-            o.recordEncoding = recordEncoding;
-            o.recordFormat = recordFormat;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesSchema();
+            _resultValue.recordColumns = recordColumns;
+            _resultValue.recordEncoding = recordEncoding;
+            _resultValue.recordFormat = recordFormat;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class VpnConnectionRoute {
             return this;
         }
         public VpnConnectionRoute build() {
-            final var o = new VpnConnectionRoute();
-            o.destinationCidrBlock = destinationCidrBlock;
-            o.source = source;
-            o.state = state;
-            return o;
+            final var _resultValue = new VpnConnectionRoute();
+            _resultValue.destinationCidrBlock = destinationCidrBlock;
+            _resultValue.source = source;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

@@ -89,11 +89,11 @@ public final class UserPosixProfile {
             return this;
         }
         public UserPosixProfile build() {
-            final var o = new UserPosixProfile();
-            o.gid = gid;
-            o.secondaryGids = secondaryGids;
-            o.uid = uid;
-            return o;
+            final var _resultValue = new UserPosixProfile();
+            _resultValue.gid = gid;
+            _resultValue.secondaryGids = secondaryGids;
+            _resultValue.uid = uid;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
             return this;
         }
         public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation build() {
-            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trust = trust;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trust = trust;
+            return _resultValue;
         }
     }
 }

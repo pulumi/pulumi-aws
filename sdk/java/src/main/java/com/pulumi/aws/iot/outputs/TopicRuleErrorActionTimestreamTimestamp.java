@@ -65,10 +65,10 @@ public final class TopicRuleErrorActionTimestreamTimestamp {
             return this;
         }
         public TopicRuleErrorActionTimestreamTimestamp build() {
-            final var o = new TopicRuleErrorActionTimestreamTimestamp();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionTimestreamTimestamp();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

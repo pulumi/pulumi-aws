@@ -68,10 +68,10 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs {
             return this;
         }
         public ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs build() {
-            final var o = new ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs();
-            o.enabled = enabled;
-            o.logGroup = logGroup;
-            return o;
+            final var _resultValue = new ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs();
+            _resultValue.enabled = enabled;
+            _resultValue.logGroup = logGroup;
+            return _resultValue;
         }
     }
 }

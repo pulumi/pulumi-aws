@@ -72,10 +72,10 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
             return this;
         }
         public ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent build() {
-            final var o = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent();
-            o.s3ContentLocation = s3ContentLocation;
-            o.textContent = textContent;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent();
+            _resultValue.s3ContentLocation = s3ContentLocation;
+            _resultValue.textContent = textContent;
+            return _resultValue;
         }
     }
 }

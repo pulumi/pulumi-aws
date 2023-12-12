@@ -152,16 +152,16 @@ public final class GetReplicationSubnetGroupResult {
             return this;
         }
         public GetReplicationSubnetGroupResult build() {
-            final var o = new GetReplicationSubnetGroupResult();
-            o.id = id;
-            o.replicationSubnetGroupArn = replicationSubnetGroupArn;
-            o.replicationSubnetGroupDescription = replicationSubnetGroupDescription;
-            o.replicationSubnetGroupId = replicationSubnetGroupId;
-            o.subnetGroupStatus = subnetGroupStatus;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetReplicationSubnetGroupResult();
+            _resultValue.id = id;
+            _resultValue.replicationSubnetGroupArn = replicationSubnetGroupArn;
+            _resultValue.replicationSubnetGroupDescription = replicationSubnetGroupDescription;
+            _resultValue.replicationSubnetGroupId = replicationSubnetGroupId;
+            _resultValue.subnetGroupStatus = subnetGroupStatus;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

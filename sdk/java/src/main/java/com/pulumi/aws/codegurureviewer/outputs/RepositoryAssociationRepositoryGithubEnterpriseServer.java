@@ -84,11 +84,11 @@ public final class RepositoryAssociationRepositoryGithubEnterpriseServer {
             return this;
         }
         public RepositoryAssociationRepositoryGithubEnterpriseServer build() {
-            final var o = new RepositoryAssociationRepositoryGithubEnterpriseServer();
-            o.connectionArn = connectionArn;
-            o.name = name;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new RepositoryAssociationRepositoryGithubEnterpriseServer();
+            _resultValue.connectionArn = connectionArn;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

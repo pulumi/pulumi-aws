@@ -49,10 +49,10 @@ public final class GetDataSetPhysicalTableMapCustomSqlColumn {
             return this;
         }
         public GetDataSetPhysicalTableMapCustomSqlColumn build() {
-            final var o = new GetDataSetPhysicalTableMapCustomSqlColumn();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetDataSetPhysicalTableMapCustomSqlColumn();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

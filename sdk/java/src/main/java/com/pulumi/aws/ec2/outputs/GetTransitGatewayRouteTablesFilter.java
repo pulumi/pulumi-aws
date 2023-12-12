@@ -73,10 +73,10 @@ public final class GetTransitGatewayRouteTablesFilter {
             return values(List.of(values));
         }
         public GetTransitGatewayRouteTablesFilter build() {
-            final var o = new GetTransitGatewayRouteTablesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetTransitGatewayRouteTablesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

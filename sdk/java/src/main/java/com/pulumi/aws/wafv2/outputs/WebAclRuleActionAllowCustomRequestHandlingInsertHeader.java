@@ -65,10 +65,10 @@ public final class WebAclRuleActionAllowCustomRequestHandlingInsertHeader {
             return this;
         }
         public WebAclRuleActionAllowCustomRequestHandlingInsertHeader build() {
-            final var o = new WebAclRuleActionAllowCustomRequestHandlingInsertHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new WebAclRuleActionAllowCustomRequestHandlingInsertHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

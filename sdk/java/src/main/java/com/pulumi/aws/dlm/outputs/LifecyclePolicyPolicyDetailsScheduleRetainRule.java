@@ -87,11 +87,11 @@ public final class LifecyclePolicyPolicyDetailsScheduleRetainRule {
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleRetainRule build() {
-            final var o = new LifecyclePolicyPolicyDetailsScheduleRetainRule();
-            o.count = count;
-            o.interval = interval;
-            o.intervalUnit = intervalUnit;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsScheduleRetainRule();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            _resultValue.intervalUnit = intervalUnit;
+            return _resultValue;
         }
     }
 }

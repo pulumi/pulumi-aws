@@ -25,8 +25,8 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchP
         }
 
         public WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll();
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class InventoryDestinationBucketEncryption {
             return this;
         }
         public InventoryDestinationBucketEncryption build() {
-            final var o = new InventoryDestinationBucketEncryption();
-            o.sseKms = sseKms;
-            o.sseS3 = sseS3;
-            return o;
+            final var _resultValue = new InventoryDestinationBucketEncryption();
+            _resultValue.sseKms = sseKms;
+            _resultValue.sseS3 = sseS3;
+            return _resultValue;
         }
     }
 }

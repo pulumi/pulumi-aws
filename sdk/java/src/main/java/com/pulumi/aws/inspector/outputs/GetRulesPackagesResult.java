@@ -69,10 +69,10 @@ public final class GetRulesPackagesResult {
             return this;
         }
         public GetRulesPackagesResult build() {
-            final var o = new GetRulesPackagesResult();
-            o.arns = arns;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetRulesPackagesResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

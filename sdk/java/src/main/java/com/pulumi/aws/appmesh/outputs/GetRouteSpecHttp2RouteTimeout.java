@@ -57,10 +57,10 @@ public final class GetRouteSpecHttp2RouteTimeout {
             return perRequests(List.of(perRequests));
         }
         public GetRouteSpecHttp2RouteTimeout build() {
-            final var o = new GetRouteSpecHttp2RouteTimeout();
-            o.idles = idles;
-            o.perRequests = perRequests;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteTimeout();
+            _resultValue.idles = idles;
+            _resultValue.perRequests = perRequests;
+            return _resultValue;
         }
     }
 }

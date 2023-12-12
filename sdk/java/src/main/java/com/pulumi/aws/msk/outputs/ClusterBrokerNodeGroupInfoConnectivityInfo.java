@@ -68,10 +68,10 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
             return this;
         }
         public ClusterBrokerNodeGroupInfoConnectivityInfo build() {
-            final var o = new ClusterBrokerNodeGroupInfoConnectivityInfo();
-            o.publicAccess = publicAccess;
-            o.vpcConnectivity = vpcConnectivity;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoConnectivityInfo();
+            _resultValue.publicAccess = publicAccess;
+            _resultValue.vpcConnectivity = vpcConnectivity;
+            return _resultValue;
         }
     }
 }

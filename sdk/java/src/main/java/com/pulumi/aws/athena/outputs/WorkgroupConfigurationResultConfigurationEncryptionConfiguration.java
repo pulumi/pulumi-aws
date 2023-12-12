@@ -67,10 +67,10 @@ public final class WorkgroupConfigurationResultConfigurationEncryptionConfigurat
             return this;
         }
         public WorkgroupConfigurationResultConfigurationEncryptionConfiguration build() {
-            final var o = new WorkgroupConfigurationResultConfigurationEncryptionConfiguration();
-            o.encryptionOption = encryptionOption;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new WorkgroupConfigurationResultConfigurationEncryptionConfiguration();
+            _resultValue.encryptionOption = encryptionOption;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

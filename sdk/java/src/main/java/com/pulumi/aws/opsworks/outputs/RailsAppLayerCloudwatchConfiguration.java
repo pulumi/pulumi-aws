@@ -56,10 +56,10 @@ public final class RailsAppLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public RailsAppLayerCloudwatchConfiguration build() {
-            final var o = new RailsAppLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new RailsAppLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

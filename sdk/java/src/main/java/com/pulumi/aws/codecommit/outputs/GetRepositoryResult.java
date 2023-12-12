@@ -133,14 +133,14 @@ public final class GetRepositoryResult {
             return this;
         }
         public GetRepositoryResult build() {
-            final var o = new GetRepositoryResult();
-            o.arn = arn;
-            o.cloneUrlHttp = cloneUrlHttp;
-            o.cloneUrlSsh = cloneUrlSsh;
-            o.id = id;
-            o.repositoryId = repositoryId;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new GetRepositoryResult();
+            _resultValue.arn = arn;
+            _resultValue.cloneUrlHttp = cloneUrlHttp;
+            _resultValue.cloneUrlSsh = cloneUrlSsh;
+            _resultValue.id = id;
+            _resultValue.repositoryId = repositoryId;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

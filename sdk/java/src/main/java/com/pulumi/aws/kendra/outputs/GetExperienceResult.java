@@ -267,21 +267,21 @@ public final class GetExperienceResult {
             return this;
         }
         public GetExperienceResult build() {
-            final var o = new GetExperienceResult();
-            o.arn = arn;
-            o.configurations = configurations;
-            o.createdAt = createdAt;
-            o.description = description;
-            o.endpoints = endpoints;
-            o.errorMessage = errorMessage;
-            o.experienceId = experienceId;
-            o.id = id;
-            o.indexId = indexId;
-            o.name = name;
-            o.roleArn = roleArn;
-            o.status = status;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetExperienceResult();
+            _resultValue.arn = arn;
+            _resultValue.configurations = configurations;
+            _resultValue.createdAt = createdAt;
+            _resultValue.description = description;
+            _resultValue.endpoints = endpoints;
+            _resultValue.errorMessage = errorMessage;
+            _resultValue.experienceId = experienceId;
+            _resultValue.id = id;
+            _resultValue.indexId = indexId;
+            _resultValue.name = name;
+            _resultValue.roleArn = roleArn;
+            _resultValue.status = status;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

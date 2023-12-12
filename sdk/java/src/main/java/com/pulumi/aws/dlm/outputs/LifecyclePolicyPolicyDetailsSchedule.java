@@ -231,18 +231,18 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
             return this;
         }
         public LifecyclePolicyPolicyDetailsSchedule build() {
-            final var o = new LifecyclePolicyPolicyDetailsSchedule();
-            o.copyTags = copyTags;
-            o.createRule = createRule;
-            o.crossRegionCopyRules = crossRegionCopyRules;
-            o.deprecateRule = deprecateRule;
-            o.fastRestoreRule = fastRestoreRule;
-            o.name = name;
-            o.retainRule = retainRule;
-            o.shareRule = shareRule;
-            o.tagsToAdd = tagsToAdd;
-            o.variableTags = variableTags;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsSchedule();
+            _resultValue.copyTags = copyTags;
+            _resultValue.createRule = createRule;
+            _resultValue.crossRegionCopyRules = crossRegionCopyRules;
+            _resultValue.deprecateRule = deprecateRule;
+            _resultValue.fastRestoreRule = fastRestoreRule;
+            _resultValue.name = name;
+            _resultValue.retainRule = retainRule;
+            _resultValue.shareRule = shareRule;
+            _resultValue.tagsToAdd = tagsToAdd;
+            _resultValue.variableTags = variableTags;
+            return _resultValue;
         }
     }
 }

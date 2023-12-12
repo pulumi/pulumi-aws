@@ -46,9 +46,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

@@ -42,9 +42,9 @@ public final class GetVirtualGatewaySpecLoggingAccessLog {
             return files(List.of(files));
         }
         public GetVirtualGatewaySpecLoggingAccessLog build() {
-            final var o = new GetVirtualGatewaySpecLoggingAccessLog();
-            o.files = files;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecLoggingAccessLog();
+            _resultValue.files = files;
+            return _resultValue;
         }
     }
 }

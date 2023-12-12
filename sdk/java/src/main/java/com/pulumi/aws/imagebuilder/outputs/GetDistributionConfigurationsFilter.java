@@ -69,10 +69,10 @@ public final class GetDistributionConfigurationsFilter {
             return values(List.of(values));
         }
         public GetDistributionConfigurationsFilter build() {
-            final var o = new GetDistributionConfigurationsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetDistributionConfigurationsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

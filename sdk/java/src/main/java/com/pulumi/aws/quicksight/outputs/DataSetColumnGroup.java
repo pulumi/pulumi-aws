@@ -48,9 +48,9 @@ public final class DataSetColumnGroup {
             return this;
         }
         public DataSetColumnGroup build() {
-            final var o = new DataSetColumnGroup();
-            o.geoSpatialColumnGroup = geoSpatialColumnGroup;
-            return o;
+            final var _resultValue = new DataSetColumnGroup();
+            _resultValue.geoSpatialColumnGroup = geoSpatialColumnGroup;
+            return _resultValue;
         }
     }
 }

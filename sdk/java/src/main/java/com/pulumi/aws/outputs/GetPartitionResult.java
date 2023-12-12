@@ -103,12 +103,12 @@ public final class GetPartitionResult {
             return this;
         }
         public GetPartitionResult build() {
-            final var o = new GetPartitionResult();
-            o.dnsSuffix = dnsSuffix;
-            o.id = id;
-            o.partition = partition;
-            o.reverseDnsPrefix = reverseDnsPrefix;
-            return o;
+            final var _resultValue = new GetPartitionResult();
+            _resultValue.dnsSuffix = dnsSuffix;
+            _resultValue.id = id;
+            _resultValue.partition = partition;
+            _resultValue.reverseDnsPrefix = reverseDnsPrefix;
+            return _resultValue;
         }
     }
 }

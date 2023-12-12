@@ -187,17 +187,17 @@ public final class GetLinkResult {
             return this;
         }
         public GetLinkResult build() {
-            final var o = new GetLinkResult();
-            o.arn = arn;
-            o.id = id;
-            o.label = label;
-            o.labelTemplate = labelTemplate;
-            o.linkId = linkId;
-            o.linkIdentifier = linkIdentifier;
-            o.resourceTypes = resourceTypes;
-            o.sinkArn = sinkArn;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLinkResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.label = label;
+            _resultValue.labelTemplate = labelTemplate;
+            _resultValue.linkId = linkId;
+            _resultValue.linkIdentifier = linkIdentifier;
+            _resultValue.resourceTypes = resourceTypes;
+            _resultValue.sinkArn = sinkArn;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

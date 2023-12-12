@@ -68,10 +68,10 @@ public final class ResourceSetResourceDnsTargetResourceTargetResource {
             return this;
         }
         public ResourceSetResourceDnsTargetResourceTargetResource build() {
-            final var o = new ResourceSetResourceDnsTargetResourceTargetResource();
-            o.nlbResource = nlbResource;
-            o.r53Resource = r53Resource;
-            return o;
+            final var _resultValue = new ResourceSetResourceDnsTargetResourceTargetResource();
+            _resultValue.nlbResource = nlbResource;
+            _resultValue.r53Resource = r53Resource;
+            return _resultValue;
         }
     }
 }

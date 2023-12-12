@@ -519,31 +519,31 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
             return vcpuCounts(List.of(vcpuCounts));
         }
         public GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement build() {
-            final var o = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement();
-            o.acceleratorCounts = acceleratorCounts;
-            o.acceleratorManufacturers = acceleratorManufacturers;
-            o.acceleratorNames = acceleratorNames;
-            o.acceleratorTotalMemoryMibs = acceleratorTotalMemoryMibs;
-            o.acceleratorTypes = acceleratorTypes;
-            o.allowedInstanceTypes = allowedInstanceTypes;
-            o.bareMetal = bareMetal;
-            o.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
-            o.burstablePerformance = burstablePerformance;
-            o.cpuManufacturers = cpuManufacturers;
-            o.excludedInstanceTypes = excludedInstanceTypes;
-            o.instanceGenerations = instanceGenerations;
-            o.localStorage = localStorage;
-            o.localStorageTypes = localStorageTypes;
-            o.memoryGibPerVcpus = memoryGibPerVcpus;
-            o.memoryMibs = memoryMibs;
-            o.networkBandwidthGbps = networkBandwidthGbps;
-            o.networkInterfaceCounts = networkInterfaceCounts;
-            o.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
-            o.requireHibernateSupport = requireHibernateSupport;
-            o.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
-            o.totalLocalStorageGbs = totalLocalStorageGbs;
-            o.vcpuCounts = vcpuCounts;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement();
+            _resultValue.acceleratorCounts = acceleratorCounts;
+            _resultValue.acceleratorManufacturers = acceleratorManufacturers;
+            _resultValue.acceleratorNames = acceleratorNames;
+            _resultValue.acceleratorTotalMemoryMibs = acceleratorTotalMemoryMibs;
+            _resultValue.acceleratorTypes = acceleratorTypes;
+            _resultValue.allowedInstanceTypes = allowedInstanceTypes;
+            _resultValue.bareMetal = bareMetal;
+            _resultValue.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
+            _resultValue.burstablePerformance = burstablePerformance;
+            _resultValue.cpuManufacturers = cpuManufacturers;
+            _resultValue.excludedInstanceTypes = excludedInstanceTypes;
+            _resultValue.instanceGenerations = instanceGenerations;
+            _resultValue.localStorage = localStorage;
+            _resultValue.localStorageTypes = localStorageTypes;
+            _resultValue.memoryGibPerVcpus = memoryGibPerVcpus;
+            _resultValue.memoryMibs = memoryMibs;
+            _resultValue.networkBandwidthGbps = networkBandwidthGbps;
+            _resultValue.networkInterfaceCounts = networkInterfaceCounts;
+            _resultValue.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
+            _resultValue.requireHibernateSupport = requireHibernateSupport;
+            _resultValue.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
+            _resultValue.totalLocalStorageGbs = totalLocalStorageGbs;
+            _resultValue.vcpuCounts = vcpuCounts;
+            return _resultValue;
         }
     }
 }

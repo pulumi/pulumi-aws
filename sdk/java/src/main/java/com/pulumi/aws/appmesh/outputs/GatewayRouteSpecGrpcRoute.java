@@ -66,10 +66,10 @@ public final class GatewayRouteSpecGrpcRoute {
             return this;
         }
         public GatewayRouteSpecGrpcRoute build() {
-            final var o = new GatewayRouteSpecGrpcRoute();
-            o.action = action;
-            o.match = match;
-            return o;
+            final var _resultValue = new GatewayRouteSpecGrpcRoute();
+            _resultValue.action = action;
+            _resultValue.match = match;
+            return _resultValue;
         }
     }
 }

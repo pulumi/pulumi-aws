@@ -210,19 +210,19 @@ public final class GetGatewayRouteResult {
             return this;
         }
         public GetGatewayRouteResult build() {
-            final var o = new GetGatewayRouteResult();
-            o.arn = arn;
-            o.createdDate = createdDate;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.meshName = meshName;
-            o.meshOwner = meshOwner;
-            o.name = name;
-            o.resourceOwner = resourceOwner;
-            o.specs = specs;
-            o.tags = tags;
-            o.virtualGatewayName = virtualGatewayName;
-            return o;
+            final var _resultValue = new GetGatewayRouteResult();
+            _resultValue.arn = arn;
+            _resultValue.createdDate = createdDate;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.meshName = meshName;
+            _resultValue.meshOwner = meshOwner;
+            _resultValue.name = name;
+            _resultValue.resourceOwner = resourceOwner;
+            _resultValue.specs = specs;
+            _resultValue.tags = tags;
+            _resultValue.virtualGatewayName = virtualGatewayName;
+            return _resultValue;
         }
     }
 }

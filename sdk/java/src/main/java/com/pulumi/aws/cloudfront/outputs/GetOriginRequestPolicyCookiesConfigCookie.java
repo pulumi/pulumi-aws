@@ -42,9 +42,9 @@ public final class GetOriginRequestPolicyCookiesConfigCookie {
             return items(List.of(items));
         }
         public GetOriginRequestPolicyCookiesConfigCookie build() {
-            final var o = new GetOriginRequestPolicyCookiesConfigCookie();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyCookiesConfigCookie();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

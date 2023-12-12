@@ -84,11 +84,11 @@ public final class GetResponsePlanIntegrationPagerduty {
             return this;
         }
         public GetResponsePlanIntegrationPagerduty build() {
-            final var o = new GetResponsePlanIntegrationPagerduty();
-            o.name = name;
-            o.secretId = secretId;
-            o.serviceId = serviceId;
-            return o;
+            final var _resultValue = new GetResponsePlanIntegrationPagerduty();
+            _resultValue.name = name;
+            _resultValue.secretId = secretId;
+            _resultValue.serviceId = serviceId;
+            return _resultValue;
         }
     }
 }

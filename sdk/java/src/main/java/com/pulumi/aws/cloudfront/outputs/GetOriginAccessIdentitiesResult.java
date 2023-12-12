@@ -128,13 +128,13 @@ public final class GetOriginAccessIdentitiesResult {
             return s3CanonicalUserIds(List.of(s3CanonicalUserIds));
         }
         public GetOriginAccessIdentitiesResult build() {
-            final var o = new GetOriginAccessIdentitiesResult();
-            o.comments = comments;
-            o.iamArns = iamArns;
-            o.id = id;
-            o.ids = ids;
-            o.s3CanonicalUserIds = s3CanonicalUserIds;
-            return o;
+            final var _resultValue = new GetOriginAccessIdentitiesResult();
+            _resultValue.comments = comments;
+            _resultValue.iamArns = iamArns;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.s3CanonicalUserIds = s3CanonicalUserIds;
+            return _resultValue;
         }
     }
 }

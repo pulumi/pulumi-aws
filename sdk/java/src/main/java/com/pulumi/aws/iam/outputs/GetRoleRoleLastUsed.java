@@ -65,10 +65,10 @@ public final class GetRoleRoleLastUsed {
             return this;
         }
         public GetRoleRoleLastUsed build() {
-            final var o = new GetRoleRoleLastUsed();
-            o.lastUsedDate = lastUsedDate;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetRoleRoleLastUsed();
+            _resultValue.lastUsedDate = lastUsedDate;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

@@ -122,13 +122,13 @@ public final class GetImageOutputResourceAmi {
             return this;
         }
         public GetImageOutputResourceAmi build() {
-            final var o = new GetImageOutputResourceAmi();
-            o.accountId = accountId;
-            o.description = description;
-            o.image = image;
-            o.name = name;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetImageOutputResourceAmi();
+            _resultValue.accountId = accountId;
+            _resultValue.description = description;
+            _resultValue.image = image;
+            _resultValue.name = name;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

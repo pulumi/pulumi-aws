@@ -48,9 +48,9 @@ public final class CanaryArtifactConfig {
             return this;
         }
         public CanaryArtifactConfig build() {
-            final var o = new CanaryArtifactConfig();
-            o.s3Encryption = s3Encryption;
-            return o;
+            final var _resultValue = new CanaryArtifactConfig();
+            _resultValue.s3Encryption = s3Encryption;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

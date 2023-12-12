@@ -68,10 +68,10 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings build() {
-            final var o = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings();
-            o.blackDetectThreshold = blackDetectThreshold;
-            o.videoBlackThresholdMsec = videoBlackThresholdMsec;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings();
+            _resultValue.blackDetectThreshold = blackDetectThreshold;
+            _resultValue.videoBlackThresholdMsec = videoBlackThresholdMsec;
+            return _resultValue;
         }
     }
 }

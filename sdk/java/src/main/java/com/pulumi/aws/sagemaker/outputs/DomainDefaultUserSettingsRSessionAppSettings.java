@@ -72,10 +72,10 @@ public final class DomainDefaultUserSettingsRSessionAppSettings {
             return this;
         }
         public DomainDefaultUserSettingsRSessionAppSettings build() {
-            final var o = new DomainDefaultUserSettingsRSessionAppSettings();
-            o.customImages = customImages;
-            o.defaultResourceSpec = defaultResourceSpec;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsRSessionAppSettings();
+            _resultValue.customImages = customImages;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            return _resultValue;
         }
     }
 }

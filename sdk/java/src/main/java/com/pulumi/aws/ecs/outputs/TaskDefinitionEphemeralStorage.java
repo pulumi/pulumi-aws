@@ -46,9 +46,9 @@ public final class TaskDefinitionEphemeralStorage {
             return this;
         }
         public TaskDefinitionEphemeralStorage build() {
-            final var o = new TaskDefinitionEphemeralStorage();
-            o.sizeInGib = sizeInGib;
-            return o;
+            final var _resultValue = new TaskDefinitionEphemeralStorage();
+            _resultValue.sizeInGib = sizeInGib;
+            return _resultValue;
         }
     }
 }

@@ -53,10 +53,10 @@ public final class GetDataSetPermission {
             return this;
         }
         public GetDataSetPermission build() {
-            final var o = new GetDataSetPermission();
-            o.actions = actions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new GetDataSetPermission();
+            _resultValue.actions = actions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

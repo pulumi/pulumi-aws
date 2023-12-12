@@ -68,10 +68,10 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
             return this;
         }
         public InstanceLoggingConfigurationAccessLogsKinesisDataFirehose build() {
-            final var o = new InstanceLoggingConfigurationAccessLogsKinesisDataFirehose();
-            o.deliveryStream = deliveryStream;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new InstanceLoggingConfigurationAccessLogsKinesisDataFirehose();
+            _resultValue.deliveryStream = deliveryStream;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition build() {
-            final var o = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition();
-            o.failoverConditionSettings = failoverConditionSettings;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition();
+            _resultValue.failoverConditionSettings = failoverConditionSettings;
+            return _resultValue;
         }
     }
 }

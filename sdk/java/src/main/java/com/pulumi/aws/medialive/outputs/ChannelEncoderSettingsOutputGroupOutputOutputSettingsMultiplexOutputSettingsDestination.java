@@ -46,9 +46,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination();
-            o.destinationRefId = destinationRefId;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination();
+            _resultValue.destinationRefId = destinationRefId;
+            return _resultValue;
         }
     }
 }

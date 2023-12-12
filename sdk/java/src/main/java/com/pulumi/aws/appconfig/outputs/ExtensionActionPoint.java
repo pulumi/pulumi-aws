@@ -70,10 +70,10 @@ public final class ExtensionActionPoint {
             return this;
         }
         public ExtensionActionPoint build() {
-            final var o = new ExtensionActionPoint();
-            o.actions = actions;
-            o.point = point;
-            return o;
+            final var _resultValue = new ExtensionActionPoint();
+            _resultValue.actions = actions;
+            _resultValue.point = point;
+            return _resultValue;
         }
     }
 }

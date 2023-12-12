@@ -38,9 +38,9 @@ public final class GetVirtualGatewaySpecListenerTlCertificateSd {
             return this;
         }
         public GetVirtualGatewaySpecListenerTlCertificateSd build() {
-            final var o = new GetVirtualGatewaySpecListenerTlCertificateSd();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerTlCertificateSd();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

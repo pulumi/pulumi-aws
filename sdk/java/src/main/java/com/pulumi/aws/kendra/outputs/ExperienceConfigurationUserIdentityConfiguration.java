@@ -46,9 +46,9 @@ public final class ExperienceConfigurationUserIdentityConfiguration {
             return this;
         }
         public ExperienceConfigurationUserIdentityConfiguration build() {
-            final var o = new ExperienceConfigurationUserIdentityConfiguration();
-            o.identityAttributeName = identityAttributeName;
-            return o;
+            final var _resultValue = new ExperienceConfigurationUserIdentityConfiguration();
+            _resultValue.identityAttributeName = identityAttributeName;
+            return _resultValue;
         }
     }
 }

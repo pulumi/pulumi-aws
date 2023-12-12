@@ -50,9 +50,9 @@ public final class InstanceAccessControlAttributesAttributeValue {
             return sources(List.of(sources));
         }
         public InstanceAccessControlAttributesAttributeValue build() {
-            final var o = new InstanceAccessControlAttributesAttributeValue();
-            o.sources = sources;
-            return o;
+            final var _resultValue = new InstanceAccessControlAttributesAttributeValue();
+            _resultValue.sources = sources;
+            return _resultValue;
         }
     }
 }

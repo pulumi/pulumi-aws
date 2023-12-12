@@ -104,12 +104,12 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigXssProtection build() {
-            final var o = new GetResponseHeadersPolicySecurityHeadersConfigXssProtection();
-            o.modeBlock = modeBlock;
-            o.override = override;
-            o.protection = protection;
-            o.reportUri = reportUri;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicySecurityHeadersConfigXssProtection();
+            _resultValue.modeBlock = modeBlock;
+            _resultValue.override = override;
+            _resultValue.protection = protection;
+            _resultValue.reportUri = reportUri;
+            return _resultValue;
         }
     }
 }

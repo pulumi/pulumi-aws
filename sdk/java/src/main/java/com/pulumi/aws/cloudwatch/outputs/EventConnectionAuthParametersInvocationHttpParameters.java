@@ -97,11 +97,11 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
             return queryStrings(List.of(queryStrings));
         }
         public EventConnectionAuthParametersInvocationHttpParameters build() {
-            final var o = new EventConnectionAuthParametersInvocationHttpParameters();
-            o.bodies = bodies;
-            o.headers = headers;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersInvocationHttpParameters();
+            _resultValue.bodies = bodies;
+            _resultValue.headers = headers;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

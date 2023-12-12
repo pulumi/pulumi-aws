@@ -171,16 +171,16 @@ public final class GetInstanceProfileResult {
             return this;
         }
         public GetInstanceProfileResult build() {
-            final var o = new GetInstanceProfileResult();
-            o.arn = arn;
-            o.createDate = createDate;
-            o.id = id;
-            o.name = name;
-            o.path = path;
-            o.roleArn = roleArn;
-            o.roleId = roleId;
-            o.roleName = roleName;
-            return o;
+            final var _resultValue = new GetInstanceProfileResult();
+            _resultValue.arn = arn;
+            _resultValue.createDate = createDate;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.roleArn = roleArn;
+            _resultValue.roleId = roleId;
+            _resultValue.roleName = roleName;
+            return _resultValue;
         }
     }
 }

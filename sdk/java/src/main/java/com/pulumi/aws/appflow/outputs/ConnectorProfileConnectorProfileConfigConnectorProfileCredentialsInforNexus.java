@@ -103,12 +103,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus();
-            o.accessKeyId = accessKeyId;
-            o.datakey = datakey;
-            o.secretAccessKey = secretAccessKey;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus();
+            _resultValue.accessKeyId = accessKeyId;
+            _resultValue.datakey = datakey;
+            _resultValue.secretAccessKey = secretAccessKey;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

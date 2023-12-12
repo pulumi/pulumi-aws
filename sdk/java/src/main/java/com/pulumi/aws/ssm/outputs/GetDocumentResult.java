@@ -138,15 +138,15 @@ public final class GetDocumentResult {
             return this;
         }
         public GetDocumentResult build() {
-            final var o = new GetDocumentResult();
-            o.arn = arn;
-            o.content = content;
-            o.documentFormat = documentFormat;
-            o.documentType = documentType;
-            o.documentVersion = documentVersion;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetDocumentResult();
+            _resultValue.arn = arn;
+            _resultValue.content = content;
+            _resultValue.documentFormat = documentFormat;
+            _resultValue.documentType = documentType;
+            _resultValue.documentVersion = documentVersion;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

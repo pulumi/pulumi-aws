@@ -111,12 +111,12 @@ public final class ServiceServiceConnectConfigurationService {
             return this;
         }
         public ServiceServiceConnectConfigurationService build() {
-            final var o = new ServiceServiceConnectConfigurationService();
-            o.clientAlias = clientAlias;
-            o.discoveryName = discoveryName;
-            o.ingressPortOverride = ingressPortOverride;
-            o.portName = portName;
-            return o;
+            final var _resultValue = new ServiceServiceConnectConfigurationService();
+            _resultValue.clientAlias = clientAlias;
+            _resultValue.discoveryName = discoveryName;
+            _resultValue.ingressPortOverride = ingressPortOverride;
+            _resultValue.portName = portName;
+            return _resultValue;
         }
     }
 }

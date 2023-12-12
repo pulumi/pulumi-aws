@@ -149,14 +149,14 @@ public final class GetBudgetNotification {
             return this;
         }
         public GetBudgetNotification build() {
-            final var o = new GetBudgetNotification();
-            o.comparisonOperator = comparisonOperator;
-            o.notificationType = notificationType;
-            o.subscriberEmailAddresses = subscriberEmailAddresses;
-            o.subscriberSnsTopicArns = subscriberSnsTopicArns;
-            o.threshold = threshold;
-            o.thresholdType = thresholdType;
-            return o;
+            final var _resultValue = new GetBudgetNotification();
+            _resultValue.comparisonOperator = comparisonOperator;
+            _resultValue.notificationType = notificationType;
+            _resultValue.subscriberEmailAddresses = subscriberEmailAddresses;
+            _resultValue.subscriberSnsTopicArns = subscriberSnsTopicArns;
+            _resultValue.threshold = threshold;
+            _resultValue.thresholdType = thresholdType;
+            return _resultValue;
         }
     }
 }

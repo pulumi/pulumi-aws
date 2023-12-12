@@ -124,14 +124,14 @@ public final class GetLocalGatewayResult {
             return this;
         }
         public GetLocalGatewayResult build() {
-            final var o = new GetLocalGatewayResult();
-            o.filters = filters;
-            o.id = id;
-            o.outpostArn = outpostArn;
-            o.ownerId = ownerId;
-            o.state = state;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLocalGatewayResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.ownerId = ownerId;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

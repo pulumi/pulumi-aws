@@ -316,25 +316,25 @@ public final class GetVpcResult {
             return this;
         }
         public GetVpcResult build() {
-            final var o = new GetVpcResult();
-            o.arn = arn;
-            o.cidrBlock = cidrBlock;
-            o.cidrBlockAssociations = cidrBlockAssociations;
-            o.default_ = default_;
-            o.dhcpOptionsId = dhcpOptionsId;
-            o.enableDnsHostnames = enableDnsHostnames;
-            o.enableDnsSupport = enableDnsSupport;
-            o.enableNetworkAddressUsageMetrics = enableNetworkAddressUsageMetrics;
-            o.filters = filters;
-            o.id = id;
-            o.instanceTenancy = instanceTenancy;
-            o.ipv6AssociationId = ipv6AssociationId;
-            o.ipv6CidrBlock = ipv6CidrBlock;
-            o.mainRouteTableId = mainRouteTableId;
-            o.ownerId = ownerId;
-            o.state = state;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetVpcResult();
+            _resultValue.arn = arn;
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.cidrBlockAssociations = cidrBlockAssociations;
+            _resultValue.default_ = default_;
+            _resultValue.dhcpOptionsId = dhcpOptionsId;
+            _resultValue.enableDnsHostnames = enableDnsHostnames;
+            _resultValue.enableDnsSupport = enableDnsSupport;
+            _resultValue.enableNetworkAddressUsageMetrics = enableNetworkAddressUsageMetrics;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceTenancy = instanceTenancy;
+            _resultValue.ipv6AssociationId = ipv6AssociationId;
+            _resultValue.ipv6CidrBlock = ipv6CidrBlock;
+            _resultValue.mainRouteTableId = mainRouteTableId;
+            _resultValue.ownerId = ownerId;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

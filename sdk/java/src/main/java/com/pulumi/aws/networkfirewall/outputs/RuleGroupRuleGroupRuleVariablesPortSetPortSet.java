@@ -50,9 +50,9 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetPortSet {
             return definitions(List.of(definitions));
         }
         public RuleGroupRuleGroupRuleVariablesPortSetPortSet build() {
-            final var o = new RuleGroupRuleGroupRuleVariablesPortSetPortSet();
-            o.definitions = definitions;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRuleVariablesPortSetPortSet();
+            _resultValue.definitions = definitions;
+            return _resultValue;
         }
     }
 }

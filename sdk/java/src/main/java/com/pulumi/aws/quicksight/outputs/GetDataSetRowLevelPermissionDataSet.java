@@ -82,13 +82,13 @@ public final class GetDataSetRowLevelPermissionDataSet {
             return this;
         }
         public GetDataSetRowLevelPermissionDataSet build() {
-            final var o = new GetDataSetRowLevelPermissionDataSet();
-            o.arn = arn;
-            o.formatVersion = formatVersion;
-            o.namespace = namespace;
-            o.permissionPolicy = permissionPolicy;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetDataSetRowLevelPermissionDataSet();
+            _resultValue.arn = arn;
+            _resultValue.formatVersion = formatVersion;
+            _resultValue.namespace = namespace;
+            _resultValue.permissionPolicy = permissionPolicy;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

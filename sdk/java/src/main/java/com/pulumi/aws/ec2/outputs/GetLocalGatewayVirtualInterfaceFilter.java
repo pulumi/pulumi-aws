@@ -69,10 +69,10 @@ public final class GetLocalGatewayVirtualInterfaceFilter {
             return values(List.of(values));
         }
         public GetLocalGatewayVirtualInterfaceFilter build() {
-            final var o = new GetLocalGatewayVirtualInterfaceFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetLocalGatewayVirtualInterfaceFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

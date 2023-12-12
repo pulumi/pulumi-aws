@@ -159,15 +159,15 @@ public final class GetServerlessVpcEndpointResult {
             return this;
         }
         public GetServerlessVpcEndpointResult build() {
-            final var o = new GetServerlessVpcEndpointResult();
-            o.createdDate = createdDate;
-            o.id = id;
-            o.name = name;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetServerlessVpcEndpointResult();
+            _resultValue.createdDate = createdDate;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

@@ -131,13 +131,13 @@ public final class ClusterLogging {
             return this;
         }
         public ClusterLogging build() {
-            final var o = new ClusterLogging();
-            o.bucketName = bucketName;
-            o.enable = enable;
-            o.logDestinationType = logDestinationType;
-            o.logExports = logExports;
-            o.s3KeyPrefix = s3KeyPrefix;
-            return o;
+            final var _resultValue = new ClusterLogging();
+            _resultValue.bucketName = bucketName;
+            _resultValue.enable = enable;
+            _resultValue.logDestinationType = logDestinationType;
+            _resultValue.logExports = logExports;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            return _resultValue;
         }
     }
 }

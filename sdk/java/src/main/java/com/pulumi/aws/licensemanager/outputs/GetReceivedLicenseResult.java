@@ -350,24 +350,24 @@ public final class GetReceivedLicenseResult {
             return this;
         }
         public GetReceivedLicenseResult build() {
-            final var o = new GetReceivedLicenseResult();
-            o.beneficiary = beneficiary;
-            o.consumptionConfigurations = consumptionConfigurations;
-            o.createTime = createTime;
-            o.entitlements = entitlements;
-            o.homeRegion = homeRegion;
-            o.id = id;
-            o.issuers = issuers;
-            o.licenseArn = licenseArn;
-            o.licenseMetadatas = licenseMetadatas;
-            o.licenseName = licenseName;
-            o.productName = productName;
-            o.productSku = productSku;
-            o.receivedMetadatas = receivedMetadatas;
-            o.status = status;
-            o.validities = validities;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetReceivedLicenseResult();
+            _resultValue.beneficiary = beneficiary;
+            _resultValue.consumptionConfigurations = consumptionConfigurations;
+            _resultValue.createTime = createTime;
+            _resultValue.entitlements = entitlements;
+            _resultValue.homeRegion = homeRegion;
+            _resultValue.id = id;
+            _resultValue.issuers = issuers;
+            _resultValue.licenseArn = licenseArn;
+            _resultValue.licenseMetadatas = licenseMetadatas;
+            _resultValue.licenseName = licenseName;
+            _resultValue.productName = productName;
+            _resultValue.productSku = productSku;
+            _resultValue.receivedMetadatas = receivedMetadatas;
+            _resultValue.status = status;
+            _resultValue.validities = validities;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

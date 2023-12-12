@@ -65,10 +65,10 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
             return this;
         }
         public PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension build() {
-            final var o = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

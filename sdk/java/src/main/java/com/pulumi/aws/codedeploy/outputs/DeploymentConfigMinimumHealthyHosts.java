@@ -74,10 +74,10 @@ public final class DeploymentConfigMinimumHealthyHosts {
             return this;
         }
         public DeploymentConfigMinimumHealthyHosts build() {
-            final var o = new DeploymentConfigMinimumHealthyHosts();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new DeploymentConfigMinimumHealthyHosts();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -70,11 +70,11 @@ public final class RepositoryExternalConnections {
             return this;
         }
         public RepositoryExternalConnections build() {
-            final var o = new RepositoryExternalConnections();
-            o.externalConnectionName = externalConnectionName;
-            o.packageFormat = packageFormat;
-            o.status = status;
-            return o;
+            final var _resultValue = new RepositoryExternalConnections();
+            _resultValue.externalConnectionName = externalConnectionName;
+            _resultValue.packageFormat = packageFormat;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

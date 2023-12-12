@@ -67,10 +67,10 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaseline
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

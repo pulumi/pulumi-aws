@@ -125,13 +125,13 @@ public final class InventoryDestinationBucket {
             return this;
         }
         public InventoryDestinationBucket build() {
-            final var o = new InventoryDestinationBucket();
-            o.accountId = accountId;
-            o.bucketArn = bucketArn;
-            o.encryption = encryption;
-            o.format = format;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new InventoryDestinationBucket();
+            _resultValue.accountId = accountId;
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.encryption = encryption;
+            _resultValue.format = format;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

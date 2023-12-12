@@ -46,9 +46,9 @@ public final class ModelContainerImageConfigRepositoryAuthConfig {
             return this;
         }
         public ModelContainerImageConfigRepositoryAuthConfig build() {
-            final var o = new ModelContainerImageConfigRepositoryAuthConfig();
-            o.repositoryCredentialsProviderArn = repositoryCredentialsProviderArn;
-            return o;
+            final var _resultValue = new ModelContainerImageConfigRepositoryAuthConfig();
+            _resultValue.repositoryCredentialsProviderArn = repositoryCredentialsProviderArn;
+            return _resultValue;
         }
     }
 }

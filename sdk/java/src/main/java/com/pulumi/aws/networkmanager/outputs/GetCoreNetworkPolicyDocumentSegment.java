@@ -173,15 +173,15 @@ public final class GetCoreNetworkPolicyDocumentSegment {
             return this;
         }
         public GetCoreNetworkPolicyDocumentSegment build() {
-            final var o = new GetCoreNetworkPolicyDocumentSegment();
-            o.allowFilters = allowFilters;
-            o.denyFilters = denyFilters;
-            o.description = description;
-            o.edgeLocations = edgeLocations;
-            o.isolateAttachments = isolateAttachments;
-            o.name = name;
-            o.requireAttachmentAcceptance = requireAttachmentAcceptance;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentSegment();
+            _resultValue.allowFilters = allowFilters;
+            _resultValue.denyFilters = denyFilters;
+            _resultValue.description = description;
+            _resultValue.edgeLocations = edgeLocations;
+            _resultValue.isolateAttachments = isolateAttachments;
+            _resultValue.name = name;
+            _resultValue.requireAttachmentAcceptance = requireAttachmentAcceptance;
+            return _resultValue;
         }
     }
 }

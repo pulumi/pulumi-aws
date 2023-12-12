@@ -60,11 +60,11 @@ public final class GetSigningProfileRevocationRecord {
             return this;
         }
         public GetSigningProfileRevocationRecord build() {
-            final var o = new GetSigningProfileRevocationRecord();
-            o.revocationEffectiveFrom = revocationEffectiveFrom;
-            o.revokedAt = revokedAt;
-            o.revokedBy = revokedBy;
-            return o;
+            final var _resultValue = new GetSigningProfileRevocationRecord();
+            _resultValue.revocationEffectiveFrom = revocationEffectiveFrom;
+            _resultValue.revokedAt = revokedAt;
+            _resultValue.revokedBy = revokedBy;
+            return _resultValue;
         }
     }
 }

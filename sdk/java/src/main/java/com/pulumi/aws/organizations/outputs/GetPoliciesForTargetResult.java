@@ -91,12 +91,12 @@ public final class GetPoliciesForTargetResult {
             return this;
         }
         public GetPoliciesForTargetResult build() {
-            final var o = new GetPoliciesForTargetResult();
-            o.filter = filter;
-            o.id = id;
-            o.ids = ids;
-            o.targetId = targetId;
-            return o;
+            final var _resultValue = new GetPoliciesForTargetResult();
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.targetId = targetId;
+            return _resultValue;
         }
     }
 }

@@ -57,10 +57,10 @@ public final class GetLaunchTemplateIamInstanceProfile {
             return this;
         }
         public GetLaunchTemplateIamInstanceProfile build() {
-            final var o = new GetLaunchTemplateIamInstanceProfile();
-            o.arn = arn;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetLaunchTemplateIamInstanceProfile();
+            _resultValue.arn = arn;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

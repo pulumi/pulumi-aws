@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationDestination {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationDestination build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationDestination();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationDestination();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

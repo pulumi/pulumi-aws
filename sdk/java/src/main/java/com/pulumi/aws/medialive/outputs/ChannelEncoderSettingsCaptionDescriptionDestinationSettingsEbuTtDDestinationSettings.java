@@ -105,12 +105,12 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
             return this;
         }
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings build() {
-            final var o = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings();
-            o.copyrightHolder = copyrightHolder;
-            o.fillLineGap = fillLineGap;
-            o.fontFamily = fontFamily;
-            o.styleControl = styleControl;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings();
+            _resultValue.copyrightHolder = copyrightHolder;
+            _resultValue.fillLineGap = fillLineGap;
+            _resultValue.fontFamily = fontFamily;
+            _resultValue.styleControl = styleControl;
+            return _resultValue;
         }
     }
 }

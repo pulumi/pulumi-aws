@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationTransitGateway {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationTransitGateway build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationTransitGateway();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationTransitGateway();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

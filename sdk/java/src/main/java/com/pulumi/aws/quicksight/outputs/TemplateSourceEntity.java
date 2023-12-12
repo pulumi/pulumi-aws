@@ -68,10 +68,10 @@ public final class TemplateSourceEntity {
             return this;
         }
         public TemplateSourceEntity build() {
-            final var o = new TemplateSourceEntity();
-            o.sourceAnalysis = sourceAnalysis;
-            o.sourceTemplate = sourceTemplate;
-            return o;
+            final var _resultValue = new TemplateSourceEntity();
+            _resultValue.sourceAnalysis = sourceAnalysis;
+            _resultValue.sourceTemplate = sourceTemplate;
+            return _resultValue;
         }
     }
 }

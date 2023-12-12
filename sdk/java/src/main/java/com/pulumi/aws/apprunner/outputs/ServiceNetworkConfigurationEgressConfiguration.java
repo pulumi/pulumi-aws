@@ -67,10 +67,10 @@ public final class ServiceNetworkConfigurationEgressConfiguration {
             return this;
         }
         public ServiceNetworkConfigurationEgressConfiguration build() {
-            final var o = new ServiceNetworkConfigurationEgressConfiguration();
-            o.egressType = egressType;
-            o.vpcConnectorArn = vpcConnectorArn;
-            return o;
+            final var _resultValue = new ServiceNetworkConfigurationEgressConfiguration();
+            _resultValue.egressType = egressType;
+            _resultValue.vpcConnectorArn = vpcConnectorArn;
+            return _resultValue;
         }
     }
 }

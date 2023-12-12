@@ -172,16 +172,16 @@ public final class GetPolicyResult {
             return this;
         }
         public GetPolicyResult build() {
-            final var o = new GetPolicyResult();
-            o.arn = arn;
-            o.awsManaged = awsManaged;
-            o.content = content;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.policyId = policyId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetPolicyResult();
+            _resultValue.arn = arn;
+            _resultValue.awsManaged = awsManaged;
+            _resultValue.content = content;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.policyId = policyId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

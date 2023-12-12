@@ -90,11 +90,11 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
             return this;
         }
         public JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver build() {
-            final var o = new JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver();
-            o.entryPoint = entryPoint;
-            o.entryPointArguments = entryPointArguments;
-            o.sparkSubmitParameters = sparkSubmitParameters;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver();
+            _resultValue.entryPoint = entryPoint;
+            _resultValue.entryPointArguments = entryPointArguments;
+            _resultValue.sparkSubmitParameters = sparkSubmitParameters;
+            return _resultValue;
         }
     }
 }

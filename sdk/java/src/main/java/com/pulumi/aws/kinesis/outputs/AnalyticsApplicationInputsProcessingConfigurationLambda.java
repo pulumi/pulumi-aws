@@ -65,10 +65,10 @@ public final class AnalyticsApplicationInputsProcessingConfigurationLambda {
             return this;
         }
         public AnalyticsApplicationInputsProcessingConfigurationLambda build() {
-            final var o = new AnalyticsApplicationInputsProcessingConfigurationLambda();
-            o.resourceArn = resourceArn;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsProcessingConfigurationLambda();
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

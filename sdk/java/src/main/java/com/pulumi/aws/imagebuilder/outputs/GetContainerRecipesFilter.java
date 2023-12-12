@@ -69,10 +69,10 @@ public final class GetContainerRecipesFilter {
             return values(List.of(values));
         }
         public GetContainerRecipesFilter build() {
-            final var o = new GetContainerRecipesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetContainerRecipesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

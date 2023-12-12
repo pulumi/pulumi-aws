@@ -65,10 +65,10 @@ public final class GetQuerySuggestionsBlockListSourceS3Path {
             return this;
         }
         public GetQuerySuggestionsBlockListSourceS3Path build() {
-            final var o = new GetQuerySuggestionsBlockListSourceS3Path();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new GetQuerySuggestionsBlockListSourceS3Path();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class RepositoryAssociationKmsKeyDetails {
             return this;
         }
         public RepositoryAssociationKmsKeyDetails build() {
-            final var o = new RepositoryAssociationKmsKeyDetails();
-            o.encryptionOption = encryptionOption;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new RepositoryAssociationKmsKeyDetails();
+            _resultValue.encryptionOption = encryptionOption;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

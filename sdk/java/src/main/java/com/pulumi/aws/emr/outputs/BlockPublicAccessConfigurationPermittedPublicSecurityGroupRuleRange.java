@@ -65,10 +65,10 @@ public final class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
             return this;
         }
         public BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange build() {
-            final var o = new BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange();
-            o.maxRange = maxRange;
-            o.minRange = minRange;
-            return o;
+            final var _resultValue = new BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange();
+            _resultValue.maxRange = maxRange;
+            _resultValue.minRange = minRange;
+            return _resultValue;
         }
     }
 }

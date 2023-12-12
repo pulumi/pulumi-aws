@@ -90,11 +90,11 @@ public final class GetResourcesResourceTagMappingList {
             return this;
         }
         public GetResourcesResourceTagMappingList build() {
-            final var o = new GetResourcesResourceTagMappingList();
-            o.complianceDetails = complianceDetails;
-            o.resourceArn = resourceArn;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResourcesResourceTagMappingList();
+            _resultValue.complianceDetails = complianceDetails;
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

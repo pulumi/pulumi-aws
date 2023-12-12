@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesDynatrace build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesDynatrace();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesDynatrace();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

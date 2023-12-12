@@ -48,9 +48,9 @@ public final class ApplicationAutoStartConfiguration {
             return this;
         }
         public ApplicationAutoStartConfiguration build() {
-            final var o = new ApplicationAutoStartConfiguration();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ApplicationAutoStartConfiguration();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class JobNotificationProperty {
             return this;
         }
         public JobNotificationProperty build() {
-            final var o = new JobNotificationProperty();
-            o.notifyDelayAfter = notifyDelayAfter;
-            return o;
+            final var _resultValue = new JobNotificationProperty();
+            _resultValue.notifyDelayAfter = notifyDelayAfter;
+            return _resultValue;
         }
     }
 }

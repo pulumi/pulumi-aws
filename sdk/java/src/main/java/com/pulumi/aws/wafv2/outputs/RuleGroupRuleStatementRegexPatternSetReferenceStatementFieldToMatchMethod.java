@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         }
 
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod();
+            return _resultValue;
         }
     }
 }

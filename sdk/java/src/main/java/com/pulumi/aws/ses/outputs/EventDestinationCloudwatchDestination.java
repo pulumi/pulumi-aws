@@ -84,11 +84,11 @@ public final class EventDestinationCloudwatchDestination {
             return this;
         }
         public EventDestinationCloudwatchDestination build() {
-            final var o = new EventDestinationCloudwatchDestination();
-            o.defaultValue = defaultValue;
-            o.dimensionName = dimensionName;
-            o.valueSource = valueSource;
-            return o;
+            final var _resultValue = new EventDestinationCloudwatchDestination();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.dimensionName = dimensionName;
+            _resultValue.valueSource = valueSource;
+            return _resultValue;
         }
     }
 }

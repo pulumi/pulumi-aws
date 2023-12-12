@@ -108,12 +108,12 @@ public final class CanaryRunConfig {
             return this;
         }
         public CanaryRunConfig build() {
-            final var o = new CanaryRunConfig();
-            o.activeTracing = activeTracing;
-            o.environmentVariables = environmentVariables;
-            o.memoryInMb = memoryInMb;
-            o.timeoutInSeconds = timeoutInSeconds;
-            return o;
+            final var _resultValue = new CanaryRunConfig();
+            _resultValue.activeTracing = activeTracing;
+            _resultValue.environmentVariables = environmentVariables;
+            _resultValue.memoryInMb = memoryInMb;
+            _resultValue.timeoutInSeconds = timeoutInSeconds;
+            return _resultValue;
         }
     }
 }

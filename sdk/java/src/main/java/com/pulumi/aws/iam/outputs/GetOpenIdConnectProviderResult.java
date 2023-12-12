@@ -133,14 +133,14 @@ public final class GetOpenIdConnectProviderResult {
             return this;
         }
         public GetOpenIdConnectProviderResult build() {
-            final var o = new GetOpenIdConnectProviderResult();
-            o.arn = arn;
-            o.clientIdLists = clientIdLists;
-            o.id = id;
-            o.tags = tags;
-            o.thumbprintLists = thumbprintLists;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetOpenIdConnectProviderResult();
+            _resultValue.arn = arn;
+            _resultValue.clientIdLists = clientIdLists;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.thumbprintLists = thumbprintLists;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

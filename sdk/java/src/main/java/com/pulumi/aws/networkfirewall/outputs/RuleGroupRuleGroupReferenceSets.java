@@ -43,9 +43,9 @@ public final class RuleGroupRuleGroupReferenceSets {
             return ipSetReferences(List.of(ipSetReferences));
         }
         public RuleGroupRuleGroupReferenceSets build() {
-            final var o = new RuleGroupRuleGroupReferenceSets();
-            o.ipSetReferences = ipSetReferences;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupReferenceSets();
+            _resultValue.ipSetReferences = ipSetReferences;
+            return _resultValue;
         }
     }
 }

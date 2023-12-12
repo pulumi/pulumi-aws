@@ -172,16 +172,16 @@ public final class GetRouteCalculatorResult {
             return this;
         }
         public GetRouteCalculatorResult build() {
-            final var o = new GetRouteCalculatorResult();
-            o.calculatorArn = calculatorArn;
-            o.calculatorName = calculatorName;
-            o.createTime = createTime;
-            o.dataSource = dataSource;
-            o.description = description;
-            o.id = id;
-            o.tags = tags;
-            o.updateTime = updateTime;
-            return o;
+            final var _resultValue = new GetRouteCalculatorResult();
+            _resultValue.calculatorArn = calculatorArn;
+            _resultValue.calculatorName = calculatorName;
+            _resultValue.createTime = createTime;
+            _resultValue.dataSource = dataSource;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.updateTime = updateTime;
+            return _resultValue;
         }
     }
 }

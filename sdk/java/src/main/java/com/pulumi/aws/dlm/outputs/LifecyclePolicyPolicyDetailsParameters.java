@@ -67,10 +67,10 @@ public final class LifecyclePolicyPolicyDetailsParameters {
             return this;
         }
         public LifecyclePolicyPolicyDetailsParameters build() {
-            final var o = new LifecyclePolicyPolicyDetailsParameters();
-            o.excludeBootVolume = excludeBootVolume;
-            o.noReboot = noReboot;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsParameters();
+            _resultValue.excludeBootVolume = excludeBootVolume;
+            _resultValue.noReboot = noReboot;
+            return _resultValue;
         }
     }
 }

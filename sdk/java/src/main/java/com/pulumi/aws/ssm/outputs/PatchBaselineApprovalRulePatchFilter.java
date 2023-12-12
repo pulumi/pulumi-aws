@@ -53,10 +53,10 @@ public final class PatchBaselineApprovalRulePatchFilter {
             return values(List.of(values));
         }
         public PatchBaselineApprovalRulePatchFilter build() {
-            final var o = new PatchBaselineApprovalRulePatchFilter();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new PatchBaselineApprovalRulePatchFilter();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

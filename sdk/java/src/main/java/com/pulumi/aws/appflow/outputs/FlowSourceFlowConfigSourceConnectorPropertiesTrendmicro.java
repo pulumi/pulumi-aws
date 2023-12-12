@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

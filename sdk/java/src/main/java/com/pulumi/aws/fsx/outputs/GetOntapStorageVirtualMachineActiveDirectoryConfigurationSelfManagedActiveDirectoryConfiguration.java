@@ -126,13 +126,13 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelf
             return this;
         }
         public GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration build() {
-            final var o = new GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration();
-            o.dnsIps = dnsIps;
-            o.domainName = domainName;
-            o.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
-            o.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration();
+            _resultValue.dnsIps = dnsIps;
+            _resultValue.domainName = domainName;
+            _resultValue.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
+            _resultValue.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

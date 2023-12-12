@@ -65,10 +65,10 @@ public final class OptionGroupOptionOptionSetting {
             return this;
         }
         public OptionGroupOptionOptionSetting build() {
-            final var o = new OptionGroupOptionOptionSetting();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new OptionGroupOptionOptionSetting();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

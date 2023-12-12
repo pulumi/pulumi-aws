@@ -46,9 +46,9 @@ public final class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploa
             return this;
         }
         public BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload build() {
-            final var o = new BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload();
-            o.daysAfterInitiation = daysAfterInitiation;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload();
+            _resultValue.daysAfterInitiation = daysAfterInitiation;
+            return _resultValue;
         }
     }
 }

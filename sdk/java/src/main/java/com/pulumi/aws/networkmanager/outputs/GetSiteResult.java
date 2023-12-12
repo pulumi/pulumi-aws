@@ -150,15 +150,15 @@ public final class GetSiteResult {
             return this;
         }
         public GetSiteResult build() {
-            final var o = new GetSiteResult();
-            o.arn = arn;
-            o.description = description;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.locations = locations;
-            o.siteId = siteId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSiteResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.locations = locations;
+            _resultValue.siteId = siteId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

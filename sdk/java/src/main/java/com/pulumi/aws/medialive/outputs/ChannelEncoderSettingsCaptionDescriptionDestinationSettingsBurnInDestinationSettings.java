@@ -354,25 +354,25 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
             return this;
         }
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings build() {
-            final var o = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings();
-            o.alignment = alignment;
-            o.backgroundColor = backgroundColor;
-            o.backgroundOpacity = backgroundOpacity;
-            o.font = font;
-            o.fontColor = fontColor;
-            o.fontOpacity = fontOpacity;
-            o.fontResolution = fontResolution;
-            o.fontSize = fontSize;
-            o.outlineColor = outlineColor;
-            o.outlineSize = outlineSize;
-            o.shadowColor = shadowColor;
-            o.shadowOpacity = shadowOpacity;
-            o.shadowXOffset = shadowXOffset;
-            o.shadowYOffset = shadowYOffset;
-            o.teletextGridControl = teletextGridControl;
-            o.xPosition = xPosition;
-            o.yPosition = yPosition;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings();
+            _resultValue.alignment = alignment;
+            _resultValue.backgroundColor = backgroundColor;
+            _resultValue.backgroundOpacity = backgroundOpacity;
+            _resultValue.font = font;
+            _resultValue.fontColor = fontColor;
+            _resultValue.fontOpacity = fontOpacity;
+            _resultValue.fontResolution = fontResolution;
+            _resultValue.fontSize = fontSize;
+            _resultValue.outlineColor = outlineColor;
+            _resultValue.outlineSize = outlineSize;
+            _resultValue.shadowColor = shadowColor;
+            _resultValue.shadowOpacity = shadowOpacity;
+            _resultValue.shadowXOffset = shadowXOffset;
+            _resultValue.shadowYOffset = shadowYOffset;
+            _resultValue.teletextGridControl = teletextGridControl;
+            _resultValue.xPosition = xPosition;
+            _resultValue.yPosition = yPosition;
+            return _resultValue;
         }
     }
 }

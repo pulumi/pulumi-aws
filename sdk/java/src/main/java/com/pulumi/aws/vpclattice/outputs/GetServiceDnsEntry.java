@@ -49,10 +49,10 @@ public final class GetServiceDnsEntry {
             return this;
         }
         public GetServiceDnsEntry build() {
-            final var o = new GetServiceDnsEntry();
-            o.domainName = domainName;
-            o.hostedZoneId = hostedZoneId;
-            return o;
+            final var _resultValue = new GetServiceDnsEntry();
+            _resultValue.domainName = domainName;
+            _resultValue.hostedZoneId = hostedZoneId;
+            return _resultValue;
         }
     }
 }

@@ -42,9 +42,9 @@ public final class GetListenerDefaultActionForward {
             return targetGroups(List.of(targetGroups));
         }
         public GetListenerDefaultActionForward build() {
-            final var o = new GetListenerDefaultActionForward();
-            o.targetGroups = targetGroups;
-            return o;
+            final var _resultValue = new GetListenerDefaultActionForward();
+            _resultValue.targetGroups = targetGroups;
+            return _resultValue;
         }
     }
 }

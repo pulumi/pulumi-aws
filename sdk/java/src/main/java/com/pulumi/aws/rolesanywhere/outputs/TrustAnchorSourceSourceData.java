@@ -59,10 +59,10 @@ public final class TrustAnchorSourceSourceData {
             return this;
         }
         public TrustAnchorSourceSourceData build() {
-            final var o = new TrustAnchorSourceSourceData();
-            o.acmPcaArn = acmPcaArn;
-            o.x509CertificateData = x509CertificateData;
-            return o;
+            final var _resultValue = new TrustAnchorSourceSourceData();
+            _resultValue.acmPcaArn = acmPcaArn;
+            _resultValue.x509CertificateData = x509CertificateData;
+            return _resultValue;
         }
     }
 }

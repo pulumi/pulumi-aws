@@ -69,10 +69,10 @@ public final class GroupConfigurationParameter {
             return values(List.of(values));
         }
         public GroupConfigurationParameter build() {
-            final var o = new GroupConfigurationParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GroupConfigurationParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -320,24 +320,24 @@ public final class GetFileSystemResult {
             return this;
         }
         public GetFileSystemResult build() {
-            final var o = new GetFileSystemResult();
-            o.arn = arn;
-            o.availabilityZoneId = availabilityZoneId;
-            o.availabilityZoneName = availabilityZoneName;
-            o.creationToken = creationToken;
-            o.dnsName = dnsName;
-            o.encrypted = encrypted;
-            o.fileSystemId = fileSystemId;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.lifecyclePolicy = lifecyclePolicy;
-            o.name = name;
-            o.performanceMode = performanceMode;
-            o.provisionedThroughputInMibps = provisionedThroughputInMibps;
-            o.sizeInBytes = sizeInBytes;
-            o.tags = tags;
-            o.throughputMode = throughputMode;
-            return o;
+            final var _resultValue = new GetFileSystemResult();
+            _resultValue.arn = arn;
+            _resultValue.availabilityZoneId = availabilityZoneId;
+            _resultValue.availabilityZoneName = availabilityZoneName;
+            _resultValue.creationToken = creationToken;
+            _resultValue.dnsName = dnsName;
+            _resultValue.encrypted = encrypted;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.lifecyclePolicy = lifecyclePolicy;
+            _resultValue.name = name;
+            _resultValue.performanceMode = performanceMode;
+            _resultValue.provisionedThroughputInMibps = provisionedThroughputInMibps;
+            _resultValue.sizeInBytes = sizeInBytes;
+            _resultValue.tags = tags;
+            _resultValue.throughputMode = throughputMode;
+            return _resultValue;
         }
     }
 }

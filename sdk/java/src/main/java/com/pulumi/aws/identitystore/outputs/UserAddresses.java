@@ -182,16 +182,16 @@ public final class UserAddresses {
             return this;
         }
         public UserAddresses build() {
-            final var o = new UserAddresses();
-            o.country = country;
-            o.formatted = formatted;
-            o.locality = locality;
-            o.postalCode = postalCode;
-            o.primary = primary;
-            o.region = region;
-            o.streetAddress = streetAddress;
-            o.type = type;
-            return o;
+            final var _resultValue = new UserAddresses();
+            _resultValue.country = country;
+            _resultValue.formatted = formatted;
+            _resultValue.locality = locality;
+            _resultValue.postalCode = postalCode;
+            _resultValue.primary = primary;
+            _resultValue.region = region;
+            _resultValue.streetAddress = streetAddress;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

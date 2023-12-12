@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

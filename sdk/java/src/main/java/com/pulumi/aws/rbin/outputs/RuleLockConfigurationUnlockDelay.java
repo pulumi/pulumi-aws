@@ -66,10 +66,10 @@ public final class RuleLockConfigurationUnlockDelay {
             return this;
         }
         public RuleLockConfigurationUnlockDelay build() {
-            final var o = new RuleLockConfigurationUnlockDelay();
-            o.unlockDelayUnit = unlockDelayUnit;
-            o.unlockDelayValue = unlockDelayValue;
-            return o;
+            final var _resultValue = new RuleLockConfigurationUnlockDelay();
+            _resultValue.unlockDelayUnit = unlockDelayUnit;
+            _resultValue.unlockDelayValue = unlockDelayValue;
+            return _resultValue;
         }
     }
 }

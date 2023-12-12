@@ -48,9 +48,9 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettingsKendraSettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettingsKendraSettings();
-            o.status = status;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettingsKendraSettings();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

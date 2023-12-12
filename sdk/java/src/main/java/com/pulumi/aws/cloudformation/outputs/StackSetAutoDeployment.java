@@ -67,10 +67,10 @@ public final class StackSetAutoDeployment {
             return this;
         }
         public StackSetAutoDeployment build() {
-            final var o = new StackSetAutoDeployment();
-            o.enabled = enabled;
-            o.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
-            return o;
+            final var _resultValue = new StackSetAutoDeployment();
+            _resultValue.enabled = enabled;
+            _resultValue.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
+            return _resultValue;
         }
     }
 }

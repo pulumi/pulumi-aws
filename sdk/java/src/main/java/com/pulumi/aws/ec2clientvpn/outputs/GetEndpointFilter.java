@@ -69,10 +69,10 @@ public final class GetEndpointFilter {
             return values(List.of(values));
         }
         public GetEndpointFilter build() {
-            final var o = new GetEndpointFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetEndpointFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

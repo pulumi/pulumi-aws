@@ -105,12 +105,12 @@ public final class VpcEndpointServicePrivateDnsNameConfiguration {
             return this;
         }
         public VpcEndpointServicePrivateDnsNameConfiguration build() {
-            final var o = new VpcEndpointServicePrivateDnsNameConfiguration();
-            o.name = name;
-            o.state = state;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new VpcEndpointServicePrivateDnsNameConfiguration();
+            _resultValue.name = name;
+            _resultValue.state = state;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

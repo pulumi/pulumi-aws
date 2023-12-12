@@ -65,10 +65,10 @@ public final class GatewayRouteSpecHttp2RouteMatchHeaderMatchRange {
             return this;
         }
         public GatewayRouteSpecHttp2RouteMatchHeaderMatchRange build() {
-            final var o = new GatewayRouteSpecHttp2RouteMatchHeaderMatchRange();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2RouteMatchHeaderMatchRange();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

@@ -172,15 +172,15 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
             return this;
         }
         public PipeTargetParametersEcsTaskParametersOverrides build() {
-            final var o = new PipeTargetParametersEcsTaskParametersOverrides();
-            o.containerOverrides = containerOverrides;
-            o.cpu = cpu;
-            o.ephemeralStorage = ephemeralStorage;
-            o.executionRoleArn = executionRoleArn;
-            o.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
-            o.memory = memory;
-            o.taskRoleArn = taskRoleArn;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersOverrides();
+            _resultValue.containerOverrides = containerOverrides;
+            _resultValue.cpu = cpu;
+            _resultValue.ephemeralStorage = ephemeralStorage;
+            _resultValue.executionRoleArn = executionRoleArn;
+            _resultValue.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
+            _resultValue.memory = memory;
+            _resultValue.taskRoleArn = taskRoleArn;
+            return _resultValue;
         }
     }
 }

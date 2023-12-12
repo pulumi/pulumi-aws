@@ -65,10 +65,10 @@ public final class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader
             return this;
         }
         public RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader build() {
-            final var o = new RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

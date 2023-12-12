@@ -87,11 +87,11 @@ public final class DistributionLoggingConfig {
             return this;
         }
         public DistributionLoggingConfig build() {
-            final var o = new DistributionLoggingConfig();
-            o.bucket = bucket;
-            o.includeCookies = includeCookies;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new DistributionLoggingConfig();
+            _resultValue.bucket = bucket;
+            _resultValue.includeCookies = includeCookies;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

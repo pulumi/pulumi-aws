@@ -133,13 +133,13 @@ public final class BrokerUser {
             return this;
         }
         public BrokerUser build() {
-            final var o = new BrokerUser();
-            o.consoleAccess = consoleAccess;
-            o.groups = groups;
-            o.password = password;
-            o.replicationUser = replicationUser;
-            o.username = username;
-            return o;
+            final var _resultValue = new BrokerUser();
+            _resultValue.consoleAccess = consoleAccess;
+            _resultValue.groups = groups;
+            _resultValue.password = password;
+            _resultValue.replicationUser = replicationUser;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

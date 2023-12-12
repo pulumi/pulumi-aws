@@ -88,11 +88,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting();
-            o.archiveCdnSettings = archiveCdnSettings;
-            o.destination = destination;
-            o.rolloverInterval = rolloverInterval;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting();
+            _resultValue.archiveCdnSettings = archiveCdnSettings;
+            _resultValue.destination = destination;
+            _resultValue.rolloverInterval = rolloverInterval;
+            return _resultValue;
         }
     }
 }

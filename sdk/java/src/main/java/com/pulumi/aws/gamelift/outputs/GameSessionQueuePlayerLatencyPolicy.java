@@ -67,10 +67,10 @@ public final class GameSessionQueuePlayerLatencyPolicy {
             return this;
         }
         public GameSessionQueuePlayerLatencyPolicy build() {
-            final var o = new GameSessionQueuePlayerLatencyPolicy();
-            o.maximumIndividualPlayerLatencyMilliseconds = maximumIndividualPlayerLatencyMilliseconds;
-            o.policyDurationSeconds = policyDurationSeconds;
-            return o;
+            final var _resultValue = new GameSessionQueuePlayerLatencyPolicy();
+            _resultValue.maximumIndividualPlayerLatencyMilliseconds = maximumIndividualPlayerLatencyMilliseconds;
+            _resultValue.policyDurationSeconds = policyDurationSeconds;
+            return _resultValue;
         }
     }
 }

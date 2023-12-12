@@ -65,10 +65,10 @@ public final class InsightFiltersResourceAwsEc2InstanceImageId {
             return this;
         }
         public InsightFiltersResourceAwsEc2InstanceImageId build() {
-            final var o = new InsightFiltersResourceAwsEc2InstanceImageId();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsEc2InstanceImageId();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

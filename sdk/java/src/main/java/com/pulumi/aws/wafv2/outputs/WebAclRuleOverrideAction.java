@@ -68,10 +68,10 @@ public final class WebAclRuleOverrideAction {
             return this;
         }
         public WebAclRuleOverrideAction build() {
-            final var o = new WebAclRuleOverrideAction();
-            o.count = count;
-            o.none = none;
-            return o;
+            final var _resultValue = new WebAclRuleOverrideAction();
+            _resultValue.count = count;
+            _resultValue.none = none;
+            return _resultValue;
         }
     }
 }

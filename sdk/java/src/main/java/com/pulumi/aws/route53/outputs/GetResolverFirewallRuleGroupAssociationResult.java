@@ -190,22 +190,22 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
             return this;
         }
         public GetResolverFirewallRuleGroupAssociationResult build() {
-            final var o = new GetResolverFirewallRuleGroupAssociationResult();
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.creatorRequestId = creatorRequestId;
-            o.firewallRuleGroupAssociationId = firewallRuleGroupAssociationId;
-            o.firewallRuleGroupId = firewallRuleGroupId;
-            o.id = id;
-            o.managedOwnerName = managedOwnerName;
-            o.modificationTime = modificationTime;
-            o.mutationProtection = mutationProtection;
-            o.name = name;
-            o.priority = priority;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetResolverFirewallRuleGroupAssociationResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.creatorRequestId = creatorRequestId;
+            _resultValue.firewallRuleGroupAssociationId = firewallRuleGroupAssociationId;
+            _resultValue.firewallRuleGroupId = firewallRuleGroupId;
+            _resultValue.id = id;
+            _resultValue.managedOwnerName = managedOwnerName;
+            _resultValue.modificationTime = modificationTime;
+            _resultValue.mutationProtection = mutationProtection;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

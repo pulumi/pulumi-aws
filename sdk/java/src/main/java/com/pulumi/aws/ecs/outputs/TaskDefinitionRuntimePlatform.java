@@ -67,10 +67,10 @@ public final class TaskDefinitionRuntimePlatform {
             return this;
         }
         public TaskDefinitionRuntimePlatform build() {
-            final var o = new TaskDefinitionRuntimePlatform();
-            o.cpuArchitecture = cpuArchitecture;
-            o.operatingSystemFamily = operatingSystemFamily;
-            return o;
+            final var _resultValue = new TaskDefinitionRuntimePlatform();
+            _resultValue.cpuArchitecture = cpuArchitecture;
+            _resultValue.operatingSystemFamily = operatingSystemFamily;
+            return _resultValue;
         }
     }
 }

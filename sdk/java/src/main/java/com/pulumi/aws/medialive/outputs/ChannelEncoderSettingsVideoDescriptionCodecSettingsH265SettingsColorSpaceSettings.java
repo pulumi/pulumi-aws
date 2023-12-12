@@ -128,13 +128,13 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings();
-            o.colorSpacePassthroughSettings = colorSpacePassthroughSettings;
-            o.dolbyVision81Settings = dolbyVision81Settings;
-            o.hdr10Settings = hdr10Settings;
-            o.rec601Settings = rec601Settings;
-            o.rec709Settings = rec709Settings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings();
+            _resultValue.colorSpacePassthroughSettings = colorSpacePassthroughSettings;
+            _resultValue.dolbyVision81Settings = dolbyVision81Settings;
+            _resultValue.hdr10Settings = hdr10Settings;
+            _resultValue.rec601Settings = rec601Settings;
+            _resultValue.rec709Settings = rec709Settings;
+            return _resultValue;
         }
     }
 }

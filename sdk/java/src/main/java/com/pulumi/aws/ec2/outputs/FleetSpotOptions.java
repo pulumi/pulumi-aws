@@ -107,12 +107,12 @@ public final class FleetSpotOptions {
             return this;
         }
         public FleetSpotOptions build() {
-            final var o = new FleetSpotOptions();
-            o.allocationStrategy = allocationStrategy;
-            o.instanceInterruptionBehavior = instanceInterruptionBehavior;
-            o.instancePoolsToUseCount = instancePoolsToUseCount;
-            o.maintenanceStrategies = maintenanceStrategies;
-            return o;
+            final var _resultValue = new FleetSpotOptions();
+            _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.instanceInterruptionBehavior = instanceInterruptionBehavior;
+            _resultValue.instancePoolsToUseCount = instancePoolsToUseCount;
+            _resultValue.maintenanceStrategies = maintenanceStrategies;
+            return _resultValue;
         }
     }
 }

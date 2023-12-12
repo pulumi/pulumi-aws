@@ -25,8 +25,8 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPa
         }
 
         public WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll build() {
-            final var o = new WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll();
+            return _resultValue;
         }
     }
 }

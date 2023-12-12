@@ -266,21 +266,21 @@ public final class GetNetworkInsightsPathResult {
             return this;
         }
         public GetNetworkInsightsPathResult build() {
-            final var o = new GetNetworkInsightsPathResult();
-            o.arn = arn;
-            o.destination = destination;
-            o.destinationArn = destinationArn;
-            o.destinationIp = destinationIp;
-            o.destinationPort = destinationPort;
-            o.filters = filters;
-            o.id = id;
-            o.networkInsightsPathId = networkInsightsPathId;
-            o.protocol = protocol;
-            o.source = source;
-            o.sourceArn = sourceArn;
-            o.sourceIp = sourceIp;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNetworkInsightsPathResult();
+            _resultValue.arn = arn;
+            _resultValue.destination = destination;
+            _resultValue.destinationArn = destinationArn;
+            _resultValue.destinationIp = destinationIp;
+            _resultValue.destinationPort = destinationPort;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.networkInsightsPathId = networkInsightsPathId;
+            _resultValue.protocol = protocol;
+            _resultValue.source = source;
+            _resultValue.sourceArn = sourceArn;
+            _resultValue.sourceIp = sourceIp;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -89,11 +89,11 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies 
             return this;
         }
         public RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies();
-            o.matchPatterns = matchPatterns;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies();
+            _resultValue.matchPatterns = matchPatterns;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

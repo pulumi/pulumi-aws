@@ -67,10 +67,10 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig();
-            o.prefixFormat = prefixFormat;
-            o.prefixType = prefixType;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig();
+            _resultValue.prefixFormat = prefixFormat;
+            _resultValue.prefixType = prefixType;
+            return _resultValue;
         }
     }
 }

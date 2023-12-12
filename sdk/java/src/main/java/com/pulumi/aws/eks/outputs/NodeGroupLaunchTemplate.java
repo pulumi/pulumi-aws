@@ -86,11 +86,11 @@ public final class NodeGroupLaunchTemplate {
             return this;
         }
         public NodeGroupLaunchTemplate build() {
-            final var o = new NodeGroupLaunchTemplate();
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new NodeGroupLaunchTemplate();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -73,10 +73,10 @@ public final class GetNetworkAclsFilter {
             return values(List.of(values));
         }
         public GetNetworkAclsFilter build() {
-            final var o = new GetNetworkAclsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetNetworkAclsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -325,24 +325,24 @@ public final class GetClusterResult {
             return this;
         }
         public GetClusterResult build() {
-            final var o = new GetClusterResult();
-            o.arn = arn;
-            o.bootstrapBrokers = bootstrapBrokers;
-            o.bootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
-            o.bootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
-            o.bootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
-            o.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
-            o.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
-            o.bootstrapBrokersTls = bootstrapBrokersTls;
-            o.clusterName = clusterName;
-            o.clusterUuid = clusterUuid;
-            o.id = id;
-            o.kafkaVersion = kafkaVersion;
-            o.numberOfBrokerNodes = numberOfBrokerNodes;
-            o.tags = tags;
-            o.zookeeperConnectString = zookeeperConnectString;
-            o.zookeeperConnectStringTls = zookeeperConnectStringTls;
-            return o;
+            final var _resultValue = new GetClusterResult();
+            _resultValue.arn = arn;
+            _resultValue.bootstrapBrokers = bootstrapBrokers;
+            _resultValue.bootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
+            _resultValue.bootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
+            _resultValue.bootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
+            _resultValue.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
+            _resultValue.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
+            _resultValue.bootstrapBrokersTls = bootstrapBrokersTls;
+            _resultValue.clusterName = clusterName;
+            _resultValue.clusterUuid = clusterUuid;
+            _resultValue.id = id;
+            _resultValue.kafkaVersion = kafkaVersion;
+            _resultValue.numberOfBrokerNodes = numberOfBrokerNodes;
+            _resultValue.tags = tags;
+            _resultValue.zookeeperConnectString = zookeeperConnectString;
+            _resultValue.zookeeperConnectStringTls = zookeeperConnectStringTls;
+            return _resultValue;
         }
     }
 }

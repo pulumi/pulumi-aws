@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationSecurityGroup {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationSecurityGroup build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationSecurityGroup();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationSecurityGroup();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class DataSetLogicalTableMapDataTransformRenameColumnOperation {
             return this;
         }
         public DataSetLogicalTableMapDataTransformRenameColumnOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformRenameColumnOperation();
-            o.columnName = columnName;
-            o.newColumnName = newColumnName;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformRenameColumnOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.newColumnName = newColumnName;
+            return _resultValue;
         }
     }
 }

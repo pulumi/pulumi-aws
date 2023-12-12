@@ -125,13 +125,13 @@ public final class ScalingPlanScalingInstructionCustomizedLoadMetricSpecificatio
             return this;
         }
         public ScalingPlanScalingInstructionCustomizedLoadMetricSpecification build() {
-            final var o = new ScalingPlanScalingInstructionCustomizedLoadMetricSpecification();
-            o.dimensions = dimensions;
-            o.metricName = metricName;
-            o.namespace = namespace;
-            o.statistic = statistic;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new ScalingPlanScalingInstructionCustomizedLoadMetricSpecification();
+            _resultValue.dimensions = dimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.namespace = namespace;
+            _resultValue.statistic = statistic;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

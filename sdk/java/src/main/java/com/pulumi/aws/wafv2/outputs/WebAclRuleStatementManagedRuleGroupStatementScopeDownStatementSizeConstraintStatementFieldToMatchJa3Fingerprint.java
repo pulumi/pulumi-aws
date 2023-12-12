@@ -46,9 +46,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint();
-            o.fallbackBehavior = fallbackBehavior;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            return _resultValue;
         }
     }
 }

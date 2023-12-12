@@ -48,9 +48,9 @@ public final class ThingGroupPropertiesAttributePayload {
             return this;
         }
         public ThingGroupPropertiesAttributePayload build() {
-            final var o = new ThingGroupPropertiesAttributePayload();
-            o.attributes = attributes;
-            return o;
+            final var _resultValue = new ThingGroupPropertiesAttributePayload();
+            _resultValue.attributes = attributes;
+            return _resultValue;
         }
     }
 }

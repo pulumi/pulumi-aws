@@ -46,9 +46,9 @@ public final class BucketServerSideEncryptionConfiguration {
             return this;
         }
         public BucketServerSideEncryptionConfiguration build() {
-            final var o = new BucketServerSideEncryptionConfiguration();
-            o.rule = rule;
-            return o;
+            final var _resultValue = new BucketServerSideEncryptionConfiguration();
+            _resultValue.rule = rule;
+            return _resultValue;
         }
     }
 }

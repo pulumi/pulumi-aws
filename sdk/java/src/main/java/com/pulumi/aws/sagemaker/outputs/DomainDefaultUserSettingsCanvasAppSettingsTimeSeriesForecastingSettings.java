@@ -67,10 +67,10 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecasti
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings();
-            o.amazonForecastRoleArn = amazonForecastRoleArn;
-            o.status = status;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings();
+            _resultValue.amazonForecastRoleArn = amazonForecastRoleArn;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

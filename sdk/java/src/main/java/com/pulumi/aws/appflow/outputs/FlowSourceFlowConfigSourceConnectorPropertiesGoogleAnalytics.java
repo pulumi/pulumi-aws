@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics 
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

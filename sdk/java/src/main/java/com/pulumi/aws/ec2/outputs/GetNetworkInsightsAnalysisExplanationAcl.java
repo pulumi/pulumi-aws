@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationAcl {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationAcl build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationAcl();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationAcl();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -134,14 +134,14 @@ public final class GetGroupMixedInstancesPolicyInstancesDistribution {
             return this;
         }
         public GetGroupMixedInstancesPolicyInstancesDistribution build() {
-            final var o = new GetGroupMixedInstancesPolicyInstancesDistribution();
-            o.onDemandAllocationStrategy = onDemandAllocationStrategy;
-            o.onDemandBaseCapacity = onDemandBaseCapacity;
-            o.onDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;
-            o.spotAllocationStrategy = spotAllocationStrategy;
-            o.spotInstancePools = spotInstancePools;
-            o.spotMaxPrice = spotMaxPrice;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicyInstancesDistribution();
+            _resultValue.onDemandAllocationStrategy = onDemandAllocationStrategy;
+            _resultValue.onDemandBaseCapacity = onDemandBaseCapacity;
+            _resultValue.onDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;
+            _resultValue.spotAllocationStrategy = spotAllocationStrategy;
+            _resultValue.spotInstancePools = spotInstancePools;
+            _resultValue.spotMaxPrice = spotMaxPrice;
+            return _resultValue;
         }
     }
 }

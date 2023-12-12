@@ -39,9 +39,9 @@ public final class GetFunctionEnvironment {
             return this;
         }
         public GetFunctionEnvironment build() {
-            final var o = new GetFunctionEnvironment();
-            o.variables = variables;
-            return o;
+            final var _resultValue = new GetFunctionEnvironment();
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

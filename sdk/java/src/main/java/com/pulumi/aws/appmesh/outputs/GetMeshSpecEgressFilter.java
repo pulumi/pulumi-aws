@@ -38,9 +38,9 @@ public final class GetMeshSpecEgressFilter {
             return this;
         }
         public GetMeshSpecEgressFilter build() {
-            final var o = new GetMeshSpecEgressFilter();
-            o.type = type;
-            return o;
+            final var _resultValue = new GetMeshSpecEgressFilter();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

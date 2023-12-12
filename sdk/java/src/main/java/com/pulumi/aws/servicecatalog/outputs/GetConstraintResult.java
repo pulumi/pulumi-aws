@@ -184,17 +184,17 @@ public final class GetConstraintResult {
             return this;
         }
         public GetConstraintResult build() {
-            final var o = new GetConstraintResult();
-            o.acceptLanguage = acceptLanguage;
-            o.description = description;
-            o.id = id;
-            o.owner = owner;
-            o.parameters = parameters;
-            o.portfolioId = portfolioId;
-            o.productId = productId;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetConstraintResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.owner = owner;
+            _resultValue.parameters = parameters;
+            _resultValue.portfolioId = portfolioId;
+            _resultValue.productId = productId;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

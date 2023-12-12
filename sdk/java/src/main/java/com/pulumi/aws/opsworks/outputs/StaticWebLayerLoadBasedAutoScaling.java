@@ -64,11 +64,11 @@ public final class StaticWebLayerLoadBasedAutoScaling {
             return this;
         }
         public StaticWebLayerLoadBasedAutoScaling build() {
-            final var o = new StaticWebLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new StaticWebLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

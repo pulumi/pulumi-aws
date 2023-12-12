@@ -48,9 +48,9 @@ public final class WebAclRuleActionCount {
             return this;
         }
         public WebAclRuleActionCount build() {
-            final var o = new WebAclRuleActionCount();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new WebAclRuleActionCount();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

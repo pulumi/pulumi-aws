@@ -25,8 +25,8 @@ public final class WebAclLoggingConfigurationRedactedFieldQueryString {
         }
 
         public WebAclLoggingConfigurationRedactedFieldQueryString build() {
-            final var o = new WebAclLoggingConfigurationRedactedFieldQueryString();
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationRedactedFieldQueryString();
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class InsightFiltersRecommendationText {
             return this;
         }
         public InsightFiltersRecommendationText build() {
-            final var o = new InsightFiltersRecommendationText();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersRecommendationText();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

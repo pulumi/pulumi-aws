@@ -80,10 +80,10 @@ public final class IntentConclusionStatement {
             return this;
         }
         public IntentConclusionStatement build() {
-            final var o = new IntentConclusionStatement();
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new IntentConclusionStatement();
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

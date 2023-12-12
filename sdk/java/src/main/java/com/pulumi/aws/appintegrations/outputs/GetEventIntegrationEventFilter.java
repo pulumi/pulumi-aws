@@ -46,9 +46,9 @@ public final class GetEventIntegrationEventFilter {
             return this;
         }
         public GetEventIntegrationEventFilter build() {
-            final var o = new GetEventIntegrationEventFilter();
-            o.source = source;
-            return o;
+            final var _resultValue = new GetEventIntegrationEventFilter();
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

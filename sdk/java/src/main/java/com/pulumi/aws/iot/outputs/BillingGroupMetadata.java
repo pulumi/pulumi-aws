@@ -40,9 +40,9 @@ public final class BillingGroupMetadata {
             return this;
         }
         public BillingGroupMetadata build() {
-            final var o = new BillingGroupMetadata();
-            o.creationDate = creationDate;
-            return o;
+            final var _resultValue = new BillingGroupMetadata();
+            _resultValue.creationDate = creationDate;
+            return _resultValue;
         }
     }
 }

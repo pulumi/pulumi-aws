@@ -246,19 +246,19 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters();
-            o.cloudwatchConfig = cloudwatchConfig;
-            o.comment = comment;
-            o.documentHash = documentHash;
-            o.documentHashType = documentHashType;
-            o.documentVersion = documentVersion;
-            o.notificationConfig = notificationConfig;
-            o.outputS3Bucket = outputS3Bucket;
-            o.outputS3KeyPrefix = outputS3KeyPrefix;
-            o.parameters = parameters;
-            o.serviceRoleArn = serviceRoleArn;
-            o.timeoutSeconds = timeoutSeconds;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters();
+            _resultValue.cloudwatchConfig = cloudwatchConfig;
+            _resultValue.comment = comment;
+            _resultValue.documentHash = documentHash;
+            _resultValue.documentHashType = documentHashType;
+            _resultValue.documentVersion = documentVersion;
+            _resultValue.notificationConfig = notificationConfig;
+            _resultValue.outputS3Bucket = outputS3Bucket;
+            _resultValue.outputS3KeyPrefix = outputS3KeyPrefix;
+            _resultValue.parameters = parameters;
+            _resultValue.serviceRoleArn = serviceRoleArn;
+            _resultValue.timeoutSeconds = timeoutSeconds;
+            return _resultValue;
         }
     }
 }

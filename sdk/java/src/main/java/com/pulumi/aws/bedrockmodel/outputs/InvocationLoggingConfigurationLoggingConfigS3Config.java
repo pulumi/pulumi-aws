@@ -71,10 +71,10 @@ public final class InvocationLoggingConfigurationLoggingConfigS3Config {
             return this;
         }
         public InvocationLoggingConfigurationLoggingConfigS3Config build() {
-            final var o = new InvocationLoggingConfigurationLoggingConfigS3Config();
-            o.bucketName = bucketName;
-            o.keyPrefix = keyPrefix;
-            return o;
+            final var _resultValue = new InvocationLoggingConfigurationLoggingConfigS3Config();
+            _resultValue.bucketName = bucketName;
+            _resultValue.keyPrefix = keyPrefix;
+            return _resultValue;
         }
     }
 }

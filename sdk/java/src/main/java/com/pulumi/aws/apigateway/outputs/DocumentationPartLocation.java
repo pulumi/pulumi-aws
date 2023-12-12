@@ -124,13 +124,13 @@ public final class DocumentationPartLocation {
             return this;
         }
         public DocumentationPartLocation build() {
-            final var o = new DocumentationPartLocation();
-            o.method = method;
-            o.name = name;
-            o.path = path;
-            o.statusCode = statusCode;
-            o.type = type;
-            return o;
+            final var _resultValue = new DocumentationPartLocation();
+            _resultValue.method = method;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.statusCode = statusCode;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

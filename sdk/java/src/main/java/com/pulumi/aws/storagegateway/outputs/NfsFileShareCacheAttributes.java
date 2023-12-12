@@ -52,9 +52,9 @@ public final class NfsFileShareCacheAttributes {
             return this;
         }
         public NfsFileShareCacheAttributes build() {
-            final var o = new NfsFileShareCacheAttributes();
-            o.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
-            return o;
+            final var _resultValue = new NfsFileShareCacheAttributes();
+            _resultValue.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
+            return _resultValue;
         }
     }
 }

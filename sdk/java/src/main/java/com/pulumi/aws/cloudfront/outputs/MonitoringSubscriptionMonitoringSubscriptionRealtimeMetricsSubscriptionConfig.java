@@ -46,9 +46,9 @@ public final class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSu
             return this;
         }
         public MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig build() {
-            final var o = new MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig();
-            o.realtimeMetricsSubscriptionStatus = realtimeMetricsSubscriptionStatus;
-            return o;
+            final var _resultValue = new MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig();
+            _resultValue.realtimeMetricsSubscriptionStatus = realtimeMetricsSubscriptionStatus;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class DistributionOriginGroupFailoverCriteria {
             return statusCodes(List.of(statusCodes));
         }
         public DistributionOriginGroupFailoverCriteria build() {
-            final var o = new DistributionOriginGroupFailoverCriteria();
-            o.statusCodes = statusCodes;
-            return o;
+            final var _resultValue = new DistributionOriginGroupFailoverCriteria();
+            _resultValue.statusCodes = statusCodes;
+            return _resultValue;
         }
     }
 }

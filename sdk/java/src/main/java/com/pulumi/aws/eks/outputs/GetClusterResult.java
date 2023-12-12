@@ -364,25 +364,25 @@ public final class GetClusterResult {
             return this;
         }
         public GetClusterResult build() {
-            final var o = new GetClusterResult();
-            o.arn = arn;
-            o.certificateAuthorities = certificateAuthorities;
-            o.clusterId = clusterId;
-            o.createdAt = createdAt;
-            o.enabledClusterLogTypes = enabledClusterLogTypes;
-            o.endpoint = endpoint;
-            o.id = id;
-            o.identities = identities;
-            o.kubernetesNetworkConfigs = kubernetesNetworkConfigs;
-            o.name = name;
-            o.outpostConfigs = outpostConfigs;
-            o.platformVersion = platformVersion;
-            o.roleArn = roleArn;
-            o.status = status;
-            o.tags = tags;
-            o.version = version;
-            o.vpcConfig = vpcConfig;
-            return o;
+            final var _resultValue = new GetClusterResult();
+            _resultValue.arn = arn;
+            _resultValue.certificateAuthorities = certificateAuthorities;
+            _resultValue.clusterId = clusterId;
+            _resultValue.createdAt = createdAt;
+            _resultValue.enabledClusterLogTypes = enabledClusterLogTypes;
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.kubernetesNetworkConfigs = kubernetesNetworkConfigs;
+            _resultValue.name = name;
+            _resultValue.outpostConfigs = outpostConfigs;
+            _resultValue.platformVersion = platformVersion;
+            _resultValue.roleArn = roleArn;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            _resultValue.vpcConfig = vpcConfig;
+            return _resultValue;
         }
     }
 }

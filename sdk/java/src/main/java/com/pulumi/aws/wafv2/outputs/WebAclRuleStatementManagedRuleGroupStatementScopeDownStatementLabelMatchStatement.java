@@ -65,10 +65,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement();
-            o.key = key;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement();
+            _resultValue.key = key;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

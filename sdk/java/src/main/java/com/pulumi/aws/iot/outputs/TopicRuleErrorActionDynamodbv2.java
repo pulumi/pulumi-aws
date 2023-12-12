@@ -68,10 +68,10 @@ public final class TopicRuleErrorActionDynamodbv2 {
             return this;
         }
         public TopicRuleErrorActionDynamodbv2 build() {
-            final var o = new TopicRuleErrorActionDynamodbv2();
-            o.putItem = putItem;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionDynamodbv2();
+            _resultValue.putItem = putItem;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

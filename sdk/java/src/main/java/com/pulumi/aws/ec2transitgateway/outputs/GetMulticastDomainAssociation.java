@@ -65,10 +65,10 @@ public final class GetMulticastDomainAssociation {
             return this;
         }
         public GetMulticastDomainAssociation build() {
-            final var o = new GetMulticastDomainAssociation();
-            o.subnetId = subnetId;
-            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
-            return o;
+            final var _resultValue = new GetMulticastDomainAssociation();
+            _resultValue.subnetId = subnetId;
+            _resultValue.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            return _resultValue;
         }
     }
 }

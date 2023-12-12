@@ -67,10 +67,10 @@ public final class DataSourceElasticsearchConfig {
             return this;
         }
         public DataSourceElasticsearchConfig build() {
-            final var o = new DataSourceElasticsearchConfig();
-            o.endpoint = endpoint;
-            o.region = region;
-            return o;
+            final var _resultValue = new DataSourceElasticsearchConfig();
+            _resultValue.endpoint = endpoint;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

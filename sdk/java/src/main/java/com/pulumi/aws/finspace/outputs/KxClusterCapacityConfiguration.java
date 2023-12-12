@@ -84,10 +84,10 @@ public final class KxClusterCapacityConfiguration {
             return this;
         }
         public KxClusterCapacityConfiguration build() {
-            final var o = new KxClusterCapacityConfiguration();
-            o.nodeCount = nodeCount;
-            o.nodeType = nodeType;
-            return o;
+            final var _resultValue = new KxClusterCapacityConfiguration();
+            _resultValue.nodeCount = nodeCount;
+            _resultValue.nodeType = nodeType;
+            return _resultValue;
         }
     }
 }

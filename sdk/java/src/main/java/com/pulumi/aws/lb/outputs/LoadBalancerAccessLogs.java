@@ -87,11 +87,11 @@ public final class LoadBalancerAccessLogs {
             return this;
         }
         public LoadBalancerAccessLogs build() {
-            final var o = new LoadBalancerAccessLogs();
-            o.bucket = bucket;
-            o.enabled = enabled;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new LoadBalancerAccessLogs();
+            _resultValue.bucket = bucket;
+            _resultValue.enabled = enabled;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

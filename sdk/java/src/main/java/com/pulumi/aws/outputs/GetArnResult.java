@@ -148,15 +148,15 @@ public final class GetArnResult {
             return this;
         }
         public GetArnResult build() {
-            final var o = new GetArnResult();
-            o.account = account;
-            o.arn = arn;
-            o.id = id;
-            o.partition = partition;
-            o.region = region;
-            o.resource = resource;
-            o.service = service;
-            return o;
+            final var _resultValue = new GetArnResult();
+            _resultValue.account = account;
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.partition = partition;
+            _resultValue.region = region;
+            _resultValue.resource = resource;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

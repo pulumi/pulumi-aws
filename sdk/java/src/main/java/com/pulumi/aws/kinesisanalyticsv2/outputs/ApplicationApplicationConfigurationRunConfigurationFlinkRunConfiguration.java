@@ -48,9 +48,9 @@ public final class ApplicationApplicationConfigurationRunConfigurationFlinkRunCo
             return this;
         }
         public ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration();
-            o.allowNonRestoredState = allowNonRestoredState;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration();
+            _resultValue.allowNonRestoredState = allowNonRestoredState;
+            return _resultValue;
         }
     }
 }

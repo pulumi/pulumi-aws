@@ -65,10 +65,10 @@ public final class ScheduleTargetSagemakerPipelineParametersPipelineParameter {
             return this;
         }
         public ScheduleTargetSagemakerPipelineParametersPipelineParameter build() {
-            final var o = new ScheduleTargetSagemakerPipelineParametersPipelineParameter();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new ScheduleTargetSagemakerPipelineParametersPipelineParameter();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

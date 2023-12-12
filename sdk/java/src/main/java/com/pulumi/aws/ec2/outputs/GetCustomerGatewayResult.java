@@ -190,17 +190,17 @@ public final class GetCustomerGatewayResult {
             return this;
         }
         public GetCustomerGatewayResult build() {
-            final var o = new GetCustomerGatewayResult();
-            o.arn = arn;
-            o.bgpAsn = bgpAsn;
-            o.certificateArn = certificateArn;
-            o.deviceName = deviceName;
-            o.filters = filters;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetCustomerGatewayResult();
+            _resultValue.arn = arn;
+            _resultValue.bgpAsn = bgpAsn;
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.deviceName = deviceName;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

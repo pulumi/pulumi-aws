@@ -54,10 +54,10 @@ public final class GetDataSetRowLevelPermissionTagConfiguration {
             return tagRules(List.of(tagRules));
         }
         public GetDataSetRowLevelPermissionTagConfiguration build() {
-            final var o = new GetDataSetRowLevelPermissionTagConfiguration();
-            o.status = status;
-            o.tagRules = tagRules;
-            return o;
+            final var _resultValue = new GetDataSetRowLevelPermissionTagConfiguration();
+            _resultValue.status = status;
+            _resultValue.tagRules = tagRules;
+            return _resultValue;
         }
     }
 }

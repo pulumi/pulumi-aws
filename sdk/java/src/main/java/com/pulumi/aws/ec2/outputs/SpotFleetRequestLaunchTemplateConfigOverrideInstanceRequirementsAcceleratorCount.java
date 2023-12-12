@@ -67,10 +67,10 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

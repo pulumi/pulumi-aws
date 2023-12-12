@@ -275,22 +275,22 @@ public final class GetMountTargetResult {
             return this;
         }
         public GetMountTargetResult build() {
-            final var o = new GetMountTargetResult();
-            o.accessPointId = accessPointId;
-            o.availabilityZoneId = availabilityZoneId;
-            o.availabilityZoneName = availabilityZoneName;
-            o.dnsName = dnsName;
-            o.fileSystemArn = fileSystemArn;
-            o.fileSystemId = fileSystemId;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.mountTargetDnsName = mountTargetDnsName;
-            o.mountTargetId = mountTargetId;
-            o.networkInterfaceId = networkInterfaceId;
-            o.ownerId = ownerId;
-            o.securityGroups = securityGroups;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetMountTargetResult();
+            _resultValue.accessPointId = accessPointId;
+            _resultValue.availabilityZoneId = availabilityZoneId;
+            _resultValue.availabilityZoneName = availabilityZoneName;
+            _resultValue.dnsName = dnsName;
+            _resultValue.fileSystemArn = fileSystemArn;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.mountTargetDnsName = mountTargetDnsName;
+            _resultValue.mountTargetId = mountTargetId;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.ownerId = ownerId;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

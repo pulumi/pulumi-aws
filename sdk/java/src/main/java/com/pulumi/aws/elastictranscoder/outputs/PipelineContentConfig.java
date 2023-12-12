@@ -67,10 +67,10 @@ public final class PipelineContentConfig {
             return this;
         }
         public PipelineContentConfig build() {
-            final var o = new PipelineContentConfig();
-            o.bucket = bucket;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new PipelineContentConfig();
+            _resultValue.bucket = bucket;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class BucketV2ObjectLockConfigurationRuleDefaultRetention {
             return this;
         }
         public BucketV2ObjectLockConfigurationRuleDefaultRetention build() {
-            final var o = new BucketV2ObjectLockConfigurationRuleDefaultRetention();
-            o.days = days;
-            o.mode = mode;
-            o.years = years;
-            return o;
+            final var _resultValue = new BucketV2ObjectLockConfigurationRuleDefaultRetention();
+            _resultValue.days = days;
+            _resultValue.mode = mode;
+            _resultValue.years = years;
+            return _resultValue;
         }
     }
 }

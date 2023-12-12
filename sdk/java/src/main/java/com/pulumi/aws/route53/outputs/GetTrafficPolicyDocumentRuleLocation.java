@@ -182,16 +182,16 @@ public final class GetTrafficPolicyDocumentRuleLocation {
             return this;
         }
         public GetTrafficPolicyDocumentRuleLocation build() {
-            final var o = new GetTrafficPolicyDocumentRuleLocation();
-            o.continent = continent;
-            o.country = country;
-            o.endpointReference = endpointReference;
-            o.evaluateTargetHealth = evaluateTargetHealth;
-            o.healthCheck = healthCheck;
-            o.isDefault = isDefault;
-            o.ruleReference = ruleReference;
-            o.subdivision = subdivision;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentRuleLocation();
+            _resultValue.continent = continent;
+            _resultValue.country = country;
+            _resultValue.endpointReference = endpointReference;
+            _resultValue.evaluateTargetHealth = evaluateTargetHealth;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.isDefault = isDefault;
+            _resultValue.ruleReference = ruleReference;
+            _resultValue.subdivision = subdivision;
+            return _resultValue;
         }
     }
 }

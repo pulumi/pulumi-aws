@@ -143,14 +143,14 @@ public final class ApplicationAppSource {
             return this;
         }
         public ApplicationAppSource build() {
-            final var o = new ApplicationAppSource();
-            o.password = password;
-            o.revision = revision;
-            o.sshKey = sshKey;
-            o.type = type;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new ApplicationAppSource();
+            _resultValue.password = password;
+            _resultValue.revision = revision;
+            _resultValue.sshKey = sshKey;
+            _resultValue.type = type;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -276,21 +276,21 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
             return this;
         }
         public CertificateAuthorityCertificateAuthorityConfigurationSubject build() {
-            final var o = new CertificateAuthorityCertificateAuthorityConfigurationSubject();
-            o.commonName = commonName;
-            o.country = country;
-            o.distinguishedNameQualifier = distinguishedNameQualifier;
-            o.generationQualifier = generationQualifier;
-            o.givenName = givenName;
-            o.initials = initials;
-            o.locality = locality;
-            o.organization = organization;
-            o.organizationalUnit = organizationalUnit;
-            o.pseudonym = pseudonym;
-            o.state = state;
-            o.surname = surname;
-            o.title = title;
-            return o;
+            final var _resultValue = new CertificateAuthorityCertificateAuthorityConfigurationSubject();
+            _resultValue.commonName = commonName;
+            _resultValue.country = country;
+            _resultValue.distinguishedNameQualifier = distinguishedNameQualifier;
+            _resultValue.generationQualifier = generationQualifier;
+            _resultValue.givenName = givenName;
+            _resultValue.initials = initials;
+            _resultValue.locality = locality;
+            _resultValue.organization = organization;
+            _resultValue.organizationalUnit = organizationalUnit;
+            _resultValue.pseudonym = pseudonym;
+            _resultValue.state = state;
+            _resultValue.surname = surname;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

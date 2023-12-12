@@ -65,10 +65,10 @@ public final class DataSourceParametersRds {
             return this;
         }
         public DataSourceParametersRds build() {
-            final var o = new DataSourceParametersRds();
-            o.database = database;
-            o.instanceId = instanceId;
-            return o;
+            final var _resultValue = new DataSourceParametersRds();
+            _resultValue.database = database;
+            _resultValue.instanceId = instanceId;
+            return _resultValue;
         }
     }
 }

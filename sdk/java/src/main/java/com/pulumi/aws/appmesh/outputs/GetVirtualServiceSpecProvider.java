@@ -57,10 +57,10 @@ public final class GetVirtualServiceSpecProvider {
             return virtualRouters(List.of(virtualRouters));
         }
         public GetVirtualServiceSpecProvider build() {
-            final var o = new GetVirtualServiceSpecProvider();
-            o.virtualNodes = virtualNodes;
-            o.virtualRouters = virtualRouters;
-            return o;
+            final var _resultValue = new GetVirtualServiceSpecProvider();
+            _resultValue.virtualNodes = virtualNodes;
+            _resultValue.virtualRouters = virtualRouters;
+            return _resultValue;
         }
     }
 }

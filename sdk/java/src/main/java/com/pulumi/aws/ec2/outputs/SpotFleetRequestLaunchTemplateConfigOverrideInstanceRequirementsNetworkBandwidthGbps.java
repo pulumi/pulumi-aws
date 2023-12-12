@@ -67,10 +67,10 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

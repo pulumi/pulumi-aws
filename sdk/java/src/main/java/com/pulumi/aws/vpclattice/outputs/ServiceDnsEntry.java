@@ -51,10 +51,10 @@ public final class ServiceDnsEntry {
             return this;
         }
         public ServiceDnsEntry build() {
-            final var o = new ServiceDnsEntry();
-            o.domainName = domainName;
-            o.hostedZoneId = hostedZoneId;
-            return o;
+            final var _resultValue = new ServiceDnsEntry();
+            _resultValue.domainName = domainName;
+            _resultValue.hostedZoneId = hostedZoneId;
+            return _resultValue;
         }
     }
 }

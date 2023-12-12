@@ -73,12 +73,12 @@ public final class MultiRegionAccessPointDetailsPublicAccessBlock {
             return this;
         }
         public MultiRegionAccessPointDetailsPublicAccessBlock build() {
-            final var o = new MultiRegionAccessPointDetailsPublicAccessBlock();
-            o.blockPublicAcls = blockPublicAcls;
-            o.blockPublicPolicy = blockPublicPolicy;
-            o.ignorePublicAcls = ignorePublicAcls;
-            o.restrictPublicBuckets = restrictPublicBuckets;
-            return o;
+            final var _resultValue = new MultiRegionAccessPointDetailsPublicAccessBlock();
+            _resultValue.blockPublicAcls = blockPublicAcls;
+            _resultValue.blockPublicPolicy = blockPublicPolicy;
+            _resultValue.ignorePublicAcls = ignorePublicAcls;
+            _resultValue.restrictPublicBuckets = restrictPublicBuckets;
+            return _resultValue;
         }
     }
 }

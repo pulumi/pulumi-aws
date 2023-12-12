@@ -110,12 +110,12 @@ public final class CrawlerDeltaTarget {
             return this;
         }
         public CrawlerDeltaTarget build() {
-            final var o = new CrawlerDeltaTarget();
-            o.connectionName = connectionName;
-            o.createNativeDeltaTable = createNativeDeltaTable;
-            o.deltaTables = deltaTables;
-            o.writeManifest = writeManifest;
-            return o;
+            final var _resultValue = new CrawlerDeltaTarget();
+            _resultValue.connectionName = connectionName;
+            _resultValue.createNativeDeltaTable = createNativeDeltaTable;
+            _resultValue.deltaTables = deltaTables;
+            _resultValue.writeManifest = writeManifest;
+            return _resultValue;
         }
     }
 }

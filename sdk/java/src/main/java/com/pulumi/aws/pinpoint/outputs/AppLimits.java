@@ -105,12 +105,12 @@ public final class AppLimits {
             return this;
         }
         public AppLimits build() {
-            final var o = new AppLimits();
-            o.daily = daily;
-            o.maximumDuration = maximumDuration;
-            o.messagesPerSecond = messagesPerSecond;
-            o.total = total;
-            return o;
+            final var _resultValue = new AppLimits();
+            _resultValue.daily = daily;
+            _resultValue.maximumDuration = maximumDuration;
+            _resultValue.messagesPerSecond = messagesPerSecond;
+            _resultValue.total = total;
+            return _resultValue;
         }
     }
 }

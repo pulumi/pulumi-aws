@@ -51,9 +51,9 @@ public final class ResolverPipelineConfig {
             return functions(List.of(functions));
         }
         public ResolverPipelineConfig build() {
-            final var o = new ResolverPipelineConfig();
-            o.functions = functions;
-            return o;
+            final var _resultValue = new ResolverPipelineConfig();
+            _resultValue.functions = functions;
+            return _resultValue;
         }
     }
 }

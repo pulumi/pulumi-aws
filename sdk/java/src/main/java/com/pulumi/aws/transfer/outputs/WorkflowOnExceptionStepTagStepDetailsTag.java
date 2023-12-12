@@ -65,10 +65,10 @@ public final class WorkflowOnExceptionStepTagStepDetailsTag {
             return this;
         }
         public WorkflowOnExceptionStepTagStepDetailsTag build() {
-            final var o = new WorkflowOnExceptionStepTagStepDetailsTag();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new WorkflowOnExceptionStepTagStepDetailsTag();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

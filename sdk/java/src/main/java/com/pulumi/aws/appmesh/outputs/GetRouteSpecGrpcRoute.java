@@ -87,12 +87,12 @@ public final class GetRouteSpecGrpcRoute {
             return timeouts(List.of(timeouts));
         }
         public GetRouteSpecGrpcRoute build() {
-            final var o = new GetRouteSpecGrpcRoute();
-            o.actions = actions;
-            o.matches = matches;
-            o.retryPolicies = retryPolicies;
-            o.timeouts = timeouts;
-            return o;
+            final var _resultValue = new GetRouteSpecGrpcRoute();
+            _resultValue.actions = actions;
+            _resultValue.matches = matches;
+            _resultValue.retryPolicies = retryPolicies;
+            _resultValue.timeouts = timeouts;
+            return _resultValue;
         }
     }
 }

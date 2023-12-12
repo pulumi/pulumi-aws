@@ -46,9 +46,9 @@ public final class VirtualNodeSpecBackend {
             return this;
         }
         public VirtualNodeSpecBackend build() {
-            final var o = new VirtualNodeSpecBackend();
-            o.virtualService = virtualService;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackend();
+            _resultValue.virtualService = virtualService;
+            return _resultValue;
         }
     }
 }

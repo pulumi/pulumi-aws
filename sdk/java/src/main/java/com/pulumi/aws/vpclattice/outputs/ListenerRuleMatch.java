@@ -48,9 +48,9 @@ public final class ListenerRuleMatch {
             return this;
         }
         public ListenerRuleMatch build() {
-            final var o = new ListenerRuleMatch();
-            o.httpMatch = httpMatch;
-            return o;
+            final var _resultValue = new ListenerRuleMatch();
+            _resultValue.httpMatch = httpMatch;
+            return _resultValue;
         }
     }
 }

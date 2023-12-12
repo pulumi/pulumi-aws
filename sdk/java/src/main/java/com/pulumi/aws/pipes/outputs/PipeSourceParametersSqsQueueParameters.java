@@ -67,10 +67,10 @@ public final class PipeSourceParametersSqsQueueParameters {
             return this;
         }
         public PipeSourceParametersSqsQueueParameters build() {
-            final var o = new PipeSourceParametersSqsQueueParameters();
-            o.batchSize = batchSize;
-            o.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
-            return o;
+            final var _resultValue = new PipeSourceParametersSqsQueueParameters();
+            _resultValue.batchSize = batchSize;
+            _resultValue.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
+            return _resultValue;
         }
     }
 }

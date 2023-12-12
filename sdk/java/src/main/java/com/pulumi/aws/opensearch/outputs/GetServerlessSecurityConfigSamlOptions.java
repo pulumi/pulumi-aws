@@ -104,12 +104,12 @@ public final class GetServerlessSecurityConfigSamlOptions {
             return this;
         }
         public GetServerlessSecurityConfigSamlOptions build() {
-            final var o = new GetServerlessSecurityConfigSamlOptions();
-            o.groupAttribute = groupAttribute;
-            o.metadata = metadata;
-            o.sessionTimeout = sessionTimeout;
-            o.userAttribute = userAttribute;
-            return o;
+            final var _resultValue = new GetServerlessSecurityConfigSamlOptions();
+            _resultValue.groupAttribute = groupAttribute;
+            _resultValue.metadata = metadata;
+            _resultValue.sessionTimeout = sessionTimeout;
+            _resultValue.userAttribute = userAttribute;
+            return _resultValue;
         }
     }
 }

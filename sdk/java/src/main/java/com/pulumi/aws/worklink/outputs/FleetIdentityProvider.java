@@ -65,10 +65,10 @@ public final class FleetIdentityProvider {
             return this;
         }
         public FleetIdentityProvider build() {
-            final var o = new FleetIdentityProvider();
-            o.samlMetadata = samlMetadata;
-            o.type = type;
-            return o;
+            final var _resultValue = new FleetIdentityProvider();
+            _resultValue.samlMetadata = samlMetadata;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -81,11 +81,11 @@ public final class GetDelegatedServicesResult {
             return this;
         }
         public GetDelegatedServicesResult build() {
-            final var o = new GetDelegatedServicesResult();
-            o.accountId = accountId;
-            o.delegatedServices = delegatedServices;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetDelegatedServicesResult();
+            _resultValue.accountId = accountId;
+            _resultValue.delegatedServices = delegatedServices;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

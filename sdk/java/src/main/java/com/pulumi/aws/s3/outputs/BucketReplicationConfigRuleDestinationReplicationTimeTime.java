@@ -46,9 +46,9 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeTime {
             return this;
         }
         public BucketReplicationConfigRuleDestinationReplicationTimeTime build() {
-            final var o = new BucketReplicationConfigRuleDestinationReplicationTimeTime();
-            o.minutes = minutes;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleDestinationReplicationTimeTime();
+            _resultValue.minutes = minutes;
+            return _resultValue;
         }
     }
 }

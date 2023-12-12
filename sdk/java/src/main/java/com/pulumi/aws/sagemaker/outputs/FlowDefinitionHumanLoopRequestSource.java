@@ -46,9 +46,9 @@ public final class FlowDefinitionHumanLoopRequestSource {
             return this;
         }
         public FlowDefinitionHumanLoopRequestSource build() {
-            final var o = new FlowDefinitionHumanLoopRequestSource();
-            o.awsManagedHumanLoopRequestSource = awsManagedHumanLoopRequestSource;
-            return o;
+            final var _resultValue = new FlowDefinitionHumanLoopRequestSource();
+            _resultValue.awsManagedHumanLoopRequestSource = awsManagedHumanLoopRequestSource;
+            return _resultValue;
         }
     }
 }

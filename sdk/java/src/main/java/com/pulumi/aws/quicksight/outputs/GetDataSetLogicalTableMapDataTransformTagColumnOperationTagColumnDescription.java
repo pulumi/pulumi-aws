@@ -38,9 +38,9 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagCo
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription();
-            o.text = text;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription();
+            _resultValue.text = text;
+            return _resultValue;
         }
     }
 }

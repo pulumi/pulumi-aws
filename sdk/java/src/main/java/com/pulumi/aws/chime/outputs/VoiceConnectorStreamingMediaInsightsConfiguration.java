@@ -68,10 +68,10 @@ public final class VoiceConnectorStreamingMediaInsightsConfiguration {
             return this;
         }
         public VoiceConnectorStreamingMediaInsightsConfiguration build() {
-            final var o = new VoiceConnectorStreamingMediaInsightsConfiguration();
-            o.configurationArn = configurationArn;
-            o.disabled = disabled;
-            return o;
+            final var _resultValue = new VoiceConnectorStreamingMediaInsightsConfiguration();
+            _resultValue.configurationArn = configurationArn;
+            _resultValue.disabled = disabled;
+            return _resultValue;
         }
     }
 }

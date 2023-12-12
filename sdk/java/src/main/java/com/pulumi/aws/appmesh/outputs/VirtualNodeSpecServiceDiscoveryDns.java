@@ -86,11 +86,11 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
             return this;
         }
         public VirtualNodeSpecServiceDiscoveryDns build() {
-            final var o = new VirtualNodeSpecServiceDiscoveryDns();
-            o.hostname = hostname;
-            o.ipPreference = ipPreference;
-            o.responseType = responseType;
-            return o;
+            final var _resultValue = new VirtualNodeSpecServiceDiscoveryDns();
+            _resultValue.hostname = hostname;
+            _resultValue.ipPreference = ipPreference;
+            _resultValue.responseType = responseType;
+            return _resultValue;
         }
     }
 }

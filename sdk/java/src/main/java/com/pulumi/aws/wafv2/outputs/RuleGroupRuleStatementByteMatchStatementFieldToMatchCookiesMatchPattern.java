@@ -78,11 +78,11 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMa
             return includedCookies(List.of(includedCookies));
         }
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern();
-            o.all = all;
-            o.excludedCookies = excludedCookies;
-            o.includedCookies = includedCookies;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedCookies = excludedCookies;
+            _resultValue.includedCookies = includedCookies;
+            return _resultValue;
         }
     }
 }

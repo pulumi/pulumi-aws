@@ -57,10 +57,10 @@ public final class GetGatewayRouteSpecGrpcRoute {
             return matches(List.of(matches));
         }
         public GetGatewayRouteSpecGrpcRoute build() {
-            final var o = new GetGatewayRouteSpecGrpcRoute();
-            o.actions = actions;
-            o.matches = matches;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecGrpcRoute();
+            _resultValue.actions = actions;
+            _resultValue.matches = matches;
+            return _resultValue;
         }
     }
 }

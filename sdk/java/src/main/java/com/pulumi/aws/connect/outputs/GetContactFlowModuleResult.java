@@ -194,18 +194,18 @@ public final class GetContactFlowModuleResult {
             return this;
         }
         public GetContactFlowModuleResult build() {
-            final var o = new GetContactFlowModuleResult();
-            o.arn = arn;
-            o.contactFlowModuleId = contactFlowModuleId;
-            o.content = content;
-            o.description = description;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.state = state;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetContactFlowModuleResult();
+            _resultValue.arn = arn;
+            _resultValue.contactFlowModuleId = contactFlowModuleId;
+            _resultValue.content = content;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.state = state;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

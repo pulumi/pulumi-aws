@@ -164,15 +164,15 @@ public final class SpotFleetRequestLaunchTemplateConfigOverride {
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigOverride build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigOverride();
-            o.availabilityZone = availabilityZone;
-            o.instanceRequirements = instanceRequirements;
-            o.instanceType = instanceType;
-            o.priority = priority;
-            o.spotPrice = spotPrice;
-            o.subnetId = subnetId;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigOverride();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.instanceRequirements = instanceRequirements;
+            _resultValue.instanceType = instanceType;
+            _resultValue.priority = priority;
+            _resultValue.spotPrice = spotPrice;
+            _resultValue.subnetId = subnetId;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

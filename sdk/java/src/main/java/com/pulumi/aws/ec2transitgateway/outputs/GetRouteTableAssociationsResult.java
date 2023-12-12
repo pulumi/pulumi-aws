@@ -96,12 +96,12 @@ public final class GetRouteTableAssociationsResult {
             return this;
         }
         public GetRouteTableAssociationsResult build() {
-            final var o = new GetRouteTableAssociationsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.transitGatewayRouteTableId = transitGatewayRouteTableId;
-            return o;
+            final var _resultValue = new GetRouteTableAssociationsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.transitGatewayRouteTableId = transitGatewayRouteTableId;
+            return _resultValue;
         }
     }
 }

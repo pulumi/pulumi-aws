@@ -67,10 +67,10 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
             return this;
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class ClusterLoggingInfoBrokerLogsFirehose {
             return this;
         }
         public ClusterLoggingInfoBrokerLogsFirehose build() {
-            final var o = new ClusterLoggingInfoBrokerLogsFirehose();
-            o.deliveryStream = deliveryStream;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ClusterLoggingInfoBrokerLogsFirehose();
+            _resultValue.deliveryStream = deliveryStream;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

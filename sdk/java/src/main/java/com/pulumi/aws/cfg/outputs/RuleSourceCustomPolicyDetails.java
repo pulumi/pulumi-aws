@@ -87,11 +87,11 @@ public final class RuleSourceCustomPolicyDetails {
             return this;
         }
         public RuleSourceCustomPolicyDetails build() {
-            final var o = new RuleSourceCustomPolicyDetails();
-            o.enableDebugLogDelivery = enableDebugLogDelivery;
-            o.policyRuntime = policyRuntime;
-            o.policyText = policyText;
-            return o;
+            final var _resultValue = new RuleSourceCustomPolicyDetails();
+            _resultValue.enableDebugLogDelivery = enableDebugLogDelivery;
+            _resultValue.policyRuntime = policyRuntime;
+            _resultValue.policyText = policyText;
+            return _resultValue;
         }
     }
 }

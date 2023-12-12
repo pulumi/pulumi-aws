@@ -46,9 +46,9 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
             return this;
         }
         public JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration build() {
-            final var o = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration();
-            o.logUri = logUri;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration();
+            _resultValue.logUri = logUri;
+            return _resultValue;
         }
     }
 }

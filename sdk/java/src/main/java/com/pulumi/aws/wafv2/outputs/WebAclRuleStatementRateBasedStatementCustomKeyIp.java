@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyIp {
         }
 
         public WebAclRuleStatementRateBasedStatementCustomKeyIp build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyIp();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyIp();
+            return _resultValue;
         }
     }
 }

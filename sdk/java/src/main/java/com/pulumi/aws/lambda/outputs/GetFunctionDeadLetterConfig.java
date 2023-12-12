@@ -38,9 +38,9 @@ public final class GetFunctionDeadLetterConfig {
             return this;
         }
         public GetFunctionDeadLetterConfig build() {
-            final var o = new GetFunctionDeadLetterConfig();
-            o.targetArn = targetArn;
-            return o;
+            final var _resultValue = new GetFunctionDeadLetterConfig();
+            _resultValue.targetArn = targetArn;
+            return _resultValue;
         }
     }
 }

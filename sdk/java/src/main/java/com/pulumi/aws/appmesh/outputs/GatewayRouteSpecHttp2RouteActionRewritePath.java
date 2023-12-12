@@ -46,9 +46,9 @@ public final class GatewayRouteSpecHttp2RouteActionRewritePath {
             return this;
         }
         public GatewayRouteSpecHttp2RouteActionRewritePath build() {
-            final var o = new GatewayRouteSpecHttp2RouteActionRewritePath();
-            o.exact = exact;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2RouteActionRewritePath();
+            _resultValue.exact = exact;
+            return _resultValue;
         }
     }
 }

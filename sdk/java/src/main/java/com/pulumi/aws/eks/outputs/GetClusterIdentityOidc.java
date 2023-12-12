@@ -46,9 +46,9 @@ public final class GetClusterIdentityOidc {
             return this;
         }
         public GetClusterIdentityOidc build() {
-            final var o = new GetClusterIdentityOidc();
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new GetClusterIdentityOidc();
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

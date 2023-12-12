@@ -115,13 +115,13 @@ public final class GetUsersResult {
             return this;
         }
         public GetUsersResult build() {
-            final var o = new GetUsersResult();
-            o.arns = arns;
-            o.id = id;
-            o.nameRegex = nameRegex;
-            o.names = names;
-            o.pathPrefix = pathPrefix;
-            return o;
+            final var _resultValue = new GetUsersResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.nameRegex = nameRegex;
+            _resultValue.names = names;
+            _resultValue.pathPrefix = pathPrefix;
+            return _resultValue;
         }
     }
 }

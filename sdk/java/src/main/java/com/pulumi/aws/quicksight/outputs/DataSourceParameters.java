@@ -428,28 +428,28 @@ public final class DataSourceParameters {
             return this;
         }
         public DataSourceParameters build() {
-            final var o = new DataSourceParameters();
-            o.amazonElasticsearch = amazonElasticsearch;
-            o.athena = athena;
-            o.aurora = aurora;
-            o.auroraPostgresql = auroraPostgresql;
-            o.awsIotAnalytics = awsIotAnalytics;
-            o.jira = jira;
-            o.mariaDb = mariaDb;
-            o.mysql = mysql;
-            o.oracle = oracle;
-            o.postgresql = postgresql;
-            o.presto = presto;
-            o.rds = rds;
-            o.redshift = redshift;
-            o.s3 = s3;
-            o.serviceNow = serviceNow;
-            o.snowflake = snowflake;
-            o.spark = spark;
-            o.sqlServer = sqlServer;
-            o.teradata = teradata;
-            o.twitter = twitter;
-            return o;
+            final var _resultValue = new DataSourceParameters();
+            _resultValue.amazonElasticsearch = amazonElasticsearch;
+            _resultValue.athena = athena;
+            _resultValue.aurora = aurora;
+            _resultValue.auroraPostgresql = auroraPostgresql;
+            _resultValue.awsIotAnalytics = awsIotAnalytics;
+            _resultValue.jira = jira;
+            _resultValue.mariaDb = mariaDb;
+            _resultValue.mysql = mysql;
+            _resultValue.oracle = oracle;
+            _resultValue.postgresql = postgresql;
+            _resultValue.presto = presto;
+            _resultValue.rds = rds;
+            _resultValue.redshift = redshift;
+            _resultValue.s3 = s3;
+            _resultValue.serviceNow = serviceNow;
+            _resultValue.snowflake = snowflake;
+            _resultValue.spark = spark;
+            _resultValue.sqlServer = sqlServer;
+            _resultValue.teradata = teradata;
+            _resultValue.twitter = twitter;
+            return _resultValue;
         }
     }
 }

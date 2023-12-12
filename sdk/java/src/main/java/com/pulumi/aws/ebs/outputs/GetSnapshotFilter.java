@@ -53,10 +53,10 @@ public final class GetSnapshotFilter {
             return values(List.of(values));
         }
         public GetSnapshotFilter build() {
-            final var o = new GetSnapshotFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetSnapshotFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

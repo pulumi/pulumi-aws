@@ -48,9 +48,9 @@ public final class TriggerActionNotificationProperty {
             return this;
         }
         public TriggerActionNotificationProperty build() {
-            final var o = new TriggerActionNotificationProperty();
-            o.notifyDelayAfter = notifyDelayAfter;
-            return o;
+            final var _resultValue = new TriggerActionNotificationProperty();
+            _resultValue.notifyDelayAfter = notifyDelayAfter;
+            return _resultValue;
         }
     }
 }

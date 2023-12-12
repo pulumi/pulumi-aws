@@ -89,11 +89,11 @@ public final class StageCanarySettings {
             return this;
         }
         public StageCanarySettings build() {
-            final var o = new StageCanarySettings();
-            o.percentTraffic = percentTraffic;
-            o.stageVariableOverrides = stageVariableOverrides;
-            o.useStageCache = useStageCache;
-            return o;
+            final var _resultValue = new StageCanarySettings();
+            _resultValue.percentTraffic = percentTraffic;
+            _resultValue.stageVariableOverrides = stageVariableOverrides;
+            _resultValue.useStageCache = useStageCache;
+            return _resultValue;
         }
     }
 }

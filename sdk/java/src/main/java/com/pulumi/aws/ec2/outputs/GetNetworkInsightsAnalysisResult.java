@@ -334,24 +334,24 @@ public final class GetNetworkInsightsAnalysisResult {
             return this;
         }
         public GetNetworkInsightsAnalysisResult build() {
-            final var o = new GetNetworkInsightsAnalysisResult();
-            o.alternatePathHints = alternatePathHints;
-            o.arn = arn;
-            o.explanations = explanations;
-            o.filterInArns = filterInArns;
-            o.filters = filters;
-            o.forwardPathComponents = forwardPathComponents;
-            o.id = id;
-            o.networkInsightsAnalysisId = networkInsightsAnalysisId;
-            o.networkInsightsPathId = networkInsightsPathId;
-            o.pathFound = pathFound;
-            o.returnPathComponents = returnPathComponents;
-            o.startDate = startDate;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            o.tags = tags;
-            o.warningMessage = warningMessage;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisResult();
+            _resultValue.alternatePathHints = alternatePathHints;
+            _resultValue.arn = arn;
+            _resultValue.explanations = explanations;
+            _resultValue.filterInArns = filterInArns;
+            _resultValue.filters = filters;
+            _resultValue.forwardPathComponents = forwardPathComponents;
+            _resultValue.id = id;
+            _resultValue.networkInsightsAnalysisId = networkInsightsAnalysisId;
+            _resultValue.networkInsightsPathId = networkInsightsPathId;
+            _resultValue.pathFound = pathFound;
+            _resultValue.returnPathComponents = returnPathComponents;
+            _resultValue.startDate = startDate;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            _resultValue.tags = tags;
+            _resultValue.warningMessage = warningMessage;
+            return _resultValue;
         }
     }
 }

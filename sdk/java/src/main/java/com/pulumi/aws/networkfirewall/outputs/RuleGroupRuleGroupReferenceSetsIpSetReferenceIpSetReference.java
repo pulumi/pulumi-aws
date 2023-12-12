@@ -46,9 +46,9 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference {
             return this;
         }
         public RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference build() {
-            final var o = new RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference();
-            o.referenceArn = referenceArn;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference();
+            _resultValue.referenceArn = referenceArn;
+            return _resultValue;
         }
     }
 }

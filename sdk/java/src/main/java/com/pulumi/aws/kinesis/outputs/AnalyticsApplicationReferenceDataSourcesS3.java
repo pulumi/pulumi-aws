@@ -84,11 +84,11 @@ public final class AnalyticsApplicationReferenceDataSourcesS3 {
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesS3 build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesS3();
-            o.bucketArn = bucketArn;
-            o.fileKey = fileKey;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesS3();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.fileKey = fileKey;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

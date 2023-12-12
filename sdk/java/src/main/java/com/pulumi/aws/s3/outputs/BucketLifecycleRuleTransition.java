@@ -87,11 +87,11 @@ public final class BucketLifecycleRuleTransition {
             return this;
         }
         public BucketLifecycleRuleTransition build() {
-            final var o = new BucketLifecycleRuleTransition();
-            o.date = date;
-            o.days = days;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new BucketLifecycleRuleTransition();
+            _resultValue.date = date;
+            _resultValue.days = days;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

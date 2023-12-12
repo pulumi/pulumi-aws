@@ -108,15 +108,15 @@ public final class SpotFleetRequestLaunchSpecificationRootBlockDevice {
             return this;
         }
         public SpotFleetRequestLaunchSpecificationRootBlockDevice build() {
-            final var o = new SpotFleetRequestLaunchSpecificationRootBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.kmsKeyId = kmsKeyId;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchSpecificationRootBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

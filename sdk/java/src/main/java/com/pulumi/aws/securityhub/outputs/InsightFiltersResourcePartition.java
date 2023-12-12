@@ -65,10 +65,10 @@ public final class InsightFiltersResourcePartition {
             return this;
         }
         public InsightFiltersResourcePartition build() {
-            final var o = new InsightFiltersResourcePartition();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourcePartition();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

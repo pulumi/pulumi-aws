@@ -85,11 +85,11 @@ public final class GetOntapStorageVirtualMachinesResult {
             return ids(List.of(ids));
         }
         public GetOntapStorageVirtualMachinesResult build() {
-            final var o = new GetOntapStorageVirtualMachinesResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachinesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            return _resultValue;
         }
     }
 }

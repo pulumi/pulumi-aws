@@ -68,10 +68,10 @@ public final class ScheduleFlexibleTimeWindow {
             return this;
         }
         public ScheduleFlexibleTimeWindow build() {
-            final var o = new ScheduleFlexibleTimeWindow();
-            o.maximumWindowInMinutes = maximumWindowInMinutes;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new ScheduleFlexibleTimeWindow();
+            _resultValue.maximumWindowInMinutes = maximumWindowInMinutes;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

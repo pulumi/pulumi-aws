@@ -134,16 +134,16 @@ public final class GetExportResult {
             return this;
         }
         public GetExportResult build() {
-            final var o = new GetExportResult();
-            o.apiId = apiId;
-            o.body = body;
-            o.exportVersion = exportVersion;
-            o.id = id;
-            o.includeExtensions = includeExtensions;
-            o.outputType = outputType;
-            o.specification = specification;
-            o.stageName = stageName;
-            return o;
+            final var _resultValue = new GetExportResult();
+            _resultValue.apiId = apiId;
+            _resultValue.body = body;
+            _resultValue.exportVersion = exportVersion;
+            _resultValue.id = id;
+            _resultValue.includeExtensions = includeExtensions;
+            _resultValue.outputType = outputType;
+            _resultValue.specification = specification;
+            _resultValue.stageName = stageName;
+            return _resultValue;
         }
     }
 }

@@ -71,10 +71,10 @@ public final class DistributionTrustedKeyGroupItem {
             return keyPairIds(List.of(keyPairIds));
         }
         public DistributionTrustedKeyGroupItem build() {
-            final var o = new DistributionTrustedKeyGroupItem();
-            o.keyGroupId = keyGroupId;
-            o.keyPairIds = keyPairIds;
-            return o;
+            final var _resultValue = new DistributionTrustedKeyGroupItem();
+            _resultValue.keyGroupId = keyGroupId;
+            _resultValue.keyPairIds = keyPairIds;
+            return _resultValue;
         }
     }
 }

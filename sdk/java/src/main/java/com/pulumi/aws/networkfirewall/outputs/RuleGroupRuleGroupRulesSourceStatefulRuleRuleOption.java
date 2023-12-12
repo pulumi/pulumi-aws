@@ -72,10 +72,10 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption {
             return settings(List.of(settings));
         }
         public RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption();
-            o.keyword = keyword;
-            o.settings = settings;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption();
+            _resultValue.keyword = keyword;
+            _resultValue.settings = settings;
+            return _resultValue;
         }
     }
 }

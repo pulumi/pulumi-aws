@@ -101,13 +101,13 @@ public final class ClusterCacheNode {
             return this;
         }
         public ClusterCacheNode build() {
-            final var o = new ClusterCacheNode();
-            o.address = address;
-            o.availabilityZone = availabilityZone;
-            o.id = id;
-            o.outpostArn = outpostArn;
-            o.port = port;
-            return o;
+            final var _resultValue = new ClusterCacheNode();
+            _resultValue.address = address;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.id = id;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

@@ -93,11 +93,11 @@ public final class GetTagsFilterTags {
             return values(List.of(values));
         }
         public GetTagsFilterTags build() {
-            final var o = new GetTagsFilterTags();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetTagsFilterTags();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

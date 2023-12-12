@@ -105,12 +105,12 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
             return this;
         }
         public GetCoreNetworkPolicyDocumentAttachmentPolicyCondition build() {
-            final var o = new GetCoreNetworkPolicyDocumentAttachmentPolicyCondition();
-            o.key = key;
-            o.operator = operator;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentAttachmentPolicyCondition();
+            _resultValue.key = key;
+            _resultValue.operator = operator;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

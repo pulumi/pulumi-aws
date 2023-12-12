@@ -67,10 +67,10 @@ public final class DevEnvironmentIdes {
             return this;
         }
         public DevEnvironmentIdes build() {
-            final var o = new DevEnvironmentIdes();
-            o.name = name;
-            o.runtime = runtime;
-            return o;
+            final var _resultValue = new DevEnvironmentIdes();
+            _resultValue.name = name;
+            _resultValue.runtime = runtime;
+            return _resultValue;
         }
     }
 }

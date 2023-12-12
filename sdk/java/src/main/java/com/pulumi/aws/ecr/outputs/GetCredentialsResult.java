@@ -90,13 +90,13 @@ public final class GetCredentialsResult {
             return this;
         }
         public GetCredentialsResult build() {
-            final var o = new GetCredentialsResult();
-            o.authorizationToken = authorizationToken;
-            o.expiresAt = expiresAt;
-            o.id = id;
-            o.proxyEndpoint = proxyEndpoint;
-            o.registryId = registryId;
-            return o;
+            final var _resultValue = new GetCredentialsResult();
+            _resultValue.authorizationToken = authorizationToken;
+            _resultValue.expiresAt = expiresAt;
+            _resultValue.id = id;
+            _resultValue.proxyEndpoint = proxyEndpoint;
+            _resultValue.registryId = registryId;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class EventTargetSagemakerPipelineTargetPipelineParameterList {
             return this;
         }
         public EventTargetSagemakerPipelineTargetPipelineParameterList build() {
-            final var o = new EventTargetSagemakerPipelineTargetPipelineParameterList();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventTargetSagemakerPipelineTargetPipelineParameterList();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

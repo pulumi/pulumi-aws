@@ -65,10 +65,10 @@ public final class GetGroupInstanceMaintenancePolicy {
             return this;
         }
         public GetGroupInstanceMaintenancePolicy build() {
-            final var o = new GetGroupInstanceMaintenancePolicy();
-            o.maxHealthyPercentage = maxHealthyPercentage;
-            o.minHealthyPercentage = minHealthyPercentage;
-            return o;
+            final var _resultValue = new GetGroupInstanceMaintenancePolicy();
+            _resultValue.maxHealthyPercentage = maxHealthyPercentage;
+            _resultValue.minHealthyPercentage = minHealthyPercentage;
+            return _resultValue;
         }
     }
 }

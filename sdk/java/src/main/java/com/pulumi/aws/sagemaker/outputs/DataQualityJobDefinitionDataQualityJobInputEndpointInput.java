@@ -105,12 +105,12 @@ public final class DataQualityJobDefinitionDataQualityJobInputEndpointInput {
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobInputEndpointInput build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobInputEndpointInput();
-            o.endpointName = endpointName;
-            o.localPath = localPath;
-            o.s3DataDistributionType = s3DataDistributionType;
-            o.s3InputMode = s3InputMode;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobInputEndpointInput();
+            _resultValue.endpointName = endpointName;
+            _resultValue.localPath = localPath;
+            _resultValue.s3DataDistributionType = s3DataDistributionType;
+            _resultValue.s3InputMode = s3InputMode;
+            return _resultValue;
         }
     }
 }

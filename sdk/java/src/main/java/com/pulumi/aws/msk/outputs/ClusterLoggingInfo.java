@@ -46,9 +46,9 @@ public final class ClusterLoggingInfo {
             return this;
         }
         public ClusterLoggingInfo build() {
-            final var o = new ClusterLoggingInfo();
-            o.brokerLogs = brokerLogs;
-            return o;
+            final var _resultValue = new ClusterLoggingInfo();
+            _resultValue.brokerLogs = brokerLogs;
+            return _resultValue;
         }
     }
 }

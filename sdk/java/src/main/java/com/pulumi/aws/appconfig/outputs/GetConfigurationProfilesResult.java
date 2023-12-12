@@ -80,11 +80,11 @@ public final class GetConfigurationProfilesResult {
             return this;
         }
         public GetConfigurationProfilesResult build() {
-            final var o = new GetConfigurationProfilesResult();
-            o.applicationId = applicationId;
-            o.configurationProfileIds = configurationProfileIds;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetConfigurationProfilesResult();
+            _resultValue.applicationId = applicationId;
+            _resultValue.configurationProfileIds = configurationProfileIds;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

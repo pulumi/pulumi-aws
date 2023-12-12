@@ -49,10 +49,10 @@ public final class GetManagedPrefixListEntry {
             return this;
         }
         public GetManagedPrefixListEntry build() {
-            final var o = new GetManagedPrefixListEntry();
-            o.cidr = cidr;
-            o.description = description;
-            return o;
+            final var _resultValue = new GetManagedPrefixListEntry();
+            _resultValue.cidr = cidr;
+            _resultValue.description = description;
+            return _resultValue;
         }
     }
 }

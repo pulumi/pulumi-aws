@@ -105,12 +105,12 @@ public final class PresetAudioCodecOptions {
             return this;
         }
         public PresetAudioCodecOptions build() {
-            final var o = new PresetAudioCodecOptions();
-            o.bitDepth = bitDepth;
-            o.bitOrder = bitOrder;
-            o.profile = profile;
-            o.signed = signed;
-            return o;
+            final var _resultValue = new PresetAudioCodecOptions();
+            _resultValue.bitDepth = bitDepth;
+            _resultValue.bitOrder = bitOrder;
+            _resultValue.profile = profile;
+            _resultValue.signed = signed;
+            return _resultValue;
         }
     }
 }

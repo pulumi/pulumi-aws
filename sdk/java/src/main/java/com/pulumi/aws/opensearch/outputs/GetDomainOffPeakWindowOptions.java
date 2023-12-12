@@ -62,10 +62,10 @@ public final class GetDomainOffPeakWindowOptions {
             return offPeakWindows(List.of(offPeakWindows));
         }
         public GetDomainOffPeakWindowOptions build() {
-            final var o = new GetDomainOffPeakWindowOptions();
-            o.enabled = enabled;
-            o.offPeakWindows = offPeakWindows;
-            return o;
+            final var _resultValue = new GetDomainOffPeakWindowOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.offPeakWindows = offPeakWindows;
+            return _resultValue;
         }
     }
 }

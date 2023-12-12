@@ -65,10 +65,10 @@ public final class GetKeyMultiRegionConfigurationReplicaKey {
             return this;
         }
         public GetKeyMultiRegionConfigurationReplicaKey build() {
-            final var o = new GetKeyMultiRegionConfigurationReplicaKey();
-            o.arn = arn;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetKeyMultiRegionConfigurationReplicaKey();
+            _resultValue.arn = arn;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

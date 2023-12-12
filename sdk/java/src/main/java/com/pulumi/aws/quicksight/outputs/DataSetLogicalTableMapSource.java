@@ -87,11 +87,11 @@ public final class DataSetLogicalTableMapSource {
             return this;
         }
         public DataSetLogicalTableMapSource build() {
-            final var o = new DataSetLogicalTableMapSource();
-            o.dataSetArn = dataSetArn;
-            o.joinInstruction = joinInstruction;
-            o.physicalTableId = physicalTableId;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapSource();
+            _resultValue.dataSetArn = dataSetArn;
+            _resultValue.joinInstruction = joinInstruction;
+            _resultValue.physicalTableId = physicalTableId;
+            return _resultValue;
         }
     }
 }

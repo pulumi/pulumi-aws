@@ -46,9 +46,9 @@ public final class InventoryDestination {
             return this;
         }
         public InventoryDestination build() {
-            final var o = new InventoryDestination();
-            o.bucket = bucket;
-            return o;
+            final var _resultValue = new InventoryDestination();
+            _resultValue.bucket = bucket;
+            return _resultValue;
         }
     }
 }

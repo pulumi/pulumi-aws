@@ -120,12 +120,12 @@ public final class TableSchemaDefinition {
             return staticColumns(List.of(staticColumns));
         }
         public TableSchemaDefinition build() {
-            final var o = new TableSchemaDefinition();
-            o.clusteringKeys = clusteringKeys;
-            o.columns = columns;
-            o.partitionKeys = partitionKeys;
-            o.staticColumns = staticColumns;
-            return o;
+            final var _resultValue = new TableSchemaDefinition();
+            _resultValue.clusteringKeys = clusteringKeys;
+            _resultValue.columns = columns;
+            _resultValue.partitionKeys = partitionKeys;
+            _resultValue.staticColumns = staticColumns;
+            return _resultValue;
         }
     }
 }

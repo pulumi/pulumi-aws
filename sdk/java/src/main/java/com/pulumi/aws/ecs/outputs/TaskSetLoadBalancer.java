@@ -110,12 +110,12 @@ public final class TaskSetLoadBalancer {
             return this;
         }
         public TaskSetLoadBalancer build() {
-            final var o = new TaskSetLoadBalancer();
-            o.containerName = containerName;
-            o.containerPort = containerPort;
-            o.loadBalancerName = loadBalancerName;
-            o.targetGroupArn = targetGroupArn;
-            return o;
+            final var _resultValue = new TaskSetLoadBalancer();
+            _resultValue.containerName = containerName;
+            _resultValue.containerPort = containerPort;
+            _resultValue.loadBalancerName = loadBalancerName;
+            _resultValue.targetGroupArn = targetGroupArn;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceList {
             return targets(List.of(targets));
         }
         public RuleGroupRuleGroupRulesSourceRulesSourceList build() {
-            final var o = new RuleGroupRuleGroupRulesSourceRulesSourceList();
-            o.generatedRulesType = generatedRulesType;
-            o.targetTypes = targetTypes;
-            o.targets = targets;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceRulesSourceList();
+            _resultValue.generatedRulesType = generatedRulesType;
+            _resultValue.targetTypes = targetTypes;
+            _resultValue.targets = targets;
+            return _resultValue;
         }
     }
 }

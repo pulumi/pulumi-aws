@@ -67,10 +67,10 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
             return this;
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort();
-            o.fromPort = fromPort;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort();
+            _resultValue.fromPort = fromPort;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GetResponsePlanIncidentTemplateNotificationTarget {
             return this;
         }
         public GetResponsePlanIncidentTemplateNotificationTarget build() {
-            final var o = new GetResponsePlanIncidentTemplateNotificationTarget();
-            o.snsTopicArn = snsTopicArn;
-            return o;
+            final var _resultValue = new GetResponsePlanIncidentTemplateNotificationTarget();
+            _resultValue.snsTopicArn = snsTopicArn;
+            return _resultValue;
         }
     }
 }

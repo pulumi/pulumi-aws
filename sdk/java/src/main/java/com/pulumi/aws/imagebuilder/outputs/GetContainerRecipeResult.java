@@ -377,26 +377,26 @@ public final class GetContainerRecipeResult {
             return this;
         }
         public GetContainerRecipeResult build() {
-            final var o = new GetContainerRecipeResult();
-            o.arn = arn;
-            o.components = components;
-            o.containerType = containerType;
-            o.dateCreated = dateCreated;
-            o.description = description;
-            o.dockerfileTemplateData = dockerfileTemplateData;
-            o.encrypted = encrypted;
-            o.id = id;
-            o.instanceConfigurations = instanceConfigurations;
-            o.kmsKeyId = kmsKeyId;
-            o.name = name;
-            o.owner = owner;
-            o.parentImage = parentImage;
-            o.platform = platform;
-            o.tags = tags;
-            o.targetRepositories = targetRepositories;
-            o.version = version;
-            o.workingDirectory = workingDirectory;
-            return o;
+            final var _resultValue = new GetContainerRecipeResult();
+            _resultValue.arn = arn;
+            _resultValue.components = components;
+            _resultValue.containerType = containerType;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.description = description;
+            _resultValue.dockerfileTemplateData = dockerfileTemplateData;
+            _resultValue.encrypted = encrypted;
+            _resultValue.id = id;
+            _resultValue.instanceConfigurations = instanceConfigurations;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.parentImage = parentImage;
+            _resultValue.platform = platform;
+            _resultValue.tags = tags;
+            _resultValue.targetRepositories = targetRepositories;
+            _resultValue.version = version;
+            _resultValue.workingDirectory = workingDirectory;
+            return _resultValue;
         }
     }
 }

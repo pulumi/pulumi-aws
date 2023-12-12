@@ -46,9 +46,9 @@ public final class SdkvoiceSipMediaApplicationEndpoints {
             return this;
         }
         public SdkvoiceSipMediaApplicationEndpoints build() {
-            final var o = new SdkvoiceSipMediaApplicationEndpoints();
-            o.lambdaArn = lambdaArn;
-            return o;
+            final var _resultValue = new SdkvoiceSipMediaApplicationEndpoints();
+            _resultValue.lambdaArn = lambdaArn;
+            return _resultValue;
         }
     }
 }

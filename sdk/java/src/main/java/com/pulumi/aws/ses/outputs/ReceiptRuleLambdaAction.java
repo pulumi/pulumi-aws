@@ -106,12 +106,12 @@ public final class ReceiptRuleLambdaAction {
             return this;
         }
         public ReceiptRuleLambdaAction build() {
-            final var o = new ReceiptRuleLambdaAction();
-            o.functionArn = functionArn;
-            o.invocationType = invocationType;
-            o.position = position;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ReceiptRuleLambdaAction();
+            _resultValue.functionArn = functionArn;
+            _resultValue.invocationType = invocationType;
+            _resultValue.position = position;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

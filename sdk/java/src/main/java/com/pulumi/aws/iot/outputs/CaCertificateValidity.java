@@ -67,10 +67,10 @@ public final class CaCertificateValidity {
             return this;
         }
         public CaCertificateValidity build() {
-            final var o = new CaCertificateValidity();
-            o.notAfter = notAfter;
-            o.notBefore = notBefore;
-            return o;
+            final var _resultValue = new CaCertificateValidity();
+            _resultValue.notAfter = notAfter;
+            _resultValue.notBefore = notBefore;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ViewIncludedProperty {
             return this;
         }
         public ViewIncludedProperty build() {
-            final var o = new ViewIncludedProperty();
-            o.name = name;
-            return o;
+            final var _resultValue = new ViewIncludedProperty();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

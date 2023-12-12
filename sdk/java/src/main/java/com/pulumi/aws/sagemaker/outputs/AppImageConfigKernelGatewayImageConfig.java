@@ -68,10 +68,10 @@ public final class AppImageConfigKernelGatewayImageConfig {
             return this;
         }
         public AppImageConfigKernelGatewayImageConfig build() {
-            final var o = new AppImageConfigKernelGatewayImageConfig();
-            o.fileSystemConfig = fileSystemConfig;
-            o.kernelSpec = kernelSpec;
-            return o;
+            final var _resultValue = new AppImageConfigKernelGatewayImageConfig();
+            _resultValue.fileSystemConfig = fileSystemConfig;
+            _resultValue.kernelSpec = kernelSpec;
+            return _resultValue;
         }
     }
 }

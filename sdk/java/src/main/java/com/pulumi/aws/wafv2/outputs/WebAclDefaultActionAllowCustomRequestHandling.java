@@ -50,9 +50,9 @@ public final class WebAclDefaultActionAllowCustomRequestHandling {
             return insertHeaders(List.of(insertHeaders));
         }
         public WebAclDefaultActionAllowCustomRequestHandling build() {
-            final var o = new WebAclDefaultActionAllowCustomRequestHandling();
-            o.insertHeaders = insertHeaders;
-            return o;
+            final var _resultValue = new WebAclDefaultActionAllowCustomRequestHandling();
+            _resultValue.insertHeaders = insertHeaders;
+            return _resultValue;
         }
     }
 }

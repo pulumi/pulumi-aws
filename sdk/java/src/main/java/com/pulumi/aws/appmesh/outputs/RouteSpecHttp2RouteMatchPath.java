@@ -67,10 +67,10 @@ public final class RouteSpecHttp2RouteMatchPath {
             return this;
         }
         public RouteSpecHttp2RouteMatchPath build() {
-            final var o = new RouteSpecHttp2RouteMatchPath();
-            o.exact = exact;
-            o.regex = regex;
-            return o;
+            final var _resultValue = new RouteSpecHttp2RouteMatchPath();
+            _resultValue.exact = exact;
+            _resultValue.regex = regex;
+            return _resultValue;
         }
     }
 }

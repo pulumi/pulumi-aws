@@ -46,9 +46,9 @@ public final class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigur
             return this;
         }
         public MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration();
-            o.insightsTarget = insightsTarget;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration();
+            _resultValue.insightsTarget = insightsTarget;
+            return _resultValue;
         }
     }
 }

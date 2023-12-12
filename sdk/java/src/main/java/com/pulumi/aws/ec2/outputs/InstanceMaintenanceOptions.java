@@ -48,9 +48,9 @@ public final class InstanceMaintenanceOptions {
             return this;
         }
         public InstanceMaintenanceOptions build() {
-            final var o = new InstanceMaintenanceOptions();
-            o.autoRecovery = autoRecovery;
-            return o;
+            final var _resultValue = new InstanceMaintenanceOptions();
+            _resultValue.autoRecovery = autoRecovery;
+            return _resultValue;
         }
     }
 }

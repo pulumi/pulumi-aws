@@ -87,11 +87,11 @@ public final class GetScriptDagNodeArg {
             return this;
         }
         public GetScriptDagNodeArg build() {
-            final var o = new GetScriptDagNodeArg();
-            o.name = name;
-            o.param = param;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetScriptDagNodeArg();
+            _resultValue.name = name;
+            _resultValue.param = param;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

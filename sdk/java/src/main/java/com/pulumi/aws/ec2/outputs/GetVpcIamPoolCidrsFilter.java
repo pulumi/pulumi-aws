@@ -53,10 +53,10 @@ public final class GetVpcIamPoolCidrsFilter {
             return values(List.of(values));
         }
         public GetVpcIamPoolCidrsFilter build() {
-            final var o = new GetVpcIamPoolCidrsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpcIamPoolCidrsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

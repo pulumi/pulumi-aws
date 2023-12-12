@@ -80,10 +80,10 @@ public final class IntentFollowUpPromptRejectionStatement {
             return this;
         }
         public IntentFollowUpPromptRejectionStatement build() {
-            final var o = new IntentFollowUpPromptRejectionStatement();
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new IntentFollowUpPromptRejectionStatement();
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

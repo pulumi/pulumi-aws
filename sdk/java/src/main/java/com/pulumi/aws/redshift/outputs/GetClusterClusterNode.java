@@ -84,11 +84,11 @@ public final class GetClusterClusterNode {
             return this;
         }
         public GetClusterClusterNode build() {
-            final var o = new GetClusterClusterNode();
-            o.nodeRole = nodeRole;
-            o.privateIpAddress = privateIpAddress;
-            o.publicIpAddress = publicIpAddress;
-            return o;
+            final var _resultValue = new GetClusterClusterNode();
+            _resultValue.nodeRole = nodeRole;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.publicIpAddress = publicIpAddress;
+            return _resultValue;
         }
     }
 }

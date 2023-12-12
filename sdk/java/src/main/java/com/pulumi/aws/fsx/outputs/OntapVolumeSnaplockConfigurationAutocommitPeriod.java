@@ -68,10 +68,10 @@ public final class OntapVolumeSnaplockConfigurationAutocommitPeriod {
             return this;
         }
         public OntapVolumeSnaplockConfigurationAutocommitPeriod build() {
-            final var o = new OntapVolumeSnaplockConfigurationAutocommitPeriod();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new OntapVolumeSnaplockConfigurationAutocommitPeriod();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

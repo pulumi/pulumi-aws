@@ -93,11 +93,11 @@ public final class GetPermissionsLfTagPolicy {
             return this;
         }
         public GetPermissionsLfTagPolicy build() {
-            final var o = new GetPermissionsLfTagPolicy();
-            o.catalogId = catalogId;
-            o.expressions = expressions;
-            o.resourceType = resourceType;
-            return o;
+            final var _resultValue = new GetPermissionsLfTagPolicy();
+            _resultValue.catalogId = catalogId;
+            _resultValue.expressions = expressions;
+            _resultValue.resourceType = resourceType;
+            return _resultValue;
         }
     }
 }

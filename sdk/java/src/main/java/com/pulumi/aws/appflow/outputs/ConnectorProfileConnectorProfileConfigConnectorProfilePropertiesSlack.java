@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack();
-            o.instanceUrl = instanceUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack();
+            _resultValue.instanceUrl = instanceUrl;
+            return _resultValue;
         }
     }
 }

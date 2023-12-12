@@ -92,12 +92,12 @@ public final class GetFindingIdsResult {
             return this;
         }
         public GetFindingIdsResult build() {
-            final var o = new GetFindingIdsResult();
-            o.detectorId = detectorId;
-            o.findingIds = findingIds;
-            o.hasFindings = hasFindings;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetFindingIdsResult();
+            _resultValue.detectorId = detectorId;
+            _resultValue.findingIds = findingIds;
+            _resultValue.hasFindings = hasFindings;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class CertificateAuthorityRevocationConfiguration {
             return this;
         }
         public CertificateAuthorityRevocationConfiguration build() {
-            final var o = new CertificateAuthorityRevocationConfiguration();
-            o.crlConfiguration = crlConfiguration;
-            o.ocspConfiguration = ocspConfiguration;
-            return o;
+            final var _resultValue = new CertificateAuthorityRevocationConfiguration();
+            _resultValue.crlConfiguration = crlConfiguration;
+            _resultValue.ocspConfiguration = ocspConfiguration;
+            return _resultValue;
         }
     }
 }

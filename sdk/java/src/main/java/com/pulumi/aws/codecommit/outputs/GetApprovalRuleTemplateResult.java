@@ -190,17 +190,17 @@ public final class GetApprovalRuleTemplateResult {
             return this;
         }
         public GetApprovalRuleTemplateResult build() {
-            final var o = new GetApprovalRuleTemplateResult();
-            o.approvalRuleTemplateId = approvalRuleTemplateId;
-            o.content = content;
-            o.creationDate = creationDate;
-            o.description = description;
-            o.id = id;
-            o.lastModifiedDate = lastModifiedDate;
-            o.lastModifiedUser = lastModifiedUser;
-            o.name = name;
-            o.ruleContentSha256 = ruleContentSha256;
-            return o;
+            final var _resultValue = new GetApprovalRuleTemplateResult();
+            _resultValue.approvalRuleTemplateId = approvalRuleTemplateId;
+            _resultValue.content = content;
+            _resultValue.creationDate = creationDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.lastModifiedDate = lastModifiedDate;
+            _resultValue.lastModifiedUser = lastModifiedUser;
+            _resultValue.name = name;
+            _resultValue.ruleContentSha256 = ruleContentSha256;
+            return _resultValue;
         }
     }
 }

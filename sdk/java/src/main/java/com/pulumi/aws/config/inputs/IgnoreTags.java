@@ -57,10 +57,10 @@ public final class IgnoreTags {
             return keys(List.of(keys));
         }
         public IgnoreTags build() {
-            final var o = new IgnoreTags();
-            o.keyPrefixes = keyPrefixes;
-            o.keys = keys;
-            return o;
+            final var _resultValue = new IgnoreTags();
+            _resultValue.keyPrefixes = keyPrefixes;
+            _resultValue.keys = keys;
+            return _resultValue;
         }
     }
 }

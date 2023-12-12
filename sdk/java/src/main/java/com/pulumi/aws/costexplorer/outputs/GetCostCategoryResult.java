@@ -211,18 +211,18 @@ public final class GetCostCategoryResult {
             return this;
         }
         public GetCostCategoryResult build() {
-            final var o = new GetCostCategoryResult();
-            o.costCategoryArn = costCategoryArn;
-            o.defaultValue = defaultValue;
-            o.effectiveEnd = effectiveEnd;
-            o.effectiveStart = effectiveStart;
-            o.id = id;
-            o.name = name;
-            o.ruleVersion = ruleVersion;
-            o.rules = rules;
-            o.splitChargeRules = splitChargeRules;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCostCategoryResult();
+            _resultValue.costCategoryArn = costCategoryArn;
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.effectiveEnd = effectiveEnd;
+            _resultValue.effectiveStart = effectiveStart;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.ruleVersion = ruleVersion;
+            _resultValue.rules = rules;
+            _resultValue.splitChargeRules = splitChargeRules;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

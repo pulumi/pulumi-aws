@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesServiceNow build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesServiceNow();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesServiceNow();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

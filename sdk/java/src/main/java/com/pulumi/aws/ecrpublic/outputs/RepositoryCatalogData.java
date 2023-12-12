@@ -150,14 +150,14 @@ public final class RepositoryCatalogData {
             return this;
         }
         public RepositoryCatalogData build() {
-            final var o = new RepositoryCatalogData();
-            o.aboutText = aboutText;
-            o.architectures = architectures;
-            o.description = description;
-            o.logoImageBlob = logoImageBlob;
-            o.operatingSystems = operatingSystems;
-            o.usageText = usageText;
-            return o;
+            final var _resultValue = new RepositoryCatalogData();
+            _resultValue.aboutText = aboutText;
+            _resultValue.architectures = architectures;
+            _resultValue.description = description;
+            _resultValue.logoImageBlob = logoImageBlob;
+            _resultValue.operatingSystems = operatingSystems;
+            _resultValue.usageText = usageText;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class OrganizationConfigurationAutoEnable {
             return this;
         }
         public OrganizationConfigurationAutoEnable build() {
-            final var o = new OrganizationConfigurationAutoEnable();
-            o.ec2 = ec2;
-            o.ecr = ecr;
-            o.lambda = lambda;
-            o.lambdaCode = lambdaCode;
-            return o;
+            final var _resultValue = new OrganizationConfigurationAutoEnable();
+            _resultValue.ec2 = ec2;
+            _resultValue.ecr = ecr;
+            _resultValue.lambda = lambda;
+            _resultValue.lambdaCode = lambdaCode;
+            return _resultValue;
         }
     }
 }

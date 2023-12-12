@@ -66,10 +66,10 @@ public final class RuleGroupRuleGroupRuleVariablesPortSet {
             return this;
         }
         public RuleGroupRuleGroupRuleVariablesPortSet build() {
-            final var o = new RuleGroupRuleGroupRuleVariablesPortSet();
-            o.key = key;
-            o.portSet = portSet;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRuleVariablesPortSet();
+            _resultValue.key = key;
+            _resultValue.portSet = portSet;
+            return _resultValue;
         }
     }
 }

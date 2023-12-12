@@ -67,10 +67,10 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
             return this;
         }
         public InstanceCapacityReservationSpecificationCapacityReservationTarget build() {
-            final var o = new InstanceCapacityReservationSpecificationCapacityReservationTarget();
-            o.capacityReservationId = capacityReservationId;
-            o.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
-            return o;
+            final var _resultValue = new InstanceCapacityReservationSpecificationCapacityReservationTarget();
+            _resultValue.capacityReservationId = capacityReservationId;
+            _resultValue.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
+            return _resultValue;
         }
     }
 }

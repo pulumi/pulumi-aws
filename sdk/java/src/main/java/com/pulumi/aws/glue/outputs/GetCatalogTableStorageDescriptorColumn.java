@@ -104,12 +104,12 @@ public final class GetCatalogTableStorageDescriptorColumn {
             return this;
         }
         public GetCatalogTableStorageDescriptorColumn build() {
-            final var o = new GetCatalogTableStorageDescriptorColumn();
-            o.comment = comment;
-            o.name = name;
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetCatalogTableStorageDescriptorColumn();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

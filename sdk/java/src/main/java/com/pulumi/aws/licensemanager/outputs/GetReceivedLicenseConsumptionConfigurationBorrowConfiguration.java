@@ -66,10 +66,10 @@ public final class GetReceivedLicenseConsumptionConfigurationBorrowConfiguration
             return this;
         }
         public GetReceivedLicenseConsumptionConfigurationBorrowConfiguration build() {
-            final var o = new GetReceivedLicenseConsumptionConfigurationBorrowConfiguration();
-            o.allowEarlyCheckIn = allowEarlyCheckIn;
-            o.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
-            return o;
+            final var _resultValue = new GetReceivedLicenseConsumptionConfigurationBorrowConfiguration();
+            _resultValue.allowEarlyCheckIn = allowEarlyCheckIn;
+            _resultValue.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
+            return _resultValue;
         }
     }
 }

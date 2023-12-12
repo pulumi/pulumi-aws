@@ -57,10 +57,10 @@ public final class GetTableAttribute {
             return this;
         }
         public GetTableAttribute build() {
-            final var o = new GetTableAttribute();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetTableAttribute();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

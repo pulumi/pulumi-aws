@@ -83,11 +83,11 @@ public final class GetDelegatedAdministratorsResult {
             return this;
         }
         public GetDelegatedAdministratorsResult build() {
-            final var o = new GetDelegatedAdministratorsResult();
-            o.delegatedAdministrators = delegatedAdministrators;
-            o.id = id;
-            o.servicePrincipal = servicePrincipal;
-            return o;
+            final var _resultValue = new GetDelegatedAdministratorsResult();
+            _resultValue.delegatedAdministrators = delegatedAdministrators;
+            _resultValue.id = id;
+            _resultValue.servicePrincipal = servicePrincipal;
+            return _resultValue;
         }
     }
 }

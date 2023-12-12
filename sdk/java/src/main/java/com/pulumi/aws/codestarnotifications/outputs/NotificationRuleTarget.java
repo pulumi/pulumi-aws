@@ -86,11 +86,11 @@ public final class NotificationRuleTarget {
             return this;
         }
         public NotificationRuleTarget build() {
-            final var o = new NotificationRuleTarget();
-            o.address = address;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new NotificationRuleTarget();
+            _resultValue.address = address;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

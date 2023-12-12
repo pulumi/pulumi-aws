@@ -84,11 +84,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            o.position = position;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            _resultValue.position = position;
+            return _resultValue;
         }
     }
 }

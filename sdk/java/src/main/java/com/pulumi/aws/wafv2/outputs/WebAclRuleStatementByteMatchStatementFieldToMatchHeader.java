@@ -85,11 +85,11 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchHeader {
             return this;
         }
         public WebAclRuleStatementByteMatchStatementFieldToMatchHeader build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchHeader();
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchHeader();
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

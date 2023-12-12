@@ -68,10 +68,10 @@ public final class ReportGroupExportConfig {
             return this;
         }
         public ReportGroupExportConfig build() {
-            final var o = new ReportGroupExportConfig();
-            o.s3Destination = s3Destination;
-            o.type = type;
-            return o;
+            final var _resultValue = new ReportGroupExportConfig();
+            _resultValue.s3Destination = s3Destination;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -25,8 +25,8 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings();
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings();
+            return _resultValue;
         }
     }
 }

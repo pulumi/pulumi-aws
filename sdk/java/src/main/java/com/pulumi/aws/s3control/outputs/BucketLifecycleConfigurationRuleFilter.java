@@ -68,10 +68,10 @@ public final class BucketLifecycleConfigurationRuleFilter {
             return this;
         }
         public BucketLifecycleConfigurationRuleFilter build() {
-            final var o = new BucketLifecycleConfigurationRuleFilter();
-            o.prefix = prefix;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationRuleFilter();
+            _resultValue.prefix = prefix;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

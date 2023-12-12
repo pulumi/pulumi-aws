@@ -315,28 +315,28 @@ public final class SpotFleetRequestLaunchSpecification {
             return this;
         }
         public SpotFleetRequestLaunchSpecification build() {
-            final var o = new SpotFleetRequestLaunchSpecification();
-            o.ami = ami;
-            o.associatePublicIpAddress = associatePublicIpAddress;
-            o.availabilityZone = availabilityZone;
-            o.ebsBlockDevices = ebsBlockDevices;
-            o.ebsOptimized = ebsOptimized;
-            o.ephemeralBlockDevices = ephemeralBlockDevices;
-            o.iamInstanceProfile = iamInstanceProfile;
-            o.iamInstanceProfileArn = iamInstanceProfileArn;
-            o.instanceType = instanceType;
-            o.keyName = keyName;
-            o.monitoring = monitoring;
-            o.placementGroup = placementGroup;
-            o.placementTenancy = placementTenancy;
-            o.rootBlockDevices = rootBlockDevices;
-            o.spotPrice = spotPrice;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.userData = userData;
-            o.vpcSecurityGroupIds = vpcSecurityGroupIds;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchSpecification();
+            _resultValue.ami = ami;
+            _resultValue.associatePublicIpAddress = associatePublicIpAddress;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.ebsBlockDevices = ebsBlockDevices;
+            _resultValue.ebsOptimized = ebsOptimized;
+            _resultValue.ephemeralBlockDevices = ephemeralBlockDevices;
+            _resultValue.iamInstanceProfile = iamInstanceProfile;
+            _resultValue.iamInstanceProfileArn = iamInstanceProfileArn;
+            _resultValue.instanceType = instanceType;
+            _resultValue.keyName = keyName;
+            _resultValue.monitoring = monitoring;
+            _resultValue.placementGroup = placementGroup;
+            _resultValue.placementTenancy = placementTenancy;
+            _resultValue.rootBlockDevices = rootBlockDevices;
+            _resultValue.spotPrice = spotPrice;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.userData = userData;
+            _resultValue.vpcSecurityGroupIds = vpcSecurityGroupIds;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

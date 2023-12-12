@@ -48,9 +48,9 @@ public final class ConnectAttachmentOptions {
             return this;
         }
         public ConnectAttachmentOptions build() {
-            final var o = new ConnectAttachmentOptions();
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new ConnectAttachmentOptions();
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

@@ -73,11 +73,11 @@ public final class GetBrokerNodesResult {
             return nodeInfoLists(List.of(nodeInfoLists));
         }
         public GetBrokerNodesResult build() {
-            final var o = new GetBrokerNodesResult();
-            o.clusterArn = clusterArn;
-            o.id = id;
-            o.nodeInfoLists = nodeInfoLists;
-            return o;
+            final var _resultValue = new GetBrokerNodesResult();
+            _resultValue.clusterArn = clusterArn;
+            _resultValue.id = id;
+            _resultValue.nodeInfoLists = nodeInfoLists;
+            return _resultValue;
         }
     }
 }

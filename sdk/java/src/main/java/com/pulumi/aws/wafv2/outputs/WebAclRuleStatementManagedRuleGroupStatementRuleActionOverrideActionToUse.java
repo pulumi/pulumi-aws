@@ -128,13 +128,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse();
-            o.allow = allow;
-            o.block = block;
-            o.captcha = captcha;
-            o.challenge = challenge;
-            o.count = count;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse();
+            _resultValue.allow = allow;
+            _resultValue.block = block;
+            _resultValue.captcha = captcha;
+            _resultValue.challenge = challenge;
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

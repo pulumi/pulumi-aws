@@ -76,10 +76,10 @@ public final class DeploymentGroupAutoRollbackConfiguration {
             return events(List.of(events));
         }
         public DeploymentGroupAutoRollbackConfiguration build() {
-            final var o = new DeploymentGroupAutoRollbackConfiguration();
-            o.enabled = enabled;
-            o.events = events;
-            return o;
+            final var _resultValue = new DeploymentGroupAutoRollbackConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.events = events;
+            return _resultValue;
         }
     }
 }

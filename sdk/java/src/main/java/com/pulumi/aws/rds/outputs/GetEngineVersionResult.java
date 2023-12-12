@@ -418,30 +418,30 @@ public final class GetEngineVersionResult {
             return this;
         }
         public GetEngineVersionResult build() {
-            final var o = new GetEngineVersionResult();
-            o.defaultCharacterSet = defaultCharacterSet;
-            o.defaultOnly = defaultOnly;
-            o.engine = engine;
-            o.engineDescription = engineDescription;
-            o.exportableLogTypes = exportableLogTypes;
-            o.filters = filters;
-            o.id = id;
-            o.includeAll = includeAll;
-            o.parameterGroupFamily = parameterGroupFamily;
-            o.preferredVersions = preferredVersions;
-            o.status = status;
-            o.supportedCharacterSets = supportedCharacterSets;
-            o.supportedFeatureNames = supportedFeatureNames;
-            o.supportedModes = supportedModes;
-            o.supportedTimezones = supportedTimezones;
-            o.supportsGlobalDatabases = supportsGlobalDatabases;
-            o.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
-            o.supportsParallelQuery = supportsParallelQuery;
-            o.supportsReadReplica = supportsReadReplica;
-            o.validUpgradeTargets = validUpgradeTargets;
-            o.version = version;
-            o.versionDescription = versionDescription;
-            return o;
+            final var _resultValue = new GetEngineVersionResult();
+            _resultValue.defaultCharacterSet = defaultCharacterSet;
+            _resultValue.defaultOnly = defaultOnly;
+            _resultValue.engine = engine;
+            _resultValue.engineDescription = engineDescription;
+            _resultValue.exportableLogTypes = exportableLogTypes;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.includeAll = includeAll;
+            _resultValue.parameterGroupFamily = parameterGroupFamily;
+            _resultValue.preferredVersions = preferredVersions;
+            _resultValue.status = status;
+            _resultValue.supportedCharacterSets = supportedCharacterSets;
+            _resultValue.supportedFeatureNames = supportedFeatureNames;
+            _resultValue.supportedModes = supportedModes;
+            _resultValue.supportedTimezones = supportedTimezones;
+            _resultValue.supportsGlobalDatabases = supportsGlobalDatabases;
+            _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
+            _resultValue.supportsParallelQuery = supportsParallelQuery;
+            _resultValue.supportsReadReplica = supportsReadReplica;
+            _resultValue.validUpgradeTargets = validUpgradeTargets;
+            _resultValue.version = version;
+            _resultValue.versionDescription = versionDescription;
+            return _resultValue;
         }
     }
 }

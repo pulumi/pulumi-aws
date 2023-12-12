@@ -86,11 +86,11 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
             return this;
         }
         public ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation build() {
-            final var o = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation();
-            o.bucketArn = bucketArn;
-            o.fileKey = fileKey;
-            o.objectVersion = objectVersion;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.fileKey = fileKey;
+            _resultValue.objectVersion = objectVersion;
+            return _resultValue;
         }
     }
 }

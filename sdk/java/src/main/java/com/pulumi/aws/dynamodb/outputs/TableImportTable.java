@@ -117,12 +117,12 @@ public final class TableImportTable {
             return this;
         }
         public TableImportTable build() {
-            final var o = new TableImportTable();
-            o.inputCompressionType = inputCompressionType;
-            o.inputFormat = inputFormat;
-            o.inputFormatOptions = inputFormatOptions;
-            o.s3BucketSource = s3BucketSource;
-            return o;
+            final var _resultValue = new TableImportTable();
+            _resultValue.inputCompressionType = inputCompressionType;
+            _resultValue.inputFormat = inputFormat;
+            _resultValue.inputFormatOptions = inputFormatOptions;
+            _resultValue.s3BucketSource = s3BucketSource;
+            return _resultValue;
         }
     }
 }

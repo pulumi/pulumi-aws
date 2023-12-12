@@ -67,10 +67,10 @@ public final class LaunchTemplateIamInstanceProfile {
             return this;
         }
         public LaunchTemplateIamInstanceProfile build() {
-            final var o = new LaunchTemplateIamInstanceProfile();
-            o.arn = arn;
-            o.name = name;
-            return o;
+            final var _resultValue = new LaunchTemplateIamInstanceProfile();
+            _resultValue.arn = arn;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -96,11 +96,11 @@ public final class GetCostCategoryRuleRuleNot {
             return tags(List.of(tags));
         }
         public GetCostCategoryRuleRuleNot build() {
-            final var o = new GetCostCategoryRuleRuleNot();
-            o.costCategories = costCategories;
-            o.dimensions = dimensions;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCostCategoryRuleRuleNot();
+            _resultValue.costCategories = costCategories;
+            _resultValue.dimensions = dimensions;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

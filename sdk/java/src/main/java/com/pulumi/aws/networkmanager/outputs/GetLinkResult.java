@@ -207,18 +207,18 @@ public final class GetLinkResult {
             return this;
         }
         public GetLinkResult build() {
-            final var o = new GetLinkResult();
-            o.arn = arn;
-            o.bandwidths = bandwidths;
-            o.description = description;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.linkId = linkId;
-            o.providerName = providerName;
-            o.siteId = siteId;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetLinkResult();
+            _resultValue.arn = arn;
+            _resultValue.bandwidths = bandwidths;
+            _resultValue.description = description;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.linkId = linkId;
+            _resultValue.providerName = providerName;
+            _resultValue.siteId = siteId;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

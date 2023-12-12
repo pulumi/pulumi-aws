@@ -104,12 +104,12 @@ public final class FleetEc2InboundPermission {
             return this;
         }
         public FleetEc2InboundPermission build() {
-            final var o = new FleetEc2InboundPermission();
-            o.fromPort = fromPort;
-            o.ipRange = ipRange;
-            o.protocol = protocol;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new FleetEc2InboundPermission();
+            _resultValue.fromPort = fromPort;
+            _resultValue.ipRange = ipRange;
+            _resultValue.protocol = protocol;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

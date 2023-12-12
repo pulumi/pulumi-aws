@@ -105,12 +105,12 @@ public final class IndexDocumentMetadataConfigurationUpdateSearch {
             return this;
         }
         public IndexDocumentMetadataConfigurationUpdateSearch build() {
-            final var o = new IndexDocumentMetadataConfigurationUpdateSearch();
-            o.displayable = displayable;
-            o.facetable = facetable;
-            o.searchable = searchable;
-            o.sortable = sortable;
-            return o;
+            final var _resultValue = new IndexDocumentMetadataConfigurationUpdateSearch();
+            _resultValue.displayable = displayable;
+            _resultValue.facetable = facetable;
+            _resultValue.searchable = searchable;
+            _resultValue.sortable = sortable;
+            return _resultValue;
         }
     }
 }

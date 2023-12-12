@@ -214,18 +214,18 @@ public final class GetRepositoryResult {
             return this;
         }
         public GetRepositoryResult build() {
-            final var o = new GetRepositoryResult();
-            o.arn = arn;
-            o.encryptionConfigurations = encryptionConfigurations;
-            o.id = id;
-            o.imageScanningConfigurations = imageScanningConfigurations;
-            o.imageTagMutability = imageTagMutability;
-            o.mostRecentImageTags = mostRecentImageTags;
-            o.name = name;
-            o.registryId = registryId;
-            o.repositoryUrl = repositoryUrl;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetRepositoryResult();
+            _resultValue.arn = arn;
+            _resultValue.encryptionConfigurations = encryptionConfigurations;
+            _resultValue.id = id;
+            _resultValue.imageScanningConfigurations = imageScanningConfigurations;
+            _resultValue.imageTagMutability = imageTagMutability;
+            _resultValue.mostRecentImageTags = mostRecentImageTags;
+            _resultValue.name = name;
+            _resultValue.registryId = registryId;
+            _resultValue.repositoryUrl = repositoryUrl;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class WebAclRuleStatementXssMatchStatement {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementXssMatchStatement build() {
-            final var o = new WebAclRuleStatementXssMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementXssMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

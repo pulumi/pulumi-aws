@@ -138,15 +138,15 @@ public final class GetResourcesResult {
             return tagFilters(List.of(tagFilters));
         }
         public GetResourcesResult build() {
-            final var o = new GetResourcesResult();
-            o.excludeCompliantResources = excludeCompliantResources;
-            o.id = id;
-            o.includeComplianceDetails = includeComplianceDetails;
-            o.resourceArnLists = resourceArnLists;
-            o.resourceTagMappingLists = resourceTagMappingLists;
-            o.resourceTypeFilters = resourceTypeFilters;
-            o.tagFilters = tagFilters;
-            return o;
+            final var _resultValue = new GetResourcesResult();
+            _resultValue.excludeCompliantResources = excludeCompliantResources;
+            _resultValue.id = id;
+            _resultValue.includeComplianceDetails = includeComplianceDetails;
+            _resultValue.resourceArnLists = resourceArnLists;
+            _resultValue.resourceTagMappingLists = resourceTagMappingLists;
+            _resultValue.resourceTypeFilters = resourceTypeFilters;
+            _resultValue.tagFilters = tagFilters;
+            return _resultValue;
         }
     }
 }

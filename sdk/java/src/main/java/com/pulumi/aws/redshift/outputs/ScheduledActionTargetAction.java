@@ -88,11 +88,11 @@ public final class ScheduledActionTargetAction {
             return this;
         }
         public ScheduledActionTargetAction build() {
-            final var o = new ScheduledActionTargetAction();
-            o.pauseCluster = pauseCluster;
-            o.resizeCluster = resizeCluster;
-            o.resumeCluster = resumeCluster;
-            return o;
+            final var _resultValue = new ScheduledActionTargetAction();
+            _resultValue.pauseCluster = pauseCluster;
+            _resultValue.resizeCluster = resizeCluster;
+            _resultValue.resumeCluster = resumeCluster;
+            return _resultValue;
         }
     }
 }

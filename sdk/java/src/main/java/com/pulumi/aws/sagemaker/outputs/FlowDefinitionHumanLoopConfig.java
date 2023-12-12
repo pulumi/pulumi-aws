@@ -206,17 +206,17 @@ public final class FlowDefinitionHumanLoopConfig {
             return this;
         }
         public FlowDefinitionHumanLoopConfig build() {
-            final var o = new FlowDefinitionHumanLoopConfig();
-            o.humanTaskUiArn = humanTaskUiArn;
-            o.publicWorkforceTaskPrice = publicWorkforceTaskPrice;
-            o.taskAvailabilityLifetimeInSeconds = taskAvailabilityLifetimeInSeconds;
-            o.taskCount = taskCount;
-            o.taskDescription = taskDescription;
-            o.taskKeywords = taskKeywords;
-            o.taskTimeLimitInSeconds = taskTimeLimitInSeconds;
-            o.taskTitle = taskTitle;
-            o.workteamArn = workteamArn;
-            return o;
+            final var _resultValue = new FlowDefinitionHumanLoopConfig();
+            _resultValue.humanTaskUiArn = humanTaskUiArn;
+            _resultValue.publicWorkforceTaskPrice = publicWorkforceTaskPrice;
+            _resultValue.taskAvailabilityLifetimeInSeconds = taskAvailabilityLifetimeInSeconds;
+            _resultValue.taskCount = taskCount;
+            _resultValue.taskDescription = taskDescription;
+            _resultValue.taskKeywords = taskKeywords;
+            _resultValue.taskTimeLimitInSeconds = taskTimeLimitInSeconds;
+            _resultValue.taskTitle = taskTitle;
+            _resultValue.workteamArn = workteamArn;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class TopicRuleLambda {
             return this;
         }
         public TopicRuleLambda build() {
-            final var o = new TopicRuleLambda();
-            o.functionArn = functionArn;
-            return o;
+            final var _resultValue = new TopicRuleLambda();
+            _resultValue.functionArn = functionArn;
+            return _resultValue;
         }
     }
 }

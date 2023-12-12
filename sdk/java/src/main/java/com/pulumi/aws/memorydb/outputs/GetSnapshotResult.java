@@ -185,16 +185,16 @@ public final class GetSnapshotResult {
             return this;
         }
         public GetSnapshotResult build() {
-            final var o = new GetSnapshotResult();
-            o.arn = arn;
-            o.clusterConfigurations = clusterConfigurations;
-            o.clusterName = clusterName;
-            o.id = id;
-            o.kmsKeyArn = kmsKeyArn;
-            o.name = name;
-            o.source = source;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSnapshotResult();
+            _resultValue.arn = arn;
+            _resultValue.clusterConfigurations = clusterConfigurations;
+            _resultValue.clusterName = clusterName;
+            _resultValue.id = id;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.name = name;
+            _resultValue.source = source;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

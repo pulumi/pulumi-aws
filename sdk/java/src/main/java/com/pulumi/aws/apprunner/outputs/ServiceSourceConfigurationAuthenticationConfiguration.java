@@ -67,10 +67,10 @@ public final class ServiceSourceConfigurationAuthenticationConfiguration {
             return this;
         }
         public ServiceSourceConfigurationAuthenticationConfiguration build() {
-            final var o = new ServiceSourceConfigurationAuthenticationConfiguration();
-            o.accessRoleArn = accessRoleArn;
-            o.connectionArn = connectionArn;
-            return o;
+            final var _resultValue = new ServiceSourceConfigurationAuthenticationConfiguration();
+            _resultValue.accessRoleArn = accessRoleArn;
+            _resultValue.connectionArn = connectionArn;
+            return _resultValue;
         }
     }
 }

@@ -113,13 +113,13 @@ public final class GetSnapshotIdsResult {
             return restorableByUserIds(List.of(restorableByUserIds));
         }
         public GetSnapshotIdsResult build() {
-            final var o = new GetSnapshotIdsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.owners = owners;
-            o.restorableByUserIds = restorableByUserIds;
-            return o;
+            final var _resultValue = new GetSnapshotIdsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.owners = owners;
+            _resultValue.restorableByUserIds = restorableByUserIds;
+            return _resultValue;
         }
     }
 }

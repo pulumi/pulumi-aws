@@ -122,13 +122,13 @@ public final class GetRouteTableRoutesRoute {
             return this;
         }
         public GetRouteTableRoutesRoute build() {
-            final var o = new GetRouteTableRoutesRoute();
-            o.destinationCidrBlock = destinationCidrBlock;
-            o.prefixListId = prefixListId;
-            o.state = state;
-            o.transitGatewayRouteTableAnnouncementId = transitGatewayRouteTableAnnouncementId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetRouteTableRoutesRoute();
+            _resultValue.destinationCidrBlock = destinationCidrBlock;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.state = state;
+            _resultValue.transitGatewayRouteTableAnnouncementId = transitGatewayRouteTableAnnouncementId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

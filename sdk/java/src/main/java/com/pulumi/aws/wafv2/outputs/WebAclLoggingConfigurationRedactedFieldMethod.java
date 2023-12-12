@@ -25,8 +25,8 @@ public final class WebAclLoggingConfigurationRedactedFieldMethod {
         }
 
         public WebAclLoggingConfigurationRedactedFieldMethod build() {
-            final var o = new WebAclLoggingConfigurationRedactedFieldMethod();
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationRedactedFieldMethod();
+            return _resultValue;
         }
     }
 }

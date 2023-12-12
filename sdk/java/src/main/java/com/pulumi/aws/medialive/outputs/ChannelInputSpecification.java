@@ -60,11 +60,11 @@ public final class ChannelInputSpecification {
             return this;
         }
         public ChannelInputSpecification build() {
-            final var o = new ChannelInputSpecification();
-            o.codec = codec;
-            o.inputResolution = inputResolution;
-            o.maximumBitrate = maximumBitrate;
-            return o;
+            final var _resultValue = new ChannelInputSpecification();
+            _resultValue.codec = codec;
+            _resultValue.inputResolution = inputResolution;
+            _resultValue.maximumBitrate = maximumBitrate;
+            return _resultValue;
         }
     }
 }

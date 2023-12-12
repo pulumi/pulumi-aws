@@ -221,18 +221,18 @@ public final class GetResponsePlanResult {
             return this;
         }
         public GetResponsePlanResult build() {
-            final var o = new GetResponsePlanResult();
-            o.actions = actions;
-            o.arn = arn;
-            o.chatChannels = chatChannels;
-            o.displayName = displayName;
-            o.engagements = engagements;
-            o.id = id;
-            o.incidentTemplates = incidentTemplates;
-            o.integrations = integrations;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResponsePlanResult();
+            _resultValue.actions = actions;
+            _resultValue.arn = arn;
+            _resultValue.chatChannels = chatChannels;
+            _resultValue.displayName = displayName;
+            _resultValue.engagements = engagements;
+            _resultValue.id = id;
+            _resultValue.incidentTemplates = incidentTemplates;
+            _resultValue.integrations = integrations;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

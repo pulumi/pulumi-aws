@@ -118,16 +118,16 @@ public final class GetControlControlMappingSource {
             return this;
         }
         public GetControlControlMappingSource build() {
-            final var o = new GetControlControlMappingSource();
-            o.sourceDescription = sourceDescription;
-            o.sourceFrequency = sourceFrequency;
-            o.sourceId = sourceId;
-            o.sourceKeyword = sourceKeyword;
-            o.sourceName = sourceName;
-            o.sourceSetUpOption = sourceSetUpOption;
-            o.sourceType = sourceType;
-            o.troubleshootingText = troubleshootingText;
-            return o;
+            final var _resultValue = new GetControlControlMappingSource();
+            _resultValue.sourceDescription = sourceDescription;
+            _resultValue.sourceFrequency = sourceFrequency;
+            _resultValue.sourceId = sourceId;
+            _resultValue.sourceKeyword = sourceKeyword;
+            _resultValue.sourceName = sourceName;
+            _resultValue.sourceSetUpOption = sourceSetUpOption;
+            _resultValue.sourceType = sourceType;
+            _resultValue.troubleshootingText = troubleshootingText;
+            return _resultValue;
         }
     }
 }

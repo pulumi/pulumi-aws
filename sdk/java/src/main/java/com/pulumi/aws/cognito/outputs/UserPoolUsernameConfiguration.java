@@ -46,9 +46,9 @@ public final class UserPoolUsernameConfiguration {
             return this;
         }
         public UserPoolUsernameConfiguration build() {
-            final var o = new UserPoolUsernameConfiguration();
-            o.caseSensitive = caseSensitive;
-            return o;
+            final var _resultValue = new UserPoolUsernameConfiguration();
+            _resultValue.caseSensitive = caseSensitive;
+            return _resultValue;
         }
     }
 }

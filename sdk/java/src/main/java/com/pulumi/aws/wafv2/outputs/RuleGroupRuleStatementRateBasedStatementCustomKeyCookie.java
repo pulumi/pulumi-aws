@@ -74,10 +74,10 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyCookie build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyCookie();
-            o.name = name;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyCookie();
+            _resultValue.name = name;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

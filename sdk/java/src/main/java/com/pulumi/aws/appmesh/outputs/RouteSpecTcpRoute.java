@@ -88,11 +88,11 @@ public final class RouteSpecTcpRoute {
             return this;
         }
         public RouteSpecTcpRoute build() {
-            final var o = new RouteSpecTcpRoute();
-            o.action = action;
-            o.match = match;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new RouteSpecTcpRoute();
+            _resultValue.action = action;
+            _resultValue.match = match;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

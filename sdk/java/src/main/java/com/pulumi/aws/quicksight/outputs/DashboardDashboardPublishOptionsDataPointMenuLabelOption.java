@@ -48,9 +48,9 @@ public final class DashboardDashboardPublishOptionsDataPointMenuLabelOption {
             return this;
         }
         public DashboardDashboardPublishOptionsDataPointMenuLabelOption build() {
-            final var o = new DashboardDashboardPublishOptionsDataPointMenuLabelOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsDataPointMenuLabelOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

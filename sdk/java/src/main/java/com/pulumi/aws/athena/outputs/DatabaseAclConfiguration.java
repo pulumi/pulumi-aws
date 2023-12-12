@@ -50,9 +50,9 @@ public final class DatabaseAclConfiguration {
             return this;
         }
         public DatabaseAclConfiguration build() {
-            final var o = new DatabaseAclConfiguration();
-            o.s3AclOption = s3AclOption;
-            return o;
+            final var _resultValue = new DatabaseAclConfiguration();
+            _resultValue.s3AclOption = s3AclOption;
+            return _resultValue;
         }
     }
 }

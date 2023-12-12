@@ -42,9 +42,9 @@ public final class ContainerServicePublicDomainNames {
             return certificates(List.of(certificates));
         }
         public ContainerServicePublicDomainNames build() {
-            final var o = new ContainerServicePublicDomainNames();
-            o.certificates = certificates;
-            return o;
+            final var _resultValue = new ContainerServicePublicDomainNames();
+            _resultValue.certificates = certificates;
+            return _resultValue;
         }
     }
 }

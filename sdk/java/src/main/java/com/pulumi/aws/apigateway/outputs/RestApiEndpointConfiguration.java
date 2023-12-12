@@ -70,10 +70,10 @@ public final class RestApiEndpointConfiguration {
             return vpcEndpointIds(List.of(vpcEndpointIds));
         }
         public RestApiEndpointConfiguration build() {
-            final var o = new RestApiEndpointConfiguration();
-            o.types = types;
-            o.vpcEndpointIds = vpcEndpointIds;
-            return o;
+            final var _resultValue = new RestApiEndpointConfiguration();
+            _resultValue.types = types;
+            _resultValue.vpcEndpointIds = vpcEndpointIds;
+            return _resultValue;
         }
     }
 }

@@ -203,18 +203,18 @@ public final class GetServiceNetworkResult {
             return this;
         }
         public GetServiceNetworkResult build() {
-            final var o = new GetServiceNetworkResult();
-            o.arn = arn;
-            o.authType = authType;
-            o.createdAt = createdAt;
-            o.id = id;
-            o.lastUpdatedAt = lastUpdatedAt;
-            o.name = name;
-            o.numberOfAssociatedServices = numberOfAssociatedServices;
-            o.numberOfAssociatedVpcs = numberOfAssociatedVpcs;
-            o.serviceNetworkIdentifier = serviceNetworkIdentifier;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetServiceNetworkResult();
+            _resultValue.arn = arn;
+            _resultValue.authType = authType;
+            _resultValue.createdAt = createdAt;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedAt = lastUpdatedAt;
+            _resultValue.name = name;
+            _resultValue.numberOfAssociatedServices = numberOfAssociatedServices;
+            _resultValue.numberOfAssociatedVpcs = numberOfAssociatedVpcs;
+            _resultValue.serviceNetworkIdentifier = serviceNetworkIdentifier;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

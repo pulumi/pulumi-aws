@@ -67,10 +67,10 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraint {
             return this;
         }
         public PipeTargetParametersEcsTaskParametersPlacementConstraint build() {
-            final var o = new PipeTargetParametersEcsTaskParametersPlacementConstraint();
-            o.expression = expression;
-            o.type = type;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersPlacementConstraint();
+            _resultValue.expression = expression;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

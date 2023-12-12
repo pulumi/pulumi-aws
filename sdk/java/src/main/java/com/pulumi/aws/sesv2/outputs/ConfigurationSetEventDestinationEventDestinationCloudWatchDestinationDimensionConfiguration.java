@@ -84,11 +84,11 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
             return this;
         }
         public ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration build() {
-            final var o = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration();
-            o.defaultDimensionValue = defaultDimensionValue;
-            o.dimensionName = dimensionName;
-            o.dimensionValueSource = dimensionValueSource;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration();
+            _resultValue.defaultDimensionValue = defaultDimensionValue;
+            _resultValue.dimensionName = dimensionName;
+            _resultValue.dimensionValueSource = dimensionValueSource;
+            return _resultValue;
         }
     }
 }

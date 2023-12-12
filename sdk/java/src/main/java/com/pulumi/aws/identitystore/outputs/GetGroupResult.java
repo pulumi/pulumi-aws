@@ -168,16 +168,16 @@ public final class GetGroupResult {
             return this;
         }
         public GetGroupResult build() {
-            final var o = new GetGroupResult();
-            o.alternateIdentifier = alternateIdentifier;
-            o.description = description;
-            o.displayName = displayName;
-            o.externalIds = externalIds;
-            o.filter = filter;
-            o.groupId = groupId;
-            o.id = id;
-            o.identityStoreId = identityStoreId;
-            return o;
+            final var _resultValue = new GetGroupResult();
+            _resultValue.alternateIdentifier = alternateIdentifier;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.externalIds = externalIds;
+            _resultValue.filter = filter;
+            _resultValue.groupId = groupId;
+            _resultValue.id = id;
+            _resultValue.identityStoreId = identityStoreId;
+            return _resultValue;
         }
     }
 }

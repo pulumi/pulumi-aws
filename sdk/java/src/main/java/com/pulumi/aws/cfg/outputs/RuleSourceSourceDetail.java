@@ -86,11 +86,11 @@ public final class RuleSourceSourceDetail {
             return this;
         }
         public RuleSourceSourceDetail build() {
-            final var o = new RuleSourceSourceDetail();
-            o.eventSource = eventSource;
-            o.maximumExecutionFrequency = maximumExecutionFrequency;
-            o.messageType = messageType;
-            return o;
+            final var _resultValue = new RuleSourceSourceDetail();
+            _resultValue.eventSource = eventSource;
+            _resultValue.maximumExecutionFrequency = maximumExecutionFrequency;
+            _resultValue.messageType = messageType;
+            return _resultValue;
         }
     }
 }

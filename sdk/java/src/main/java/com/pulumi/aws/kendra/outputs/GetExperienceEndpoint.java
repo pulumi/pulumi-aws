@@ -65,10 +65,10 @@ public final class GetExperienceEndpoint {
             return this;
         }
         public GetExperienceEndpoint build() {
-            final var o = new GetExperienceEndpoint();
-            o.endpoint = endpoint;
-            o.endpointType = endpointType;
-            return o;
+            final var _resultValue = new GetExperienceEndpoint();
+            _resultValue.endpoint = endpoint;
+            _resultValue.endpointType = endpointType;
+            return _resultValue;
         }
     }
 }

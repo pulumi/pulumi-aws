@@ -25,8 +25,8 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationDeidentif
         }
 
         public GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig build() {
-            final var o = new GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig();
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig();
+            return _resultValue;
         }
     }
 }

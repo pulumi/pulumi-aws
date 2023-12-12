@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHe
             return this;
         }
         public RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

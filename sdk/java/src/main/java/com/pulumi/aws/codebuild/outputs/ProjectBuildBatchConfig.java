@@ -108,12 +108,12 @@ public final class ProjectBuildBatchConfig {
             return this;
         }
         public ProjectBuildBatchConfig build() {
-            final var o = new ProjectBuildBatchConfig();
-            o.combineArtifacts = combineArtifacts;
-            o.restrictions = restrictions;
-            o.serviceRole = serviceRole;
-            o.timeoutInMins = timeoutInMins;
-            return o;
+            final var _resultValue = new ProjectBuildBatchConfig();
+            _resultValue.combineArtifacts = combineArtifacts;
+            _resultValue.restrictions = restrictions;
+            _resultValue.serviceRole = serviceRole;
+            _resultValue.timeoutInMins = timeoutInMins;
+            return _resultValue;
         }
     }
 }

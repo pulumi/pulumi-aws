@@ -124,13 +124,13 @@ public final class PresetAudio {
             return this;
         }
         public PresetAudio build() {
-            final var o = new PresetAudio();
-            o.audioPackingMode = audioPackingMode;
-            o.bitRate = bitRate;
-            o.channels = channels;
-            o.codec = codec;
-            o.sampleRate = sampleRate;
-            return o;
+            final var _resultValue = new PresetAudio();
+            _resultValue.audioPackingMode = audioPackingMode;
+            _resultValue.bitRate = bitRate;
+            _resultValue.channels = channels;
+            _resultValue.codec = codec;
+            _resultValue.sampleRate = sampleRate;
+            return _resultValue;
         }
     }
 }

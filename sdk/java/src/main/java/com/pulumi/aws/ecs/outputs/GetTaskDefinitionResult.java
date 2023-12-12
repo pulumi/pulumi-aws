@@ -210,18 +210,18 @@ public final class GetTaskDefinitionResult {
             return this;
         }
         public GetTaskDefinitionResult build() {
-            final var o = new GetTaskDefinitionResult();
-            o.arn = arn;
-            o.arnWithoutRevision = arnWithoutRevision;
-            o.executionRoleArn = executionRoleArn;
-            o.family = family;
-            o.id = id;
-            o.networkMode = networkMode;
-            o.revision = revision;
-            o.status = status;
-            o.taskDefinition = taskDefinition;
-            o.taskRoleArn = taskRoleArn;
-            return o;
+            final var _resultValue = new GetTaskDefinitionResult();
+            _resultValue.arn = arn;
+            _resultValue.arnWithoutRevision = arnWithoutRevision;
+            _resultValue.executionRoleArn = executionRoleArn;
+            _resultValue.family = family;
+            _resultValue.id = id;
+            _resultValue.networkMode = networkMode;
+            _resultValue.revision = revision;
+            _resultValue.status = status;
+            _resultValue.taskDefinition = taskDefinition;
+            _resultValue.taskRoleArn = taskRoleArn;
+            return _resultValue;
         }
     }
 }

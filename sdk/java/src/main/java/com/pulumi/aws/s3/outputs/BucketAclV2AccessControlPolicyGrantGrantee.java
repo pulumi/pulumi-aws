@@ -124,13 +124,13 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
             return this;
         }
         public BucketAclV2AccessControlPolicyGrantGrantee build() {
-            final var o = new BucketAclV2AccessControlPolicyGrantGrantee();
-            o.displayName = displayName;
-            o.emailAddress = emailAddress;
-            o.id = id;
-            o.type = type;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new BucketAclV2AccessControlPolicyGrantGrantee();
+            _resultValue.displayName = displayName;
+            _resultValue.emailAddress = emailAddress;
+            _resultValue.id = id;
+            _resultValue.type = type;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

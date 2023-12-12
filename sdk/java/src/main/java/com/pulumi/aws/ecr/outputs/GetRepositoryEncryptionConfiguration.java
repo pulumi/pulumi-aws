@@ -65,10 +65,10 @@ public final class GetRepositoryEncryptionConfiguration {
             return this;
         }
         public GetRepositoryEncryptionConfiguration build() {
-            final var o = new GetRepositoryEncryptionConfiguration();
-            o.encryptionType = encryptionType;
-            o.kmsKey = kmsKey;
-            return o;
+            final var _resultValue = new GetRepositoryEncryptionConfiguration();
+            _resultValue.encryptionType = encryptionType;
+            _resultValue.kmsKey = kmsKey;
+            return _resultValue;
         }
     }
 }

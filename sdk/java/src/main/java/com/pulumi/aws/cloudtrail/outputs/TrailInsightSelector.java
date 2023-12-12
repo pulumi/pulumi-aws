@@ -46,9 +46,9 @@ public final class TrailInsightSelector {
             return this;
         }
         public TrailInsightSelector build() {
-            final var o = new TrailInsightSelector();
-            o.insightType = insightType;
-            return o;
+            final var _resultValue = new TrailInsightSelector();
+            _resultValue.insightType = insightType;
+            return _resultValue;
         }
     }
 }

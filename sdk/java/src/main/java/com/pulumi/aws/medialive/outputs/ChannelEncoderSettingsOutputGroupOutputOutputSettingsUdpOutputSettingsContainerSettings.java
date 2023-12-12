@@ -48,9 +48,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings();
-            o.m2tsSettings = m2tsSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings();
+            _resultValue.m2tsSettings = m2tsSettings;
+            return _resultValue;
         }
     }
 }

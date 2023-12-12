@@ -67,10 +67,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest();
-            o.authCode = authCode;
-            o.redirectUri = redirectUri;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest();
+            _resultValue.authCode = authCode;
+            _resultValue.redirectUri = redirectUri;
+            return _resultValue;
         }
     }
 }

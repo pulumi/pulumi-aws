@@ -49,10 +49,10 @@ public final class GetDevEnvironmentRepository {
             return this;
         }
         public GetDevEnvironmentRepository build() {
-            final var o = new GetDevEnvironmentRepository();
-            o.branchName = branchName;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new GetDevEnvironmentRepository();
+            _resultValue.branchName = branchName;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

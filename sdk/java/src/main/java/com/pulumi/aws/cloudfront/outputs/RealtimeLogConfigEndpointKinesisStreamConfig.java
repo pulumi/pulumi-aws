@@ -67,10 +67,10 @@ public final class RealtimeLogConfigEndpointKinesisStreamConfig {
             return this;
         }
         public RealtimeLogConfigEndpointKinesisStreamConfig build() {
-            final var o = new RealtimeLogConfigEndpointKinesisStreamConfig();
-            o.roleArn = roleArn;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new RealtimeLogConfigEndpointKinesisStreamConfig();
+            _resultValue.roleArn = roleArn;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

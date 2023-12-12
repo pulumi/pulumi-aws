@@ -65,10 +65,10 @@ public final class AnalysisParametersStringParameter {
             return values(List.of(values));
         }
         public AnalysisParametersStringParameter build() {
-            final var o = new AnalysisParametersStringParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new AnalysisParametersStringParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class GetVpcCidrBlockAssociation {
             return this;
         }
         public GetVpcCidrBlockAssociation build() {
-            final var o = new GetVpcCidrBlockAssociation();
-            o.associationId = associationId;
-            o.cidrBlock = cidrBlock;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetVpcCidrBlockAssociation();
+            _resultValue.associationId = associationId;
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

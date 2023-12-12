@@ -93,11 +93,11 @@ public final class CostCategoryRuleRuleOrDimension {
             return values(List.of(values));
         }
         public CostCategoryRuleRuleOrDimension build() {
-            final var o = new CostCategoryRuleRuleOrDimension();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new CostCategoryRuleRuleOrDimension();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

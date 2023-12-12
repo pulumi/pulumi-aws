@@ -197,16 +197,16 @@ public final class LifecyclePolicyPolicyDetails {
             return this;
         }
         public LifecyclePolicyPolicyDetails build() {
-            final var o = new LifecyclePolicyPolicyDetails();
-            o.action = action;
-            o.eventSource = eventSource;
-            o.parameters = parameters;
-            o.policyType = policyType;
-            o.resourceLocations = resourceLocations;
-            o.resourceTypes = resourceTypes;
-            o.schedules = schedules;
-            o.targetTags = targetTags;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetails();
+            _resultValue.action = action;
+            _resultValue.eventSource = eventSource;
+            _resultValue.parameters = parameters;
+            _resultValue.policyType = policyType;
+            _resultValue.resourceLocations = resourceLocations;
+            _resultValue.resourceTypes = resourceTypes;
+            _resultValue.schedules = schedules;
+            _resultValue.targetTags = targetTags;
+            return _resultValue;
         }
     }
 }

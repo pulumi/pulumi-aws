@@ -67,10 +67,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom();
-            o.credentialsMap = credentialsMap;
-            o.customAuthenticationType = customAuthenticationType;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom();
+            _resultValue.credentialsMap = credentialsMap;
+            _resultValue.customAuthenticationType = customAuthenticationType;
+            return _resultValue;
         }
     }
 }

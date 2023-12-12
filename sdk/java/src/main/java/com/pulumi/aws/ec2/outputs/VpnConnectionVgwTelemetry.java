@@ -144,14 +144,14 @@ public final class VpnConnectionVgwTelemetry {
             return this;
         }
         public VpnConnectionVgwTelemetry build() {
-            final var o = new VpnConnectionVgwTelemetry();
-            o.acceptedRouteCount = acceptedRouteCount;
-            o.certificateArn = certificateArn;
-            o.lastStatusChange = lastStatusChange;
-            o.outsideIpAddress = outsideIpAddress;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            return o;
+            final var _resultValue = new VpnConnectionVgwTelemetry();
+            _resultValue.acceptedRouteCount = acceptedRouteCount;
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.lastStatusChange = lastStatusChange;
+            _resultValue.outsideIpAddress = outsideIpAddress;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetPatchBaselineGlobalFilter {
             return values(List.of(values));
         }
         public GetPatchBaselineGlobalFilter build() {
-            final var o = new GetPatchBaselineGlobalFilter();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetPatchBaselineGlobalFilter();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class GetResourcesTagFilter {
             return values(List.of(values));
         }
         public GetResourcesTagFilter build() {
-            final var o = new GetResourcesTagFilter();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetResourcesTagFilter();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLab
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement();
-            o.key = key;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement();
+            _resultValue.key = key;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

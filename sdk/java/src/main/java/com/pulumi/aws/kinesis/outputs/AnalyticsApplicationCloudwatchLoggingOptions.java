@@ -86,11 +86,11 @@ public final class AnalyticsApplicationCloudwatchLoggingOptions {
             return this;
         }
         public AnalyticsApplicationCloudwatchLoggingOptions build() {
-            final var o = new AnalyticsApplicationCloudwatchLoggingOptions();
-            o.id = id;
-            o.logStreamArn = logStreamArn;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new AnalyticsApplicationCloudwatchLoggingOptions();
+            _resultValue.id = id;
+            _resultValue.logStreamArn = logStreamArn;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

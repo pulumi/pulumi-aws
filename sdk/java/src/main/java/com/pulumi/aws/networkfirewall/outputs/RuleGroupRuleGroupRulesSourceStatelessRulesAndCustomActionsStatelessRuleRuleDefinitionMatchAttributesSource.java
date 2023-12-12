@@ -46,9 +46,9 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
             return this;
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource();
-            o.addressDefinition = addressDefinition;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource();
+            _resultValue.addressDefinition = addressDefinition;
+            return _resultValue;
         }
     }
 }

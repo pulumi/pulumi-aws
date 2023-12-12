@@ -65,10 +65,10 @@ public final class InsightFiltersResourceAwsS3BucketOwnerName {
             return this;
         }
         public InsightFiltersResourceAwsS3BucketOwnerName build() {
-            final var o = new InsightFiltersResourceAwsS3BucketOwnerName();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsS3BucketOwnerName();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

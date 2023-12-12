@@ -106,12 +106,12 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
             return this;
         }
         public EndpointConfigurationAsyncInferenceConfigOutputConfig build() {
-            final var o = new EndpointConfigurationAsyncInferenceConfigOutputConfig();
-            o.kmsKeyId = kmsKeyId;
-            o.notificationConfig = notificationConfig;
-            o.s3FailurePath = s3FailurePath;
-            o.s3OutputPath = s3OutputPath;
-            return o;
+            final var _resultValue = new EndpointConfigurationAsyncInferenceConfigOutputConfig();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.notificationConfig = notificationConfig;
+            _resultValue.s3FailurePath = s3FailurePath;
+            _resultValue.s3OutputPath = s3OutputPath;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class InventorySchedule {
             return this;
         }
         public InventorySchedule build() {
-            final var o = new InventorySchedule();
-            o.frequency = frequency;
-            return o;
+            final var _resultValue = new InventorySchedule();
+            _resultValue.frequency = frequency;
+            return _resultValue;
         }
     }
 }

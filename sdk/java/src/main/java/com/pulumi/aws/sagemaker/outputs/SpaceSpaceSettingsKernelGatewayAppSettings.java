@@ -94,11 +94,11 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettings {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }
         public SpaceSpaceSettingsKernelGatewayAppSettings build() {
-            final var o = new SpaceSpaceSettingsKernelGatewayAppSettings();
-            o.customImages = customImages;
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.lifecycleConfigArns = lifecycleConfigArns;
-            return o;
+            final var _resultValue = new SpaceSpaceSettingsKernelGatewayAppSettings();
+            _resultValue.customImages = customImages;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.lifecycleConfigArns = lifecycleConfigArns;
+            return _resultValue;
         }
     }
 }

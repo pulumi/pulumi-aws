@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQuer
             return this;
         }
         public RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

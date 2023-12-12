@@ -106,12 +106,12 @@ public final class GetTrafficPolicyDocumentRulePrimary {
             return this;
         }
         public GetTrafficPolicyDocumentRulePrimary build() {
-            final var o = new GetTrafficPolicyDocumentRulePrimary();
-            o.endpointReference = endpointReference;
-            o.evaluateTargetHealth = evaluateTargetHealth;
-            o.healthCheck = healthCheck;
-            o.ruleReference = ruleReference;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentRulePrimary();
+            _resultValue.endpointReference = endpointReference;
+            _resultValue.evaluateTargetHealth = evaluateTargetHealth;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.ruleReference = ruleReference;
+            return _resultValue;
         }
     }
 }

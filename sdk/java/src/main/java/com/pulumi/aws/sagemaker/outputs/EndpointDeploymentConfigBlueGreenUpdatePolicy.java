@@ -87,11 +87,11 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicy {
             return this;
         }
         public EndpointDeploymentConfigBlueGreenUpdatePolicy build() {
-            final var o = new EndpointDeploymentConfigBlueGreenUpdatePolicy();
-            o.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
-            o.terminationWaitInSeconds = terminationWaitInSeconds;
-            o.trafficRoutingConfiguration = trafficRoutingConfiguration;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigBlueGreenUpdatePolicy();
+            _resultValue.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
+            _resultValue.terminationWaitInSeconds = terminationWaitInSeconds;
+            _resultValue.trafficRoutingConfiguration = trafficRoutingConfiguration;
+            return _resultValue;
         }
     }
 }

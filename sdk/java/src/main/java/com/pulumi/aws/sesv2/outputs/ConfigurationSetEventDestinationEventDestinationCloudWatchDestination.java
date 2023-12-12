@@ -50,9 +50,9 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
             return dimensionConfigurations(List.of(dimensionConfigurations));
         }
         public ConfigurationSetEventDestinationEventDestinationCloudWatchDestination build() {
-            final var o = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestination();
-            o.dimensionConfigurations = dimensionConfigurations;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestination();
+            _resultValue.dimensionConfigurations = dimensionConfigurations;
+            return _resultValue;
         }
     }
 }

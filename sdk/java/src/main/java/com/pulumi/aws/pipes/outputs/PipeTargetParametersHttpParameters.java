@@ -87,11 +87,11 @@ public final class PipeTargetParametersHttpParameters {
             return this;
         }
         public PipeTargetParametersHttpParameters build() {
-            final var o = new PipeTargetParametersHttpParameters();
-            o.headerParameters = headerParameters;
-            o.pathParameterValues = pathParameterValues;
-            o.queryStringParameters = queryStringParameters;
-            return o;
+            final var _resultValue = new PipeTargetParametersHttpParameters();
+            _resultValue.headerParameters = headerParameters;
+            _resultValue.pathParameterValues = pathParameterValues;
+            _resultValue.queryStringParameters = queryStringParameters;
+            return _resultValue;
         }
     }
 }

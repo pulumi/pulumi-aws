@@ -48,9 +48,9 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
             return this;
         }
         public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice build() {
-            final var o = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice();
-            o.amountInUsd = amountInUsd;
-            return o;
+            final var _resultValue = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice();
+            _resultValue.amountInUsd = amountInUsd;
+            return _resultValue;
         }
     }
 }

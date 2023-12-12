@@ -69,10 +69,10 @@ public final class GetMaintenanceWindowsFilter {
             return values(List.of(values));
         }
         public GetMaintenanceWindowsFilter build() {
-            final var o = new GetMaintenanceWindowsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetMaintenanceWindowsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -176,15 +176,15 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfiguration {
             return this;
         }
         public ScalingPlanScalingInstructionTargetTrackingConfiguration build() {
-            final var o = new ScalingPlanScalingInstructionTargetTrackingConfiguration();
-            o.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
-            o.disableScaleIn = disableScaleIn;
-            o.estimatedInstanceWarmup = estimatedInstanceWarmup;
-            o.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
-            o.scaleInCooldown = scaleInCooldown;
-            o.scaleOutCooldown = scaleOutCooldown;
-            o.targetValue = targetValue;
-            return o;
+            final var _resultValue = new ScalingPlanScalingInstructionTargetTrackingConfiguration();
+            _resultValue.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
+            _resultValue.disableScaleIn = disableScaleIn;
+            _resultValue.estimatedInstanceWarmup = estimatedInstanceWarmup;
+            _resultValue.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
+            _resultValue.scaleInCooldown = scaleInCooldown;
+            _resultValue.scaleOutCooldown = scaleOutCooldown;
+            _resultValue.targetValue = targetValue;
+            return _resultValue;
         }
     }
 }

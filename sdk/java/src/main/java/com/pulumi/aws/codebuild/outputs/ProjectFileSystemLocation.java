@@ -124,13 +124,13 @@ public final class ProjectFileSystemLocation {
             return this;
         }
         public ProjectFileSystemLocation build() {
-            final var o = new ProjectFileSystemLocation();
-            o.identifier = identifier;
-            o.location = location;
-            o.mountOptions = mountOptions;
-            o.mountPoint = mountPoint;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProjectFileSystemLocation();
+            _resultValue.identifier = identifier;
+            _resultValue.location = location;
+            _resultValue.mountOptions = mountOptions;
+            _resultValue.mountPoint = mountPoint;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

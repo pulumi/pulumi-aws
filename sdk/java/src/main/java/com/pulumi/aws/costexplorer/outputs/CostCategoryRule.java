@@ -107,12 +107,12 @@ public final class CostCategoryRule {
             return this;
         }
         public CostCategoryRule build() {
-            final var o = new CostCategoryRule();
-            o.inheritedValue = inheritedValue;
-            o.rule = rule;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new CostCategoryRule();
+            _resultValue.inheritedValue = inheritedValue;
+            _resultValue.rule = rule;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

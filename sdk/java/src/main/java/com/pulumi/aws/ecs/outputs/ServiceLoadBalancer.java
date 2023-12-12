@@ -110,12 +110,12 @@ public final class ServiceLoadBalancer {
             return this;
         }
         public ServiceLoadBalancer build() {
-            final var o = new ServiceLoadBalancer();
-            o.containerName = containerName;
-            o.containerPort = containerPort;
-            o.elbName = elbName;
-            o.targetGroupArn = targetGroupArn;
-            return o;
+            final var _resultValue = new ServiceLoadBalancer();
+            _resultValue.containerName = containerName;
+            _resultValue.containerPort = containerPort;
+            _resultValue.elbName = elbName;
+            _resultValue.targetGroupArn = targetGroupArn;
+            return _resultValue;
         }
     }
 }

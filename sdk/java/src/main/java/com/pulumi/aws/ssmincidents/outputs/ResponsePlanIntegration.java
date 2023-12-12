@@ -51,9 +51,9 @@ public final class ResponsePlanIntegration {
             return pagerduties(List.of(pagerduties));
         }
         public ResponsePlanIntegration build() {
-            final var o = new ResponsePlanIntegration();
-            o.pagerduties = pagerduties;
-            return o;
+            final var _resultValue = new ResponsePlanIntegration();
+            _resultValue.pagerduties = pagerduties;
+            return _resultValue;
         }
     }
 }

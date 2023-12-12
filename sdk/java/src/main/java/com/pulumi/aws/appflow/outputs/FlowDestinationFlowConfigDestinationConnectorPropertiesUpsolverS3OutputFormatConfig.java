@@ -88,11 +88,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig();
-            o.aggregationConfig = aggregationConfig;
-            o.fileType = fileType;
-            o.prefixConfig = prefixConfig;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig();
+            _resultValue.aggregationConfig = aggregationConfig;
+            _resultValue.fileType = fileType;
+            _resultValue.prefixConfig = prefixConfig;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResou
             return this;
         }
         public DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec build() {
-            final var o = new DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec();
-            o.instanceType = instanceType;
-            o.lifecycleConfigArn = lifecycleConfigArn;
-            o.sagemakerImageArn = sagemakerImageArn;
-            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec();
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycleConfigArn = lifecycleConfigArn;
+            _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return _resultValue;
         }
     }
 }

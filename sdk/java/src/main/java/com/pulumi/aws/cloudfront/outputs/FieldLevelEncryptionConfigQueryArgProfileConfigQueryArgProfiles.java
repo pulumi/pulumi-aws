@@ -43,9 +43,9 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
             return items(List.of(items));
         }
         public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles build() {
-            final var o = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles();
-            o.items = items;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

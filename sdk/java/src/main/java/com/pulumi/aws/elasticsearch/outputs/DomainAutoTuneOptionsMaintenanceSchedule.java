@@ -85,11 +85,11 @@ public final class DomainAutoTuneOptionsMaintenanceSchedule {
             return this;
         }
         public DomainAutoTuneOptionsMaintenanceSchedule build() {
-            final var o = new DomainAutoTuneOptionsMaintenanceSchedule();
-            o.cronExpressionForRecurrence = cronExpressionForRecurrence;
-            o.duration = duration;
-            o.startAt = startAt;
-            return o;
+            final var _resultValue = new DomainAutoTuneOptionsMaintenanceSchedule();
+            _resultValue.cronExpressionForRecurrence = cronExpressionForRecurrence;
+            _resultValue.duration = duration;
+            _resultValue.startAt = startAt;
+            return _resultValue;
         }
     }
 }

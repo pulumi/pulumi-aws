@@ -46,9 +46,9 @@ public final class DetectorDatasourcesS3Logs {
             return this;
         }
         public DetectorDatasourcesS3Logs build() {
-            final var o = new DetectorDatasourcesS3Logs();
-            o.enable = enable;
-            return o;
+            final var _resultValue = new DetectorDatasourcesS3Logs();
+            _resultValue.enable = enable;
+            return _resultValue;
         }
     }
 }

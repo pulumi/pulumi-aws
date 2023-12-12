@@ -96,11 +96,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.regexString = regexString;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.regexString = regexString;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

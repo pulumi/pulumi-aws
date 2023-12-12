@@ -48,9 +48,9 @@ public final class FunctionSyncConfigLambdaConflictHandlerConfig {
             return this;
         }
         public FunctionSyncConfigLambdaConflictHandlerConfig build() {
-            final var o = new FunctionSyncConfigLambdaConflictHandlerConfig();
-            o.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
-            return o;
+            final var _resultValue = new FunctionSyncConfigLambdaConflictHandlerConfig();
+            _resultValue.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
+            return _resultValue;
         }
     }
 }

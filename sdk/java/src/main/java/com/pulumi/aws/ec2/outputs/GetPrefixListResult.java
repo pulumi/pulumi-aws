@@ -116,13 +116,13 @@ public final class GetPrefixListResult {
             return this;
         }
         public GetPrefixListResult build() {
-            final var o = new GetPrefixListResult();
-            o.cidrBlocks = cidrBlocks;
-            o.filters = filters;
-            o.id = id;
-            o.name = name;
-            o.prefixListId = prefixListId;
-            return o;
+            final var _resultValue = new GetPrefixListResult();
+            _resultValue.cidrBlocks = cidrBlocks;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.prefixListId = prefixListId;
+            return _resultValue;
         }
     }
 }

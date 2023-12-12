@@ -25,8 +25,8 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSm
         }
 
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings build() {
-            final var o = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings();
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings();
+            return _resultValue;
         }
     }
 }

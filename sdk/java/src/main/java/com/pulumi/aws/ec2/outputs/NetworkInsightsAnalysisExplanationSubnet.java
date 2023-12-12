@@ -78,11 +78,11 @@ public final class NetworkInsightsAnalysisExplanationSubnet {
             return this;
         }
         public NetworkInsightsAnalysisExplanationSubnet build() {
-            final var o = new NetworkInsightsAnalysisExplanationSubnet();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationSubnet();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -133,14 +133,14 @@ public final class GetSessionContextResult {
             return this;
         }
         public GetSessionContextResult build() {
-            final var o = new GetSessionContextResult();
-            o.arn = arn;
-            o.id = id;
-            o.issuerArn = issuerArn;
-            o.issuerId = issuerId;
-            o.issuerName = issuerName;
-            o.sessionName = sessionName;
-            return o;
+            final var _resultValue = new GetSessionContextResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.issuerArn = issuerArn;
+            _resultValue.issuerId = issuerId;
+            _resultValue.issuerName = issuerName;
+            _resultValue.sessionName = sessionName;
+            return _resultValue;
         }
     }
 }

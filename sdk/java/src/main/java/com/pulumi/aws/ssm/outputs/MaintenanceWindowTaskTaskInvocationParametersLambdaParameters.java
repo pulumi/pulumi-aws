@@ -86,11 +86,11 @@ public final class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParametersLambdaParameters build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersLambdaParameters();
-            o.clientContext = clientContext;
-            o.payload = payload;
-            o.qualifier = qualifier;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersLambdaParameters();
+            _resultValue.clientContext = clientContext;
+            _resultValue.payload = payload;
+            _resultValue.qualifier = qualifier;
+            return _resultValue;
         }
     }
 }

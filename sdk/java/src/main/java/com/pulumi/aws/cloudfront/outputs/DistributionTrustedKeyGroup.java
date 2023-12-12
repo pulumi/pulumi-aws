@@ -72,10 +72,10 @@ public final class DistributionTrustedKeyGroup {
             return items(List.of(items));
         }
         public DistributionTrustedKeyGroup build() {
-            final var o = new DistributionTrustedKeyGroup();
-            o.enabled = enabled;
-            o.items = items;
-            return o;
+            final var _resultValue = new DistributionTrustedKeyGroup();
+            _resultValue.enabled = enabled;
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

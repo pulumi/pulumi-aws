@@ -65,10 +65,10 @@ public final class BucketLifecycleConfigurationV2RuleFilterTag {
             return this;
         }
         public BucketLifecycleConfigurationV2RuleFilterTag build() {
-            final var o = new BucketLifecycleConfigurationV2RuleFilterTag();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2RuleFilterTag();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

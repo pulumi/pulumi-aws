@@ -78,11 +78,11 @@ public final class NetworkInsightsAnalysisReturnPathComponentVpc {
             return this;
         }
         public NetworkInsightsAnalysisReturnPathComponentVpc build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponentVpc();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponentVpc();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

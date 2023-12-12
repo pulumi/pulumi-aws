@@ -65,10 +65,10 @@ public final class EventSourceMappingSourceAccessConfiguration {
             return this;
         }
         public EventSourceMappingSourceAccessConfiguration build() {
-            final var o = new EventSourceMappingSourceAccessConfiguration();
-            o.type = type;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new EventSourceMappingSourceAccessConfiguration();
+            _resultValue.type = type;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

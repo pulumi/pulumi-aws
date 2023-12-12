@@ -65,10 +65,10 @@ public final class InsightFiltersResourceId {
             return this;
         }
         public InsightFiltersResourceId build() {
-            final var o = new InsightFiltersResourceId();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceId();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

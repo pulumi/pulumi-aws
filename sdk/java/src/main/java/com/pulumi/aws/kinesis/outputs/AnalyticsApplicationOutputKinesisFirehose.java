@@ -65,10 +65,10 @@ public final class AnalyticsApplicationOutputKinesisFirehose {
             return this;
         }
         public AnalyticsApplicationOutputKinesisFirehose build() {
-            final var o = new AnalyticsApplicationOutputKinesisFirehose();
-            o.resourceArn = resourceArn;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new AnalyticsApplicationOutputKinesisFirehose();
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

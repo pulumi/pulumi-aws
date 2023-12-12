@@ -90,11 +90,11 @@ public final class GetWorkgroupEndpoint {
             return vpcEndpoints(List.of(vpcEndpoints));
         }
         public GetWorkgroupEndpoint build() {
-            final var o = new GetWorkgroupEndpoint();
-            o.address = address;
-            o.port = port;
-            o.vpcEndpoints = vpcEndpoints;
-            return o;
+            final var _resultValue = new GetWorkgroupEndpoint();
+            _resultValue.address = address;
+            _resultValue.port = port;
+            _resultValue.vpcEndpoints = vpcEndpoints;
+            return _resultValue;
         }
     }
 }

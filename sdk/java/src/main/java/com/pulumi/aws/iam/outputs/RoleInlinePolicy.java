@@ -67,10 +67,10 @@ public final class RoleInlinePolicy {
             return this;
         }
         public RoleInlinePolicy build() {
-            final var o = new RoleInlinePolicy();
-            o.name = name;
-            o.policy = policy;
-            return o;
+            final var _resultValue = new RoleInlinePolicy();
+            _resultValue.name = name;
+            _resultValue.policy = policy;
+            return _resultValue;
         }
     }
 }

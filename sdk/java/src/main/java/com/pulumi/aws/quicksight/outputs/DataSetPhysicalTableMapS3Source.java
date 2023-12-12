@@ -90,11 +90,11 @@ public final class DataSetPhysicalTableMapS3Source {
             return this;
         }
         public DataSetPhysicalTableMapS3Source build() {
-            final var o = new DataSetPhysicalTableMapS3Source();
-            o.dataSourceArn = dataSourceArn;
-            o.inputColumns = inputColumns;
-            o.uploadSettings = uploadSettings;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMapS3Source();
+            _resultValue.dataSourceArn = dataSourceArn;
+            _resultValue.inputColumns = inputColumns;
+            _resultValue.uploadSettings = uploadSettings;
+            return _resultValue;
         }
     }
 }

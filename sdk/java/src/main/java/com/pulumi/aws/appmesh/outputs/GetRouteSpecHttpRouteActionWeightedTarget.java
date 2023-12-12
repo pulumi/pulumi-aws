@@ -61,11 +61,11 @@ public final class GetRouteSpecHttpRouteActionWeightedTarget {
             return this;
         }
         public GetRouteSpecHttpRouteActionWeightedTarget build() {
-            final var o = new GetRouteSpecHttpRouteActionWeightedTarget();
-            o.port = port;
-            o.virtualNode = virtualNode;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new GetRouteSpecHttpRouteActionWeightedTarget();
+            _resultValue.port = port;
+            _resultValue.virtualNode = virtualNode;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

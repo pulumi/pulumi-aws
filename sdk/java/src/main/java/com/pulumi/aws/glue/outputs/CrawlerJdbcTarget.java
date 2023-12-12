@@ -111,12 +111,12 @@ public final class CrawlerJdbcTarget {
             return this;
         }
         public CrawlerJdbcTarget build() {
-            final var o = new CrawlerJdbcTarget();
-            o.connectionName = connectionName;
-            o.enableAdditionalMetadatas = enableAdditionalMetadatas;
-            o.exclusions = exclusions;
-            o.path = path;
-            return o;
+            final var _resultValue = new CrawlerJdbcTarget();
+            _resultValue.connectionName = connectionName;
+            _resultValue.enableAdditionalMetadatas = enableAdditionalMetadatas;
+            _resultValue.exclusions = exclusions;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

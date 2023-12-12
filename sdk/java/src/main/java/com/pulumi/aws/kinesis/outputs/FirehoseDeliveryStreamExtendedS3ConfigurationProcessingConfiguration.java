@@ -72,10 +72,10 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
             return processors(List.of(processors));
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration();
-            o.enabled = enabled;
-            o.processors = processors;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.processors = processors;
+            return _resultValue;
         }
     }
 }

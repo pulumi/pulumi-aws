@@ -528,34 +528,34 @@ public final class GetClusterResult {
             return this;
         }
         public GetClusterResult build() {
-            final var o = new GetClusterResult();
-            o.aclName = aclName;
-            o.arn = arn;
-            o.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
-            o.clusterEndpoints = clusterEndpoints;
-            o.dataTiering = dataTiering;
-            o.description = description;
-            o.enginePatchVersion = enginePatchVersion;
-            o.engineVersion = engineVersion;
-            o.finalSnapshotName = finalSnapshotName;
-            o.id = id;
-            o.kmsKeyArn = kmsKeyArn;
-            o.maintenanceWindow = maintenanceWindow;
-            o.name = name;
-            o.nodeType = nodeType;
-            o.numReplicasPerShard = numReplicasPerShard;
-            o.numShards = numShards;
-            o.parameterGroupName = parameterGroupName;
-            o.port = port;
-            o.securityGroupIds = securityGroupIds;
-            o.shards = shards;
-            o.snapshotRetentionLimit = snapshotRetentionLimit;
-            o.snapshotWindow = snapshotWindow;
-            o.snsTopicArn = snsTopicArn;
-            o.subnetGroupName = subnetGroupName;
-            o.tags = tags;
-            o.tlsEnabled = tlsEnabled;
-            return o;
+            final var _resultValue = new GetClusterResult();
+            _resultValue.aclName = aclName;
+            _resultValue.arn = arn;
+            _resultValue.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
+            _resultValue.clusterEndpoints = clusterEndpoints;
+            _resultValue.dataTiering = dataTiering;
+            _resultValue.description = description;
+            _resultValue.enginePatchVersion = enginePatchVersion;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.finalSnapshotName = finalSnapshotName;
+            _resultValue.id = id;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.maintenanceWindow = maintenanceWindow;
+            _resultValue.name = name;
+            _resultValue.nodeType = nodeType;
+            _resultValue.numReplicasPerShard = numReplicasPerShard;
+            _resultValue.numShards = numShards;
+            _resultValue.parameterGroupName = parameterGroupName;
+            _resultValue.port = port;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.shards = shards;
+            _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;
+            _resultValue.snapshotWindow = snapshotWindow;
+            _resultValue.snsTopicArn = snsTopicArn;
+            _resultValue.subnetGroupName = subnetGroupName;
+            _resultValue.tags = tags;
+            _resultValue.tlsEnabled = tlsEnabled;
+            return _resultValue;
         }
     }
 }

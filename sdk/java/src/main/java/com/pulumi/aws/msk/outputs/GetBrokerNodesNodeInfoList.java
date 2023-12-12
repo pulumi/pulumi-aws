@@ -146,14 +146,14 @@ public final class GetBrokerNodesNodeInfoList {
             return this;
         }
         public GetBrokerNodesNodeInfoList build() {
-            final var o = new GetBrokerNodesNodeInfoList();
-            o.attachedEniId = attachedEniId;
-            o.brokerId = brokerId;
-            o.clientSubnet = clientSubnet;
-            o.clientVpcIpAddress = clientVpcIpAddress;
-            o.endpoints = endpoints;
-            o.nodeArn = nodeArn;
-            return o;
+            final var _resultValue = new GetBrokerNodesNodeInfoList();
+            _resultValue.attachedEniId = attachedEniId;
+            _resultValue.brokerId = brokerId;
+            _resultValue.clientSubnet = clientSubnet;
+            _resultValue.clientVpcIpAddress = clientVpcIpAddress;
+            _resultValue.endpoints = endpoints;
+            _resultValue.nodeArn = nodeArn;
+            return _resultValue;
         }
     }
 }

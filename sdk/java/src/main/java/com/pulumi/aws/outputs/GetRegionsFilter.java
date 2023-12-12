@@ -69,10 +69,10 @@ public final class GetRegionsFilter {
             return values(List.of(values));
         }
         public GetRegionsFilter build() {
-            final var o = new GetRegionsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetRegionsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -71,10 +71,10 @@ public final class GroupMixedInstancesPolicyLaunchTemplate {
             return overrides(List.of(overrides));
         }
         public GroupMixedInstancesPolicyLaunchTemplate build() {
-            final var o = new GroupMixedInstancesPolicyLaunchTemplate();
-            o.launchTemplateSpecification = launchTemplateSpecification;
-            o.overrides = overrides;
-            return o;
+            final var _resultValue = new GroupMixedInstancesPolicyLaunchTemplate();
+            _resultValue.launchTemplateSpecification = launchTemplateSpecification;
+            _resultValue.overrides = overrides;
+            return _resultValue;
         }
     }
 }

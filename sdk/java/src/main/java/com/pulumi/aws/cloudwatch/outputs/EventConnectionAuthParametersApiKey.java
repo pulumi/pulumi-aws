@@ -65,10 +65,10 @@ public final class EventConnectionAuthParametersApiKey {
             return this;
         }
         public EventConnectionAuthParametersApiKey build() {
-            final var o = new EventConnectionAuthParametersApiKey();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersApiKey();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

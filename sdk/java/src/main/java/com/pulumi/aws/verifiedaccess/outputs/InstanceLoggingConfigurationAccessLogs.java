@@ -128,13 +128,13 @@ public final class InstanceLoggingConfigurationAccessLogs {
             return this;
         }
         public InstanceLoggingConfigurationAccessLogs build() {
-            final var o = new InstanceLoggingConfigurationAccessLogs();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.includeTrustContext = includeTrustContext;
-            o.kinesisDataFirehose = kinesisDataFirehose;
-            o.logVersion = logVersion;
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new InstanceLoggingConfigurationAccessLogs();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.includeTrustContext = includeTrustContext;
+            _resultValue.kinesisDataFirehose = kinesisDataFirehose;
+            _resultValue.logVersion = logVersion;
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

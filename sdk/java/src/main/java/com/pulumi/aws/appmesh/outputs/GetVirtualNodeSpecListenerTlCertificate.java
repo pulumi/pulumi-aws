@@ -72,11 +72,11 @@ public final class GetVirtualNodeSpecListenerTlCertificate {
             return sds(List.of(sds));
         }
         public GetVirtualNodeSpecListenerTlCertificate build() {
-            final var o = new GetVirtualNodeSpecListenerTlCertificate();
-            o.acms = acms;
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTlCertificate();
+            _resultValue.acms = acms;
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

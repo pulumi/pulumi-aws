@@ -68,10 +68,10 @@ public final class OntapVolumeTieringPolicy {
             return this;
         }
         public OntapVolumeTieringPolicy build() {
-            final var o = new OntapVolumeTieringPolicy();
-            o.coolingPeriod = coolingPeriod;
-            o.name = name;
-            return o;
+            final var _resultValue = new OntapVolumeTieringPolicy();
+            _resultValue.coolingPeriod = coolingPeriod;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -62,11 +62,11 @@ public final class InternetMonitorInternetMeasurementsLogDeliveryS3Config {
             return this;
         }
         public InternetMonitorInternetMeasurementsLogDeliveryS3Config build() {
-            final var o = new InternetMonitorInternetMeasurementsLogDeliveryS3Config();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.logDeliveryStatus = logDeliveryStatus;
-            return o;
+            final var _resultValue = new InternetMonitorInternetMeasurementsLogDeliveryS3Config();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.logDeliveryStatus = logDeliveryStatus;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMat
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement();
-            o.countryCodes = countryCodes;
-            o.forwardedIpConfig = forwardedIpConfig;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement();
+            _resultValue.countryCodes = countryCodes;
+            _resultValue.forwardedIpConfig = forwardedIpConfig;
+            return _resultValue;
         }
     }
 }

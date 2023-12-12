@@ -111,12 +111,12 @@ public final class ReplicationSetRegion {
             return this;
         }
         public ReplicationSetRegion build() {
-            final var o = new ReplicationSetRegion();
-            o.kmsKeyArn = kmsKeyArn;
-            o.name = name;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            return o;
+            final var _resultValue = new ReplicationSetRegion();
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            return _resultValue;
         }
     }
 }

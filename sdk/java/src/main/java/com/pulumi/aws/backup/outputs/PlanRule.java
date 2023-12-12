@@ -209,17 +209,17 @@ public final class PlanRule {
             return this;
         }
         public PlanRule build() {
-            final var o = new PlanRule();
-            o.completionWindow = completionWindow;
-            o.copyActions = copyActions;
-            o.enableContinuousBackup = enableContinuousBackup;
-            o.lifecycle = lifecycle;
-            o.recoveryPointTags = recoveryPointTags;
-            o.ruleName = ruleName;
-            o.schedule = schedule;
-            o.startWindow = startWindow;
-            o.targetVaultName = targetVaultName;
-            return o;
+            final var _resultValue = new PlanRule();
+            _resultValue.completionWindow = completionWindow;
+            _resultValue.copyActions = copyActions;
+            _resultValue.enableContinuousBackup = enableContinuousBackup;
+            _resultValue.lifecycle = lifecycle;
+            _resultValue.recoveryPointTags = recoveryPointTags;
+            _resultValue.ruleName = ruleName;
+            _resultValue.schedule = schedule;
+            _resultValue.startWindow = startWindow;
+            _resultValue.targetVaultName = targetVaultName;
+            return _resultValue;
         }
     }
 }

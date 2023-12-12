@@ -87,11 +87,11 @@ public final class CrawlerMongodbTarget {
             return this;
         }
         public CrawlerMongodbTarget build() {
-            final var o = new CrawlerMongodbTarget();
-            o.connectionName = connectionName;
-            o.path = path;
-            o.scanAll = scanAll;
-            return o;
+            final var _resultValue = new CrawlerMongodbTarget();
+            _resultValue.connectionName = connectionName;
+            _resultValue.path = path;
+            _resultValue.scanAll = scanAll;
+            return _resultValue;
         }
     }
 }

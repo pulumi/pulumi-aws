@@ -46,9 +46,9 @@ public final class InventoryDestinationBucketEncryptionSseKms {
             return this;
         }
         public InventoryDestinationBucketEncryptionSseKms build() {
-            final var o = new InventoryDestinationBucketEncryptionSseKms();
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new InventoryDestinationBucketEncryptionSseKms();
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

@@ -51,9 +51,9 @@ public final class RecorderRecordingGroupExclusionByResourceType {
             return resourceTypes(List.of(resourceTypes));
         }
         public RecorderRecordingGroupExclusionByResourceType build() {
-            final var o = new RecorderRecordingGroupExclusionByResourceType();
-            o.resourceTypes = resourceTypes;
-            return o;
+            final var _resultValue = new RecorderRecordingGroupExclusionByResourceType();
+            _resultValue.resourceTypes = resourceTypes;
+            return _resultValue;
         }
     }
 }

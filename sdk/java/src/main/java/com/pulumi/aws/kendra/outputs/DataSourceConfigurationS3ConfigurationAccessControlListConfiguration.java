@@ -48,9 +48,9 @@ public final class DataSourceConfigurationS3ConfigurationAccessControlListConfig
             return this;
         }
         public DataSourceConfigurationS3ConfigurationAccessControlListConfiguration build() {
-            final var o = new DataSourceConfigurationS3ConfigurationAccessControlListConfiguration();
-            o.keyPath = keyPath;
-            return o;
+            final var _resultValue = new DataSourceConfigurationS3ConfigurationAccessControlListConfiguration();
+            _resultValue.keyPath = keyPath;
+            return _resultValue;
         }
     }
 }

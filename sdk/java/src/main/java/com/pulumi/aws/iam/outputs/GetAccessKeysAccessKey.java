@@ -84,11 +84,11 @@ public final class GetAccessKeysAccessKey {
             return this;
         }
         public GetAccessKeysAccessKey build() {
-            final var o = new GetAccessKeysAccessKey();
-            o.accessKeyId = accessKeyId;
-            o.createDate = createDate;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetAccessKeysAccessKey();
+            _resultValue.accessKeyId = accessKeyId;
+            _resultValue.createDate = createDate;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

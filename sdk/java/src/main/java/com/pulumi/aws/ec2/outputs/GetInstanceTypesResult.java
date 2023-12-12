@@ -85,11 +85,11 @@ public final class GetInstanceTypesResult {
             return instanceTypes(List.of(instanceTypes));
         }
         public GetInstanceTypesResult build() {
-            final var o = new GetInstanceTypesResult();
-            o.filters = filters;
-            o.id = id;
-            o.instanceTypes = instanceTypes;
-            return o;
+            final var _resultValue = new GetInstanceTypesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceTypes = instanceTypes;
+            return _resultValue;
         }
     }
 }

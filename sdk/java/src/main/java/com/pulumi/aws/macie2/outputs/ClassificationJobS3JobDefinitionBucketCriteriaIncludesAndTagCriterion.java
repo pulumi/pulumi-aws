@@ -72,10 +72,10 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
             return tagValues(List.of(tagValues));
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion();
-            o.comparator = comparator;
-            o.tagValues = tagValues;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion();
+            _resultValue.comparator = comparator;
+            _resultValue.tagValues = tagValues;
+            return _resultValue;
         }
     }
 }

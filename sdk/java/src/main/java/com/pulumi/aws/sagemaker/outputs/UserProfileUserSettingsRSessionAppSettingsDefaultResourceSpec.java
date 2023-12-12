@@ -105,12 +105,12 @@ public final class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec
             return this;
         }
         public UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec build() {
-            final var o = new UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec();
-            o.instanceType = instanceType;
-            o.lifecycleConfigArn = lifecycleConfigArn;
-            o.sagemakerImageArn = sagemakerImageArn;
-            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec();
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycleConfigArn = lifecycleConfigArn;
+            _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return _resultValue;
         }
     }
 }

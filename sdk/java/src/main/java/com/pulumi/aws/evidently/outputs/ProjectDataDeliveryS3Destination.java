@@ -67,10 +67,10 @@ public final class ProjectDataDeliveryS3Destination {
             return this;
         }
         public ProjectDataDeliveryS3Destination build() {
-            final var o = new ProjectDataDeliveryS3Destination();
-            o.bucket = bucket;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new ProjectDataDeliveryS3Destination();
+            _resultValue.bucket = bucket;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

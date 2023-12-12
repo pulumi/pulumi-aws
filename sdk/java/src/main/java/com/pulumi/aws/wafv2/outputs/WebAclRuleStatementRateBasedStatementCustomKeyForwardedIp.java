@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp {
         }
 
         public WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp();
+            return _resultValue;
         }
     }
 }

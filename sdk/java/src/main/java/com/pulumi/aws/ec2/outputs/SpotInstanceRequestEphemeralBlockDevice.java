@@ -91,11 +91,11 @@ public final class SpotInstanceRequestEphemeralBlockDevice {
             return this;
         }
         public SpotInstanceRequestEphemeralBlockDevice build() {
-            final var o = new SpotInstanceRequestEphemeralBlockDevice();
-            o.deviceName = deviceName;
-            o.noDevice = noDevice;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new SpotInstanceRequestEphemeralBlockDevice();
+            _resultValue.deviceName = deviceName;
+            _resultValue.noDevice = noDevice;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

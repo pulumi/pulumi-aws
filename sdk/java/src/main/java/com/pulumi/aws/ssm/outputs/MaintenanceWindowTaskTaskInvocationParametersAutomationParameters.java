@@ -72,10 +72,10 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
             return parameters(List.of(parameters));
         }
         public MaintenanceWindowTaskTaskInvocationParametersAutomationParameters build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersAutomationParameters();
-            o.documentVersion = documentVersion;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersAutomationParameters();
+            _resultValue.documentVersion = documentVersion;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

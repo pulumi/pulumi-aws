@@ -112,14 +112,14 @@ public final class GetTableItemResult {
             return this;
         }
         public GetTableItemResult build() {
-            final var o = new GetTableItemResult();
-            o.expressionAttributeNames = expressionAttributeNames;
-            o.id = id;
-            o.item = item;
-            o.key = key;
-            o.projectionExpression = projectionExpression;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new GetTableItemResult();
+            _resultValue.expressionAttributeNames = expressionAttributeNames;
+            _resultValue.id = id;
+            _resultValue.item = item;
+            _resultValue.key = key;
+            _resultValue.projectionExpression = projectionExpression;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

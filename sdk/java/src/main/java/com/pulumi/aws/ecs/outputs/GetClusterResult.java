@@ -220,18 +220,18 @@ public final class GetClusterResult {
             return this;
         }
         public GetClusterResult build() {
-            final var o = new GetClusterResult();
-            o.arn = arn;
-            o.clusterName = clusterName;
-            o.id = id;
-            o.pendingTasksCount = pendingTasksCount;
-            o.registeredContainerInstancesCount = registeredContainerInstancesCount;
-            o.runningTasksCount = runningTasksCount;
-            o.serviceConnectDefaults = serviceConnectDefaults;
-            o.settings = settings;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetClusterResult();
+            _resultValue.arn = arn;
+            _resultValue.clusterName = clusterName;
+            _resultValue.id = id;
+            _resultValue.pendingTasksCount = pendingTasksCount;
+            _resultValue.registeredContainerInstancesCount = registeredContainerInstancesCount;
+            _resultValue.runningTasksCount = runningTasksCount;
+            _resultValue.serviceConnectDefaults = serviceConnectDefaults;
+            _resultValue.settings = settings;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class TopicRuleErrorActionHttp {
             return this;
         }
         public TopicRuleErrorActionHttp build() {
-            final var o = new TopicRuleErrorActionHttp();
-            o.confirmationUrl = confirmationUrl;
-            o.httpHeaders = httpHeaders;
-            o.url = url;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionHttp();
+            _resultValue.confirmationUrl = confirmationUrl;
+            _resultValue.httpHeaders = httpHeaders;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

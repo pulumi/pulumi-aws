@@ -106,13 +106,13 @@ public final class GetResourceResult {
             return this;
         }
         public GetResourceResult build() {
-            final var o = new GetResourceResult();
-            o.id = id;
-            o.parentId = parentId;
-            o.path = path;
-            o.pathPart = pathPart;
-            o.restApiId = restApiId;
-            return o;
+            final var _resultValue = new GetResourceResult();
+            _resultValue.id = id;
+            _resultValue.parentId = parentId;
+            _resultValue.path = path;
+            _resultValue.pathPart = pathPart;
+            _resultValue.restApiId = restApiId;
+            return _resultValue;
         }
     }
 }

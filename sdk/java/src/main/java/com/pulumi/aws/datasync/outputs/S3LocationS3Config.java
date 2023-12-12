@@ -46,9 +46,9 @@ public final class S3LocationS3Config {
             return this;
         }
         public S3LocationS3Config build() {
-            final var o = new S3LocationS3Config();
-            o.bucketAccessRoleArn = bucketAccessRoleArn;
-            return o;
+            final var _resultValue = new S3LocationS3Config();
+            _resultValue.bucketAccessRoleArn = bucketAccessRoleArn;
+            return _resultValue;
         }
     }
 }

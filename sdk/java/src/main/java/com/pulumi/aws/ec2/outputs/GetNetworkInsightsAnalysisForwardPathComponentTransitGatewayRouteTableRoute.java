@@ -104,15 +104,15 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayR
             return this;
         }
         public GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute build() {
-            final var o = new GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute();
-            o.attachmentId = attachmentId;
-            o.destinationCidr = destinationCidr;
-            o.prefixListId = prefixListId;
-            o.resourceId = resourceId;
-            o.resourceType = resourceType;
-            o.routeOrigin = routeOrigin;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute();
+            _resultValue.attachmentId = attachmentId;
+            _resultValue.destinationCidr = destinationCidr;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.resourceId = resourceId;
+            _resultValue.resourceType = resourceType;
+            _resultValue.routeOrigin = routeOrigin;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

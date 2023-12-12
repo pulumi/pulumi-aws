@@ -48,9 +48,9 @@ public final class SpotInstanceRequestMaintenanceOptions {
             return this;
         }
         public SpotInstanceRequestMaintenanceOptions build() {
-            final var o = new SpotInstanceRequestMaintenanceOptions();
-            o.autoRecovery = autoRecovery;
-            return o;
+            final var _resultValue = new SpotInstanceRequestMaintenanceOptions();
+            _resultValue.autoRecovery = autoRecovery;
+            return _resultValue;
         }
     }
 }

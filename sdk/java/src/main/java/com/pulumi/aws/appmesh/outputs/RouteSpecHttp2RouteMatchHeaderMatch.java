@@ -125,13 +125,13 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
             return this;
         }
         public RouteSpecHttp2RouteMatchHeaderMatch build() {
-            final var o = new RouteSpecHttp2RouteMatchHeaderMatch();
-            o.exact = exact;
-            o.prefix = prefix;
-            o.range = range;
-            o.regex = regex;
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new RouteSpecHttp2RouteMatchHeaderMatch();
+            _resultValue.exact = exact;
+            _resultValue.prefix = prefix;
+            _resultValue.range = range;
+            _resultValue.regex = regex;
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

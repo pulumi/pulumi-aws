@@ -91,11 +91,11 @@ public final class ServiceDnsConfig {
             return this;
         }
         public ServiceDnsConfig build() {
-            final var o = new ServiceDnsConfig();
-            o.dnsRecords = dnsRecords;
-            o.namespaceId = namespaceId;
-            o.routingPolicy = routingPolicy;
-            return o;
+            final var _resultValue = new ServiceDnsConfig();
+            _resultValue.dnsRecords = dnsRecords;
+            _resultValue.namespaceId = namespaceId;
+            _resultValue.routingPolicy = routingPolicy;
+            return _resultValue;
         }
     }
 }

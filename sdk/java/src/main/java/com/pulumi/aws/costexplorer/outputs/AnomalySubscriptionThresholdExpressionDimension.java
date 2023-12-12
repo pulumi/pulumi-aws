@@ -93,11 +93,11 @@ public final class AnomalySubscriptionThresholdExpressionDimension {
             return values(List.of(values));
         }
         public AnomalySubscriptionThresholdExpressionDimension build() {
-            final var o = new AnomalySubscriptionThresholdExpressionDimension();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new AnomalySubscriptionThresholdExpressionDimension();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

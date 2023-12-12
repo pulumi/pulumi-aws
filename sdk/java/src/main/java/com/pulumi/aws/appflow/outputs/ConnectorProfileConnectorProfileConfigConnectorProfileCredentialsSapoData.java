@@ -68,10 +68,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData();
-            o.basicAuthCredentials = basicAuthCredentials;
-            o.oauthCredentials = oauthCredentials;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData();
+            _resultValue.basicAuthCredentials = basicAuthCredentials;
+            _resultValue.oauthCredentials = oauthCredentials;
+            return _resultValue;
         }
     }
 }

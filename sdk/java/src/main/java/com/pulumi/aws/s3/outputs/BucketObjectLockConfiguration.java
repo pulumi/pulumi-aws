@@ -68,10 +68,10 @@ public final class BucketObjectLockConfiguration {
             return this;
         }
         public BucketObjectLockConfiguration build() {
-            final var o = new BucketObjectLockConfiguration();
-            o.objectLockEnabled = objectLockEnabled;
-            o.rule = rule;
-            return o;
+            final var _resultValue = new BucketObjectLockConfiguration();
+            _resultValue.objectLockEnabled = objectLockEnabled;
+            _resultValue.rule = rule;
+            return _resultValue;
         }
     }
 }

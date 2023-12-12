@@ -66,10 +66,10 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
             return this;
         }
         public FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable build() {
-            final var o = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable();
-            o.ipSet = ipSet;
-            o.key = key;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable();
+            _resultValue.ipSet = ipSet;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

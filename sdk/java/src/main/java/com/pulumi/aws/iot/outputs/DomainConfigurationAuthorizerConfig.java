@@ -68,10 +68,10 @@ public final class DomainConfigurationAuthorizerConfig {
             return this;
         }
         public DomainConfigurationAuthorizerConfig build() {
-            final var o = new DomainConfigurationAuthorizerConfig();
-            o.allowAuthorizerOverride = allowAuthorizerOverride;
-            o.defaultAuthorizerName = defaultAuthorizerName;
-            return o;
+            final var _resultValue = new DomainConfigurationAuthorizerConfig();
+            _resultValue.allowAuthorizerOverride = allowAuthorizerOverride;
+            _resultValue.defaultAuthorizerName = defaultAuthorizerName;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetReceivedLicenseLicenseMetadata {
             return this;
         }
         public GetReceivedLicenseLicenseMetadata build() {
-            final var o = new GetReceivedLicenseLicenseMetadata();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetReceivedLicenseLicenseMetadata();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

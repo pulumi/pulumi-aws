@@ -92,11 +92,11 @@ public final class ClassificationJobS3JobDefinition {
             return this;
         }
         public ClassificationJobS3JobDefinition build() {
-            final var o = new ClassificationJobS3JobDefinition();
-            o.bucketCriteria = bucketCriteria;
-            o.bucketDefinitions = bucketDefinitions;
-            o.scoping = scoping;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinition();
+            _resultValue.bucketCriteria = bucketCriteria;
+            _resultValue.bucketDefinitions = bucketDefinitions;
+            _resultValue.scoping = scoping;
+            return _resultValue;
         }
     }
 }

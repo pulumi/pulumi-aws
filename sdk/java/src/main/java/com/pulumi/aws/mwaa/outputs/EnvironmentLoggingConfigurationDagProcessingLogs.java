@@ -79,11 +79,11 @@ public final class EnvironmentLoggingConfigurationDagProcessingLogs {
             return this;
         }
         public EnvironmentLoggingConfigurationDagProcessingLogs build() {
-            final var o = new EnvironmentLoggingConfigurationDagProcessingLogs();
-            o.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
-            o.enabled = enabled;
-            o.logLevel = logLevel;
-            return o;
+            final var _resultValue = new EnvironmentLoggingConfigurationDagProcessingLogs();
+            _resultValue.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
+            _resultValue.enabled = enabled;
+            _resultValue.logLevel = logLevel;
+            return _resultValue;
         }
     }
 }

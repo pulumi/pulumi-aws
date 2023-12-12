@@ -46,9 +46,9 @@ public final class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration
             return this;
         }
         public ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration build() {
-            final var o = new ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration();
-            o.logGroupArn = logGroupArn;
-            return o;
+            final var _resultValue = new ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration();
+            _resultValue.logGroupArn = logGroupArn;
+            return _resultValue;
         }
     }
 }

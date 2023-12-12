@@ -67,10 +67,10 @@ public final class CostCategoryRuleInheritedValue {
             return this;
         }
         public CostCategoryRuleInheritedValue build() {
-            final var o = new CostCategoryRuleInheritedValue();
-            o.dimensionKey = dimensionKey;
-            o.dimensionName = dimensionName;
-            return o;
+            final var _resultValue = new CostCategoryRuleInheritedValue();
+            _resultValue.dimensionKey = dimensionKey;
+            _resultValue.dimensionName = dimensionName;
+            return _resultValue;
         }
     }
 }

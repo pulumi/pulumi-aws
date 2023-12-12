@@ -93,11 +93,11 @@ public final class GetKeyMultiRegionConfiguration {
             return replicaKeys(List.of(replicaKeys));
         }
         public GetKeyMultiRegionConfiguration build() {
-            final var o = new GetKeyMultiRegionConfiguration();
-            o.multiRegionKeyType = multiRegionKeyType;
-            o.primaryKeys = primaryKeys;
-            o.replicaKeys = replicaKeys;
-            return o;
+            final var _resultValue = new GetKeyMultiRegionConfiguration();
+            _resultValue.multiRegionKeyType = multiRegionKeyType;
+            _resultValue.primaryKeys = primaryKeys;
+            _resultValue.replicaKeys = replicaKeys;
+            return _resultValue;
         }
     }
 }

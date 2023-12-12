@@ -95,12 +95,12 @@ public final class GetRegionResult {
             return this;
         }
         public GetRegionResult build() {
-            final var o = new GetRegionResult();
-            o.description = description;
-            o.endpoint = endpoint;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetRegionResult();
+            _resultValue.description = description;
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

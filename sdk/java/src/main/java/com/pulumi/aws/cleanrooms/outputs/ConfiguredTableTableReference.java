@@ -49,10 +49,10 @@ public final class ConfiguredTableTableReference {
             return this;
         }
         public ConfiguredTableTableReference build() {
-            final var o = new ConfiguredTableTableReference();
-            o.databaseName = databaseName;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new ConfiguredTableTableReference();
+            _resultValue.databaseName = databaseName;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

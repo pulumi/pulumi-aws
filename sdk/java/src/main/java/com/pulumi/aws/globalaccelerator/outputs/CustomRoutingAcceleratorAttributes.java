@@ -87,11 +87,11 @@ public final class CustomRoutingAcceleratorAttributes {
             return this;
         }
         public CustomRoutingAcceleratorAttributes build() {
-            final var o = new CustomRoutingAcceleratorAttributes();
-            o.flowLogsEnabled = flowLogsEnabled;
-            o.flowLogsS3Bucket = flowLogsS3Bucket;
-            o.flowLogsS3Prefix = flowLogsS3Prefix;
-            return o;
+            final var _resultValue = new CustomRoutingAcceleratorAttributes();
+            _resultValue.flowLogsEnabled = flowLogsEnabled;
+            _resultValue.flowLogsS3Bucket = flowLogsS3Bucket;
+            _resultValue.flowLogsS3Prefix = flowLogsS3Prefix;
+            return _resultValue;
         }
     }
 }

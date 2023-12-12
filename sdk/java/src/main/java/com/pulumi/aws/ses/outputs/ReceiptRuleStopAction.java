@@ -87,11 +87,11 @@ public final class ReceiptRuleStopAction {
             return this;
         }
         public ReceiptRuleStopAction build() {
-            final var o = new ReceiptRuleStopAction();
-            o.position = position;
-            o.scope = scope;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ReceiptRuleStopAction();
+            _resultValue.position = position;
+            _resultValue.scope = scope;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

@@ -317,24 +317,24 @@ public final class GetLayerVersionResult {
             return this;
         }
         public GetLayerVersionResult build() {
-            final var o = new GetLayerVersionResult();
-            o.arn = arn;
-            o.compatibleArchitecture = compatibleArchitecture;
-            o.compatibleArchitectures = compatibleArchitectures;
-            o.compatibleRuntime = compatibleRuntime;
-            o.compatibleRuntimes = compatibleRuntimes;
-            o.createdDate = createdDate;
-            o.description = description;
-            o.id = id;
-            o.layerArn = layerArn;
-            o.layerName = layerName;
-            o.licenseInfo = licenseInfo;
-            o.signingJobArn = signingJobArn;
-            o.signingProfileVersionArn = signingProfileVersionArn;
-            o.sourceCodeHash = sourceCodeHash;
-            o.sourceCodeSize = sourceCodeSize;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetLayerVersionResult();
+            _resultValue.arn = arn;
+            _resultValue.compatibleArchitecture = compatibleArchitecture;
+            _resultValue.compatibleArchitectures = compatibleArchitectures;
+            _resultValue.compatibleRuntime = compatibleRuntime;
+            _resultValue.compatibleRuntimes = compatibleRuntimes;
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.layerArn = layerArn;
+            _resultValue.layerName = layerName;
+            _resultValue.licenseInfo = licenseInfo;
+            _resultValue.signingJobArn = signingJobArn;
+            _resultValue.signingProfileVersionArn = signingProfileVersionArn;
+            _resultValue.sourceCodeHash = sourceCodeHash;
+            _resultValue.sourceCodeSize = sourceCodeSize;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

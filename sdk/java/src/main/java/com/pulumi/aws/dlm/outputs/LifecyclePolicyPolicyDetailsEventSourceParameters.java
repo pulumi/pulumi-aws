@@ -88,11 +88,11 @@ public final class LifecyclePolicyPolicyDetailsEventSourceParameters {
             return snapshotOwners(List.of(snapshotOwners));
         }
         public LifecyclePolicyPolicyDetailsEventSourceParameters build() {
-            final var o = new LifecyclePolicyPolicyDetailsEventSourceParameters();
-            o.descriptionRegex = descriptionRegex;
-            o.eventType = eventType;
-            o.snapshotOwners = snapshotOwners;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsEventSourceParameters();
+            _resultValue.descriptionRegex = descriptionRegex;
+            _resultValue.eventType = eventType;
+            _resultValue.snapshotOwners = snapshotOwners;
+            return _resultValue;
         }
     }
 }

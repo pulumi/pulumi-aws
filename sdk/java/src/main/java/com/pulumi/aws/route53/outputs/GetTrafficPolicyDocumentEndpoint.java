@@ -105,12 +105,12 @@ public final class GetTrafficPolicyDocumentEndpoint {
             return this;
         }
         public GetTrafficPolicyDocumentEndpoint build() {
-            final var o = new GetTrafficPolicyDocumentEndpoint();
-            o.id = id;
-            o.region = region;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentEndpoint();
+            _resultValue.id = id;
+            _resultValue.region = region;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

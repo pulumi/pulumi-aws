@@ -152,14 +152,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
             return this;
         }
         public PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification build() {
-            final var o = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification();
-            o.dimensions = dimensions;
-            o.metricName = metricName;
-            o.metrics = metrics;
-            o.namespace = namespace;
-            o.statistic = statistic;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification();
+            _resultValue.dimensions = dimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.metrics = metrics;
+            _resultValue.namespace = namespace;
+            _resultValue.statistic = statistic;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

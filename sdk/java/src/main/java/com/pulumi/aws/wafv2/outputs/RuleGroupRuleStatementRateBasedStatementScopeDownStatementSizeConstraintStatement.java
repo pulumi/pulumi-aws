@@ -116,12 +116,12 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement();
-            o.comparisonOperator = comparisonOperator;
-            o.fieldToMatch = fieldToMatch;
-            o.size = size;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement();
+            _resultValue.comparisonOperator = comparisonOperator;
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.size = size;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

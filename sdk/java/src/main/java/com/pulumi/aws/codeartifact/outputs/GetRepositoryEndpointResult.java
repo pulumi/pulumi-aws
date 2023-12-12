@@ -109,14 +109,14 @@ public final class GetRepositoryEndpointResult {
             return this;
         }
         public GetRepositoryEndpointResult build() {
-            final var o = new GetRepositoryEndpointResult();
-            o.domain = domain;
-            o.domainOwner = domainOwner;
-            o.format = format;
-            o.id = id;
-            o.repository = repository;
-            o.repositoryEndpoint = repositoryEndpoint;
-            return o;
+            final var _resultValue = new GetRepositoryEndpointResult();
+            _resultValue.domain = domain;
+            _resultValue.domainOwner = domainOwner;
+            _resultValue.format = format;
+            _resultValue.id = id;
+            _resultValue.repository = repository;
+            _resultValue.repositoryEndpoint = repositoryEndpoint;
+            return _resultValue;
         }
     }
 }

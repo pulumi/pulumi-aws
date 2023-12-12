@@ -85,11 +85,11 @@ public final class DataSourceParametersTeradata {
             return this;
         }
         public DataSourceParametersTeradata build() {
-            final var o = new DataSourceParametersTeradata();
-            o.database = database;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersTeradata();
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

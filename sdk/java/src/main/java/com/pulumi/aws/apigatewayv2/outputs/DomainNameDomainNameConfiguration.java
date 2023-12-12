@@ -143,14 +143,14 @@ public final class DomainNameDomainNameConfiguration {
             return this;
         }
         public DomainNameDomainNameConfiguration build() {
-            final var o = new DomainNameDomainNameConfiguration();
-            o.certificateArn = certificateArn;
-            o.endpointType = endpointType;
-            o.hostedZoneId = hostedZoneId;
-            o.ownershipVerificationCertificateArn = ownershipVerificationCertificateArn;
-            o.securityPolicy = securityPolicy;
-            o.targetDomainName = targetDomainName;
-            return o;
+            final var _resultValue = new DomainNameDomainNameConfiguration();
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.endpointType = endpointType;
+            _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.ownershipVerificationCertificateArn = ownershipVerificationCertificateArn;
+            _resultValue.securityPolicy = securityPolicy;
+            _resultValue.targetDomainName = targetDomainName;
+            return _resultValue;
         }
     }
 }

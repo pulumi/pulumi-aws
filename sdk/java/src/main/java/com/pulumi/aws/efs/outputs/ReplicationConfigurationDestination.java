@@ -108,13 +108,13 @@ public final class ReplicationConfigurationDestination {
             return this;
         }
         public ReplicationConfigurationDestination build() {
-            final var o = new ReplicationConfigurationDestination();
-            o.availabilityZoneName = availabilityZoneName;
-            o.fileSystemId = fileSystemId;
-            o.kmsKeyId = kmsKeyId;
-            o.region = region;
-            o.status = status;
-            return o;
+            final var _resultValue = new ReplicationConfigurationDestination();
+            _resultValue.availabilityZoneName = availabilityZoneName;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.region = region;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

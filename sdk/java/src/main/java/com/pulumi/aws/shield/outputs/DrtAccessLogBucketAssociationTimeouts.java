@@ -62,11 +62,11 @@ public final class DrtAccessLogBucketAssociationTimeouts {
             return this;
         }
         public DrtAccessLogBucketAssociationTimeouts build() {
-            final var o = new DrtAccessLogBucketAssociationTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.read = read;
-            return o;
+            final var _resultValue = new DrtAccessLogBucketAssociationTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.read = read;
+            return _resultValue;
         }
     }
 }

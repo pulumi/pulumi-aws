@@ -66,10 +66,10 @@ public final class InsightFiltersFirstObservedAtDateRange {
             return this;
         }
         public InsightFiltersFirstObservedAtDateRange build() {
-            final var o = new InsightFiltersFirstObservedAtDateRange();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersFirstObservedAtDateRange();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

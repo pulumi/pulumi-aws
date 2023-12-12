@@ -85,11 +85,11 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
             return this;
         }
         public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration build() {
-            final var o = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration();
-            o.authorizationConfig = authorizationConfig;
-            o.fileSystemId = fileSystemId;
-            o.rootDirectory = rootDirectory;
-            return o;
+            final var _resultValue = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration();
+            _resultValue.authorizationConfig = authorizationConfig;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.rootDirectory = rootDirectory;
+            return _resultValue;
         }
     }
 }

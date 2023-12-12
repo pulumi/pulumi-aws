@@ -85,11 +85,11 @@ public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
             return this;
         }
         public GetResponseHeadersPolicyCustomHeadersConfigItem build() {
-            final var o = new GetResponseHeadersPolicyCustomHeadersConfigItem();
-            o.header = header;
-            o.override = override;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicyCustomHeadersConfigItem();
+            _resultValue.header = header;
+            _resultValue.override = override;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

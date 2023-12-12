@@ -46,9 +46,9 @@ public final class LoggingConfigurationDestinationConfigurationFirehose {
             return this;
         }
         public LoggingConfigurationDestinationConfigurationFirehose build() {
-            final var o = new LoggingConfigurationDestinationConfigurationFirehose();
-            o.deliveryStreamName = deliveryStreamName;
-            return o;
+            final var _resultValue = new LoggingConfigurationDestinationConfigurationFirehose();
+            _resultValue.deliveryStreamName = deliveryStreamName;
+            return _resultValue;
         }
     }
 }

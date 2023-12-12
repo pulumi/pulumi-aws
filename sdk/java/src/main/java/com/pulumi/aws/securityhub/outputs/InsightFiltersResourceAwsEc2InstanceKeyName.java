@@ -65,10 +65,10 @@ public final class InsightFiltersResourceAwsEc2InstanceKeyName {
             return this;
         }
         public InsightFiltersResourceAwsEc2InstanceKeyName build() {
-            final var o = new InsightFiltersResourceAwsEc2InstanceKeyName();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsEc2InstanceKeyName();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

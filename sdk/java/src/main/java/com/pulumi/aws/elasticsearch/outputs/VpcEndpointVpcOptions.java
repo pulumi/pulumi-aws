@@ -99,12 +99,12 @@ public final class VpcEndpointVpcOptions {
             return this;
         }
         public VpcEndpointVpcOptions build() {
-            final var o = new VpcEndpointVpcOptions();
-            o.availabilityZones = availabilityZones;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new VpcEndpointVpcOptions();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

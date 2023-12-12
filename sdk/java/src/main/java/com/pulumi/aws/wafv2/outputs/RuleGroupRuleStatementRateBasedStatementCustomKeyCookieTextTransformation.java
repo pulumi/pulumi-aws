@@ -66,10 +66,10 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTr
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -69,11 +69,11 @@ public final class GetBotAssociationResult {
             return this;
         }
         public GetBotAssociationResult build() {
-            final var o = new GetBotAssociationResult();
-            o.id = id;
-            o.instanceId = instanceId;
-            o.lexBot = lexBot;
-            return o;
+            final var _resultValue = new GetBotAssociationResult();
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.lexBot = lexBot;
+            return _resultValue;
         }
     }
 }

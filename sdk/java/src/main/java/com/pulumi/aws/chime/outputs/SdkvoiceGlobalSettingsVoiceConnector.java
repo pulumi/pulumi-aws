@@ -48,9 +48,9 @@ public final class SdkvoiceGlobalSettingsVoiceConnector {
             return this;
         }
         public SdkvoiceGlobalSettingsVoiceConnector build() {
-            final var o = new SdkvoiceGlobalSettingsVoiceConnector();
-            o.cdrBucket = cdrBucket;
-            return o;
+            final var _resultValue = new SdkvoiceGlobalSettingsVoiceConnector();
+            _resultValue.cdrBucket = cdrBucket;
+            return _resultValue;
         }
     }
 }

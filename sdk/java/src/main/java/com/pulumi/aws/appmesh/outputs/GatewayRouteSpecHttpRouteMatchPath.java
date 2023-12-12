@@ -67,10 +67,10 @@ public final class GatewayRouteSpecHttpRouteMatchPath {
             return this;
         }
         public GatewayRouteSpecHttpRouteMatchPath build() {
-            final var o = new GatewayRouteSpecHttpRouteMatchPath();
-            o.exact = exact;
-            o.regex = regex;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteMatchPath();
+            _resultValue.exact = exact;
+            _resultValue.regex = regex;
+            return _resultValue;
         }
     }
 }

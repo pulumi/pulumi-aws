@@ -40,9 +40,9 @@ public final class TrustProviderDeviceOptions {
             return this;
         }
         public TrustProviderDeviceOptions build() {
-            final var o = new TrustProviderDeviceOptions();
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new TrustProviderDeviceOptions();
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

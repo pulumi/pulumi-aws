@@ -48,9 +48,9 @@ public final class RuleGroupRuleActionAllow {
             return this;
         }
         public RuleGroupRuleActionAllow build() {
-            final var o = new RuleGroupRuleActionAllow();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionAllow();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

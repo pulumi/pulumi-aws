@@ -92,12 +92,12 @@ public final class GetProductResult {
             return this;
         }
         public GetProductResult build() {
-            final var o = new GetProductResult();
-            o.filters = filters;
-            o.id = id;
-            o.result = result;
-            o.serviceCode = serviceCode;
-            return o;
+            final var _resultValue = new GetProductResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.result = result;
+            _resultValue.serviceCode = serviceCode;
+            return _resultValue;
         }
     }
 }

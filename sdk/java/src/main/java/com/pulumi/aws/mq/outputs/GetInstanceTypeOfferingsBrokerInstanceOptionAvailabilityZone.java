@@ -46,9 +46,9 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone 
             return this;
         }
         public GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone build() {
-            final var o = new GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone();
-            o.name = name;
-            return o;
+            final var _resultValue = new GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

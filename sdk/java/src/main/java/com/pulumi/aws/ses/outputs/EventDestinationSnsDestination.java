@@ -46,9 +46,9 @@ public final class EventDestinationSnsDestination {
             return this;
         }
         public EventDestinationSnsDestination build() {
-            final var o = new EventDestinationSnsDestination();
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new EventDestinationSnsDestination();
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

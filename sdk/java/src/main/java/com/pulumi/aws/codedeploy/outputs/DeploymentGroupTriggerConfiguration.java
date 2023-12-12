@@ -88,11 +88,11 @@ public final class DeploymentGroupTriggerConfiguration {
             return this;
         }
         public DeploymentGroupTriggerConfiguration build() {
-            final var o = new DeploymentGroupTriggerConfiguration();
-            o.triggerEvents = triggerEvents;
-            o.triggerName = triggerName;
-            o.triggerTargetArn = triggerTargetArn;
-            return o;
+            final var _resultValue = new DeploymentGroupTriggerConfiguration();
+            _resultValue.triggerEvents = triggerEvents;
+            _resultValue.triggerName = triggerName;
+            _resultValue.triggerTargetArn = triggerTargetArn;
+            return _resultValue;
         }
     }
 }

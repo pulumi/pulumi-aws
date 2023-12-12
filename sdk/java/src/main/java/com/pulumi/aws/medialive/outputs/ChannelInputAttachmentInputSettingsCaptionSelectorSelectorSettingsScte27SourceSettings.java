@@ -68,10 +68,10 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings();
-            o.ocrLanguage = ocrLanguage;
-            o.pid = pid;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings();
+            _resultValue.ocrLanguage = ocrLanguage;
+            _resultValue.pid = pid;
+            return _resultValue;
         }
     }
 }

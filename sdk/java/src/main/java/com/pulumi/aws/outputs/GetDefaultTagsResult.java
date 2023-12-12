@@ -58,10 +58,10 @@ public final class GetDefaultTagsResult {
             return this;
         }
         public GetDefaultTagsResult build() {
-            final var o = new GetDefaultTagsResult();
-            o.id = id;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDefaultTagsResult();
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

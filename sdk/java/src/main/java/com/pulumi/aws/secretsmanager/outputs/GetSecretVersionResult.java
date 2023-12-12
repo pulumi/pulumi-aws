@@ -161,16 +161,16 @@ public final class GetSecretVersionResult {
             return versionStages(List.of(versionStages));
         }
         public GetSecretVersionResult build() {
-            final var o = new GetSecretVersionResult();
-            o.arn = arn;
-            o.id = id;
-            o.secretBinary = secretBinary;
-            o.secretId = secretId;
-            o.secretString = secretString;
-            o.versionId = versionId;
-            o.versionStage = versionStage;
-            o.versionStages = versionStages;
-            return o;
+            final var _resultValue = new GetSecretVersionResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.secretBinary = secretBinary;
+            _resultValue.secretId = secretId;
+            _resultValue.secretString = secretString;
+            _resultValue.versionId = versionId;
+            _resultValue.versionStage = versionStage;
+            _resultValue.versionStages = versionStages;
+            return _resultValue;
         }
     }
 }

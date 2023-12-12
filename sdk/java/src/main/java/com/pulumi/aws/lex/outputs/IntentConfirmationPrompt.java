@@ -100,11 +100,11 @@ public final class IntentConfirmationPrompt {
             return this;
         }
         public IntentConfirmationPrompt build() {
-            final var o = new IntentConfirmationPrompt();
-            o.maxAttempts = maxAttempts;
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new IntentConfirmationPrompt();
+            _resultValue.maxAttempts = maxAttempts;
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

@@ -88,11 +88,11 @@ public final class GatewayRouteSpecHttpRouteActionRewrite {
             return this;
         }
         public GatewayRouteSpecHttpRouteActionRewrite build() {
-            final var o = new GatewayRouteSpecHttpRouteActionRewrite();
-            o.hostname = hostname;
-            o.path = path;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteActionRewrite();
+            _resultValue.hostname = hostname;
+            _resultValue.path = path;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

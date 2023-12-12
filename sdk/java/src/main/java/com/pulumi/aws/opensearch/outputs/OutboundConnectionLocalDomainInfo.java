@@ -84,11 +84,11 @@ public final class OutboundConnectionLocalDomainInfo {
             return this;
         }
         public OutboundConnectionLocalDomainInfo build() {
-            final var o = new OutboundConnectionLocalDomainInfo();
-            o.domainName = domainName;
-            o.ownerId = ownerId;
-            o.region = region;
-            return o;
+            final var _resultValue = new OutboundConnectionLocalDomainInfo();
+            _resultValue.domainName = domainName;
+            _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

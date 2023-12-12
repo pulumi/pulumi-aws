@@ -50,9 +50,9 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyUriPath {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementRateBasedStatementCustomKeyUriPath build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyUriPath();
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyUriPath();
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

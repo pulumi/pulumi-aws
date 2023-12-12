@@ -108,12 +108,12 @@ public final class VirtualNodeSpecListenerTimeout {
             return this;
         }
         public VirtualNodeSpecListenerTimeout build() {
-            final var o = new VirtualNodeSpecListenerTimeout();
-            o.grpc = grpc;
-            o.http = http;
-            o.http2 = http2;
-            o.tcp = tcp;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTimeout();
+            _resultValue.grpc = grpc;
+            _resultValue.http = http;
+            _resultValue.http2 = http2;
+            _resultValue.tcp = tcp;
+            return _resultValue;
         }
     }
 }

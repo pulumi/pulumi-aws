@@ -86,11 +86,11 @@ public final class GameServerGroupLaunchTemplate {
             return this;
         }
         public GameServerGroupLaunchTemplate build() {
-            final var o = new GameServerGroupLaunchTemplate();
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new GameServerGroupLaunchTemplate();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

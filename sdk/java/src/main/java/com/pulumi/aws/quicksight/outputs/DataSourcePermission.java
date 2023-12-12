@@ -69,10 +69,10 @@ public final class DataSourcePermission {
             return this;
         }
         public DataSourcePermission build() {
-            final var o = new DataSourcePermission();
-            o.actions = actions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new DataSourcePermission();
+            _resultValue.actions = actions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

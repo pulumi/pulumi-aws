@@ -93,11 +93,11 @@ public final class AnomalySubscriptionThresholdExpressionOrCostCategory {
             return values(List.of(values));
         }
         public AnomalySubscriptionThresholdExpressionOrCostCategory build() {
-            final var o = new AnomalySubscriptionThresholdExpressionOrCostCategory();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new AnomalySubscriptionThresholdExpressionOrCostCategory();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

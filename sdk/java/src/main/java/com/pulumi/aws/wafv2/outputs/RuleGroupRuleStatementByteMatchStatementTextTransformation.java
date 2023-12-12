@@ -66,10 +66,10 @@ public final class RuleGroupRuleStatementByteMatchStatementTextTransformation {
             return this;
         }
         public RuleGroupRuleStatementByteMatchStatementTextTransformation build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

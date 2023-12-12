@@ -161,15 +161,15 @@ public final class GetProvisioningArtifactsProvisioningArtifactDetail {
             return this;
         }
         public GetProvisioningArtifactsProvisioningArtifactDetail build() {
-            final var o = new GetProvisioningArtifactsProvisioningArtifactDetail();
-            o.active = active;
-            o.createdTime = createdTime;
-            o.description = description;
-            o.guidance = guidance;
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetProvisioningArtifactsProvisioningArtifactDetail();
+            _resultValue.active = active;
+            _resultValue.createdTime = createdTime;
+            _resultValue.description = description;
+            _resultValue.guidance = guidance;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -323,28 +323,28 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings();
-            o.attenuationControl = attenuationControl;
-            o.bitrate = bitrate;
-            o.bitstreamMode = bitstreamMode;
-            o.codingMode = codingMode;
-            o.dcFilter = dcFilter;
-            o.dialnorm = dialnorm;
-            o.drcLine = drcLine;
-            o.drcRf = drcRf;
-            o.lfeControl = lfeControl;
-            o.lfeFilter = lfeFilter;
-            o.loRoCenterMixLevel = loRoCenterMixLevel;
-            o.loRoSurroundMixLevel = loRoSurroundMixLevel;
-            o.ltRtCenterMixLevel = ltRtCenterMixLevel;
-            o.ltRtSurroundMixLevel = ltRtSurroundMixLevel;
-            o.metadataControl = metadataControl;
-            o.passthroughControl = passthroughControl;
-            o.phaseControl = phaseControl;
-            o.stereoDownmix = stereoDownmix;
-            o.surroundExMode = surroundExMode;
-            o.surroundMode = surroundMode;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings();
+            _resultValue.attenuationControl = attenuationControl;
+            _resultValue.bitrate = bitrate;
+            _resultValue.bitstreamMode = bitstreamMode;
+            _resultValue.codingMode = codingMode;
+            _resultValue.dcFilter = dcFilter;
+            _resultValue.dialnorm = dialnorm;
+            _resultValue.drcLine = drcLine;
+            _resultValue.drcRf = drcRf;
+            _resultValue.lfeControl = lfeControl;
+            _resultValue.lfeFilter = lfeFilter;
+            _resultValue.loRoCenterMixLevel = loRoCenterMixLevel;
+            _resultValue.loRoSurroundMixLevel = loRoSurroundMixLevel;
+            _resultValue.ltRtCenterMixLevel = ltRtCenterMixLevel;
+            _resultValue.ltRtSurroundMixLevel = ltRtSurroundMixLevel;
+            _resultValue.metadataControl = metadataControl;
+            _resultValue.passthroughControl = passthroughControl;
+            _resultValue.phaseControl = phaseControl;
+            _resultValue.stereoDownmix = stereoDownmix;
+            _resultValue.surroundExMode = surroundExMode;
+            _resultValue.surroundMode = surroundMode;
+            return _resultValue;
         }
     }
 }

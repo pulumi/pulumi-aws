@@ -46,9 +46,9 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson();
-            o.recordRowPath = recordRowPath;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson();
+            _resultValue.recordRowPath = recordRowPath;
+            return _resultValue;
         }
     }
 }

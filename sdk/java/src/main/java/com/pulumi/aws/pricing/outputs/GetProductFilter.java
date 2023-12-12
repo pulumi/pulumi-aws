@@ -65,10 +65,10 @@ public final class GetProductFilter {
             return this;
         }
         public GetProductFilter build() {
-            final var o = new GetProductFilter();
-            o.field = field;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetProductFilter();
+            _resultValue.field = field;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

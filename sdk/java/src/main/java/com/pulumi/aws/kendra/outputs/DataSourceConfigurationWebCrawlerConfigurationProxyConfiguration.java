@@ -87,11 +87,11 @@ public final class DataSourceConfigurationWebCrawlerConfigurationProxyConfigurat
             return this;
         }
         public DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration build() {
-            final var o = new DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration();
-            o.credentials = credentials;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration();
+            _resultValue.credentials = credentials;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

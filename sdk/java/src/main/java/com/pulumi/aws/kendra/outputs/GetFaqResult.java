@@ -302,23 +302,23 @@ public final class GetFaqResult {
             return this;
         }
         public GetFaqResult build() {
-            final var o = new GetFaqResult();
-            o.arn = arn;
-            o.createdAt = createdAt;
-            o.description = description;
-            o.errorMessage = errorMessage;
-            o.faqId = faqId;
-            o.fileFormat = fileFormat;
-            o.id = id;
-            o.indexId = indexId;
-            o.languageCode = languageCode;
-            o.name = name;
-            o.roleArn = roleArn;
-            o.s3Paths = s3Paths;
-            o.status = status;
-            o.tags = tags;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetFaqResult();
+            _resultValue.arn = arn;
+            _resultValue.createdAt = createdAt;
+            _resultValue.description = description;
+            _resultValue.errorMessage = errorMessage;
+            _resultValue.faqId = faqId;
+            _resultValue.fileFormat = fileFormat;
+            _resultValue.id = id;
+            _resultValue.indexId = indexId;
+            _resultValue.languageCode = languageCode;
+            _resultValue.name = name;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3Paths = s3Paths;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

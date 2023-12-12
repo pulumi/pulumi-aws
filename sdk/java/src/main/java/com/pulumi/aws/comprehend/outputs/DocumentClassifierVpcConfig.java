@@ -72,10 +72,10 @@ public final class DocumentClassifierVpcConfig {
             return subnets(List.of(subnets));
         }
         public DocumentClassifierVpcConfig build() {
-            final var o = new DocumentClassifierVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new DocumentClassifierVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

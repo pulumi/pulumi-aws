@@ -65,10 +65,10 @@ public final class ProjectSecondarySourceVersion {
             return this;
         }
         public ProjectSecondarySourceVersion build() {
-            final var o = new ProjectSecondarySourceVersion();
-            o.sourceIdentifier = sourceIdentifier;
-            o.sourceVersion = sourceVersion;
-            return o;
+            final var _resultValue = new ProjectSecondarySourceVersion();
+            _resultValue.sourceIdentifier = sourceIdentifier;
+            _resultValue.sourceVersion = sourceVersion;
+            return _resultValue;
         }
     }
 }

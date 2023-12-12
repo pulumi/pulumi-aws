@@ -138,13 +138,13 @@ public final class BucketCorsRule {
             return this;
         }
         public BucketCorsRule build() {
-            final var o = new BucketCorsRule();
-            o.allowedHeaders = allowedHeaders;
-            o.allowedMethods = allowedMethods;
-            o.allowedOrigins = allowedOrigins;
-            o.exposeHeaders = exposeHeaders;
-            o.maxAgeSeconds = maxAgeSeconds;
-            return o;
+            final var _resultValue = new BucketCorsRule();
+            _resultValue.allowedHeaders = allowedHeaders;
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.exposeHeaders = exposeHeaders;
+            _resultValue.maxAgeSeconds = maxAgeSeconds;
+            return _resultValue;
         }
     }
 }

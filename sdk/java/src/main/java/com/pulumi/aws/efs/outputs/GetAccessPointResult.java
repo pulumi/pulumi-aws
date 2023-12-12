@@ -193,17 +193,17 @@ public final class GetAccessPointResult {
             return this;
         }
         public GetAccessPointResult build() {
-            final var o = new GetAccessPointResult();
-            o.accessPointId = accessPointId;
-            o.arn = arn;
-            o.fileSystemArn = fileSystemArn;
-            o.fileSystemId = fileSystemId;
-            o.id = id;
-            o.ownerId = ownerId;
-            o.posixUsers = posixUsers;
-            o.rootDirectories = rootDirectories;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetAccessPointResult();
+            _resultValue.accessPointId = accessPointId;
+            _resultValue.arn = arn;
+            _resultValue.fileSystemArn = fileSystemArn;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.id = id;
+            _resultValue.ownerId = ownerId;
+            _resultValue.posixUsers = posixUsers;
+            _resultValue.rootDirectories = rootDirectories;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

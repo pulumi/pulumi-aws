@@ -65,10 +65,10 @@ public final class GetImageRecipeComponentParameter {
             return this;
         }
         public GetImageRecipeComponentParameter build() {
-            final var o = new GetImageRecipeComponentParameter();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetImageRecipeComponentParameter();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

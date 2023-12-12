@@ -293,21 +293,21 @@ public final class EventTargetEcsTarget {
             return this;
         }
         public EventTargetEcsTarget build() {
-            final var o = new EventTargetEcsTarget();
-            o.capacityProviderStrategies = capacityProviderStrategies;
-            o.enableEcsManagedTags = enableEcsManagedTags;
-            o.enableExecuteCommand = enableExecuteCommand;
-            o.group = group;
-            o.launchType = launchType;
-            o.networkConfiguration = networkConfiguration;
-            o.orderedPlacementStrategies = orderedPlacementStrategies;
-            o.placementConstraints = placementConstraints;
-            o.platformVersion = platformVersion;
-            o.propagateTags = propagateTags;
-            o.tags = tags;
-            o.taskCount = taskCount;
-            o.taskDefinitionArn = taskDefinitionArn;
-            return o;
+            final var _resultValue = new EventTargetEcsTarget();
+            _resultValue.capacityProviderStrategies = capacityProviderStrategies;
+            _resultValue.enableEcsManagedTags = enableEcsManagedTags;
+            _resultValue.enableExecuteCommand = enableExecuteCommand;
+            _resultValue.group = group;
+            _resultValue.launchType = launchType;
+            _resultValue.networkConfiguration = networkConfiguration;
+            _resultValue.orderedPlacementStrategies = orderedPlacementStrategies;
+            _resultValue.placementConstraints = placementConstraints;
+            _resultValue.platformVersion = platformVersion;
+            _resultValue.propagateTags = propagateTags;
+            _resultValue.tags = tags;
+            _resultValue.taskCount = taskCount;
+            _resultValue.taskDefinitionArn = taskDefinitionArn;
+            return _resultValue;
         }
     }
 }

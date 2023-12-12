@@ -73,10 +73,10 @@ public final class ReplicatorKafkaClusterVpcConfig {
             return subnetIds(List.of(subnetIds));
         }
         public ReplicatorKafkaClusterVpcConfig build() {
-            final var o = new ReplicatorKafkaClusterVpcConfig();
-            o.securityGroupsIds = securityGroupsIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ReplicatorKafkaClusterVpcConfig();
+            _resultValue.securityGroupsIds = securityGroupsIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

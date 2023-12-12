@@ -171,16 +171,16 @@ public final class GetParametersByPathResult {
             return this;
         }
         public GetParametersByPathResult build() {
-            final var o = new GetParametersByPathResult();
-            o.arns = arns;
-            o.id = id;
-            o.names = names;
-            o.path = path;
-            o.recursive = recursive;
-            o.types = types;
-            o.values = values;
-            o.withDecryption = withDecryption;
-            return o;
+            final var _resultValue = new GetParametersByPathResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            _resultValue.path = path;
+            _resultValue.recursive = recursive;
+            _resultValue.types = types;
+            _resultValue.values = values;
+            _resultValue.withDecryption = withDecryption;
+            return _resultValue;
         }
     }
 }

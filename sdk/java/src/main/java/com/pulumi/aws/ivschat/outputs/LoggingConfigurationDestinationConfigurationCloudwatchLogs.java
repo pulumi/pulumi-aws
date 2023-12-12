@@ -46,9 +46,9 @@ public final class LoggingConfigurationDestinationConfigurationCloudwatchLogs {
             return this;
         }
         public LoggingConfigurationDestinationConfigurationCloudwatchLogs build() {
-            final var o = new LoggingConfigurationDestinationConfigurationCloudwatchLogs();
-            o.logGroupName = logGroupName;
-            return o;
+            final var _resultValue = new LoggingConfigurationDestinationConfigurationCloudwatchLogs();
+            _resultValue.logGroupName = logGroupName;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetKeyMultiRegionConfigurationPrimaryKey {
             return this;
         }
         public GetKeyMultiRegionConfigurationPrimaryKey build() {
-            final var o = new GetKeyMultiRegionConfigurationPrimaryKey();
-            o.arn = arn;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetKeyMultiRegionConfigurationPrimaryKey();
+            _resultValue.arn = arn;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

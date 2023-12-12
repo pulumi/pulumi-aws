@@ -42,9 +42,9 @@ public final class FilterFindingCriteria {
             return criterions(List.of(criterions));
         }
         public FilterFindingCriteria build() {
-            final var o = new FilterFindingCriteria();
-            o.criterions = criterions;
-            return o;
+            final var _resultValue = new FilterFindingCriteria();
+            _resultValue.criterions = criterions;
+            return _resultValue;
         }
     }
 }

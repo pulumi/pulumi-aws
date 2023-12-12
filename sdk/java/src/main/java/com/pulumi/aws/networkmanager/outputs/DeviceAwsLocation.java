@@ -67,10 +67,10 @@ public final class DeviceAwsLocation {
             return this;
         }
         public DeviceAwsLocation build() {
-            final var o = new DeviceAwsLocation();
-            o.subnetArn = subnetArn;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new DeviceAwsLocation();
+            _resultValue.subnetArn = subnetArn;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

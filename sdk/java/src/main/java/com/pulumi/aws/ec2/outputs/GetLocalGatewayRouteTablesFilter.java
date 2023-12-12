@@ -73,10 +73,10 @@ public final class GetLocalGatewayRouteTablesFilter {
             return values(List.of(values));
         }
         public GetLocalGatewayRouteTablesFilter build() {
-            final var o = new GetLocalGatewayRouteTablesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetLocalGatewayRouteTablesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -59,10 +59,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmooth
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings();
-            o.h265PackagingType = h265PackagingType;
-            o.nameModifier = nameModifier;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings();
+            _resultValue.h265PackagingType = h265PackagingType;
+            _resultValue.nameModifier = nameModifier;
+            return _resultValue;
         }
     }
 }

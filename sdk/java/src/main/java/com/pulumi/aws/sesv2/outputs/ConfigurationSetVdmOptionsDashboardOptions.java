@@ -48,9 +48,9 @@ public final class ConfigurationSetVdmOptionsDashboardOptions {
             return this;
         }
         public ConfigurationSetVdmOptionsDashboardOptions build() {
-            final var o = new ConfigurationSetVdmOptionsDashboardOptions();
-            o.engagementMetrics = engagementMetrics;
-            return o;
+            final var _resultValue = new ConfigurationSetVdmOptionsDashboardOptions();
+            _resultValue.engagementMetrics = engagementMetrics;
+            return _resultValue;
         }
     }
 }

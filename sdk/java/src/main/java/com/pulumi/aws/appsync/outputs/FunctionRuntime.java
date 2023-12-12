@@ -65,10 +65,10 @@ public final class FunctionRuntime {
             return this;
         }
         public FunctionRuntime build() {
-            final var o = new FunctionRuntime();
-            o.name = name;
-            o.runtimeVersion = runtimeVersion;
-            return o;
+            final var _resultValue = new FunctionRuntime();
+            _resultValue.name = name;
+            _resultValue.runtimeVersion = runtimeVersion;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
             return this;
         }
         public ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity build() {
-            final var o = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity();
-            o.clientAuthentication = clientAuthentication;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity();
+            _resultValue.clientAuthentication = clientAuthentication;
+            return _resultValue;
         }
     }
 }

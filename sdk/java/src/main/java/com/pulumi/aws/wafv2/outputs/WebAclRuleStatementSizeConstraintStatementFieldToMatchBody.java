@@ -48,9 +48,9 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchBody {
             return this;
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchBody build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

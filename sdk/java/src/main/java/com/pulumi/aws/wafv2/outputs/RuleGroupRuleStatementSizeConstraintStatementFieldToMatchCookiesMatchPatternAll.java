@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCook
         }
 
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll();
+            return _resultValue;
         }
     }
 }

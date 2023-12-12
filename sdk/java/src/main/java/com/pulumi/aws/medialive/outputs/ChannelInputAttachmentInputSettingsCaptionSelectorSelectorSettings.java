@@ -168,15 +168,15 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings();
-            o.ancillarySourceSettings = ancillarySourceSettings;
-            o.aribSourceSettings = aribSourceSettings;
-            o.dvbSubSourceSettings = dvbSubSourceSettings;
-            o.embeddedSourceSettings = embeddedSourceSettings;
-            o.scte20SourceSettings = scte20SourceSettings;
-            o.scte27SourceSettings = scte27SourceSettings;
-            o.teletextSourceSettings = teletextSourceSettings;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings();
+            _resultValue.ancillarySourceSettings = ancillarySourceSettings;
+            _resultValue.aribSourceSettings = aribSourceSettings;
+            _resultValue.dvbSubSourceSettings = dvbSubSourceSettings;
+            _resultValue.embeddedSourceSettings = embeddedSourceSettings;
+            _resultValue.scte20SourceSettings = scte20SourceSettings;
+            _resultValue.scte27SourceSettings = scte27SourceSettings;
+            _resultValue.teletextSourceSettings = teletextSourceSettings;
+            return _resultValue;
         }
     }
 }

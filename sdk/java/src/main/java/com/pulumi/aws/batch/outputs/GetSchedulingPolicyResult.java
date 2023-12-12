@@ -112,13 +112,13 @@ public final class GetSchedulingPolicyResult {
             return this;
         }
         public GetSchedulingPolicyResult build() {
-            final var o = new GetSchedulingPolicyResult();
-            o.arn = arn;
-            o.fairSharePolicies = fairSharePolicies;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSchedulingPolicyResult();
+            _resultValue.arn = arn;
+            _resultValue.fairSharePolicies = fairSharePolicies;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -49,10 +49,10 @@ public final class GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp {
             return this;
         }
         public GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp build() {
-            final var o = new GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

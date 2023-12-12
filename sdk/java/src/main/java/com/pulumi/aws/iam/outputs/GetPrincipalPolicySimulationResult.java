@@ -170,15 +170,15 @@ public final class GetPrincipalPolicySimulationResult {
             return this;
         }
         public GetPrincipalPolicySimulationResult build() {
-            final var o = new GetPrincipalPolicySimulationResult();
-            o.actionName = actionName;
-            o.allowed = allowed;
-            o.decision = decision;
-            o.decisionDetails = decisionDetails;
-            o.matchedStatements = matchedStatements;
-            o.missingContextKeys = missingContextKeys;
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new GetPrincipalPolicySimulationResult();
+            _resultValue.actionName = actionName;
+            _resultValue.allowed = allowed;
+            _resultValue.decision = decision;
+            _resultValue.decisionDetails = decisionDetails;
+            _resultValue.matchedStatements = matchedStatements;
+            _resultValue.missingContextKeys = missingContextKeys;
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

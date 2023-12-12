@@ -68,10 +68,10 @@ public final class RecordingConfigurationThumbnailConfiguration {
             return this;
         }
         public RecordingConfigurationThumbnailConfiguration build() {
-            final var o = new RecordingConfigurationThumbnailConfiguration();
-            o.recordingMode = recordingMode;
-            o.targetIntervalSeconds = targetIntervalSeconds;
-            return o;
+            final var _resultValue = new RecordingConfigurationThumbnailConfiguration();
+            _resultValue.recordingMode = recordingMode;
+            _resultValue.targetIntervalSeconds = targetIntervalSeconds;
+            return _resultValue;
         }
     }
 }

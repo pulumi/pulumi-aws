@@ -67,10 +67,10 @@ public final class ServiceNetworkServiceAssociationDnsEntry {
             return this;
         }
         public ServiceNetworkServiceAssociationDnsEntry build() {
-            final var o = new ServiceNetworkServiceAssociationDnsEntry();
-            o.domainName = domainName;
-            o.hostedZoneId = hostedZoneId;
-            return o;
+            final var _resultValue = new ServiceNetworkServiceAssociationDnsEntry();
+            _resultValue.domainName = domainName;
+            _resultValue.hostedZoneId = hostedZoneId;
+            return _resultValue;
         }
     }
 }

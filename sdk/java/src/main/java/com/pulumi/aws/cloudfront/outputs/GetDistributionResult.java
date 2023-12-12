@@ -261,20 +261,20 @@ public final class GetDistributionResult {
             return this;
         }
         public GetDistributionResult build() {
-            final var o = new GetDistributionResult();
-            o.aliases = aliases;
-            o.arn = arn;
-            o.domainName = domainName;
-            o.enabled = enabled;
-            o.etag = etag;
-            o.hostedZoneId = hostedZoneId;
-            o.id = id;
-            o.inProgressValidationBatches = inProgressValidationBatches;
-            o.lastModifiedTime = lastModifiedTime;
-            o.status = status;
-            o.tags = tags;
-            o.webAclId = webAclId;
-            return o;
+            final var _resultValue = new GetDistributionResult();
+            _resultValue.aliases = aliases;
+            _resultValue.arn = arn;
+            _resultValue.domainName = domainName;
+            _resultValue.enabled = enabled;
+            _resultValue.etag = etag;
+            _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.id = id;
+            _resultValue.inProgressValidationBatches = inProgressValidationBatches;
+            _resultValue.lastModifiedTime = lastModifiedTime;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.webAclId = webAclId;
+            return _resultValue;
         }
     }
 }

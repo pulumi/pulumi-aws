@@ -86,11 +86,11 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn();
-            o.mapping = mapping;
-            o.name = name;
-            o.sqlType = sqlType;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn();
+            _resultValue.mapping = mapping;
+            _resultValue.name = name;
+            _resultValue.sqlType = sqlType;
+            return _resultValue;
         }
     }
 }

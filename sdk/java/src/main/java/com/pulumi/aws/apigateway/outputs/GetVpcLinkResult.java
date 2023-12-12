@@ -157,15 +157,15 @@ public final class GetVpcLinkResult {
             return targetArns(List.of(targetArns));
         }
         public GetVpcLinkResult build() {
-            final var o = new GetVpcLinkResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            o.tags = tags;
-            o.targetArns = targetArns;
-            return o;
+            final var _resultValue = new GetVpcLinkResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            _resultValue.tags = tags;
+            _resultValue.targetArns = targetArns;
+            return _resultValue;
         }
     }
 }

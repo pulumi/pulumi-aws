@@ -50,9 +50,9 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteria {
             return this;
         }
         public BucketReplicationConfigurationRuleSourceSelectionCriteria build() {
-            final var o = new BucketReplicationConfigurationRuleSourceSelectionCriteria();
-            o.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
-            return o;
+            final var _resultValue = new BucketReplicationConfigurationRuleSourceSelectionCriteria();
+            _resultValue.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
+            return _resultValue;
         }
     }
 }

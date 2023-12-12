@@ -134,13 +134,13 @@ public final class ArchiveRuleFilter {
             return neqs(List.of(neqs));
         }
         public ArchiveRuleFilter build() {
-            final var o = new ArchiveRuleFilter();
-            o.contains = contains;
-            o.criteria = criteria;
-            o.eqs = eqs;
-            o.exists = exists;
-            o.neqs = neqs;
-            return o;
+            final var _resultValue = new ArchiveRuleFilter();
+            _resultValue.contains = contains;
+            _resultValue.criteria = criteria;
+            _resultValue.eqs = eqs;
+            _resultValue.exists = exists;
+            _resultValue.neqs = neqs;
+            return _resultValue;
         }
     }
 }

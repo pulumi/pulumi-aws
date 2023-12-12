@@ -93,11 +93,11 @@ public final class GetHoursOfOperationConfig {
             return startTimes(List.of(startTimes));
         }
         public GetHoursOfOperationConfig build() {
-            final var o = new GetHoursOfOperationConfig();
-            o.day = day;
-            o.endTimes = endTimes;
-            o.startTimes = startTimes;
-            return o;
+            final var _resultValue = new GetHoursOfOperationConfig();
+            _resultValue.day = day;
+            _resultValue.endTimes = endTimes;
+            _resultValue.startTimes = startTimes;
+            return _resultValue;
         }
     }
 }

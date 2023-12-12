@@ -48,9 +48,9 @@ public final class DashboardDashboardPublishOptionsDataPointTooltipOption {
             return this;
         }
         public DashboardDashboardPublishOptionsDataPointTooltipOption build() {
-            final var o = new DashboardDashboardPublishOptionsDataPointTooltipOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsDataPointTooltipOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

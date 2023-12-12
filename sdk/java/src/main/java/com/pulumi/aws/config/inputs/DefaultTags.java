@@ -40,9 +40,9 @@ public final class DefaultTags {
             return this;
         }
         public DefaultTags build() {
-            final var o = new DefaultTags();
-            o.tags = tags;
-            return o;
+            final var _resultValue = new DefaultTags();
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

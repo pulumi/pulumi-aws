@@ -117,14 +117,14 @@ public final class GetStreamConsumerResult {
             return this;
         }
         public GetStreamConsumerResult build() {
-            final var o = new GetStreamConsumerResult();
-            o.arn = arn;
-            o.creationTimestamp = creationTimestamp;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new GetStreamConsumerResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTimestamp = creationTimestamp;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

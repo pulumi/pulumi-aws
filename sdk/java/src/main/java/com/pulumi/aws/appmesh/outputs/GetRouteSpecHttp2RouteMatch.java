@@ -118,15 +118,15 @@ public final class GetRouteSpecHttp2RouteMatch {
             return this;
         }
         public GetRouteSpecHttp2RouteMatch build() {
-            final var o = new GetRouteSpecHttp2RouteMatch();
-            o.headers = headers;
-            o.method = method;
-            o.paths = paths;
-            o.port = port;
-            o.prefix = prefix;
-            o.queryParameters = queryParameters;
-            o.scheme = scheme;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteMatch();
+            _resultValue.headers = headers;
+            _resultValue.method = method;
+            _resultValue.paths = paths;
+            _resultValue.port = port;
+            _resultValue.prefix = prefix;
+            _resultValue.queryParameters = queryParameters;
+            _resultValue.scheme = scheme;
+            return _resultValue;
         }
     }
 }

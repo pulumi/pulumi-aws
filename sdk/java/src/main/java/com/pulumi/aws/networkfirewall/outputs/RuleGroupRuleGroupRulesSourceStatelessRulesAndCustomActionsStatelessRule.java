@@ -66,10 +66,10 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
             return this;
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule();
-            o.priority = priority;
-            o.ruleDefinition = ruleDefinition;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule();
+            _resultValue.priority = priority;
+            _resultValue.ruleDefinition = ruleDefinition;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportClo
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

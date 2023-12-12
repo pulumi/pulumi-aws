@@ -49,10 +49,10 @@ public final class GetClusterSetting {
             return this;
         }
         public GetClusterSetting build() {
-            final var o = new GetClusterSetting();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetClusterSetting();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

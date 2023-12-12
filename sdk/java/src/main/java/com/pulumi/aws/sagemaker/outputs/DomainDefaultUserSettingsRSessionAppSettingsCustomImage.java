@@ -87,11 +87,11 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsCustomImage {
             return this;
         }
         public DomainDefaultUserSettingsRSessionAppSettingsCustomImage build() {
-            final var o = new DomainDefaultUserSettingsRSessionAppSettingsCustomImage();
-            o.appImageConfigName = appImageConfigName;
-            o.imageName = imageName;
-            o.imageVersionNumber = imageVersionNumber;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsRSessionAppSettingsCustomImage();
+            _resultValue.appImageConfigName = appImageConfigName;
+            _resultValue.imageName = imageName;
+            _resultValue.imageVersionNumber = imageVersionNumber;
+            return _resultValue;
         }
     }
 }

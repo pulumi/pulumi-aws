@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular();
-            o.apiKey = apiKey;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular();
+            _resultValue.apiKey = apiKey;
+            return _resultValue;
         }
     }
 }

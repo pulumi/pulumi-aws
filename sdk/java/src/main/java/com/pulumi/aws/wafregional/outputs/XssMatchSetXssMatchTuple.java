@@ -66,10 +66,10 @@ public final class XssMatchSetXssMatchTuple {
             return this;
         }
         public XssMatchSetXssMatchTuple build() {
-            final var o = new XssMatchSetXssMatchTuple();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformation = textTransformation;
-            return o;
+            final var _resultValue = new XssMatchSetXssMatchTuple();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformation = textTransformation;
+            return _resultValue;
         }
     }
 }

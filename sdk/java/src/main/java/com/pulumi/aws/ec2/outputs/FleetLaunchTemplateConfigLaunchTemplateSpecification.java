@@ -86,11 +86,11 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecification {
             return this;
         }
         public FleetLaunchTemplateConfigLaunchTemplateSpecification build() {
-            final var o = new FleetLaunchTemplateConfigLaunchTemplateSpecification();
-            o.launchTemplateId = launchTemplateId;
-            o.launchTemplateName = launchTemplateName;
-            o.version = version;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigLaunchTemplateSpecification();
+            _resultValue.launchTemplateId = launchTemplateId;
+            _resultValue.launchTemplateName = launchTemplateName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -107,12 +107,12 @@ public final class RuleGroupActivatedRule {
             return this;
         }
         public RuleGroupActivatedRule build() {
-            final var o = new RuleGroupActivatedRule();
-            o.action = action;
-            o.priority = priority;
-            o.ruleId = ruleId;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupActivatedRule();
+            _resultValue.action = action;
+            _resultValue.priority = priority;
+            _resultValue.ruleId = ruleId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

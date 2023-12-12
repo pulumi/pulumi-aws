@@ -168,15 +168,15 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
             return this;
         }
         public PolicyPredictiveScalingConfigurationMetricSpecification build() {
-            final var o = new PolicyPredictiveScalingConfigurationMetricSpecification();
-            o.customizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
-            o.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
-            o.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
-            o.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
-            o.predefinedMetricPairSpecification = predefinedMetricPairSpecification;
-            o.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
-            o.targetValue = targetValue;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfigurationMetricSpecification();
+            _resultValue.customizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
+            _resultValue.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
+            _resultValue.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
+            _resultValue.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
+            _resultValue.predefinedMetricPairSpecification = predefinedMetricPairSpecification;
+            _resultValue.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
+            _resultValue.targetValue = targetValue;
+            return _resultValue;
         }
     }
 }

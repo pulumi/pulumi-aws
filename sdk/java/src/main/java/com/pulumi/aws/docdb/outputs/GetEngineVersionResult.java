@@ -198,18 +198,18 @@ public final class GetEngineVersionResult {
             return this;
         }
         public GetEngineVersionResult build() {
-            final var o = new GetEngineVersionResult();
-            o.engine = engine;
-            o.engineDescription = engineDescription;
-            o.exportableLogTypes = exportableLogTypes;
-            o.id = id;
-            o.parameterGroupFamily = parameterGroupFamily;
-            o.preferredVersions = preferredVersions;
-            o.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
-            o.validUpgradeTargets = validUpgradeTargets;
-            o.version = version;
-            o.versionDescription = versionDescription;
-            return o;
+            final var _resultValue = new GetEngineVersionResult();
+            _resultValue.engine = engine;
+            _resultValue.engineDescription = engineDescription;
+            _resultValue.exportableLogTypes = exportableLogTypes;
+            _resultValue.id = id;
+            _resultValue.parameterGroupFamily = parameterGroupFamily;
+            _resultValue.preferredVersions = preferredVersions;
+            _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
+            _resultValue.validUpgradeTargets = validUpgradeTargets;
+            _resultValue.version = version;
+            _resultValue.versionDescription = versionDescription;
+            return _resultValue;
         }
     }
 }

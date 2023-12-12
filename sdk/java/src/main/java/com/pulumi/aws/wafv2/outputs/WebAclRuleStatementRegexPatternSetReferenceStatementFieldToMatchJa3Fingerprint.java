@@ -46,9 +46,9 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
             return this;
         }
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint();
-            o.fallbackBehavior = fallbackBehavior;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            return _resultValue;
         }
     }
 }

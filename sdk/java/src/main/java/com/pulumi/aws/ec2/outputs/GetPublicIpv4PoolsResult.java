@@ -97,12 +97,12 @@ public final class GetPublicIpv4PoolsResult {
             return this;
         }
         public GetPublicIpv4PoolsResult build() {
-            final var o = new GetPublicIpv4PoolsResult();
-            o.filters = filters;
-            o.id = id;
-            o.poolIds = poolIds;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetPublicIpv4PoolsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.poolIds = poolIds;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class UserIdentityInfo {
             return this;
         }
         public UserIdentityInfo build() {
-            final var o = new UserIdentityInfo();
-            o.email = email;
-            o.firstName = firstName;
-            o.lastName = lastName;
-            return o;
+            final var _resultValue = new UserIdentityInfo();
+            _resultValue.email = email;
+            _resultValue.firstName = firstName;
+            _resultValue.lastName = lastName;
+            return _resultValue;
         }
     }
 }

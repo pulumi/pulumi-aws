@@ -68,10 +68,10 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings();
-            o.ocrLanguage = ocrLanguage;
-            o.pid = pid;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings();
+            _resultValue.ocrLanguage = ocrLanguage;
+            _resultValue.pid = pid;
+            return _resultValue;
         }
     }
 }

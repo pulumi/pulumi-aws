@@ -111,12 +111,12 @@ public final class GetCostCategorySplitChargeRule {
             return targets(List.of(targets));
         }
         public GetCostCategorySplitChargeRule build() {
-            final var o = new GetCostCategorySplitChargeRule();
-            o.method = method;
-            o.parameters = parameters;
-            o.source = source;
-            o.targets = targets;
-            return o;
+            final var _resultValue = new GetCostCategorySplitChargeRule();
+            _resultValue.method = method;
+            _resultValue.parameters = parameters;
+            _resultValue.source = source;
+            _resultValue.targets = targets;
+            return _resultValue;
         }
     }
 }

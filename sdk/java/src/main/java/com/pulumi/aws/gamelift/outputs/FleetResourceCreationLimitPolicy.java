@@ -67,10 +67,10 @@ public final class FleetResourceCreationLimitPolicy {
             return this;
         }
         public FleetResourceCreationLimitPolicy build() {
-            final var o = new FleetResourceCreationLimitPolicy();
-            o.newGameSessionsPerCreator = newGameSessionsPerCreator;
-            o.policyPeriodInMinutes = policyPeriodInMinutes;
-            return o;
+            final var _resultValue = new FleetResourceCreationLimitPolicy();
+            _resultValue.newGameSessionsPerCreator = newGameSessionsPerCreator;
+            _resultValue.policyPeriodInMinutes = policyPeriodInMinutes;
+            return _resultValue;
         }
     }
 }

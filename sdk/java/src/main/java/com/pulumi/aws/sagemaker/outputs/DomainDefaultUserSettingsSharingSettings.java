@@ -86,11 +86,11 @@ public final class DomainDefaultUserSettingsSharingSettings {
             return this;
         }
         public DomainDefaultUserSettingsSharingSettings build() {
-            final var o = new DomainDefaultUserSettingsSharingSettings();
-            o.notebookOutputOption = notebookOutputOption;
-            o.s3KmsKeyId = s3KmsKeyId;
-            o.s3OutputPath = s3OutputPath;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsSharingSettings();
+            _resultValue.notebookOutputOption = notebookOutputOption;
+            _resultValue.s3KmsKeyId = s3KmsKeyId;
+            _resultValue.s3OutputPath = s3OutputPath;
+            return _resultValue;
         }
     }
 }

@@ -113,12 +113,12 @@ public final class GetDomainVpcOption {
             return this;
         }
         public GetDomainVpcOption build() {
-            final var o = new GetDomainVpcOption();
-            o.availabilityZones = availabilityZones;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetDomainVpcOption();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

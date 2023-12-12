@@ -67,10 +67,10 @@ public final class VpcIpamPoolCidrCidrAuthorizationContext {
             return this;
         }
         public VpcIpamPoolCidrCidrAuthorizationContext build() {
-            final var o = new VpcIpamPoolCidrCidrAuthorizationContext();
-            o.message = message;
-            o.signature = signature;
-            return o;
+            final var _resultValue = new VpcIpamPoolCidrCidrAuthorizationContext();
+            _resultValue.message = message;
+            _resultValue.signature = signature;
+            return _resultValue;
         }
     }
 }

@@ -53,10 +53,10 @@ public final class GetCustomerGatewayFilter {
             return values(List.of(values));
         }
         public GetCustomerGatewayFilter build() {
-            final var o = new GetCustomerGatewayFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetCustomerGatewayFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

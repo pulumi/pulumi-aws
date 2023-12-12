@@ -67,10 +67,10 @@ public final class DomainNameMutualTlsAuthentication {
             return this;
         }
         public DomainNameMutualTlsAuthentication build() {
-            final var o = new DomainNameMutualTlsAuthentication();
-            o.truststoreUri = truststoreUri;
-            o.truststoreVersion = truststoreVersion;
-            return o;
+            final var _resultValue = new DomainNameMutualTlsAuthentication();
+            _resultValue.truststoreUri = truststoreUri;
+            _resultValue.truststoreVersion = truststoreVersion;
+            return _resultValue;
         }
     }
 }

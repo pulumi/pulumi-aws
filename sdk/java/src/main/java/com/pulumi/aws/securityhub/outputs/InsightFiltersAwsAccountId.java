@@ -65,10 +65,10 @@ public final class InsightFiltersAwsAccountId {
             return this;
         }
         public InsightFiltersAwsAccountId build() {
-            final var o = new InsightFiltersAwsAccountId();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersAwsAccountId();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

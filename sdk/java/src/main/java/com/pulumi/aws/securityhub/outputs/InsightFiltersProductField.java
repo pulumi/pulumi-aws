@@ -84,11 +84,11 @@ public final class InsightFiltersProductField {
             return this;
         }
         public InsightFiltersProductField build() {
-            final var o = new InsightFiltersProductField();
-            o.comparison = comparison;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersProductField();
+            _resultValue.comparison = comparison;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

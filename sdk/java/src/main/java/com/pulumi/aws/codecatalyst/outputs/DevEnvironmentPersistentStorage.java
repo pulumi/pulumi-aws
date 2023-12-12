@@ -46,9 +46,9 @@ public final class DevEnvironmentPersistentStorage {
             return this;
         }
         public DevEnvironmentPersistentStorage build() {
-            final var o = new DevEnvironmentPersistentStorage();
-            o.size = size;
-            return o;
+            final var _resultValue = new DevEnvironmentPersistentStorage();
+            _resultValue.size = size;
+            return _resultValue;
         }
     }
 }

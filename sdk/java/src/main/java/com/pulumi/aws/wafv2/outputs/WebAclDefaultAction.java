@@ -68,10 +68,10 @@ public final class WebAclDefaultAction {
             return this;
         }
         public WebAclDefaultAction build() {
-            final var o = new WebAclDefaultAction();
-            o.allow = allow;
-            o.block = block;
-            return o;
+            final var _resultValue = new WebAclDefaultAction();
+            _resultValue.allow = allow;
+            _resultValue.block = block;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
             return this;
         }
         public WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation build() {
-            final var o = new WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

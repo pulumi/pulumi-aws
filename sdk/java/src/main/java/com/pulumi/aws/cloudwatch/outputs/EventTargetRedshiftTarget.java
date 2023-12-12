@@ -144,14 +144,14 @@ public final class EventTargetRedshiftTarget {
             return this;
         }
         public EventTargetRedshiftTarget build() {
-            final var o = new EventTargetRedshiftTarget();
-            o.database = database;
-            o.dbUser = dbUser;
-            o.secretsManagerArn = secretsManagerArn;
-            o.sql = sql;
-            o.statementName = statementName;
-            o.withEvent = withEvent;
-            return o;
+            final var _resultValue = new EventTargetRedshiftTarget();
+            _resultValue.database = database;
+            _resultValue.dbUser = dbUser;
+            _resultValue.secretsManagerArn = secretsManagerArn;
+            _resultValue.sql = sql;
+            _resultValue.statementName = statementName;
+            _resultValue.withEvent = withEvent;
+            return _resultValue;
         }
     }
 }

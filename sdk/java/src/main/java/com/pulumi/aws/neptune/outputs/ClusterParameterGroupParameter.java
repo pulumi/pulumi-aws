@@ -86,11 +86,11 @@ public final class ClusterParameterGroupParameter {
             return this;
         }
         public ClusterParameterGroupParameter build() {
-            final var o = new ClusterParameterGroupParameter();
-            o.applyMethod = applyMethod;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new ClusterParameterGroupParameter();
+            _resultValue.applyMethod = applyMethod;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

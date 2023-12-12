@@ -46,9 +46,9 @@ public final class EventSourceMappingDestinationConfigOnFailure {
             return this;
         }
         public EventSourceMappingDestinationConfigOnFailure build() {
-            final var o = new EventSourceMappingDestinationConfigOnFailure();
-            o.destinationArn = destinationArn;
-            return o;
+            final var _resultValue = new EventSourceMappingDestinationConfigOnFailure();
+            _resultValue.destinationArn = destinationArn;
+            return _resultValue;
         }
     }
 }

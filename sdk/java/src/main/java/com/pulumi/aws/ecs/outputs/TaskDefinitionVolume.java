@@ -129,13 +129,13 @@ public final class TaskDefinitionVolume {
             return this;
         }
         public TaskDefinitionVolume build() {
-            final var o = new TaskDefinitionVolume();
-            o.dockerVolumeConfiguration = dockerVolumeConfiguration;
-            o.efsVolumeConfiguration = efsVolumeConfiguration;
-            o.fsxWindowsFileServerVolumeConfiguration = fsxWindowsFileServerVolumeConfiguration;
-            o.hostPath = hostPath;
-            o.name = name;
-            return o;
+            final var _resultValue = new TaskDefinitionVolume();
+            _resultValue.dockerVolumeConfiguration = dockerVolumeConfiguration;
+            _resultValue.efsVolumeConfiguration = efsVolumeConfiguration;
+            _resultValue.fsxWindowsFileServerVolumeConfiguration = fsxWindowsFileServerVolumeConfiguration;
+            _resultValue.hostPath = hostPath;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class ClusterMasterUserSecret {
             return this;
         }
         public ClusterMasterUserSecret build() {
-            final var o = new ClusterMasterUserSecret();
-            o.kmsKeyId = kmsKeyId;
-            o.secretArn = secretArn;
-            o.secretStatus = secretStatus;
-            return o;
+            final var _resultValue = new ClusterMasterUserSecret();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.secretArn = secretArn;
+            _resultValue.secretStatus = secretStatus;
+            return _resultValue;
         }
     }
 }

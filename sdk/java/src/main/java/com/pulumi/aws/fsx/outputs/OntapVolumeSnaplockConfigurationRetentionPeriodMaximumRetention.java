@@ -68,10 +68,10 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetenti
             return this;
         }
         public OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention build() {
-            final var o = new OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

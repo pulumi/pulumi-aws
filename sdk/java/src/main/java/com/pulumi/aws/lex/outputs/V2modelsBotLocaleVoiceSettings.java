@@ -67,10 +67,10 @@ public final class V2modelsBotLocaleVoiceSettings {
             return this;
         }
         public V2modelsBotLocaleVoiceSettings build() {
-            final var o = new V2modelsBotLocaleVoiceSettings();
-            o.engine = engine;
-            o.voiceId = voiceId;
-            return o;
+            final var _resultValue = new V2modelsBotLocaleVoiceSettings();
+            _resultValue.engine = engine;
+            _resultValue.voiceId = voiceId;
+            return _resultValue;
         }
     }
 }

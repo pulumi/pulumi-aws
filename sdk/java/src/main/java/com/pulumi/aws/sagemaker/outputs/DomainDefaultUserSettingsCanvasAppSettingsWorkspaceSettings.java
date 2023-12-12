@@ -67,10 +67,10 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings {
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings();
-            o.s3ArtifactPath = s3ArtifactPath;
-            o.s3KmsKeyId = s3KmsKeyId;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings();
+            _resultValue.s3ArtifactPath = s3ArtifactPath;
+            _resultValue.s3KmsKeyId = s3KmsKeyId;
+            return _resultValue;
         }
     }
 }

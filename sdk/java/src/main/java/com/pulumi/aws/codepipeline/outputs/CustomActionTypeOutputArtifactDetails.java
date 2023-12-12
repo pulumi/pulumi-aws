@@ -65,10 +65,10 @@ public final class CustomActionTypeOutputArtifactDetails {
             return this;
         }
         public CustomActionTypeOutputArtifactDetails build() {
-            final var o = new CustomActionTypeOutputArtifactDetails();
-            o.maximumCount = maximumCount;
-            o.minimumCount = minimumCount;
-            return o;
+            final var _resultValue = new CustomActionTypeOutputArtifactDetails();
+            _resultValue.maximumCount = maximumCount;
+            _resultValue.minimumCount = minimumCount;
+            return _resultValue;
         }
     }
 }

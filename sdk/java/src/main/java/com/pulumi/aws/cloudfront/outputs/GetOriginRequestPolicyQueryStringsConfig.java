@@ -54,10 +54,10 @@ public final class GetOriginRequestPolicyQueryStringsConfig {
             return queryStrings(List.of(queryStrings));
         }
         public GetOriginRequestPolicyQueryStringsConfig build() {
-            final var o = new GetOriginRequestPolicyQueryStringsConfig();
-            o.queryStringBehavior = queryStringBehavior;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyQueryStringsConfig();
+            _resultValue.queryStringBehavior = queryStringBehavior;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

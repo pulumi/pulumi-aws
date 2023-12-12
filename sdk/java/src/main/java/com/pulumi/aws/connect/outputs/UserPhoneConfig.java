@@ -107,12 +107,12 @@ public final class UserPhoneConfig {
             return this;
         }
         public UserPhoneConfig build() {
-            final var o = new UserPhoneConfig();
-            o.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
-            o.autoAccept = autoAccept;
-            o.deskPhoneNumber = deskPhoneNumber;
-            o.phoneType = phoneType;
-            return o;
+            final var _resultValue = new UserPhoneConfig();
+            _resultValue.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
+            _resultValue.autoAccept = autoAccept;
+            _resultValue.deskPhoneNumber = deskPhoneNumber;
+            _resultValue.phoneType = phoneType;
+            return _resultValue;
         }
     }
 }

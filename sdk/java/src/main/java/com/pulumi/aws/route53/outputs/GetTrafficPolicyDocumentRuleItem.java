@@ -67,10 +67,10 @@ public final class GetTrafficPolicyDocumentRuleItem {
             return this;
         }
         public GetTrafficPolicyDocumentRuleItem build() {
-            final var o = new GetTrafficPolicyDocumentRuleItem();
-            o.endpointReference = endpointReference;
-            o.healthCheck = healthCheck;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentRuleItem();
+            _resultValue.endpointReference = endpointReference;
+            _resultValue.healthCheck = healthCheck;
+            return _resultValue;
         }
     }
 }

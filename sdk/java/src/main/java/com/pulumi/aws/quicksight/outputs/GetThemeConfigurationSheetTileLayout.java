@@ -73,10 +73,10 @@ public final class GetThemeConfigurationSheetTileLayout {
             return margins(List.of(margins));
         }
         public GetThemeConfigurationSheetTileLayout build() {
-            final var o = new GetThemeConfigurationSheetTileLayout();
-            o.gutters = gutters;
-            o.margins = margins;
-            return o;
+            final var _resultValue = new GetThemeConfigurationSheetTileLayout();
+            _resultValue.gutters = gutters;
+            _resultValue.margins = margins;
+            return _resultValue;
         }
     }
 }

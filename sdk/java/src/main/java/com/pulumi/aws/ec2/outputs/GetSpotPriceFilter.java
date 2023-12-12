@@ -69,10 +69,10 @@ public final class GetSpotPriceFilter {
             return values(List.of(values));
         }
         public GetSpotPriceFilter build() {
-            final var o = new GetSpotPriceFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetSpotPriceFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

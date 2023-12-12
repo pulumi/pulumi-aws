@@ -103,12 +103,12 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettings build() {
-            final var o = new ChannelInputAttachmentAutomaticInputFailoverSettings();
-            o.errorClearTimeMsec = errorClearTimeMsec;
-            o.failoverConditions = failoverConditions;
-            o.inputPreference = inputPreference;
-            o.secondaryInputId = secondaryInputId;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentAutomaticInputFailoverSettings();
+            _resultValue.errorClearTimeMsec = errorClearTimeMsec;
+            _resultValue.failoverConditions = failoverConditions;
+            _resultValue.inputPreference = inputPreference;
+            _resultValue.secondaryInputId = secondaryInputId;
+            return _resultValue;
         }
     }
 }

@@ -71,12 +71,12 @@ public final class CollaborationDataEncryptionMetadata {
             return this;
         }
         public CollaborationDataEncryptionMetadata build() {
-            final var o = new CollaborationDataEncryptionMetadata();
-            o.allowClearText = allowClearText;
-            o.allowDuplicates = allowDuplicates;
-            o.allowJoinsOnColumnsWithDifferentNames = allowJoinsOnColumnsWithDifferentNames;
-            o.preserveNulls = preserveNulls;
-            return o;
+            final var _resultValue = new CollaborationDataEncryptionMetadata();
+            _resultValue.allowClearText = allowClearText;
+            _resultValue.allowDuplicates = allowDuplicates;
+            _resultValue.allowJoinsOnColumnsWithDifferentNames = allowJoinsOnColumnsWithDifferentNames;
+            _resultValue.preserveNulls = preserveNulls;
+            return _resultValue;
         }
     }
 }

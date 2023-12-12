@@ -143,14 +143,14 @@ public final class ListenerRuleActionRedirect {
             return this;
         }
         public ListenerRuleActionRedirect build() {
-            final var o = new ListenerRuleActionRedirect();
-            o.host = host;
-            o.path = path;
-            o.port = port;
-            o.protocol = protocol;
-            o.query = query;
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new ListenerRuleActionRedirect();
+            _resultValue.host = host;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.query = query;
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

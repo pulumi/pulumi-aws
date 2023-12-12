@@ -90,11 +90,11 @@ public final class KxEnvironmentTransitGatewayConfiguration {
             return this;
         }
         public KxEnvironmentTransitGatewayConfiguration build() {
-            final var o = new KxEnvironmentTransitGatewayConfiguration();
-            o.attachmentNetworkAclConfigurations = attachmentNetworkAclConfigurations;
-            o.routableCidrSpace = routableCidrSpace;
-            o.transitGatewayId = transitGatewayId;
-            return o;
+            final var _resultValue = new KxEnvironmentTransitGatewayConfiguration();
+            _resultValue.attachmentNetworkAclConfigurations = attachmentNetworkAclConfigurations;
+            _resultValue.routableCidrSpace = routableCidrSpace;
+            _resultValue.transitGatewayId = transitGatewayId;
+            return _resultValue;
         }
     }
 }

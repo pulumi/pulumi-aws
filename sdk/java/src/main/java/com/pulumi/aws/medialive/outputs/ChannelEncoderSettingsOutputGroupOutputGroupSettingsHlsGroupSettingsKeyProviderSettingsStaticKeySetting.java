@@ -52,10 +52,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting();
-            o.keyProviderServer = keyProviderServer;
-            o.staticKeyValue = staticKeyValue;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting();
+            _resultValue.keyProviderServer = keyProviderServer;
+            _resultValue.staticKeyValue = staticKeyValue;
+            return _resultValue;
         }
     }
 }

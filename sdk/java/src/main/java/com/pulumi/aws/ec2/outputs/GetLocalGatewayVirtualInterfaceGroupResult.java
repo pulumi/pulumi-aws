@@ -100,13 +100,13 @@ public final class GetLocalGatewayVirtualInterfaceGroupResult {
             return this;
         }
         public GetLocalGatewayVirtualInterfaceGroupResult build() {
-            final var o = new GetLocalGatewayVirtualInterfaceGroupResult();
-            o.filters = filters;
-            o.id = id;
-            o.localGatewayId = localGatewayId;
-            o.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLocalGatewayVirtualInterfaceGroupResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.localGatewayId = localGatewayId;
+            _resultValue.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

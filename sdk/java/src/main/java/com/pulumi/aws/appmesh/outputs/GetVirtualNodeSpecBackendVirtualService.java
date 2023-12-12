@@ -54,10 +54,10 @@ public final class GetVirtualNodeSpecBackendVirtualService {
             return this;
         }
         public GetVirtualNodeSpecBackendVirtualService build() {
-            final var o = new GetVirtualNodeSpecBackendVirtualService();
-            o.clientPolicies = clientPolicies;
-            o.virtualServiceName = virtualServiceName;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendVirtualService();
+            _resultValue.clientPolicies = clientPolicies;
+            _resultValue.virtualServiceName = virtualServiceName;
+            return _resultValue;
         }
     }
 }

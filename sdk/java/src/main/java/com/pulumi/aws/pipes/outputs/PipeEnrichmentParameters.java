@@ -68,10 +68,10 @@ public final class PipeEnrichmentParameters {
             return this;
         }
         public PipeEnrichmentParameters build() {
-            final var o = new PipeEnrichmentParameters();
-            o.httpParameters = httpParameters;
-            o.inputTemplate = inputTemplate;
-            return o;
+            final var _resultValue = new PipeEnrichmentParameters();
+            _resultValue.httpParameters = httpParameters;
+            _resultValue.inputTemplate = inputTemplate;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class DirectoryConfigServiceAccountCredentials {
             return this;
         }
         public DirectoryConfigServiceAccountCredentials build() {
-            final var o = new DirectoryConfigServiceAccountCredentials();
-            o.accountName = accountName;
-            o.accountPassword = accountPassword;
-            return o;
+            final var _resultValue = new DirectoryConfigServiceAccountCredentials();
+            _resultValue.accountName = accountName;
+            _resultValue.accountPassword = accountPassword;
+            return _resultValue;
         }
     }
 }

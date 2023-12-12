@@ -111,12 +111,12 @@ public final class DomainDefaultSpaceSettings {
             return securityGroups(List.of(securityGroups));
         }
         public DomainDefaultSpaceSettings build() {
-            final var o = new DomainDefaultSpaceSettings();
-            o.executionRole = executionRole;
-            o.jupyterServerAppSettings = jupyterServerAppSettings;
-            o.kernelGatewayAppSettings = kernelGatewayAppSettings;
-            o.securityGroups = securityGroups;
-            return o;
+            final var _resultValue = new DomainDefaultSpaceSettings();
+            _resultValue.executionRole = executionRole;
+            _resultValue.jupyterServerAppSettings = jupyterServerAppSettings;
+            _resultValue.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            _resultValue.securityGroups = securityGroups;
+            return _resultValue;
         }
     }
 }

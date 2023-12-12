@@ -79,11 +79,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings();
-            o.inputLossAction = inputLossAction;
-            o.timedMetadataId3Frame = timedMetadataId3Frame;
-            o.timedMetadataId3Period = timedMetadataId3Period;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings();
+            _resultValue.inputLossAction = inputLossAction;
+            _resultValue.timedMetadataId3Frame = timedMetadataId3Frame;
+            _resultValue.timedMetadataId3Period = timedMetadataId3Period;
+            return _resultValue;
         }
     }
 }

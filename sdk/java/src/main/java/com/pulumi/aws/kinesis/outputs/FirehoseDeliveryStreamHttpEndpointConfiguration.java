@@ -262,20 +262,20 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
             return this;
         }
         public FirehoseDeliveryStreamHttpEndpointConfiguration build() {
-            final var o = new FirehoseDeliveryStreamHttpEndpointConfiguration();
-            o.accessKey = accessKey;
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.name = name;
-            o.processingConfiguration = processingConfiguration;
-            o.requestConfiguration = requestConfiguration;
-            o.retryDuration = retryDuration;
-            o.roleArn = roleArn;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            o.url = url;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamHttpEndpointConfiguration();
+            _resultValue.accessKey = accessKey;
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.name = name;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.requestConfiguration = requestConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

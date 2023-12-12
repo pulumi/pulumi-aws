@@ -67,10 +67,10 @@ public final class CatalogTableOpenTableFormatInputIcebergInput {
             return this;
         }
         public CatalogTableOpenTableFormatInputIcebergInput build() {
-            final var o = new CatalogTableOpenTableFormatInputIcebergInput();
-            o.metadataOperation = metadataOperation;
-            o.version = version;
-            return o;
+            final var _resultValue = new CatalogTableOpenTableFormatInputIcebergInput();
+            _resultValue.metadataOperation = metadataOperation;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

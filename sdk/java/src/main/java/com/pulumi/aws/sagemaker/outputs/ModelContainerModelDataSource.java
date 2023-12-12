@@ -50,9 +50,9 @@ public final class ModelContainerModelDataSource {
             return s3DataSources(List.of(s3DataSources));
         }
         public ModelContainerModelDataSource build() {
-            final var o = new ModelContainerModelDataSource();
-            o.s3DataSources = s3DataSources;
-            return o;
+            final var _resultValue = new ModelContainerModelDataSource();
+            _resultValue.s3DataSources = s3DataSources;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class ServiceInstanceConfiguration {
             return this;
         }
         public ServiceInstanceConfiguration build() {
-            final var o = new ServiceInstanceConfiguration();
-            o.cpu = cpu;
-            o.instanceRoleArn = instanceRoleArn;
-            o.memory = memory;
-            return o;
+            final var _resultValue = new ServiceInstanceConfiguration();
+            _resultValue.cpu = cpu;
+            _resultValue.instanceRoleArn = instanceRoleArn;
+            _resultValue.memory = memory;
+            return _resultValue;
         }
     }
 }

@@ -51,9 +51,9 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludes {
             return ands(List.of(ands));
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaExcludes build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaExcludes();
-            o.ands = ands;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaExcludes();
+            _resultValue.ands = ands;
+            return _resultValue;
         }
     }
 }

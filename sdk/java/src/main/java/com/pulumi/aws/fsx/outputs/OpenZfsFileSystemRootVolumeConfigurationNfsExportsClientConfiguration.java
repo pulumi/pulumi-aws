@@ -69,10 +69,10 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
             return options(List.of(options));
         }
         public OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration build() {
-            final var o = new OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration();
-            o.clients = clients;
-            o.options = options;
-            return o;
+            final var _resultValue = new OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration();
+            _resultValue.clients = clients;
+            _resultValue.options = options;
+            return _resultValue;
         }
     }
 }

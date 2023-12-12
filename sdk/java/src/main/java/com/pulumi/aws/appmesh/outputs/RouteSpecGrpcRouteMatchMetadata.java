@@ -88,11 +88,11 @@ public final class RouteSpecGrpcRouteMatchMetadata {
             return this;
         }
         public RouteSpecGrpcRouteMatchMetadata build() {
-            final var o = new RouteSpecGrpcRouteMatchMetadata();
-            o.invert = invert;
-            o.match = match;
-            o.name = name;
-            return o;
+            final var _resultValue = new RouteSpecGrpcRouteMatchMetadata();
+            _resultValue.invert = invert;
+            _resultValue.match = match;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

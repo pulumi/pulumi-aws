@@ -66,10 +66,10 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat();
-            o.mappingParameters = mappingParameters;
-            o.recordFormatType = recordFormatType;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat();
+            _resultValue.mappingParameters = mappingParameters;
+            _resultValue.recordFormatType = recordFormatType;
+            return _resultValue;
         }
     }
 }

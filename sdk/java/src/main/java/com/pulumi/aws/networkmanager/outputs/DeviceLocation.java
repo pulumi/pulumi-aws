@@ -86,11 +86,11 @@ public final class DeviceLocation {
             return this;
         }
         public DeviceLocation build() {
-            final var o = new DeviceLocation();
-            o.address = address;
-            o.latitude = latitude;
-            o.longitude = longitude;
-            return o;
+            final var _resultValue = new DeviceLocation();
+            _resultValue.address = address;
+            _resultValue.latitude = latitude;
+            _resultValue.longitude = longitude;
+            return _resultValue;
         }
     }
 }

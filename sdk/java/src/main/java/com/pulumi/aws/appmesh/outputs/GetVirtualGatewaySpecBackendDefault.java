@@ -42,9 +42,9 @@ public final class GetVirtualGatewaySpecBackendDefault {
             return clientPolicies(List.of(clientPolicies));
         }
         public GetVirtualGatewaySpecBackendDefault build() {
-            final var o = new GetVirtualGatewaySpecBackendDefault();
-            o.clientPolicies = clientPolicies;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefault();
+            _resultValue.clientPolicies = clientPolicies;
+            return _resultValue;
         }
     }
 }

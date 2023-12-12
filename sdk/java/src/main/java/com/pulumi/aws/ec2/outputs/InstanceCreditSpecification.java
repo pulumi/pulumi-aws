@@ -48,9 +48,9 @@ public final class InstanceCreditSpecification {
             return this;
         }
         public InstanceCreditSpecification build() {
-            final var o = new InstanceCreditSpecification();
-            o.cpuCredits = cpuCredits;
-            return o;
+            final var _resultValue = new InstanceCreditSpecification();
+            _resultValue.cpuCredits = cpuCredits;
+            return _resultValue;
         }
     }
 }

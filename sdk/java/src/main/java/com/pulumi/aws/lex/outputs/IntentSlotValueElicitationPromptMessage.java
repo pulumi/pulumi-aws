@@ -89,11 +89,11 @@ public final class IntentSlotValueElicitationPromptMessage {
             return this;
         }
         public IntentSlotValueElicitationPromptMessage build() {
-            final var o = new IntentSlotValueElicitationPromptMessage();
-            o.content = content;
-            o.contentType = contentType;
-            o.groupNumber = groupNumber;
-            return o;
+            final var _resultValue = new IntentSlotValueElicitationPromptMessage();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.groupNumber = groupNumber;
+            return _resultValue;
         }
     }
 }

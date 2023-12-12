@@ -68,11 +68,11 @@ public final class GetLambdaFunctionAssociationResult {
             return this;
         }
         public GetLambdaFunctionAssociationResult build() {
-            final var o = new GetLambdaFunctionAssociationResult();
-            o.functionArn = functionArn;
-            o.id = id;
-            o.instanceId = instanceId;
-            return o;
+            final var _resultValue = new GetLambdaFunctionAssociationResult();
+            _resultValue.functionArn = functionArn;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            return _resultValue;
         }
     }
 }

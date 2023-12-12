@@ -65,10 +65,10 @@ public final class VirtualNodeSpecListenerTlsCertificateFile {
             return this;
         }
         public VirtualNodeSpecListenerTlsCertificateFile build() {
-            final var o = new VirtualNodeSpecListenerTlsCertificateFile();
-            o.certificateChain = certificateChain;
-            o.privateKey = privateKey;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTlsCertificateFile();
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.privateKey = privateKey;
+            return _resultValue;
         }
     }
 }

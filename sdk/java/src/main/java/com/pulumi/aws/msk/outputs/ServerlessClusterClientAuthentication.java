@@ -46,9 +46,9 @@ public final class ServerlessClusterClientAuthentication {
             return this;
         }
         public ServerlessClusterClientAuthentication build() {
-            final var o = new ServerlessClusterClientAuthentication();
-            o.sasl = sasl;
-            return o;
+            final var _resultValue = new ServerlessClusterClientAuthentication();
+            _resultValue.sasl = sasl;
+            return _resultValue;
         }
     }
 }

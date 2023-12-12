@@ -64,10 +64,10 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatc
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

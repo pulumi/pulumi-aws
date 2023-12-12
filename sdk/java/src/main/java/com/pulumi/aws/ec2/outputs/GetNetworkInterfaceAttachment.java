@@ -72,12 +72,12 @@ public final class GetNetworkInterfaceAttachment {
             return this;
         }
         public GetNetworkInterfaceAttachment build() {
-            final var o = new GetNetworkInterfaceAttachment();
-            o.attachmentId = attachmentId;
-            o.deviceIndex = deviceIndex;
-            o.instanceId = instanceId;
-            o.instanceOwnerId = instanceOwnerId;
-            return o;
+            final var _resultValue = new GetNetworkInterfaceAttachment();
+            _resultValue.attachmentId = attachmentId;
+            _resultValue.deviceIndex = deviceIndex;
+            _resultValue.instanceId = instanceId;
+            _resultValue.instanceOwnerId = instanceOwnerId;
+            return _resultValue;
         }
     }
 }

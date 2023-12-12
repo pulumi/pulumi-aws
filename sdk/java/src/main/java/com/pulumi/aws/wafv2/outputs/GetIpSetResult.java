@@ -148,15 +148,15 @@ public final class GetIpSetResult {
             return this;
         }
         public GetIpSetResult build() {
-            final var o = new GetIpSetResult();
-            o.addresses = addresses;
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.ipAddressVersion = ipAddressVersion;
-            o.name = name;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new GetIpSetResult();
+            _resultValue.addresses = addresses;
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.ipAddressVersion = ipAddressVersion;
+            _resultValue.name = name;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

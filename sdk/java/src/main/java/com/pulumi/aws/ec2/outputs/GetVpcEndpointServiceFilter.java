@@ -69,10 +69,10 @@ public final class GetVpcEndpointServiceFilter {
             return values(List.of(values));
         }
         public GetVpcEndpointServiceFilter build() {
-            final var o = new GetVpcEndpointServiceFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpcEndpointServiceFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

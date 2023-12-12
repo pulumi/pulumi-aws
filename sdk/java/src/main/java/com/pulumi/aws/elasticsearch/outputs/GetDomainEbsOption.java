@@ -124,13 +124,13 @@ public final class GetDomainEbsOption {
             return this;
         }
         public GetDomainEbsOption build() {
-            final var o = new GetDomainEbsOption();
-            o.ebsEnabled = ebsEnabled;
-            o.iops = iops;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new GetDomainEbsOption();
+            _resultValue.ebsEnabled = ebsEnabled;
+            _resultValue.iops = iops;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

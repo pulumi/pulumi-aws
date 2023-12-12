@@ -46,9 +46,9 @@ public final class TableSchemaDefinitionStaticColumn {
             return this;
         }
         public TableSchemaDefinitionStaticColumn build() {
-            final var o = new TableSchemaDefinitionStaticColumn();
-            o.name = name;
-            return o;
+            final var _resultValue = new TableSchemaDefinitionStaticColumn();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

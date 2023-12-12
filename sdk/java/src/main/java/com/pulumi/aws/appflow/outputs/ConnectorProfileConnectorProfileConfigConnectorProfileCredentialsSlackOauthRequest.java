@@ -67,10 +67,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest();
-            o.authCode = authCode;
-            o.redirectUri = redirectUri;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest();
+            _resultValue.authCode = authCode;
+            _resultValue.redirectUri = redirectUri;
+            return _resultValue;
         }
     }
 }

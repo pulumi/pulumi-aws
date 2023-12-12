@@ -168,20 +168,20 @@ public final class GetResolverFirewallRuleGroupResult {
             return this;
         }
         public GetResolverFirewallRuleGroupResult build() {
-            final var o = new GetResolverFirewallRuleGroupResult();
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.creatorRequestId = creatorRequestId;
-            o.firewallRuleGroupId = firewallRuleGroupId;
-            o.id = id;
-            o.modificationTime = modificationTime;
-            o.name = name;
-            o.ownerId = ownerId;
-            o.ruleCount = ruleCount;
-            o.shareStatus = shareStatus;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            return o;
+            final var _resultValue = new GetResolverFirewallRuleGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.creatorRequestId = creatorRequestId;
+            _resultValue.firewallRuleGroupId = firewallRuleGroupId;
+            _resultValue.id = id;
+            _resultValue.modificationTime = modificationTime;
+            _resultValue.name = name;
+            _resultValue.ownerId = ownerId;
+            _resultValue.ruleCount = ruleCount;
+            _resultValue.shareStatus = shareStatus;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            return _resultValue;
         }
     }
 }

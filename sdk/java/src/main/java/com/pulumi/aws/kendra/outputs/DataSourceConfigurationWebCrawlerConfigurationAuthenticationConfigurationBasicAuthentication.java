@@ -85,11 +85,11 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
             return this;
         }
         public DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication build() {
-            final var o = new DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication();
-            o.credentials = credentials;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication();
+            _resultValue.credentials = credentials;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

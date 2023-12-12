@@ -108,12 +108,12 @@ public final class RuleGroupRuleGroup {
             return this;
         }
         public RuleGroupRuleGroup build() {
-            final var o = new RuleGroupRuleGroup();
-            o.referenceSets = referenceSets;
-            o.ruleVariables = ruleVariables;
-            o.rulesSource = rulesSource;
-            o.statefulRuleOptions = statefulRuleOptions;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroup();
+            _resultValue.referenceSets = referenceSets;
+            _resultValue.ruleVariables = ruleVariables;
+            _resultValue.rulesSource = rulesSource;
+            _resultValue.statefulRuleOptions = statefulRuleOptions;
+            return _resultValue;
         }
     }
 }

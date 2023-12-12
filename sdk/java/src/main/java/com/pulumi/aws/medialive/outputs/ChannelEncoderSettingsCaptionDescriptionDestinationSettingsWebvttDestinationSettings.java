@@ -46,9 +46,9 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWe
             return this;
         }
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings build() {
-            final var o = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings();
-            o.styleControl = styleControl;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings();
+            _resultValue.styleControl = styleControl;
+            return _resultValue;
         }
     }
 }

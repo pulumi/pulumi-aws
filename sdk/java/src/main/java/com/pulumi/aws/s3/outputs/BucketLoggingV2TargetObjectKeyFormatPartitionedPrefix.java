@@ -46,9 +46,9 @@ public final class BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
             return this;
         }
         public BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix build() {
-            final var o = new BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix();
-            o.partitionDateSource = partitionDateSource;
-            return o;
+            final var _resultValue = new BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix();
+            _resultValue.partitionDateSource = partitionDateSource;
+            return _resultValue;
         }
     }
 }

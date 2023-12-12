@@ -225,25 +225,25 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings();
-            o.audioFramesPerPes = audioFramesPerPes;
-            o.audioPids = audioPids;
-            o.ecmPid = ecmPid;
-            o.nielsenId3Behavior = nielsenId3Behavior;
-            o.patInterval = patInterval;
-            o.pcrControl = pcrControl;
-            o.pcrPeriod = pcrPeriod;
-            o.pcrPid = pcrPid;
-            o.pmtInterval = pmtInterval;
-            o.pmtPid = pmtPid;
-            o.programNum = programNum;
-            o.scte35Behavior = scte35Behavior;
-            o.scte35Pid = scte35Pid;
-            o.timedMetadataBehavior = timedMetadataBehavior;
-            o.timedMetadataPid = timedMetadataPid;
-            o.transportStreamId = transportStreamId;
-            o.videoPid = videoPid;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings();
+            _resultValue.audioFramesPerPes = audioFramesPerPes;
+            _resultValue.audioPids = audioPids;
+            _resultValue.ecmPid = ecmPid;
+            _resultValue.nielsenId3Behavior = nielsenId3Behavior;
+            _resultValue.patInterval = patInterval;
+            _resultValue.pcrControl = pcrControl;
+            _resultValue.pcrPeriod = pcrPeriod;
+            _resultValue.pcrPid = pcrPid;
+            _resultValue.pmtInterval = pmtInterval;
+            _resultValue.pmtPid = pmtPid;
+            _resultValue.programNum = programNum;
+            _resultValue.scte35Behavior = scte35Behavior;
+            _resultValue.scte35Pid = scte35Pid;
+            _resultValue.timedMetadataBehavior = timedMetadataBehavior;
+            _resultValue.timedMetadataPid = timedMetadataPid;
+            _resultValue.transportStreamId = transportStreamId;
+            _resultValue.videoPid = videoPid;
+            return _resultValue;
         }
     }
 }

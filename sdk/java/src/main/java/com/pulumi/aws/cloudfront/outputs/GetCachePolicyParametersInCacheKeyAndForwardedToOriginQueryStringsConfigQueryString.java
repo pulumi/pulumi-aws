@@ -50,9 +50,9 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQuerySt
             return items(List.of(items));
         }
         public GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString build() {
-            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

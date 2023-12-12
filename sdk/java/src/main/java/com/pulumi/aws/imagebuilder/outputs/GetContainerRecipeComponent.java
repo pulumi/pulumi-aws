@@ -70,10 +70,10 @@ public final class GetContainerRecipeComponent {
             return parameters(List.of(parameters));
         }
         public GetContainerRecipeComponent build() {
-            final var o = new GetContainerRecipeComponent();
-            o.componentArn = componentArn;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new GetContainerRecipeComponent();
+            _resultValue.componentArn = componentArn;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

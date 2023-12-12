@@ -42,9 +42,9 @@ public final class GetVirtualNodeSpecBackendDefault {
             return clientPolicies(List.of(clientPolicies));
         }
         public GetVirtualNodeSpecBackendDefault build() {
-            final var o = new GetVirtualNodeSpecBackendDefault();
-            o.clientPolicies = clientPolicies;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefault();
+            _resultValue.clientPolicies = clientPolicies;
+            return _resultValue;
         }
     }
 }

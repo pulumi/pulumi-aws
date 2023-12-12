@@ -66,10 +66,10 @@ public final class GetClusterClusterEndpoint {
             return this;
         }
         public GetClusterClusterEndpoint build() {
-            final var o = new GetClusterClusterEndpoint();
-            o.address = address;
-            o.port = port;
-            return o;
+            final var _resultValue = new GetClusterClusterEndpoint();
+            _resultValue.address = address;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

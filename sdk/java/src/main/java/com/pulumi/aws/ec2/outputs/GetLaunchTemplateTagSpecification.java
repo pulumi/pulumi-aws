@@ -58,10 +58,10 @@ public final class GetLaunchTemplateTagSpecification {
             return this;
         }
         public GetLaunchTemplateTagSpecification build() {
-            final var o = new GetLaunchTemplateTagSpecification();
-            o.resourceType = resourceType;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLaunchTemplateTagSpecification();
+            _resultValue.resourceType = resourceType;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -108,12 +108,12 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
             return this;
         }
         public GraphQLApiAdditionalAuthenticationProvider build() {
-            final var o = new GraphQLApiAdditionalAuthenticationProvider();
-            o.authenticationType = authenticationType;
-            o.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
-            o.openidConnectConfig = openidConnectConfig;
-            o.userPoolConfig = userPoolConfig;
-            return o;
+            final var _resultValue = new GraphQLApiAdditionalAuthenticationProvider();
+            _resultValue.authenticationType = authenticationType;
+            _resultValue.lambdaAuthorizerConfig = lambdaAuthorizerConfig;
+            _resultValue.openidConnectConfig = openidConnectConfig;
+            _resultValue.userPoolConfig = userPoolConfig;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class ConnectorPluginCustomPlugin {
             return this;
         }
         public ConnectorPluginCustomPlugin build() {
-            final var o = new ConnectorPluginCustomPlugin();
-            o.arn = arn;
-            o.revision = revision;
-            return o;
+            final var _resultValue = new ConnectorPluginCustomPlugin();
+            _resultValue.arn = arn;
+            _resultValue.revision = revision;
+            return _resultValue;
         }
     }
 }

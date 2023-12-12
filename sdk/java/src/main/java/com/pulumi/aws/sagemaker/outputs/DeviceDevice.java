@@ -86,11 +86,11 @@ public final class DeviceDevice {
             return this;
         }
         public DeviceDevice build() {
-            final var o = new DeviceDevice();
-            o.description = description;
-            o.deviceName = deviceName;
-            o.iotThingName = iotThingName;
-            return o;
+            final var _resultValue = new DeviceDevice();
+            _resultValue.description = description;
+            _resultValue.deviceName = deviceName;
+            _resultValue.iotThingName = iotThingName;
+            return _resultValue;
         }
     }
 }

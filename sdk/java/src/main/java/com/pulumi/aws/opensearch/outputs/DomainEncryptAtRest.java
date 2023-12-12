@@ -68,10 +68,10 @@ public final class DomainEncryptAtRest {
             return this;
         }
         public DomainEncryptAtRest build() {
-            final var o = new DomainEncryptAtRest();
-            o.enabled = enabled;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new DomainEncryptAtRest();
+            _resultValue.enabled = enabled;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

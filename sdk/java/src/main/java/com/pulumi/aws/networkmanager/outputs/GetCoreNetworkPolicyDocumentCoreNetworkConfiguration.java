@@ -117,12 +117,12 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
             return this;
         }
         public GetCoreNetworkPolicyDocumentCoreNetworkConfiguration build() {
-            final var o = new GetCoreNetworkPolicyDocumentCoreNetworkConfiguration();
-            o.asnRanges = asnRanges;
-            o.edgeLocations = edgeLocations;
-            o.insideCidrBlocks = insideCidrBlocks;
-            o.vpnEcmpSupport = vpnEcmpSupport;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentCoreNetworkConfiguration();
+            _resultValue.asnRanges = asnRanges;
+            _resultValue.edgeLocations = edgeLocations;
+            _resultValue.insideCidrBlocks = insideCidrBlocks;
+            _resultValue.vpnEcmpSupport = vpnEcmpSupport;
+            return _resultValue;
         }
     }
 }

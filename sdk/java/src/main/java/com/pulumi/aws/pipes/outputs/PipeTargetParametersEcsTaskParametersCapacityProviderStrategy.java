@@ -87,11 +87,11 @@ public final class PipeTargetParametersEcsTaskParametersCapacityProviderStrategy
             return this;
         }
         public PipeTargetParametersEcsTaskParametersCapacityProviderStrategy build() {
-            final var o = new PipeTargetParametersEcsTaskParametersCapacityProviderStrategy();
-            o.base = base;
-            o.capacityProvider = capacityProvider;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersCapacityProviderStrategy();
+            _resultValue.base = base;
+            _resultValue.capacityProvider = capacityProvider;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

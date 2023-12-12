@@ -71,10 +71,10 @@ public final class PermissionsDataLocation {
             return this;
         }
         public PermissionsDataLocation build() {
-            final var o = new PermissionsDataLocation();
-            o.arn = arn;
-            o.catalogId = catalogId;
-            return o;
+            final var _resultValue = new PermissionsDataLocation();
+            _resultValue.arn = arn;
+            _resultValue.catalogId = catalogId;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class GatewayRouteSpecHttp2RouteMatchHostname {
             return this;
         }
         public GatewayRouteSpecHttp2RouteMatchHostname build() {
-            final var o = new GatewayRouteSpecHttp2RouteMatchHostname();
-            o.exact = exact;
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2RouteMatchHostname();
+            _resultValue.exact = exact;
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

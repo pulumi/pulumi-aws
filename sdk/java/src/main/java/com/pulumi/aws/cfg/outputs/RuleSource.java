@@ -111,12 +111,12 @@ public final class RuleSource {
             return this;
         }
         public RuleSource build() {
-            final var o = new RuleSource();
-            o.customPolicyDetails = customPolicyDetails;
-            o.owner = owner;
-            o.sourceDetails = sourceDetails;
-            o.sourceIdentifier = sourceIdentifier;
-            return o;
+            final var _resultValue = new RuleSource();
+            _resultValue.customPolicyDetails = customPolicyDetails;
+            _resultValue.owner = owner;
+            _resultValue.sourceDetails = sourceDetails;
+            _resultValue.sourceIdentifier = sourceIdentifier;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class EventConnectionAuthParametersOauthClientParameters {
             return this;
         }
         public EventConnectionAuthParametersOauthClientParameters build() {
-            final var o = new EventConnectionAuthParametersOauthClientParameters();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersOauthClientParameters();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            return _resultValue;
         }
     }
 }

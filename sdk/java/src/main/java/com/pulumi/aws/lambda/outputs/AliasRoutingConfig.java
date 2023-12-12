@@ -49,9 +49,9 @@ public final class AliasRoutingConfig {
             return this;
         }
         public AliasRoutingConfig build() {
-            final var o = new AliasRoutingConfig();
-            o.additionalVersionWeights = additionalVersionWeights;
-            return o;
+            final var _resultValue = new AliasRoutingConfig();
+            _resultValue.additionalVersionWeights = additionalVersionWeights;
+            return _resultValue;
         }
     }
 }

@@ -88,11 +88,11 @@ public final class CostCategoryRuleRuleOr {
             return this;
         }
         public CostCategoryRuleRuleOr build() {
-            final var o = new CostCategoryRuleRuleOr();
-            o.costCategory = costCategory;
-            o.dimension = dimension;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new CostCategoryRuleRuleOr();
+            _resultValue.costCategory = costCategory;
+            _resultValue.dimension = dimension;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

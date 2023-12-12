@@ -275,27 +275,27 @@ public final class GetTaskExecutionResult {
             return this;
         }
         public GetTaskExecutionResult build() {
-            final var o = new GetTaskExecutionResult();
-            o.capacityProviderStrategies = capacityProviderStrategies;
-            o.cluster = cluster;
-            o.desiredCount = desiredCount;
-            o.enableEcsManagedTags = enableEcsManagedTags;
-            o.enableExecuteCommand = enableExecuteCommand;
-            o.group = group;
-            o.id = id;
-            o.launchType = launchType;
-            o.networkConfiguration = networkConfiguration;
-            o.overrides = overrides;
-            o.placementConstraints = placementConstraints;
-            o.placementStrategies = placementStrategies;
-            o.platformVersion = platformVersion;
-            o.propagateTags = propagateTags;
-            o.referenceId = referenceId;
-            o.startedBy = startedBy;
-            o.tags = tags;
-            o.taskArns = taskArns;
-            o.taskDefinition = taskDefinition;
-            return o;
+            final var _resultValue = new GetTaskExecutionResult();
+            _resultValue.capacityProviderStrategies = capacityProviderStrategies;
+            _resultValue.cluster = cluster;
+            _resultValue.desiredCount = desiredCount;
+            _resultValue.enableEcsManagedTags = enableEcsManagedTags;
+            _resultValue.enableExecuteCommand = enableExecuteCommand;
+            _resultValue.group = group;
+            _resultValue.id = id;
+            _resultValue.launchType = launchType;
+            _resultValue.networkConfiguration = networkConfiguration;
+            _resultValue.overrides = overrides;
+            _resultValue.placementConstraints = placementConstraints;
+            _resultValue.placementStrategies = placementStrategies;
+            _resultValue.platformVersion = platformVersion;
+            _resultValue.propagateTags = propagateTags;
+            _resultValue.referenceId = referenceId;
+            _resultValue.startedBy = startedBy;
+            _resultValue.tags = tags;
+            _resultValue.taskArns = taskArns;
+            _resultValue.taskDefinition = taskDefinition;
+            return _resultValue;
         }
     }
 }

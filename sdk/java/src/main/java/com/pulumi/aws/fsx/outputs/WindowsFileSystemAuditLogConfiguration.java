@@ -86,11 +86,11 @@ public final class WindowsFileSystemAuditLogConfiguration {
             return this;
         }
         public WindowsFileSystemAuditLogConfiguration build() {
-            final var o = new WindowsFileSystemAuditLogConfiguration();
-            o.auditLogDestination = auditLogDestination;
-            o.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
-            o.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
-            return o;
+            final var _resultValue = new WindowsFileSystemAuditLogConfiguration();
+            _resultValue.auditLogDestination = auditLogDestination;
+            _resultValue.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
+            _resultValue.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
+            return _resultValue;
         }
     }
 }

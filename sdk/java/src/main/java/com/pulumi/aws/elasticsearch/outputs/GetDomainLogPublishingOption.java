@@ -85,11 +85,11 @@ public final class GetDomainLogPublishingOption {
             return this;
         }
         public GetDomainLogPublishingOption build() {
-            final var o = new GetDomainLogPublishingOption();
-            o.cloudwatchLogGroupArn = cloudwatchLogGroupArn;
-            o.enabled = enabled;
-            o.logType = logType;
-            return o;
+            final var _resultValue = new GetDomainLogPublishingOption();
+            _resultValue.cloudwatchLogGroupArn = cloudwatchLogGroupArn;
+            _resultValue.enabled = enabled;
+            _resultValue.logType = logType;
+            return _resultValue;
         }
     }
 }

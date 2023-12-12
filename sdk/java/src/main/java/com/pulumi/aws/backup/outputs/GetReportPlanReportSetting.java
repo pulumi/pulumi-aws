@@ -155,14 +155,14 @@ public final class GetReportPlanReportSetting {
             return this;
         }
         public GetReportPlanReportSetting build() {
-            final var o = new GetReportPlanReportSetting();
-            o.accounts = accounts;
-            o.frameworkArns = frameworkArns;
-            o.numberOfFrameworks = numberOfFrameworks;
-            o.organizationUnits = organizationUnits;
-            o.regions = regions;
-            o.reportTemplate = reportTemplate;
-            return o;
+            final var _resultValue = new GetReportPlanReportSetting();
+            _resultValue.accounts = accounts;
+            _resultValue.frameworkArns = frameworkArns;
+            _resultValue.numberOfFrameworks = numberOfFrameworks;
+            _resultValue.organizationUnits = organizationUnits;
+            _resultValue.regions = regions;
+            _resultValue.reportTemplate = reportTemplate;
+            return _resultValue;
         }
     }
 }

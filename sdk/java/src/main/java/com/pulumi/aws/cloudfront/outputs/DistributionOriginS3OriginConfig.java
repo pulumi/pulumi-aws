@@ -46,9 +46,9 @@ public final class DistributionOriginS3OriginConfig {
             return this;
         }
         public DistributionOriginS3OriginConfig build() {
-            final var o = new DistributionOriginS3OriginConfig();
-            o.originAccessIdentity = originAccessIdentity;
-            return o;
+            final var _resultValue = new DistributionOriginS3OriginConfig();
+            _resultValue.originAccessIdentity = originAccessIdentity;
+            return _resultValue;
         }
     }
 }

@@ -42,9 +42,9 @@ public final class GetVirtualGatewaySpecLogging {
             return accessLogs(List.of(accessLogs));
         }
         public GetVirtualGatewaySpecLogging build() {
-            final var o = new GetVirtualGatewaySpecLogging();
-            o.accessLogs = accessLogs;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecLogging();
+            _resultValue.accessLogs = accessLogs;
+            return _resultValue;
         }
     }
 }

@@ -71,12 +71,12 @@ public final class GetReplicationGroupLogDeliveryConfiguration {
             return this;
         }
         public GetReplicationGroupLogDeliveryConfiguration build() {
-            final var o = new GetReplicationGroupLogDeliveryConfiguration();
-            o.destination = destination;
-            o.destinationType = destinationType;
-            o.logFormat = logFormat;
-            o.logType = logType;
-            return o;
+            final var _resultValue = new GetReplicationGroupLogDeliveryConfiguration();
+            _resultValue.destination = destination;
+            _resultValue.destinationType = destinationType;
+            _resultValue.logFormat = logFormat;
+            _resultValue.logType = logType;
+            return _resultValue;
         }
     }
 }

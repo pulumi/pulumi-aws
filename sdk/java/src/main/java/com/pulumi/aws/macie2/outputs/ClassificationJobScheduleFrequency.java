@@ -92,11 +92,11 @@ public final class ClassificationJobScheduleFrequency {
             return this;
         }
         public ClassificationJobScheduleFrequency build() {
-            final var o = new ClassificationJobScheduleFrequency();
-            o.dailySchedule = dailySchedule;
-            o.monthlySchedule = monthlySchedule;
-            o.weeklySchedule = weeklySchedule;
-            return o;
+            final var _resultValue = new ClassificationJobScheduleFrequency();
+            _resultValue.dailySchedule = dailySchedule;
+            _resultValue.monthlySchedule = monthlySchedule;
+            _resultValue.weeklySchedule = weeklySchedule;
+            return _resultValue;
         }
     }
 }

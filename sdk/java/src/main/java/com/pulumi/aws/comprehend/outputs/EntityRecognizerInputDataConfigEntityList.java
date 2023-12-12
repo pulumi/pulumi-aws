@@ -46,9 +46,9 @@ public final class EntityRecognizerInputDataConfigEntityList {
             return this;
         }
         public EntityRecognizerInputDataConfigEntityList build() {
-            final var o = new EntityRecognizerInputDataConfigEntityList();
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new EntityRecognizerInputDataConfigEntityList();
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

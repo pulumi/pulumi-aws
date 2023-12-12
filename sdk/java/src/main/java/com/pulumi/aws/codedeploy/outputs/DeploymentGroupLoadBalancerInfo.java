@@ -95,11 +95,11 @@ public final class DeploymentGroupLoadBalancerInfo {
             return this;
         }
         public DeploymentGroupLoadBalancerInfo build() {
-            final var o = new DeploymentGroupLoadBalancerInfo();
-            o.elbInfos = elbInfos;
-            o.targetGroupInfos = targetGroupInfos;
-            o.targetGroupPairInfo = targetGroupPairInfo;
-            return o;
+            final var _resultValue = new DeploymentGroupLoadBalancerInfo();
+            _resultValue.elbInfos = elbInfos;
+            _resultValue.targetGroupInfos = targetGroupInfos;
+            _resultValue.targetGroupPairInfo = targetGroupPairInfo;
+            return _resultValue;
         }
     }
 }

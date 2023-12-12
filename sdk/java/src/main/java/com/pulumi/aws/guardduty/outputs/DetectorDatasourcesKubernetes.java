@@ -48,9 +48,9 @@ public final class DetectorDatasourcesKubernetes {
             return this;
         }
         public DetectorDatasourcesKubernetes build() {
-            final var o = new DetectorDatasourcesKubernetes();
-            o.auditLogs = auditLogs;
-            return o;
+            final var _resultValue = new DetectorDatasourcesKubernetes();
+            _resultValue.auditLogs = auditLogs;
+            return _resultValue;
         }
     }
 }

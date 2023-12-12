@@ -68,10 +68,10 @@ public final class AccountThrottleSetting {
             return this;
         }
         public AccountThrottleSetting build() {
-            final var o = new AccountThrottleSetting();
-            o.burstLimit = burstLimit;
-            o.rateLimit = rateLimit;
-            return o;
+            final var _resultValue = new AccountThrottleSetting();
+            _resultValue.burstLimit = burstLimit;
+            _resultValue.rateLimit = rateLimit;
+            return _resultValue;
         }
     }
 }

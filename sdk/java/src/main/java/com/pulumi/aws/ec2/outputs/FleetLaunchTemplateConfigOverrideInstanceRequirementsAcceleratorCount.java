@@ -67,10 +67,10 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

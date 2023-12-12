@@ -90,11 +90,11 @@ public final class DocumentAttachmentsSource {
             return values(List.of(values));
         }
         public DocumentAttachmentsSource build() {
-            final var o = new DocumentAttachmentsSource();
-            o.key = key;
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new DocumentAttachmentsSource();
+            _resultValue.key = key;
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

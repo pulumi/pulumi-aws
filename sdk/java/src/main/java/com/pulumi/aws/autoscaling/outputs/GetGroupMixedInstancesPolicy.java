@@ -73,10 +73,10 @@ public final class GetGroupMixedInstancesPolicy {
             return launchTemplates(List.of(launchTemplates));
         }
         public GetGroupMixedInstancesPolicy build() {
-            final var o = new GetGroupMixedInstancesPolicy();
-            o.instancesDistributions = instancesDistributions;
-            o.launchTemplates = launchTemplates;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicy();
+            _resultValue.instancesDistributions = instancesDistributions;
+            _resultValue.launchTemplates = launchTemplates;
+            return _resultValue;
         }
     }
 }

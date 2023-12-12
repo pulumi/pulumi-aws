@@ -87,11 +87,11 @@ public final class EndpointConnectionLogOptions {
             return this;
         }
         public EndpointConnectionLogOptions build() {
-            final var o = new EndpointConnectionLogOptions();
-            o.cloudwatchLogGroup = cloudwatchLogGroup;
-            o.cloudwatchLogStream = cloudwatchLogStream;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new EndpointConnectionLogOptions();
+            _resultValue.cloudwatchLogGroup = cloudwatchLogGroup;
+            _resultValue.cloudwatchLogStream = cloudwatchLogStream;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

@@ -129,13 +129,13 @@ public final class WebAclRule {
             return this;
         }
         public WebAclRule build() {
-            final var o = new WebAclRule();
-            o.action = action;
-            o.overrideAction = overrideAction;
-            o.priority = priority;
-            o.ruleId = ruleId;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRule();
+            _resultValue.action = action;
+            _resultValue.overrideAction = overrideAction;
+            _resultValue.priority = priority;
+            _resultValue.ruleId = ruleId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

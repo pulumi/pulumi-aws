@@ -84,11 +84,11 @@ public final class GetInstanceMasterUserSecret {
             return this;
         }
         public GetInstanceMasterUserSecret build() {
-            final var o = new GetInstanceMasterUserSecret();
-            o.kmsKeyId = kmsKeyId;
-            o.secretArn = secretArn;
-            o.secretStatus = secretStatus;
-            return o;
+            final var _resultValue = new GetInstanceMasterUserSecret();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.secretArn = secretArn;
+            _resultValue.secretStatus = secretStatus;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class GroupResourceQuery {
             return this;
         }
         public GroupResourceQuery build() {
-            final var o = new GroupResourceQuery();
-            o.query = query;
-            o.type = type;
-            return o;
+            final var _resultValue = new GroupResourceQuery();
+            _resultValue.query = query;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

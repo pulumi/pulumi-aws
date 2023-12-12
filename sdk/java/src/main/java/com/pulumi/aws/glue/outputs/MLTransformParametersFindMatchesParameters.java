@@ -107,12 +107,12 @@ public final class MLTransformParametersFindMatchesParameters {
             return this;
         }
         public MLTransformParametersFindMatchesParameters build() {
-            final var o = new MLTransformParametersFindMatchesParameters();
-            o.accuracyCostTradeOff = accuracyCostTradeOff;
-            o.enforceProvidedLabels = enforceProvidedLabels;
-            o.precisionRecallTradeOff = precisionRecallTradeOff;
-            o.primaryKeyColumnName = primaryKeyColumnName;
-            return o;
+            final var _resultValue = new MLTransformParametersFindMatchesParameters();
+            _resultValue.accuracyCostTradeOff = accuracyCostTradeOff;
+            _resultValue.enforceProvidedLabels = enforceProvidedLabels;
+            _resultValue.precisionRecallTradeOff = precisionRecallTradeOff;
+            _resultValue.primaryKeyColumnName = primaryKeyColumnName;
+            return _resultValue;
         }
     }
 }

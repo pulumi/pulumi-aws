@@ -72,10 +72,10 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStrings {
             return queryStringsAllowedLists(List.of(queryStringsAllowedLists));
         }
         public DistributionCacheBehaviorSettingsForwardedQueryStrings build() {
-            final var o = new DistributionCacheBehaviorSettingsForwardedQueryStrings();
-            o.option = option;
-            o.queryStringsAllowedLists = queryStringsAllowedLists;
-            return o;
+            final var _resultValue = new DistributionCacheBehaviorSettingsForwardedQueryStrings();
+            _resultValue.option = option;
+            _resultValue.queryStringsAllowedLists = queryStringsAllowedLists;
+            return _resultValue;
         }
     }
 }

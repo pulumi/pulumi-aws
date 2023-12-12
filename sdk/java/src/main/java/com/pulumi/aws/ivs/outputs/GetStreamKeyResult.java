@@ -115,13 +115,13 @@ public final class GetStreamKeyResult {
             return this;
         }
         public GetStreamKeyResult build() {
-            final var o = new GetStreamKeyResult();
-            o.arn = arn;
-            o.channelArn = channelArn;
-            o.id = id;
-            o.tags = tags;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetStreamKeyResult();
+            _resultValue.arn = arn;
+            _resultValue.channelArn = channelArn;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

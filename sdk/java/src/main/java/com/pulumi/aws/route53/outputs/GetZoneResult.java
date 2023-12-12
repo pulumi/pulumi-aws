@@ -262,22 +262,22 @@ public final class GetZoneResult {
             return this;
         }
         public GetZoneResult build() {
-            final var o = new GetZoneResult();
-            o.arn = arn;
-            o.callerReference = callerReference;
-            o.comment = comment;
-            o.id = id;
-            o.linkedServiceDescription = linkedServiceDescription;
-            o.linkedServicePrincipal = linkedServicePrincipal;
-            o.name = name;
-            o.nameServers = nameServers;
-            o.primaryNameServer = primaryNameServer;
-            o.privateZone = privateZone;
-            o.resourceRecordSetCount = resourceRecordSetCount;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            o.zoneId = zoneId;
-            return o;
+            final var _resultValue = new GetZoneResult();
+            _resultValue.arn = arn;
+            _resultValue.callerReference = callerReference;
+            _resultValue.comment = comment;
+            _resultValue.id = id;
+            _resultValue.linkedServiceDescription = linkedServiceDescription;
+            _resultValue.linkedServicePrincipal = linkedServicePrincipal;
+            _resultValue.name = name;
+            _resultValue.nameServers = nameServers;
+            _resultValue.primaryNameServer = primaryNameServer;
+            _resultValue.privateZone = privateZone;
+            _resultValue.resourceRecordSetCount = resourceRecordSetCount;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            _resultValue.zoneId = zoneId;
+            return _resultValue;
         }
     }
 }

@@ -82,11 +82,11 @@ public final class GetGlobalNetworksResult {
             return this;
         }
         public GetGlobalNetworksResult build() {
-            final var o = new GetGlobalNetworksResult();
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetGlobalNetworksResult();
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

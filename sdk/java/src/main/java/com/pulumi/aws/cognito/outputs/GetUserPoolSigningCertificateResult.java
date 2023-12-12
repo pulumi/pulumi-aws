@@ -76,11 +76,11 @@ public final class GetUserPoolSigningCertificateResult {
             return this;
         }
         public GetUserPoolSigningCertificateResult build() {
-            final var o = new GetUserPoolSigningCertificateResult();
-            o.certificate = certificate;
-            o.id = id;
-            o.userPoolId = userPoolId;
-            return o;
+            final var _resultValue = new GetUserPoolSigningCertificateResult();
+            _resultValue.certificate = certificate;
+            _resultValue.id = id;
+            _resultValue.userPoolId = userPoolId;
+            return _resultValue;
         }
     }
 }

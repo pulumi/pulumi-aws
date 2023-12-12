@@ -50,9 +50,9 @@ public final class WebAclLoggingConfigurationRedactedFields {
             return fieldToMatches(List.of(fieldToMatches));
         }
         public WebAclLoggingConfigurationRedactedFields build() {
-            final var o = new WebAclLoggingConfigurationRedactedFields();
-            o.fieldToMatches = fieldToMatches;
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationRedactedFields();
+            _resultValue.fieldToMatches = fieldToMatches;
+            return _resultValue;
         }
     }
 }

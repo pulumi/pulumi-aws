@@ -53,10 +53,10 @@ public final class GetSecurityGroupsFilter {
             return values(List.of(values));
         }
         public GetSecurityGroupsFilter build() {
-            final var o = new GetSecurityGroupsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetSecurityGroupsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

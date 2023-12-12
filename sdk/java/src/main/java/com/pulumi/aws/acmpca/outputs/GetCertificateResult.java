@@ -106,13 +106,13 @@ public final class GetCertificateResult {
             return this;
         }
         public GetCertificateResult build() {
-            final var o = new GetCertificateResult();
-            o.arn = arn;
-            o.certificate = certificate;
-            o.certificateAuthorityArn = certificateAuthorityArn;
-            o.certificateChain = certificateChain;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetCertificateResult();
+            _resultValue.arn = arn;
+            _resultValue.certificate = certificate;
+            _resultValue.certificateAuthorityArn = certificateAuthorityArn;
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

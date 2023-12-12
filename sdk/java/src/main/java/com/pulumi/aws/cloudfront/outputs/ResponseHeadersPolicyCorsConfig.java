@@ -167,15 +167,15 @@ public final class ResponseHeadersPolicyCorsConfig {
             return this;
         }
         public ResponseHeadersPolicyCorsConfig build() {
-            final var o = new ResponseHeadersPolicyCorsConfig();
-            o.accessControlAllowCredentials = accessControlAllowCredentials;
-            o.accessControlAllowHeaders = accessControlAllowHeaders;
-            o.accessControlAllowMethods = accessControlAllowMethods;
-            o.accessControlAllowOrigins = accessControlAllowOrigins;
-            o.accessControlExposeHeaders = accessControlExposeHeaders;
-            o.accessControlMaxAgeSec = accessControlMaxAgeSec;
-            o.originOverride = originOverride;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicyCorsConfig();
+            _resultValue.accessControlAllowCredentials = accessControlAllowCredentials;
+            _resultValue.accessControlAllowHeaders = accessControlAllowHeaders;
+            _resultValue.accessControlAllowMethods = accessControlAllowMethods;
+            _resultValue.accessControlAllowOrigins = accessControlAllowOrigins;
+            _resultValue.accessControlExposeHeaders = accessControlExposeHeaders;
+            _resultValue.accessControlMaxAgeSec = accessControlMaxAgeSec;
+            _resultValue.originOverride = originOverride;
+            return _resultValue;
         }
     }
 }

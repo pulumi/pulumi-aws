@@ -215,17 +215,17 @@ public final class AppMonitorAppMonitorConfiguration {
             return telemetries(List.of(telemetries));
         }
         public AppMonitorAppMonitorConfiguration build() {
-            final var o = new AppMonitorAppMonitorConfiguration();
-            o.allowCookies = allowCookies;
-            o.enableXray = enableXray;
-            o.excludedPages = excludedPages;
-            o.favoritePages = favoritePages;
-            o.guestRoleArn = guestRoleArn;
-            o.identityPoolId = identityPoolId;
-            o.includedPages = includedPages;
-            o.sessionSampleRate = sessionSampleRate;
-            o.telemetries = telemetries;
-            return o;
+            final var _resultValue = new AppMonitorAppMonitorConfiguration();
+            _resultValue.allowCookies = allowCookies;
+            _resultValue.enableXray = enableXray;
+            _resultValue.excludedPages = excludedPages;
+            _resultValue.favoritePages = favoritePages;
+            _resultValue.guestRoleArn = guestRoleArn;
+            _resultValue.identityPoolId = identityPoolId;
+            _resultValue.includedPages = includedPages;
+            _resultValue.sessionSampleRate = sessionSampleRate;
+            _resultValue.telemetries = telemetries;
+            return _resultValue;
         }
     }
 }

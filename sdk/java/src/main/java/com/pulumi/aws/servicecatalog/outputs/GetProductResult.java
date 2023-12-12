@@ -300,23 +300,23 @@ public final class GetProductResult {
             return this;
         }
         public GetProductResult build() {
-            final var o = new GetProductResult();
-            o.acceptLanguage = acceptLanguage;
-            o.arn = arn;
-            o.createdTime = createdTime;
-            o.description = description;
-            o.distributor = distributor;
-            o.hasDefaultPath = hasDefaultPath;
-            o.id = id;
-            o.name = name;
-            o.owner = owner;
-            o.status = status;
-            o.supportDescription = supportDescription;
-            o.supportEmail = supportEmail;
-            o.supportUrl = supportUrl;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetProductResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.arn = arn;
+            _resultValue.createdTime = createdTime;
+            _resultValue.description = description;
+            _resultValue.distributor = distributor;
+            _resultValue.hasDefaultPath = hasDefaultPath;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.status = status;
+            _resultValue.supportDescription = supportDescription;
+            _resultValue.supportEmail = supportEmail;
+            _resultValue.supportUrl = supportUrl;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

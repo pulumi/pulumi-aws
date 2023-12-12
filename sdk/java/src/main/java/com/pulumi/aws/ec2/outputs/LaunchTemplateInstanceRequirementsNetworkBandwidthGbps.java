@@ -67,10 +67,10 @@ public final class LaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
             return this;
         }
         public LaunchTemplateInstanceRequirementsNetworkBandwidthGbps build() {
-            final var o = new LaunchTemplateInstanceRequirementsNetworkBandwidthGbps();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new LaunchTemplateInstanceRequirementsNetworkBandwidthGbps();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

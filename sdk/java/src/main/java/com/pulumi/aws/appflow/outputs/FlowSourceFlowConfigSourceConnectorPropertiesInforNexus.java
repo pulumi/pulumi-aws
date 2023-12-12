@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesInforNexus {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesInforNexus build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesInforNexus();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesInforNexus();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

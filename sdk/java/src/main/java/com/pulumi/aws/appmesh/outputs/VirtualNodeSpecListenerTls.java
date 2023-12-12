@@ -88,11 +88,11 @@ public final class VirtualNodeSpecListenerTls {
             return this;
         }
         public VirtualNodeSpecListenerTls build() {
-            final var o = new VirtualNodeSpecListenerTls();
-            o.certificate = certificate;
-            o.mode = mode;
-            o.validation = validation;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTls();
+            _resultValue.certificate = certificate;
+            _resultValue.mode = mode;
+            _resultValue.validation = validation;
+            return _resultValue;
         }
     }
 }

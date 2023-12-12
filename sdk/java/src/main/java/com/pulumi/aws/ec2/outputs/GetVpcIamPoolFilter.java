@@ -69,10 +69,10 @@ public final class GetVpcIamPoolFilter {
             return values(List.of(values));
         }
         public GetVpcIamPoolFilter build() {
-            final var o = new GetVpcIamPoolFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpcIamPoolFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class VirtualRouterSpecListenerPortMapping {
             return this;
         }
         public VirtualRouterSpecListenerPortMapping build() {
-            final var o = new VirtualRouterSpecListenerPortMapping();
-            o.port = port;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new VirtualRouterSpecListenerPortMapping();
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

@@ -89,11 +89,11 @@ public final class CustomRoutingEndpointGroupDestinationConfiguration {
             return this;
         }
         public CustomRoutingEndpointGroupDestinationConfiguration build() {
-            final var o = new CustomRoutingEndpointGroupDestinationConfiguration();
-            o.fromPort = fromPort;
-            o.protocols = protocols;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new CustomRoutingEndpointGroupDestinationConfiguration();
+            _resultValue.fromPort = fromPort;
+            _resultValue.protocols = protocols;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

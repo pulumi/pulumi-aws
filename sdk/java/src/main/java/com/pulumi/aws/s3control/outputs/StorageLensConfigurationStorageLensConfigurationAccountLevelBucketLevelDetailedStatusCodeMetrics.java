@@ -48,9 +48,9 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

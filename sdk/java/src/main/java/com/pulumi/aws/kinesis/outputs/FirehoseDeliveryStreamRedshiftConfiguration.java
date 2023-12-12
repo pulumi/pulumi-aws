@@ -281,21 +281,21 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
             return this;
         }
         public FirehoseDeliveryStreamRedshiftConfiguration build() {
-            final var o = new FirehoseDeliveryStreamRedshiftConfiguration();
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.clusterJdbcurl = clusterJdbcurl;
-            o.copyOptions = copyOptions;
-            o.dataTableColumns = dataTableColumns;
-            o.dataTableName = dataTableName;
-            o.password = password;
-            o.processingConfiguration = processingConfiguration;
-            o.retryDuration = retryDuration;
-            o.roleArn = roleArn;
-            o.s3BackupConfiguration = s3BackupConfiguration;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            o.username = username;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamRedshiftConfiguration();
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.clusterJdbcurl = clusterJdbcurl;
+            _resultValue.copyOptions = copyOptions;
+            _resultValue.dataTableColumns = dataTableColumns;
+            _resultValue.dataTableName = dataTableName;
+            _resultValue.password = password;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3BackupConfiguration = s3BackupConfiguration;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

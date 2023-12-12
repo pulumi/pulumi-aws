@@ -252,20 +252,20 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.arn = arn;
-            o.directoryUserId = directoryUserId;
-            o.hierarchyGroupId = hierarchyGroupId;
-            o.id = id;
-            o.identityInfos = identityInfos;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.phoneConfigs = phoneConfigs;
-            o.routingProfileId = routingProfileId;
-            o.securityProfileIds = securityProfileIds;
-            o.tags = tags;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.arn = arn;
+            _resultValue.directoryUserId = directoryUserId;
+            _resultValue.hierarchyGroupId = hierarchyGroupId;
+            _resultValue.id = id;
+            _resultValue.identityInfos = identityInfos;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.phoneConfigs = phoneConfigs;
+            _resultValue.routingProfileId = routingProfileId;
+            _resultValue.securityProfileIds = securityProfileIds;
+            _resultValue.tags = tags;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

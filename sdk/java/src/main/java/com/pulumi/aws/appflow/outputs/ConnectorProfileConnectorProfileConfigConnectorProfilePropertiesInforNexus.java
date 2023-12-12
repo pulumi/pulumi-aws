@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus();
-            o.instanceUrl = instanceUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus();
+            _resultValue.instanceUrl = instanceUrl;
+            return _resultValue;
         }
     }
 }

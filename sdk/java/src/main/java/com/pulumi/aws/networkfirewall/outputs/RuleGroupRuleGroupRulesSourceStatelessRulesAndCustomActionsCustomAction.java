@@ -66,10 +66,10 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
             return this;
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction();
-            o.actionDefinition = actionDefinition;
-            o.actionName = actionName;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction();
+            _resultValue.actionDefinition = actionDefinition;
+            _resultValue.actionName = actionName;
+            return _resultValue;
         }
     }
 }

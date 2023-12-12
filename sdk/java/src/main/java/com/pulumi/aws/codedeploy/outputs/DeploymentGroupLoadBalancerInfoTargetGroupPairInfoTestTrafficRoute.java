@@ -50,9 +50,9 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTraffic
             return listenerArns(List.of(listenerArns));
         }
         public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute build() {
-            final var o = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute();
-            o.listenerArns = listenerArns;
-            return o;
+            final var _resultValue = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute();
+            _resultValue.listenerArns = listenerArns;
+            return _resultValue;
         }
     }
 }

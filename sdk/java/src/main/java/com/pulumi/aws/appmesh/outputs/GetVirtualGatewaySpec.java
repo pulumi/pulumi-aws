@@ -72,11 +72,11 @@ public final class GetVirtualGatewaySpec {
             return loggings(List.of(loggings));
         }
         public GetVirtualGatewaySpec build() {
-            final var o = new GetVirtualGatewaySpec();
-            o.backendDefaults = backendDefaults;
-            o.listeners = listeners;
-            o.loggings = loggings;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpec();
+            _resultValue.backendDefaults = backendDefaults;
+            _resultValue.listeners = listeners;
+            _resultValue.loggings = loggings;
+            return _resultValue;
         }
     }
 }

@@ -239,20 +239,20 @@ public final class GetEngineVersionResult {
             return this;
         }
         public GetEngineVersionResult build() {
-            final var o = new GetEngineVersionResult();
-            o.engine = engine;
-            o.engineDescription = engineDescription;
-            o.exportableLogTypes = exportableLogTypes;
-            o.id = id;
-            o.parameterGroupFamily = parameterGroupFamily;
-            o.preferredVersions = preferredVersions;
-            o.supportedTimezones = supportedTimezones;
-            o.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
-            o.supportsReadReplica = supportsReadReplica;
-            o.validUpgradeTargets = validUpgradeTargets;
-            o.version = version;
-            o.versionDescription = versionDescription;
-            return o;
+            final var _resultValue = new GetEngineVersionResult();
+            _resultValue.engine = engine;
+            _resultValue.engineDescription = engineDescription;
+            _resultValue.exportableLogTypes = exportableLogTypes;
+            _resultValue.id = id;
+            _resultValue.parameterGroupFamily = parameterGroupFamily;
+            _resultValue.preferredVersions = preferredVersions;
+            _resultValue.supportedTimezones = supportedTimezones;
+            _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
+            _resultValue.supportsReadReplica = supportsReadReplica;
+            _resultValue.validUpgradeTargets = validUpgradeTargets;
+            _resultValue.version = version;
+            _resultValue.versionDescription = versionDescription;
+            return _resultValue;
         }
     }
 }

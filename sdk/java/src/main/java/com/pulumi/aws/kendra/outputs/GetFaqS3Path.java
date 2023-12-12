@@ -65,10 +65,10 @@ public final class GetFaqS3Path {
             return this;
         }
         public GetFaqS3Path build() {
-            final var o = new GetFaqS3Path();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new GetFaqS3Path();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

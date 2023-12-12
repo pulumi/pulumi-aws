@@ -48,9 +48,9 @@ public final class DashboardDashboardPublishOptionsDataPointDrillUpDownOption {
             return this;
         }
         public DashboardDashboardPublishOptionsDataPointDrillUpDownOption build() {
-            final var o = new DashboardDashboardPublishOptionsDataPointDrillUpDownOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsDataPointDrillUpDownOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

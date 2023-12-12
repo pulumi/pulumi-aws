@@ -46,9 +46,9 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
             return this;
         }
         public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation build() {
-            final var o = new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation();
-            o.awsLambda = awsLambda;
-            return o;
+            final var _resultValue = new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation();
+            _resultValue.awsLambda = awsLambda;
+            return _resultValue;
         }
     }
 }

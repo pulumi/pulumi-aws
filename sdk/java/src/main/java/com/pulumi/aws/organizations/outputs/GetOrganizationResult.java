@@ -255,19 +255,19 @@ public final class GetOrganizationResult {
             return roots(List.of(roots));
         }
         public GetOrganizationResult build() {
-            final var o = new GetOrganizationResult();
-            o.accounts = accounts;
-            o.arn = arn;
-            o.awsServiceAccessPrincipals = awsServiceAccessPrincipals;
-            o.enabledPolicyTypes = enabledPolicyTypes;
-            o.featureSet = featureSet;
-            o.id = id;
-            o.masterAccountArn = masterAccountArn;
-            o.masterAccountEmail = masterAccountEmail;
-            o.masterAccountId = masterAccountId;
-            o.nonMasterAccounts = nonMasterAccounts;
-            o.roots = roots;
-            return o;
+            final var _resultValue = new GetOrganizationResult();
+            _resultValue.accounts = accounts;
+            _resultValue.arn = arn;
+            _resultValue.awsServiceAccessPrincipals = awsServiceAccessPrincipals;
+            _resultValue.enabledPolicyTypes = enabledPolicyTypes;
+            _resultValue.featureSet = featureSet;
+            _resultValue.id = id;
+            _resultValue.masterAccountArn = masterAccountArn;
+            _resultValue.masterAccountEmail = masterAccountEmail;
+            _resultValue.masterAccountId = masterAccountId;
+            _resultValue.nonMasterAccounts = nonMasterAccounts;
+            _resultValue.roots = roots;
+            return _resultValue;
         }
     }
 }

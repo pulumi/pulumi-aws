@@ -86,11 +86,11 @@ public final class GetScriptDagEdge {
             return this;
         }
         public GetScriptDagEdge build() {
-            final var o = new GetScriptDagEdge();
-            o.source = source;
-            o.target = target;
-            o.targetParameter = targetParameter;
-            return o;
+            final var _resultValue = new GetScriptDagEdge();
+            _resultValue.source = source;
+            _resultValue.target = target;
+            _resultValue.targetParameter = targetParameter;
+            return _resultValue;
         }
     }
 }

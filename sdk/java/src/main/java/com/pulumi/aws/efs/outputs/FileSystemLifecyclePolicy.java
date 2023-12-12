@@ -67,10 +67,10 @@ public final class FileSystemLifecyclePolicy {
             return this;
         }
         public FileSystemLifecyclePolicy build() {
-            final var o = new FileSystemLifecyclePolicy();
-            o.transitionToIa = transitionToIa;
-            o.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
-            return o;
+            final var _resultValue = new FileSystemLifecyclePolicy();
+            _resultValue.transitionToIa = transitionToIa;
+            _resultValue.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
+            return _resultValue;
         }
     }
 }

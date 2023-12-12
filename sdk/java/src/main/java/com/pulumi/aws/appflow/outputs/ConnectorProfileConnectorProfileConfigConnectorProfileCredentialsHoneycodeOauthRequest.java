@@ -67,10 +67,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest();
-            o.authCode = authCode;
-            o.redirectUri = redirectUri;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest();
+            _resultValue.authCode = authCode;
+            _resultValue.redirectUri = redirectUri;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class GetCatalogTableStorageDescriptorSerDeInfo {
             return this;
         }
         public GetCatalogTableStorageDescriptorSerDeInfo build() {
-            final var o = new GetCatalogTableStorageDescriptorSerDeInfo();
-            o.name = name;
-            o.parameters = parameters;
-            o.serializationLibrary = serializationLibrary;
-            return o;
+            final var _resultValue = new GetCatalogTableStorageDescriptorSerDeInfo();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.serializationLibrary = serializationLibrary;
+            return _resultValue;
         }
     }
 }

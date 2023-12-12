@@ -106,12 +106,12 @@ public final class ServiceServiceRegistries {
             return this;
         }
         public ServiceServiceRegistries build() {
-            final var o = new ServiceServiceRegistries();
-            o.containerName = containerName;
-            o.containerPort = containerPort;
-            o.port = port;
-            o.registryArn = registryArn;
-            return o;
+            final var _resultValue = new ServiceServiceRegistries();
+            _resultValue.containerName = containerName;
+            _resultValue.containerPort = containerPort;
+            _resultValue.port = port;
+            _resultValue.registryArn = registryArn;
+            return _resultValue;
         }
     }
 }

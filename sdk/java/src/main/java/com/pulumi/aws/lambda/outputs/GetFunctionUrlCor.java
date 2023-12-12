@@ -108,14 +108,14 @@ public final class GetFunctionUrlCor {
             return this;
         }
         public GetFunctionUrlCor build() {
-            final var o = new GetFunctionUrlCor();
-            o.allowCredentials = allowCredentials;
-            o.allowHeaders = allowHeaders;
-            o.allowMethods = allowMethods;
-            o.allowOrigins = allowOrigins;
-            o.exposeHeaders = exposeHeaders;
-            o.maxAge = maxAge;
-            return o;
+            final var _resultValue = new GetFunctionUrlCor();
+            _resultValue.allowCredentials = allowCredentials;
+            _resultValue.allowHeaders = allowHeaders;
+            _resultValue.allowMethods = allowMethods;
+            _resultValue.allowOrigins = allowOrigins;
+            _resultValue.exposeHeaders = exposeHeaders;
+            _resultValue.maxAge = maxAge;
+            return _resultValue;
         }
     }
 }

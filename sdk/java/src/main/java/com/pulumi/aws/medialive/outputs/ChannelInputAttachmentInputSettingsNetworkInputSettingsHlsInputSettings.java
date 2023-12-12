@@ -117,13 +117,13 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
             return this;
         }
         public ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings();
-            o.bandwidth = bandwidth;
-            o.bufferSegments = bufferSegments;
-            o.retries = retries;
-            o.retryInterval = retryInterval;
-            o.scte35Source = scte35Source;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings();
+            _resultValue.bandwidth = bandwidth;
+            _resultValue.bufferSegments = bufferSegments;
+            _resultValue.retries = retries;
+            _resultValue.retryInterval = retryInterval;
+            _resultValue.scte35Source = scte35Source;
+            return _resultValue;
         }
     }
 }

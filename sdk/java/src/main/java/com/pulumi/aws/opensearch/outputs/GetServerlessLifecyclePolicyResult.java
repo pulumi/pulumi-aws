@@ -155,16 +155,16 @@ public final class GetServerlessLifecyclePolicyResult {
             return this;
         }
         public GetServerlessLifecyclePolicyResult build() {
-            final var o = new GetServerlessLifecyclePolicyResult();
-            o.createdDate = createdDate;
-            o.description = description;
-            o.id = id;
-            o.lastModifiedDate = lastModifiedDate;
-            o.name = name;
-            o.policy = policy;
-            o.policyVersion = policyVersion;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetServerlessLifecyclePolicyResult();
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.lastModifiedDate = lastModifiedDate;
+            _resultValue.name = name;
+            _resultValue.policy = policy;
+            _resultValue.policyVersion = policyVersion;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

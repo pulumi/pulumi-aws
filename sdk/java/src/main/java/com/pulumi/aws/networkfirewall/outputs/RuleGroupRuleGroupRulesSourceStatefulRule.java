@@ -90,11 +90,11 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRule {
             return ruleOptions(List.of(ruleOptions));
         }
         public RuleGroupRuleGroupRulesSourceStatefulRule build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatefulRule();
-            o.action = action;
-            o.header = header;
-            o.ruleOptions = ruleOptions;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatefulRule();
+            _resultValue.action = action;
+            _resultValue.header = header;
+            _resultValue.ruleOptions = ruleOptions;
+            return _resultValue;
         }
     }
 }

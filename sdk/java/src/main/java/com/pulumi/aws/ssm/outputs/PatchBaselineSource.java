@@ -92,11 +92,11 @@ public final class PatchBaselineSource {
             return products(List.of(products));
         }
         public PatchBaselineSource build() {
-            final var o = new PatchBaselineSource();
-            o.configuration = configuration;
-            o.name = name;
-            o.products = products;
-            return o;
+            final var _resultValue = new PatchBaselineSource();
+            _resultValue.configuration = configuration;
+            _resultValue.name = name;
+            _resultValue.products = products;
+            return _resultValue;
         }
     }
 }

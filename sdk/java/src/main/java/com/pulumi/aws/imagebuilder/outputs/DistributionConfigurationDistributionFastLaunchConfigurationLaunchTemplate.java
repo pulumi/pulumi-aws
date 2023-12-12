@@ -86,11 +86,11 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationL
             return this;
         }
         public DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate build() {
-            final var o = new DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate();
-            o.launchTemplateId = launchTemplateId;
-            o.launchTemplateName = launchTemplateName;
-            o.launchTemplateVersion = launchTemplateVersion;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate();
+            _resultValue.launchTemplateId = launchTemplateId;
+            _resultValue.launchTemplateName = launchTemplateName;
+            _resultValue.launchTemplateVersion = launchTemplateVersion;
+            return _resultValue;
         }
     }
 }

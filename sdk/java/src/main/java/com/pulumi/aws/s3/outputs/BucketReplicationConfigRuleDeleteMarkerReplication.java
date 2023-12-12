@@ -46,9 +46,9 @@ public final class BucketReplicationConfigRuleDeleteMarkerReplication {
             return this;
         }
         public BucketReplicationConfigRuleDeleteMarkerReplication build() {
-            final var o = new BucketReplicationConfigRuleDeleteMarkerReplication();
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleDeleteMarkerReplication();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -82,12 +82,12 @@ public final class ClusterNode {
             return this;
         }
         public ClusterNode build() {
-            final var o = new ClusterNode();
-            o.address = address;
-            o.availabilityZone = availabilityZone;
-            o.id = id;
-            o.port = port;
-            return o;
+            final var _resultValue = new ClusterNode();
+            _resultValue.address = address;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.id = id;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

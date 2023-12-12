@@ -106,12 +106,12 @@ public final class DataSourceParametersRedshift {
             return this;
         }
         public DataSourceParametersRedshift build() {
-            final var o = new DataSourceParametersRedshift();
-            o.clusterId = clusterId;
-            o.database = database;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersRedshift();
+            _resultValue.clusterId = clusterId;
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

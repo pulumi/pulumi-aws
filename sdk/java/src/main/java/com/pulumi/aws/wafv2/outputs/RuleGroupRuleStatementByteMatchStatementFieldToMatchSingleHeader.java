@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHea
             return this;
         }
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

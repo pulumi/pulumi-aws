@@ -43,9 +43,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return staticKeySettings(List.of(staticKeySettings));
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings();
-            o.staticKeySettings = staticKeySettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings();
+            _resultValue.staticKeySettings = staticKeySettings;
+            return _resultValue;
         }
     }
 }

@@ -144,15 +144,15 @@ public final class GetImageResult {
             return this;
         }
         public GetImageResult build() {
-            final var o = new GetImageResult();
-            o.description = description;
-            o.id = id;
-            o.imageId = imageId;
-            o.name = name;
-            o.operatingSystemType = operatingSystemType;
-            o.requiredTenancy = requiredTenancy;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetImageResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.imageId = imageId;
+            _resultValue.name = name;
+            _resultValue.operatingSystemType = operatingSystemType;
+            _resultValue.requiredTenancy = requiredTenancy;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

@@ -60,10 +60,10 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfiguration {
             return this;
         }
         public OntapStorageVirtualMachineActiveDirectoryConfiguration build() {
-            final var o = new OntapStorageVirtualMachineActiveDirectoryConfiguration();
-            o.netbiosName = netbiosName;
-            o.selfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
-            return o;
+            final var _resultValue = new OntapStorageVirtualMachineActiveDirectoryConfiguration();
+            _resultValue.netbiosName = netbiosName;
+            _resultValue.selfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
+            return _resultValue;
         }
     }
 }

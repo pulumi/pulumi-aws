@@ -46,9 +46,9 @@ public final class GetGroupWarmPoolInstanceReusePolicy {
             return this;
         }
         public GetGroupWarmPoolInstanceReusePolicy build() {
-            final var o = new GetGroupWarmPoolInstanceReusePolicy();
-            o.reuseOnScaleIn = reuseOnScaleIn;
-            return o;
+            final var _resultValue = new GetGroupWarmPoolInstanceReusePolicy();
+            _resultValue.reuseOnScaleIn = reuseOnScaleIn;
+            return _resultValue;
         }
     }
 }

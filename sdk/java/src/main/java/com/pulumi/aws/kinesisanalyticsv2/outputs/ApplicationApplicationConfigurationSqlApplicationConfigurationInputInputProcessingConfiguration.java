@@ -46,9 +46,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration();
-            o.inputLambdaProcessor = inputLambdaProcessor;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration();
+            _resultValue.inputLambdaProcessor = inputLambdaProcessor;
+            return _resultValue;
         }
     }
 }

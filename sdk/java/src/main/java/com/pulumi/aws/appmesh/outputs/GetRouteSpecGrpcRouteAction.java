@@ -42,9 +42,9 @@ public final class GetRouteSpecGrpcRouteAction {
             return weightedTargets(List.of(weightedTargets));
         }
         public GetRouteSpecGrpcRouteAction build() {
-            final var o = new GetRouteSpecGrpcRouteAction();
-            o.weightedTargets = weightedTargets;
-            return o;
+            final var _resultValue = new GetRouteSpecGrpcRouteAction();
+            _resultValue.weightedTargets = weightedTargets;
+            return _resultValue;
         }
     }
 }

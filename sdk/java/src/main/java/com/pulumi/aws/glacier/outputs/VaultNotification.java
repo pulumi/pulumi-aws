@@ -69,10 +69,10 @@ public final class VaultNotification {
             return this;
         }
         public VaultNotification build() {
-            final var o = new VaultNotification();
-            o.events = events;
-            o.snsTopic = snsTopic;
-            return o;
+            final var _resultValue = new VaultNotification();
+            _resultValue.events = events;
+            _resultValue.snsTopic = snsTopic;
+            return _resultValue;
         }
     }
 }

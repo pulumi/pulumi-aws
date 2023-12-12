@@ -268,21 +268,21 @@ public final class GetDeviceResult {
             return this;
         }
         public GetDeviceResult build() {
-            final var o = new GetDeviceResult();
-            o.arn = arn;
-            o.awsLocations = awsLocations;
-            o.description = description;
-            o.deviceId = deviceId;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.locations = locations;
-            o.model = model;
-            o.serialNumber = serialNumber;
-            o.siteId = siteId;
-            o.tags = tags;
-            o.type = type;
-            o.vendor = vendor;
-            return o;
+            final var _resultValue = new GetDeviceResult();
+            _resultValue.arn = arn;
+            _resultValue.awsLocations = awsLocations;
+            _resultValue.description = description;
+            _resultValue.deviceId = deviceId;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.locations = locations;
+            _resultValue.model = model;
+            _resultValue.serialNumber = serialNumber;
+            _resultValue.siteId = siteId;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.vendor = vendor;
+            return _resultValue;
         }
     }
 }

@@ -61,11 +61,11 @@ public final class RulePredicate {
             return this;
         }
         public RulePredicate build() {
-            final var o = new RulePredicate();
-            o.dataId = dataId;
-            o.negated = negated;
-            o.type = type;
-            return o;
+            final var _resultValue = new RulePredicate();
+            _resultValue.dataId = dataId;
+            _resultValue.negated = negated;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class ConnectorKafkaClusterApacheKafkaCluster {
             return this;
         }
         public ConnectorKafkaClusterApacheKafkaCluster build() {
-            final var o = new ConnectorKafkaClusterApacheKafkaCluster();
-            o.bootstrapServers = bootstrapServers;
-            o.vpc = vpc;
-            return o;
+            final var _resultValue = new ConnectorKafkaClusterApacheKafkaCluster();
+            _resultValue.bootstrapServers = bootstrapServers;
+            _resultValue.vpc = vpc;
+            return _resultValue;
         }
     }
 }

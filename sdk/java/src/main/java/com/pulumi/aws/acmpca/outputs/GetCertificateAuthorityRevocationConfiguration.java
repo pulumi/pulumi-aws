@@ -57,10 +57,10 @@ public final class GetCertificateAuthorityRevocationConfiguration {
             return ocspConfigurations(List.of(ocspConfigurations));
         }
         public GetCertificateAuthorityRevocationConfiguration build() {
-            final var o = new GetCertificateAuthorityRevocationConfiguration();
-            o.crlConfigurations = crlConfigurations;
-            o.ocspConfigurations = ocspConfigurations;
-            return o;
+            final var _resultValue = new GetCertificateAuthorityRevocationConfiguration();
+            _resultValue.crlConfigurations = crlConfigurations;
+            _resultValue.ocspConfigurations = ocspConfigurations;
+            return _resultValue;
         }
     }
 }

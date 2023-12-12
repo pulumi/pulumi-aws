@@ -67,10 +67,10 @@ public final class WebhookAuthenticationConfiguration {
             return this;
         }
         public WebhookAuthenticationConfiguration build() {
-            final var o = new WebhookAuthenticationConfiguration();
-            o.allowedIpRange = allowedIpRange;
-            o.secretToken = secretToken;
-            return o;
+            final var _resultValue = new WebhookAuthenticationConfiguration();
+            _resultValue.allowedIpRange = allowedIpRange;
+            _resultValue.secretToken = secretToken;
+            return _resultValue;
         }
     }
 }

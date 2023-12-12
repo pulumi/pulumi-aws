@@ -90,11 +90,11 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
             return this;
         }
         public EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig build() {
-            final var o = new EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig();
-            o.errorTopic = errorTopic;
-            o.includeInferenceResponseIns = includeInferenceResponseIns;
-            o.successTopic = successTopic;
-            return o;
+            final var _resultValue = new EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig();
+            _resultValue.errorTopic = errorTopic;
+            _resultValue.includeInferenceResponseIns = includeInferenceResponseIns;
+            _resultValue.successTopic = successTopic;
+            return _resultValue;
         }
     }
 }

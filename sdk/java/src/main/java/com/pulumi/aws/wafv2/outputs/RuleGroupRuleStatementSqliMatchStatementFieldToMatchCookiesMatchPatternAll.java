@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMa
         }
 
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll();
+            return _resultValue;
         }
     }
 }

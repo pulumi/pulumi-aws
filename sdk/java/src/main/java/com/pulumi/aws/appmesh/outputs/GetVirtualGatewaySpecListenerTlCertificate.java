@@ -72,11 +72,11 @@ public final class GetVirtualGatewaySpecListenerTlCertificate {
             return sds(List.of(sds));
         }
         public GetVirtualGatewaySpecListenerTlCertificate build() {
-            final var o = new GetVirtualGatewaySpecListenerTlCertificate();
-            o.acms = acms;
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerTlCertificate();
+            _resultValue.acms = acms;
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class TablePointInTimeRecovery {
             return this;
         }
         public TablePointInTimeRecovery build() {
-            final var o = new TablePointInTimeRecovery();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new TablePointInTimeRecovery();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

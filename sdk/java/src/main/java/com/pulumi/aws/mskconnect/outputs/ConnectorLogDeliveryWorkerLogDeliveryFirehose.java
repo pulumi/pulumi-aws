@@ -68,10 +68,10 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehose {
             return this;
         }
         public ConnectorLogDeliveryWorkerLogDeliveryFirehose build() {
-            final var o = new ConnectorLogDeliveryWorkerLogDeliveryFirehose();
-            o.deliveryStream = deliveryStream;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ConnectorLogDeliveryWorkerLogDeliveryFirehose();
+            _resultValue.deliveryStream = deliveryStream;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

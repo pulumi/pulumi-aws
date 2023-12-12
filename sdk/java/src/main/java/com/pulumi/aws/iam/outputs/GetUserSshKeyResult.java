@@ -136,15 +136,15 @@ public final class GetUserSshKeyResult {
             return this;
         }
         public GetUserSshKeyResult build() {
-            final var o = new GetUserSshKeyResult();
-            o.encoding = encoding;
-            o.fingerprint = fingerprint;
-            o.id = id;
-            o.publicKey = publicKey;
-            o.sshPublicKeyId = sshPublicKeyId;
-            o.status = status;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetUserSshKeyResult();
+            _resultValue.encoding = encoding;
+            _resultValue.fingerprint = fingerprint;
+            _resultValue.id = id;
+            _resultValue.publicKey = publicKey;
+            _resultValue.sshPublicKeyId = sshPublicKeyId;
+            _resultValue.status = status;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

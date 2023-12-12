@@ -42,9 +42,9 @@ public final class GetGatewayRouteSpecGrpcRouteAction {
             return targets(List.of(targets));
         }
         public GetGatewayRouteSpecGrpcRouteAction build() {
-            final var o = new GetGatewayRouteSpecGrpcRouteAction();
-            o.targets = targets;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecGrpcRouteAction();
+            _resultValue.targets = targets;
+            return _resultValue;
         }
     }
 }

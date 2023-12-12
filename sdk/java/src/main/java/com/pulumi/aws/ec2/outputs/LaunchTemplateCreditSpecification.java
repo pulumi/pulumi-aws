@@ -54,9 +54,9 @@ public final class LaunchTemplateCreditSpecification {
             return this;
         }
         public LaunchTemplateCreditSpecification build() {
-            final var o = new LaunchTemplateCreditSpecification();
-            o.cpuCredits = cpuCredits;
-            return o;
+            final var _resultValue = new LaunchTemplateCreditSpecification();
+            _resultValue.cpuCredits = cpuCredits;
+            return _resultValue;
         }
     }
 }

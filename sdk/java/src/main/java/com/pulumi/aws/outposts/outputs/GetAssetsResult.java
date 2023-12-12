@@ -109,13 +109,13 @@ public final class GetAssetsResult {
             return statusIdFilters(List.of(statusIdFilters));
         }
         public GetAssetsResult build() {
-            final var o = new GetAssetsResult();
-            o.arn = arn;
-            o.assetIds = assetIds;
-            o.hostIdFilters = hostIdFilters;
-            o.id = id;
-            o.statusIdFilters = statusIdFilters;
-            return o;
+            final var _resultValue = new GetAssetsResult();
+            _resultValue.arn = arn;
+            _resultValue.assetIds = assetIds;
+            _resultValue.hostIdFilters = hostIdFilters;
+            _resultValue.id = id;
+            _resultValue.statusIdFilters = statusIdFilters;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauth
             return this;
         }
         public UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting build() {
-            final var o = new UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting();
-            o.dataSourceName = dataSourceName;
-            o.secretArn = secretArn;
-            o.status = status;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting();
+            _resultValue.dataSourceName = dataSourceName;
+            _resultValue.secretArn = secretArn;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class VirtualNodeSpecListenerPortMapping {
             return this;
         }
         public VirtualNodeSpecListenerPortMapping build() {
-            final var o = new VirtualNodeSpecListenerPortMapping();
-            o.port = port;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerPortMapping();
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

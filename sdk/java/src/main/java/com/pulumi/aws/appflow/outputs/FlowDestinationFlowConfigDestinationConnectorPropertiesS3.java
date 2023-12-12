@@ -87,11 +87,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3 build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.s3OutputFormatConfig = s3OutputFormatConfig;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.s3OutputFormatConfig = s3OutputFormatConfig;
+            return _resultValue;
         }
     }
 }

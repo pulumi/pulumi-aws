@@ -67,10 +67,10 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLoca
             return this;
         }
         public WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation build() {
-            final var o = new WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation();
-            o.fileSystemId = fileSystemId;
-            o.path = path;
-            return o;
+            final var _resultValue = new WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation();
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

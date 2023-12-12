@@ -204,17 +204,17 @@ public final class GetHoursOfOperationResult {
             return this;
         }
         public GetHoursOfOperationResult build() {
-            final var o = new GetHoursOfOperationResult();
-            o.arn = arn;
-            o.configs = configs;
-            o.description = description;
-            o.hoursOfOperationId = hoursOfOperationId;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.tags = tags;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new GetHoursOfOperationResult();
+            _resultValue.arn = arn;
+            _resultValue.configs = configs;
+            _resultValue.description = description;
+            _resultValue.hoursOfOperationId = hoursOfOperationId;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

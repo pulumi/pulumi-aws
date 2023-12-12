@@ -65,10 +65,10 @@ public final class AnalysisSourceEntitySourceTemplateDataSetReference {
             return this;
         }
         public AnalysisSourceEntitySourceTemplateDataSetReference build() {
-            final var o = new AnalysisSourceEntitySourceTemplateDataSetReference();
-            o.dataSetArn = dataSetArn;
-            o.dataSetPlaceholder = dataSetPlaceholder;
-            return o;
+            final var _resultValue = new AnalysisSourceEntitySourceTemplateDataSetReference();
+            _resultValue.dataSetArn = dataSetArn;
+            _resultValue.dataSetPlaceholder = dataSetPlaceholder;
+            return _resultValue;
         }
     }
 }

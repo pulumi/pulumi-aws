@@ -87,11 +87,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.failOnFirstDestinationError = failOnFirstDestinationError;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.failOnFirstDestinationError = failOnFirstDestinationError;
+            return _resultValue;
         }
     }
 }

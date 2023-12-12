@@ -72,10 +72,10 @@ public final class FirewallFirewallStatusSyncState {
             return this;
         }
         public FirewallFirewallStatusSyncState build() {
-            final var o = new FirewallFirewallStatusSyncState();
-            o.attachments = attachments;
-            o.availabilityZone = availabilityZone;
-            return o;
+            final var _resultValue = new FirewallFirewallStatusSyncState();
+            _resultValue.attachments = attachments;
+            _resultValue.availabilityZone = availabilityZone;
+            return _resultValue;
         }
     }
 }

@@ -82,11 +82,11 @@ public final class GetLbsResult {
             return this;
         }
         public GetLbsResult build() {
-            final var o = new GetLbsResult();
-            o.arns = arns;
-            o.id = id;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLbsResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
             return this;
         }
         public ComputeEnvironmentComputeResourcesEc2Configuration build() {
-            final var o = new ComputeEnvironmentComputeResourcesEc2Configuration();
-            o.imageIdOverride = imageIdOverride;
-            o.imageType = imageType;
-            return o;
+            final var _resultValue = new ComputeEnvironmentComputeResourcesEc2Configuration();
+            _resultValue.imageIdOverride = imageIdOverride;
+            _resultValue.imageType = imageType;
+            return _resultValue;
         }
     }
 }

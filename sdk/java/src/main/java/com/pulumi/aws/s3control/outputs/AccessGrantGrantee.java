@@ -65,10 +65,10 @@ public final class AccessGrantGrantee {
             return this;
         }
         public AccessGrantGrantee build() {
-            final var o = new AccessGrantGrantee();
-            o.granteeIdentifier = granteeIdentifier;
-            o.granteeType = granteeType;
-            return o;
+            final var _resultValue = new AccessGrantGrantee();
+            _resultValue.granteeIdentifier = granteeIdentifier;
+            _resultValue.granteeType = granteeType;
+            return _resultValue;
         }
     }
 }

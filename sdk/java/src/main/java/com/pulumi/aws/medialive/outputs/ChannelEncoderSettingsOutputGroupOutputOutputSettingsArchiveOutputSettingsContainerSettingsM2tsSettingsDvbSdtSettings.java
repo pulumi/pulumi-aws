@@ -74,12 +74,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings();
-            o.outputSdt = outputSdt;
-            o.repInterval = repInterval;
-            o.serviceName = serviceName;
-            o.serviceProviderName = serviceProviderName;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings();
+            _resultValue.outputSdt = outputSdt;
+            _resultValue.repInterval = repInterval;
+            _resultValue.serviceName = serviceName;
+            _resultValue.serviceProviderName = serviceProviderName;
+            return _resultValue;
         }
     }
 }

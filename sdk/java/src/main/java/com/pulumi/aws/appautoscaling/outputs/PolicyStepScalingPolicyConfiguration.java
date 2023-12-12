@@ -130,13 +130,13 @@ public final class PolicyStepScalingPolicyConfiguration {
             return stepAdjustments(List.of(stepAdjustments));
         }
         public PolicyStepScalingPolicyConfiguration build() {
-            final var o = new PolicyStepScalingPolicyConfiguration();
-            o.adjustmentType = adjustmentType;
-            o.cooldown = cooldown;
-            o.metricAggregationType = metricAggregationType;
-            o.minAdjustmentMagnitude = minAdjustmentMagnitude;
-            o.stepAdjustments = stepAdjustments;
-            return o;
+            final var _resultValue = new PolicyStepScalingPolicyConfiguration();
+            _resultValue.adjustmentType = adjustmentType;
+            _resultValue.cooldown = cooldown;
+            _resultValue.metricAggregationType = metricAggregationType;
+            _resultValue.minAdjustmentMagnitude = minAdjustmentMagnitude;
+            _resultValue.stepAdjustments = stepAdjustments;
+            return _resultValue;
         }
     }
 }

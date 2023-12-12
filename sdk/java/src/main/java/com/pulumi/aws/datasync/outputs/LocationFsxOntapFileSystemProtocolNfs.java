@@ -46,9 +46,9 @@ public final class LocationFsxOntapFileSystemProtocolNfs {
             return this;
         }
         public LocationFsxOntapFileSystemProtocolNfs build() {
-            final var o = new LocationFsxOntapFileSystemProtocolNfs();
-            o.mountOptions = mountOptions;
-            return o;
+            final var _resultValue = new LocationFsxOntapFileSystemProtocolNfs();
+            _resultValue.mountOptions = mountOptions;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ProjectEnvironmentRegistryCredential {
             return this;
         }
         public ProjectEnvironmentRegistryCredential build() {
-            final var o = new ProjectEnvironmentRegistryCredential();
-            o.credential = credential;
-            o.credentialProvider = credentialProvider;
-            return o;
+            final var _resultValue = new ProjectEnvironmentRegistryCredential();
+            _resultValue.credential = credential;
+            _resultValue.credentialProvider = credentialProvider;
+            return _resultValue;
         }
     }
 }

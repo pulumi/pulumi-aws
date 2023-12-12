@@ -145,15 +145,15 @@ public final class GetDnsNamespaceResult {
             return this;
         }
         public GetDnsNamespaceResult build() {
-            final var o = new GetDnsNamespaceResult();
-            o.arn = arn;
-            o.description = description;
-            o.hostedZone = hostedZone;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetDnsNamespaceResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.hostedZone = hostedZone;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

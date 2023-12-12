@@ -61,11 +61,11 @@ public final class GetLaunchTemplatePrivateDnsNameOption {
             return this;
         }
         public GetLaunchTemplatePrivateDnsNameOption build() {
-            final var o = new GetLaunchTemplatePrivateDnsNameOption();
-            o.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
-            o.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
-            o.hostnameType = hostnameType;
-            return o;
+            final var _resultValue = new GetLaunchTemplatePrivateDnsNameOption();
+            _resultValue.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
+            _resultValue.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
+            _resultValue.hostnameType = hostnameType;
+            return _resultValue;
         }
     }
 }

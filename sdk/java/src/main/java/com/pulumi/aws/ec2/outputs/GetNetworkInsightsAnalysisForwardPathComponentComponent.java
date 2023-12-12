@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentComponent {
             return this;
         }
         public GetNetworkInsightsAnalysisForwardPathComponentComponent build() {
-            final var o = new GetNetworkInsightsAnalysisForwardPathComponentComponent();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisForwardPathComponentComponent();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

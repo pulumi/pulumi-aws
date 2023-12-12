@@ -87,11 +87,11 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustment {
             return this;
         }
         public PolicyStepScalingPolicyConfigurationStepAdjustment build() {
-            final var o = new PolicyStepScalingPolicyConfigurationStepAdjustment();
-            o.metricIntervalLowerBound = metricIntervalLowerBound;
-            o.metricIntervalUpperBound = metricIntervalUpperBound;
-            o.scalingAdjustment = scalingAdjustment;
-            return o;
+            final var _resultValue = new PolicyStepScalingPolicyConfigurationStepAdjustment();
+            _resultValue.metricIntervalLowerBound = metricIntervalLowerBound;
+            _resultValue.metricIntervalUpperBound = metricIntervalUpperBound;
+            _resultValue.scalingAdjustment = scalingAdjustment;
+            return _resultValue;
         }
     }
 }

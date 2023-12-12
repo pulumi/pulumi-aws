@@ -65,10 +65,10 @@ public final class EventConnectionAuthParametersBasic {
             return this;
         }
         public EventConnectionAuthParametersBasic build() {
-            final var o = new EventConnectionAuthParametersBasic();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersBasic();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -213,18 +213,18 @@ public final class GetManagedPrefixListResult {
             return this;
         }
         public GetManagedPrefixListResult build() {
-            final var o = new GetManagedPrefixListResult();
-            o.addressFamily = addressFamily;
-            o.arn = arn;
-            o.entries = entries;
-            o.filters = filters;
-            o.id = id;
-            o.maxEntries = maxEntries;
-            o.name = name;
-            o.ownerId = ownerId;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetManagedPrefixListResult();
+            _resultValue.addressFamily = addressFamily;
+            _resultValue.arn = arn;
+            _resultValue.entries = entries;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.maxEntries = maxEntries;
+            _resultValue.name = name;
+            _resultValue.ownerId = ownerId;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
             return this;
         }
         public VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration build() {
-            final var o = new VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
             return this;
         }
         public GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 build() {
-            final var o = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3();
-            o.bucket = bucket;
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3();
+            _resultValue.bucket = bucket;
+            return _resultValue;
         }
     }
 }

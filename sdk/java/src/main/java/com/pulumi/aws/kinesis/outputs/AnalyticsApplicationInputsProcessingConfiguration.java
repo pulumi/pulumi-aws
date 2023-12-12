@@ -46,9 +46,9 @@ public final class AnalyticsApplicationInputsProcessingConfiguration {
             return this;
         }
         public AnalyticsApplicationInputsProcessingConfiguration build() {
-            final var o = new AnalyticsApplicationInputsProcessingConfiguration();
-            o.lambda = lambda;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsProcessingConfiguration();
+            _resultValue.lambda = lambda;
+            return _resultValue;
         }
     }
 }

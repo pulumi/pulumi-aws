@@ -46,9 +46,9 @@ public final class DataSourceParametersServiceNow {
             return this;
         }
         public DataSourceParametersServiceNow build() {
-            final var o = new DataSourceParametersServiceNow();
-            o.siteBaseUrl = siteBaseUrl;
-            return o;
+            final var _resultValue = new DataSourceParametersServiceNow();
+            _resultValue.siteBaseUrl = siteBaseUrl;
+            return _resultValue;
         }
     }
 }

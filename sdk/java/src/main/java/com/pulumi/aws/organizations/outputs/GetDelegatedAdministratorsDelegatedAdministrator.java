@@ -179,16 +179,16 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
             return this;
         }
         public GetDelegatedAdministratorsDelegatedAdministrator build() {
-            final var o = new GetDelegatedAdministratorsDelegatedAdministrator();
-            o.arn = arn;
-            o.delegationEnabledDate = delegationEnabledDate;
-            o.email = email;
-            o.id = id;
-            o.joinedMethod = joinedMethod;
-            o.joinedTimestamp = joinedTimestamp;
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetDelegatedAdministratorsDelegatedAdministrator();
+            _resultValue.arn = arn;
+            _resultValue.delegationEnabledDate = delegationEnabledDate;
+            _resultValue.email = email;
+            _resultValue.id = id;
+            _resultValue.joinedMethod = joinedMethod;
+            _resultValue.joinedTimestamp = joinedTimestamp;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

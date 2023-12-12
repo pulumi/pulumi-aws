@@ -48,9 +48,9 @@ public final class RouteSpecHttpRouteMatchQueryParameterMatch {
             return this;
         }
         public RouteSpecHttpRouteMatchQueryParameterMatch build() {
-            final var o = new RouteSpecHttpRouteMatchQueryParameterMatch();
-            o.exact = exact;
-            return o;
+            final var _resultValue = new RouteSpecHttpRouteMatchQueryParameterMatch();
+            _resultValue.exact = exact;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class RecordLatencyRoutingPolicy {
             return this;
         }
         public RecordLatencyRoutingPolicy build() {
-            final var o = new RecordLatencyRoutingPolicy();
-            o.region = region;
-            return o;
+            final var _resultValue = new RecordLatencyRoutingPolicy();
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

@@ -102,14 +102,14 @@ public final class NetworkInsightsAnalysisForwardPathComponentAclRule {
             return this;
         }
         public NetworkInsightsAnalysisForwardPathComponentAclRule build() {
-            final var o = new NetworkInsightsAnalysisForwardPathComponentAclRule();
-            o.cidr = cidr;
-            o.egress = egress;
-            o.portRanges = portRanges;
-            o.protocol = protocol;
-            o.ruleAction = ruleAction;
-            o.ruleNumber = ruleNumber;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisForwardPathComponentAclRule();
+            _resultValue.cidr = cidr;
+            _resultValue.egress = egress;
+            _resultValue.portRanges = portRanges;
+            _resultValue.protocol = protocol;
+            _resultValue.ruleAction = ruleAction;
+            _resultValue.ruleNumber = ruleNumber;
+            return _resultValue;
         }
     }
 }

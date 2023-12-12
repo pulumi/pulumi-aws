@@ -69,10 +69,10 @@ public final class EfsLocationEc2Config {
             return this;
         }
         public EfsLocationEc2Config build() {
-            final var o = new EfsLocationEc2Config();
-            o.securityGroupArns = securityGroupArns;
-            o.subnetArn = subnetArn;
-            return o;
+            final var _resultValue = new EfsLocationEc2Config();
+            _resultValue.securityGroupArns = securityGroupArns;
+            _resultValue.subnetArn = subnetArn;
+            return _resultValue;
         }
     }
 }

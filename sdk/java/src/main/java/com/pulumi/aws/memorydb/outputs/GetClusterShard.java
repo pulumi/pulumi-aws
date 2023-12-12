@@ -109,12 +109,12 @@ public final class GetClusterShard {
             return this;
         }
         public GetClusterShard build() {
-            final var o = new GetClusterShard();
-            o.name = name;
-            o.nodes = nodes;
-            o.numNodes = numNodes;
-            o.slots = slots;
-            return o;
+            final var _resultValue = new GetClusterShard();
+            _resultValue.name = name;
+            _resultValue.nodes = nodes;
+            _resultValue.numNodes = numNodes;
+            _resultValue.slots = slots;
+            return _resultValue;
         }
     }
 }

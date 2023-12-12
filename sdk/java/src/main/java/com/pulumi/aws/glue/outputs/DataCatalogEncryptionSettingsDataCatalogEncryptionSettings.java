@@ -66,10 +66,10 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
             return this;
         }
         public DataCatalogEncryptionSettingsDataCatalogEncryptionSettings build() {
-            final var o = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettings();
-            o.connectionPasswordEncryption = connectionPasswordEncryption;
-            o.encryptionAtRest = encryptionAtRest;
-            return o;
+            final var _resultValue = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettings();
+            _resultValue.connectionPasswordEncryption = connectionPasswordEncryption;
+            _resultValue.encryptionAtRest = encryptionAtRest;
+            return _resultValue;
         }
     }
 }

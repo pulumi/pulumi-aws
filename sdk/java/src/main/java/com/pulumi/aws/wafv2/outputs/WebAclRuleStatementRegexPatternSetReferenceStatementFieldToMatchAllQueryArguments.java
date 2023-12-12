@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
         }
 
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments();
+            return _resultValue;
         }
     }
 }

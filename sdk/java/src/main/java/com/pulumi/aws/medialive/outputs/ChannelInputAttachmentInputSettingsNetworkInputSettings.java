@@ -68,10 +68,10 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettings {
             return this;
         }
         public ChannelInputAttachmentInputSettingsNetworkInputSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsNetworkInputSettings();
-            o.hlsInputSettings = hlsInputSettings;
-            o.serverValidation = serverValidation;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsNetworkInputSettings();
+            _resultValue.hlsInputSettings = hlsInputSettings;
+            _resultValue.serverValidation = serverValidation;
+            return _resultValue;
         }
     }
 }

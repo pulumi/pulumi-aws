@@ -315,23 +315,23 @@ public final class TaskOptions {
             return this;
         }
         public TaskOptions build() {
-            final var o = new TaskOptions();
-            o.atime = atime;
-            o.bytesPerSecond = bytesPerSecond;
-            o.gid = gid;
-            o.logLevel = logLevel;
-            o.mtime = mtime;
-            o.objectTags = objectTags;
-            o.overwriteMode = overwriteMode;
-            o.posixPermissions = posixPermissions;
-            o.preserveDeletedFiles = preserveDeletedFiles;
-            o.preserveDevices = preserveDevices;
-            o.securityDescriptorCopyFlags = securityDescriptorCopyFlags;
-            o.taskQueueing = taskQueueing;
-            o.transferMode = transferMode;
-            o.uid = uid;
-            o.verifyMode = verifyMode;
-            return o;
+            final var _resultValue = new TaskOptions();
+            _resultValue.atime = atime;
+            _resultValue.bytesPerSecond = bytesPerSecond;
+            _resultValue.gid = gid;
+            _resultValue.logLevel = logLevel;
+            _resultValue.mtime = mtime;
+            _resultValue.objectTags = objectTags;
+            _resultValue.overwriteMode = overwriteMode;
+            _resultValue.posixPermissions = posixPermissions;
+            _resultValue.preserveDeletedFiles = preserveDeletedFiles;
+            _resultValue.preserveDevices = preserveDevices;
+            _resultValue.securityDescriptorCopyFlags = securityDescriptorCopyFlags;
+            _resultValue.taskQueueing = taskQueueing;
+            _resultValue.transferMode = transferMode;
+            _resultValue.uid = uid;
+            _resultValue.verifyMode = verifyMode;
+            return _resultValue;
         }
     }
 }

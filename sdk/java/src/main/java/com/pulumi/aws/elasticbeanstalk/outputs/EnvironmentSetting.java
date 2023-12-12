@@ -83,12 +83,12 @@ public final class EnvironmentSetting {
             return this;
         }
         public EnvironmentSetting build() {
-            final var o = new EnvironmentSetting();
-            o.name = name;
-            o.namespace = namespace;
-            o.resource = resource;
-            o.value = value;
-            return o;
+            final var _resultValue = new EnvironmentSetting();
+            _resultValue.name = name;
+            _resultValue.namespace = namespace;
+            _resultValue.resource = resource;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class CustomPluginLocation {
             return this;
         }
         public CustomPluginLocation build() {
-            final var o = new CustomPluginLocation();
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new CustomPluginLocation();
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

@@ -107,12 +107,12 @@ public final class GetImagePipelinesResult {
             return names(List.of(names));
         }
         public GetImagePipelinesResult build() {
-            final var o = new GetImagePipelinesResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetImagePipelinesResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

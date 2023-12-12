@@ -86,11 +86,11 @@ public final class TopicRuleErrorActionSns {
             return this;
         }
         public TopicRuleErrorActionSns build() {
-            final var o = new TopicRuleErrorActionSns();
-            o.messageFormat = messageFormat;
-            o.roleArn = roleArn;
-            o.targetArn = targetArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionSns();
+            _resultValue.messageFormat = messageFormat;
+            _resultValue.roleArn = roleArn;
+            _resultValue.targetArn = targetArn;
+            return _resultValue;
         }
     }
 }

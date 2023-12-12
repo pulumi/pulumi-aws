@@ -46,9 +46,9 @@ public final class GatewayRouteSpecHttpRouteActionRewriteHostname {
             return this;
         }
         public GatewayRouteSpecHttpRouteActionRewriteHostname build() {
-            final var o = new GatewayRouteSpecHttpRouteActionRewriteHostname();
-            o.defaultTargetHostname = defaultTargetHostname;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteActionRewriteHostname();
+            _resultValue.defaultTargetHostname = defaultTargetHostname;
+            return _resultValue;
         }
     }
 }

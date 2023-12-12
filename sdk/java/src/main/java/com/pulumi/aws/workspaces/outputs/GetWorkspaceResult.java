@@ -209,21 +209,21 @@ public final class GetWorkspaceResult {
             return workspaceProperties(List.of(workspaceProperties));
         }
         public GetWorkspaceResult build() {
-            final var o = new GetWorkspaceResult();
-            o.bundleId = bundleId;
-            o.computerName = computerName;
-            o.directoryId = directoryId;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.rootVolumeEncryptionEnabled = rootVolumeEncryptionEnabled;
-            o.state = state;
-            o.tags = tags;
-            o.userName = userName;
-            o.userVolumeEncryptionEnabled = userVolumeEncryptionEnabled;
-            o.volumeEncryptionKey = volumeEncryptionKey;
-            o.workspaceId = workspaceId;
-            o.workspaceProperties = workspaceProperties;
-            return o;
+            final var _resultValue = new GetWorkspaceResult();
+            _resultValue.bundleId = bundleId;
+            _resultValue.computerName = computerName;
+            _resultValue.directoryId = directoryId;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.rootVolumeEncryptionEnabled = rootVolumeEncryptionEnabled;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            _resultValue.userName = userName;
+            _resultValue.userVolumeEncryptionEnabled = userVolumeEncryptionEnabled;
+            _resultValue.volumeEncryptionKey = volumeEncryptionKey;
+            _resultValue.workspaceId = workspaceId;
+            _resultValue.workspaceProperties = workspaceProperties;
+            return _resultValue;
         }
     }
 }

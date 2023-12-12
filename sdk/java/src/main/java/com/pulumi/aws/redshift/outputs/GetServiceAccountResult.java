@@ -78,11 +78,11 @@ public final class GetServiceAccountResult {
             return this;
         }
         public GetServiceAccountResult build() {
-            final var o = new GetServiceAccountResult();
-            o.arn = arn;
-            o.id = id;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetServiceAccountResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

@@ -148,14 +148,14 @@ public final class StackSetOperationPreferences {
             return regionOrders(List.of(regionOrders));
         }
         public StackSetOperationPreferences build() {
-            final var o = new StackSetOperationPreferences();
-            o.failureToleranceCount = failureToleranceCount;
-            o.failureTolerancePercentage = failureTolerancePercentage;
-            o.maxConcurrentCount = maxConcurrentCount;
-            o.maxConcurrentPercentage = maxConcurrentPercentage;
-            o.regionConcurrencyType = regionConcurrencyType;
-            o.regionOrders = regionOrders;
-            return o;
+            final var _resultValue = new StackSetOperationPreferences();
+            _resultValue.failureToleranceCount = failureToleranceCount;
+            _resultValue.failureTolerancePercentage = failureTolerancePercentage;
+            _resultValue.maxConcurrentCount = maxConcurrentCount;
+            _resultValue.maxConcurrentPercentage = maxConcurrentPercentage;
+            _resultValue.regionConcurrencyType = regionConcurrencyType;
+            _resultValue.regionOrders = regionOrders;
+            return _resultValue;
         }
     }
 }

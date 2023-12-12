@@ -107,12 +107,12 @@ public final class GetDistributionConfigurationsResult {
             return names(List.of(names));
         }
         public GetDistributionConfigurationsResult build() {
-            final var o = new GetDistributionConfigurationsResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetDistributionConfigurationsResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

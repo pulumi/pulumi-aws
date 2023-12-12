@@ -67,10 +67,10 @@ public final class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocat
             return this;
         }
         public WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation build() {
-            final var o = new WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

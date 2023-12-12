@@ -135,13 +135,13 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOrigin {
             return queryStringsConfigs(List.of(queryStringsConfigs));
         }
         public GetCachePolicyParametersInCacheKeyAndForwardedToOrigin build() {
-            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOrigin();
-            o.cookiesConfigs = cookiesConfigs;
-            o.enableAcceptEncodingBrotli = enableAcceptEncodingBrotli;
-            o.enableAcceptEncodingGzip = enableAcceptEncodingGzip;
-            o.headersConfigs = headersConfigs;
-            o.queryStringsConfigs = queryStringsConfigs;
-            return o;
+            final var _resultValue = new GetCachePolicyParametersInCacheKeyAndForwardedToOrigin();
+            _resultValue.cookiesConfigs = cookiesConfigs;
+            _resultValue.enableAcceptEncodingBrotli = enableAcceptEncodingBrotli;
+            _resultValue.enableAcceptEncodingGzip = enableAcceptEncodingGzip;
+            _resultValue.headersConfigs = headersConfigs;
+            _resultValue.queryStringsConfigs = queryStringsConfigs;
+            return _resultValue;
         }
     }
 }

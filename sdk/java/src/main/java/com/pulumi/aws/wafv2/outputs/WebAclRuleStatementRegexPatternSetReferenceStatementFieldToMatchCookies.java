@@ -89,11 +89,11 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
             return this;
         }
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies();
-            o.matchPatterns = matchPatterns;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies();
+            _resultValue.matchPatterns = matchPatterns;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

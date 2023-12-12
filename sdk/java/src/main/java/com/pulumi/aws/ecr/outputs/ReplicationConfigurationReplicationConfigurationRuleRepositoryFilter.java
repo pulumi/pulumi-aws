@@ -65,10 +65,10 @@ public final class ReplicationConfigurationReplicationConfigurationRuleRepositor
             return this;
         }
         public ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter build() {
-            final var o = new ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter();
-            o.filter = filter;
-            o.filterType = filterType;
-            return o;
+            final var _resultValue = new ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter();
+            _resultValue.filter = filter;
+            _resultValue.filterType = filterType;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class TrailEventSelectorDataResource {
             return values(List.of(values));
         }
         public TrailEventSelectorDataResource build() {
-            final var o = new TrailEventSelectorDataResource();
-            o.type = type;
-            o.values = values;
-            return o;
+            final var _resultValue = new TrailEventSelectorDataResource();
+            _resultValue.type = type;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

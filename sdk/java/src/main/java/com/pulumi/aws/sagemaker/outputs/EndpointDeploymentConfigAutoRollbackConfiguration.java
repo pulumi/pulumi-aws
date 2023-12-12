@@ -51,9 +51,9 @@ public final class EndpointDeploymentConfigAutoRollbackConfiguration {
             return alarms(List.of(alarms));
         }
         public EndpointDeploymentConfigAutoRollbackConfiguration build() {
-            final var o = new EndpointDeploymentConfigAutoRollbackConfiguration();
-            o.alarms = alarms;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigAutoRollbackConfiguration();
+            _resultValue.alarms = alarms;
+            return _resultValue;
         }
     }
 }

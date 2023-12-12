@@ -66,10 +66,10 @@ public final class GetInfrastructureConfigurationInstanceMetadataOption {
             return this;
         }
         public GetInfrastructureConfigurationInstanceMetadataOption build() {
-            final var o = new GetInfrastructureConfigurationInstanceMetadataOption();
-            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
-            o.httpTokens = httpTokens;
-            return o;
+            final var _resultValue = new GetInfrastructureConfigurationInstanceMetadataOption();
+            _resultValue.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            _resultValue.httpTokens = httpTokens;
+            return _resultValue;
         }
     }
 }

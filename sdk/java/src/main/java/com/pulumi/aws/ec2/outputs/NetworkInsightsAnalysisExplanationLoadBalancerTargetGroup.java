@@ -78,11 +78,11 @@ public final class NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup {
             return this;
         }
         public NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup build() {
-            final var o = new NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

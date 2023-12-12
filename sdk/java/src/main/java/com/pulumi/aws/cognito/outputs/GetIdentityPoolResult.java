@@ -241,19 +241,19 @@ public final class GetIdentityPoolResult {
             return this;
         }
         public GetIdentityPoolResult build() {
-            final var o = new GetIdentityPoolResult();
-            o.allowClassicFlow = allowClassicFlow;
-            o.allowUnauthenticatedIdentities = allowUnauthenticatedIdentities;
-            o.arn = arn;
-            o.cognitoIdentityProviders = cognitoIdentityProviders;
-            o.developerProviderName = developerProviderName;
-            o.id = id;
-            o.identityPoolName = identityPoolName;
-            o.openidConnectProviderArns = openidConnectProviderArns;
-            o.samlProviderArns = samlProviderArns;
-            o.supportedLoginProviders = supportedLoginProviders;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetIdentityPoolResult();
+            _resultValue.allowClassicFlow = allowClassicFlow;
+            _resultValue.allowUnauthenticatedIdentities = allowUnauthenticatedIdentities;
+            _resultValue.arn = arn;
+            _resultValue.cognitoIdentityProviders = cognitoIdentityProviders;
+            _resultValue.developerProviderName = developerProviderName;
+            _resultValue.id = id;
+            _resultValue.identityPoolName = identityPoolName;
+            _resultValue.openidConnectProviderArns = openidConnectProviderArns;
+            _resultValue.samlProviderArns = samlProviderArns;
+            _resultValue.supportedLoginProviders = supportedLoginProviders;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

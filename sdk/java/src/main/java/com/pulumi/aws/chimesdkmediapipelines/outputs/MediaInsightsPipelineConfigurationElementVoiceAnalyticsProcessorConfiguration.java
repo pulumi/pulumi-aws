@@ -65,10 +65,10 @@ public final class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProces
             return this;
         }
         public MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration();
-            o.speakerSearchStatus = speakerSearchStatus;
-            o.voiceToneAnalysisStatus = voiceToneAnalysisStatus;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration();
+            _resultValue.speakerSearchStatus = speakerSearchStatus;
+            _resultValue.voiceToneAnalysisStatus = voiceToneAnalysisStatus;
+            return _resultValue;
         }
     }
 }

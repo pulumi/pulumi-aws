@@ -149,14 +149,14 @@ public final class InstancePublicPortsPortInfo {
             return this;
         }
         public InstancePublicPortsPortInfo build() {
-            final var o = new InstancePublicPortsPortInfo();
-            o.cidrListAliases = cidrListAliases;
-            o.cidrs = cidrs;
-            o.fromPort = fromPort;
-            o.ipv6Cidrs = ipv6Cidrs;
-            o.protocol = protocol;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new InstancePublicPortsPortInfo();
+            _resultValue.cidrListAliases = cidrListAliases;
+            _resultValue.cidrs = cidrs;
+            _resultValue.fromPort = fromPort;
+            _resultValue.ipv6Cidrs = ipv6Cidrs;
+            _resultValue.protocol = protocol;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

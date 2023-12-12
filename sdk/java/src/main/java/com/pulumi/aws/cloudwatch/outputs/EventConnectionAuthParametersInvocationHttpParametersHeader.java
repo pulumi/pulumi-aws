@@ -87,11 +87,11 @@ public final class EventConnectionAuthParametersInvocationHttpParametersHeader {
             return this;
         }
         public EventConnectionAuthParametersInvocationHttpParametersHeader build() {
-            final var o = new EventConnectionAuthParametersInvocationHttpParametersHeader();
-            o.isValueSecret = isValueSecret;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersInvocationHttpParametersHeader();
+            _resultValue.isValueSecret = isValueSecret;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

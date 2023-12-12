@@ -46,9 +46,9 @@ public final class VpcIpamResourceDiscoveryOperatingRegion {
             return this;
         }
         public VpcIpamResourceDiscoveryOperatingRegion build() {
-            final var o = new VpcIpamResourceDiscoveryOperatingRegion();
-            o.regionName = regionName;
-            return o;
+            final var _resultValue = new VpcIpamResourceDiscoveryOperatingRegion();
+            _resultValue.regionName = regionName;
+            return _resultValue;
         }
     }
 }

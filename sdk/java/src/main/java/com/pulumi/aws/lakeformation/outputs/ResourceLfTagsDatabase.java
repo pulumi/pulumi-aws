@@ -71,10 +71,10 @@ public final class ResourceLfTagsDatabase {
             return this;
         }
         public ResourceLfTagsDatabase build() {
-            final var o = new ResourceLfTagsDatabase();
-            o.catalogId = catalogId;
-            o.name = name;
-            return o;
+            final var _resultValue = new ResourceLfTagsDatabase();
+            _resultValue.catalogId = catalogId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

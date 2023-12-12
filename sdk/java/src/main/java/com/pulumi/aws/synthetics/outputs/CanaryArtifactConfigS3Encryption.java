@@ -67,10 +67,10 @@ public final class CanaryArtifactConfigS3Encryption {
             return this;
         }
         public CanaryArtifactConfigS3Encryption build() {
-            final var o = new CanaryArtifactConfigS3Encryption();
-            o.encryptionMode = encryptionMode;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new CanaryArtifactConfigS3Encryption();
+            _resultValue.encryptionMode = encryptionMode;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

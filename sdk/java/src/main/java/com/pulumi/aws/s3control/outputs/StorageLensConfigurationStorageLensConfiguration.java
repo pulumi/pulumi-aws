@@ -148,14 +148,14 @@ public final class StorageLensConfigurationStorageLensConfiguration {
             return this;
         }
         public StorageLensConfigurationStorageLensConfiguration build() {
-            final var o = new StorageLensConfigurationStorageLensConfiguration();
-            o.accountLevel = accountLevel;
-            o.awsOrg = awsOrg;
-            o.dataExport = dataExport;
-            o.enabled = enabled;
-            o.exclude = exclude;
-            o.include = include;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfiguration();
+            _resultValue.accountLevel = accountLevel;
+            _resultValue.awsOrg = awsOrg;
+            _resultValue.dataExport = dataExport;
+            _resultValue.enabled = enabled;
+            _resultValue.exclude = exclude;
+            _resultValue.include = include;
+            return _resultValue;
         }
     }
 }

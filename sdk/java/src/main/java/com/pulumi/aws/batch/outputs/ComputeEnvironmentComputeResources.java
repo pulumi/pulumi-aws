@@ -369,25 +369,25 @@ public final class ComputeEnvironmentComputeResources {
             return this;
         }
         public ComputeEnvironmentComputeResources build() {
-            final var o = new ComputeEnvironmentComputeResources();
-            o.allocationStrategy = allocationStrategy;
-            o.bidPercentage = bidPercentage;
-            o.desiredVcpus = desiredVcpus;
-            o.ec2Configurations = ec2Configurations;
-            o.ec2KeyPair = ec2KeyPair;
-            o.imageId = imageId;
-            o.instanceRole = instanceRole;
-            o.instanceTypes = instanceTypes;
-            o.launchTemplate = launchTemplate;
-            o.maxVcpus = maxVcpus;
-            o.minVcpus = minVcpus;
-            o.placementGroup = placementGroup;
-            o.securityGroupIds = securityGroupIds;
-            o.spotIamFleetRole = spotIamFleetRole;
-            o.subnets = subnets;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new ComputeEnvironmentComputeResources();
+            _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.bidPercentage = bidPercentage;
+            _resultValue.desiredVcpus = desiredVcpus;
+            _resultValue.ec2Configurations = ec2Configurations;
+            _resultValue.ec2KeyPair = ec2KeyPair;
+            _resultValue.imageId = imageId;
+            _resultValue.instanceRole = instanceRole;
+            _resultValue.instanceTypes = instanceTypes;
+            _resultValue.launchTemplate = launchTemplate;
+            _resultValue.maxVcpus = maxVcpus;
+            _resultValue.minVcpus = minVcpus;
+            _resultValue.placementGroup = placementGroup;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.spotIamFleetRole = spotIamFleetRole;
+            _resultValue.subnets = subnets;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

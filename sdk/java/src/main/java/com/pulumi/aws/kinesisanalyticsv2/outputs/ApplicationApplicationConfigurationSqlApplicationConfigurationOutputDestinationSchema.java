@@ -46,9 +46,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema();
-            o.recordFormatType = recordFormatType;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema();
+            _resultValue.recordFormatType = recordFormatType;
+            return _resultValue;
         }
     }
 }

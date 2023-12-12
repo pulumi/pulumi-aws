@@ -65,10 +65,10 @@ public final class GetHoursOfOperationConfigStartTime {
             return this;
         }
         public GetHoursOfOperationConfigStartTime build() {
-            final var o = new GetHoursOfOperationConfigStartTime();
-            o.hours = hours;
-            o.minutes = minutes;
-            return o;
+            final var _resultValue = new GetHoursOfOperationConfigStartTime();
+            _resultValue.hours = hours;
+            _resultValue.minutes = minutes;
+            return _resultValue;
         }
     }
 }

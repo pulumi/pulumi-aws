@@ -73,10 +73,10 @@ public final class GetLocalGatewaysFilter {
             return values(List.of(values));
         }
         public GetLocalGatewaysFilter build() {
-            final var o = new GetLocalGatewaysFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetLocalGatewaysFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -92,11 +92,11 @@ public final class ChannelEncoderSettingsOutputGroup {
             return outputs(List.of(outputs));
         }
         public ChannelEncoderSettingsOutputGroup build() {
-            final var o = new ChannelEncoderSettingsOutputGroup();
-            o.name = name;
-            o.outputGroupSettings = outputGroupSettings;
-            o.outputs = outputs;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroup();
+            _resultValue.name = name;
+            _resultValue.outputGroupSettings = outputGroupSettings;
+            _resultValue.outputs = outputs;
+            return _resultValue;
         }
     }
 }

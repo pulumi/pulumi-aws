@@ -72,10 +72,10 @@ public final class StackApplicationSettings {
             return this;
         }
         public StackApplicationSettings build() {
-            final var o = new StackApplicationSettings();
-            o.enabled = enabled;
-            o.settingsGroup = settingsGroup;
-            return o;
+            final var _resultValue = new StackApplicationSettings();
+            _resultValue.enabled = enabled;
+            _resultValue.settingsGroup = settingsGroup;
+            return _resultValue;
         }
     }
 }

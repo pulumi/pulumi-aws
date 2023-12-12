@@ -48,9 +48,9 @@ public final class TablePointInTimeRecovery {
             return this;
         }
         public TablePointInTimeRecovery build() {
-            final var o = new TablePointInTimeRecovery();
-            o.status = status;
-            return o;
+            final var _resultValue = new TablePointInTimeRecovery();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -52,10 +52,10 @@ public final class GetUserAuthenticationMode {
             return this;
         }
         public GetUserAuthenticationMode build() {
-            final var o = new GetUserAuthenticationMode();
-            o.passwordCount = passwordCount;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetUserAuthenticationMode();
+            _resultValue.passwordCount = passwordCount;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -52,10 +52,10 @@ public final class OriginRequestPolicyCookiesConfig {
             return this;
         }
         public OriginRequestPolicyCookiesConfig build() {
-            final var o = new OriginRequestPolicyCookiesConfig();
-            o.cookieBehavior = cookieBehavior;
-            o.cookies = cookies;
-            return o;
+            final var _resultValue = new OriginRequestPolicyCookiesConfig();
+            _resultValue.cookieBehavior = cookieBehavior;
+            _resultValue.cookies = cookies;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class GetApplicationAppversionLifecycle {
             return this;
         }
         public GetApplicationAppversionLifecycle build() {
-            final var o = new GetApplicationAppversionLifecycle();
-            o.deleteSourceFromS3 = deleteSourceFromS3;
-            o.maxAgeInDays = maxAgeInDays;
-            o.maxCount = maxCount;
-            o.serviceRole = serviceRole;
-            return o;
+            final var _resultValue = new GetApplicationAppversionLifecycle();
+            _resultValue.deleteSourceFromS3 = deleteSourceFromS3;
+            _resultValue.maxAgeInDays = maxAgeInDays;
+            _resultValue.maxCount = maxCount;
+            _resultValue.serviceRole = serviceRole;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ProjectSecondarySourceGitSubmodulesConfig {
             return this;
         }
         public ProjectSecondarySourceGitSubmodulesConfig build() {
-            final var o = new ProjectSecondarySourceGitSubmodulesConfig();
-            o.fetchSubmodules = fetchSubmodules;
-            return o;
+            final var _resultValue = new ProjectSecondarySourceGitSubmodulesConfig();
+            _resultValue.fetchSubmodules = fetchSubmodules;
+            return _resultValue;
         }
     }
 }

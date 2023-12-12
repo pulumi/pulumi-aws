@@ -69,10 +69,10 @@ public final class AmiFromInstanceEphemeralBlockDevice {
             return this;
         }
         public AmiFromInstanceEphemeralBlockDevice build() {
-            final var o = new AmiFromInstanceEphemeralBlockDevice();
-            o.deviceName = deviceName;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new AmiFromInstanceEphemeralBlockDevice();
+            _resultValue.deviceName = deviceName;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

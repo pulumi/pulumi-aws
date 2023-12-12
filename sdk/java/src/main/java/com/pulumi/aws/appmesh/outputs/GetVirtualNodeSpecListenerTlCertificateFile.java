@@ -49,10 +49,10 @@ public final class GetVirtualNodeSpecListenerTlCertificateFile {
             return this;
         }
         public GetVirtualNodeSpecListenerTlCertificateFile build() {
-            final var o = new GetVirtualNodeSpecListenerTlCertificateFile();
-            o.certificateChain = certificateChain;
-            o.privateKey = privateKey;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTlCertificateFile();
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.privateKey = privateKey;
+            return _resultValue;
         }
     }
 }

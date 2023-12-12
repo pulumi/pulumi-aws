@@ -104,12 +104,12 @@ public final class GetLogGroupsResult {
             return logGroupNames(List.of(logGroupNames));
         }
         public GetLogGroupsResult build() {
-            final var o = new GetLogGroupsResult();
-            o.arns = arns;
-            o.id = id;
-            o.logGroupNamePrefix = logGroupNamePrefix;
-            o.logGroupNames = logGroupNames;
-            return o;
+            final var _resultValue = new GetLogGroupsResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.logGroupNamePrefix = logGroupNamePrefix;
+            _resultValue.logGroupNames = logGroupNames;
+            return _resultValue;
         }
     }
 }

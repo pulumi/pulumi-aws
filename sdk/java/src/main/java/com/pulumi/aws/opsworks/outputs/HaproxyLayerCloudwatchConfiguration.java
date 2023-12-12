@@ -56,10 +56,10 @@ public final class HaproxyLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public HaproxyLayerCloudwatchConfiguration build() {
-            final var o = new HaproxyLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new HaproxyLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

@@ -127,16 +127,16 @@ public final class GetParameterResult {
             return this;
         }
         public GetParameterResult build() {
-            final var o = new GetParameterResult();
-            o.arn = arn;
-            o.id = id;
-            o.insecureValue = insecureValue;
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            o.version = version;
-            o.withDecryption = withDecryption;
-            return o;
+            final var _resultValue = new GetParameterResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.insecureValue = insecureValue;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            _resultValue.version = version;
+            _resultValue.withDecryption = withDecryption;
+            return _resultValue;
         }
     }
 }

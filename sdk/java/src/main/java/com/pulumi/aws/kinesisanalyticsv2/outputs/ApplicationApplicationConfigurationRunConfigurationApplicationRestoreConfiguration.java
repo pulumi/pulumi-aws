@@ -67,10 +67,10 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
             return this;
         }
         public ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration();
-            o.applicationRestoreType = applicationRestoreType;
-            o.snapshotName = snapshotName;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration();
+            _resultValue.applicationRestoreType = applicationRestoreType;
+            _resultValue.snapshotName = snapshotName;
+            return _resultValue;
         }
     }
 }

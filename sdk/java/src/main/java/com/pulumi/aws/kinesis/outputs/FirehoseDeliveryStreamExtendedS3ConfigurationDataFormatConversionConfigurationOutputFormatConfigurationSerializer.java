@@ -68,10 +68,10 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer();
-            o.orcSerDe = orcSerDe;
-            o.parquetSerDe = parquetSerDe;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer();
+            _resultValue.orcSerDe = orcSerDe;
+            _resultValue.parquetSerDe = parquetSerDe;
+            return _resultValue;
         }
     }
 }

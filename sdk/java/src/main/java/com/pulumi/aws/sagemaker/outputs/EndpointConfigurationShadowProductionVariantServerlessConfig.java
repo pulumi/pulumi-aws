@@ -86,11 +86,11 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfig 
             return this;
         }
         public EndpointConfigurationShadowProductionVariantServerlessConfig build() {
-            final var o = new EndpointConfigurationShadowProductionVariantServerlessConfig();
-            o.maxConcurrency = maxConcurrency;
-            o.memorySizeInMb = memorySizeInMb;
-            o.provisionedConcurrency = provisionedConcurrency;
-            return o;
+            final var _resultValue = new EndpointConfigurationShadowProductionVariantServerlessConfig();
+            _resultValue.maxConcurrency = maxConcurrency;
+            _resultValue.memorySizeInMb = memorySizeInMb;
+            _resultValue.provisionedConcurrency = provisionedConcurrency;
+            return _resultValue;
         }
     }
 }

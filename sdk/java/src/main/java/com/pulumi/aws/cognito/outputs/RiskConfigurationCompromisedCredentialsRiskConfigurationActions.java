@@ -46,9 +46,9 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfigurationActio
             return this;
         }
         public RiskConfigurationCompromisedCredentialsRiskConfigurationActions build() {
-            final var o = new RiskConfigurationCompromisedCredentialsRiskConfigurationActions();
-            o.eventAction = eventAction;
-            return o;
+            final var _resultValue = new RiskConfigurationCompromisedCredentialsRiskConfigurationActions();
+            _resultValue.eventAction = eventAction;
+            return _resultValue;
         }
     }
 }

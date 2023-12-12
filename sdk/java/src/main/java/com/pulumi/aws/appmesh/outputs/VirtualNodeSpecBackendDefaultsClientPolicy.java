@@ -48,9 +48,9 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicy {
             return this;
         }
         public VirtualNodeSpecBackendDefaultsClientPolicy build() {
-            final var o = new VirtualNodeSpecBackendDefaultsClientPolicy();
-            o.tls = tls;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendDefaultsClientPolicy();
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

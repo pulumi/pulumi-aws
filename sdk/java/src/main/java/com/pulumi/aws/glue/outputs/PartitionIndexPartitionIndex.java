@@ -82,11 +82,11 @@ public final class PartitionIndexPartitionIndex {
             return keys(List.of(keys));
         }
         public PartitionIndexPartitionIndex build() {
-            final var o = new PartitionIndexPartitionIndex();
-            o.indexName = indexName;
-            o.indexStatus = indexStatus;
-            o.keys = keys;
-            return o;
+            final var _resultValue = new PartitionIndexPartitionIndex();
+            _resultValue.indexName = indexName;
+            _resultValue.indexStatus = indexStatus;
+            _resultValue.keys = keys;
+            return _resultValue;
         }
     }
 }

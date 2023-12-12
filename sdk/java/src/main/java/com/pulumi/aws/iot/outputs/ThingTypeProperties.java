@@ -71,10 +71,10 @@ public final class ThingTypeProperties {
             return searchableAttributes(List.of(searchableAttributes));
         }
         public ThingTypeProperties build() {
-            final var o = new ThingTypeProperties();
-            o.description = description;
-            o.searchableAttributes = searchableAttributes;
-            return o;
+            final var _resultValue = new ThingTypeProperties();
+            _resultValue.description = description;
+            _resultValue.searchableAttributes = searchableAttributes;
+            return _resultValue;
         }
     }
 }

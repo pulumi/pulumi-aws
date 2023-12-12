@@ -87,11 +87,11 @@ public final class DataSourceDynamodbConfigDeltaSyncConfig {
             return this;
         }
         public DataSourceDynamodbConfigDeltaSyncConfig build() {
-            final var o = new DataSourceDynamodbConfigDeltaSyncConfig();
-            o.baseTableTtl = baseTableTtl;
-            o.deltaSyncTableName = deltaSyncTableName;
-            o.deltaSyncTableTtl = deltaSyncTableTtl;
-            return o;
+            final var _resultValue = new DataSourceDynamodbConfigDeltaSyncConfig();
+            _resultValue.baseTableTtl = baseTableTtl;
+            _resultValue.deltaSyncTableName = deltaSyncTableName;
+            _resultValue.deltaSyncTableTtl = deltaSyncTableTtl;
+            return _resultValue;
         }
     }
 }

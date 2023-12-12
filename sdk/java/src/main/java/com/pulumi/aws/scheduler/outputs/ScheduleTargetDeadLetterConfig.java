@@ -46,9 +46,9 @@ public final class ScheduleTargetDeadLetterConfig {
             return this;
         }
         public ScheduleTargetDeadLetterConfig build() {
-            final var o = new ScheduleTargetDeadLetterConfig();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new ScheduleTargetDeadLetterConfig();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

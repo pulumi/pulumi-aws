@@ -86,11 +86,11 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
             return this;
         }
         public ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration();
-            o.configurationType = configurationType;
-            o.logLevel = logLevel;
-            o.metricsLevel = metricsLevel;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration();
+            _resultValue.configurationType = configurationType;
+            _resultValue.logLevel = logLevel;
+            _resultValue.metricsLevel = metricsLevel;
+            return _resultValue;
         }
     }
 }

@@ -54,10 +54,10 @@ public final class GetVirtualNodeSpecLoggingAccessLogFileFormat {
             return this;
         }
         public GetVirtualNodeSpecLoggingAccessLogFileFormat build() {
-            final var o = new GetVirtualNodeSpecLoggingAccessLogFileFormat();
-            o.jsons = jsons;
-            o.text = text;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecLoggingAccessLogFileFormat();
+            _resultValue.jsons = jsons;
+            _resultValue.text = text;
+            return _resultValue;
         }
     }
 }

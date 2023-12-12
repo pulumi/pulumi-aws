@@ -80,11 +80,11 @@ public final class GetEnvironmentsResult {
             return this;
         }
         public GetEnvironmentsResult build() {
-            final var o = new GetEnvironmentsResult();
-            o.applicationId = applicationId;
-            o.environmentIds = environmentIds;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetEnvironmentsResult();
+            _resultValue.applicationId = applicationId;
+            _resultValue.environmentIds = environmentIds;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

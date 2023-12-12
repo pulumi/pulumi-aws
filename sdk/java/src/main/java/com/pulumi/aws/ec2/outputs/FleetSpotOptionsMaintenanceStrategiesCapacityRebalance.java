@@ -60,10 +60,10 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
             return this;
         }
         public FleetSpotOptionsMaintenanceStrategiesCapacityRebalance build() {
-            final var o = new FleetSpotOptionsMaintenanceStrategiesCapacityRebalance();
-            o.replacementStrategy = replacementStrategy;
-            o.terminationDelay = terminationDelay;
-            return o;
+            final var _resultValue = new FleetSpotOptionsMaintenanceStrategiesCapacityRebalance();
+            _resultValue.replacementStrategy = replacementStrategy;
+            _resultValue.terminationDelay = terminationDelay;
+            return _resultValue;
         }
     }
 }

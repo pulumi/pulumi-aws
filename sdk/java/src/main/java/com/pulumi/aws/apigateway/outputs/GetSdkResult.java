@@ -149,16 +149,16 @@ public final class GetSdkResult {
             return this;
         }
         public GetSdkResult build() {
-            final var o = new GetSdkResult();
-            o.body = body;
-            o.contentDisposition = contentDisposition;
-            o.contentType = contentType;
-            o.id = id;
-            o.parameters = parameters;
-            o.restApiId = restApiId;
-            o.sdkType = sdkType;
-            o.stageName = stageName;
-            return o;
+            final var _resultValue = new GetSdkResult();
+            _resultValue.body = body;
+            _resultValue.contentDisposition = contentDisposition;
+            _resultValue.contentType = contentType;
+            _resultValue.id = id;
+            _resultValue.parameters = parameters;
+            _resultValue.restApiId = restApiId;
+            _resultValue.sdkType = sdkType;
+            _resultValue.stageName = stageName;
+            return _resultValue;
         }
     }
 }

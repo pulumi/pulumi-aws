@@ -66,10 +66,10 @@ public final class ClusterConfigurationInfo {
             return this;
         }
         public ClusterConfigurationInfo build() {
-            final var o = new ClusterConfigurationInfo();
-            o.arn = arn;
-            o.revision = revision;
-            return o;
+            final var _resultValue = new ClusterConfigurationInfo();
+            _resultValue.arn = arn;
+            _resultValue.revision = revision;
+            return _resultValue;
         }
     }
 }

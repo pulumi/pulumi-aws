@@ -65,10 +65,10 @@ public final class ScheduleTargetEventbridgeParameters {
             return this;
         }
         public ScheduleTargetEventbridgeParameters build() {
-            final var o = new ScheduleTargetEventbridgeParameters();
-            o.detailType = detailType;
-            o.source = source;
-            return o;
+            final var _resultValue = new ScheduleTargetEventbridgeParameters();
+            _resultValue.detailType = detailType;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

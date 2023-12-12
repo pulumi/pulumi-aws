@@ -151,14 +151,14 @@ public final class EndpointConfigurationDataCaptureConfig {
             return this;
         }
         public EndpointConfigurationDataCaptureConfig build() {
-            final var o = new EndpointConfigurationDataCaptureConfig();
-            o.captureContentTypeHeader = captureContentTypeHeader;
-            o.captureOptions = captureOptions;
-            o.destinationS3Uri = destinationS3Uri;
-            o.enableCapture = enableCapture;
-            o.initialSamplingPercentage = initialSamplingPercentage;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new EndpointConfigurationDataCaptureConfig();
+            _resultValue.captureContentTypeHeader = captureContentTypeHeader;
+            _resultValue.captureOptions = captureOptions;
+            _resultValue.destinationS3Uri = destinationS3Uri;
+            _resultValue.enableCapture = enableCapture;
+            _resultValue.initialSamplingPercentage = initialSamplingPercentage;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

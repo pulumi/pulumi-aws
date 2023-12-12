@@ -68,10 +68,10 @@ public final class DataRepositoryAssociationS3 {
             return this;
         }
         public DataRepositoryAssociationS3 build() {
-            final var o = new DataRepositoryAssociationS3();
-            o.autoExportPolicy = autoExportPolicy;
-            o.autoImportPolicy = autoImportPolicy;
-            return o;
+            final var _resultValue = new DataRepositoryAssociationS3();
+            _resultValue.autoExportPolicy = autoExportPolicy;
+            _resultValue.autoImportPolicy = autoImportPolicy;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetContainerRecipeComponentParameter {
             return this;
         }
         public GetContainerRecipeComponentParameter build() {
-            final var o = new GetContainerRecipeComponentParameter();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetContainerRecipeComponentParameter();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

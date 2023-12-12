@@ -110,12 +110,12 @@ public final class ResourceLfTagsTable {
             return this;
         }
         public ResourceLfTagsTable build() {
-            final var o = new ResourceLfTagsTable();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.name = name;
-            o.wildcard = wildcard;
-            return o;
+            final var _resultValue = new ResourceLfTagsTable();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.name = name;
+            _resultValue.wildcard = wildcard;
+            return _resultValue;
         }
     }
 }

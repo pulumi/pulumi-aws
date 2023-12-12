@@ -116,14 +116,14 @@ public final class GetModelsResult {
             return modelSummaries(List.of(modelSummaries));
         }
         public GetModelsResult build() {
-            final var o = new GetModelsResult();
-            o.byCustomizationType = byCustomizationType;
-            o.byInferenceType = byInferenceType;
-            o.byOutputModality = byOutputModality;
-            o.byProvider = byProvider;
-            o.id = id;
-            o.modelSummaries = modelSummaries;
-            return o;
+            final var _resultValue = new GetModelsResult();
+            _resultValue.byCustomizationType = byCustomizationType;
+            _resultValue.byInferenceType = byInferenceType;
+            _resultValue.byOutputModality = byOutputModality;
+            _resultValue.byProvider = byProvider;
+            _resultValue.id = id;
+            _resultValue.modelSummaries = modelSummaries;
+            return _resultValue;
         }
     }
 }

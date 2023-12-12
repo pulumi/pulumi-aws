@@ -67,10 +67,10 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
             return this;
         }
         public PipeSourceParametersManagedStreamingKafkaParametersCredentials build() {
-            final var o = new PipeSourceParametersManagedStreamingKafkaParametersCredentials();
-            o.clientCertificateTlsAuth = clientCertificateTlsAuth;
-            o.saslScram512Auth = saslScram512Auth;
-            return o;
+            final var _resultValue = new PipeSourceParametersManagedStreamingKafkaParametersCredentials();
+            _resultValue.clientCertificateTlsAuth = clientCertificateTlsAuth;
+            _resultValue.saslScram512Auth = saslScram512Auth;
+            return _resultValue;
         }
     }
 }

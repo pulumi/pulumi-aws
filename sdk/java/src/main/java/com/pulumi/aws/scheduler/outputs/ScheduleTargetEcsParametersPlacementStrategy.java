@@ -67,10 +67,10 @@ public final class ScheduleTargetEcsParametersPlacementStrategy {
             return this;
         }
         public ScheduleTargetEcsParametersPlacementStrategy build() {
-            final var o = new ScheduleTargetEcsParametersPlacementStrategy();
-            o.field = field;
-            o.type = type;
-            return o;
+            final var _resultValue = new ScheduleTargetEcsParametersPlacementStrategy();
+            _resultValue.field = field;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

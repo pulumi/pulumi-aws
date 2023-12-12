@@ -92,11 +92,11 @@ public final class RuleGroupRuleActionBlockCustomResponse {
             return responseHeaders(List.of(responseHeaders));
         }
         public RuleGroupRuleActionBlockCustomResponse build() {
-            final var o = new RuleGroupRuleActionBlockCustomResponse();
-            o.customResponseBodyKey = customResponseBodyKey;
-            o.responseCode = responseCode;
-            o.responseHeaders = responseHeaders;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionBlockCustomResponse();
+            _resultValue.customResponseBodyKey = customResponseBodyKey;
+            _resultValue.responseCode = responseCode;
+            _resultValue.responseHeaders = responseHeaders;
+            return _resultValue;
         }
     }
 }

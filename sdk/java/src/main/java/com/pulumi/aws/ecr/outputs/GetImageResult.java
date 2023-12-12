@@ -166,17 +166,17 @@ public final class GetImageResult {
             return this;
         }
         public GetImageResult build() {
-            final var o = new GetImageResult();
-            o.id = id;
-            o.imageDigest = imageDigest;
-            o.imagePushedAt = imagePushedAt;
-            o.imageSizeInBytes = imageSizeInBytes;
-            o.imageTag = imageTag;
-            o.imageTags = imageTags;
-            o.mostRecent = mostRecent;
-            o.registryId = registryId;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new GetImageResult();
+            _resultValue.id = id;
+            _resultValue.imageDigest = imageDigest;
+            _resultValue.imagePushedAt = imagePushedAt;
+            _resultValue.imageSizeInBytes = imageSizeInBytes;
+            _resultValue.imageTag = imageTag;
+            _resultValue.imageTags = imageTags;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.registryId = registryId;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

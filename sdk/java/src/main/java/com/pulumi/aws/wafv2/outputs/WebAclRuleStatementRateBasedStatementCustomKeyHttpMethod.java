@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod {
         }
 
         public WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod();
+            return _resultValue;
         }
     }
 }

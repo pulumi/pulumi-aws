@@ -67,10 +67,10 @@ public final class BucketAclV2AccessControlPolicyOwner {
             return this;
         }
         public BucketAclV2AccessControlPolicyOwner build() {
-            final var o = new BucketAclV2AccessControlPolicyOwner();
-            o.displayName = displayName;
-            o.id = id;
-            return o;
+            final var _resultValue = new BucketAclV2AccessControlPolicyOwner();
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

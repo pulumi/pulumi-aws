@@ -98,11 +98,11 @@ public final class ServiceNetworkConfiguration {
             return subnets(List.of(subnets));
         }
         public ServiceNetworkConfiguration build() {
-            final var o = new ServiceNetworkConfiguration();
-            o.assignPublicIp = assignPublicIp;
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new ServiceNetworkConfiguration();
+            _resultValue.assignPublicIp = assignPublicIp;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

@@ -168,15 +168,15 @@ public final class ApplicationApplicationConfiguration {
             return this;
         }
         public ApplicationApplicationConfiguration build() {
-            final var o = new ApplicationApplicationConfiguration();
-            o.applicationCodeConfiguration = applicationCodeConfiguration;
-            o.applicationSnapshotConfiguration = applicationSnapshotConfiguration;
-            o.environmentProperties = environmentProperties;
-            o.flinkApplicationConfiguration = flinkApplicationConfiguration;
-            o.runConfiguration = runConfiguration;
-            o.sqlApplicationConfiguration = sqlApplicationConfiguration;
-            o.vpcConfiguration = vpcConfiguration;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfiguration();
+            _resultValue.applicationCodeConfiguration = applicationCodeConfiguration;
+            _resultValue.applicationSnapshotConfiguration = applicationSnapshotConfiguration;
+            _resultValue.environmentProperties = environmentProperties;
+            _resultValue.flinkApplicationConfiguration = flinkApplicationConfiguration;
+            _resultValue.runConfiguration = runConfiguration;
+            _resultValue.sqlApplicationConfiguration = sqlApplicationConfiguration;
+            _resultValue.vpcConfiguration = vpcConfiguration;
+            return _resultValue;
         }
     }
 }

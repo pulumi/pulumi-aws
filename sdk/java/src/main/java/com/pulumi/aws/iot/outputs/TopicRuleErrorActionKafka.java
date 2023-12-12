@@ -149,14 +149,14 @@ public final class TopicRuleErrorActionKafka {
             return this;
         }
         public TopicRuleErrorActionKafka build() {
-            final var o = new TopicRuleErrorActionKafka();
-            o.clientProperties = clientProperties;
-            o.destinationArn = destinationArn;
-            o.headers = headers;
-            o.key = key;
-            o.partition = partition;
-            o.topic = topic;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionKafka();
+            _resultValue.clientProperties = clientProperties;
+            _resultValue.destinationArn = destinationArn;
+            _resultValue.headers = headers;
+            _resultValue.key = key;
+            _resultValue.partition = partition;
+            _resultValue.topic = topic;
+            return _resultValue;
         }
     }
 }

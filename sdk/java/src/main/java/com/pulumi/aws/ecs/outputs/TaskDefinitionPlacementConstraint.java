@@ -67,10 +67,10 @@ public final class TaskDefinitionPlacementConstraint {
             return this;
         }
         public TaskDefinitionPlacementConstraint build() {
-            final var o = new TaskDefinitionPlacementConstraint();
-            o.expression = expression;
-            o.type = type;
-            return o;
+            final var _resultValue = new TaskDefinitionPlacementConstraint();
+            _resultValue.expression = expression;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

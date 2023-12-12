@@ -67,10 +67,10 @@ public final class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings
             return this;
         }
         public UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings build() {
-            final var o = new UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings();
-            o.crossAccountModelRegisterRoleArn = crossAccountModelRegisterRoleArn;
-            o.status = status;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings();
+            _resultValue.crossAccountModelRegisterRoleArn = crossAccountModelRegisterRoleArn;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

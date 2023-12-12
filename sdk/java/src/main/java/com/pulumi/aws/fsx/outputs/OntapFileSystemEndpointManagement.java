@@ -71,10 +71,10 @@ public final class OntapFileSystemEndpointManagement {
             return ipAddresses(List.of(ipAddresses));
         }
         public OntapFileSystemEndpointManagement build() {
-            final var o = new OntapFileSystemEndpointManagement();
-            o.dnsName = dnsName;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new OntapFileSystemEndpointManagement();
+            _resultValue.dnsName = dnsName;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

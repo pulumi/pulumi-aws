@@ -70,10 +70,10 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanism {
             return this;
         }
         public UserPoolAccountRecoverySettingRecoveryMechanism build() {
-            final var o = new UserPoolAccountRecoverySettingRecoveryMechanism();
-            o.name = name;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new UserPoolAccountRecoverySettingRecoveryMechanism();
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

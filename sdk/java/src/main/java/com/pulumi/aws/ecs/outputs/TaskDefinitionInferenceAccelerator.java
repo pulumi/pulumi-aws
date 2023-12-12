@@ -65,10 +65,10 @@ public final class TaskDefinitionInferenceAccelerator {
             return this;
         }
         public TaskDefinitionInferenceAccelerator build() {
-            final var o = new TaskDefinitionInferenceAccelerator();
-            o.deviceName = deviceName;
-            o.deviceType = deviceType;
-            return o;
+            final var _resultValue = new TaskDefinitionInferenceAccelerator();
+            _resultValue.deviceName = deviceName;
+            _resultValue.deviceType = deviceType;
+            return _resultValue;
         }
     }
 }

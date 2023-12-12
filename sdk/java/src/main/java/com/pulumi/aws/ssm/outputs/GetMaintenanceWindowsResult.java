@@ -85,11 +85,11 @@ public final class GetMaintenanceWindowsResult {
             return ids(List.of(ids));
         }
         public GetMaintenanceWindowsResult build() {
-            final var o = new GetMaintenanceWindowsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            return o;
+            final var _resultValue = new GetMaintenanceWindowsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            return _resultValue;
         }
     }
 }

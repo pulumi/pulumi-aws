@@ -57,10 +57,10 @@ public final class GetPlanStageTarget {
             return contactTargetInfos(List.of(contactTargetInfos));
         }
         public GetPlanStageTarget build() {
-            final var o = new GetPlanStageTarget();
-            o.channelTargetInfos = channelTargetInfos;
-            o.contactTargetInfos = contactTargetInfos;
-            return o;
+            final var _resultValue = new GetPlanStageTarget();
+            _resultValue.channelTargetInfos = channelTargetInfos;
+            _resultValue.contactTargetInfos = contactTargetInfos;
+            return _resultValue;
         }
     }
 }

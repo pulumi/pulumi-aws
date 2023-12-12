@@ -107,12 +107,12 @@ public final class GetInfrastructureConfigurationsResult {
             return names(List.of(names));
         }
         public GetInfrastructureConfigurationsResult build() {
-            final var o = new GetInfrastructureConfigurationsResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetInfrastructureConfigurationsResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

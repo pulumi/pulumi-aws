@@ -46,9 +46,9 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms();
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms();
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

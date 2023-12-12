@@ -50,9 +50,9 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
             return dimensions(List.of(dimensions));
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction();
-            o.dimensions = dimensions;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction();
+            _resultValue.dimensions = dimensions;
+            return _resultValue;
         }
     }
 }

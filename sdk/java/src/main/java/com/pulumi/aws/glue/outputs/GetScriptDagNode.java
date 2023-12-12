@@ -111,12 +111,12 @@ public final class GetScriptDagNode {
             return this;
         }
         public GetScriptDagNode build() {
-            final var o = new GetScriptDagNode();
-            o.args = args;
-            o.id = id;
-            o.lineNumber = lineNumber;
-            o.nodeType = nodeType;
-            return o;
+            final var _resultValue = new GetScriptDagNode();
+            _resultValue.args = args;
+            _resultValue.id = id;
+            _resultValue.lineNumber = lineNumber;
+            _resultValue.nodeType = nodeType;
+            return _resultValue;
         }
     }
 }

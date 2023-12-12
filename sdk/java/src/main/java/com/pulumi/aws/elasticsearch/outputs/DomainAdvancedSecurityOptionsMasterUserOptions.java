@@ -86,11 +86,11 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptions {
             return this;
         }
         public DomainAdvancedSecurityOptionsMasterUserOptions build() {
-            final var o = new DomainAdvancedSecurityOptionsMasterUserOptions();
-            o.masterUserArn = masterUserArn;
-            o.masterUserName = masterUserName;
-            o.masterUserPassword = masterUserPassword;
-            return o;
+            final var _resultValue = new DomainAdvancedSecurityOptionsMasterUserOptions();
+            _resultValue.masterUserArn = masterUserArn;
+            _resultValue.masterUserName = masterUserName;
+            _resultValue.masterUserPassword = masterUserPassword;
+            return _resultValue;
         }
     }
 }

@@ -181,16 +181,16 @@ public final class DirectoryWorkspaceAccessProperties {
             return this;
         }
         public DirectoryWorkspaceAccessProperties build() {
-            final var o = new DirectoryWorkspaceAccessProperties();
-            o.deviceTypeAndroid = deviceTypeAndroid;
-            o.deviceTypeChromeos = deviceTypeChromeos;
-            o.deviceTypeIos = deviceTypeIos;
-            o.deviceTypeLinux = deviceTypeLinux;
-            o.deviceTypeOsx = deviceTypeOsx;
-            o.deviceTypeWeb = deviceTypeWeb;
-            o.deviceTypeWindows = deviceTypeWindows;
-            o.deviceTypeZeroclient = deviceTypeZeroclient;
-            return o;
+            final var _resultValue = new DirectoryWorkspaceAccessProperties();
+            _resultValue.deviceTypeAndroid = deviceTypeAndroid;
+            _resultValue.deviceTypeChromeos = deviceTypeChromeos;
+            _resultValue.deviceTypeIos = deviceTypeIos;
+            _resultValue.deviceTypeLinux = deviceTypeLinux;
+            _resultValue.deviceTypeOsx = deviceTypeOsx;
+            _resultValue.deviceTypeWeb = deviceTypeWeb;
+            _resultValue.deviceTypeWindows = deviceTypeWindows;
+            _resultValue.deviceTypeZeroclient = deviceTypeZeroclient;
+            return _resultValue;
         }
     }
 }

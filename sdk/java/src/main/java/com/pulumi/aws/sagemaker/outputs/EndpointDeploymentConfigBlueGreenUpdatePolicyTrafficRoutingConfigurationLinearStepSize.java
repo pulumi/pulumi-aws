@@ -66,10 +66,10 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
             return this;
         }
         public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize build() {
-            final var o = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

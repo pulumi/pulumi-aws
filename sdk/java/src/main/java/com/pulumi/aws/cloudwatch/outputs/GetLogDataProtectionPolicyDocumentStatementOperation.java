@@ -72,10 +72,10 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperation {
             return this;
         }
         public GetLogDataProtectionPolicyDocumentStatementOperation build() {
-            final var o = new GetLogDataProtectionPolicyDocumentStatementOperation();
-            o.audit = audit;
-            o.deidentify = deidentify;
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentStatementOperation();
+            _resultValue.audit = audit;
+            _resultValue.deidentify = deidentify;
+            return _resultValue;
         }
     }
 }

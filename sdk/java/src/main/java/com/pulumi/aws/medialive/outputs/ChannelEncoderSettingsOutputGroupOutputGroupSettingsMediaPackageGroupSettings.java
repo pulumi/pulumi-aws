@@ -46,9 +46,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings();
-            o.destination = destination;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings();
+            _resultValue.destination = destination;
+            return _resultValue;
         }
     }
 }

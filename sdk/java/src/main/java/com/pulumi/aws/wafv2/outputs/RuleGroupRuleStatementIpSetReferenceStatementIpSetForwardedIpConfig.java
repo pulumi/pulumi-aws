@@ -84,11 +84,11 @@ public final class RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIp
             return this;
         }
         public RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig build() {
-            final var o = new RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            o.position = position;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            _resultValue.position = position;
+            return _resultValue;
         }
     }
 }

@@ -301,21 +301,21 @@ public final class GetCatalogTableStorageDescriptor {
             return this;
         }
         public GetCatalogTableStorageDescriptor build() {
-            final var o = new GetCatalogTableStorageDescriptor();
-            o.bucketColumns = bucketColumns;
-            o.columns = columns;
-            o.compressed = compressed;
-            o.inputFormat = inputFormat;
-            o.location = location;
-            o.numberOfBuckets = numberOfBuckets;
-            o.outputFormat = outputFormat;
-            o.parameters = parameters;
-            o.schemaReferences = schemaReferences;
-            o.serDeInfos = serDeInfos;
-            o.skewedInfos = skewedInfos;
-            o.sortColumns = sortColumns;
-            o.storedAsSubDirectories = storedAsSubDirectories;
-            return o;
+            final var _resultValue = new GetCatalogTableStorageDescriptor();
+            _resultValue.bucketColumns = bucketColumns;
+            _resultValue.columns = columns;
+            _resultValue.compressed = compressed;
+            _resultValue.inputFormat = inputFormat;
+            _resultValue.location = location;
+            _resultValue.numberOfBuckets = numberOfBuckets;
+            _resultValue.outputFormat = outputFormat;
+            _resultValue.parameters = parameters;
+            _resultValue.schemaReferences = schemaReferences;
+            _resultValue.serDeInfos = serDeInfos;
+            _resultValue.skewedInfos = skewedInfos;
+            _resultValue.sortColumns = sortColumns;
+            _resultValue.storedAsSubDirectories = storedAsSubDirectories;
+            return _resultValue;
         }
     }
 }

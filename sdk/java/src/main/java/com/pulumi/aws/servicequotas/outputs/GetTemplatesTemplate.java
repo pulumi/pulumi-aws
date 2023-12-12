@@ -181,16 +181,16 @@ public final class GetTemplatesTemplate {
             return this;
         }
         public GetTemplatesTemplate build() {
-            final var o = new GetTemplatesTemplate();
-            o.globalQuota = globalQuota;
-            o.quotaCode = quotaCode;
-            o.quotaName = quotaName;
-            o.region = region;
-            o.serviceCode = serviceCode;
-            o.serviceName = serviceName;
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetTemplatesTemplate();
+            _resultValue.globalQuota = globalQuota;
+            _resultValue.quotaCode = quotaCode;
+            _resultValue.quotaName = quotaName;
+            _resultValue.region = region;
+            _resultValue.serviceCode = serviceCode;
+            _resultValue.serviceName = serviceName;
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

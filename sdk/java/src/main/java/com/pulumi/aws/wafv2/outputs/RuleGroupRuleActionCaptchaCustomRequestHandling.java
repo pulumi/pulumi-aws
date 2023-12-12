@@ -50,9 +50,9 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandling {
             return insertHeaders(List.of(insertHeaders));
         }
         public RuleGroupRuleActionCaptchaCustomRequestHandling build() {
-            final var o = new RuleGroupRuleActionCaptchaCustomRequestHandling();
-            o.insertHeaders = insertHeaders;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionCaptchaCustomRequestHandling();
+            _resultValue.insertHeaders = insertHeaders;
+            return _resultValue;
         }
     }
 }

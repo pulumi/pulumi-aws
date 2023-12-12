@@ -60,11 +60,11 @@ public final class GetSigningJobSourceS3 {
             return this;
         }
         public GetSigningJobSourceS3 build() {
-            final var o = new GetSigningJobSourceS3();
-            o.bucket = bucket;
-            o.key = key;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetSigningJobSourceS3();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

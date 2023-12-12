@@ -46,9 +46,9 @@ public final class GetDomainSoftwareUpdateOption {
             return this;
         }
         public GetDomainSoftwareUpdateOption build() {
-            final var o = new GetDomainSoftwareUpdateOption();
-            o.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
-            return o;
+            final var _resultValue = new GetDomainSoftwareUpdateOption();
+            _resultValue.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
+            return _resultValue;
         }
     }
 }

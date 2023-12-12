@@ -77,11 +77,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping();
-            o.captionChannel = captionChannel;
-            o.languageCode = languageCode;
-            o.languageDescription = languageDescription;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping();
+            _resultValue.captionChannel = captionChannel;
+            _resultValue.languageCode = languageCode;
+            _resultValue.languageDescription = languageDescription;
+            return _resultValue;
         }
     }
 }

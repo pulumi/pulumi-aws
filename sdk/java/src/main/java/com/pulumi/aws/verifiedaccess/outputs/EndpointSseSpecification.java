@@ -52,10 +52,10 @@ public final class EndpointSseSpecification {
             return this;
         }
         public EndpointSseSpecification build() {
-            final var o = new EndpointSseSpecification();
-            o.customerManagedKeyEnabled = customerManagedKeyEnabled;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new EndpointSseSpecification();
+            _resultValue.customerManagedKeyEnabled = customerManagedKeyEnabled;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

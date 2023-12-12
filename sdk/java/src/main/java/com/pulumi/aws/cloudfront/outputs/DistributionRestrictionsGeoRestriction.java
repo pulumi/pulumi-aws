@@ -70,10 +70,10 @@ public final class DistributionRestrictionsGeoRestriction {
             return this;
         }
         public DistributionRestrictionsGeoRestriction build() {
-            final var o = new DistributionRestrictionsGeoRestriction();
-            o.locations = locations;
-            o.restrictionType = restrictionType;
-            return o;
+            final var _resultValue = new DistributionRestrictionsGeoRestriction();
+            _resultValue.locations = locations;
+            _resultValue.restrictionType = restrictionType;
+            return _resultValue;
         }
     }
 }

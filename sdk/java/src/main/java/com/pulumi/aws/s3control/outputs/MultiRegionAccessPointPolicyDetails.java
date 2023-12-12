@@ -69,10 +69,10 @@ public final class MultiRegionAccessPointPolicyDetails {
             return this;
         }
         public MultiRegionAccessPointPolicyDetails build() {
-            final var o = new MultiRegionAccessPointPolicyDetails();
-            o.name = name;
-            o.policy = policy;
-            return o;
+            final var _resultValue = new MultiRegionAccessPointPolicyDetails();
+            _resultValue.name = name;
+            _resultValue.policy = policy;
+            return _resultValue;
         }
     }
 }

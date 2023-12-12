@@ -94,11 +94,11 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             return includedHeaders(List.of(includedHeaders));
         }
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern();
-            o.all = all;
-            o.excludedHeaders = excludedHeaders;
-            o.includedHeaders = includedHeaders;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedHeaders = excludedHeaders;
+            _resultValue.includedHeaders = includedHeaders;
+            return _resultValue;
         }
     }
 }

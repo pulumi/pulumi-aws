@@ -71,10 +71,10 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLa
             return this;
         }
         public InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config build() {
-            final var o = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config();
-            o.bucketName = bucketName;
-            o.keyPrefix = keyPrefix;
-            return o;
+            final var _resultValue = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config();
+            _resultValue.bucketName = bucketName;
+            _resultValue.keyPrefix = keyPrefix;
+            return _resultValue;
         }
     }
 }

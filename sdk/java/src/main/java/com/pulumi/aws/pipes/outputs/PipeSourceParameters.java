@@ -188,16 +188,16 @@ public final class PipeSourceParameters {
             return this;
         }
         public PipeSourceParameters build() {
-            final var o = new PipeSourceParameters();
-            o.activemqBrokerParameters = activemqBrokerParameters;
-            o.dynamodbStreamParameters = dynamodbStreamParameters;
-            o.filterCriteria = filterCriteria;
-            o.kinesisStreamParameters = kinesisStreamParameters;
-            o.managedStreamingKafkaParameters = managedStreamingKafkaParameters;
-            o.rabbitmqBrokerParameters = rabbitmqBrokerParameters;
-            o.selfManagedKafkaParameters = selfManagedKafkaParameters;
-            o.sqsQueueParameters = sqsQueueParameters;
-            return o;
+            final var _resultValue = new PipeSourceParameters();
+            _resultValue.activemqBrokerParameters = activemqBrokerParameters;
+            _resultValue.dynamodbStreamParameters = dynamodbStreamParameters;
+            _resultValue.filterCriteria = filterCriteria;
+            _resultValue.kinesisStreamParameters = kinesisStreamParameters;
+            _resultValue.managedStreamingKafkaParameters = managedStreamingKafkaParameters;
+            _resultValue.rabbitmqBrokerParameters = rabbitmqBrokerParameters;
+            _resultValue.selfManagedKafkaParameters = selfManagedKafkaParameters;
+            _resultValue.sqsQueueParameters = sqsQueueParameters;
+            return _resultValue;
         }
     }
 }

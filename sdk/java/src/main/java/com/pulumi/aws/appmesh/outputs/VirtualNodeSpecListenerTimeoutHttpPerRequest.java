@@ -66,10 +66,10 @@ public final class VirtualNodeSpecListenerTimeoutHttpPerRequest {
             return this;
         }
         public VirtualNodeSpecListenerTimeoutHttpPerRequest build() {
-            final var o = new VirtualNodeSpecListenerTimeoutHttpPerRequest();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTimeoutHttpPerRequest();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

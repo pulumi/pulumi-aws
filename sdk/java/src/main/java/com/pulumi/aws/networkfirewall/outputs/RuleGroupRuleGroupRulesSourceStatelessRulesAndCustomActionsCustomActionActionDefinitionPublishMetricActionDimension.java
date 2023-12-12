@@ -46,9 +46,9 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
             return this;
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension();
-            o.value = value;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

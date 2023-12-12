@@ -68,10 +68,10 @@ public final class UserPoolAdminCreateUserConfig {
             return this;
         }
         public UserPoolAdminCreateUserConfig build() {
-            final var o = new UserPoolAdminCreateUserConfig();
-            o.allowAdminCreateUserOnly = allowAdminCreateUserOnly;
-            o.inviteMessageTemplate = inviteMessageTemplate;
-            return o;
+            final var _resultValue = new UserPoolAdminCreateUserConfig();
+            _resultValue.allowAdminCreateUserOnly = allowAdminCreateUserOnly;
+            _resultValue.inviteMessageTemplate = inviteMessageTemplate;
+            return _resultValue;
         }
     }
 }

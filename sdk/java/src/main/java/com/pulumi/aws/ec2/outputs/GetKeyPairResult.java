@@ -213,19 +213,19 @@ public final class GetKeyPairResult {
             return this;
         }
         public GetKeyPairResult build() {
-            final var o = new GetKeyPairResult();
-            o.arn = arn;
-            o.createTime = createTime;
-            o.filters = filters;
-            o.fingerprint = fingerprint;
-            o.id = id;
-            o.includePublicKey = includePublicKey;
-            o.keyName = keyName;
-            o.keyPairId = keyPairId;
-            o.keyType = keyType;
-            o.publicKey = publicKey;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetKeyPairResult();
+            _resultValue.arn = arn;
+            _resultValue.createTime = createTime;
+            _resultValue.filters = filters;
+            _resultValue.fingerprint = fingerprint;
+            _resultValue.id = id;
+            _resultValue.includePublicKey = includePublicKey;
+            _resultValue.keyName = keyName;
+            _resultValue.keyPairId = keyPairId;
+            _resultValue.keyType = keyType;
+            _resultValue.publicKey = publicKey;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

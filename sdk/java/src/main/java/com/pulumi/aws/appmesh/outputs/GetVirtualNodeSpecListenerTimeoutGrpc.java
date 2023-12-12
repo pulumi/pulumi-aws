@@ -57,10 +57,10 @@ public final class GetVirtualNodeSpecListenerTimeoutGrpc {
             return perRequests(List.of(perRequests));
         }
         public GetVirtualNodeSpecListenerTimeoutGrpc build() {
-            final var o = new GetVirtualNodeSpecListenerTimeoutGrpc();
-            o.idles = idles;
-            o.perRequests = perRequests;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTimeoutGrpc();
+            _resultValue.idles = idles;
+            _resultValue.perRequests = perRequests;
+            return _resultValue;
         }
     }
 }

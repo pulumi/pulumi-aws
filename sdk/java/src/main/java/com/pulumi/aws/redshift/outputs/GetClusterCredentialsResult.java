@@ -158,17 +158,17 @@ public final class GetClusterCredentialsResult {
             return this;
         }
         public GetClusterCredentialsResult build() {
-            final var o = new GetClusterCredentialsResult();
-            o.autoCreate = autoCreate;
-            o.clusterIdentifier = clusterIdentifier;
-            o.dbGroups = dbGroups;
-            o.dbName = dbName;
-            o.dbPassword = dbPassword;
-            o.dbUser = dbUser;
-            o.durationSeconds = durationSeconds;
-            o.expiration = expiration;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetClusterCredentialsResult();
+            _resultValue.autoCreate = autoCreate;
+            _resultValue.clusterIdentifier = clusterIdentifier;
+            _resultValue.dbGroups = dbGroups;
+            _resultValue.dbName = dbName;
+            _resultValue.dbPassword = dbPassword;
+            _resultValue.dbUser = dbUser;
+            _resultValue.durationSeconds = durationSeconds;
+            _resultValue.expiration = expiration;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

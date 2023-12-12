@@ -81,10 +81,10 @@ public final class RiskConfigurationRiskExceptionConfiguration {
             return skippedIpRangeLists(List.of(skippedIpRangeLists));
         }
         public RiskConfigurationRiskExceptionConfiguration build() {
-            final var o = new RiskConfigurationRiskExceptionConfiguration();
-            o.blockedIpRangeLists = blockedIpRangeLists;
-            o.skippedIpRangeLists = skippedIpRangeLists;
-            return o;
+            final var _resultValue = new RiskConfigurationRiskExceptionConfiguration();
+            _resultValue.blockedIpRangeLists = blockedIpRangeLists;
+            _resultValue.skippedIpRangeLists = skippedIpRangeLists;
+            return _resultValue;
         }
     }
 }

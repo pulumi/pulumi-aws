@@ -57,10 +57,10 @@ public final class GetGatewayRouteSpecHttpRoute {
             return matches(List.of(matches));
         }
         public GetGatewayRouteSpecHttpRoute build() {
-            final var o = new GetGatewayRouteSpecHttpRoute();
-            o.actions = actions;
-            o.matches = matches;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttpRoute();
+            _resultValue.actions = actions;
+            _resultValue.matches = matches;
+            return _resultValue;
         }
     }
 }

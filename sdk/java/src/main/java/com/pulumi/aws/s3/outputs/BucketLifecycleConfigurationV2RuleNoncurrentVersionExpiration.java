@@ -68,10 +68,10 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
             return this;
         }
         public BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration build() {
-            final var o = new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration();
-            o.newerNoncurrentVersions = newerNoncurrentVersions;
-            o.noncurrentDays = noncurrentDays;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration();
+            _resultValue.newerNoncurrentVersions = newerNoncurrentVersions;
+            _resultValue.noncurrentDays = noncurrentDays;
+            return _resultValue;
         }
     }
 }

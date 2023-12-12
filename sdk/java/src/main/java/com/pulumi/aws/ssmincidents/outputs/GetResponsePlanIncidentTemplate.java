@@ -148,14 +148,14 @@ public final class GetResponsePlanIncidentTemplate {
             return this;
         }
         public GetResponsePlanIncidentTemplate build() {
-            final var o = new GetResponsePlanIncidentTemplate();
-            o.dedupeString = dedupeString;
-            o.impact = impact;
-            o.incidentTags = incidentTags;
-            o.notificationTargets = notificationTargets;
-            o.summary = summary;
-            o.title = title;
-            return o;
+            final var _resultValue = new GetResponsePlanIncidentTemplate();
+            _resultValue.dedupeString = dedupeString;
+            _resultValue.impact = impact;
+            _resultValue.incidentTags = incidentTags;
+            _resultValue.notificationTargets = notificationTargets;
+            _resultValue.summary = summary;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

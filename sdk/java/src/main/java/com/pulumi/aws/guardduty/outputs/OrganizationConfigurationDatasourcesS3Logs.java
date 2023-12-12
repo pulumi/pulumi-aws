@@ -46,9 +46,9 @@ public final class OrganizationConfigurationDatasourcesS3Logs {
             return this;
         }
         public OrganizationConfigurationDatasourcesS3Logs build() {
-            final var o = new OrganizationConfigurationDatasourcesS3Logs();
-            o.autoEnable = autoEnable;
-            return o;
+            final var _resultValue = new OrganizationConfigurationDatasourcesS3Logs();
+            _resultValue.autoEnable = autoEnable;
+            return _resultValue;
         }
     }
 }

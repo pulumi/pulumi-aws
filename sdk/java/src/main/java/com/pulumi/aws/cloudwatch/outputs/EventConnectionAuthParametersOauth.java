@@ -107,12 +107,12 @@ public final class EventConnectionAuthParametersOauth {
             return this;
         }
         public EventConnectionAuthParametersOauth build() {
-            final var o = new EventConnectionAuthParametersOauth();
-            o.authorizationEndpoint = authorizationEndpoint;
-            o.clientParameters = clientParameters;
-            o.httpMethod = httpMethod;
-            o.oauthHttpParameters = oauthHttpParameters;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersOauth();
+            _resultValue.authorizationEndpoint = authorizationEndpoint;
+            _resultValue.clientParameters = clientParameters;
+            _resultValue.httpMethod = httpMethod;
+            _resultValue.oauthHttpParameters = oauthHttpParameters;
+            return _resultValue;
         }
     }
 }

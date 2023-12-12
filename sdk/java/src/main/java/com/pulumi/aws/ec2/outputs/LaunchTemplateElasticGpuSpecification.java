@@ -46,9 +46,9 @@ public final class LaunchTemplateElasticGpuSpecification {
             return this;
         }
         public LaunchTemplateElasticGpuSpecification build() {
-            final var o = new LaunchTemplateElasticGpuSpecification();
-            o.type = type;
-            return o;
+            final var _resultValue = new LaunchTemplateElasticGpuSpecification();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

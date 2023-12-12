@@ -50,9 +50,9 @@ public final class LaunchScheduledSplitsConfig {
             return steps(List.of(steps));
         }
         public LaunchScheduledSplitsConfig build() {
-            final var o = new LaunchScheduledSplitsConfig();
-            o.steps = steps;
-            return o;
+            final var _resultValue = new LaunchScheduledSplitsConfig();
+            _resultValue.steps = steps;
+            return _resultValue;
         }
     }
 }

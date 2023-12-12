@@ -180,15 +180,15 @@ public final class TrailAdvancedEventSelectorFieldSelector {
             return startsWiths(List.of(startsWiths));
         }
         public TrailAdvancedEventSelectorFieldSelector build() {
-            final var o = new TrailAdvancedEventSelectorFieldSelector();
-            o.endsWiths = endsWiths;
-            o.equals = equals;
-            o.field = field;
-            o.notEndsWiths = notEndsWiths;
-            o.notEquals = notEquals;
-            o.notStartsWiths = notStartsWiths;
-            o.startsWiths = startsWiths;
-            return o;
+            final var _resultValue = new TrailAdvancedEventSelectorFieldSelector();
+            _resultValue.endsWiths = endsWiths;
+            _resultValue.equals = equals;
+            _resultValue.field = field;
+            _resultValue.notEndsWiths = notEndsWiths;
+            _resultValue.notEquals = notEquals;
+            _resultValue.notStartsWiths = notStartsWiths;
+            _resultValue.startsWiths = startsWiths;
+            return _resultValue;
         }
     }
 }

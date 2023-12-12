@@ -72,10 +72,10 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
             return sseS3s(List.of(sseS3s));
         }
         public StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption();
-            o.sseKms = sseKms;
-            o.sseS3s = sseS3s;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption();
+            _resultValue.sseKms = sseKms;
+            _resultValue.sseS3s = sseS3s;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchBody {
             return this;
         }
         public WebAclRuleStatementByteMatchStatementFieldToMatchBody build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

@@ -54,10 +54,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail
             return components(List.of(components));
         }
         public GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail build() {
-            final var o = new GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail();
-            o.additionalDetailType = additionalDetailType;
-            o.components = components;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail();
+            _resultValue.additionalDetailType = additionalDetailType;
+            _resultValue.components = components;
+            return _resultValue;
         }
     }
 }

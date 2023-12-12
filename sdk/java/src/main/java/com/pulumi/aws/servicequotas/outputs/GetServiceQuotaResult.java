@@ -219,19 +219,19 @@ public final class GetServiceQuotaResult {
             return this;
         }
         public GetServiceQuotaResult build() {
-            final var o = new GetServiceQuotaResult();
-            o.adjustable = adjustable;
-            o.arn = arn;
-            o.defaultValue = defaultValue;
-            o.globalQuota = globalQuota;
-            o.id = id;
-            o.quotaCode = quotaCode;
-            o.quotaName = quotaName;
-            o.serviceCode = serviceCode;
-            o.serviceName = serviceName;
-            o.usageMetrics = usageMetrics;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetServiceQuotaResult();
+            _resultValue.adjustable = adjustable;
+            _resultValue.arn = arn;
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.globalQuota = globalQuota;
+            _resultValue.id = id;
+            _resultValue.quotaCode = quotaCode;
+            _resultValue.quotaName = quotaName;
+            _resultValue.serviceCode = serviceCode;
+            _resultValue.serviceName = serviceName;
+            _resultValue.usageMetrics = usageMetrics;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

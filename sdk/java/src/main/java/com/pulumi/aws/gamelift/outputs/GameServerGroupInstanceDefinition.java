@@ -73,10 +73,10 @@ public final class GameServerGroupInstanceDefinition {
             return this;
         }
         public GameServerGroupInstanceDefinition build() {
-            final var o = new GameServerGroupInstanceDefinition();
-            o.instanceType = instanceType;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new GameServerGroupInstanceDefinition();
+            _resultValue.instanceType = instanceType;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

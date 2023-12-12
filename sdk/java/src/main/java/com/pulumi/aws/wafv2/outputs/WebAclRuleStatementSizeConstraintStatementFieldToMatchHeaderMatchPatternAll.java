@@ -25,8 +25,8 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderM
         }
 
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll();
+            return _resultValue;
         }
     }
 }

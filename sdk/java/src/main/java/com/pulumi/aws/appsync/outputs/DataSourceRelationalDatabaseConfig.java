@@ -68,10 +68,10 @@ public final class DataSourceRelationalDatabaseConfig {
             return this;
         }
         public DataSourceRelationalDatabaseConfig build() {
-            final var o = new DataSourceRelationalDatabaseConfig();
-            o.httpEndpointConfig = httpEndpointConfig;
-            o.sourceType = sourceType;
-            return o;
+            final var _resultValue = new DataSourceRelationalDatabaseConfig();
+            _resultValue.httpEndpointConfig = httpEndpointConfig;
+            _resultValue.sourceType = sourceType;
+            return _resultValue;
         }
     }
 }

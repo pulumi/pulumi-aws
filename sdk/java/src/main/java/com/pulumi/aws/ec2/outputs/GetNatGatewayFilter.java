@@ -73,10 +73,10 @@ public final class GetNatGatewayFilter {
             return values(List.of(values));
         }
         public GetNatGatewayFilter build() {
-            final var o = new GetNatGatewayFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetNatGatewayFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

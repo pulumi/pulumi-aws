@@ -62,10 +62,10 @@ public final class DashboardParametersDecimalParameter {
             return values(List.of(values));
         }
         public DashboardParametersDecimalParameter build() {
-            final var o = new DashboardParametersDecimalParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new DashboardParametersDecimalParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

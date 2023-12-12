@@ -49,10 +49,10 @@ public final class GetNetworkInsightsAnalysisExplanationPortRange {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationPortRange build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationPortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationPortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

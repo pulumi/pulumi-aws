@@ -68,10 +68,10 @@ public final class BucketLoggingV2TargetObjectKeyFormat {
             return this;
         }
         public BucketLoggingV2TargetObjectKeyFormat build() {
-            final var o = new BucketLoggingV2TargetObjectKeyFormat();
-            o.partitionedPrefix = partitionedPrefix;
-            o.simplePrefix = simplePrefix;
-            return o;
+            final var _resultValue = new BucketLoggingV2TargetObjectKeyFormat();
+            _resultValue.partitionedPrefix = partitionedPrefix;
+            _resultValue.simplePrefix = simplePrefix;
+            return _resultValue;
         }
     }
 }

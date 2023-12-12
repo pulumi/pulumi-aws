@@ -65,10 +65,10 @@ public final class GetIndexCapacityUnit {
             return this;
         }
         public GetIndexCapacityUnit build() {
-            final var o = new GetIndexCapacityUnit();
-            o.queryCapacityUnits = queryCapacityUnits;
-            o.storageCapacityUnits = storageCapacityUnits;
-            return o;
+            final var _resultValue = new GetIndexCapacityUnit();
+            _resultValue.queryCapacityUnits = queryCapacityUnits;
+            _resultValue.storageCapacityUnits = storageCapacityUnits;
+            return _resultValue;
         }
     }
 }

@@ -50,10 +50,10 @@ public final class GetEndpointClientLoginBannerOption {
             return this;
         }
         public GetEndpointClientLoginBannerOption build() {
-            final var o = new GetEndpointClientLoginBannerOption();
-            o.bannerText = bannerText;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetEndpointClientLoginBannerOption();
+            _resultValue.bannerText = bannerText;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetThemePermission {
             return this;
         }
         public GetThemePermission build() {
-            final var o = new GetThemePermission();
-            o.actions = actions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new GetThemePermission();
+            _resultValue.actions = actions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

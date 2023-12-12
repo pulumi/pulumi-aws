@@ -252,20 +252,20 @@ public final class GetConnectPeerResult {
             return this;
         }
         public GetConnectPeerResult build() {
-            final var o = new GetConnectPeerResult();
-            o.arn = arn;
-            o.bgpAsn = bgpAsn;
-            o.bgpPeerAddress = bgpPeerAddress;
-            o.bgpTransitGatewayAddresses = bgpTransitGatewayAddresses;
-            o.filters = filters;
-            o.id = id;
-            o.insideCidrBlocks = insideCidrBlocks;
-            o.peerAddress = peerAddress;
-            o.tags = tags;
-            o.transitGatewayAddress = transitGatewayAddress;
-            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
-            o.transitGatewayConnectPeerId = transitGatewayConnectPeerId;
-            return o;
+            final var _resultValue = new GetConnectPeerResult();
+            _resultValue.arn = arn;
+            _resultValue.bgpAsn = bgpAsn;
+            _resultValue.bgpPeerAddress = bgpPeerAddress;
+            _resultValue.bgpTransitGatewayAddresses = bgpTransitGatewayAddresses;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.insideCidrBlocks = insideCidrBlocks;
+            _resultValue.peerAddress = peerAddress;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayAddress = transitGatewayAddress;
+            _resultValue.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            _resultValue.transitGatewayConnectPeerId = transitGatewayConnectPeerId;
+            return _resultValue;
         }
     }
 }

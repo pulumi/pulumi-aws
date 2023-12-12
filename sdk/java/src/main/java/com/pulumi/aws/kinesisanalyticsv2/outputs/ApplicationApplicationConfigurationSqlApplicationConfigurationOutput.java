@@ -139,14 +139,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationOutput build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutput();
-            o.destinationSchema = destinationSchema;
-            o.kinesisFirehoseOutput = kinesisFirehoseOutput;
-            o.kinesisStreamsOutput = kinesisStreamsOutput;
-            o.lambdaOutput = lambdaOutput;
-            o.name = name;
-            o.outputId = outputId;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutput();
+            _resultValue.destinationSchema = destinationSchema;
+            _resultValue.kinesisFirehoseOutput = kinesisFirehoseOutput;
+            _resultValue.kinesisStreamsOutput = kinesisStreamsOutput;
+            _resultValue.lambdaOutput = lambdaOutput;
+            _resultValue.name = name;
+            _resultValue.outputId = outputId;
+            return _resultValue;
         }
     }
 }

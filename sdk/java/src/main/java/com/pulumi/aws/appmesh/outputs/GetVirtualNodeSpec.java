@@ -102,13 +102,13 @@ public final class GetVirtualNodeSpec {
             return serviceDiscoveries(List.of(serviceDiscoveries));
         }
         public GetVirtualNodeSpec build() {
-            final var o = new GetVirtualNodeSpec();
-            o.backendDefaults = backendDefaults;
-            o.backends = backends;
-            o.listeners = listeners;
-            o.loggings = loggings;
-            o.serviceDiscoveries = serviceDiscoveries;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpec();
+            _resultValue.backendDefaults = backendDefaults;
+            _resultValue.backends = backends;
+            _resultValue.listeners = listeners;
+            _resultValue.loggings = loggings;
+            _resultValue.serviceDiscoveries = serviceDiscoveries;
+            return _resultValue;
         }
     }
 }

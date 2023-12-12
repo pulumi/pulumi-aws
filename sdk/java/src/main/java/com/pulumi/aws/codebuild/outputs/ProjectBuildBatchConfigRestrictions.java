@@ -72,10 +72,10 @@ public final class ProjectBuildBatchConfigRestrictions {
             return this;
         }
         public ProjectBuildBatchConfigRestrictions build() {
-            final var o = new ProjectBuildBatchConfigRestrictions();
-            o.computeTypesAlloweds = computeTypesAlloweds;
-            o.maximumBuildsAllowed = maximumBuildsAllowed;
-            return o;
+            final var _resultValue = new ProjectBuildBatchConfigRestrictions();
+            _resultValue.computeTypesAlloweds = computeTypesAlloweds;
+            _resultValue.maximumBuildsAllowed = maximumBuildsAllowed;
+            return _resultValue;
         }
     }
 }

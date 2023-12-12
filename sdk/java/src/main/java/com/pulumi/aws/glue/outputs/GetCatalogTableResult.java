@@ -374,26 +374,26 @@ public final class GetCatalogTableResult {
             return this;
         }
         public GetCatalogTableResult build() {
-            final var o = new GetCatalogTableResult();
-            o.arn = arn;
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.owner = owner;
-            o.parameters = parameters;
-            o.partitionIndices = partitionIndices;
-            o.partitionKeys = partitionKeys;
-            o.queryAsOfTime = queryAsOfTime;
-            o.retention = retention;
-            o.storageDescriptors = storageDescriptors;
-            o.tableType = tableType;
-            o.targetTables = targetTables;
-            o.transactionId = transactionId;
-            o.viewExpandedText = viewExpandedText;
-            o.viewOriginalText = viewOriginalText;
-            return o;
+            final var _resultValue = new GetCatalogTableResult();
+            _resultValue.arn = arn;
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.parameters = parameters;
+            _resultValue.partitionIndices = partitionIndices;
+            _resultValue.partitionKeys = partitionKeys;
+            _resultValue.queryAsOfTime = queryAsOfTime;
+            _resultValue.retention = retention;
+            _resultValue.storageDescriptors = storageDescriptors;
+            _resultValue.tableType = tableType;
+            _resultValue.targetTables = targetTables;
+            _resultValue.transactionId = transactionId;
+            _resultValue.viewExpandedText = viewExpandedText;
+            _resultValue.viewOriginalText = viewOriginalText;
+            return _resultValue;
         }
     }
 }

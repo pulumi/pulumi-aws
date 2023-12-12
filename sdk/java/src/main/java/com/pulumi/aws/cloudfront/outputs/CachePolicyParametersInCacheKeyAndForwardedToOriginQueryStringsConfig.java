@@ -68,10 +68,10 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
             return this;
         }
         public CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig build() {
-            final var o = new CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig();
-            o.queryStringBehavior = queryStringBehavior;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig();
+            _resultValue.queryStringBehavior = queryStringBehavior;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

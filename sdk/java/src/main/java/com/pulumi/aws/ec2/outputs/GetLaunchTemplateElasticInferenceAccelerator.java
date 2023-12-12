@@ -38,9 +38,9 @@ public final class GetLaunchTemplateElasticInferenceAccelerator {
             return this;
         }
         public GetLaunchTemplateElasticInferenceAccelerator build() {
-            final var o = new GetLaunchTemplateElasticInferenceAccelerator();
-            o.type = type;
-            return o;
+            final var _resultValue = new GetLaunchTemplateElasticInferenceAccelerator();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

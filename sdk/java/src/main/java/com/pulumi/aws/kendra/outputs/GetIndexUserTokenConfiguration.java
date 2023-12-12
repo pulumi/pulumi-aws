@@ -73,10 +73,10 @@ public final class GetIndexUserTokenConfiguration {
             return jwtTokenTypeConfigurations(List.of(jwtTokenTypeConfigurations));
         }
         public GetIndexUserTokenConfiguration build() {
-            final var o = new GetIndexUserTokenConfiguration();
-            o.jsonTokenTypeConfigurations = jsonTokenTypeConfigurations;
-            o.jwtTokenTypeConfigurations = jwtTokenTypeConfigurations;
-            return o;
+            final var _resultValue = new GetIndexUserTokenConfiguration();
+            _resultValue.jsonTokenTypeConfigurations = jsonTokenTypeConfigurations;
+            _resultValue.jwtTokenTypeConfigurations = jwtTokenTypeConfigurations;
+            return _resultValue;
         }
     }
 }

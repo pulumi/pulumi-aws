@@ -69,10 +69,10 @@ public final class GetResourceShareFilter {
             return values(List.of(values));
         }
         public GetResourceShareFilter build() {
-            final var o = new GetResourceShareFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetResourceShareFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

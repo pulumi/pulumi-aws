@@ -51,10 +51,10 @@ public final class NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange 
             return this;
         }
         public NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange build() {
-            final var o = new NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

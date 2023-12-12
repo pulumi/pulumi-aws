@@ -85,11 +85,11 @@ public final class QueueReservationPlanSettings {
             return this;
         }
         public QueueReservationPlanSettings build() {
-            final var o = new QueueReservationPlanSettings();
-            o.commitment = commitment;
-            o.renewalType = renewalType;
-            o.reservedSlots = reservedSlots;
-            return o;
+            final var _resultValue = new QueueReservationPlanSettings();
+            _resultValue.commitment = commitment;
+            _resultValue.renewalType = renewalType;
+            _resultValue.reservedSlots = reservedSlots;
+            return _resultValue;
         }
     }
 }

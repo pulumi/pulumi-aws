@@ -86,11 +86,11 @@ public final class HumanTaskUIUiTemplate {
             return this;
         }
         public HumanTaskUIUiTemplate build() {
-            final var o = new HumanTaskUIUiTemplate();
-            o.content = content;
-            o.contentSha256 = contentSha256;
-            o.url = url;
-            return o;
+            final var _resultValue = new HumanTaskUIUiTemplate();
+            _resultValue.content = content;
+            _resultValue.contentSha256 = contentSha256;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

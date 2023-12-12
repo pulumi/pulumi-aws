@@ -65,10 +65,10 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv();
-            o.recordColumnDelimiter = recordColumnDelimiter;
-            o.recordRowDelimiter = recordRowDelimiter;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv();
+            _resultValue.recordColumnDelimiter = recordColumnDelimiter;
+            _resultValue.recordRowDelimiter = recordRowDelimiter;
+            return _resultValue;
         }
     }
 }

@@ -133,13 +133,13 @@ public final class DocumentClassifierInputDataConfig {
             return this;
         }
         public DocumentClassifierInputDataConfig build() {
-            final var o = new DocumentClassifierInputDataConfig();
-            o.augmentedManifests = augmentedManifests;
-            o.dataFormat = dataFormat;
-            o.labelDelimiter = labelDelimiter;
-            o.s3Uri = s3Uri;
-            o.testS3Uri = testS3Uri;
-            return o;
+            final var _resultValue = new DocumentClassifierInputDataConfig();
+            _resultValue.augmentedManifests = augmentedManifests;
+            _resultValue.dataFormat = dataFormat;
+            _resultValue.labelDelimiter = labelDelimiter;
+            _resultValue.s3Uri = s3Uri;
+            _resultValue.testS3Uri = testS3Uri;
+            return _resultValue;
         }
     }
 }

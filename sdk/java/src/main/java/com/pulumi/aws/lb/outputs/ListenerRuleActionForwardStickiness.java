@@ -68,10 +68,10 @@ public final class ListenerRuleActionForwardStickiness {
             return this;
         }
         public ListenerRuleActionForwardStickiness build() {
-            final var o = new ListenerRuleActionForwardStickiness();
-            o.duration = duration;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ListenerRuleActionForwardStickiness();
+            _resultValue.duration = duration;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

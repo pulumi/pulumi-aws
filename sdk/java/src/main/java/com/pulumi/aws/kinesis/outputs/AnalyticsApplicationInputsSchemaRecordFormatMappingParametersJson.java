@@ -46,9 +46,9 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
             return this;
         }
         public AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson build() {
-            final var o = new AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson();
-            o.recordRowPath = recordRowPath;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson();
+            _resultValue.recordRowPath = recordRowPath;
+            return _resultValue;
         }
     }
 }

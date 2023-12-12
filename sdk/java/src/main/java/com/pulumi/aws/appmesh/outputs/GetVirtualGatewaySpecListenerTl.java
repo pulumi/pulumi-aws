@@ -69,11 +69,11 @@ public final class GetVirtualGatewaySpecListenerTl {
             return validations(List.of(validations));
         }
         public GetVirtualGatewaySpecListenerTl build() {
-            final var o = new GetVirtualGatewaySpecListenerTl();
-            o.certificates = certificates;
-            o.mode = mode;
-            o.validations = validations;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerTl();
+            _resultValue.certificates = certificates;
+            _resultValue.mode = mode;
+            _resultValue.validations = validations;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class VirtualNodeSpecListenerTlsValidationTrustFile {
             return this;
         }
         public VirtualNodeSpecListenerTlsValidationTrustFile build() {
-            final var o = new VirtualNodeSpecListenerTlsValidationTrustFile();
-            o.certificateChain = certificateChain;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTlsValidationTrustFile();
+            _resultValue.certificateChain = certificateChain;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ConnectorCapacityAutoscalingScaleOutPolicy {
             return this;
         }
         public ConnectorCapacityAutoscalingScaleOutPolicy build() {
-            final var o = new ConnectorCapacityAutoscalingScaleOutPolicy();
-            o.cpuUtilizationPercentage = cpuUtilizationPercentage;
-            return o;
+            final var _resultValue = new ConnectorCapacityAutoscalingScaleOutPolicy();
+            _resultValue.cpuUtilizationPercentage = cpuUtilizationPercentage;
+            return _resultValue;
         }
     }
 }

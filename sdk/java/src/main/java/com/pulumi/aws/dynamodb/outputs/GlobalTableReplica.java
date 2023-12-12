@@ -46,9 +46,9 @@ public final class GlobalTableReplica {
             return this;
         }
         public GlobalTableReplica build() {
-            final var o = new GlobalTableReplica();
-            o.regionName = regionName;
-            return o;
+            final var _resultValue = new GlobalTableReplica();
+            _resultValue.regionName = regionName;
+            return _resultValue;
         }
     }
 }

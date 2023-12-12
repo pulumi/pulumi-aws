@@ -46,9 +46,9 @@ public final class BucketWebsiteConfigurationV2ErrorDocument {
             return this;
         }
         public BucketWebsiteConfigurationV2ErrorDocument build() {
-            final var o = new BucketWebsiteConfigurationV2ErrorDocument();
-            o.key = key;
-            return o;
+            final var _resultValue = new BucketWebsiteConfigurationV2ErrorDocument();
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

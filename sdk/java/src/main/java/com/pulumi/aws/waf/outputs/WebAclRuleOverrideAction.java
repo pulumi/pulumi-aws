@@ -48,9 +48,9 @@ public final class WebAclRuleOverrideAction {
             return this;
         }
         public WebAclRuleOverrideAction build() {
-            final var o = new WebAclRuleOverrideAction();
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRuleOverrideAction();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

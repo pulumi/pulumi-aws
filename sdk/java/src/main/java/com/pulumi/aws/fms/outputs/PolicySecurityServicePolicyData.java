@@ -87,11 +87,11 @@ public final class PolicySecurityServicePolicyData {
             return this;
         }
         public PolicySecurityServicePolicyData build() {
-            final var o = new PolicySecurityServicePolicyData();
-            o.managedServiceData = managedServiceData;
-            o.policyOption = policyOption;
-            o.type = type;
-            return o;
+            final var _resultValue = new PolicySecurityServicePolicyData();
+            _resultValue.managedServiceData = managedServiceData;
+            _resultValue.policyOption = policyOption;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

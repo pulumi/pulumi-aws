@@ -42,9 +42,9 @@ public final class GetDataSetLogicalTableMapDataTransformProjectOperation {
             return projectedColumns(List.of(projectedColumns));
         }
         public GetDataSetLogicalTableMapDataTransformProjectOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformProjectOperation();
-            o.projectedColumns = projectedColumns;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformProjectOperation();
+            _resultValue.projectedColumns = projectedColumns;
+            return _resultValue;
         }
     }
 }

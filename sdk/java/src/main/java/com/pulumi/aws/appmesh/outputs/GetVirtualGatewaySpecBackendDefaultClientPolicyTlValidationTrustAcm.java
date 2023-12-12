@@ -42,9 +42,9 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
             return certificateAuthorityArns(List.of(certificateAuthorityArns));
         }
         public GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm build() {
-            final var o = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm();
-            o.certificateAuthorityArns = certificateAuthorityArns;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm();
+            _resultValue.certificateAuthorityArns = certificateAuthorityArns;
+            return _resultValue;
         }
     }
 }

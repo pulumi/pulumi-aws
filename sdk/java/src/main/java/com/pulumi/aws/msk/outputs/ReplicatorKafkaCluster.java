@@ -66,10 +66,10 @@ public final class ReplicatorKafkaCluster {
             return this;
         }
         public ReplicatorKafkaCluster build() {
-            final var o = new ReplicatorKafkaCluster();
-            o.amazonMskCluster = amazonMskCluster;
-            o.vpcConfig = vpcConfig;
-            return o;
+            final var _resultValue = new ReplicatorKafkaCluster();
+            _resultValue.amazonMskCluster = amazonMskCluster;
+            _resultValue.vpcConfig = vpcConfig;
+            return _resultValue;
         }
     }
 }

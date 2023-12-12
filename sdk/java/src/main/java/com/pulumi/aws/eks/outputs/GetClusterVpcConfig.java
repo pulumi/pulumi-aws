@@ -171,15 +171,15 @@ public final class GetClusterVpcConfig {
             return this;
         }
         public GetClusterVpcConfig build() {
-            final var o = new GetClusterVpcConfig();
-            o.clusterSecurityGroupId = clusterSecurityGroupId;
-            o.endpointPrivateAccess = endpointPrivateAccess;
-            o.endpointPublicAccess = endpointPublicAccess;
-            o.publicAccessCidrs = publicAccessCidrs;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetClusterVpcConfig();
+            _resultValue.clusterSecurityGroupId = clusterSecurityGroupId;
+            _resultValue.endpointPrivateAccess = endpointPrivateAccess;
+            _resultValue.endpointPublicAccess = endpointPublicAccess;
+            _resultValue.publicAccessCidrs = publicAccessCidrs;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

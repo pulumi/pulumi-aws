@@ -65,10 +65,10 @@ public final class InsightFiltersSourceUrl {
             return this;
         }
         public InsightFiltersSourceUrl build() {
-            final var o = new InsightFiltersSourceUrl();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersSourceUrl();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

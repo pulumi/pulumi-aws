@@ -50,9 +50,9 @@ public final class ListenerRuleConditionHostHeader {
             return values(List.of(values));
         }
         public ListenerRuleConditionHostHeader build() {
-            final var o = new ListenerRuleConditionHostHeader();
-            o.values = values;
-            return o;
+            final var _resultValue = new ListenerRuleConditionHostHeader();
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

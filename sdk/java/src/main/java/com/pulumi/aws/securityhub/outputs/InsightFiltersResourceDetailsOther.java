@@ -84,11 +84,11 @@ public final class InsightFiltersResourceDetailsOther {
             return this;
         }
         public InsightFiltersResourceDetailsOther build() {
-            final var o = new InsightFiltersResourceDetailsOther();
-            o.comparison = comparison;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceDetailsOther();
+            _resultValue.comparison = comparison;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

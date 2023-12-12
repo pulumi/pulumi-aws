@@ -46,9 +46,9 @@ public final class GetRepositoryImageScanningConfiguration {
             return this;
         }
         public GetRepositoryImageScanningConfiguration build() {
-            final var o = new GetRepositoryImageScanningConfiguration();
-            o.scanOnPush = scanOnPush;
-            return o;
+            final var _resultValue = new GetRepositoryImageScanningConfiguration();
+            _resultValue.scanOnPush = scanOnPush;
+            return _resultValue;
         }
     }
 }

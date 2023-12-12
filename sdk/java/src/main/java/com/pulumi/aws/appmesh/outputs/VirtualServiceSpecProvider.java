@@ -68,10 +68,10 @@ public final class VirtualServiceSpecProvider {
             return this;
         }
         public VirtualServiceSpecProvider build() {
-            final var o = new VirtualServiceSpecProvider();
-            o.virtualNode = virtualNode;
-            o.virtualRouter = virtualRouter;
-            return o;
+            final var _resultValue = new VirtualServiceSpecProvider();
+            _resultValue.virtualNode = virtualNode;
+            _resultValue.virtualRouter = virtualRouter;
+            return _resultValue;
         }
     }
 }

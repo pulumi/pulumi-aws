@@ -42,9 +42,9 @@ public final class GetOriginRequestPolicyQueryStringsConfigQueryString {
             return items(List.of(items));
         }
         public GetOriginRequestPolicyQueryStringsConfigQueryString build() {
-            final var o = new GetOriginRequestPolicyQueryStringsConfigQueryString();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyQueryStringsConfigQueryString();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

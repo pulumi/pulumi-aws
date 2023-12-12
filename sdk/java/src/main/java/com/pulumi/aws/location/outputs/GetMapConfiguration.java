@@ -46,9 +46,9 @@ public final class GetMapConfiguration {
             return this;
         }
         public GetMapConfiguration build() {
-            final var o = new GetMapConfiguration();
-            o.style = style;
-            return o;
+            final var _resultValue = new GetMapConfiguration();
+            _resultValue.style = style;
+            return _resultValue;
         }
     }
 }

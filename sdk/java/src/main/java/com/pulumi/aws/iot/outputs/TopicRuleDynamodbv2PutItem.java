@@ -46,9 +46,9 @@ public final class TopicRuleDynamodbv2PutItem {
             return this;
         }
         public TopicRuleDynamodbv2PutItem build() {
-            final var o = new TopicRuleDynamodbv2PutItem();
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new TopicRuleDynamodbv2PutItem();
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

@@ -124,13 +124,13 @@ public final class GetInstanceProfilesResult {
             return this;
         }
         public GetInstanceProfilesResult build() {
-            final var o = new GetInstanceProfilesResult();
-            o.arns = arns;
-            o.id = id;
-            o.names = names;
-            o.paths = paths;
-            o.roleName = roleName;
-            return o;
+            final var _resultValue = new GetInstanceProfilesResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            _resultValue.paths = paths;
+            _resultValue.roleName = roleName;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class GetTaskExecutionOverridesInferenceAcceleratorOverride {
             return this;
         }
         public GetTaskExecutionOverridesInferenceAcceleratorOverride build() {
-            final var o = new GetTaskExecutionOverridesInferenceAcceleratorOverride();
-            o.deviceName = deviceName;
-            o.deviceType = deviceType;
-            return o;
+            final var _resultValue = new GetTaskExecutionOverridesInferenceAcceleratorOverride();
+            _resultValue.deviceName = deviceName;
+            _resultValue.deviceType = deviceType;
+            return _resultValue;
         }
     }
 }

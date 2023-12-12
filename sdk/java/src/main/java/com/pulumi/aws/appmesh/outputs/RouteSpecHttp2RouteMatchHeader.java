@@ -88,11 +88,11 @@ public final class RouteSpecHttp2RouteMatchHeader {
             return this;
         }
         public RouteSpecHttp2RouteMatchHeader build() {
-            final var o = new RouteSpecHttp2RouteMatchHeader();
-            o.invert = invert;
-            o.match = match;
-            o.name = name;
-            return o;
+            final var _resultValue = new RouteSpecHttp2RouteMatchHeader();
+            _resultValue.invert = invert;
+            _resultValue.match = match;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

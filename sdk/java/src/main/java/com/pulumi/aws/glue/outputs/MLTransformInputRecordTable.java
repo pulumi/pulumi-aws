@@ -105,12 +105,12 @@ public final class MLTransformInputRecordTable {
             return this;
         }
         public MLTransformInputRecordTable build() {
-            final var o = new MLTransformInputRecordTable();
-            o.catalogId = catalogId;
-            o.connectionName = connectionName;
-            o.databaseName = databaseName;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new MLTransformInputRecordTable();
+            _resultValue.catalogId = catalogId;
+            _resultValue.connectionName = connectionName;
+            _resultValue.databaseName = databaseName;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

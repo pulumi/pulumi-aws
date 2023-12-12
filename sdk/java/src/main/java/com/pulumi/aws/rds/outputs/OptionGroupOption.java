@@ -155,14 +155,14 @@ public final class OptionGroupOption {
             return vpcSecurityGroupMemberships(List.of(vpcSecurityGroupMemberships));
         }
         public OptionGroupOption build() {
-            final var o = new OptionGroupOption();
-            o.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
-            o.optionName = optionName;
-            o.optionSettings = optionSettings;
-            o.port = port;
-            o.version = version;
-            o.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
-            return o;
+            final var _resultValue = new OptionGroupOption();
+            _resultValue.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
+            _resultValue.optionName = optionName;
+            _resultValue.optionSettings = optionSettings;
+            _resultValue.port = port;
+            _resultValue.version = version;
+            _resultValue.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
+            return _resultValue;
         }
     }
 }

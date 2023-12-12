@@ -48,9 +48,9 @@ public final class DomainRetentionPolicy {
             return this;
         }
         public DomainRetentionPolicy build() {
-            final var o = new DomainRetentionPolicy();
-            o.homeEfsFileSystem = homeEfsFileSystem;
-            return o;
+            final var _resultValue = new DomainRetentionPolicy();
+            _resultValue.homeEfsFileSystem = homeEfsFileSystem;
+            return _resultValue;
         }
     }
 }

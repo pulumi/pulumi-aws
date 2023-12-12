@@ -68,10 +68,10 @@ public final class IntegrationResponseParameter {
             return this;
         }
         public IntegrationResponseParameter build() {
-            final var o = new IntegrationResponseParameter();
-            o.mappings = mappings;
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new IntegrationResponseParameter();
+            _resultValue.mappings = mappings;
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

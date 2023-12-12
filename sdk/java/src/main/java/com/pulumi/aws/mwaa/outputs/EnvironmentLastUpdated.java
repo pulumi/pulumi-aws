@@ -85,11 +85,11 @@ public final class EnvironmentLastUpdated {
             return this;
         }
         public EnvironmentLastUpdated build() {
-            final var o = new EnvironmentLastUpdated();
-            o.createdAt = createdAt;
-            o.errors = errors;
-            o.status = status;
-            return o;
+            final var _resultValue = new EnvironmentLastUpdated();
+            _resultValue.createdAt = createdAt;
+            _resultValue.errors = errors;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

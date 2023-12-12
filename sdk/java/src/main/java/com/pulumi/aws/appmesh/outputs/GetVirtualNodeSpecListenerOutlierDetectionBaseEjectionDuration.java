@@ -50,10 +50,10 @@ public final class GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuratio
             return this;
         }
         public GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration build() {
-            final var o = new GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

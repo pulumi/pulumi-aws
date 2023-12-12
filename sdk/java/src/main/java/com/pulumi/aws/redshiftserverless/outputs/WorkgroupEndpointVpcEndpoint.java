@@ -91,11 +91,11 @@ public final class WorkgroupEndpointVpcEndpoint {
             return this;
         }
         public WorkgroupEndpointVpcEndpoint build() {
-            final var o = new WorkgroupEndpointVpcEndpoint();
-            o.networkInterfaces = networkInterfaces;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new WorkgroupEndpointVpcEndpoint();
+            _resultValue.networkInterfaces = networkInterfaces;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

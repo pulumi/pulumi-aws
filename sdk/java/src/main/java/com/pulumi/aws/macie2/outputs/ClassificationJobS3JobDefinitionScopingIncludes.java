@@ -51,9 +51,9 @@ public final class ClassificationJobS3JobDefinitionScopingIncludes {
             return ands(List.of(ands));
         }
         public ClassificationJobS3JobDefinitionScopingIncludes build() {
-            final var o = new ClassificationJobS3JobDefinitionScopingIncludes();
-            o.ands = ands;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionScopingIncludes();
+            _resultValue.ands = ands;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ServiceDeploymentCircuitBreaker {
             return this;
         }
         public ServiceDeploymentCircuitBreaker build() {
-            final var o = new ServiceDeploymentCircuitBreaker();
-            o.enable = enable;
-            o.rollback = rollback;
-            return o;
+            final var _resultValue = new ServiceDeploymentCircuitBreaker();
+            _resultValue.enable = enable;
+            _resultValue.rollback = rollback;
+            return _resultValue;
         }
     }
 }

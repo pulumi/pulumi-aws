@@ -46,9 +46,9 @@ public final class ImageRecipeSystemsManagerAgent {
             return this;
         }
         public ImageRecipeSystemsManagerAgent build() {
-            final var o = new ImageRecipeSystemsManagerAgent();
-            o.uninstallAfterBuild = uninstallAfterBuild;
-            return o;
+            final var _resultValue = new ImageRecipeSystemsManagerAgent();
+            _resultValue.uninstallAfterBuild = uninstallAfterBuild;
+            return _resultValue;
         }
     }
 }

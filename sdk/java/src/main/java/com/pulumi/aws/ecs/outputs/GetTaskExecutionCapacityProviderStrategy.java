@@ -87,11 +87,11 @@ public final class GetTaskExecutionCapacityProviderStrategy {
             return this;
         }
         public GetTaskExecutionCapacityProviderStrategy build() {
-            final var o = new GetTaskExecutionCapacityProviderStrategy();
-            o.base = base;
-            o.capacityProvider = capacityProvider;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new GetTaskExecutionCapacityProviderStrategy();
+            _resultValue.base = base;
+            _resultValue.capacityProvider = capacityProvider;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

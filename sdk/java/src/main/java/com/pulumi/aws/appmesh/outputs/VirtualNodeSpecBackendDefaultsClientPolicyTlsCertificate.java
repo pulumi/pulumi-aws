@@ -68,10 +68,10 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
             return this;
         }
         public VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate build() {
-            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate();
-            o.file = file;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate();
+            _resultValue.file = file;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

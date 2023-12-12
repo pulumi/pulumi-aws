@@ -68,10 +68,10 @@ public final class DataQualityJobDefinitionDataQualityJobInput {
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobInput build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobInput();
-            o.batchTransformInput = batchTransformInput;
-            o.endpointInput = endpointInput;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobInput();
+            _resultValue.batchTransformInput = batchTransformInput;
+            _resultValue.endpointInput = endpointInput;
+            return _resultValue;
         }
     }
 }

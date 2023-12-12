@@ -46,9 +46,9 @@ public final class GetVirtualClusterContainerProviderInfoEksInfo {
             return this;
         }
         public GetVirtualClusterContainerProviderInfoEksInfo build() {
-            final var o = new GetVirtualClusterContainerProviderInfoEksInfo();
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new GetVirtualClusterContainerProviderInfoEksInfo();
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

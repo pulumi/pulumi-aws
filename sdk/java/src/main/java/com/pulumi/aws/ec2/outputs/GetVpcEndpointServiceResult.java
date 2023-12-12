@@ -317,24 +317,24 @@ public final class GetVpcEndpointServiceResult {
             return this;
         }
         public GetVpcEndpointServiceResult build() {
-            final var o = new GetVpcEndpointServiceResult();
-            o.acceptanceRequired = acceptanceRequired;
-            o.arn = arn;
-            o.availabilityZones = availabilityZones;
-            o.baseEndpointDnsNames = baseEndpointDnsNames;
-            o.filters = filters;
-            o.id = id;
-            o.managesVpcEndpoints = managesVpcEndpoints;
-            o.owner = owner;
-            o.privateDnsName = privateDnsName;
-            o.service = service;
-            o.serviceId = serviceId;
-            o.serviceName = serviceName;
-            o.serviceType = serviceType;
-            o.supportedIpAddressTypes = supportedIpAddressTypes;
-            o.tags = tags;
-            o.vpcEndpointPolicySupported = vpcEndpointPolicySupported;
-            return o;
+            final var _resultValue = new GetVpcEndpointServiceResult();
+            _resultValue.acceptanceRequired = acceptanceRequired;
+            _resultValue.arn = arn;
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.baseEndpointDnsNames = baseEndpointDnsNames;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.managesVpcEndpoints = managesVpcEndpoints;
+            _resultValue.owner = owner;
+            _resultValue.privateDnsName = privateDnsName;
+            _resultValue.service = service;
+            _resultValue.serviceId = serviceId;
+            _resultValue.serviceName = serviceName;
+            _resultValue.serviceType = serviceType;
+            _resultValue.supportedIpAddressTypes = supportedIpAddressTypes;
+            _resultValue.tags = tags;
+            _resultValue.vpcEndpointPolicySupported = vpcEndpointPolicySupported;
+            return _resultValue;
         }
     }
 }

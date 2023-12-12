@@ -157,14 +157,14 @@ public final class BucketCorsConfigurationV2CorsRule {
             return this;
         }
         public BucketCorsConfigurationV2CorsRule build() {
-            final var o = new BucketCorsConfigurationV2CorsRule();
-            o.allowedHeaders = allowedHeaders;
-            o.allowedMethods = allowedMethods;
-            o.allowedOrigins = allowedOrigins;
-            o.exposeHeaders = exposeHeaders;
-            o.id = id;
-            o.maxAgeSeconds = maxAgeSeconds;
-            return o;
+            final var _resultValue = new BucketCorsConfigurationV2CorsRule();
+            _resultValue.allowedHeaders = allowedHeaders;
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.exposeHeaders = exposeHeaders;
+            _resultValue.id = id;
+            _resultValue.maxAgeSeconds = maxAgeSeconds;
+            return _resultValue;
         }
     }
 }

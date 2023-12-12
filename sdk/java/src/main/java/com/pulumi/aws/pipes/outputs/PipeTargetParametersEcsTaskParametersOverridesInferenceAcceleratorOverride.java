@@ -67,10 +67,10 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
             return this;
         }
         public PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride build() {
-            final var o = new PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride();
-            o.deviceName = deviceName;
-            o.deviceType = deviceType;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride();
+            _resultValue.deviceName = deviceName;
+            _resultValue.deviceType = deviceType;
+            return _resultValue;
         }
     }
 }

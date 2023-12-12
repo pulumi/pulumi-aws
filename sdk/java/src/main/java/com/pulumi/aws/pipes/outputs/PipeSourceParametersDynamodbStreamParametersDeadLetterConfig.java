@@ -48,9 +48,9 @@ public final class PipeSourceParametersDynamodbStreamParametersDeadLetterConfig 
             return this;
         }
         public PipeSourceParametersDynamodbStreamParametersDeadLetterConfig build() {
-            final var o = new PipeSourceParametersDynamodbStreamParametersDeadLetterConfig();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new PipeSourceParametersDynamodbStreamParametersDeadLetterConfig();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

@@ -49,10 +49,10 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRu
             return this;
         }
         public GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange build() {
-            final var o = new GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

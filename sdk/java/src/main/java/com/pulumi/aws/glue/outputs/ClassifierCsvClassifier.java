@@ -189,16 +189,16 @@ public final class ClassifierCsvClassifier {
             return this;
         }
         public ClassifierCsvClassifier build() {
-            final var o = new ClassifierCsvClassifier();
-            o.allowSingleColumn = allowSingleColumn;
-            o.containsHeader = containsHeader;
-            o.customDatatypeConfigured = customDatatypeConfigured;
-            o.customDatatypes = customDatatypes;
-            o.delimiter = delimiter;
-            o.disableValueTrimming = disableValueTrimming;
-            o.headers = headers;
-            o.quoteSymbol = quoteSymbol;
-            return o;
+            final var _resultValue = new ClassifierCsvClassifier();
+            _resultValue.allowSingleColumn = allowSingleColumn;
+            _resultValue.containsHeader = containsHeader;
+            _resultValue.customDatatypeConfigured = customDatatypeConfigured;
+            _resultValue.customDatatypes = customDatatypes;
+            _resultValue.delimiter = delimiter;
+            _resultValue.disableValueTrimming = disableValueTrimming;
+            _resultValue.headers = headers;
+            _resultValue.quoteSymbol = quoteSymbol;
+            return _resultValue;
         }
     }
 }

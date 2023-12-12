@@ -65,10 +65,10 @@ public final class GetAccountAliasResult {
             return this;
         }
         public GetAccountAliasResult build() {
-            final var o = new GetAccountAliasResult();
-            o.accountAlias = accountAlias;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetAccountAliasResult();
+            _resultValue.accountAlias = accountAlias;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

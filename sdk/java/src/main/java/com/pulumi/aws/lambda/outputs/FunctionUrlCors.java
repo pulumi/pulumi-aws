@@ -158,14 +158,14 @@ public final class FunctionUrlCors {
             return this;
         }
         public FunctionUrlCors build() {
-            final var o = new FunctionUrlCors();
-            o.allowCredentials = allowCredentials;
-            o.allowHeaders = allowHeaders;
-            o.allowMethods = allowMethods;
-            o.allowOrigins = allowOrigins;
-            o.exposeHeaders = exposeHeaders;
-            o.maxAge = maxAge;
-            return o;
+            final var _resultValue = new FunctionUrlCors();
+            _resultValue.allowCredentials = allowCredentials;
+            _resultValue.allowHeaders = allowHeaders;
+            _resultValue.allowMethods = allowMethods;
+            _resultValue.allowOrigins = allowOrigins;
+            _resultValue.exposeHeaders = exposeHeaders;
+            _resultValue.maxAge = maxAge;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class BackupPolicyBackupPolicy {
             return this;
         }
         public BackupPolicyBackupPolicy build() {
-            final var o = new BackupPolicyBackupPolicy();
-            o.status = status;
-            return o;
+            final var _resultValue = new BackupPolicyBackupPolicy();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

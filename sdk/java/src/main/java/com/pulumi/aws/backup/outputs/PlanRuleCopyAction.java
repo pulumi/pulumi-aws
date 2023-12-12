@@ -68,10 +68,10 @@ public final class PlanRuleCopyAction {
             return this;
         }
         public PlanRuleCopyAction build() {
-            final var o = new PlanRuleCopyAction();
-            o.destinationVaultArn = destinationVaultArn;
-            o.lifecycle = lifecycle;
-            return o;
+            final var _resultValue = new PlanRuleCopyAction();
+            _resultValue.destinationVaultArn = destinationVaultArn;
+            _resultValue.lifecycle = lifecycle;
+            return _resultValue;
         }
     }
 }

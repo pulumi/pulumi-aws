@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace();
-            o.instanceUrl = instanceUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace();
+            _resultValue.instanceUrl = instanceUrl;
+            return _resultValue;
         }
     }
 }

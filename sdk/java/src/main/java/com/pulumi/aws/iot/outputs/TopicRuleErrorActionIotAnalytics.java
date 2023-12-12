@@ -87,11 +87,11 @@ public final class TopicRuleErrorActionIotAnalytics {
             return this;
         }
         public TopicRuleErrorActionIotAnalytics build() {
-            final var o = new TopicRuleErrorActionIotAnalytics();
-            o.batchMode = batchMode;
-            o.channelName = channelName;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionIotAnalytics();
+            _resultValue.batchMode = batchMode;
+            _resultValue.channelName = channelName;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

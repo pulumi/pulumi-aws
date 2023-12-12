@@ -446,29 +446,29 @@ public final class GetOntapFileSystemResult {
             return this;
         }
         public GetOntapFileSystemResult build() {
-            final var o = new GetOntapFileSystemResult();
-            o.arn = arn;
-            o.automaticBackupRetentionDays = automaticBackupRetentionDays;
-            o.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
-            o.deploymentType = deploymentType;
-            o.diskIopsConfigurations = diskIopsConfigurations;
-            o.dnsName = dnsName;
-            o.endpointIpAddressRange = endpointIpAddressRange;
-            o.endpoints = endpoints;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.networkInterfaceIds = networkInterfaceIds;
-            o.ownerId = ownerId;
-            o.preferredSubnetId = preferredSubnetId;
-            o.routeTableIds = routeTableIds;
-            o.storageCapacity = storageCapacity;
-            o.storageType = storageType;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.throughputCapacity = throughputCapacity;
-            o.vpcId = vpcId;
-            o.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
-            return o;
+            final var _resultValue = new GetOntapFileSystemResult();
+            _resultValue.arn = arn;
+            _resultValue.automaticBackupRetentionDays = automaticBackupRetentionDays;
+            _resultValue.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
+            _resultValue.deploymentType = deploymentType;
+            _resultValue.diskIopsConfigurations = diskIopsConfigurations;
+            _resultValue.dnsName = dnsName;
+            _resultValue.endpointIpAddressRange = endpointIpAddressRange;
+            _resultValue.endpoints = endpoints;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.networkInterfaceIds = networkInterfaceIds;
+            _resultValue.ownerId = ownerId;
+            _resultValue.preferredSubnetId = preferredSubnetId;
+            _resultValue.routeTableIds = routeTableIds;
+            _resultValue.storageCapacity = storageCapacity;
+            _resultValue.storageType = storageType;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.throughputCapacity = throughputCapacity;
+            _resultValue.vpcId = vpcId;
+            _resultValue.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
+            return _resultValue;
         }
     }
 }

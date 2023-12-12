@@ -50,9 +50,9 @@ public final class BucketV2ObjectLockConfigurationRule {
             return defaultRetentions(List.of(defaultRetentions));
         }
         public BucketV2ObjectLockConfigurationRule build() {
-            final var o = new BucketV2ObjectLockConfigurationRule();
-            o.defaultRetentions = defaultRetentions;
-            return o;
+            final var _resultValue = new BucketV2ObjectLockConfigurationRule();
+            _resultValue.defaultRetentions = defaultRetentions;
+            return _resultValue;
         }
     }
 }

@@ -69,11 +69,11 @@ public final class GetVirtualNodeSpecListenerTl {
             return validations(List.of(validations));
         }
         public GetVirtualNodeSpecListenerTl build() {
-            final var o = new GetVirtualNodeSpecListenerTl();
-            o.certificates = certificates;
-            o.mode = mode;
-            o.validations = validations;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTl();
+            _resultValue.certificates = certificates;
+            _resultValue.mode = mode;
+            _resultValue.validations = validations;
+            return _resultValue;
         }
     }
 }

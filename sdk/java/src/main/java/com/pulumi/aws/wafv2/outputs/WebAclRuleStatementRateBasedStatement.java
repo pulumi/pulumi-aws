@@ -132,13 +132,13 @@ public final class WebAclRuleStatementRateBasedStatement {
             return this;
         }
         public WebAclRuleStatementRateBasedStatement build() {
-            final var o = new WebAclRuleStatementRateBasedStatement();
-            o.aggregateKeyType = aggregateKeyType;
-            o.customKeys = customKeys;
-            o.forwardedIpConfig = forwardedIpConfig;
-            o.limit = limit;
-            o.scopeDownStatement = scopeDownStatement;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatement();
+            _resultValue.aggregateKeyType = aggregateKeyType;
+            _resultValue.customKeys = customKeys;
+            _resultValue.forwardedIpConfig = forwardedIpConfig;
+            _resultValue.limit = limit;
+            _resultValue.scopeDownStatement = scopeDownStatement;
+            return _resultValue;
         }
     }
 }

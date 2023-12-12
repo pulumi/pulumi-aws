@@ -46,9 +46,9 @@ public final class VirtualNodeSpecListenerTlsValidationTrustSds {
             return this;
         }
         public VirtualNodeSpecListenerTlsValidationTrustSds build() {
-            final var o = new VirtualNodeSpecListenerTlsValidationTrustSds();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTlsValidationTrustSds();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

@@ -232,18 +232,18 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.arn = arn;
-            o.description = description;
-            o.dnsConfigs = dnsConfigs;
-            o.healthCheckConfigs = healthCheckConfigs;
-            o.healthCheckCustomConfigs = healthCheckCustomConfigs;
-            o.id = id;
-            o.name = name;
-            o.namespaceId = namespaceId;
-            o.tags = tags;
-            o.tagsAll = tagsAll;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.dnsConfigs = dnsConfigs;
+            _resultValue.healthCheckConfigs = healthCheckConfigs;
+            _resultValue.healthCheckCustomConfigs = healthCheckCustomConfigs;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.namespaceId = namespaceId;
+            _resultValue.tags = tags;
+            _resultValue.tagsAll = tagsAll;
+            return _resultValue;
         }
     }
 }

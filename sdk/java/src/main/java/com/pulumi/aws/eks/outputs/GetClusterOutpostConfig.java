@@ -92,11 +92,11 @@ public final class GetClusterOutpostConfig {
             return outpostArns(List.of(outpostArns));
         }
         public GetClusterOutpostConfig build() {
-            final var o = new GetClusterOutpostConfig();
-            o.controlPlaneInstanceType = controlPlaneInstanceType;
-            o.controlPlanePlacements = controlPlanePlacements;
-            o.outpostArns = outpostArns;
-            return o;
+            final var _resultValue = new GetClusterOutpostConfig();
+            _resultValue.controlPlaneInstanceType = controlPlaneInstanceType;
+            _resultValue.controlPlanePlacements = controlPlanePlacements;
+            _resultValue.outpostArns = outpostArns;
+            return _resultValue;
         }
     }
 }

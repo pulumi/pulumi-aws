@@ -49,10 +49,10 @@ public final class GetRouteSpecHttp2RouteMatchPath {
             return this;
         }
         public GetRouteSpecHttp2RouteMatchPath build() {
-            final var o = new GetRouteSpecHttp2RouteMatchPath();
-            o.exact = exact;
-            o.regex = regex;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteMatchPath();
+            _resultValue.exact = exact;
+            _resultValue.regex = regex;
+            return _resultValue;
         }
     }
 }

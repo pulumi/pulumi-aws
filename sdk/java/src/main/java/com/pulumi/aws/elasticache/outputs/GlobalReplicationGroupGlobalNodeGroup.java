@@ -67,10 +67,10 @@ public final class GlobalReplicationGroupGlobalNodeGroup {
             return this;
         }
         public GlobalReplicationGroupGlobalNodeGroup build() {
-            final var o = new GlobalReplicationGroupGlobalNodeGroup();
-            o.globalNodeGroupId = globalNodeGroupId;
-            o.slots = slots;
-            return o;
+            final var _resultValue = new GlobalReplicationGroupGlobalNodeGroup();
+            _resultValue.globalNodeGroupId = globalNodeGroupId;
+            _resultValue.slots = slots;
+            return _resultValue;
         }
     }
 }

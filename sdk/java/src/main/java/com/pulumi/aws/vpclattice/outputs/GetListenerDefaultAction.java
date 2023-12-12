@@ -57,10 +57,10 @@ public final class GetListenerDefaultAction {
             return forwards(List.of(forwards));
         }
         public GetListenerDefaultAction build() {
-            final var o = new GetListenerDefaultAction();
-            o.fixedResponses = fixedResponses;
-            o.forwards = forwards;
-            return o;
+            final var _resultValue = new GetListenerDefaultAction();
+            _resultValue.fixedResponses = fixedResponses;
+            _resultValue.forwards = forwards;
+            return _resultValue;
         }
     }
 }

@@ -230,17 +230,17 @@ public final class TargetGroupHealthCheck {
             return this;
         }
         public TargetGroupHealthCheck build() {
-            final var o = new TargetGroupHealthCheck();
-            o.enabled = enabled;
-            o.healthyThreshold = healthyThreshold;
-            o.interval = interval;
-            o.matcher = matcher;
-            o.path = path;
-            o.port = port;
-            o.protocol = protocol;
-            o.timeout = timeout;
-            o.unhealthyThreshold = unhealthyThreshold;
-            return o;
+            final var _resultValue = new TargetGroupHealthCheck();
+            _resultValue.enabled = enabled;
+            _resultValue.healthyThreshold = healthyThreshold;
+            _resultValue.interval = interval;
+            _resultValue.matcher = matcher;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.timeout = timeout;
+            _resultValue.unhealthyThreshold = unhealthyThreshold;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class DashboardSourceEntitySourceTemplateDataSetReference {
             return this;
         }
         public DashboardSourceEntitySourceTemplateDataSetReference build() {
-            final var o = new DashboardSourceEntitySourceTemplateDataSetReference();
-            o.dataSetArn = dataSetArn;
-            o.dataSetPlaceholder = dataSetPlaceholder;
-            return o;
+            final var _resultValue = new DashboardSourceEntitySourceTemplateDataSetReference();
+            _resultValue.dataSetArn = dataSetArn;
+            _resultValue.dataSetPlaceholder = dataSetPlaceholder;
+            return _resultValue;
         }
     }
 }

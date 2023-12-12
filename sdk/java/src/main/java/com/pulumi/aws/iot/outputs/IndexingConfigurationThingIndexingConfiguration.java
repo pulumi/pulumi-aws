@@ -172,15 +172,15 @@ public final class IndexingConfigurationThingIndexingConfiguration {
             return this;
         }
         public IndexingConfigurationThingIndexingConfiguration build() {
-            final var o = new IndexingConfigurationThingIndexingConfiguration();
-            o.customFields = customFields;
-            o.deviceDefenderIndexingMode = deviceDefenderIndexingMode;
-            o.filter = filter;
-            o.managedFields = managedFields;
-            o.namedShadowIndexingMode = namedShadowIndexingMode;
-            o.thingConnectivityIndexingMode = thingConnectivityIndexingMode;
-            o.thingIndexingMode = thingIndexingMode;
-            return o;
+            final var _resultValue = new IndexingConfigurationThingIndexingConfiguration();
+            _resultValue.customFields = customFields;
+            _resultValue.deviceDefenderIndexingMode = deviceDefenderIndexingMode;
+            _resultValue.filter = filter;
+            _resultValue.managedFields = managedFields;
+            _resultValue.namedShadowIndexingMode = namedShadowIndexingMode;
+            _resultValue.thingConnectivityIndexingMode = thingConnectivityIndexingMode;
+            _resultValue.thingIndexingMode = thingIndexingMode;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class TaskTaskReportConfigS3Destination {
             return this;
         }
         public TaskTaskReportConfigS3Destination build() {
-            final var o = new TaskTaskReportConfigS3Destination();
-            o.bucketAccessRoleArn = bucketAccessRoleArn;
-            o.s3BucketArn = s3BucketArn;
-            o.subdirectory = subdirectory;
-            return o;
+            final var _resultValue = new TaskTaskReportConfigS3Destination();
+            _resultValue.bucketAccessRoleArn = bucketAccessRoleArn;
+            _resultValue.s3BucketArn = s3BucketArn;
+            _resultValue.subdirectory = subdirectory;
+            return _resultValue;
         }
     }
 }

@@ -143,14 +143,14 @@ public final class TopicRuleErrorActionCloudwatchMetric {
             return this;
         }
         public TopicRuleErrorActionCloudwatchMetric build() {
-            final var o = new TopicRuleErrorActionCloudwatchMetric();
-            o.metricName = metricName;
-            o.metricNamespace = metricNamespace;
-            o.metricTimestamp = metricTimestamp;
-            o.metricUnit = metricUnit;
-            o.metricValue = metricValue;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionCloudwatchMetric();
+            _resultValue.metricName = metricName;
+            _resultValue.metricNamespace = metricNamespace;
+            _resultValue.metricTimestamp = metricTimestamp;
+            _resultValue.metricUnit = metricUnit;
+            _resultValue.metricValue = metricValue;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

@@ -93,11 +93,11 @@ public final class CanaryVpcConfig {
             return this;
         }
         public CanaryVpcConfig build() {
-            final var o = new CanaryVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new CanaryVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

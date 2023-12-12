@@ -134,14 +134,14 @@ public final class GetCustomPluginResult {
             return this;
         }
         public GetCustomPluginResult build() {
-            final var o = new GetCustomPluginResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.latestRevision = latestRevision;
-            o.name = name;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetCustomPluginResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.latestRevision = latestRevision;
+            _resultValue.name = name;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

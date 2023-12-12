@@ -106,13 +106,13 @@ public final class GetVpnAttachmentResult {
             return this;
         }
         public GetVpnAttachmentResult build() {
-            final var o = new GetVpnAttachmentResult();
-            o.filters = filters;
-            o.id = id;
-            o.tags = tags;
-            o.transitGatewayId = transitGatewayId;
-            o.vpnConnectionId = vpnConnectionId;
-            return o;
+            final var _resultValue = new GetVpnAttachmentResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.vpnConnectionId = vpnConnectionId;
+            return _resultValue;
         }
     }
 }

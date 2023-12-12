@@ -62,11 +62,11 @@ public final class IndexTimeouts {
             return this;
         }
         public IndexTimeouts build() {
-            final var o = new IndexTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new IndexTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

@@ -256,27 +256,27 @@ public final class TopicRuleErrorAction {
             return this;
         }
         public TopicRuleErrorAction build() {
-            final var o = new TopicRuleErrorAction();
-            o.cloudwatchAlarm = cloudwatchAlarm;
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.cloudwatchMetric = cloudwatchMetric;
-            o.dynamodb = dynamodb;
-            o.dynamodbv2 = dynamodbv2;
-            o.elasticsearch = elasticsearch;
-            o.firehose = firehose;
-            o.http = http;
-            o.iotAnalytics = iotAnalytics;
-            o.iotEvents = iotEvents;
-            o.kafka = kafka;
-            o.kinesis = kinesis;
-            o.lambda = lambda;
-            o.republish = republish;
-            o.s3 = s3;
-            o.sns = sns;
-            o.sqs = sqs;
-            o.stepFunctions = stepFunctions;
-            o.timestream = timestream;
-            return o;
+            final var _resultValue = new TopicRuleErrorAction();
+            _resultValue.cloudwatchAlarm = cloudwatchAlarm;
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.cloudwatchMetric = cloudwatchMetric;
+            _resultValue.dynamodb = dynamodb;
+            _resultValue.dynamodbv2 = dynamodbv2;
+            _resultValue.elasticsearch = elasticsearch;
+            _resultValue.firehose = firehose;
+            _resultValue.http = http;
+            _resultValue.iotAnalytics = iotAnalytics;
+            _resultValue.iotEvents = iotEvents;
+            _resultValue.kafka = kafka;
+            _resultValue.kinesis = kinesis;
+            _resultValue.lambda = lambda;
+            _resultValue.republish = republish;
+            _resultValue.s3 = s3;
+            _resultValue.sns = sns;
+            _resultValue.sqs = sqs;
+            _resultValue.stepFunctions = stepFunctions;
+            _resultValue.timestream = timestream;
+            return _resultValue;
         }
     }
 }

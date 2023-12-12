@@ -25,8 +25,8 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchQueryString 
         }
 
         public WebAclRuleStatementByteMatchStatementFieldToMatchQueryString build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchQueryString();
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchQueryString();
+            return _resultValue;
         }
     }
 }

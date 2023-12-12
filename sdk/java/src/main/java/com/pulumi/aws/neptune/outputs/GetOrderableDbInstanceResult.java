@@ -409,30 +409,30 @@ public final class GetOrderableDbInstanceResult {
             return this;
         }
         public GetOrderableDbInstanceResult build() {
-            final var o = new GetOrderableDbInstanceResult();
-            o.availabilityZones = availabilityZones;
-            o.engine = engine;
-            o.engineVersion = engineVersion;
-            o.id = id;
-            o.instanceClass = instanceClass;
-            o.licenseModel = licenseModel;
-            o.maxIopsPerDbInstance = maxIopsPerDbInstance;
-            o.maxIopsPerGib = maxIopsPerGib;
-            o.maxStorageSize = maxStorageSize;
-            o.minIopsPerDbInstance = minIopsPerDbInstance;
-            o.minIopsPerGib = minIopsPerGib;
-            o.minStorageSize = minStorageSize;
-            o.multiAzCapable = multiAzCapable;
-            o.preferredInstanceClasses = preferredInstanceClasses;
-            o.readReplicaCapable = readReplicaCapable;
-            o.storageType = storageType;
-            o.supportsEnhancedMonitoring = supportsEnhancedMonitoring;
-            o.supportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;
-            o.supportsIops = supportsIops;
-            o.supportsPerformanceInsights = supportsPerformanceInsights;
-            o.supportsStorageEncryption = supportsStorageEncryption;
-            o.vpc = vpc;
-            return o;
+            final var _resultValue = new GetOrderableDbInstanceResult();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.engine = engine;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.id = id;
+            _resultValue.instanceClass = instanceClass;
+            _resultValue.licenseModel = licenseModel;
+            _resultValue.maxIopsPerDbInstance = maxIopsPerDbInstance;
+            _resultValue.maxIopsPerGib = maxIopsPerGib;
+            _resultValue.maxStorageSize = maxStorageSize;
+            _resultValue.minIopsPerDbInstance = minIopsPerDbInstance;
+            _resultValue.minIopsPerGib = minIopsPerGib;
+            _resultValue.minStorageSize = minStorageSize;
+            _resultValue.multiAzCapable = multiAzCapable;
+            _resultValue.preferredInstanceClasses = preferredInstanceClasses;
+            _resultValue.readReplicaCapable = readReplicaCapable;
+            _resultValue.storageType = storageType;
+            _resultValue.supportsEnhancedMonitoring = supportsEnhancedMonitoring;
+            _resultValue.supportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;
+            _resultValue.supportsIops = supportsIops;
+            _resultValue.supportsPerformanceInsights = supportsPerformanceInsights;
+            _resultValue.supportsStorageEncryption = supportsStorageEncryption;
+            _resultValue.vpc = vpc;
+            return _resultValue;
         }
     }
 }

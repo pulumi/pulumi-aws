@@ -128,13 +128,13 @@ public final class RuleGroupRuleAction {
             return this;
         }
         public RuleGroupRuleAction build() {
-            final var o = new RuleGroupRuleAction();
-            o.allow = allow;
-            o.block = block;
-            o.captcha = captcha;
-            o.challenge = challenge;
-            o.count = count;
-            return o;
+            final var _resultValue = new RuleGroupRuleAction();
+            _resultValue.allow = allow;
+            _resultValue.block = block;
+            _resultValue.captcha = captcha;
+            _resultValue.challenge = challenge;
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

@@ -25,8 +25,8 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatch
         }
 
         public WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll();
+            return _resultValue;
         }
     }
 }

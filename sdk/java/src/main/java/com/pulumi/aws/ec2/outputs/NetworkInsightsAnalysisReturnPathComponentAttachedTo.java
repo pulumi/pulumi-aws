@@ -78,11 +78,11 @@ public final class NetworkInsightsAnalysisReturnPathComponentAttachedTo {
             return this;
         }
         public NetworkInsightsAnalysisReturnPathComponentAttachedTo build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponentAttachedTo();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponentAttachedTo();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

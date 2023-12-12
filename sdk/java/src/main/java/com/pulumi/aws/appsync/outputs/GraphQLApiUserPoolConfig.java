@@ -105,12 +105,12 @@ public final class GraphQLApiUserPoolConfig {
             return this;
         }
         public GraphQLApiUserPoolConfig build() {
-            final var o = new GraphQLApiUserPoolConfig();
-            o.appIdClientRegex = appIdClientRegex;
-            o.awsRegion = awsRegion;
-            o.defaultAction = defaultAction;
-            o.userPoolId = userPoolId;
-            return o;
+            final var _resultValue = new GraphQLApiUserPoolConfig();
+            _resultValue.appIdClientRegex = appIdClientRegex;
+            _resultValue.awsRegion = awsRegion;
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.userPoolId = userPoolId;
+            return _resultValue;
         }
     }
 }

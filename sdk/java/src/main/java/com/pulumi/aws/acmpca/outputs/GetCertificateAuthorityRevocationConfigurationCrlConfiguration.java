@@ -84,13 +84,13 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
             return this;
         }
         public GetCertificateAuthorityRevocationConfigurationCrlConfiguration build() {
-            final var o = new GetCertificateAuthorityRevocationConfigurationCrlConfiguration();
-            o.customCname = customCname;
-            o.enabled = enabled;
-            o.expirationInDays = expirationInDays;
-            o.s3BucketName = s3BucketName;
-            o.s3ObjectAcl = s3ObjectAcl;
-            return o;
+            final var _resultValue = new GetCertificateAuthorityRevocationConfigurationCrlConfiguration();
+            _resultValue.customCname = customCname;
+            _resultValue.enabled = enabled;
+            _resultValue.expirationInDays = expirationInDays;
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3ObjectAcl = s3ObjectAcl;
+            return _resultValue;
         }
     }
 }

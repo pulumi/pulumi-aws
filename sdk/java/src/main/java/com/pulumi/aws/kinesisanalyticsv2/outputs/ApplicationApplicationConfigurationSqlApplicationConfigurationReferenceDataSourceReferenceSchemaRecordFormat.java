@@ -66,10 +66,10 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat();
-            o.mappingParameters = mappingParameters;
-            o.recordFormatType = recordFormatType;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat();
+            _resultValue.mappingParameters = mappingParameters;
+            _resultValue.recordFormatType = recordFormatType;
+            return _resultValue;
         }
     }
 }

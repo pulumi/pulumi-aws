@@ -138,14 +138,14 @@ public final class GetGroupResult {
             return users(List.of(users));
         }
         public GetGroupResult build() {
-            final var o = new GetGroupResult();
-            o.arn = arn;
-            o.groupId = groupId;
-            o.groupName = groupName;
-            o.id = id;
-            o.path = path;
-            o.users = users;
-            return o;
+            final var _resultValue = new GetGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.groupId = groupId;
+            _resultValue.groupName = groupName;
+            _resultValue.id = id;
+            _resultValue.path = path;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

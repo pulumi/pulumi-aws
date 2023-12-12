@@ -67,10 +67,10 @@ public final class ClusterClientAuthenticationSasl {
             return this;
         }
         public ClusterClientAuthenticationSasl build() {
-            final var o = new ClusterClientAuthenticationSasl();
-            o.iam = iam;
-            o.scram = scram;
-            return o;
+            final var _resultValue = new ClusterClientAuthenticationSasl();
+            _resultValue.iam = iam;
+            _resultValue.scram = scram;
+            return _resultValue;
         }
     }
 }

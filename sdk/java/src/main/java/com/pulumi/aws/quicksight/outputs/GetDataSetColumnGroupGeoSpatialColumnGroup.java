@@ -64,11 +64,11 @@ public final class GetDataSetColumnGroupGeoSpatialColumnGroup {
             return this;
         }
         public GetDataSetColumnGroupGeoSpatialColumnGroup build() {
-            final var o = new GetDataSetColumnGroupGeoSpatialColumnGroup();
-            o.columns = columns;
-            o.countryCode = countryCode;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetDataSetColumnGroupGeoSpatialColumnGroup();
+            _resultValue.columns = columns;
+            _resultValue.countryCode = countryCode;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

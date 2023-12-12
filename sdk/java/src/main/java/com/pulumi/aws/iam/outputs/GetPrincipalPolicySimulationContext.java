@@ -96,11 +96,11 @@ public final class GetPrincipalPolicySimulationContext {
             return values(List.of(values));
         }
         public GetPrincipalPolicySimulationContext build() {
-            final var o = new GetPrincipalPolicySimulationContext();
-            o.key = key;
-            o.type = type;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetPrincipalPolicySimulationContext();
+            _resultValue.key = key;
+            _resultValue.type = type;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

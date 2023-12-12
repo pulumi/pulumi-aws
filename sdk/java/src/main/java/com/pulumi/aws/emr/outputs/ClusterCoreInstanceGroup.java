@@ -168,15 +168,15 @@ public final class ClusterCoreInstanceGroup {
             return this;
         }
         public ClusterCoreInstanceGroup build() {
-            final var o = new ClusterCoreInstanceGroup();
-            o.autoscalingPolicy = autoscalingPolicy;
-            o.bidPrice = bidPrice;
-            o.ebsConfigs = ebsConfigs;
-            o.id = id;
-            o.instanceCount = instanceCount;
-            o.instanceType = instanceType;
-            o.name = name;
-            return o;
+            final var _resultValue = new ClusterCoreInstanceGroup();
+            _resultValue.autoscalingPolicy = autoscalingPolicy;
+            _resultValue.bidPrice = bidPrice;
+            _resultValue.ebsConfigs = ebsConfigs;
+            _resultValue.id = id;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.instanceType = instanceType;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

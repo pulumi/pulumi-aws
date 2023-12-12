@@ -86,11 +86,11 @@ public final class RecordGeolocationRoutingPolicy {
             return this;
         }
         public RecordGeolocationRoutingPolicy build() {
-            final var o = new RecordGeolocationRoutingPolicy();
-            o.continent = continent;
-            o.country = country;
-            o.subdivision = subdivision;
-            return o;
+            final var _resultValue = new RecordGeolocationRoutingPolicy();
+            _resultValue.continent = continent;
+            _resultValue.country = country;
+            _resultValue.subdivision = subdivision;
+            return _resultValue;
         }
     }
 }

@@ -99,12 +99,12 @@ public final class GetEbsVolumesResult {
             return this;
         }
         public GetEbsVolumesResult build() {
-            final var o = new GetEbsVolumesResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetEbsVolumesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

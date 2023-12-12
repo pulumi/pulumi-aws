@@ -70,10 +70,10 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyHeader {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementRateBasedStatementCustomKeyHeader build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyHeader();
-            o.name = name;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyHeader();
+            _resultValue.name = name;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

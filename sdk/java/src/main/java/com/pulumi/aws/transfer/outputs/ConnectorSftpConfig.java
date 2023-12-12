@@ -71,10 +71,10 @@ public final class ConnectorSftpConfig {
             return this;
         }
         public ConnectorSftpConfig build() {
-            final var o = new ConnectorSftpConfig();
-            o.trustedHostKeys = trustedHostKeys;
-            o.userSecretId = userSecretId;
-            return o;
+            final var _resultValue = new ConnectorSftpConfig();
+            _resultValue.trustedHostKeys = trustedHostKeys;
+            _resultValue.userSecretId = userSecretId;
+            return _resultValue;
         }
     }
 }

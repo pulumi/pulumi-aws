@@ -119,13 +119,13 @@ public final class GetComponentsResult {
             return this;
         }
         public GetComponentsResult build() {
-            final var o = new GetComponentsResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new GetComponentsResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

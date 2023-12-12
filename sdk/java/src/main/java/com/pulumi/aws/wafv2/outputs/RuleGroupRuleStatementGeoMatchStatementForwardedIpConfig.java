@@ -65,10 +65,10 @@ public final class RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig {
             return this;
         }
         public RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig build() {
-            final var o = new RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            return _resultValue;
         }
     }
 }

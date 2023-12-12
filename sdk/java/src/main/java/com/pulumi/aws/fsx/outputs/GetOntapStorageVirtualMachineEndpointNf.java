@@ -53,10 +53,10 @@ public final class GetOntapStorageVirtualMachineEndpointNf {
             return ipAddresses(List.of(ipAddresses));
         }
         public GetOntapStorageVirtualMachineEndpointNf build() {
-            final var o = new GetOntapStorageVirtualMachineEndpointNf();
-            o.dnsName = dnsName;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineEndpointNf();
+            _resultValue.dnsName = dnsName;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

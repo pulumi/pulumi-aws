@@ -172,16 +172,16 @@ public final class GetPublicIpv4PoolResult {
             return this;
         }
         public GetPublicIpv4PoolResult build() {
-            final var o = new GetPublicIpv4PoolResult();
-            o.description = description;
-            o.id = id;
-            o.networkBorderGroup = networkBorderGroup;
-            o.poolAddressRanges = poolAddressRanges;
-            o.poolId = poolId;
-            o.tags = tags;
-            o.totalAddressCount = totalAddressCount;
-            o.totalAvailableAddressCount = totalAvailableAddressCount;
-            return o;
+            final var _resultValue = new GetPublicIpv4PoolResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.networkBorderGroup = networkBorderGroup;
+            _resultValue.poolAddressRanges = poolAddressRanges;
+            _resultValue.poolId = poolId;
+            _resultValue.tags = tags;
+            _resultValue.totalAddressCount = totalAddressCount;
+            _resultValue.totalAvailableAddressCount = totalAvailableAddressCount;
+            return _resultValue;
         }
     }
 }

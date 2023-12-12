@@ -157,15 +157,15 @@ public final class GetConfigurationResult {
             return this;
         }
         public GetConfigurationResult build() {
-            final var o = new GetConfigurationResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.kafkaVersions = kafkaVersions;
-            o.latestRevision = latestRevision;
-            o.name = name;
-            o.serverProperties = serverProperties;
-            return o;
+            final var _resultValue = new GetConfigurationResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.kafkaVersions = kafkaVersions;
+            _resultValue.latestRevision = latestRevision;
+            _resultValue.name = name;
+            _resultValue.serverProperties = serverProperties;
+            return _resultValue;
         }
     }
 }

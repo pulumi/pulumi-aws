@@ -85,11 +85,11 @@ public final class GetServiceHealthCheckConfig {
             return this;
         }
         public GetServiceHealthCheckConfig build() {
-            final var o = new GetServiceHealthCheckConfig();
-            o.failureThreshold = failureThreshold;
-            o.resourcePath = resourcePath;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetServiceHealthCheckConfig();
+            _resultValue.failureThreshold = failureThreshold;
+            _resultValue.resourcePath = resourcePath;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

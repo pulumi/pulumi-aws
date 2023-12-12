@@ -70,10 +70,10 @@ public final class SlotTypeEnumerationValue {
             return this;
         }
         public SlotTypeEnumerationValue build() {
-            final var o = new SlotTypeEnumerationValue();
-            o.synonyms = synonyms;
-            o.value = value;
-            return o;
+            final var _resultValue = new SlotTypeEnumerationValue();
+            _resultValue.synonyms = synonyms;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleHeader {
             return this;
         }
         public WebAclLoggingConfigurationRedactedFieldSingleHeader build() {
-            final var o = new WebAclLoggingConfigurationRedactedFieldSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationRedactedFieldSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

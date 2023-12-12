@@ -106,12 +106,12 @@ public final class TaskSetServiceRegistries {
             return this;
         }
         public TaskSetServiceRegistries build() {
-            final var o = new TaskSetServiceRegistries();
-            o.containerName = containerName;
-            o.containerPort = containerPort;
-            o.port = port;
-            o.registryArn = registryArn;
-            return o;
+            final var _resultValue = new TaskSetServiceRegistries();
+            _resultValue.containerName = containerName;
+            _resultValue.containerPort = containerPort;
+            _resultValue.port = port;
+            _resultValue.registryArn = registryArn;
+            return _resultValue;
         }
     }
 }

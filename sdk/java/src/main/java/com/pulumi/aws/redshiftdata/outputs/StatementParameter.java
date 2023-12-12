@@ -49,10 +49,10 @@ public final class StatementParameter {
             return this;
         }
         public StatementParameter build() {
-            final var o = new StatementParameter();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new StatementParameter();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

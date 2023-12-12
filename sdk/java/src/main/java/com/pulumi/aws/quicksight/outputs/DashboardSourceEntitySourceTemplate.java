@@ -70,10 +70,10 @@ public final class DashboardSourceEntitySourceTemplate {
             return dataSetReferences(List.of(dataSetReferences));
         }
         public DashboardSourceEntitySourceTemplate build() {
-            final var o = new DashboardSourceEntitySourceTemplate();
-            o.arn = arn;
-            o.dataSetReferences = dataSetReferences;
-            return o;
+            final var _resultValue = new DashboardSourceEntitySourceTemplate();
+            _resultValue.arn = arn;
+            _resultValue.dataSetReferences = dataSetReferences;
+            return _resultValue;
         }
     }
 }

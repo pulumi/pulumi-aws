@@ -82,13 +82,13 @@ public final class GetClusterClusterCertificate {
             return this;
         }
         public GetClusterClusterCertificate build() {
-            final var o = new GetClusterClusterCertificate();
-            o.awsHardwareCertificate = awsHardwareCertificate;
-            o.clusterCertificate = clusterCertificate;
-            o.clusterCsr = clusterCsr;
-            o.hsmCertificate = hsmCertificate;
-            o.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
-            return o;
+            final var _resultValue = new GetClusterClusterCertificate();
+            _resultValue.awsHardwareCertificate = awsHardwareCertificate;
+            _resultValue.clusterCertificate = clusterCertificate;
+            _resultValue.clusterCsr = clusterCsr;
+            _resultValue.hsmCertificate = hsmCertificate;
+            _resultValue.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
+            return _resultValue;
         }
     }
 }

@@ -76,12 +76,12 @@ public final class GetBrokerUser {
             return this;
         }
         public GetBrokerUser build() {
-            final var o = new GetBrokerUser();
-            o.consoleAccess = consoleAccess;
-            o.groups = groups;
-            o.replicationUser = replicationUser;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetBrokerUser();
+            _resultValue.consoleAccess = consoleAccess;
+            _resultValue.groups = groups;
+            _resultValue.replicationUser = replicationUser;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

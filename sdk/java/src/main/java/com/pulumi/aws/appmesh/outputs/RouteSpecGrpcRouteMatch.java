@@ -130,13 +130,13 @@ public final class RouteSpecGrpcRouteMatch {
             return this;
         }
         public RouteSpecGrpcRouteMatch build() {
-            final var o = new RouteSpecGrpcRouteMatch();
-            o.metadatas = metadatas;
-            o.methodName = methodName;
-            o.port = port;
-            o.prefix = prefix;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new RouteSpecGrpcRouteMatch();
+            _resultValue.metadatas = metadatas;
+            _resultValue.methodName = methodName;
+            _resultValue.port = port;
+            _resultValue.prefix = prefix;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

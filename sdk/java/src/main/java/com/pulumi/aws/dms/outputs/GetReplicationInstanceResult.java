@@ -366,26 +366,26 @@ public final class GetReplicationInstanceResult {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }
         public GetReplicationInstanceResult build() {
-            final var o = new GetReplicationInstanceResult();
-            o.allocatedStorage = allocatedStorage;
-            o.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
-            o.availabilityZone = availabilityZone;
-            o.engineVersion = engineVersion;
-            o.id = id;
-            o.kmsKeyArn = kmsKeyArn;
-            o.multiAz = multiAz;
-            o.networkType = networkType;
-            o.preferredMaintenanceWindow = preferredMaintenanceWindow;
-            o.publiclyAccessible = publiclyAccessible;
-            o.replicationInstanceArn = replicationInstanceArn;
-            o.replicationInstanceClass = replicationInstanceClass;
-            o.replicationInstanceId = replicationInstanceId;
-            o.replicationInstancePrivateIps = replicationInstancePrivateIps;
-            o.replicationInstancePublicIps = replicationInstancePublicIps;
-            o.replicationSubnetGroupId = replicationSubnetGroupId;
-            o.tags = tags;
-            o.vpcSecurityGroupIds = vpcSecurityGroupIds;
-            return o;
+            final var _resultValue = new GetReplicationInstanceResult();
+            _resultValue.allocatedStorage = allocatedStorage;
+            _resultValue.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.id = id;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.multiAz = multiAz;
+            _resultValue.networkType = networkType;
+            _resultValue.preferredMaintenanceWindow = preferredMaintenanceWindow;
+            _resultValue.publiclyAccessible = publiclyAccessible;
+            _resultValue.replicationInstanceArn = replicationInstanceArn;
+            _resultValue.replicationInstanceClass = replicationInstanceClass;
+            _resultValue.replicationInstanceId = replicationInstanceId;
+            _resultValue.replicationInstancePrivateIps = replicationInstancePrivateIps;
+            _resultValue.replicationInstancePublicIps = replicationInstancePublicIps;
+            _resultValue.replicationSubnetGroupId = replicationSubnetGroupId;
+            _resultValue.tags = tags;
+            _resultValue.vpcSecurityGroupIds = vpcSecurityGroupIds;
+            return _resultValue;
         }
     }
 }

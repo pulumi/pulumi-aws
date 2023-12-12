@@ -103,12 +103,12 @@ public final class IdentityPoolRoleAttachmentRoleMappingMappingRule {
             return this;
         }
         public IdentityPoolRoleAttachmentRoleMappingMappingRule build() {
-            final var o = new IdentityPoolRoleAttachmentRoleMappingMappingRule();
-            o.claim = claim;
-            o.matchType = matchType;
-            o.roleArn = roleArn;
-            o.value = value;
-            return o;
+            final var _resultValue = new IdentityPoolRoleAttachmentRoleMappingMappingRule();
+            _resultValue.claim = claim;
+            _resultValue.matchType = matchType;
+            _resultValue.roleArn = roleArn;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

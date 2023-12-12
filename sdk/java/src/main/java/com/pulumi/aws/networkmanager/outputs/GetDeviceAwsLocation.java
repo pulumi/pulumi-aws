@@ -65,10 +65,10 @@ public final class GetDeviceAwsLocation {
             return this;
         }
         public GetDeviceAwsLocation build() {
-            final var o = new GetDeviceAwsLocation();
-            o.subnetArn = subnetArn;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new GetDeviceAwsLocation();
+            _resultValue.subnetArn = subnetArn;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

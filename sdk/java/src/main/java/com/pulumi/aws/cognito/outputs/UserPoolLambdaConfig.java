@@ -278,21 +278,21 @@ public final class UserPoolLambdaConfig {
             return this;
         }
         public UserPoolLambdaConfig build() {
-            final var o = new UserPoolLambdaConfig();
-            o.createAuthChallenge = createAuthChallenge;
-            o.customEmailSender = customEmailSender;
-            o.customMessage = customMessage;
-            o.customSmsSender = customSmsSender;
-            o.defineAuthChallenge = defineAuthChallenge;
-            o.kmsKeyId = kmsKeyId;
-            o.postAuthentication = postAuthentication;
-            o.postConfirmation = postConfirmation;
-            o.preAuthentication = preAuthentication;
-            o.preSignUp = preSignUp;
-            o.preTokenGeneration = preTokenGeneration;
-            o.userMigration = userMigration;
-            o.verifyAuthChallengeResponse = verifyAuthChallengeResponse;
-            return o;
+            final var _resultValue = new UserPoolLambdaConfig();
+            _resultValue.createAuthChallenge = createAuthChallenge;
+            _resultValue.customEmailSender = customEmailSender;
+            _resultValue.customMessage = customMessage;
+            _resultValue.customSmsSender = customSmsSender;
+            _resultValue.defineAuthChallenge = defineAuthChallenge;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.postAuthentication = postAuthentication;
+            _resultValue.postConfirmation = postConfirmation;
+            _resultValue.preAuthentication = preAuthentication;
+            _resultValue.preSignUp = preSignUp;
+            _resultValue.preTokenGeneration = preTokenGeneration;
+            _resultValue.userMigration = userMigration;
+            _resultValue.verifyAuthChallengeResponse = verifyAuthChallengeResponse;
+            return _resultValue;
         }
     }
 }

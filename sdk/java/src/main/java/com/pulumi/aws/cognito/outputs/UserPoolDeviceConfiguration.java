@@ -67,10 +67,10 @@ public final class UserPoolDeviceConfiguration {
             return this;
         }
         public UserPoolDeviceConfiguration build() {
-            final var o = new UserPoolDeviceConfiguration();
-            o.challengeRequiredOnNewDevice = challengeRequiredOnNewDevice;
-            o.deviceOnlyRememberedOnUserPrompt = deviceOnlyRememberedOnUserPrompt;
-            return o;
+            final var _resultValue = new UserPoolDeviceConfiguration();
+            _resultValue.challengeRequiredOnNewDevice = challengeRequiredOnNewDevice;
+            _resultValue.deviceOnlyRememberedOnUserPrompt = deviceOnlyRememberedOnUserPrompt;
+            return _resultValue;
         }
     }
 }

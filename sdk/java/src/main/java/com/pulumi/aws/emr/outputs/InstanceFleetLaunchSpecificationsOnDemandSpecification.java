@@ -46,9 +46,9 @@ public final class InstanceFleetLaunchSpecificationsOnDemandSpecification {
             return this;
         }
         public InstanceFleetLaunchSpecificationsOnDemandSpecification build() {
-            final var o = new InstanceFleetLaunchSpecificationsOnDemandSpecification();
-            o.allocationStrategy = allocationStrategy;
-            return o;
+            final var _resultValue = new InstanceFleetLaunchSpecificationsOnDemandSpecification();
+            _resultValue.allocationStrategy = allocationStrategy;
+            return _resultValue;
         }
     }
 }

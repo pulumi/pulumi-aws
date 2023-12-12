@@ -106,12 +106,12 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
             return this;
         }
         public ServiceSourceConfigurationImageRepositoryImageConfiguration build() {
-            final var o = new ServiceSourceConfigurationImageRepositoryImageConfiguration();
-            o.port = port;
-            o.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
-            o.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
-            o.startCommand = startCommand;
-            return o;
+            final var _resultValue = new ServiceSourceConfigurationImageRepositoryImageConfiguration();
+            _resultValue.port = port;
+            _resultValue.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
+            _resultValue.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
+            _resultValue.startCommand = startCommand;
+            return _resultValue;
         }
     }
 }

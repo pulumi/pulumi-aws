@@ -84,11 +84,11 @@ public final class RuleGroupCustomResponseBody {
             return this;
         }
         public RuleGroupCustomResponseBody build() {
-            final var o = new RuleGroupCustomResponseBody();
-            o.content = content;
-            o.contentType = contentType;
-            o.key = key;
-            return o;
+            final var _resultValue = new RuleGroupCustomResponseBody();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

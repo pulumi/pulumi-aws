@@ -68,10 +68,10 @@ public final class VirtualGatewaySpecLoggingAccessLogFile {
             return this;
         }
         public VirtualGatewaySpecLoggingAccessLogFile build() {
-            final var o = new VirtualGatewaySpecLoggingAccessLogFile();
-            o.format = format;
-            o.path = path;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecLoggingAccessLogFile();
+            _resultValue.format = format;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

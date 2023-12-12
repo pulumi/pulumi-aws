@@ -69,10 +69,10 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
             return values(List.of(values));
         }
         public MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

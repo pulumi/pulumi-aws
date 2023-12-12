@@ -65,10 +65,10 @@ public final class GetVpcIamPoolCidrsIpamPoolCidr {
             return this;
         }
         public GetVpcIamPoolCidrsIpamPoolCidr build() {
-            final var o = new GetVpcIamPoolCidrsIpamPoolCidr();
-            o.cidr = cidr;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetVpcIamPoolCidrsIpamPoolCidr();
+            _resultValue.cidr = cidr;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

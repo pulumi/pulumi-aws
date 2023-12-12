@@ -88,11 +88,11 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
             return this;
         }
         public LifecyclePolicyPolicyDetailsActionCrossRegionCopy build() {
-            final var o = new LifecyclePolicyPolicyDetailsActionCrossRegionCopy();
-            o.encryptionConfiguration = encryptionConfiguration;
-            o.retainRule = retainRule;
-            o.target = target;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsActionCrossRegionCopy();
+            _resultValue.encryptionConfiguration = encryptionConfiguration;
+            _resultValue.retainRule = retainRule;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

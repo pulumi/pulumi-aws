@@ -226,18 +226,18 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe();
-            o.blockSizeBytes = blockSizeBytes;
-            o.bloomFilterColumns = bloomFilterColumns;
-            o.bloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
-            o.compression = compression;
-            o.dictionaryKeyThreshold = dictionaryKeyThreshold;
-            o.enablePadding = enablePadding;
-            o.formatVersion = formatVersion;
-            o.paddingTolerance = paddingTolerance;
-            o.rowIndexStride = rowIndexStride;
-            o.stripeSizeBytes = stripeSizeBytes;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe();
+            _resultValue.blockSizeBytes = blockSizeBytes;
+            _resultValue.bloomFilterColumns = bloomFilterColumns;
+            _resultValue.bloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
+            _resultValue.compression = compression;
+            _resultValue.dictionaryKeyThreshold = dictionaryKeyThreshold;
+            _resultValue.enablePadding = enablePadding;
+            _resultValue.formatVersion = formatVersion;
+            _resultValue.paddingTolerance = paddingTolerance;
+            _resultValue.rowIndexStride = rowIndexStride;
+            _resultValue.stripeSizeBytes = stripeSizeBytes;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class GetLaunchConfigurationMetadataOption {
             return this;
         }
         public GetLaunchConfigurationMetadataOption build() {
-            final var o = new GetLaunchConfigurationMetadataOption();
-            o.httpEndpoint = httpEndpoint;
-            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
-            o.httpTokens = httpTokens;
-            return o;
+            final var _resultValue = new GetLaunchConfigurationMetadataOption();
+            _resultValue.httpEndpoint = httpEndpoint;
+            _resultValue.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            _resultValue.httpTokens = httpTokens;
+            return _resultValue;
         }
     }
 }

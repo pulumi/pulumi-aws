@@ -108,12 +108,12 @@ public final class DataSetPhysicalTableMap {
             return this;
         }
         public DataSetPhysicalTableMap build() {
-            final var o = new DataSetPhysicalTableMap();
-            o.customSql = customSql;
-            o.physicalTableMapId = physicalTableMapId;
-            o.relationalTable = relationalTable;
-            o.s3Source = s3Source;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMap();
+            _resultValue.customSql = customSql;
+            _resultValue.physicalTableMapId = physicalTableMapId;
+            _resultValue.relationalTable = relationalTable;
+            _resultValue.s3Source = s3Source;
+            return _resultValue;
         }
     }
 }

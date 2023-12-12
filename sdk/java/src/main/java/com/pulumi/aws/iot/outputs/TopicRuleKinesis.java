@@ -86,11 +86,11 @@ public final class TopicRuleKinesis {
             return this;
         }
         public TopicRuleKinesis build() {
-            final var o = new TopicRuleKinesis();
-            o.partitionKey = partitionKey;
-            o.roleArn = roleArn;
-            o.streamName = streamName;
-            return o;
+            final var _resultValue = new TopicRuleKinesis();
+            _resultValue.partitionKey = partitionKey;
+            _resultValue.roleArn = roleArn;
+            _resultValue.streamName = streamName;
+            return _resultValue;
         }
     }
 }

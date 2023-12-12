@@ -67,10 +67,10 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
             return this;
         }
         public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb build() {
-            final var o = new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

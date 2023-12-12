@@ -157,15 +157,15 @@ public final class GetContactChannelResult {
             return this;
         }
         public GetContactChannelResult build() {
-            final var o = new GetContactChannelResult();
-            o.activationStatus = activationStatus;
-            o.arn = arn;
-            o.contactId = contactId;
-            o.deliveryAddresses = deliveryAddresses;
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetContactChannelResult();
+            _resultValue.activationStatus = activationStatus;
+            _resultValue.arn = arn;
+            _resultValue.contactId = contactId;
+            _resultValue.deliveryAddresses = deliveryAddresses;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

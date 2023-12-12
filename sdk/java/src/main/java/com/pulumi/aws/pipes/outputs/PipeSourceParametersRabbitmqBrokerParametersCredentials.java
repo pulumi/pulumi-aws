@@ -46,9 +46,9 @@ public final class PipeSourceParametersRabbitmqBrokerParametersCredentials {
             return this;
         }
         public PipeSourceParametersRabbitmqBrokerParametersCredentials build() {
-            final var o = new PipeSourceParametersRabbitmqBrokerParametersCredentials();
-            o.basicAuth = basicAuth;
-            return o;
+            final var _resultValue = new PipeSourceParametersRabbitmqBrokerParametersCredentials();
+            _resultValue.basicAuth = basicAuth;
+            return _resultValue;
         }
     }
 }

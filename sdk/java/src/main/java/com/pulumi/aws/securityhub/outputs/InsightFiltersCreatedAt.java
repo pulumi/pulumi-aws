@@ -87,11 +87,11 @@ public final class InsightFiltersCreatedAt {
             return this;
         }
         public InsightFiltersCreatedAt build() {
-            final var o = new InsightFiltersCreatedAt();
-            o.dateRange = dateRange;
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new InsightFiltersCreatedAt();
+            _resultValue.dateRange = dateRange;
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

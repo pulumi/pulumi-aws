@@ -86,11 +86,11 @@ public final class TopicRuleErrorActionStepFunctions {
             return this;
         }
         public TopicRuleErrorActionStepFunctions build() {
-            final var o = new TopicRuleErrorActionStepFunctions();
-            o.executionNamePrefix = executionNamePrefix;
-            o.roleArn = roleArn;
-            o.stateMachineName = stateMachineName;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionStepFunctions();
+            _resultValue.executionNamePrefix = executionNamePrefix;
+            _resultValue.roleArn = roleArn;
+            _resultValue.stateMachineName = stateMachineName;
+            return _resultValue;
         }
     }
 }

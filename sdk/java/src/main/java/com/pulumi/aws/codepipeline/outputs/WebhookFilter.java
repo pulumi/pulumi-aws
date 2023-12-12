@@ -65,10 +65,10 @@ public final class WebhookFilter {
             return this;
         }
         public WebhookFilter build() {
-            final var o = new WebhookFilter();
-            o.jsonPath = jsonPath;
-            o.matchEquals = matchEquals;
-            return o;
+            final var _resultValue = new WebhookFilter();
+            _resultValue.jsonPath = jsonPath;
+            _resultValue.matchEquals = matchEquals;
+            return _resultValue;
         }
     }
 }

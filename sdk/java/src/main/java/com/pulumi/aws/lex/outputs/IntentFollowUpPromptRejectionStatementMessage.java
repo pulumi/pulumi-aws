@@ -89,11 +89,11 @@ public final class IntentFollowUpPromptRejectionStatementMessage {
             return this;
         }
         public IntentFollowUpPromptRejectionStatementMessage build() {
-            final var o = new IntentFollowUpPromptRejectionStatementMessage();
-            o.content = content;
-            o.contentType = contentType;
-            o.groupNumber = groupNumber;
-            return o;
+            final var _resultValue = new IntentFollowUpPromptRejectionStatementMessage();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.groupNumber = groupNumber;
+            return _resultValue;
         }
     }
 }

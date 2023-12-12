@@ -70,10 +70,10 @@ public final class ListenerDefaultActionForwardTargetGroup {
             return this;
         }
         public ListenerDefaultActionForwardTargetGroup build() {
-            final var o = new ListenerDefaultActionForwardTargetGroup();
-            o.targetGroupIdentifier = targetGroupIdentifier;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new ListenerDefaultActionForwardTargetGroup();
+            _resultValue.targetGroupIdentifier = targetGroupIdentifier;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

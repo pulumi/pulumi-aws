@@ -65,10 +65,10 @@ public final class InsightFiltersComplianceStatus {
             return this;
         }
         public InsightFiltersComplianceStatus build() {
-            final var o = new InsightFiltersComplianceStatus();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersComplianceStatus();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

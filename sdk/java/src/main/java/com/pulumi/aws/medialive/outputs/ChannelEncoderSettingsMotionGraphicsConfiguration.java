@@ -68,10 +68,10 @@ public final class ChannelEncoderSettingsMotionGraphicsConfiguration {
             return this;
         }
         public ChannelEncoderSettingsMotionGraphicsConfiguration build() {
-            final var o = new ChannelEncoderSettingsMotionGraphicsConfiguration();
-            o.motionGraphicsInsertion = motionGraphicsInsertion;
-            o.motionGraphicsSettings = motionGraphicsSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsMotionGraphicsConfiguration();
+            _resultValue.motionGraphicsInsertion = motionGraphicsInsertion;
+            _resultValue.motionGraphicsSettings = motionGraphicsSettings;
+            return _resultValue;
         }
     }
 }

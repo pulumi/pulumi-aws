@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyM
         }
 
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll();
+            return _resultValue;
         }
     }
 }

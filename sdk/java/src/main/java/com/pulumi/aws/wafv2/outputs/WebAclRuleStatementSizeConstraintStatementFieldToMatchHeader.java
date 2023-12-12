@@ -85,11 +85,11 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader 
             return this;
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader();
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader();
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

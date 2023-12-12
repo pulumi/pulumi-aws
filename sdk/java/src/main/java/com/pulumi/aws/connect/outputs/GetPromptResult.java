@@ -106,13 +106,13 @@ public final class GetPromptResult {
             return this;
         }
         public GetPromptResult build() {
-            final var o = new GetPromptResult();
-            o.arn = arn;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.promptId = promptId;
-            return o;
+            final var _resultValue = new GetPromptResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.promptId = promptId;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class DomainDomainSettings {
             return securityGroupIds(List.of(securityGroupIds));
         }
         public DomainDomainSettings build() {
-            final var o = new DomainDomainSettings();
-            o.executionRoleIdentityConfig = executionRoleIdentityConfig;
-            o.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
-            o.securityGroupIds = securityGroupIds;
-            return o;
+            final var _resultValue = new DomainDomainSettings();
+            _resultValue.executionRoleIdentityConfig = executionRoleIdentityConfig;
+            _resultValue.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
+            _resultValue.securityGroupIds = securityGroupIds;
+            return _resultValue;
         }
     }
 }

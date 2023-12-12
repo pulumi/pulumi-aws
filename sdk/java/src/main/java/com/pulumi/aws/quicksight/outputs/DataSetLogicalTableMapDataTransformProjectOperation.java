@@ -50,9 +50,9 @@ public final class DataSetLogicalTableMapDataTransformProjectOperation {
             return projectedColumns(List.of(projectedColumns));
         }
         public DataSetLogicalTableMapDataTransformProjectOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformProjectOperation();
-            o.projectedColumns = projectedColumns;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformProjectOperation();
+            _resultValue.projectedColumns = projectedColumns;
+            return _resultValue;
         }
     }
 }

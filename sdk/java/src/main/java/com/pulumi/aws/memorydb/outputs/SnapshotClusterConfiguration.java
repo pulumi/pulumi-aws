@@ -277,21 +277,21 @@ public final class SnapshotClusterConfiguration {
             return this;
         }
         public SnapshotClusterConfiguration build() {
-            final var o = new SnapshotClusterConfiguration();
-            o.description = description;
-            o.engineVersion = engineVersion;
-            o.maintenanceWindow = maintenanceWindow;
-            o.name = name;
-            o.nodeType = nodeType;
-            o.numShards = numShards;
-            o.parameterGroupName = parameterGroupName;
-            o.port = port;
-            o.snapshotRetentionLimit = snapshotRetentionLimit;
-            o.snapshotWindow = snapshotWindow;
-            o.subnetGroupName = subnetGroupName;
-            o.topicArn = topicArn;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new SnapshotClusterConfiguration();
+            _resultValue.description = description;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.maintenanceWindow = maintenanceWindow;
+            _resultValue.name = name;
+            _resultValue.nodeType = nodeType;
+            _resultValue.numShards = numShards;
+            _resultValue.parameterGroupName = parameterGroupName;
+            _resultValue.port = port;
+            _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;
+            _resultValue.snapshotWindow = snapshotWindow;
+            _resultValue.subnetGroupName = subnetGroupName;
+            _resultValue.topicArn = topicArn;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

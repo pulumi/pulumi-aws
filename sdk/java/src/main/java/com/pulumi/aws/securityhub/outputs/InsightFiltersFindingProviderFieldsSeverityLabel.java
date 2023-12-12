@@ -65,10 +65,10 @@ public final class InsightFiltersFindingProviderFieldsSeverityLabel {
             return this;
         }
         public InsightFiltersFindingProviderFieldsSeverityLabel build() {
-            final var o = new InsightFiltersFindingProviderFieldsSeverityLabel();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersFindingProviderFieldsSeverityLabel();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

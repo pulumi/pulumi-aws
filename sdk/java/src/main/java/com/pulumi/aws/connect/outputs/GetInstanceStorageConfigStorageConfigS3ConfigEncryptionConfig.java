@@ -65,10 +65,10 @@ public final class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig
             return this;
         }
         public GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig build() {
-            final var o = new GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig();
-            o.encryptionType = encryptionType;
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig();
+            _resultValue.encryptionType = encryptionType;
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

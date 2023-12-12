@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog();
-            o.instanceUrl = instanceUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog();
+            _resultValue.instanceUrl = instanceUrl;
+            return _resultValue;
         }
     }
 }

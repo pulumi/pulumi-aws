@@ -70,10 +70,10 @@ public final class BucketReplicationConfiguration {
             return rules(List.of(rules));
         }
         public BucketReplicationConfiguration build() {
-            final var o = new BucketReplicationConfiguration();
-            o.role = role;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new BucketReplicationConfiguration();
+            _resultValue.role = role;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

@@ -97,12 +97,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings();
-            o.connectionRetryInterval = connectionRetryInterval;
-            o.filecacheDuration = filecacheDuration;
-            o.numRetries = numRetries;
-            o.restartDelay = restartDelay;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings();
+            _resultValue.connectionRetryInterval = connectionRetryInterval;
+            _resultValue.filecacheDuration = filecacheDuration;
+            _resultValue.numRetries = numRetries;
+            _resultValue.restartDelay = restartDelay;
+            return _resultValue;
         }
     }
 }

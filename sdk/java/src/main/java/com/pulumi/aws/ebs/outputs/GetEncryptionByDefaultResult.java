@@ -66,10 +66,10 @@ public final class GetEncryptionByDefaultResult {
             return this;
         }
         public GetEncryptionByDefaultResult build() {
-            final var o = new GetEncryptionByDefaultResult();
-            o.enabled = enabled;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetEncryptionByDefaultResult();
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

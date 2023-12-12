@@ -46,9 +46,9 @@ public final class DomainDefaultUserSettingsJupyterServerAppSettingsCodeReposito
             return this;
         }
         public DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository build() {
-            final var o = new DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository();
-            o.repositoryUrl = repositoryUrl;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository();
+            _resultValue.repositoryUrl = repositoryUrl;
+            return _resultValue;
         }
     }
 }

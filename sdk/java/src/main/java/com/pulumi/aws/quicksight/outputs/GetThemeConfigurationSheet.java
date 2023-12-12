@@ -73,10 +73,10 @@ public final class GetThemeConfigurationSheet {
             return tiles(List.of(tiles));
         }
         public GetThemeConfigurationSheet build() {
-            final var o = new GetThemeConfigurationSheet();
-            o.tileLayouts = tileLayouts;
-            o.tiles = tiles;
-            return o;
+            final var _resultValue = new GetThemeConfigurationSheet();
+            _resultValue.tileLayouts = tileLayouts;
+            _resultValue.tiles = tiles;
+            return _resultValue;
         }
     }
 }

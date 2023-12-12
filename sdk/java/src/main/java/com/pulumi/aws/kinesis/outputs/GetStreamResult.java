@@ -252,19 +252,19 @@ public final class GetStreamResult {
             return this;
         }
         public GetStreamResult build() {
-            final var o = new GetStreamResult();
-            o.arn = arn;
-            o.closedShards = closedShards;
-            o.creationTimestamp = creationTimestamp;
-            o.id = id;
-            o.name = name;
-            o.openShards = openShards;
-            o.retentionPeriod = retentionPeriod;
-            o.shardLevelMetrics = shardLevelMetrics;
-            o.status = status;
-            o.streamModeDetails = streamModeDetails;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetStreamResult();
+            _resultValue.arn = arn;
+            _resultValue.closedShards = closedShards;
+            _resultValue.creationTimestamp = creationTimestamp;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.openShards = openShards;
+            _resultValue.retentionPeriod = retentionPeriod;
+            _resultValue.shardLevelMetrics = shardLevelMetrics;
+            _resultValue.status = status;
+            _resultValue.streamModeDetails = streamModeDetails;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

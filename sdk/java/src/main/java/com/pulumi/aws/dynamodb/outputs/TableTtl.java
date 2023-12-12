@@ -68,10 +68,10 @@ public final class TableTtl {
             return this;
         }
         public TableTtl build() {
-            final var o = new TableTtl();
-            o.attributeName = attributeName;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new TableTtl();
+            _resultValue.attributeName = attributeName;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

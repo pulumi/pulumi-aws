@@ -138,15 +138,15 @@ public final class GetCoipPoolResult {
             return this;
         }
         public GetCoipPoolResult build() {
-            final var o = new GetCoipPoolResult();
-            o.arn = arn;
-            o.filters = filters;
-            o.id = id;
-            o.localGatewayRouteTableId = localGatewayRouteTableId;
-            o.poolCidrs = poolCidrs;
-            o.poolId = poolId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCoipPoolResult();
+            _resultValue.arn = arn;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.localGatewayRouteTableId = localGatewayRouteTableId;
+            _resultValue.poolCidrs = poolCidrs;
+            _resultValue.poolId = poolId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

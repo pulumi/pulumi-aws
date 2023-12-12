@@ -67,10 +67,10 @@ public final class FlowDefinitionOutputConfig {
             return this;
         }
         public FlowDefinitionOutputConfig build() {
-            final var o = new FlowDefinitionOutputConfig();
-            o.kmsKeyId = kmsKeyId;
-            o.s3OutputPath = s3OutputPath;
-            return o;
+            final var _resultValue = new FlowDefinitionOutputConfig();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.s3OutputPath = s3OutputPath;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference
             return this;
         }
         public CustomerManagedPolicyAttachmentCustomerManagedPolicyReference build() {
-            final var o = new CustomerManagedPolicyAttachmentCustomerManagedPolicyReference();
-            o.name = name;
-            o.path = path;
-            return o;
+            final var _resultValue = new CustomerManagedPolicyAttachmentCustomerManagedPolicyReference();
+            _resultValue.name = name;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

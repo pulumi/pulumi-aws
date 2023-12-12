@@ -46,9 +46,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination();
-            o.destinationRefId = destinationRefId;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination();
+            _resultValue.destinationRefId = destinationRefId;
+            return _resultValue;
         }
     }
 }

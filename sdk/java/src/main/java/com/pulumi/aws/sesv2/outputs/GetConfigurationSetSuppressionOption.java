@@ -50,9 +50,9 @@ public final class GetConfigurationSetSuppressionOption {
             return suppressedReasons(List.of(suppressedReasons));
         }
         public GetConfigurationSetSuppressionOption build() {
-            final var o = new GetConfigurationSetSuppressionOption();
-            o.suppressedReasons = suppressedReasons;
-            return o;
+            final var _resultValue = new GetConfigurationSetSuppressionOption();
+            _resultValue.suppressedReasons = suppressedReasons;
+            return _resultValue;
         }
     }
 }

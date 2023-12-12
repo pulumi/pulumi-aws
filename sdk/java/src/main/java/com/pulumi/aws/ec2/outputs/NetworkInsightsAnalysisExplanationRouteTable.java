@@ -78,11 +78,11 @@ public final class NetworkInsightsAnalysisExplanationRouteTable {
             return this;
         }
         public NetworkInsightsAnalysisExplanationRouteTable build() {
-            final var o = new NetworkInsightsAnalysisExplanationRouteTable();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationRouteTable();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

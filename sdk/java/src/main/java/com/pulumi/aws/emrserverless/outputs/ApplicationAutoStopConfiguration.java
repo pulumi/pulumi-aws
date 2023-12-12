@@ -68,10 +68,10 @@ public final class ApplicationAutoStopConfiguration {
             return this;
         }
         public ApplicationAutoStopConfiguration build() {
-            final var o = new ApplicationAutoStopConfiguration();
-            o.enabled = enabled;
-            o.idleTimeoutMinutes = idleTimeoutMinutes;
-            return o;
+            final var _resultValue = new ApplicationAutoStopConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.idleTimeoutMinutes = idleTimeoutMinutes;
+            return _resultValue;
         }
     }
 }

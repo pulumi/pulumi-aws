@@ -223,19 +223,19 @@ public final class GetContainerDefinitionResult {
             return this;
         }
         public GetContainerDefinitionResult build() {
-            final var o = new GetContainerDefinitionResult();
-            o.containerName = containerName;
-            o.cpu = cpu;
-            o.disableNetworking = disableNetworking;
-            o.dockerLabels = dockerLabels;
-            o.environment = environment;
-            o.id = id;
-            o.image = image;
-            o.imageDigest = imageDigest;
-            o.memory = memory;
-            o.memoryReservation = memoryReservation;
-            o.taskDefinition = taskDefinition;
-            return o;
+            final var _resultValue = new GetContainerDefinitionResult();
+            _resultValue.containerName = containerName;
+            _resultValue.cpu = cpu;
+            _resultValue.disableNetworking = disableNetworking;
+            _resultValue.dockerLabels = dockerLabels;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.image = image;
+            _resultValue.imageDigest = imageDigest;
+            _resultValue.memory = memory;
+            _resultValue.memoryReservation = memoryReservation;
+            _resultValue.taskDefinition = taskDefinition;
+            return _resultValue;
         }
     }
 }

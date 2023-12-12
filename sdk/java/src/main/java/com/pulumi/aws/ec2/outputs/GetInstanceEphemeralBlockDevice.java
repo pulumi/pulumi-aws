@@ -87,11 +87,11 @@ public final class GetInstanceEphemeralBlockDevice {
             return this;
         }
         public GetInstanceEphemeralBlockDevice build() {
-            final var o = new GetInstanceEphemeralBlockDevice();
-            o.deviceName = deviceName;
-            o.noDevice = noDevice;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new GetInstanceEphemeralBlockDevice();
+            _resultValue.deviceName = deviceName;
+            _resultValue.noDevice = noDevice;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

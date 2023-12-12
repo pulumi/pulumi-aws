@@ -67,10 +67,10 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetri
             return this;
         }
         public PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification build() {
-            final var o = new PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification();
-            o.predefinedMetricType = predefinedMetricType;
-            o.resourceLabel = resourceLabel;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification();
+            _resultValue.predefinedMetricType = predefinedMetricType;
+            _resultValue.resourceLabel = resourceLabel;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetImagePipelinesFilter {
             return values(List.of(values));
         }
         public GetImagePipelinesFilter build() {
-            final var o = new GetImagePipelinesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetImagePipelinesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

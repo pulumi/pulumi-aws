@@ -77,12 +77,12 @@ public final class CollaborationMember {
             return this;
         }
         public CollaborationMember build() {
-            final var o = new CollaborationMember();
-            o.accountId = accountId;
-            o.displayName = displayName;
-            o.memberAbilities = memberAbilities;
-            o.status = status;
-            return o;
+            final var _resultValue = new CollaborationMember();
+            _resultValue.accountId = accountId;
+            _resultValue.displayName = displayName;
+            _resultValue.memberAbilities = memberAbilities;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

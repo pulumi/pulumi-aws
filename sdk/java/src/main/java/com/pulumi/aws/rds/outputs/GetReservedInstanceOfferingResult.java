@@ -161,17 +161,17 @@ public final class GetReservedInstanceOfferingResult {
             return this;
         }
         public GetReservedInstanceOfferingResult build() {
-            final var o = new GetReservedInstanceOfferingResult();
-            o.currencyCode = currencyCode;
-            o.dbInstanceClass = dbInstanceClass;
-            o.duration = duration;
-            o.fixedPrice = fixedPrice;
-            o.id = id;
-            o.multiAz = multiAz;
-            o.offeringId = offeringId;
-            o.offeringType = offeringType;
-            o.productDescription = productDescription;
-            return o;
+            final var _resultValue = new GetReservedInstanceOfferingResult();
+            _resultValue.currencyCode = currencyCode;
+            _resultValue.dbInstanceClass = dbInstanceClass;
+            _resultValue.duration = duration;
+            _resultValue.fixedPrice = fixedPrice;
+            _resultValue.id = id;
+            _resultValue.multiAz = multiAz;
+            _resultValue.offeringId = offeringId;
+            _resultValue.offeringType = offeringType;
+            _resultValue.productDescription = productDescription;
+            return _resultValue;
         }
     }
 }

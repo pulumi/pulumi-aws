@@ -48,9 +48,9 @@ public final class DashboardDashboardPublishOptionsExportWithHiddenFieldsOption 
             return this;
         }
         public DashboardDashboardPublishOptionsExportWithHiddenFieldsOption build() {
-            final var o = new DashboardDashboardPublishOptionsExportWithHiddenFieldsOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsExportWithHiddenFieldsOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

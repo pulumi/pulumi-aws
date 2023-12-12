@@ -512,33 +512,33 @@ public final class GetClusterResult {
             return this;
         }
         public GetClusterResult build() {
-            final var o = new GetClusterResult();
-            o.arn = arn;
-            o.availabilityZone = availabilityZone;
-            o.cacheNodes = cacheNodes;
-            o.clusterAddress = clusterAddress;
-            o.clusterId = clusterId;
-            o.configurationEndpoint = configurationEndpoint;
-            o.engine = engine;
-            o.engineVersion = engineVersion;
-            o.id = id;
-            o.ipDiscovery = ipDiscovery;
-            o.logDeliveryConfigurations = logDeliveryConfigurations;
-            o.maintenanceWindow = maintenanceWindow;
-            o.networkType = networkType;
-            o.nodeType = nodeType;
-            o.notificationTopicArn = notificationTopicArn;
-            o.numCacheNodes = numCacheNodes;
-            o.parameterGroupName = parameterGroupName;
-            o.port = port;
-            o.preferredOutpostArn = preferredOutpostArn;
-            o.replicationGroupId = replicationGroupId;
-            o.securityGroupIds = securityGroupIds;
-            o.snapshotRetentionLimit = snapshotRetentionLimit;
-            o.snapshotWindow = snapshotWindow;
-            o.subnetGroupName = subnetGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetClusterResult();
+            _resultValue.arn = arn;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.cacheNodes = cacheNodes;
+            _resultValue.clusterAddress = clusterAddress;
+            _resultValue.clusterId = clusterId;
+            _resultValue.configurationEndpoint = configurationEndpoint;
+            _resultValue.engine = engine;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.id = id;
+            _resultValue.ipDiscovery = ipDiscovery;
+            _resultValue.logDeliveryConfigurations = logDeliveryConfigurations;
+            _resultValue.maintenanceWindow = maintenanceWindow;
+            _resultValue.networkType = networkType;
+            _resultValue.nodeType = nodeType;
+            _resultValue.notificationTopicArn = notificationTopicArn;
+            _resultValue.numCacheNodes = numCacheNodes;
+            _resultValue.parameterGroupName = parameterGroupName;
+            _resultValue.port = port;
+            _resultValue.preferredOutpostArn = preferredOutpostArn;
+            _resultValue.replicationGroupId = replicationGroupId;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;
+            _resultValue.snapshotWindow = snapshotWindow;
+            _resultValue.subnetGroupName = subnetGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

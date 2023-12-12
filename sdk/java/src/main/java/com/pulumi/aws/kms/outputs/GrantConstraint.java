@@ -67,10 +67,10 @@ public final class GrantConstraint {
             return this;
         }
         public GrantConstraint build() {
-            final var o = new GrantConstraint();
-            o.encryptionContextEquals = encryptionContextEquals;
-            o.encryptionContextSubset = encryptionContextSubset;
-            return o;
+            final var _resultValue = new GrantConstraint();
+            _resultValue.encryptionContextEquals = encryptionContextEquals;
+            _resultValue.encryptionContextSubset = encryptionContextSubset;
+            return _resultValue;
         }
     }
 }

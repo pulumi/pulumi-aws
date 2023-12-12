@@ -42,9 +42,9 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDef
             return publishMetricActions(List.of(publishMetricActions));
         }
         public GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition build() {
-            final var o = new GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition();
-            o.publishMetricActions = publishMetricActions;
-            return o;
+            final var _resultValue = new GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition();
+            _resultValue.publishMetricActions = publishMetricActions;
+            return _resultValue;
         }
     }
 }

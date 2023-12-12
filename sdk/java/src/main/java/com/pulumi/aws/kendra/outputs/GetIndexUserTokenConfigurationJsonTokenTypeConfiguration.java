@@ -65,10 +65,10 @@ public final class GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
             return this;
         }
         public GetIndexUserTokenConfigurationJsonTokenTypeConfiguration build() {
-            final var o = new GetIndexUserTokenConfigurationJsonTokenTypeConfiguration();
-            o.groupAttributeField = groupAttributeField;
-            o.userNameAttributeField = userNameAttributeField;
-            return o;
+            final var _resultValue = new GetIndexUserTokenConfigurationJsonTokenTypeConfiguration();
+            _resultValue.groupAttributeField = groupAttributeField;
+            _resultValue.userNameAttributeField = userNameAttributeField;
+            return _resultValue;
         }
     }
 }

@@ -125,13 +125,13 @@ public final class PolicyPredictiveScalingConfiguration {
             return this;
         }
         public PolicyPredictiveScalingConfiguration build() {
-            final var o = new PolicyPredictiveScalingConfiguration();
-            o.maxCapacityBreachBehavior = maxCapacityBreachBehavior;
-            o.maxCapacityBuffer = maxCapacityBuffer;
-            o.metricSpecification = metricSpecification;
-            o.mode = mode;
-            o.schedulingBufferTime = schedulingBufferTime;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfiguration();
+            _resultValue.maxCapacityBreachBehavior = maxCapacityBreachBehavior;
+            _resultValue.maxCapacityBuffer = maxCapacityBuffer;
+            _resultValue.metricSpecification = metricSpecification;
+            _resultValue.mode = mode;
+            _resultValue.schedulingBufferTime = schedulingBufferTime;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class RegistryScanningConfigurationRule {
             return this;
         }
         public RegistryScanningConfigurationRule build() {
-            final var o = new RegistryScanningConfigurationRule();
-            o.repositoryFilters = repositoryFilters;
-            o.scanFrequency = scanFrequency;
-            return o;
+            final var _resultValue = new RegistryScanningConfigurationRule();
+            _resultValue.repositoryFilters = repositoryFilters;
+            _resultValue.scanFrequency = scanFrequency;
+            return _resultValue;
         }
     }
 }

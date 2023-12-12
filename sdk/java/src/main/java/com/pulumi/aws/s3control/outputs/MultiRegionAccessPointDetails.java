@@ -68,11 +68,11 @@ public final class MultiRegionAccessPointDetails {
             return regions(List.of(regions));
         }
         public MultiRegionAccessPointDetails build() {
-            final var o = new MultiRegionAccessPointDetails();
-            o.name = name;
-            o.publicAccessBlock = publicAccessBlock;
-            o.regions = regions;
-            return o;
+            final var _resultValue = new MultiRegionAccessPointDetails();
+            _resultValue.name = name;
+            _resultValue.publicAccessBlock = publicAccessBlock;
+            _resultValue.regions = regions;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class IndexServerSideEncryptionConfiguration {
             return this;
         }
         public IndexServerSideEncryptionConfiguration build() {
-            final var o = new IndexServerSideEncryptionConfiguration();
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new IndexServerSideEncryptionConfiguration();
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptio
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption build() {
-            final var o = new GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption();
-            o.override = override;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption();
+            _resultValue.override = override;
+            return _resultValue;
         }
     }
 }

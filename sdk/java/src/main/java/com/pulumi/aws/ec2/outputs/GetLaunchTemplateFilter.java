@@ -69,10 +69,10 @@ public final class GetLaunchTemplateFilter {
             return values(List.of(values));
         }
         public GetLaunchTemplateFilter build() {
-            final var o = new GetLaunchTemplateFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetLaunchTemplateFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

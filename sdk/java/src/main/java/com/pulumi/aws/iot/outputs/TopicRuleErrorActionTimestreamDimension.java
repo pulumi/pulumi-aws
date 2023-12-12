@@ -65,10 +65,10 @@ public final class TopicRuleErrorActionTimestreamDimension {
             return this;
         }
         public TopicRuleErrorActionTimestreamDimension build() {
-            final var o = new TopicRuleErrorActionTimestreamDimension();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionTimestreamDimension();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

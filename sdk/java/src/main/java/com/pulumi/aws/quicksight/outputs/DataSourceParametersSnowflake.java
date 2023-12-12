@@ -84,11 +84,11 @@ public final class DataSourceParametersSnowflake {
             return this;
         }
         public DataSourceParametersSnowflake build() {
-            final var o = new DataSourceParametersSnowflake();
-            o.database = database;
-            o.host = host;
-            o.warehouse = warehouse;
-            return o;
+            final var _resultValue = new DataSourceParametersSnowflake();
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.warehouse = warehouse;
+            return _resultValue;
         }
     }
 }

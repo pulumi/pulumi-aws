@@ -125,13 +125,13 @@ public final class VoiceConnectorOrganizationRoute {
             return this;
         }
         public VoiceConnectorOrganizationRoute build() {
-            final var o = new VoiceConnectorOrganizationRoute();
-            o.host = host;
-            o.port = port;
-            o.priority = priority;
-            o.protocol = protocol;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new VoiceConnectorOrganizationRoute();
+            _resultValue.host = host;
+            _resultValue.port = port;
+            _resultValue.priority = priority;
+            _resultValue.protocol = protocol;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

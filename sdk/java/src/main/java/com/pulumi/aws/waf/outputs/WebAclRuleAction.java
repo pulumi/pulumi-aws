@@ -48,9 +48,9 @@ public final class WebAclRuleAction {
             return this;
         }
         public WebAclRuleAction build() {
-            final var o = new WebAclRuleAction();
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRuleAction();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

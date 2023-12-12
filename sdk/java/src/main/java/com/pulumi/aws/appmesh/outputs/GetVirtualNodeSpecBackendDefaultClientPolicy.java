@@ -42,9 +42,9 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicy {
             return tls(List.of(tls));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicy build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicy();
-            o.tls = tls;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicy();
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

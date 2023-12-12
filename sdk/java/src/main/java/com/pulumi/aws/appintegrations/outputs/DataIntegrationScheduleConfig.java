@@ -84,11 +84,11 @@ public final class DataIntegrationScheduleConfig {
             return this;
         }
         public DataIntegrationScheduleConfig build() {
-            final var o = new DataIntegrationScheduleConfig();
-            o.firstExecutionFrom = firstExecutionFrom;
-            o.object = object;
-            o.scheduleExpression = scheduleExpression;
-            return o;
+            final var _resultValue = new DataIntegrationScheduleConfig();
+            _resultValue.firstExecutionFrom = firstExecutionFrom;
+            _resultValue.object = object;
+            _resultValue.scheduleExpression = scheduleExpression;
+            return _resultValue;
         }
     }
 }

@@ -62,11 +62,11 @@ public final class ClassificationJobUserPausedDetail {
             return this;
         }
         public ClassificationJobUserPausedDetail build() {
-            final var o = new ClassificationJobUserPausedDetail();
-            o.jobExpiresAt = jobExpiresAt;
-            o.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
-            o.jobPausedAt = jobPausedAt;
-            return o;
+            final var _resultValue = new ClassificationJobUserPausedDetail();
+            _resultValue.jobExpiresAt = jobExpiresAt;
+            _resultValue.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
+            _resultValue.jobPausedAt = jobPausedAt;
+            return _resultValue;
         }
     }
 }

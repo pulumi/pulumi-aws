@@ -65,10 +65,10 @@ public final class WebAclRuleStatementRateBasedStatementForwardedIpConfig {
             return this;
         }
         public WebAclRuleStatementRateBasedStatementForwardedIpConfig build() {
-            final var o = new WebAclRuleStatementRateBasedStatementForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            return _resultValue;
         }
     }
 }

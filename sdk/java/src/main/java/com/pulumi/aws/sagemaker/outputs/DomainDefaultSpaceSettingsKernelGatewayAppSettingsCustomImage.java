@@ -87,11 +87,11 @@ public final class DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage
             return this;
         }
         public DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage build() {
-            final var o = new DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage();
-            o.appImageConfigName = appImageConfigName;
-            o.imageName = imageName;
-            o.imageVersionNumber = imageVersionNumber;
-            return o;
+            final var _resultValue = new DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage();
+            _resultValue.appImageConfigName = appImageConfigName;
+            _resultValue.imageName = imageName;
+            _resultValue.imageVersionNumber = imageVersionNumber;
+            return _resultValue;
         }
     }
 }

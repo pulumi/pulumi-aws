@@ -106,12 +106,12 @@ public final class TopicRuleErrorActionFirehose {
             return this;
         }
         public TopicRuleErrorActionFirehose build() {
-            final var o = new TopicRuleErrorActionFirehose();
-            o.batchMode = batchMode;
-            o.deliveryStreamName = deliveryStreamName;
-            o.roleArn = roleArn;
-            o.separator = separator;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionFirehose();
+            _resultValue.batchMode = batchMode;
+            _resultValue.deliveryStreamName = deliveryStreamName;
+            _resultValue.roleArn = roleArn;
+            _resultValue.separator = separator;
+            return _resultValue;
         }
     }
 }

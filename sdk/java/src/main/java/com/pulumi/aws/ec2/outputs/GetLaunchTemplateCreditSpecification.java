@@ -38,9 +38,9 @@ public final class GetLaunchTemplateCreditSpecification {
             return this;
         }
         public GetLaunchTemplateCreditSpecification build() {
-            final var o = new GetLaunchTemplateCreditSpecification();
-            o.cpuCredits = cpuCredits;
-            return o;
+            final var _resultValue = new GetLaunchTemplateCreditSpecification();
+            _resultValue.cpuCredits = cpuCredits;
+            return _resultValue;
         }
     }
 }

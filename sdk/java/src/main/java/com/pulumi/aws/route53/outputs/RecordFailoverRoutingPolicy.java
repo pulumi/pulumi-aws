@@ -46,9 +46,9 @@ public final class RecordFailoverRoutingPolicy {
             return this;
         }
         public RecordFailoverRoutingPolicy build() {
-            final var o = new RecordFailoverRoutingPolicy();
-            o.type = type;
-            return o;
+            final var _resultValue = new RecordFailoverRoutingPolicy();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

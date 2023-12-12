@@ -87,11 +87,11 @@ public final class FlowLogDestinationOptions {
             return this;
         }
         public FlowLogDestinationOptions build() {
-            final var o = new FlowLogDestinationOptions();
-            o.fileFormat = fileFormat;
-            o.hiveCompatiblePartitions = hiveCompatiblePartitions;
-            o.perHourPartition = perHourPartition;
-            return o;
+            final var _resultValue = new FlowLogDestinationOptions();
+            _resultValue.fileFormat = fileFormat;
+            _resultValue.hiveCompatiblePartitions = hiveCompatiblePartitions;
+            _resultValue.perHourPartition = perHourPartition;
+            return _resultValue;
         }
     }
 }

@@ -137,14 +137,14 @@ public final class FileCacheLustreConfiguration {
             return this;
         }
         public FileCacheLustreConfiguration build() {
-            final var o = new FileCacheLustreConfiguration();
-            o.deploymentType = deploymentType;
-            o.logConfigurations = logConfigurations;
-            o.metadataConfigurations = metadataConfigurations;
-            o.mountName = mountName;
-            o.perUnitStorageThroughput = perUnitStorageThroughput;
-            o.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
-            return o;
+            final var _resultValue = new FileCacheLustreConfiguration();
+            _resultValue.deploymentType = deploymentType;
+            _resultValue.logConfigurations = logConfigurations;
+            _resultValue.metadataConfigurations = metadataConfigurations;
+            _resultValue.mountName = mountName;
+            _resultValue.perUnitStorageThroughput = perUnitStorageThroughput;
+            _resultValue.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
+            return _resultValue;
         }
     }
 }

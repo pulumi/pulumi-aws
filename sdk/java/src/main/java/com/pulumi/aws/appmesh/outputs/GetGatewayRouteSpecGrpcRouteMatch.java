@@ -50,10 +50,10 @@ public final class GetGatewayRouteSpecGrpcRouteMatch {
             return this;
         }
         public GetGatewayRouteSpecGrpcRouteMatch build() {
-            final var o = new GetGatewayRouteSpecGrpcRouteMatch();
-            o.port = port;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecGrpcRouteMatch();
+            _resultValue.port = port;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

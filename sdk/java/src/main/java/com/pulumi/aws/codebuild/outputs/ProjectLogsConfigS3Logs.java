@@ -106,12 +106,12 @@ public final class ProjectLogsConfigS3Logs {
             return this;
         }
         public ProjectLogsConfigS3Logs build() {
-            final var o = new ProjectLogsConfigS3Logs();
-            o.bucketOwnerAccess = bucketOwnerAccess;
-            o.encryptionDisabled = encryptionDisabled;
-            o.location = location;
-            o.status = status;
-            return o;
+            final var _resultValue = new ProjectLogsConfigS3Logs();
+            _resultValue.bucketOwnerAccess = bucketOwnerAccess;
+            _resultValue.encryptionDisabled = encryptionDisabled;
+            _resultValue.location = location;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

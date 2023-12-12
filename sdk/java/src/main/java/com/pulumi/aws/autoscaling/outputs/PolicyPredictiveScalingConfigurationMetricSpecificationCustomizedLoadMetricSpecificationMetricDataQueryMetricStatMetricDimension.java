@@ -65,10 +65,10 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
             return this;
         }
         public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension build() {
-            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

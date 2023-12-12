@@ -72,10 +72,10 @@ public final class RuleGroupRuleStatementGeoMatchStatement {
             return this;
         }
         public RuleGroupRuleStatementGeoMatchStatement build() {
-            final var o = new RuleGroupRuleStatementGeoMatchStatement();
-            o.countryCodes = countryCodes;
-            o.forwardedIpConfig = forwardedIpConfig;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementGeoMatchStatement();
+            _resultValue.countryCodes = countryCodes;
+            _resultValue.forwardedIpConfig = forwardedIpConfig;
+            return _resultValue;
         }
     }
 }

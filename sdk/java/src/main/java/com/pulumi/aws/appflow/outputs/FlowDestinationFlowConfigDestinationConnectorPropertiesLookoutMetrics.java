@@ -25,8 +25,8 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesLookou
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics();
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics();
+            return _resultValue;
         }
     }
 }

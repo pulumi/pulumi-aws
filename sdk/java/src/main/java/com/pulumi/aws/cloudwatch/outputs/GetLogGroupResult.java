@@ -154,15 +154,15 @@ public final class GetLogGroupResult {
             return this;
         }
         public GetLogGroupResult build() {
-            final var o = new GetLogGroupResult();
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.name = name;
-            o.retentionInDays = retentionInDays;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLogGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.name = name;
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

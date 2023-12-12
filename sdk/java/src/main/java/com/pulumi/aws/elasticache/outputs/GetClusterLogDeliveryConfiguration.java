@@ -71,12 +71,12 @@ public final class GetClusterLogDeliveryConfiguration {
             return this;
         }
         public GetClusterLogDeliveryConfiguration build() {
-            final var o = new GetClusterLogDeliveryConfiguration();
-            o.destination = destination;
-            o.destinationType = destinationType;
-            o.logFormat = logFormat;
-            o.logType = logType;
-            return o;
+            final var _resultValue = new GetClusterLogDeliveryConfiguration();
+            _resultValue.destination = destination;
+            _resultValue.destinationType = destinationType;
+            _resultValue.logFormat = logFormat;
+            _resultValue.logType = logType;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class ApplicationEnvironment {
             return this;
         }
         public ApplicationEnvironment build() {
-            final var o = new ApplicationEnvironment();
-            o.key = key;
-            o.secure = secure;
-            o.value = value;
-            return o;
+            final var _resultValue = new ApplicationEnvironment();
+            _resultValue.key = key;
+            _resultValue.secure = secure;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

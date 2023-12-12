@@ -46,9 +46,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSub
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames();
-            o.match = match;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames();
+            _resultValue.match = match;
+            return _resultValue;
         }
     }
 }

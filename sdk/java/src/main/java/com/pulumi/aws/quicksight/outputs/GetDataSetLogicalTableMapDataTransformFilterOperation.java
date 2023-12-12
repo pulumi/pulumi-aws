@@ -38,9 +38,9 @@ public final class GetDataSetLogicalTableMapDataTransformFilterOperation {
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformFilterOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformFilterOperation();
-            o.conditionExpression = conditionExpression;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformFilterOperation();
+            _resultValue.conditionExpression = conditionExpression;
+            return _resultValue;
         }
     }
 }

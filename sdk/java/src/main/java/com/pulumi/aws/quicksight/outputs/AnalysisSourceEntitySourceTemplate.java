@@ -70,10 +70,10 @@ public final class AnalysisSourceEntitySourceTemplate {
             return dataSetReferences(List.of(dataSetReferences));
         }
         public AnalysisSourceEntitySourceTemplate build() {
-            final var o = new AnalysisSourceEntitySourceTemplate();
-            o.arn = arn;
-            o.dataSetReferences = dataSetReferences;
-            return o;
+            final var _resultValue = new AnalysisSourceEntitySourceTemplate();
+            _resultValue.arn = arn;
+            _resultValue.dataSetReferences = dataSetReferences;
+            return _resultValue;
         }
     }
 }

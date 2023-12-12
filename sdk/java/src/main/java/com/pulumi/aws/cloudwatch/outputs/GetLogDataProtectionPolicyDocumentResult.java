@@ -116,14 +116,14 @@ public final class GetLogDataProtectionPolicyDocumentResult {
             return this;
         }
         public GetLogDataProtectionPolicyDocumentResult build() {
-            final var o = new GetLogDataProtectionPolicyDocumentResult();
-            o.description = description;
-            o.id = id;
-            o.json = json;
-            o.name = name;
-            o.statements = statements;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.name = name;
+            _resultValue.statements = statements;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

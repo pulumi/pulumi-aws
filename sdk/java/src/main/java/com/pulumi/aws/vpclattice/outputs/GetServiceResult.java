@@ -207,18 +207,18 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.arn = arn;
-            o.authType = authType;
-            o.certificateArn = certificateArn;
-            o.customDomainName = customDomainName;
-            o.dnsEntries = dnsEntries;
-            o.id = id;
-            o.name = name;
-            o.serviceIdentifier = serviceIdentifier;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.arn = arn;
+            _resultValue.authType = authType;
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.customDomainName = customDomainName;
+            _resultValue.dnsEntries = dnsEntries;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.serviceIdentifier = serviceIdentifier;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

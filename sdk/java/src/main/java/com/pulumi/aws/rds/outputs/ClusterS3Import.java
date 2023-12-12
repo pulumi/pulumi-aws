@@ -128,13 +128,13 @@ public final class ClusterS3Import {
             return this;
         }
         public ClusterS3Import build() {
-            final var o = new ClusterS3Import();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.ingestionRole = ingestionRole;
-            o.sourceEngine = sourceEngine;
-            o.sourceEngineVersion = sourceEngineVersion;
-            return o;
+            final var _resultValue = new ClusterS3Import();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.ingestionRole = ingestionRole;
+            _resultValue.sourceEngine = sourceEngine;
+            _resultValue.sourceEngineVersion = sourceEngineVersion;
+            return _resultValue;
         }
     }
 }

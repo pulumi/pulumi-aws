@@ -65,10 +65,10 @@ public final class VoiceConnectorTerminationCredentialsCredential {
             return this;
         }
         public VoiceConnectorTerminationCredentialsCredential build() {
-            final var o = new VoiceConnectorTerminationCredentialsCredential();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new VoiceConnectorTerminationCredentialsCredential();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

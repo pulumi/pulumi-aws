@@ -71,10 +71,10 @@ public final class DeploymentGroupDeploymentStyle {
             return this;
         }
         public DeploymentGroupDeploymentStyle build() {
-            final var o = new DeploymentGroupDeploymentStyle();
-            o.deploymentOption = deploymentOption;
-            o.deploymentType = deploymentType;
-            return o;
+            final var _resultValue = new DeploymentGroupDeploymentStyle();
+            _resultValue.deploymentOption = deploymentOption;
+            _resultValue.deploymentType = deploymentType;
+            return _resultValue;
         }
     }
 }

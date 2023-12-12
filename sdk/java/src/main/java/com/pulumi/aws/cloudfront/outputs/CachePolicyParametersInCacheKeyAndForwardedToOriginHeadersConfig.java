@@ -68,10 +68,10 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
             return this;
         }
         public CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig build() {
-            final var o = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig();
-            o.headerBehavior = headerBehavior;
-            o.headers = headers;
-            return o;
+            final var _resultValue = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig();
+            _resultValue.headerBehavior = headerBehavior;
+            _resultValue.headers = headers;
+            return _resultValue;
         }
     }
 }

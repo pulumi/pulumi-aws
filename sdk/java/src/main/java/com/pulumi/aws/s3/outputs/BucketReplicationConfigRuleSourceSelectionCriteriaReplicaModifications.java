@@ -46,9 +46,9 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModi
             return this;
         }
         public BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications build() {
-            final var o = new BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications();
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

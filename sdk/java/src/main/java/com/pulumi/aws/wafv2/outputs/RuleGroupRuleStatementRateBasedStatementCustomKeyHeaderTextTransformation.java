@@ -66,10 +66,10 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTr
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

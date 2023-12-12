@@ -69,10 +69,10 @@ public final class EventTargetRunCommandTarget {
             return values(List.of(values));
         }
         public EventTargetRunCommandTarget build() {
-            final var o = new EventTargetRunCommandTarget();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new EventTargetRunCommandTarget();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

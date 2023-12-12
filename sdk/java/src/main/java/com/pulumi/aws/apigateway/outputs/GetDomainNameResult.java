@@ -311,23 +311,23 @@ public final class GetDomainNameResult {
             return this;
         }
         public GetDomainNameResult build() {
-            final var o = new GetDomainNameResult();
-            o.arn = arn;
-            o.certificateArn = certificateArn;
-            o.certificateName = certificateName;
-            o.certificateUploadDate = certificateUploadDate;
-            o.cloudfrontDomainName = cloudfrontDomainName;
-            o.cloudfrontZoneId = cloudfrontZoneId;
-            o.domainName = domainName;
-            o.endpointConfigurations = endpointConfigurations;
-            o.id = id;
-            o.regionalCertificateArn = regionalCertificateArn;
-            o.regionalCertificateName = regionalCertificateName;
-            o.regionalDomainName = regionalDomainName;
-            o.regionalZoneId = regionalZoneId;
-            o.securityPolicy = securityPolicy;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDomainNameResult();
+            _resultValue.arn = arn;
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.certificateName = certificateName;
+            _resultValue.certificateUploadDate = certificateUploadDate;
+            _resultValue.cloudfrontDomainName = cloudfrontDomainName;
+            _resultValue.cloudfrontZoneId = cloudfrontZoneId;
+            _resultValue.domainName = domainName;
+            _resultValue.endpointConfigurations = endpointConfigurations;
+            _resultValue.id = id;
+            _resultValue.regionalCertificateArn = regionalCertificateArn;
+            _resultValue.regionalCertificateName = regionalCertificateName;
+            _resultValue.regionalDomainName = regionalDomainName;
+            _resultValue.regionalZoneId = regionalZoneId;
+            _resultValue.securityPolicy = securityPolicy;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetVpnAttachmentFilter {
             return values(List.of(values));
         }
         public GetVpnAttachmentFilter build() {
-            final var o = new GetVpnAttachmentFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpnAttachmentFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

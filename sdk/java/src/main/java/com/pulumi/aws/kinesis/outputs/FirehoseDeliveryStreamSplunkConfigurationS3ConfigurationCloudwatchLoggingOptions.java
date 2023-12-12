@@ -87,11 +87,11 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloud
             return this;
         }
         public FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions build() {
-            final var o = new FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions();
-            o.enabled = enabled;
-            o.logGroupName = logGroupName;
-            o.logStreamName = logStreamName;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.logStreamName = logStreamName;
+            return _resultValue;
         }
     }
 }

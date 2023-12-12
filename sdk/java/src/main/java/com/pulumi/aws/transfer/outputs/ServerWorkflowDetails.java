@@ -68,10 +68,10 @@ public final class ServerWorkflowDetails {
             return this;
         }
         public ServerWorkflowDetails build() {
-            final var o = new ServerWorkflowDetails();
-            o.onPartialUpload = onPartialUpload;
-            o.onUpload = onUpload;
-            return o;
+            final var _resultValue = new ServerWorkflowDetails();
+            _resultValue.onPartialUpload = onPartialUpload;
+            _resultValue.onUpload = onUpload;
+            return _resultValue;
         }
     }
 }

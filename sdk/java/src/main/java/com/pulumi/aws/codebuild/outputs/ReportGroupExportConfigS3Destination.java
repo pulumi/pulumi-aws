@@ -127,13 +127,13 @@ public final class ReportGroupExportConfigS3Destination {
             return this;
         }
         public ReportGroupExportConfigS3Destination build() {
-            final var o = new ReportGroupExportConfigS3Destination();
-            o.bucket = bucket;
-            o.encryptionDisabled = encryptionDisabled;
-            o.encryptionKey = encryptionKey;
-            o.packaging = packaging;
-            o.path = path;
-            return o;
+            final var _resultValue = new ReportGroupExportConfigS3Destination();
+            _resultValue.bucket = bucket;
+            _resultValue.encryptionDisabled = encryptionDisabled;
+            _resultValue.encryptionKey = encryptionKey;
+            _resultValue.packaging = packaging;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

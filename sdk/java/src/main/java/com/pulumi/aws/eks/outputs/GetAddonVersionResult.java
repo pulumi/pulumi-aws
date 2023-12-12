@@ -101,13 +101,13 @@ public final class GetAddonVersionResult {
             return this;
         }
         public GetAddonVersionResult build() {
-            final var o = new GetAddonVersionResult();
-            o.addonName = addonName;
-            o.id = id;
-            o.kubernetesVersion = kubernetesVersion;
-            o.mostRecent = mostRecent;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetAddonVersionResult();
+            _resultValue.addonName = addonName;
+            _resultValue.id = id;
+            _resultValue.kubernetesVersion = kubernetesVersion;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

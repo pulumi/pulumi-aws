@@ -46,9 +46,9 @@ public final class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeName
             return this;
         }
         public VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames build() {
-            final var o = new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames();
-            o.match = match;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames();
+            _resultValue.match = match;
+            return _resultValue;
         }
     }
 }

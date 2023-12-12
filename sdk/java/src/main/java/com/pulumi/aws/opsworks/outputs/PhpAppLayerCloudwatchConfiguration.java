@@ -56,10 +56,10 @@ public final class PhpAppLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public PhpAppLayerCloudwatchConfiguration build() {
-            final var o = new PhpAppLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new PhpAppLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

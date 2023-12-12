@@ -68,10 +68,10 @@ public final class OutboundConnectionConnectionProperties {
             return this;
         }
         public OutboundConnectionConnectionProperties build() {
-            final var o = new OutboundConnectionConnectionProperties();
-            o.crossClusterSearch = crossClusterSearch;
-            o.endpoint = endpoint;
-            return o;
+            final var _resultValue = new OutboundConnectionConnectionProperties();
+            _resultValue.crossClusterSearch = crossClusterSearch;
+            _resultValue.endpoint = endpoint;
+            return _resultValue;
         }
     }
 }

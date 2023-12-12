@@ -80,11 +80,11 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettings {
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettings();
-            o.frameCaptureSettings = frameCaptureSettings;
-            o.h264Settings = h264Settings;
-            o.h265Settings = h265Settings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettings();
+            _resultValue.frameCaptureSettings = frameCaptureSettings;
+            _resultValue.h264Settings = h264Settings;
+            _resultValue.h265Settings = h265Settings;
+            return _resultValue;
         }
     }
 }

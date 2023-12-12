@@ -172,16 +172,16 @@ public final class ClusterMasterInstanceFleet {
             return this;
         }
         public ClusterMasterInstanceFleet build() {
-            final var o = new ClusterMasterInstanceFleet();
-            o.id = id;
-            o.instanceTypeConfigs = instanceTypeConfigs;
-            o.launchSpecifications = launchSpecifications;
-            o.name = name;
-            o.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
-            o.provisionedSpotCapacity = provisionedSpotCapacity;
-            o.targetOnDemandCapacity = targetOnDemandCapacity;
-            o.targetSpotCapacity = targetSpotCapacity;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceFleet();
+            _resultValue.id = id;
+            _resultValue.instanceTypeConfigs = instanceTypeConfigs;
+            _resultValue.launchSpecifications = launchSpecifications;
+            _resultValue.name = name;
+            _resultValue.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
+            _resultValue.provisionedSpotCapacity = provisionedSpotCapacity;
+            _resultValue.targetOnDemandCapacity = targetOnDemandCapacity;
+            _resultValue.targetSpotCapacity = targetSpotCapacity;
+            return _resultValue;
         }
     }
 }

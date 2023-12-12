@@ -87,11 +87,11 @@ public final class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerCon
             return this;
         }
         public GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig build() {
-            final var o = new GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig();
-            o.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
-            o.authorizerUri = authorizerUri;
-            o.identityValidationExpression = identityValidationExpression;
-            return o;
+            final var _resultValue = new GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig();
+            _resultValue.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
+            _resultValue.authorizerUri = authorizerUri;
+            _resultValue.identityValidationExpression = identityValidationExpression;
+            return _resultValue;
         }
     }
 }

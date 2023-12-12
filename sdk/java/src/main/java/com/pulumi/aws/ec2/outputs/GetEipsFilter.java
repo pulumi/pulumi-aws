@@ -71,10 +71,10 @@ public final class GetEipsFilter {
             return values(List.of(values));
         }
         public GetEipsFilter build() {
-            final var o = new GetEipsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetEipsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironment {
             return this;
         }
         public GetTaskExecutionOverridesContainerOverrideEnvironment build() {
-            final var o = new GetTaskExecutionOverridesContainerOverrideEnvironment();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetTaskExecutionOverridesContainerOverrideEnvironment();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class EventTargetEcsTargetOrderedPlacementStrategy {
             return this;
         }
         public EventTargetEcsTargetOrderedPlacementStrategy build() {
-            final var o = new EventTargetEcsTargetOrderedPlacementStrategy();
-            o.field = field;
-            o.type = type;
-            return o;
+            final var _resultValue = new EventTargetEcsTargetOrderedPlacementStrategy();
+            _resultValue.field = field;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

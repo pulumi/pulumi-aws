@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk();
-            o.instanceUrl = instanceUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk();
+            _resultValue.instanceUrl = instanceUrl;
+            return _resultValue;
         }
     }
 }

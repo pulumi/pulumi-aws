@@ -46,9 +46,9 @@ public final class ServiceEncryptionConfiguration {
             return this;
         }
         public ServiceEncryptionConfiguration build() {
-            final var o = new ServiceEncryptionConfiguration();
-            o.kmsKey = kmsKey;
-            return o;
+            final var _resultValue = new ServiceEncryptionConfiguration();
+            _resultValue.kmsKey = kmsKey;
+            return _resultValue;
         }
     }
 }

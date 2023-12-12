@@ -67,10 +67,10 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles();
-            o.domainName = domainName;
-            o.objectTypeName = objectTypeName;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles();
+            _resultValue.domainName = domainName;
+            _resultValue.objectTypeName = objectTypeName;
+            return _resultValue;
         }
     }
 }

@@ -92,11 +92,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             return responseHeaders(List.of(responseHeaders));
         }
         public WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse build() {
-            final var o = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse();
-            o.customResponseBodyKey = customResponseBodyKey;
-            o.responseCode = responseCode;
-            o.responseHeaders = responseHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse();
+            _resultValue.customResponseBodyKey = customResponseBodyKey;
+            _resultValue.responseCode = responseCode;
+            _resultValue.responseHeaders = responseHeaders;
+            return _resultValue;
         }
     }
 }

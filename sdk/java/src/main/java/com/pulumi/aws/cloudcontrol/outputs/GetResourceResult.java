@@ -111,14 +111,14 @@ public final class GetResourceResult {
             return this;
         }
         public GetResourceResult build() {
-            final var o = new GetResourceResult();
-            o.id = id;
-            o.identifier = identifier;
-            o.properties = properties;
-            o.roleArn = roleArn;
-            o.typeName = typeName;
-            o.typeVersionId = typeVersionId;
-            return o;
+            final var _resultValue = new GetResourceResult();
+            _resultValue.id = id;
+            _resultValue.identifier = identifier;
+            _resultValue.properties = properties;
+            _resultValue.roleArn = roleArn;
+            _resultValue.typeName = typeName;
+            _resultValue.typeVersionId = typeVersionId;
+            return _resultValue;
         }
     }
 }

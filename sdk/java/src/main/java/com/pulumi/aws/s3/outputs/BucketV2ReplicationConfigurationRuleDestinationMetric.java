@@ -68,10 +68,10 @@ public final class BucketV2ReplicationConfigurationRuleDestinationMetric {
             return this;
         }
         public BucketV2ReplicationConfigurationRuleDestinationMetric build() {
-            final var o = new BucketV2ReplicationConfigurationRuleDestinationMetric();
-            o.minutes = minutes;
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketV2ReplicationConfigurationRuleDestinationMetric();
+            _resultValue.minutes = minutes;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

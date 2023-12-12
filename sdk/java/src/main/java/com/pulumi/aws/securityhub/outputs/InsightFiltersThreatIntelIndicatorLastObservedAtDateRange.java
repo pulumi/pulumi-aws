@@ -66,10 +66,10 @@ public final class InsightFiltersThreatIntelIndicatorLastObservedAtDateRange {
             return this;
         }
         public InsightFiltersThreatIntelIndicatorLastObservedAtDateRange build() {
-            final var o = new InsightFiltersThreatIntelIndicatorLastObservedAtDateRange();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersThreatIntelIndicatorLastObservedAtDateRange();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

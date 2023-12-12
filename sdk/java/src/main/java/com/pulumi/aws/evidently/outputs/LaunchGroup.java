@@ -105,12 +105,12 @@ public final class LaunchGroup {
             return this;
         }
         public LaunchGroup build() {
-            final var o = new LaunchGroup();
-            o.description = description;
-            o.feature = feature;
-            o.name = name;
-            o.variation = variation;
-            return o;
+            final var _resultValue = new LaunchGroup();
+            _resultValue.description = description;
+            _resultValue.feature = feature;
+            _resultValue.name = name;
+            _resultValue.variation = variation;
+            return _resultValue;
         }
     }
 }

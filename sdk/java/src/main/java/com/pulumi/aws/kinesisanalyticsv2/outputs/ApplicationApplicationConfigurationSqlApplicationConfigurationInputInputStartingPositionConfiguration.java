@@ -48,9 +48,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration();
-            o.inputStartingPosition = inputStartingPosition;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration();
+            _resultValue.inputStartingPosition = inputStartingPosition;
+            return _resultValue;
         }
     }
 }

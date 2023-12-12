@@ -71,10 +71,10 @@ public final class GetTaskExecutionPlacementStrategy {
             return this;
         }
         public GetTaskExecutionPlacementStrategy build() {
-            final var o = new GetTaskExecutionPlacementStrategy();
-            o.field = field;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetTaskExecutionPlacementStrategy();
+            _resultValue.field = field;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

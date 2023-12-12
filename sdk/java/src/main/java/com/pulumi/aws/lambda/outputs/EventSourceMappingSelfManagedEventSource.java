@@ -47,9 +47,9 @@ public final class EventSourceMappingSelfManagedEventSource {
             return this;
         }
         public EventSourceMappingSelfManagedEventSource build() {
-            final var o = new EventSourceMappingSelfManagedEventSource();
-            o.endpoints = endpoints;
-            return o;
+            final var _resultValue = new EventSourceMappingSelfManagedEventSource();
+            _resultValue.endpoints = endpoints;
+            return _resultValue;
         }
     }
 }

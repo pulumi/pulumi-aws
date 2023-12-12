@@ -46,9 +46,9 @@ public final class V2modelsBotDataPrivacy {
             return this;
         }
         public V2modelsBotDataPrivacy build() {
-            final var o = new V2modelsBotDataPrivacy();
-            o.childDirected = childDirected;
-            return o;
+            final var _resultValue = new V2modelsBotDataPrivacy();
+            _resultValue.childDirected = childDirected;
+            return _resultValue;
         }
     }
 }

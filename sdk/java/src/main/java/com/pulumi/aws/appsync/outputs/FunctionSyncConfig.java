@@ -87,11 +87,11 @@ public final class FunctionSyncConfig {
             return this;
         }
         public FunctionSyncConfig build() {
-            final var o = new FunctionSyncConfig();
-            o.conflictDetection = conflictDetection;
-            o.conflictHandler = conflictHandler;
-            o.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
-            return o;
+            final var _resultValue = new FunctionSyncConfig();
+            _resultValue.conflictDetection = conflictDetection;
+            _resultValue.conflictHandler = conflictHandler;
+            _resultValue.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
+            return _resultValue;
         }
     }
 }

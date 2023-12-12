@@ -82,11 +82,11 @@ public final class GetEventCategoriesResult {
             return this;
         }
         public GetEventCategoriesResult build() {
-            final var o = new GetEventCategoriesResult();
-            o.eventCategories = eventCategories;
-            o.id = id;
-            o.sourceType = sourceType;
-            return o;
+            final var _resultValue = new GetEventCategoriesResult();
+            _resultValue.eventCategories = eventCategories;
+            _resultValue.id = id;
+            _resultValue.sourceType = sourceType;
+            return _resultValue;
         }
     }
 }

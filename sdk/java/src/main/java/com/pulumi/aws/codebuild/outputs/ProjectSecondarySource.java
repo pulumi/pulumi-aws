@@ -204,17 +204,17 @@ public final class ProjectSecondarySource {
             return this;
         }
         public ProjectSecondarySource build() {
-            final var o = new ProjectSecondarySource();
-            o.buildStatusConfig = buildStatusConfig;
-            o.buildspec = buildspec;
-            o.gitCloneDepth = gitCloneDepth;
-            o.gitSubmodulesConfig = gitSubmodulesConfig;
-            o.insecureSsl = insecureSsl;
-            o.location = location;
-            o.reportBuildStatus = reportBuildStatus;
-            o.sourceIdentifier = sourceIdentifier;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProjectSecondarySource();
+            _resultValue.buildStatusConfig = buildStatusConfig;
+            _resultValue.buildspec = buildspec;
+            _resultValue.gitCloneDepth = gitCloneDepth;
+            _resultValue.gitSubmodulesConfig = gitSubmodulesConfig;
+            _resultValue.insecureSsl = insecureSsl;
+            _resultValue.location = location;
+            _resultValue.reportBuildStatus = reportBuildStatus;
+            _resultValue.sourceIdentifier = sourceIdentifier;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

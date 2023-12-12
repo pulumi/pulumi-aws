@@ -67,10 +67,10 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
             return this;
         }
         public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification build() {
-            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification();
-            o.predefinedMetricType = predefinedMetricType;
-            o.resourceLabel = resourceLabel;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification();
+            _resultValue.predefinedMetricType = predefinedMetricType;
+            _resultValue.resourceLabel = resourceLabel;
+            return _resultValue;
         }
     }
 }

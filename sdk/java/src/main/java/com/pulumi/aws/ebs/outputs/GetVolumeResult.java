@@ -325,24 +325,24 @@ public final class GetVolumeResult {
             return this;
         }
         public GetVolumeResult build() {
-            final var o = new GetVolumeResult();
-            o.arn = arn;
-            o.availabilityZone = availabilityZone;
-            o.encrypted = encrypted;
-            o.filters = filters;
-            o.id = id;
-            o.iops = iops;
-            o.kmsKeyId = kmsKeyId;
-            o.mostRecent = mostRecent;
-            o.multiAttachEnabled = multiAttachEnabled;
-            o.outpostArn = outpostArn;
-            o.size = size;
-            o.snapshotId = snapshotId;
-            o.tags = tags;
-            o.throughput = throughput;
-            o.volumeId = volumeId;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new GetVolumeResult();
+            _resultValue.arn = arn;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.encrypted = encrypted;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.iops = iops;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.multiAttachEnabled = multiAttachEnabled;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.size = size;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.tags = tags;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeId = volumeId;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

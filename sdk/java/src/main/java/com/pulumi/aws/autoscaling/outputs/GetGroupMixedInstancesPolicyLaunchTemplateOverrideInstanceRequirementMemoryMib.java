@@ -65,10 +65,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
             return this;
         }
         public GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib build() {
-            final var o = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

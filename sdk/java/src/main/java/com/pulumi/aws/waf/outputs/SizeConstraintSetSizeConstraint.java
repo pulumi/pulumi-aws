@@ -121,12 +121,12 @@ public final class SizeConstraintSetSizeConstraint {
             return this;
         }
         public SizeConstraintSetSizeConstraint build() {
-            final var o = new SizeConstraintSetSizeConstraint();
-            o.comparisonOperator = comparisonOperator;
-            o.fieldToMatch = fieldToMatch;
-            o.size = size;
-            o.textTransformation = textTransformation;
-            return o;
+            final var _resultValue = new SizeConstraintSetSizeConstraint();
+            _resultValue.comparisonOperator = comparisonOperator;
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.size = size;
+            _resultValue.textTransformation = textTransformation;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class DataSourceEventBridgeConfig {
             return this;
         }
         public DataSourceEventBridgeConfig build() {
-            final var o = new DataSourceEventBridgeConfig();
-            o.eventBusArn = eventBusArn;
-            return o;
+            final var _resultValue = new DataSourceEventBridgeConfig();
+            _resultValue.eventBusArn = eventBusArn;
+            return _resultValue;
         }
     }
 }

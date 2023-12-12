@@ -65,10 +65,10 @@ public final class QuickConnectQuickConnectConfigUserConfig {
             return this;
         }
         public QuickConnectQuickConnectConfigUserConfig build() {
-            final var o = new QuickConnectQuickConnectConfigUserConfig();
-            o.contactFlowId = contactFlowId;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new QuickConnectQuickConnectConfigUserConfig();
+            _resultValue.contactFlowId = contactFlowId;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

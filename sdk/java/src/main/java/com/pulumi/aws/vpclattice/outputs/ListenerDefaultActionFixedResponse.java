@@ -46,9 +46,9 @@ public final class ListenerDefaultActionFixedResponse {
             return this;
         }
         public ListenerDefaultActionFixedResponse build() {
-            final var o = new ListenerDefaultActionFixedResponse();
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new ListenerDefaultActionFixedResponse();
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

@@ -51,9 +51,9 @@ public final class FirewallFirewallStatus {
             return syncStates(List.of(syncStates));
         }
         public FirewallFirewallStatus build() {
-            final var o = new FirewallFirewallStatus();
-            o.syncStates = syncStates;
-            return o;
+            final var _resultValue = new FirewallFirewallStatus();
+            _resultValue.syncStates = syncStates;
+            return _resultValue;
         }
     }
 }

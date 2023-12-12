@@ -71,10 +71,10 @@ public final class RoomMessageReviewHandler {
             return this;
         }
         public RoomMessageReviewHandler build() {
-            final var o = new RoomMessageReviewHandler();
-            o.fallbackResult = fallbackResult;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new RoomMessageReviewHandler();
+            _resultValue.fallbackResult = fallbackResult;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

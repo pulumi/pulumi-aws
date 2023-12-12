@@ -86,11 +86,11 @@ public final class GetVpcIamPoolsResult {
             return ipamPools(List.of(ipamPools));
         }
         public GetVpcIamPoolsResult build() {
-            final var o = new GetVpcIamPoolsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ipamPools = ipamPools;
-            return o;
+            final var _resultValue = new GetVpcIamPoolsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipamPools = ipamPools;
+            return _resultValue;
         }
     }
 }

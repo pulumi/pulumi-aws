@@ -105,12 +105,12 @@ public final class CanaryTimeline {
             return this;
         }
         public CanaryTimeline build() {
-            final var o = new CanaryTimeline();
-            o.created = created;
-            o.lastModified = lastModified;
-            o.lastStarted = lastStarted;
-            o.lastStopped = lastStopped;
-            return o;
+            final var _resultValue = new CanaryTimeline();
+            _resultValue.created = created;
+            _resultValue.lastModified = lastModified;
+            _resultValue.lastStarted = lastStarted;
+            _resultValue.lastStopped = lastStopped;
+            return _resultValue;
         }
     }
 }

@@ -50,10 +50,10 @@ public final class GetRouteSpecGrpcRouteTimeoutIdle {
             return this;
         }
         public GetRouteSpecGrpcRouteTimeoutIdle build() {
-            final var o = new GetRouteSpecGrpcRouteTimeoutIdle();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetRouteSpecGrpcRouteTimeoutIdle();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

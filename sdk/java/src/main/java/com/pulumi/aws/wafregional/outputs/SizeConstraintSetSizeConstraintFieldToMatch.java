@@ -75,10 +75,10 @@ public final class SizeConstraintSetSizeConstraintFieldToMatch {
             return this;
         }
         public SizeConstraintSetSizeConstraintFieldToMatch build() {
-            final var o = new SizeConstraintSetSizeConstraintFieldToMatch();
-            o.data = data;
-            o.type = type;
-            return o;
+            final var _resultValue = new SizeConstraintSetSizeConstraintFieldToMatch();
+            _resultValue.data = data;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

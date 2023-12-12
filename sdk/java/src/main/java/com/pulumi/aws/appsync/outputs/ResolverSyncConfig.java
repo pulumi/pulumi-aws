@@ -87,11 +87,11 @@ public final class ResolverSyncConfig {
             return this;
         }
         public ResolverSyncConfig build() {
-            final var o = new ResolverSyncConfig();
-            o.conflictDetection = conflictDetection;
-            o.conflictHandler = conflictHandler;
-            o.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
-            return o;
+            final var _resultValue = new ResolverSyncConfig();
+            _resultValue.conflictDetection = conflictDetection;
+            _resultValue.conflictHandler = conflictHandler;
+            _resultValue.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
+            return _resultValue;
         }
     }
 }

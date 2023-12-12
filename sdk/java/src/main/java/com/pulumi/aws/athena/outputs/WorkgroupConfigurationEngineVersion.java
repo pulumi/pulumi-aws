@@ -67,10 +67,10 @@ public final class WorkgroupConfigurationEngineVersion {
             return this;
         }
         public WorkgroupConfigurationEngineVersion build() {
-            final var o = new WorkgroupConfigurationEngineVersion();
-            o.effectiveEngineVersion = effectiveEngineVersion;
-            o.selectedEngineVersion = selectedEngineVersion;
-            return o;
+            final var _resultValue = new WorkgroupConfigurationEngineVersion();
+            _resultValue.effectiveEngineVersion = effectiveEngineVersion;
+            _resultValue.selectedEngineVersion = selectedEngineVersion;
+            return _resultValue;
         }
     }
 }

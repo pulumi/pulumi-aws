@@ -100,13 +100,13 @@ public final class GetInvocationResult {
             return this;
         }
         public GetInvocationResult build() {
-            final var o = new GetInvocationResult();
-            o.functionName = functionName;
-            o.id = id;
-            o.input = input;
-            o.qualifier = qualifier;
-            o.result = result;
-            return o;
+            final var _resultValue = new GetInvocationResult();
+            _resultValue.functionName = functionName;
+            _resultValue.id = id;
+            _resultValue.input = input;
+            _resultValue.qualifier = qualifier;
+            _resultValue.result = result;
+            return _resultValue;
         }
     }
 }

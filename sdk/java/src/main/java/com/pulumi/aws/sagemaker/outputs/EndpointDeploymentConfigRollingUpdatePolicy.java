@@ -107,12 +107,12 @@ public final class EndpointDeploymentConfigRollingUpdatePolicy {
             return this;
         }
         public EndpointDeploymentConfigRollingUpdatePolicy build() {
-            final var o = new EndpointDeploymentConfigRollingUpdatePolicy();
-            o.maximumBatchSize = maximumBatchSize;
-            o.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
-            o.rollbackMaximumBatchSize = rollbackMaximumBatchSize;
-            o.waitIntervalInSeconds = waitIntervalInSeconds;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigRollingUpdatePolicy();
+            _resultValue.maximumBatchSize = maximumBatchSize;
+            _resultValue.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
+            _resultValue.rollbackMaximumBatchSize = rollbackMaximumBatchSize;
+            _resultValue.waitIntervalInSeconds = waitIntervalInSeconds;
+            return _resultValue;
         }
     }
 }

@@ -76,11 +76,11 @@ public final class GetResourcePolicyResult {
             return this;
         }
         public GetResourcePolicyResult build() {
-            final var o = new GetResourcePolicyResult();
-            o.id = id;
-            o.policy = policy;
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new GetResourcePolicyResult();
+            _resultValue.id = id;
+            _resultValue.policy = policy;
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

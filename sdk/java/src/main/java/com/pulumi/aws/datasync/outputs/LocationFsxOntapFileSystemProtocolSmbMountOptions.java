@@ -48,9 +48,9 @@ public final class LocationFsxOntapFileSystemProtocolSmbMountOptions {
             return this;
         }
         public LocationFsxOntapFileSystemProtocolSmbMountOptions build() {
-            final var o = new LocationFsxOntapFileSystemProtocolSmbMountOptions();
-            o.version = version;
-            return o;
+            final var _resultValue = new LocationFsxOntapFileSystemProtocolSmbMountOptions();
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

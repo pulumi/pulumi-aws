@@ -48,9 +48,9 @@ public final class VpnConnectionTunnel1LogOptions {
             return this;
         }
         public VpnConnectionTunnel1LogOptions build() {
-            final var o = new VpnConnectionTunnel1LogOptions();
-            o.cloudwatchLogOptions = cloudwatchLogOptions;
-            return o;
+            final var _resultValue = new VpnConnectionTunnel1LogOptions();
+            _resultValue.cloudwatchLogOptions = cloudwatchLogOptions;
+            return _resultValue;
         }
     }
 }

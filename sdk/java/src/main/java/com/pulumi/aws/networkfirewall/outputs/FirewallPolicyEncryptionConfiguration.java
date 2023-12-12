@@ -67,10 +67,10 @@ public final class FirewallPolicyEncryptionConfiguration {
             return this;
         }
         public FirewallPolicyEncryptionConfiguration build() {
-            final var o = new FirewallPolicyEncryptionConfiguration();
-            o.keyId = keyId;
-            o.type = type;
-            return o;
+            final var _resultValue = new FirewallPolicyEncryptionConfiguration();
+            _resultValue.keyId = keyId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

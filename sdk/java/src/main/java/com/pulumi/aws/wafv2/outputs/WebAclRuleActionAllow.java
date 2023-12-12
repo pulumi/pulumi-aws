@@ -48,9 +48,9 @@ public final class WebAclRuleActionAllow {
             return this;
         }
         public WebAclRuleActionAllow build() {
-            final var o = new WebAclRuleActionAllow();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new WebAclRuleActionAllow();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

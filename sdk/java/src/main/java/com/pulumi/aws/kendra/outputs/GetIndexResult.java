@@ -395,26 +395,26 @@ public final class GetIndexResult {
             return userTokenConfigurations(List.of(userTokenConfigurations));
         }
         public GetIndexResult build() {
-            final var o = new GetIndexResult();
-            o.arn = arn;
-            o.capacityUnits = capacityUnits;
-            o.createdAt = createdAt;
-            o.description = description;
-            o.documentMetadataConfigurationUpdates = documentMetadataConfigurationUpdates;
-            o.edition = edition;
-            o.errorMessage = errorMessage;
-            o.id = id;
-            o.indexStatistics = indexStatistics;
-            o.name = name;
-            o.roleArn = roleArn;
-            o.serverSideEncryptionConfigurations = serverSideEncryptionConfigurations;
-            o.status = status;
-            o.tags = tags;
-            o.updatedAt = updatedAt;
-            o.userContextPolicy = userContextPolicy;
-            o.userGroupResolutionConfigurations = userGroupResolutionConfigurations;
-            o.userTokenConfigurations = userTokenConfigurations;
-            return o;
+            final var _resultValue = new GetIndexResult();
+            _resultValue.arn = arn;
+            _resultValue.capacityUnits = capacityUnits;
+            _resultValue.createdAt = createdAt;
+            _resultValue.description = description;
+            _resultValue.documentMetadataConfigurationUpdates = documentMetadataConfigurationUpdates;
+            _resultValue.edition = edition;
+            _resultValue.errorMessage = errorMessage;
+            _resultValue.id = id;
+            _resultValue.indexStatistics = indexStatistics;
+            _resultValue.name = name;
+            _resultValue.roleArn = roleArn;
+            _resultValue.serverSideEncryptionConfigurations = serverSideEncryptionConfigurations;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.updatedAt = updatedAt;
+            _resultValue.userContextPolicy = userContextPolicy;
+            _resultValue.userGroupResolutionConfigurations = userGroupResolutionConfigurations;
+            _resultValue.userTokenConfigurations = userTokenConfigurations;
+            return _resultValue;
         }
     }
 }

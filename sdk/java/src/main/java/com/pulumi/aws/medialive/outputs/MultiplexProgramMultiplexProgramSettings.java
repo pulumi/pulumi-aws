@@ -108,12 +108,12 @@ public final class MultiplexProgramMultiplexProgramSettings {
             return this;
         }
         public MultiplexProgramMultiplexProgramSettings build() {
-            final var o = new MultiplexProgramMultiplexProgramSettings();
-            o.preferredChannelPipeline = preferredChannelPipeline;
-            o.programNumber = programNumber;
-            o.serviceDescriptor = serviceDescriptor;
-            o.videoSettings = videoSettings;
-            return o;
+            final var _resultValue = new MultiplexProgramMultiplexProgramSettings();
+            _resultValue.preferredChannelPipeline = preferredChannelPipeline;
+            _resultValue.programNumber = programNumber;
+            _resultValue.serviceDescriptor = serviceDescriptor;
+            _resultValue.videoSettings = videoSettings;
+            return _resultValue;
         }
     }
 }

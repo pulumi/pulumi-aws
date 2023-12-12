@@ -199,18 +199,18 @@ public final class GetVirtualNodeResult {
             return this;
         }
         public GetVirtualNodeResult build() {
-            final var o = new GetVirtualNodeResult();
-            o.arn = arn;
-            o.createdDate = createdDate;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.meshName = meshName;
-            o.meshOwner = meshOwner;
-            o.name = name;
-            o.resourceOwner = resourceOwner;
-            o.specs = specs;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetVirtualNodeResult();
+            _resultValue.arn = arn;
+            _resultValue.createdDate = createdDate;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.meshName = meshName;
+            _resultValue.meshOwner = meshOwner;
+            _resultValue.name = name;
+            _resultValue.resourceOwner = resourceOwner;
+            _resultValue.specs = specs;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

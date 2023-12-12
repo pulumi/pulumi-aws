@@ -87,11 +87,11 @@ public final class CapacityProviderAutoScalingGroupProvider {
             return this;
         }
         public CapacityProviderAutoScalingGroupProvider build() {
-            final var o = new CapacityProviderAutoScalingGroupProvider();
-            o.autoScalingGroupArn = autoScalingGroupArn;
-            o.managedScaling = managedScaling;
-            o.managedTerminationProtection = managedTerminationProtection;
-            return o;
+            final var _resultValue = new CapacityProviderAutoScalingGroupProvider();
+            _resultValue.autoScalingGroupArn = autoScalingGroupArn;
+            _resultValue.managedScaling = managedScaling;
+            _resultValue.managedTerminationProtection = managedTerminationProtection;
+            return _resultValue;
         }
     }
 }

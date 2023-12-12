@@ -70,10 +70,10 @@ public final class GetNodeGroupResource {
             return this;
         }
         public GetNodeGroupResource build() {
-            final var o = new GetNodeGroupResource();
-            o.autoscalingGroups = autoscalingGroups;
-            o.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
-            return o;
+            final var _resultValue = new GetNodeGroupResource();
+            _resultValue.autoscalingGroups = autoscalingGroups;
+            _resultValue.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
+            return _resultValue;
         }
     }
 }

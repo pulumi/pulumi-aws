@@ -69,10 +69,10 @@ public final class GetResponsePlanActionSsmAutomationParameter {
             return values(List.of(values));
         }
         public GetResponsePlanActionSsmAutomationParameter build() {
-            final var o = new GetResponsePlanActionSsmAutomationParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetResponsePlanActionSsmAutomationParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

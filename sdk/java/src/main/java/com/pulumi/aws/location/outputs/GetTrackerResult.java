@@ -191,17 +191,17 @@ public final class GetTrackerResult {
             return this;
         }
         public GetTrackerResult build() {
-            final var o = new GetTrackerResult();
-            o.createTime = createTime;
-            o.description = description;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.positionFiltering = positionFiltering;
-            o.tags = tags;
-            o.trackerArn = trackerArn;
-            o.trackerName = trackerName;
-            o.updateTime = updateTime;
-            return o;
+            final var _resultValue = new GetTrackerResult();
+            _resultValue.createTime = createTime;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.positionFiltering = positionFiltering;
+            _resultValue.tags = tags;
+            _resultValue.trackerArn = trackerArn;
+            _resultValue.trackerName = trackerName;
+            _resultValue.updateTime = updateTime;
+            return _resultValue;
         }
     }
 }

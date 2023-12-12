@@ -88,11 +88,11 @@ public final class CustomLayerLoadBasedAutoScaling {
             return this;
         }
         public CustomLayerLoadBasedAutoScaling build() {
-            final var o = new CustomLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new CustomLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

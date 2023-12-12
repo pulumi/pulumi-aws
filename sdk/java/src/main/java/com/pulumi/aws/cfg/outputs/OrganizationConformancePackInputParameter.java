@@ -65,10 +65,10 @@ public final class OrganizationConformancePackInputParameter {
             return this;
         }
         public OrganizationConformancePackInputParameter build() {
-            final var o = new OrganizationConformancePackInputParameter();
-            o.parameterName = parameterName;
-            o.parameterValue = parameterValue;
-            return o;
+            final var _resultValue = new OrganizationConformancePackInputParameter();
+            _resultValue.parameterName = parameterName;
+            _resultValue.parameterValue = parameterValue;
+            return _resultValue;
         }
     }
 }

@@ -351,25 +351,25 @@ public final class GetInfrastructureConfigurationResult {
             return this;
         }
         public GetInfrastructureConfigurationResult build() {
-            final var o = new GetInfrastructureConfigurationResult();
-            o.arn = arn;
-            o.dateCreated = dateCreated;
-            o.dateUpdated = dateUpdated;
-            o.description = description;
-            o.id = id;
-            o.instanceMetadataOptions = instanceMetadataOptions;
-            o.instanceProfileName = instanceProfileName;
-            o.instanceTypes = instanceTypes;
-            o.keyPair = keyPair;
-            o.loggings = loggings;
-            o.name = name;
-            o.resourceTags = resourceTags;
-            o.securityGroupIds = securityGroupIds;
-            o.snsTopicArn = snsTopicArn;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.terminateInstanceOnFailure = terminateInstanceOnFailure;
-            return o;
+            final var _resultValue = new GetInfrastructureConfigurationResult();
+            _resultValue.arn = arn;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.dateUpdated = dateUpdated;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceMetadataOptions = instanceMetadataOptions;
+            _resultValue.instanceProfileName = instanceProfileName;
+            _resultValue.instanceTypes = instanceTypes;
+            _resultValue.keyPair = keyPair;
+            _resultValue.loggings = loggings;
+            _resultValue.name = name;
+            _resultValue.resourceTags = resourceTags;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.snsTopicArn = snsTopicArn;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.terminateInstanceOnFailure = terminateInstanceOnFailure;
+            return _resultValue;
         }
     }
 }

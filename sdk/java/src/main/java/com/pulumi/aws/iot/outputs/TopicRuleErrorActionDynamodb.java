@@ -219,18 +219,18 @@ public final class TopicRuleErrorActionDynamodb {
             return this;
         }
         public TopicRuleErrorActionDynamodb build() {
-            final var o = new TopicRuleErrorActionDynamodb();
-            o.hashKeyField = hashKeyField;
-            o.hashKeyType = hashKeyType;
-            o.hashKeyValue = hashKeyValue;
-            o.operation = operation;
-            o.payloadField = payloadField;
-            o.rangeKeyField = rangeKeyField;
-            o.rangeKeyType = rangeKeyType;
-            o.rangeKeyValue = rangeKeyValue;
-            o.roleArn = roleArn;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionDynamodb();
+            _resultValue.hashKeyField = hashKeyField;
+            _resultValue.hashKeyType = hashKeyType;
+            _resultValue.hashKeyValue = hashKeyValue;
+            _resultValue.operation = operation;
+            _resultValue.payloadField = payloadField;
+            _resultValue.rangeKeyField = rangeKeyField;
+            _resultValue.rangeKeyType = rangeKeyType;
+            _resultValue.rangeKeyValue = rangeKeyValue;
+            _resultValue.roleArn = roleArn;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

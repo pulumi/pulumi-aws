@@ -65,10 +65,10 @@ public final class InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn {
             return this;
         }
         public InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn build() {
-            final var o = new InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

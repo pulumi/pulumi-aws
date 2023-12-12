@@ -79,11 +79,11 @@ public final class EnvironmentLoggingConfigurationWorkerLogs {
             return this;
         }
         public EnvironmentLoggingConfigurationWorkerLogs build() {
-            final var o = new EnvironmentLoggingConfigurationWorkerLogs();
-            o.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
-            o.enabled = enabled;
-            o.logLevel = logLevel;
-            return o;
+            final var _resultValue = new EnvironmentLoggingConfigurationWorkerLogs();
+            _resultValue.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
+            _resultValue.enabled = enabled;
+            _resultValue.logLevel = logLevel;
+            return _resultValue;
         }
     }
 }

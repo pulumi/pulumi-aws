@@ -146,14 +146,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule build() {
-            final var o = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule();
-            o.cmkArn = cmkArn;
-            o.copyTags = copyTags;
-            o.deprecateRule = deprecateRule;
-            o.encrypted = encrypted;
-            o.retainRule = retainRule;
-            o.target = target;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule();
+            _resultValue.cmkArn = cmkArn;
+            _resultValue.copyTags = copyTags;
+            _resultValue.deprecateRule = deprecateRule;
+            _resultValue.encrypted = encrypted;
+            _resultValue.retainRule = retainRule;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

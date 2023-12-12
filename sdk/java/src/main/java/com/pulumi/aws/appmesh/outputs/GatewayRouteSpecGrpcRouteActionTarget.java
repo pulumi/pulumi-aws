@@ -68,10 +68,10 @@ public final class GatewayRouteSpecGrpcRouteActionTarget {
             return this;
         }
         public GatewayRouteSpecGrpcRouteActionTarget build() {
-            final var o = new GatewayRouteSpecGrpcRouteActionTarget();
-            o.port = port;
-            o.virtualService = virtualService;
-            return o;
+            final var _resultValue = new GatewayRouteSpecGrpcRouteActionTarget();
+            _resultValue.port = port;
+            _resultValue.virtualService = virtualService;
+            return _resultValue;
         }
     }
 }

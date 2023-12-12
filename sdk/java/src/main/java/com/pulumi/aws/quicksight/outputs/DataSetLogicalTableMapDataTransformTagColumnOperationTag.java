@@ -68,10 +68,10 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTag {
             return this;
         }
         public DataSetLogicalTableMapDataTransformTagColumnOperationTag build() {
-            final var o = new DataSetLogicalTableMapDataTransformTagColumnOperationTag();
-            o.columnDescription = columnDescription;
-            o.columnGeographicRole = columnGeographicRole;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformTagColumnOperationTag();
+            _resultValue.columnDescription = columnDescription;
+            _resultValue.columnGeographicRole = columnGeographicRole;
+            return _resultValue;
         }
     }
 }

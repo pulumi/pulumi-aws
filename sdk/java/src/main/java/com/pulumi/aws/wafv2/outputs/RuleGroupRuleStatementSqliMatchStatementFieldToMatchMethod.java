@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod {
         }
 
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod();
+            return _resultValue;
         }
     }
 }

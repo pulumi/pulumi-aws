@@ -86,11 +86,11 @@ public final class CatalogDatabaseTargetDatabase {
             return this;
         }
         public CatalogDatabaseTargetDatabase build() {
-            final var o = new CatalogDatabaseTargetDatabase();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.region = region;
-            return o;
+            final var _resultValue = new CatalogDatabaseTargetDatabase();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

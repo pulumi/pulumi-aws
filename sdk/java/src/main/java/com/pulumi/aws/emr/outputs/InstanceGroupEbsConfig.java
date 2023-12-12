@@ -106,12 +106,12 @@ public final class InstanceGroupEbsConfig {
             return this;
         }
         public InstanceGroupEbsConfig build() {
-            final var o = new InstanceGroupEbsConfig();
-            o.iops = iops;
-            o.size = size;
-            o.type = type;
-            o.volumesPerInstance = volumesPerInstance;
-            return o;
+            final var _resultValue = new InstanceGroupEbsConfig();
+            _resultValue.iops = iops;
+            _resultValue.size = size;
+            _resultValue.type = type;
+            _resultValue.volumesPerInstance = volumesPerInstance;
+            return _resultValue;
         }
     }
 }

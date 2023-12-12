@@ -239,19 +239,19 @@ public final class CustomLayerCloudwatchConfigurationLogStream {
             return this;
         }
         public CustomLayerCloudwatchConfigurationLogStream build() {
-            final var o = new CustomLayerCloudwatchConfigurationLogStream();
-            o.batchCount = batchCount;
-            o.batchSize = batchSize;
-            o.bufferDuration = bufferDuration;
-            o.datetimeFormat = datetimeFormat;
-            o.encoding = encoding;
-            o.file = file;
-            o.fileFingerprintLines = fileFingerprintLines;
-            o.initialPosition = initialPosition;
-            o.logGroupName = logGroupName;
-            o.multilineStartPattern = multilineStartPattern;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new CustomLayerCloudwatchConfigurationLogStream();
+            _resultValue.batchCount = batchCount;
+            _resultValue.batchSize = batchSize;
+            _resultValue.bufferDuration = bufferDuration;
+            _resultValue.datetimeFormat = datetimeFormat;
+            _resultValue.encoding = encoding;
+            _resultValue.file = file;
+            _resultValue.fileFingerprintLines = fileFingerprintLines;
+            _resultValue.initialPosition = initialPosition;
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.multilineStartPattern = multilineStartPattern;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

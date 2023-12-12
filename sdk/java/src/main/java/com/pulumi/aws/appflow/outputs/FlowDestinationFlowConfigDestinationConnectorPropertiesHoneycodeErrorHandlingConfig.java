@@ -87,11 +87,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.failOnFirstDestinationError = failOnFirstDestinationError;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.failOnFirstDestinationError = failOnFirstDestinationError;
+            return _resultValue;
         }
     }
 }

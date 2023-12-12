@@ -69,10 +69,10 @@ public final class GetMulticastDomainFilter {
             return values(List.of(values));
         }
         public GetMulticastDomainFilter build() {
-            final var o = new GetMulticastDomainFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetMulticastDomainFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class ListenerDefaultActionForwardStickiness {
             return this;
         }
         public ListenerDefaultActionForwardStickiness build() {
-            final var o = new ListenerDefaultActionForwardStickiness();
-            o.duration = duration;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ListenerDefaultActionForwardStickiness();
+            _resultValue.duration = duration;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

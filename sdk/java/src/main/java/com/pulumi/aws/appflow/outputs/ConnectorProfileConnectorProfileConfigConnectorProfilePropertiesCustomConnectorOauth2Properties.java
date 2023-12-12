@@ -86,11 +86,11 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties();
-            o.oauth2GrantType = oauth2GrantType;
-            o.tokenUrl = tokenUrl;
-            o.tokenUrlCustomProperties = tokenUrlCustomProperties;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties();
+            _resultValue.oauth2GrantType = oauth2GrantType;
+            _resultValue.tokenUrl = tokenUrl;
+            _resultValue.tokenUrlCustomProperties = tokenUrlCustomProperties;
+            return _resultValue;
         }
     }
 }

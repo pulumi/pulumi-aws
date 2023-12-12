@@ -108,12 +108,12 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings();
-            o.audioHlsRenditionSelection = audioHlsRenditionSelection;
-            o.audioLanguageSelection = audioLanguageSelection;
-            o.audioPidSelection = audioPidSelection;
-            o.audioTrackSelection = audioTrackSelection;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings();
+            _resultValue.audioHlsRenditionSelection = audioHlsRenditionSelection;
+            _resultValue.audioLanguageSelection = audioLanguageSelection;
+            _resultValue.audioPidSelection = audioPidSelection;
+            _resultValue.audioTrackSelection = audioTrackSelection;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesSalesforce build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforce();
-            o.enableDynamicFieldUpdate = enableDynamicFieldUpdate;
-            o.includeDeletedRecords = includeDeletedRecords;
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforce();
+            _resultValue.enableDynamicFieldUpdate = enableDynamicFieldUpdate;
+            _resultValue.includeDeletedRecords = includeDeletedRecords;
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

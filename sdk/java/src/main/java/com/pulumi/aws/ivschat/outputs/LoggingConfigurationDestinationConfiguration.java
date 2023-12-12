@@ -88,11 +88,11 @@ public final class LoggingConfigurationDestinationConfiguration {
             return this;
         }
         public LoggingConfigurationDestinationConfiguration build() {
-            final var o = new LoggingConfigurationDestinationConfiguration();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.firehose = firehose;
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new LoggingConfigurationDestinationConfiguration();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.firehose = firehose;
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

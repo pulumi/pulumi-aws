@@ -288,27 +288,27 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings();
-            o.acquisitionPointId = acquisitionPointId;
-            o.audioOnlyTimecodeControl = audioOnlyTimecodeControl;
-            o.certificateMode = certificateMode;
-            o.connectionRetryInterval = connectionRetryInterval;
-            o.destination = destination;
-            o.eventId = eventId;
-            o.eventIdMode = eventIdMode;
-            o.eventStopBehavior = eventStopBehavior;
-            o.filecacheDuration = filecacheDuration;
-            o.fragmentLength = fragmentLength;
-            o.inputLossAction = inputLossAction;
-            o.numRetries = numRetries;
-            o.restartDelay = restartDelay;
-            o.segmentationMode = segmentationMode;
-            o.sendDelayMs = sendDelayMs;
-            o.sparseTrackType = sparseTrackType;
-            o.streamManifestBehavior = streamManifestBehavior;
-            o.timestampOffset = timestampOffset;
-            o.timestampOffsetMode = timestampOffsetMode;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings();
+            _resultValue.acquisitionPointId = acquisitionPointId;
+            _resultValue.audioOnlyTimecodeControl = audioOnlyTimecodeControl;
+            _resultValue.certificateMode = certificateMode;
+            _resultValue.connectionRetryInterval = connectionRetryInterval;
+            _resultValue.destination = destination;
+            _resultValue.eventId = eventId;
+            _resultValue.eventIdMode = eventIdMode;
+            _resultValue.eventStopBehavior = eventStopBehavior;
+            _resultValue.filecacheDuration = filecacheDuration;
+            _resultValue.fragmentLength = fragmentLength;
+            _resultValue.inputLossAction = inputLossAction;
+            _resultValue.numRetries = numRetries;
+            _resultValue.restartDelay = restartDelay;
+            _resultValue.segmentationMode = segmentationMode;
+            _resultValue.sendDelayMs = sendDelayMs;
+            _resultValue.sparseTrackType = sparseTrackType;
+            _resultValue.streamManifestBehavior = streamManifestBehavior;
+            _resultValue.timestampOffset = timestampOffset;
+            _resultValue.timestampOffsetMode = timestampOffsetMode;
+            return _resultValue;
         }
     }
 }

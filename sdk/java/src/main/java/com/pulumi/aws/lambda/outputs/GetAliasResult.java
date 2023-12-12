@@ -144,15 +144,15 @@ public final class GetAliasResult {
             return this;
         }
         public GetAliasResult build() {
-            final var o = new GetAliasResult();
-            o.arn = arn;
-            o.description = description;
-            o.functionName = functionName;
-            o.functionVersion = functionVersion;
-            o.id = id;
-            o.invokeArn = invokeArn;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetAliasResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.functionName = functionName;
+            _resultValue.functionVersion = functionVersion;
+            _resultValue.id = id;
+            _resultValue.invokeArn = invokeArn;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

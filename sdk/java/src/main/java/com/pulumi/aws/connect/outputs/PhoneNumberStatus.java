@@ -67,10 +67,10 @@ public final class PhoneNumberStatus {
             return this;
         }
         public PhoneNumberStatus build() {
-            final var o = new PhoneNumberStatus();
-            o.message = message;
-            o.status = status;
-            return o;
+            final var _resultValue = new PhoneNumberStatus();
+            _resultValue.message = message;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

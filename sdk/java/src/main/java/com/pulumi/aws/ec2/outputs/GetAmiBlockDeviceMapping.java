@@ -104,12 +104,12 @@ public final class GetAmiBlockDeviceMapping {
             return this;
         }
         public GetAmiBlockDeviceMapping build() {
-            final var o = new GetAmiBlockDeviceMapping();
-            o.deviceName = deviceName;
-            o.ebs = ebs;
-            o.noDevice = noDevice;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new GetAmiBlockDeviceMapping();
+            _resultValue.deviceName = deviceName;
+            _resultValue.ebs = ebs;
+            _resultValue.noDevice = noDevice;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

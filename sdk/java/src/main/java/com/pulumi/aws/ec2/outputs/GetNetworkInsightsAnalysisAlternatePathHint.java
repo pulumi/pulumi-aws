@@ -49,10 +49,10 @@ public final class GetNetworkInsightsAnalysisAlternatePathHint {
             return this;
         }
         public GetNetworkInsightsAnalysisAlternatePathHint build() {
-            final var o = new GetNetworkInsightsAnalysisAlternatePathHint();
-            o.componentArn = componentArn;
-            o.componentId = componentId;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisAlternatePathHint();
+            _resultValue.componentArn = componentArn;
+            _resultValue.componentId = componentId;
+            return _resultValue;
         }
     }
 }

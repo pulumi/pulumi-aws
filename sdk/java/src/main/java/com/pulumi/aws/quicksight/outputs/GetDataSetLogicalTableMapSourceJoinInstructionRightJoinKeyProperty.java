@@ -38,9 +38,9 @@ public final class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPro
             return this;
         }
         public GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty build() {
-            final var o = new GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty();
-            o.uniqueKey = uniqueKey;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty();
+            _resultValue.uniqueKey = uniqueKey;
+            return _resultValue;
         }
     }
 }

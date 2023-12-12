@@ -80,12 +80,12 @@ public final class GetInstanceTypeFpga {
             return this;
         }
         public GetInstanceTypeFpga build() {
-            final var o = new GetInstanceTypeFpga();
-            o.count = count;
-            o.manufacturer = manufacturer;
-            o.memorySize = memorySize;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetInstanceTypeFpga();
+            _resultValue.count = count;
+            _resultValue.manufacturer = manufacturer;
+            _resultValue.memorySize = memorySize;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

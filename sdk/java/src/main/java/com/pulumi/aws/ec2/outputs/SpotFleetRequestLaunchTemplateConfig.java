@@ -71,10 +71,10 @@ public final class SpotFleetRequestLaunchTemplateConfig {
             return overrides(List.of(overrides));
         }
         public SpotFleetRequestLaunchTemplateConfig build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfig();
-            o.launchTemplateSpecification = launchTemplateSpecification;
-            o.overrides = overrides;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfig();
+            _resultValue.launchTemplateSpecification = launchTemplateSpecification;
+            _resultValue.overrides = overrides;
+            return _resultValue;
         }
     }
 }

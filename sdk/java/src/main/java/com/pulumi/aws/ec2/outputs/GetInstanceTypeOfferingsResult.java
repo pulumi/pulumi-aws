@@ -141,14 +141,14 @@ public final class GetInstanceTypeOfferingsResult {
             return locations(List.of(locations));
         }
         public GetInstanceTypeOfferingsResult build() {
-            final var o = new GetInstanceTypeOfferingsResult();
-            o.filters = filters;
-            o.id = id;
-            o.instanceTypes = instanceTypes;
-            o.locationType = locationType;
-            o.locationTypes = locationTypes;
-            o.locations = locations;
-            return o;
+            final var _resultValue = new GetInstanceTypeOfferingsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceTypes = instanceTypes;
+            _resultValue.locationType = locationType;
+            _resultValue.locationTypes = locationTypes;
+            _resultValue.locations = locations;
+            return _resultValue;
         }
     }
 }

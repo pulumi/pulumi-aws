@@ -128,13 +128,13 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevel 
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAccountLevel build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationAccountLevel();
-            o.activityMetrics = activityMetrics;
-            o.advancedCostOptimizationMetrics = advancedCostOptimizationMetrics;
-            o.advancedDataProtectionMetrics = advancedDataProtectionMetrics;
-            o.bucketLevel = bucketLevel;
-            o.detailedStatusCodeMetrics = detailedStatusCodeMetrics;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationAccountLevel();
+            _resultValue.activityMetrics = activityMetrics;
+            _resultValue.advancedCostOptimizationMetrics = advancedCostOptimizationMetrics;
+            _resultValue.advancedDataProtectionMetrics = advancedDataProtectionMetrics;
+            _resultValue.bucketLevel = bucketLevel;
+            _resultValue.detailedStatusCodeMetrics = detailedStatusCodeMetrics;
+            return _resultValue;
         }
     }
 }

@@ -284,22 +284,22 @@ public final class GetListenerResult {
             return this;
         }
         public GetListenerResult build() {
-            final var o = new GetListenerResult();
-            o.arn = arn;
-            o.createdAt = createdAt;
-            o.defaultActions = defaultActions;
-            o.id = id;
-            o.lastUpdatedAt = lastUpdatedAt;
-            o.listenerId = listenerId;
-            o.listenerIdentifier = listenerIdentifier;
-            o.name = name;
-            o.port = port;
-            o.protocol = protocol;
-            o.serviceArn = serviceArn;
-            o.serviceId = serviceId;
-            o.serviceIdentifier = serviceIdentifier;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetListenerResult();
+            _resultValue.arn = arn;
+            _resultValue.createdAt = createdAt;
+            _resultValue.defaultActions = defaultActions;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedAt = lastUpdatedAt;
+            _resultValue.listenerId = listenerId;
+            _resultValue.listenerIdentifier = listenerIdentifier;
+            _resultValue.name = name;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.serviceArn = serviceArn;
+            _resultValue.serviceId = serviceId;
+            _resultValue.serviceIdentifier = serviceIdentifier;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

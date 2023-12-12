@@ -66,10 +66,10 @@ public final class DataSourceParametersSpark {
             return this;
         }
         public DataSourceParametersSpark build() {
-            final var o = new DataSourceParametersSpark();
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersSpark();
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

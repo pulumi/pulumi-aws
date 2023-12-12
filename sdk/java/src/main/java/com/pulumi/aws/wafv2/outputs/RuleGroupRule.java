@@ -172,15 +172,15 @@ public final class RuleGroupRule {
             return this;
         }
         public RuleGroupRule build() {
-            final var o = new RuleGroupRule();
-            o.action = action;
-            o.captchaConfig = captchaConfig;
-            o.name = name;
-            o.priority = priority;
-            o.ruleLabels = ruleLabels;
-            o.statement = statement;
-            o.visibilityConfig = visibilityConfig;
-            return o;
+            final var _resultValue = new RuleGroupRule();
+            _resultValue.action = action;
+            _resultValue.captchaConfig = captchaConfig;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.ruleLabels = ruleLabels;
+            _resultValue.statement = statement;
+            _resultValue.visibilityConfig = visibilityConfig;
+            return _resultValue;
         }
     }
 }

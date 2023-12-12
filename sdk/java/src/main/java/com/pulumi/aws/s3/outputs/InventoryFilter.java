@@ -48,9 +48,9 @@ public final class InventoryFilter {
             return this;
         }
         public InventoryFilter build() {
-            final var o = new InventoryFilter();
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new InventoryFilter();
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

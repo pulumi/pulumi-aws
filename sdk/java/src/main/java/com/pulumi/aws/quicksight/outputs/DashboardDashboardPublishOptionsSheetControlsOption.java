@@ -48,9 +48,9 @@ public final class DashboardDashboardPublishOptionsSheetControlsOption {
             return this;
         }
         public DashboardDashboardPublishOptionsSheetControlsOption build() {
-            final var o = new DashboardDashboardPublishOptionsSheetControlsOption();
-            o.visibilityState = visibilityState;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsSheetControlsOption();
+            _resultValue.visibilityState = visibilityState;
+            return _resultValue;
         }
     }
 }

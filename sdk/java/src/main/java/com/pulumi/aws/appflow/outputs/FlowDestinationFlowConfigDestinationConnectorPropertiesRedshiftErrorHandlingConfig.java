@@ -87,11 +87,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.failOnFirstDestinationError = failOnFirstDestinationError;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.failOnFirstDestinationError = failOnFirstDestinationError;
+            return _resultValue;
         }
     }
 }

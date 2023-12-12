@@ -66,10 +66,10 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
             return this;
         }
         public ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup build() {
-            final var o = new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup();
-            o.propertyGroupId = propertyGroupId;
-            o.propertyMap = propertyMap;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup();
+            _resultValue.propertyGroupId = propertyGroupId;
+            _resultValue.propertyMap = propertyMap;
+            return _resultValue;
         }
     }
 }

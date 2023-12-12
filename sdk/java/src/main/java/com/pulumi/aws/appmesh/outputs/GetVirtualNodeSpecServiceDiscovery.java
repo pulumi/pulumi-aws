@@ -57,10 +57,10 @@ public final class GetVirtualNodeSpecServiceDiscovery {
             return dns(List.of(dns));
         }
         public GetVirtualNodeSpecServiceDiscovery build() {
-            final var o = new GetVirtualNodeSpecServiceDiscovery();
-            o.awsCloudMaps = awsCloudMaps;
-            o.dns = dns;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecServiceDiscovery();
+            _resultValue.awsCloudMaps = awsCloudMaps;
+            _resultValue.dns = dns;
+            return _resultValue;
         }
     }
 }

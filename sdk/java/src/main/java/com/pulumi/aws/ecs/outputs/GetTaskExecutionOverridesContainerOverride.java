@@ -175,15 +175,15 @@ public final class GetTaskExecutionOverridesContainerOverride {
             return resourceRequirements(List.of(resourceRequirements));
         }
         public GetTaskExecutionOverridesContainerOverride build() {
-            final var o = new GetTaskExecutionOverridesContainerOverride();
-            o.commands = commands;
-            o.cpu = cpu;
-            o.environments = environments;
-            o.memory = memory;
-            o.memoryReservation = memoryReservation;
-            o.name = name;
-            o.resourceRequirements = resourceRequirements;
-            return o;
+            final var _resultValue = new GetTaskExecutionOverridesContainerOverride();
+            _resultValue.commands = commands;
+            _resultValue.cpu = cpu;
+            _resultValue.environments = environments;
+            _resultValue.memory = memory;
+            _resultValue.memoryReservation = memoryReservation;
+            _resultValue.name = name;
+            _resultValue.resourceRequirements = resourceRequirements;
+            return _resultValue;
         }
     }
 }

@@ -100,11 +100,11 @@ public final class BotClarificationPrompt {
             return this;
         }
         public BotClarificationPrompt build() {
-            final var o = new BotClarificationPrompt();
-            o.maxAttempts = maxAttempts;
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new BotClarificationPrompt();
+            _resultValue.maxAttempts = maxAttempts;
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class PipelineArtifactStore {
             return this;
         }
         public PipelineArtifactStore build() {
-            final var o = new PipelineArtifactStore();
-            o.encryptionKey = encryptionKey;
-            o.location = location;
-            o.region = region;
-            o.type = type;
-            return o;
+            final var _resultValue = new PipelineArtifactStore();
+            _resultValue.encryptionKey = encryptionKey;
+            _resultValue.location = location;
+            _resultValue.region = region;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

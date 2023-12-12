@@ -112,12 +112,12 @@ public final class HostVpcConfiguration {
             return this;
         }
         public HostVpcConfiguration build() {
-            final var o = new HostVpcConfiguration();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.tlsCertificate = tlsCertificate;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new HostVpcConfiguration();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tlsCertificate = tlsCertificate;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

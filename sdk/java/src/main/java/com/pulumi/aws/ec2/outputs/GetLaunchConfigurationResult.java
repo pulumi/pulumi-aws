@@ -390,26 +390,26 @@ public final class GetLaunchConfigurationResult {
             return this;
         }
         public GetLaunchConfigurationResult build() {
-            final var o = new GetLaunchConfigurationResult();
-            o.arn = arn;
-            o.associatePublicIpAddress = associatePublicIpAddress;
-            o.ebsBlockDevices = ebsBlockDevices;
-            o.ebsOptimized = ebsOptimized;
-            o.enableMonitoring = enableMonitoring;
-            o.ephemeralBlockDevices = ephemeralBlockDevices;
-            o.iamInstanceProfile = iamInstanceProfile;
-            o.id = id;
-            o.imageId = imageId;
-            o.instanceType = instanceType;
-            o.keyName = keyName;
-            o.metadataOptions = metadataOptions;
-            o.name = name;
-            o.placementTenancy = placementTenancy;
-            o.rootBlockDevices = rootBlockDevices;
-            o.securityGroups = securityGroups;
-            o.spotPrice = spotPrice;
-            o.userData = userData;
-            return o;
+            final var _resultValue = new GetLaunchConfigurationResult();
+            _resultValue.arn = arn;
+            _resultValue.associatePublicIpAddress = associatePublicIpAddress;
+            _resultValue.ebsBlockDevices = ebsBlockDevices;
+            _resultValue.ebsOptimized = ebsOptimized;
+            _resultValue.enableMonitoring = enableMonitoring;
+            _resultValue.ephemeralBlockDevices = ephemeralBlockDevices;
+            _resultValue.iamInstanceProfile = iamInstanceProfile;
+            _resultValue.id = id;
+            _resultValue.imageId = imageId;
+            _resultValue.instanceType = instanceType;
+            _resultValue.keyName = keyName;
+            _resultValue.metadataOptions = metadataOptions;
+            _resultValue.name = name;
+            _resultValue.placementTenancy = placementTenancy;
+            _resultValue.rootBlockDevices = rootBlockDevices;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.spotPrice = spotPrice;
+            _resultValue.userData = userData;
+            return _resultValue;
         }
     }
 }

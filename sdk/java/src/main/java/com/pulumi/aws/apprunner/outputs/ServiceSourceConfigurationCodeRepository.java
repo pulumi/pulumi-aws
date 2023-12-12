@@ -107,12 +107,12 @@ public final class ServiceSourceConfigurationCodeRepository {
             return this;
         }
         public ServiceSourceConfigurationCodeRepository build() {
-            final var o = new ServiceSourceConfigurationCodeRepository();
-            o.codeConfiguration = codeConfiguration;
-            o.repositoryUrl = repositoryUrl;
-            o.sourceCodeVersion = sourceCodeVersion;
-            o.sourceDirectory = sourceDirectory;
-            return o;
+            final var _resultValue = new ServiceSourceConfigurationCodeRepository();
+            _resultValue.codeConfiguration = codeConfiguration;
+            _resultValue.repositoryUrl = repositoryUrl;
+            _resultValue.sourceCodeVersion = sourceCodeVersion;
+            _resultValue.sourceDirectory = sourceDirectory;
+            return _resultValue;
         }
     }
 }

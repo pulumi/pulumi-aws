@@ -54,10 +54,10 @@ public final class GetOriginRequestPolicyCookiesConfig {
             return cookies(List.of(cookies));
         }
         public GetOriginRequestPolicyCookiesConfig build() {
-            final var o = new GetOriginRequestPolicyCookiesConfig();
-            o.cookieBehavior = cookieBehavior;
-            o.cookies = cookies;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyCookiesConfig();
+            _resultValue.cookieBehavior = cookieBehavior;
+            _resultValue.cookies = cookies;
+            return _resultValue;
         }
     }
 }

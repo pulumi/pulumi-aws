@@ -48,9 +48,9 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfig {
             return this;
         }
         public EventSourceMappingSelfManagedKafkaEventSourceConfig build() {
-            final var o = new EventSourceMappingSelfManagedKafkaEventSourceConfig();
-            o.consumerGroupId = consumerGroupId;
-            return o;
+            final var _resultValue = new EventSourceMappingSelfManagedKafkaEventSourceConfig();
+            _resultValue.consumerGroupId = consumerGroupId;
+            return _resultValue;
         }
     }
 }

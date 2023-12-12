@@ -68,10 +68,10 @@ public final class DataSourceHttpConfigAuthorizationConfig {
             return this;
         }
         public DataSourceHttpConfigAuthorizationConfig build() {
-            final var o = new DataSourceHttpConfigAuthorizationConfig();
-            o.authorizationType = authorizationType;
-            o.awsIamConfig = awsIamConfig;
-            return o;
+            final var _resultValue = new DataSourceHttpConfigAuthorizationConfig();
+            _resultValue.authorizationType = authorizationType;
+            _resultValue.awsIamConfig = awsIamConfig;
+            return _resultValue;
         }
     }
 }

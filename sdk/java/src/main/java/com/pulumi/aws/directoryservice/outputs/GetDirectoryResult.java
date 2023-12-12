@@ -336,25 +336,25 @@ public final class GetDirectoryResult {
             return vpcSettings(List.of(vpcSettings));
         }
         public GetDirectoryResult build() {
-            final var o = new GetDirectoryResult();
-            o.accessUrl = accessUrl;
-            o.alias = alias;
-            o.connectSettings = connectSettings;
-            o.description = description;
-            o.directoryId = directoryId;
-            o.dnsIpAddresses = dnsIpAddresses;
-            o.edition = edition;
-            o.enableSso = enableSso;
-            o.id = id;
-            o.name = name;
-            o.radiusSettings = radiusSettings;
-            o.securityGroupId = securityGroupId;
-            o.shortName = shortName;
-            o.size = size;
-            o.tags = tags;
-            o.type = type;
-            o.vpcSettings = vpcSettings;
-            return o;
+            final var _resultValue = new GetDirectoryResult();
+            _resultValue.accessUrl = accessUrl;
+            _resultValue.alias = alias;
+            _resultValue.connectSettings = connectSettings;
+            _resultValue.description = description;
+            _resultValue.directoryId = directoryId;
+            _resultValue.dnsIpAddresses = dnsIpAddresses;
+            _resultValue.edition = edition;
+            _resultValue.enableSso = enableSso;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.radiusSettings = radiusSettings;
+            _resultValue.securityGroupId = securityGroupId;
+            _resultValue.shortName = shortName;
+            _resultValue.size = size;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.vpcSettings = vpcSettings;
+            return _resultValue;
         }
     }
 }

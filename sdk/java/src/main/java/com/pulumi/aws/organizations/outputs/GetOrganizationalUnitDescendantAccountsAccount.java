@@ -122,13 +122,13 @@ public final class GetOrganizationalUnitDescendantAccountsAccount {
             return this;
         }
         public GetOrganizationalUnitDescendantAccountsAccount build() {
-            final var o = new GetOrganizationalUnitDescendantAccountsAccount();
-            o.arn = arn;
-            o.email = email;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetOrganizationalUnitDescendantAccountsAccount();
+            _resultValue.arn = arn;
+            _resultValue.email = email;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

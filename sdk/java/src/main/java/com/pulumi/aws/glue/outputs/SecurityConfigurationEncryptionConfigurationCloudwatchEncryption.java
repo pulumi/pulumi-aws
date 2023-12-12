@@ -67,10 +67,10 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
             return this;
         }
         public SecurityConfigurationEncryptionConfigurationCloudwatchEncryption build() {
-            final var o = new SecurityConfigurationEncryptionConfigurationCloudwatchEncryption();
-            o.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new SecurityConfigurationEncryptionConfigurationCloudwatchEncryption();
+            _resultValue.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

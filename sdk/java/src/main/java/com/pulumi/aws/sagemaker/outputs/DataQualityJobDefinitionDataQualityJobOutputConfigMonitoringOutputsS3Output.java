@@ -86,11 +86,11 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output();
-            o.localPath = localPath;
-            o.s3UploadMode = s3UploadMode;
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output();
+            _resultValue.localPath = localPath;
+            _resultValue.s3UploadMode = s3UploadMode;
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

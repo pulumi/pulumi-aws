@@ -158,15 +158,15 @@ public final class GetEventIntegrationResult {
             return this;
         }
         public GetEventIntegrationResult build() {
-            final var o = new GetEventIntegrationResult();
-            o.arn = arn;
-            o.description = description;
-            o.eventFilters = eventFilters;
-            o.eventbridgeBus = eventbridgeBus;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetEventIntegrationResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.eventFilters = eventFilters;
+            _resultValue.eventbridgeBus = eventbridgeBus;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -166,15 +166,15 @@ public final class GetOriginAccessIdentityResult {
             return this;
         }
         public GetOriginAccessIdentityResult build() {
-            final var o = new GetOriginAccessIdentityResult();
-            o.callerReference = callerReference;
-            o.cloudfrontAccessIdentityPath = cloudfrontAccessIdentityPath;
-            o.comment = comment;
-            o.etag = etag;
-            o.iamArn = iamArn;
-            o.id = id;
-            o.s3CanonicalUserId = s3CanonicalUserId;
-            return o;
+            final var _resultValue = new GetOriginAccessIdentityResult();
+            _resultValue.callerReference = callerReference;
+            _resultValue.cloudfrontAccessIdentityPath = cloudfrontAccessIdentityPath;
+            _resultValue.comment = comment;
+            _resultValue.etag = etag;
+            _resultValue.iamArn = iamArn;
+            _resultValue.id = id;
+            _resultValue.s3CanonicalUserId = s3CanonicalUserId;
+            return _resultValue;
         }
     }
 }

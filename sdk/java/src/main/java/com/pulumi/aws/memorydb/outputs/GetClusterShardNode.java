@@ -100,12 +100,12 @@ public final class GetClusterShardNode {
             return this;
         }
         public GetClusterShardNode build() {
-            final var o = new GetClusterShardNode();
-            o.availabilityZone = availabilityZone;
-            o.createTime = createTime;
-            o.endpoints = endpoints;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetClusterShardNode();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.createTime = createTime;
+            _resultValue.endpoints = endpoints;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

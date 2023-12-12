@@ -72,10 +72,10 @@ public final class ListenerRuleActionForward {
             return targetGroups(List.of(targetGroups));
         }
         public ListenerRuleActionForward build() {
-            final var o = new ListenerRuleActionForward();
-            o.stickiness = stickiness;
-            o.targetGroups = targetGroups;
-            return o;
+            final var _resultValue = new ListenerRuleActionForward();
+            _resultValue.stickiness = stickiness;
+            _resultValue.targetGroups = targetGroups;
+            return _resultValue;
         }
     }
 }

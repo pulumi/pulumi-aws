@@ -49,10 +49,10 @@ public final class GetLaunchTemplateInstanceRequirementNetworkInterfaceCount {
             return this;
         }
         public GetLaunchTemplateInstanceRequirementNetworkInterfaceCount build() {
-            final var o = new GetLaunchTemplateInstanceRequirementNetworkInterfaceCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new GetLaunchTemplateInstanceRequirementNetworkInterfaceCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

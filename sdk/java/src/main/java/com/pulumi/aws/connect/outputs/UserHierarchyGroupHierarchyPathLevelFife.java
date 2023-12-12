@@ -86,11 +86,11 @@ public final class UserHierarchyGroupHierarchyPathLevelFife {
             return this;
         }
         public UserHierarchyGroupHierarchyPathLevelFife build() {
-            final var o = new UserHierarchyGroupHierarchyPathLevelFife();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new UserHierarchyGroupHierarchyPathLevelFife();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

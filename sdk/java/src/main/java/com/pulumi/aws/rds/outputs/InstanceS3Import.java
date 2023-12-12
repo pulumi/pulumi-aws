@@ -128,13 +128,13 @@ public final class InstanceS3Import {
             return this;
         }
         public InstanceS3Import build() {
-            final var o = new InstanceS3Import();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.ingestionRole = ingestionRole;
-            o.sourceEngine = sourceEngine;
-            o.sourceEngineVersion = sourceEngineVersion;
-            return o;
+            final var _resultValue = new InstanceS3Import();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.ingestionRole = ingestionRole;
+            _resultValue.sourceEngine = sourceEngine;
+            _resultValue.sourceEngineVersion = sourceEngineVersion;
+            return _resultValue;
         }
     }
 }

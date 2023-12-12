@@ -88,11 +88,11 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
             return this;
         }
         public FirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
-            final var o = new FirewallPolicyFirewallPolicyStatefulRuleGroupReference();
-            o.override = override;
-            o.priority = priority;
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatefulRuleGroupReference();
+            _resultValue.override = override;
+            _resultValue.priority = priority;
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

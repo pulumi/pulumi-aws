@@ -108,12 +108,12 @@ public final class VirtualGatewaySpecListener {
             return this;
         }
         public VirtualGatewaySpecListener build() {
-            final var o = new VirtualGatewaySpecListener();
-            o.connectionPool = connectionPool;
-            o.healthCheck = healthCheck;
-            o.portMapping = portMapping;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListener();
+            _resultValue.connectionPool = connectionPool;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.portMapping = portMapping;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

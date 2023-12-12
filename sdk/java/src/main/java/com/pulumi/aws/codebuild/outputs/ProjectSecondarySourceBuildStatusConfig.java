@@ -67,10 +67,10 @@ public final class ProjectSecondarySourceBuildStatusConfig {
             return this;
         }
         public ProjectSecondarySourceBuildStatusConfig build() {
-            final var o = new ProjectSecondarySourceBuildStatusConfig();
-            o.context = context;
-            o.targetUrl = targetUrl;
-            return o;
+            final var _resultValue = new ProjectSecondarySourceBuildStatusConfig();
+            _resultValue.context = context;
+            _resultValue.targetUrl = targetUrl;
+            return _resultValue;
         }
     }
 }

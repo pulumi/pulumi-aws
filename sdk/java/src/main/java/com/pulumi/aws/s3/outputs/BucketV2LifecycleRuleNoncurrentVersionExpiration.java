@@ -48,9 +48,9 @@ public final class BucketV2LifecycleRuleNoncurrentVersionExpiration {
             return this;
         }
         public BucketV2LifecycleRuleNoncurrentVersionExpiration build() {
-            final var o = new BucketV2LifecycleRuleNoncurrentVersionExpiration();
-            o.days = days;
-            return o;
+            final var _resultValue = new BucketV2LifecycleRuleNoncurrentVersionExpiration();
+            _resultValue.days = days;
+            return _resultValue;
         }
     }
 }

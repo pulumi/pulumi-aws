@@ -67,10 +67,10 @@ public final class VpcEndpointDnsEntry {
             return this;
         }
         public VpcEndpointDnsEntry build() {
-            final var o = new VpcEndpointDnsEntry();
-            o.dnsName = dnsName;
-            o.hostedZoneId = hostedZoneId;
-            return o;
+            final var _resultValue = new VpcEndpointDnsEntry();
+            _resultValue.dnsName = dnsName;
+            _resultValue.hostedZoneId = hostedZoneId;
+            return _resultValue;
         }
     }
 }

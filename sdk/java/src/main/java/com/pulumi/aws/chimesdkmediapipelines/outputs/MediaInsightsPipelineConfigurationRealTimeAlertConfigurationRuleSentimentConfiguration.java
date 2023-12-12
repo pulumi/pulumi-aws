@@ -85,11 +85,11 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
             return this;
         }
         public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration();
-            o.ruleName = ruleName;
-            o.sentimentType = sentimentType;
-            o.timePeriod = timePeriod;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration();
+            _resultValue.ruleName = ruleName;
+            _resultValue.sentimentType = sentimentType;
+            _resultValue.timePeriod = timePeriod;
+            return _resultValue;
         }
     }
 }

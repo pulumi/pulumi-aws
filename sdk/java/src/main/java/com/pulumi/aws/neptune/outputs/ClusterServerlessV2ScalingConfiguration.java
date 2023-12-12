@@ -67,10 +67,10 @@ public final class ClusterServerlessV2ScalingConfiguration {
             return this;
         }
         public ClusterServerlessV2ScalingConfiguration build() {
-            final var o = new ClusterServerlessV2ScalingConfiguration();
-            o.maxCapacity = maxCapacity;
-            o.minCapacity = minCapacity;
-            return o;
+            final var _resultValue = new ClusterServerlessV2ScalingConfiguration();
+            _resultValue.maxCapacity = maxCapacity;
+            _resultValue.minCapacity = minCapacity;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class ReceiptRuleSnsAction {
             return this;
         }
         public ReceiptRuleSnsAction build() {
-            final var o = new ReceiptRuleSnsAction();
-            o.encoding = encoding;
-            o.position = position;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ReceiptRuleSnsAction();
+            _resultValue.encoding = encoding;
+            _resultValue.position = position;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

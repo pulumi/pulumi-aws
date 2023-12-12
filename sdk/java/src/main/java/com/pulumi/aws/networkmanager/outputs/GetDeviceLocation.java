@@ -84,11 +84,11 @@ public final class GetDeviceLocation {
             return this;
         }
         public GetDeviceLocation build() {
-            final var o = new GetDeviceLocation();
-            o.address = address;
-            o.latitude = latitude;
-            o.longitude = longitude;
-            return o;
+            final var _resultValue = new GetDeviceLocation();
+            _resultValue.address = address;
+            _resultValue.latitude = latitude;
+            _resultValue.longitude = longitude;
+            return _resultValue;
         }
     }
 }

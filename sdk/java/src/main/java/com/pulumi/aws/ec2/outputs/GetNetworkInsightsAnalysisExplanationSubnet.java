@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationSubnet {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationSubnet build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationSubnet();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationSubnet();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

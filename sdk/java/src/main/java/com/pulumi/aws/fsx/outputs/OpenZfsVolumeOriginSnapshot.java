@@ -49,10 +49,10 @@ public final class OpenZfsVolumeOriginSnapshot {
             return this;
         }
         public OpenZfsVolumeOriginSnapshot build() {
-            final var o = new OpenZfsVolumeOriginSnapshot();
-            o.copyStrategy = copyStrategy;
-            o.snapshotArn = snapshotArn;
-            return o;
+            final var _resultValue = new OpenZfsVolumeOriginSnapshot();
+            _resultValue.copyStrategy = copyStrategy;
+            _resultValue.snapshotArn = snapshotArn;
+            return _resultValue;
         }
     }
 }

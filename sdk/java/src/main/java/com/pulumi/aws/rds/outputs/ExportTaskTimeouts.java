@@ -51,10 +51,10 @@ public final class ExportTaskTimeouts {
             return this;
         }
         public ExportTaskTimeouts build() {
-            final var o = new ExportTaskTimeouts();
-            o.create = create;
-            o.delete = delete;
-            return o;
+            final var _resultValue = new ExportTaskTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            return _resultValue;
         }
     }
 }

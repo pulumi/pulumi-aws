@@ -49,10 +49,10 @@ public final class GetFileSystemLifecyclePolicy {
             return this;
         }
         public GetFileSystemLifecyclePolicy build() {
-            final var o = new GetFileSystemLifecyclePolicy();
-            o.transitionToIa = transitionToIa;
-            o.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
-            return o;
+            final var _resultValue = new GetFileSystemLifecyclePolicy();
+            _resultValue.transitionToIa = transitionToIa;
+            _resultValue.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
+            return _resultValue;
         }
     }
 }

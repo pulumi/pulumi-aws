@@ -67,10 +67,10 @@ public final class FleetDomainJoinInfo {
             return this;
         }
         public FleetDomainJoinInfo build() {
-            final var o = new FleetDomainJoinInfo();
-            o.directoryName = directoryName;
-            o.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-            return o;
+            final var _resultValue = new FleetDomainJoinInfo();
+            _resultValue.directoryName = directoryName;
+            _resultValue.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
+            return _resultValue;
         }
     }
 }

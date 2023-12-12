@@ -65,10 +65,10 @@ public final class MetricStreamStatisticsConfigurationIncludeMetric {
             return this;
         }
         public MetricStreamStatisticsConfigurationIncludeMetric build() {
-            final var o = new MetricStreamStatisticsConfigurationIncludeMetric();
-            o.metricName = metricName;
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new MetricStreamStatisticsConfigurationIncludeMetric();
+            _resultValue.metricName = metricName;
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

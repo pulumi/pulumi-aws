@@ -48,9 +48,9 @@ public final class ScheduleTargetSqsParameters {
             return this;
         }
         public ScheduleTargetSqsParameters build() {
-            final var o = new ScheduleTargetSqsParameters();
-            o.messageGroupId = messageGroupId;
-            return o;
+            final var _resultValue = new ScheduleTargetSqsParameters();
+            _resultValue.messageGroupId = messageGroupId;
+            return _resultValue;
         }
     }
 }

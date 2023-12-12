@@ -65,10 +65,10 @@ public final class SelectionConditionStringNotEqual {
             return this;
         }
         public SelectionConditionStringNotEqual build() {
-            final var o = new SelectionConditionStringNotEqual();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new SelectionConditionStringNotEqual();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

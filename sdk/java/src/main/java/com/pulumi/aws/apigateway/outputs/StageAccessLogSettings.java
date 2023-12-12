@@ -67,10 +67,10 @@ public final class StageAccessLogSettings {
             return this;
         }
         public StageAccessLogSettings build() {
-            final var o = new StageAccessLogSettings();
-            o.destinationArn = destinationArn;
-            o.format = format;
-            return o;
+            final var _resultValue = new StageAccessLogSettings();
+            _resultValue.destinationArn = destinationArn;
+            _resultValue.format = format;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetRegistrationCodeResult {
             return this;
         }
         public GetRegistrationCodeResult build() {
-            final var o = new GetRegistrationCodeResult();
-            o.id = id;
-            o.registrationCode = registrationCode;
-            return o;
+            final var _resultValue = new GetRegistrationCodeResult();
+            _resultValue.id = id;
+            _resultValue.registrationCode = registrationCode;
+            return _resultValue;
         }
     }
 }

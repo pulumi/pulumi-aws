@@ -72,10 +72,10 @@ public final class IntentFulfillmentActivity {
             return this;
         }
         public IntentFulfillmentActivity build() {
-            final var o = new IntentFulfillmentActivity();
-            o.codeHook = codeHook;
-            o.type = type;
-            return o;
+            final var _resultValue = new IntentFulfillmentActivity();
+            _resultValue.codeHook = codeHook;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

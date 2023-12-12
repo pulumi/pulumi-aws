@@ -76,11 +76,11 @@ public final class GetEventBusResult {
             return this;
         }
         public GetEventBusResult build() {
-            final var o = new GetEventBusResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetEventBusResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

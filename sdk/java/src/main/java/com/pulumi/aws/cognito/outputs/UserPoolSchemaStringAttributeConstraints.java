@@ -67,10 +67,10 @@ public final class UserPoolSchemaStringAttributeConstraints {
             return this;
         }
         public UserPoolSchemaStringAttributeConstraints build() {
-            final var o = new UserPoolSchemaStringAttributeConstraints();
-            o.maxLength = maxLength;
-            o.minLength = minLength;
-            return o;
+            final var _resultValue = new UserPoolSchemaStringAttributeConstraints();
+            _resultValue.maxLength = maxLength;
+            _resultValue.minLength = minLength;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class BucketWebsiteConfigurationV2RoutingRule {
             return this;
         }
         public BucketWebsiteConfigurationV2RoutingRule build() {
-            final var o = new BucketWebsiteConfigurationV2RoutingRule();
-            o.condition = condition;
-            o.redirect = redirect;
-            return o;
+            final var _resultValue = new BucketWebsiteConfigurationV2RoutingRule();
+            _resultValue.condition = condition;
+            _resultValue.redirect = redirect;
+            return _resultValue;
         }
     }
 }

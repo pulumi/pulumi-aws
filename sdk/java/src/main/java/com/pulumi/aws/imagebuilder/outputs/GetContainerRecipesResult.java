@@ -119,13 +119,13 @@ public final class GetContainerRecipesResult {
             return this;
         }
         public GetContainerRecipesResult build() {
-            final var o = new GetContainerRecipesResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new GetContainerRecipesResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

@@ -57,10 +57,10 @@ public final class GetVirtualNodeSpecListenerTimeoutHttp2 {
             return perRequests(List.of(perRequests));
         }
         public GetVirtualNodeSpecListenerTimeoutHttp2 build() {
-            final var o = new GetVirtualNodeSpecListenerTimeoutHttp2();
-            o.idles = idles;
-            o.perRequests = perRequests;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTimeoutHttp2();
+            _resultValue.idles = idles;
+            _resultValue.perRequests = perRequests;
+            return _resultValue;
         }
     }
 }

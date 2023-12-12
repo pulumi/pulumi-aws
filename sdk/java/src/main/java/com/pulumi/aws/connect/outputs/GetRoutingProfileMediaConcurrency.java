@@ -66,10 +66,10 @@ public final class GetRoutingProfileMediaConcurrency {
             return this;
         }
         public GetRoutingProfileMediaConcurrency build() {
-            final var o = new GetRoutingProfileMediaConcurrency();
-            o.channel = channel;
-            o.concurrency = concurrency;
-            return o;
+            final var _resultValue = new GetRoutingProfileMediaConcurrency();
+            _resultValue.channel = channel;
+            _resultValue.concurrency = concurrency;
+            return _resultValue;
         }
     }
 }

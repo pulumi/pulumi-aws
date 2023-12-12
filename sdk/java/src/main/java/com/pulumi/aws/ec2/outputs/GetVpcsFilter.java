@@ -73,10 +73,10 @@ public final class GetVpcsFilter {
             return values(List.of(values));
         }
         public GetVpcsFilter build() {
-            final var o = new GetVpcsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpcsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLogg
             return this;
         }
         public FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions build() {
-            final var o = new FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions();
-            o.enabled = enabled;
-            o.logGroupName = logGroupName;
-            o.logStreamName = logStreamName;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.logStreamName = logStreamName;
+            return _resultValue;
         }
     }
 }

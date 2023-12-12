@@ -50,9 +50,9 @@ public final class LoggingConfigurationDestinationConfigurationS3 {
             return this;
         }
         public LoggingConfigurationDestinationConfigurationS3 build() {
-            final var o = new LoggingConfigurationDestinationConfigurationS3();
-            o.bucketName = bucketName;
-            return o;
+            final var _resultValue = new LoggingConfigurationDestinationConfigurationS3();
+            _resultValue.bucketName = bucketName;
+            return _resultValue;
         }
     }
 }

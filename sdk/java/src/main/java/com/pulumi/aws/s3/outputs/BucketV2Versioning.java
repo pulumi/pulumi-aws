@@ -67,10 +67,10 @@ public final class BucketV2Versioning {
             return this;
         }
         public BucketV2Versioning build() {
-            final var o = new BucketV2Versioning();
-            o.enabled = enabled;
-            o.mfaDelete = mfaDelete;
-            return o;
+            final var _resultValue = new BucketV2Versioning();
+            _resultValue.enabled = enabled;
+            _resultValue.mfaDelete = mfaDelete;
+            return _resultValue;
         }
     }
 }

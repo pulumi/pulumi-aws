@@ -116,13 +116,13 @@ public final class LoadBalancerSubnetMapping {
             return this;
         }
         public LoadBalancerSubnetMapping build() {
-            final var o = new LoadBalancerSubnetMapping();
-            o.allocationId = allocationId;
-            o.ipv6Address = ipv6Address;
-            o.outpostId = outpostId;
-            o.privateIpv4Address = privateIpv4Address;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new LoadBalancerSubnetMapping();
+            _resultValue.allocationId = allocationId;
+            _resultValue.ipv6Address = ipv6Address;
+            _resultValue.outpostId = outpostId;
+            _resultValue.privateIpv4Address = privateIpv4Address;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

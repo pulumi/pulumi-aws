@@ -83,11 +83,11 @@ public final class GetReleaseLabelsResult {
             return releaseLabels(List.of(releaseLabels));
         }
         public GetReleaseLabelsResult build() {
-            final var o = new GetReleaseLabelsResult();
-            o.filters = filters;
-            o.id = id;
-            o.releaseLabels = releaseLabels;
-            return o;
+            final var _resultValue = new GetReleaseLabelsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.releaseLabels = releaseLabels;
+            return _resultValue;
         }
     }
 }

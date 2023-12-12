@@ -65,10 +65,10 @@ public final class WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
             return this;
         }
         public WebAclRuleStatementGeoMatchStatementForwardedIpConfig build() {
-            final var o = new WebAclRuleStatementGeoMatchStatementForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            return o;
+            final var _resultValue = new WebAclRuleStatementGeoMatchStatementForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            return _resultValue;
         }
     }
 }

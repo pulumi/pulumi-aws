@@ -179,16 +179,16 @@ public final class ListenerRuleAction {
             return this;
         }
         public ListenerRuleAction build() {
-            final var o = new ListenerRuleAction();
-            o.authenticateCognito = authenticateCognito;
-            o.authenticateOidc = authenticateOidc;
-            o.fixedResponse = fixedResponse;
-            o.forward = forward;
-            o.order = order;
-            o.redirect = redirect;
-            o.targetGroupArn = targetGroupArn;
-            o.type = type;
-            return o;
+            final var _resultValue = new ListenerRuleAction();
+            _resultValue.authenticateCognito = authenticateCognito;
+            _resultValue.authenticateOidc = authenticateOidc;
+            _resultValue.fixedResponse = fixedResponse;
+            _resultValue.forward = forward;
+            _resultValue.order = order;
+            _resultValue.redirect = redirect;
+            _resultValue.targetGroupArn = targetGroupArn;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigFrameOption {
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigFrameOption build() {
-            final var o = new GetResponseHeadersPolicySecurityHeadersConfigFrameOption();
-            o.frameOption = frameOption;
-            o.override = override;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicySecurityHeadersConfigFrameOption();
+            _resultValue.frameOption = frameOption;
+            _resultValue.override = override;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class DetectorFeatureAdditionalConfiguration {
             return this;
         }
         public DetectorFeatureAdditionalConfiguration build() {
-            final var o = new DetectorFeatureAdditionalConfiguration();
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new DetectorFeatureAdditionalConfiguration();
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

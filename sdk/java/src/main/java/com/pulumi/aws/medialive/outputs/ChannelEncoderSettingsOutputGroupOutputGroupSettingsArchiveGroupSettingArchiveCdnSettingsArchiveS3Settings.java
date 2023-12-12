@@ -48,9 +48,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings();
-            o.cannedAcl = cannedAcl;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings();
+            _resultValue.cannedAcl = cannedAcl;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class DistributionCacheBehavior {
             return this;
         }
         public DistributionCacheBehavior build() {
-            final var o = new DistributionCacheBehavior();
-            o.behavior = behavior;
-            o.path = path;
-            return o;
+            final var _resultValue = new DistributionCacheBehavior();
+            _resultValue.behavior = behavior;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

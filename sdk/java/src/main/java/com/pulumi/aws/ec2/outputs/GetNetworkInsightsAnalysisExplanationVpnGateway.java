@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationVpnGateway {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationVpnGateway build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationVpnGateway();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationVpnGateway();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class OrganizationConfigurationDatasourcesKubernetes {
             return this;
         }
         public OrganizationConfigurationDatasourcesKubernetes build() {
-            final var o = new OrganizationConfigurationDatasourcesKubernetes();
-            o.auditLogs = auditLogs;
-            return o;
+            final var _resultValue = new OrganizationConfigurationDatasourcesKubernetes();
+            _resultValue.auditLogs = auditLogs;
+            return _resultValue;
         }
     }
 }

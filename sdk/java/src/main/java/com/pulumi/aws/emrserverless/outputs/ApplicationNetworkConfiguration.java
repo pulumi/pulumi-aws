@@ -73,10 +73,10 @@ public final class ApplicationNetworkConfiguration {
             return subnetIds(List.of(subnetIds));
         }
         public ApplicationNetworkConfiguration build() {
-            final var o = new ApplicationNetworkConfiguration();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ApplicationNetworkConfiguration();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

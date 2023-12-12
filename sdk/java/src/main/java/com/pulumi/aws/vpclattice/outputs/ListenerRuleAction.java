@@ -68,10 +68,10 @@ public final class ListenerRuleAction {
             return this;
         }
         public ListenerRuleAction build() {
-            final var o = new ListenerRuleAction();
-            o.fixedResponse = fixedResponse;
-            o.forward = forward;
-            return o;
+            final var _resultValue = new ListenerRuleAction();
+            _resultValue.fixedResponse = fixedResponse;
+            _resultValue.forward = forward;
+            return _resultValue;
         }
     }
 }

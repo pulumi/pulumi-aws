@@ -65,10 +65,10 @@ public final class InsightFiltersResourceRegion {
             return this;
         }
         public InsightFiltersResourceRegion build() {
-            final var o = new InsightFiltersResourceRegion();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceRegion();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

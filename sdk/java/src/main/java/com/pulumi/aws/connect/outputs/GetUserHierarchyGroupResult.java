@@ -169,16 +169,16 @@ public final class GetUserHierarchyGroupResult {
             return this;
         }
         public GetUserHierarchyGroupResult build() {
-            final var o = new GetUserHierarchyGroupResult();
-            o.arn = arn;
-            o.hierarchyGroupId = hierarchyGroupId;
-            o.hierarchyPaths = hierarchyPaths;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.levelId = levelId;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetUserHierarchyGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.hierarchyGroupId = hierarchyGroupId;
+            _resultValue.hierarchyPaths = hierarchyPaths;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.levelId = levelId;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

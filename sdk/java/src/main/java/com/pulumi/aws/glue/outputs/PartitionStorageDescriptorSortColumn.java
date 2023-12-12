@@ -66,10 +66,10 @@ public final class PartitionStorageDescriptorSortColumn {
             return this;
         }
         public PartitionStorageDescriptorSortColumn build() {
-            final var o = new PartitionStorageDescriptorSortColumn();
-            o.column = column;
-            o.sortOrder = sortOrder;
-            return o;
+            final var _resultValue = new PartitionStorageDescriptorSortColumn();
+            _resultValue.column = column;
+            _resultValue.sortOrder = sortOrder;
+            return _resultValue;
         }
     }
 }

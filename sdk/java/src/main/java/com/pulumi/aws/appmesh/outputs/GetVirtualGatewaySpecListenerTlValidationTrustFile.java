@@ -38,9 +38,9 @@ public final class GetVirtualGatewaySpecListenerTlValidationTrustFile {
             return this;
         }
         public GetVirtualGatewaySpecListenerTlValidationTrustFile build() {
-            final var o = new GetVirtualGatewaySpecListenerTlValidationTrustFile();
-            o.certificateChain = certificateChain;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerTlValidationTrustFile();
+            _resultValue.certificateChain = certificateChain;
+            return _resultValue;
         }
     }
 }

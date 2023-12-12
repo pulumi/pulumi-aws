@@ -95,11 +95,11 @@ public final class LaunchTemplateCpuOptions {
             return this;
         }
         public LaunchTemplateCpuOptions build() {
-            final var o = new LaunchTemplateCpuOptions();
-            o.amdSevSnp = amdSevSnp;
-            o.coreCount = coreCount;
-            o.threadsPerCore = threadsPerCore;
-            return o;
+            final var _resultValue = new LaunchTemplateCpuOptions();
+            _resultValue.amdSevSnp = amdSevSnp;
+            _resultValue.coreCount = coreCount;
+            _resultValue.threadsPerCore = threadsPerCore;
+            return _resultValue;
         }
     }
 }

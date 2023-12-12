@@ -89,11 +89,11 @@ public final class ServiceAlarms {
             return this;
         }
         public ServiceAlarms build() {
-            final var o = new ServiceAlarms();
-            o.alarmNames = alarmNames;
-            o.enable = enable;
-            o.rollback = rollback;
-            return o;
+            final var _resultValue = new ServiceAlarms();
+            _resultValue.alarmNames = alarmNames;
+            _resultValue.enable = enable;
+            _resultValue.rollback = rollback;
+            return _resultValue;
         }
     }
 }

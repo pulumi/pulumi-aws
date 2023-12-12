@@ -48,9 +48,9 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             return this;
         }
         public WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock build() {
-            final var o = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock();
-            o.customResponse = customResponse;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock();
+            _resultValue.customResponse = customResponse;
+            return _resultValue;
         }
     }
 }

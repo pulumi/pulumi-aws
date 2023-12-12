@@ -67,10 +67,10 @@ public final class ListenerPortRange {
             return this;
         }
         public ListenerPortRange build() {
-            final var o = new ListenerPortRange();
-            o.fromPort = fromPort;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new ListenerPortRange();
+            _resultValue.fromPort = fromPort;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
             return this;
         }
         public ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings build() {
-            final var o = new ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings();
-            o.htmlMotionGraphicsSettings = htmlMotionGraphicsSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings();
+            _resultValue.htmlMotionGraphicsSettings = htmlMotionGraphicsSettings;
+            return _resultValue;
         }
     }
 }

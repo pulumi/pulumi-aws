@@ -68,10 +68,10 @@ public final class ImagePipelineImageScanningConfiguration {
             return this;
         }
         public ImagePipelineImageScanningConfiguration build() {
-            final var o = new ImagePipelineImageScanningConfiguration();
-            o.ecrConfiguration = ecrConfiguration;
-            o.imageScanningEnabled = imageScanningEnabled;
-            return o;
+            final var _resultValue = new ImagePipelineImageScanningConfiguration();
+            _resultValue.ecrConfiguration = ecrConfiguration;
+            _resultValue.imageScanningEnabled = imageScanningEnabled;
+            return _resultValue;
         }
     }
 }

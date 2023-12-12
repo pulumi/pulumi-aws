@@ -105,12 +105,12 @@ public final class FunctionVpcConfig {
             return this;
         }
         public FunctionVpcConfig build() {
-            final var o = new FunctionVpcConfig();
-            o.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new FunctionVpcConfig();
+            _resultValue.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

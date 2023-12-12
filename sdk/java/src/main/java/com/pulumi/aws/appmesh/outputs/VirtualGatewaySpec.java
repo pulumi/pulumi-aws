@@ -92,11 +92,11 @@ public final class VirtualGatewaySpec {
             return this;
         }
         public VirtualGatewaySpec build() {
-            final var o = new VirtualGatewaySpec();
-            o.backendDefaults = backendDefaults;
-            o.listeners = listeners;
-            o.logging = logging;
-            return o;
+            final var _resultValue = new VirtualGatewaySpec();
+            _resultValue.backendDefaults = backendDefaults;
+            _resultValue.listeners = listeners;
+            _resultValue.logging = logging;
+            return _resultValue;
         }
     }
 }

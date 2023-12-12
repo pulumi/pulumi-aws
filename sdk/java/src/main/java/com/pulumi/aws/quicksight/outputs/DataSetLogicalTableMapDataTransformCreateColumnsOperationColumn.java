@@ -84,11 +84,11 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationColu
             return this;
         }
         public DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn build() {
-            final var o = new DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn();
-            o.columnId = columnId;
-            o.columnName = columnName;
-            o.expression = expression;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn();
+            _resultValue.columnId = columnId;
+            _resultValue.columnName = columnName;
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

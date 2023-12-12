@@ -48,9 +48,9 @@ public final class AccountVdmAttributesGuardianAttributes {
             return this;
         }
         public AccountVdmAttributesGuardianAttributes build() {
-            final var o = new AccountVdmAttributesGuardianAttributes();
-            o.optimizedSharedDelivery = optimizedSharedDelivery;
-            return o;
+            final var _resultValue = new AccountVdmAttributesGuardianAttributes();
+            _resultValue.optimizedSharedDelivery = optimizedSharedDelivery;
+            return _resultValue;
         }
     }
 }

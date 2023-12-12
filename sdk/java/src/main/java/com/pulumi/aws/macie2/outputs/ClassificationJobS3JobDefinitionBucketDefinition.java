@@ -69,10 +69,10 @@ public final class ClassificationJobS3JobDefinitionBucketDefinition {
             return buckets(List.of(buckets));
         }
         public ClassificationJobS3JobDefinitionBucketDefinition build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketDefinition();
-            o.accountId = accountId;
-            o.buckets = buckets;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketDefinition();
+            _resultValue.accountId = accountId;
+            _resultValue.buckets = buckets;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetCostCategorySplitChargeRuleParameter {
             return values(List.of(values));
         }
         public GetCostCategorySplitChargeRuleParameter build() {
-            final var o = new GetCostCategorySplitChargeRuleParameter();
-            o.type = type;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetCostCategorySplitChargeRuleParameter();
+            _resultValue.type = type;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

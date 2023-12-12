@@ -68,10 +68,10 @@ public final class ImageImageScanningConfiguration {
             return this;
         }
         public ImageImageScanningConfiguration build() {
-            final var o = new ImageImageScanningConfiguration();
-            o.ecrConfiguration = ecrConfiguration;
-            o.imageScanningEnabled = imageScanningEnabled;
-            return o;
+            final var _resultValue = new ImageImageScanningConfiguration();
+            _resultValue.ecrConfiguration = ecrConfiguration;
+            _resultValue.imageScanningEnabled = imageScanningEnabled;
+            return _resultValue;
         }
     }
 }

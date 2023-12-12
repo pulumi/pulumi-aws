@@ -48,9 +48,9 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings();
-            o.sourceAncillaryChannelNumber = sourceAncillaryChannelNumber;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings();
+            _resultValue.sourceAncillaryChannelNumber = sourceAncillaryChannelNumber;
+            return _resultValue;
         }
     }
 }

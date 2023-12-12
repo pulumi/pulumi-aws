@@ -65,10 +65,10 @@ public final class GetPipelineDefinitionParameterObjectAttribute {
             return this;
         }
         public GetPipelineDefinitionParameterObjectAttribute build() {
-            final var o = new GetPipelineDefinitionParameterObjectAttribute();
-            o.key = key;
-            o.stringValue = stringValue;
-            return o;
+            final var _resultValue = new GetPipelineDefinitionParameterObjectAttribute();
+            _resultValue.key = key;
+            _resultValue.stringValue = stringValue;
+            return _resultValue;
         }
     }
 }

@@ -279,21 +279,21 @@ public final class GetProxyResult {
             return vpcSubnetIds(List.of(vpcSubnetIds));
         }
         public GetProxyResult build() {
-            final var o = new GetProxyResult();
-            o.arn = arn;
-            o.auths = auths;
-            o.debugLogging = debugLogging;
-            o.endpoint = endpoint;
-            o.engineFamily = engineFamily;
-            o.id = id;
-            o.idleClientTimeout = idleClientTimeout;
-            o.name = name;
-            o.requireTls = requireTls;
-            o.roleArn = roleArn;
-            o.vpcId = vpcId;
-            o.vpcSecurityGroupIds = vpcSecurityGroupIds;
-            o.vpcSubnetIds = vpcSubnetIds;
-            return o;
+            final var _resultValue = new GetProxyResult();
+            _resultValue.arn = arn;
+            _resultValue.auths = auths;
+            _resultValue.debugLogging = debugLogging;
+            _resultValue.endpoint = endpoint;
+            _resultValue.engineFamily = engineFamily;
+            _resultValue.id = id;
+            _resultValue.idleClientTimeout = idleClientTimeout;
+            _resultValue.name = name;
+            _resultValue.requireTls = requireTls;
+            _resultValue.roleArn = roleArn;
+            _resultValue.vpcId = vpcId;
+            _resultValue.vpcSecurityGroupIds = vpcSecurityGroupIds;
+            _resultValue.vpcSubnetIds = vpcSubnetIds;
+            return _resultValue;
         }
     }
 }

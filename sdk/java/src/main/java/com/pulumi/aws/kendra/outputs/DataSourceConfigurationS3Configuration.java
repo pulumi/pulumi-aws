@@ -155,14 +155,14 @@ public final class DataSourceConfigurationS3Configuration {
             return inclusionPrefixes(List.of(inclusionPrefixes));
         }
         public DataSourceConfigurationS3Configuration build() {
-            final var o = new DataSourceConfigurationS3Configuration();
-            o.accessControlListConfiguration = accessControlListConfiguration;
-            o.bucketName = bucketName;
-            o.documentsMetadataConfiguration = documentsMetadataConfiguration;
-            o.exclusionPatterns = exclusionPatterns;
-            o.inclusionPatterns = inclusionPatterns;
-            o.inclusionPrefixes = inclusionPrefixes;
-            return o;
+            final var _resultValue = new DataSourceConfigurationS3Configuration();
+            _resultValue.accessControlListConfiguration = accessControlListConfiguration;
+            _resultValue.bucketName = bucketName;
+            _resultValue.documentsMetadataConfiguration = documentsMetadataConfiguration;
+            _resultValue.exclusionPatterns = exclusionPatterns;
+            _resultValue.inclusionPatterns = inclusionPatterns;
+            _resultValue.inclusionPrefixes = inclusionPrefixes;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyCookie {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementRateBasedStatementCustomKeyCookie build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyCookie();
-            o.name = name;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyCookie();
+            _resultValue.name = name;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

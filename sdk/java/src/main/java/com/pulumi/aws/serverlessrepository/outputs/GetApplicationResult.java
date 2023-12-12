@@ -156,15 +156,15 @@ public final class GetApplicationResult {
             return this;
         }
         public GetApplicationResult build() {
-            final var o = new GetApplicationResult();
-            o.applicationId = applicationId;
-            o.id = id;
-            o.name = name;
-            o.requiredCapabilities = requiredCapabilities;
-            o.semanticVersion = semanticVersion;
-            o.sourceCodeUrl = sourceCodeUrl;
-            o.templateUrl = templateUrl;
-            return o;
+            final var _resultValue = new GetApplicationResult();
+            _resultValue.applicationId = applicationId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.requiredCapabilities = requiredCapabilities;
+            _resultValue.semanticVersion = semanticVersion;
+            _resultValue.sourceCodeUrl = sourceCodeUrl;
+            _resultValue.templateUrl = templateUrl;
+            return _resultValue;
         }
     }
 }

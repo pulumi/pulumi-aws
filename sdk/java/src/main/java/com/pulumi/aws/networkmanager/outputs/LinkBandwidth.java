@@ -67,10 +67,10 @@ public final class LinkBandwidth {
             return this;
         }
         public LinkBandwidth build() {
-            final var o = new LinkBandwidth();
-            o.downloadSpeed = downloadSpeed;
-            o.uploadSpeed = uploadSpeed;
-            return o;
+            final var _resultValue = new LinkBandwidth();
+            _resultValue.downloadSpeed = downloadSpeed;
+            _resultValue.uploadSpeed = uploadSpeed;
+            return _resultValue;
         }
     }
 }

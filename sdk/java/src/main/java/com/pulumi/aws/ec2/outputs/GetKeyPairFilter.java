@@ -69,10 +69,10 @@ public final class GetKeyPairFilter {
             return values(List.of(values));
         }
         public GetKeyPairFilter build() {
-            final var o = new GetKeyPairFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetKeyPairFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

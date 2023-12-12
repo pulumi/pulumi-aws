@@ -105,12 +105,12 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
             return this;
         }
         public MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings build() {
-            final var o = new MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings();
-            o.contentRedactionOutput = contentRedactionOutput;
-            o.dataAccessRoleArn = dataAccessRoleArn;
-            o.outputEncryptionKmsKeyId = outputEncryptionKmsKeyId;
-            o.outputLocation = outputLocation;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings();
+            _resultValue.contentRedactionOutput = contentRedactionOutput;
+            _resultValue.dataAccessRoleArn = dataAccessRoleArn;
+            _resultValue.outputEncryptionKmsKeyId = outputEncryptionKmsKeyId;
+            _resultValue.outputLocation = outputLocation;
+            return _resultValue;
         }
     }
 }

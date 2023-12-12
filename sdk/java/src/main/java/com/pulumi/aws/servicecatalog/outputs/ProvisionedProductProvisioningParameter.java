@@ -87,11 +87,11 @@ public final class ProvisionedProductProvisioningParameter {
             return this;
         }
         public ProvisionedProductProvisioningParameter build() {
-            final var o = new ProvisionedProductProvisioningParameter();
-            o.key = key;
-            o.usePreviousValue = usePreviousValue;
-            o.value = value;
-            return o;
+            final var _resultValue = new ProvisionedProductProvisioningParameter();
+            _resultValue.key = key;
+            _resultValue.usePreviousValue = usePreviousValue;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

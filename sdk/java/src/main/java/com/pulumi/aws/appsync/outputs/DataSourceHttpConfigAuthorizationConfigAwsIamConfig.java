@@ -67,10 +67,10 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
             return this;
         }
         public DataSourceHttpConfigAuthorizationConfigAwsIamConfig build() {
-            final var o = new DataSourceHttpConfigAuthorizationConfigAwsIamConfig();
-            o.signingRegion = signingRegion;
-            o.signingServiceName = signingServiceName;
-            return o;
+            final var _resultValue = new DataSourceHttpConfigAuthorizationConfigAwsIamConfig();
+            _resultValue.signingRegion = signingRegion;
+            _resultValue.signingServiceName = signingServiceName;
+            return _resultValue;
         }
     }
 }

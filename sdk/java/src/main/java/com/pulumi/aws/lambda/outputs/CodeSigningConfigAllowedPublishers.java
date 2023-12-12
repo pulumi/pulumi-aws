@@ -50,9 +50,9 @@ public final class CodeSigningConfigAllowedPublishers {
             return signingProfileVersionArns(List.of(signingProfileVersionArns));
         }
         public CodeSigningConfigAllowedPublishers build() {
-            final var o = new CodeSigningConfigAllowedPublishers();
-            o.signingProfileVersionArns = signingProfileVersionArns;
-            return o;
+            final var _resultValue = new CodeSigningConfigAllowedPublishers();
+            _resultValue.signingProfileVersionArns = signingProfileVersionArns;
+            return _resultValue;
         }
     }
 }

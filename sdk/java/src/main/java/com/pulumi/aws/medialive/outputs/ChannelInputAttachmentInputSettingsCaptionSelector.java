@@ -91,11 +91,11 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelector {
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelector build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelector();
-            o.languageCode = languageCode;
-            o.name = name;
-            o.selectorSettings = selectorSettings;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelector();
+            _resultValue.languageCode = languageCode;
+            _resultValue.name = name;
+            _resultValue.selectorSettings = selectorSettings;
+            return _resultValue;
         }
     }
 }

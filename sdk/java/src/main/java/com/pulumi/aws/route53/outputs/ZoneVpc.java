@@ -67,10 +67,10 @@ public final class ZoneVpc {
             return this;
         }
         public ZoneVpc build() {
-            final var o = new ZoneVpc();
-            o.vpcId = vpcId;
-            o.vpcRegion = vpcRegion;
-            return o;
+            final var _resultValue = new ZoneVpc();
+            _resultValue.vpcId = vpcId;
+            _resultValue.vpcRegion = vpcRegion;
+            return _resultValue;
         }
     }
 }

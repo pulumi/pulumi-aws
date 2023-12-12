@@ -72,10 +72,10 @@ public final class GetGroupAlternateIdentifier {
             return this;
         }
         public GetGroupAlternateIdentifier build() {
-            final var o = new GetGroupAlternateIdentifier();
-            o.externalId = externalId;
-            o.uniqueAttribute = uniqueAttribute;
-            return o;
+            final var _resultValue = new GetGroupAlternateIdentifier();
+            _resultValue.externalId = externalId;
+            _resultValue.uniqueAttribute = uniqueAttribute;
+            return _resultValue;
         }
     }
 }

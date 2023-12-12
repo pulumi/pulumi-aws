@@ -52,10 +52,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings();
-            o.audioRenditionSets = audioRenditionSets;
-            o.m3u8Settings = m3u8Settings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings();
+            _resultValue.audioRenditionSets = audioRenditionSets;
+            _resultValue.m3u8Settings = m3u8Settings;
+            return _resultValue;
         }
     }
 }

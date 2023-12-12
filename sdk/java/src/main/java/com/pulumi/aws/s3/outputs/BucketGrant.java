@@ -109,12 +109,12 @@ public final class BucketGrant {
             return this;
         }
         public BucketGrant build() {
-            final var o = new BucketGrant();
-            o.id = id;
-            o.permissions = permissions;
-            o.type = type;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new BucketGrant();
+            _resultValue.id = id;
+            _resultValue.permissions = permissions;
+            _resultValue.type = type;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

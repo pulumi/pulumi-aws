@@ -65,10 +65,10 @@ public final class WebAclRuleStatementLabelMatchStatement {
             return this;
         }
         public WebAclRuleStatementLabelMatchStatement build() {
-            final var o = new WebAclRuleStatementLabelMatchStatement();
-            o.key = key;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new WebAclRuleStatementLabelMatchStatement();
+            _resultValue.key = key;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

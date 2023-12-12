@@ -67,10 +67,10 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
             return this;
         }
         public PolicyTargetTrackingConfigurationPredefinedMetricSpecification build() {
-            final var o = new PolicyTargetTrackingConfigurationPredefinedMetricSpecification();
-            o.predefinedMetricType = predefinedMetricType;
-            o.resourceLabel = resourceLabel;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingConfigurationPredefinedMetricSpecification();
+            _resultValue.predefinedMetricType = predefinedMetricType;
+            _resultValue.resourceLabel = resourceLabel;
+            return _resultValue;
         }
     }
 }

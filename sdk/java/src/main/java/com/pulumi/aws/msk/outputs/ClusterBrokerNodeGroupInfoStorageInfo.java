@@ -48,9 +48,9 @@ public final class ClusterBrokerNodeGroupInfoStorageInfo {
             return this;
         }
         public ClusterBrokerNodeGroupInfoStorageInfo build() {
-            final var o = new ClusterBrokerNodeGroupInfoStorageInfo();
-            o.ebsStorageInfo = ebsStorageInfo;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoStorageInfo();
+            _resultValue.ebsStorageInfo = ebsStorageInfo;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class GetTaskExecutionPlacementConstraint {
             return this;
         }
         public GetTaskExecutionPlacementConstraint build() {
-            final var o = new GetTaskExecutionPlacementConstraint();
-            o.expression = expression;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetTaskExecutionPlacementConstraint();
+            _resultValue.expression = expression;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

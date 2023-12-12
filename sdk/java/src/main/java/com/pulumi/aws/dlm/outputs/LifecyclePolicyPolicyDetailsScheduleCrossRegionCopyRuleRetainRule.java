@@ -66,10 +66,10 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetain
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule build() {
-            final var o = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule();
-            o.interval = interval;
-            o.intervalUnit = intervalUnit;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule();
+            _resultValue.interval = interval;
+            _resultValue.intervalUnit = intervalUnit;
+            return _resultValue;
         }
     }
 }

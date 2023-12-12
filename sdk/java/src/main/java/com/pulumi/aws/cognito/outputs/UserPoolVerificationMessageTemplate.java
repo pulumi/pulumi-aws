@@ -143,14 +143,14 @@ public final class UserPoolVerificationMessageTemplate {
             return this;
         }
         public UserPoolVerificationMessageTemplate build() {
-            final var o = new UserPoolVerificationMessageTemplate();
-            o.defaultEmailOption = defaultEmailOption;
-            o.emailMessage = emailMessage;
-            o.emailMessageByLink = emailMessageByLink;
-            o.emailSubject = emailSubject;
-            o.emailSubjectByLink = emailSubjectByLink;
-            o.smsMessage = smsMessage;
-            return o;
+            final var _resultValue = new UserPoolVerificationMessageTemplate();
+            _resultValue.defaultEmailOption = defaultEmailOption;
+            _resultValue.emailMessage = emailMessage;
+            _resultValue.emailMessageByLink = emailMessageByLink;
+            _resultValue.emailSubject = emailSubject;
+            _resultValue.emailSubjectByLink = emailSubjectByLink;
+            _resultValue.smsMessage = smsMessage;
+            return _resultValue;
         }
     }
 }

@@ -64,10 +64,10 @@ public final class CustomLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public CustomLayerCloudwatchConfiguration build() {
-            final var o = new CustomLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new CustomLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

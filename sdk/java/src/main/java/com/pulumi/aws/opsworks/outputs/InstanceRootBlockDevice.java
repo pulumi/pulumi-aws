@@ -75,12 +75,12 @@ public final class InstanceRootBlockDevice {
             return this;
         }
         public InstanceRootBlockDevice build() {
-            final var o = new InstanceRootBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.iops = iops;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new InstanceRootBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.iops = iops;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

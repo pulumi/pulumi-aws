@@ -221,19 +221,19 @@ public final class GetVocabularyResult {
             return this;
         }
         public GetVocabularyResult build() {
-            final var o = new GetVocabularyResult();
-            o.arn = arn;
-            o.content = content;
-            o.failureReason = failureReason;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.languageCode = languageCode;
-            o.lastModifiedTime = lastModifiedTime;
-            o.name = name;
-            o.state = state;
-            o.tags = tags;
-            o.vocabularyId = vocabularyId;
-            return o;
+            final var _resultValue = new GetVocabularyResult();
+            _resultValue.arn = arn;
+            _resultValue.content = content;
+            _resultValue.failureReason = failureReason;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.languageCode = languageCode;
+            _resultValue.lastModifiedTime = lastModifiedTime;
+            _resultValue.name = name;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            _resultValue.vocabularyId = vocabularyId;
+            return _resultValue;
         }
     }
 }

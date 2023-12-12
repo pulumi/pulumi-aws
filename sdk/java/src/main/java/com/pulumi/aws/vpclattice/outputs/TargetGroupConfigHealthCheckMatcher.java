@@ -48,9 +48,9 @@ public final class TargetGroupConfigHealthCheckMatcher {
             return this;
         }
         public TargetGroupConfigHealthCheckMatcher build() {
-            final var o = new TargetGroupConfigHealthCheckMatcher();
-            o.value = value;
-            return o;
+            final var _resultValue = new TargetGroupConfigHealthCheckMatcher();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

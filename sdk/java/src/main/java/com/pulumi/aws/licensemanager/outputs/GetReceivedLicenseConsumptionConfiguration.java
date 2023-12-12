@@ -85,11 +85,11 @@ public final class GetReceivedLicenseConsumptionConfiguration {
             return this;
         }
         public GetReceivedLicenseConsumptionConfiguration build() {
-            final var o = new GetReceivedLicenseConsumptionConfiguration();
-            o.borrowConfigurations = borrowConfigurations;
-            o.provisionalConfigurations = provisionalConfigurations;
-            o.renewType = renewType;
-            return o;
+            final var _resultValue = new GetReceivedLicenseConsumptionConfiguration();
+            _resultValue.borrowConfigurations = borrowConfigurations;
+            _resultValue.provisionalConfigurations = provisionalConfigurations;
+            _resultValue.renewType = renewType;
+            return _resultValue;
         }
     }
 }

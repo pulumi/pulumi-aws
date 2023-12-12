@@ -236,19 +236,19 @@ public final class GetBudgetCostType {
             return this;
         }
         public GetBudgetCostType build() {
-            final var o = new GetBudgetCostType();
-            o.includeCredit = includeCredit;
-            o.includeDiscount = includeDiscount;
-            o.includeOtherSubscription = includeOtherSubscription;
-            o.includeRecurring = includeRecurring;
-            o.includeRefund = includeRefund;
-            o.includeSubscription = includeSubscription;
-            o.includeSupport = includeSupport;
-            o.includeTax = includeTax;
-            o.includeUpfront = includeUpfront;
-            o.useAmortized = useAmortized;
-            o.useBlended = useBlended;
-            return o;
+            final var _resultValue = new GetBudgetCostType();
+            _resultValue.includeCredit = includeCredit;
+            _resultValue.includeDiscount = includeDiscount;
+            _resultValue.includeOtherSubscription = includeOtherSubscription;
+            _resultValue.includeRecurring = includeRecurring;
+            _resultValue.includeRefund = includeRefund;
+            _resultValue.includeSubscription = includeSubscription;
+            _resultValue.includeSupport = includeSupport;
+            _resultValue.includeTax = includeTax;
+            _resultValue.includeUpfront = includeUpfront;
+            _resultValue.useAmortized = useAmortized;
+            _resultValue.useBlended = useBlended;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class ChannelInputAttachmentInputSettingsAudioSelector {
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelector build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelector();
-            o.name = name;
-            o.selectorSettings = selectorSettings;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelector();
+            _resultValue.name = name;
+            _resultValue.selectorSettings = selectorSettings;
+            return _resultValue;
         }
     }
 }

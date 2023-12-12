@@ -66,10 +66,10 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTran
             return this;
         }
         public WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

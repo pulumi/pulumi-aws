@@ -46,9 +46,9 @@ public final class DomainNameEndpointConfiguration {
             return this;
         }
         public DomainNameEndpointConfiguration build() {
-            final var o = new DomainNameEndpointConfiguration();
-            o.types = types;
-            return o;
+            final var _resultValue = new DomainNameEndpointConfiguration();
+            _resultValue.types = types;
+            return _resultValue;
         }
     }
 }

@@ -152,18 +152,18 @@ public final class GetListenerResult {
             return this;
         }
         public GetListenerResult build() {
-            final var o = new GetListenerResult();
-            o.alpnPolicy = alpnPolicy;
-            o.arn = arn;
-            o.certificateArn = certificateArn;
-            o.defaultActions = defaultActions;
-            o.id = id;
-            o.loadBalancerArn = loadBalancerArn;
-            o.port = port;
-            o.protocol = protocol;
-            o.sslPolicy = sslPolicy;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetListenerResult();
+            _resultValue.alpnPolicy = alpnPolicy;
+            _resultValue.arn = arn;
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.defaultActions = defaultActions;
+            _resultValue.id = id;
+            _resultValue.loadBalancerArn = loadBalancerArn;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.sslPolicy = sslPolicy;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

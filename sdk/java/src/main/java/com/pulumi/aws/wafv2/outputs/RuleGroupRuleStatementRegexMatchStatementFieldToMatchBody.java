@@ -48,9 +48,9 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody {
             return this;
         }
         public RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

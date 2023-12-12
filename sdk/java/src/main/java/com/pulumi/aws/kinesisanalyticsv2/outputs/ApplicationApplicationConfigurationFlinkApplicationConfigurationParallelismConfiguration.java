@@ -107,12 +107,12 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
             return this;
         }
         public ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration();
-            o.autoScalingEnabled = autoScalingEnabled;
-            o.configurationType = configurationType;
-            o.parallelism = parallelism;
-            o.parallelismPerKpu = parallelismPerKpu;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration();
+            _resultValue.autoScalingEnabled = autoScalingEnabled;
+            _resultValue.configurationType = configurationType;
+            _resultValue.parallelism = parallelism;
+            _resultValue.parallelismPerKpu = parallelismPerKpu;
+            return _resultValue;
         }
     }
 }

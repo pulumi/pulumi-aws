@@ -87,11 +87,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings();
-            o.columnDepth = columnDepth;
-            o.includeFec = includeFec;
-            o.rowLength = rowLength;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings();
+            _resultValue.columnDepth = columnDepth;
+            _resultValue.includeFec = includeFec;
+            _resultValue.rowLength = rowLength;
+            return _resultValue;
         }
     }
 }

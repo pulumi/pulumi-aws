@@ -87,11 +87,11 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration();
-            o.invocationCondition = invocationCondition;
-            o.lambdaArn = lambdaArn;
-            o.s3Bucket = s3Bucket;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration();
+            _resultValue.invocationCondition = invocationCondition;
+            _resultValue.lambdaArn = lambdaArn;
+            _resultValue.s3Bucket = s3Bucket;
+            return _resultValue;
         }
     }
 }

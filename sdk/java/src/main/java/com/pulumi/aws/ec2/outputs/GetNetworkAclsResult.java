@@ -109,13 +109,13 @@ public final class GetNetworkAclsResult {
             return this;
         }
         public GetNetworkAclsResult build() {
-            final var o = new GetNetworkAclsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetNetworkAclsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

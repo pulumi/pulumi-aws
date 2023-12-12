@@ -156,18 +156,18 @@ public final class GetCustomRoutingAcceleratorResult {
             return this;
         }
         public GetCustomRoutingAcceleratorResult build() {
-            final var o = new GetCustomRoutingAcceleratorResult();
-            o.arn = arn;
-            o.attributes = attributes;
-            o.dnsName = dnsName;
-            o.enabled = enabled;
-            o.hostedZoneId = hostedZoneId;
-            o.id = id;
-            o.ipAddressType = ipAddressType;
-            o.ipSets = ipSets;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCustomRoutingAcceleratorResult();
+            _resultValue.arn = arn;
+            _resultValue.attributes = attributes;
+            _resultValue.dnsName = dnsName;
+            _resultValue.enabled = enabled;
+            _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.id = id;
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.ipSets = ipSets;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

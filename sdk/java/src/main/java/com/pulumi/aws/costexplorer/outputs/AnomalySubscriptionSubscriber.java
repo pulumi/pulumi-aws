@@ -65,10 +65,10 @@ public final class AnomalySubscriptionSubscriber {
             return this;
         }
         public AnomalySubscriptionSubscriber build() {
-            final var o = new AnomalySubscriptionSubscriber();
-            o.address = address;
-            o.type = type;
-            return o;
+            final var _resultValue = new AnomalySubscriptionSubscriber();
+            _resultValue.address = address;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

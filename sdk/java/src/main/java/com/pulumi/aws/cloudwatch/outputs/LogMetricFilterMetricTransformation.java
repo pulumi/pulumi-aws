@@ -144,14 +144,14 @@ public final class LogMetricFilterMetricTransformation {
             return this;
         }
         public LogMetricFilterMetricTransformation build() {
-            final var o = new LogMetricFilterMetricTransformation();
-            o.defaultValue = defaultValue;
-            o.dimensions = dimensions;
-            o.name = name;
-            o.namespace = namespace;
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new LogMetricFilterMetricTransformation();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.dimensions = dimensions;
+            _resultValue.name = name;
+            _resultValue.namespace = namespace;
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

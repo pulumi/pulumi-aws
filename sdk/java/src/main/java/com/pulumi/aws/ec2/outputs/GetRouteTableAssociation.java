@@ -123,13 +123,13 @@ public final class GetRouteTableAssociation {
             return this;
         }
         public GetRouteTableAssociation build() {
-            final var o = new GetRouteTableAssociation();
-            o.gatewayId = gatewayId;
-            o.main = main;
-            o.routeTableAssociationId = routeTableAssociationId;
-            o.routeTableId = routeTableId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetRouteTableAssociation();
+            _resultValue.gatewayId = gatewayId;
+            _resultValue.main = main;
+            _resultValue.routeTableAssociationId = routeTableAssociationId;
+            _resultValue.routeTableId = routeTableId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

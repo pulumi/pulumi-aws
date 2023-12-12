@@ -70,10 +70,10 @@ public final class ClusterEncryptionConfig {
             return resources(List.of(resources));
         }
         public ClusterEncryptionConfig build() {
-            final var o = new ClusterEncryptionConfig();
-            o.provider = provider;
-            o.resources = resources;
-            return o;
+            final var _resultValue = new ClusterEncryptionConfig();
+            _resultValue.provider = provider;
+            _resultValue.resources = resources;
+            return _resultValue;
         }
     }
 }

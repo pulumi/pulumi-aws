@@ -112,12 +112,12 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTls {
             return this;
         }
         public VirtualNodeSpecBackendDefaultsClientPolicyTls build() {
-            final var o = new VirtualNodeSpecBackendDefaultsClientPolicyTls();
-            o.certificate = certificate;
-            o.enforce = enforce;
-            o.ports = ports;
-            o.validation = validation;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendDefaultsClientPolicyTls();
+            _resultValue.certificate = certificate;
+            _resultValue.enforce = enforce;
+            _resultValue.ports = ports;
+            _resultValue.validation = validation;
+            return _resultValue;
         }
     }
 }

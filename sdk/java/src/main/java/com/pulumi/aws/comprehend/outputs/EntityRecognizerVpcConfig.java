@@ -72,10 +72,10 @@ public final class EntityRecognizerVpcConfig {
             return subnets(List.of(subnets));
         }
         public EntityRecognizerVpcConfig build() {
-            final var o = new EntityRecognizerVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new EntityRecognizerVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

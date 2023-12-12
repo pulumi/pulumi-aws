@@ -69,11 +69,11 @@ public final class GetDataSetPhysicalTableMapS3Source {
             return uploadSettings(List.of(uploadSettings));
         }
         public GetDataSetPhysicalTableMapS3Source build() {
-            final var o = new GetDataSetPhysicalTableMapS3Source();
-            o.dataSourceArn = dataSourceArn;
-            o.inputColumns = inputColumns;
-            o.uploadSettings = uploadSettings;
-            return o;
+            final var _resultValue = new GetDataSetPhysicalTableMapS3Source();
+            _resultValue.dataSourceArn = dataSourceArn;
+            _resultValue.inputColumns = inputColumns;
+            _resultValue.uploadSettings = uploadSettings;
+            return _resultValue;
         }
     }
 }

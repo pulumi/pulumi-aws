@@ -110,12 +110,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk();
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.idFieldNames = idFieldNames;
-            o.object = object;
-            o.writeOperationType = writeOperationType;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk();
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.idFieldNames = idFieldNames;
+            _resultValue.object = object;
+            _resultValue.writeOperationType = writeOperationType;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class GroupExternalId {
             return this;
         }
         public GroupExternalId build() {
-            final var o = new GroupExternalId();
-            o.id = id;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new GroupExternalId();
+            _resultValue.id = id;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

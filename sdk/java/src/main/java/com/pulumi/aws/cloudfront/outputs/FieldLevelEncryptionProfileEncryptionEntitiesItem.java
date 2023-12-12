@@ -85,11 +85,11 @@ public final class FieldLevelEncryptionProfileEncryptionEntitiesItem {
             return this;
         }
         public FieldLevelEncryptionProfileEncryptionEntitiesItem build() {
-            final var o = new FieldLevelEncryptionProfileEncryptionEntitiesItem();
-            o.fieldPatterns = fieldPatterns;
-            o.providerId = providerId;
-            o.publicKeyId = publicKeyId;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionProfileEncryptionEntitiesItem();
+            _resultValue.fieldPatterns = fieldPatterns;
+            _resultValue.providerId = providerId;
+            _resultValue.publicKeyId = publicKeyId;
+            return _resultValue;
         }
     }
 }

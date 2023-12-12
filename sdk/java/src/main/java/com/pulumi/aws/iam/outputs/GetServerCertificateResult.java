@@ -207,19 +207,19 @@ public final class GetServerCertificateResult {
             return this;
         }
         public GetServerCertificateResult build() {
-            final var o = new GetServerCertificateResult();
-            o.arn = arn;
-            o.certificateBody = certificateBody;
-            o.certificateChain = certificateChain;
-            o.expirationDate = expirationDate;
-            o.id = id;
-            o.latest = latest;
-            o.name = name;
-            o.namePrefix = namePrefix;
-            o.path = path;
-            o.pathPrefix = pathPrefix;
-            o.uploadDate = uploadDate;
-            return o;
+            final var _resultValue = new GetServerCertificateResult();
+            _resultValue.arn = arn;
+            _resultValue.certificateBody = certificateBody;
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.expirationDate = expirationDate;
+            _resultValue.id = id;
+            _resultValue.latest = latest;
+            _resultValue.name = name;
+            _resultValue.namePrefix = namePrefix;
+            _resultValue.path = path;
+            _resultValue.pathPrefix = pathPrefix;
+            _resultValue.uploadDate = uploadDate;
+            return _resultValue;
         }
     }
 }

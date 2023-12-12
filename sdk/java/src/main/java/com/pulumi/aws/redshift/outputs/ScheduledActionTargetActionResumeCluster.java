@@ -46,9 +46,9 @@ public final class ScheduledActionTargetActionResumeCluster {
             return this;
         }
         public ScheduledActionTargetActionResumeCluster build() {
-            final var o = new ScheduledActionTargetActionResumeCluster();
-            o.clusterIdentifier = clusterIdentifier;
-            return o;
+            final var _resultValue = new ScheduledActionTargetActionResumeCluster();
+            _resultValue.clusterIdentifier = clusterIdentifier;
+            return _resultValue;
         }
     }
 }

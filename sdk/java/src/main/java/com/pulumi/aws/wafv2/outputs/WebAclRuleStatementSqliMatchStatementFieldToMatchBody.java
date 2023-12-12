@@ -48,9 +48,9 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchBody {
             return this;
         }
         public WebAclRuleStatementSqliMatchStatementFieldToMatchBody build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

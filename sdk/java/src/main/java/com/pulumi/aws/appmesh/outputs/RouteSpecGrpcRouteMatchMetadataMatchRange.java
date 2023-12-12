@@ -65,10 +65,10 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchRange {
             return this;
         }
         public RouteSpecGrpcRouteMatchMetadataMatchRange build() {
-            final var o = new RouteSpecGrpcRouteMatchMetadataMatchRange();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new RouteSpecGrpcRouteMatchMetadataMatchRange();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

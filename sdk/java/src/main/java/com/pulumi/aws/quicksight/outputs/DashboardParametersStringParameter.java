@@ -61,10 +61,10 @@ public final class DashboardParametersStringParameter {
             return values(List.of(values));
         }
         public DashboardParametersStringParameter build() {
-            final var o = new DashboardParametersStringParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new DashboardParametersStringParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

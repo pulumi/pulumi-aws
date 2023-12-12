@@ -71,10 +71,10 @@ public final class DataLakeSettingsCreateDatabaseDefaultPermission {
             return this;
         }
         public DataLakeSettingsCreateDatabaseDefaultPermission build() {
-            final var o = new DataLakeSettingsCreateDatabaseDefaultPermission();
-            o.permissions = permissions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new DataLakeSettingsCreateDatabaseDefaultPermission();
+            _resultValue.permissions = permissions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

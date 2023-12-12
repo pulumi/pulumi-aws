@@ -72,10 +72,10 @@ public final class WebAclRuleStatementSqliMatchStatement {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementSqliMatchStatement build() {
-            final var o = new WebAclRuleStatementSqliMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

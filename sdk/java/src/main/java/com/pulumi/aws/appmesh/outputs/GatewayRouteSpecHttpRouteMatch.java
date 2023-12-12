@@ -155,14 +155,14 @@ public final class GatewayRouteSpecHttpRouteMatch {
             return queryParameters(List.of(queryParameters));
         }
         public GatewayRouteSpecHttpRouteMatch build() {
-            final var o = new GatewayRouteSpecHttpRouteMatch();
-            o.headers = headers;
-            o.hostname = hostname;
-            o.path = path;
-            o.port = port;
-            o.prefix = prefix;
-            o.queryParameters = queryParameters;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteMatch();
+            _resultValue.headers = headers;
+            _resultValue.hostname = hostname;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.prefix = prefix;
+            _resultValue.queryParameters = queryParameters;
+            return _resultValue;
         }
     }
 }

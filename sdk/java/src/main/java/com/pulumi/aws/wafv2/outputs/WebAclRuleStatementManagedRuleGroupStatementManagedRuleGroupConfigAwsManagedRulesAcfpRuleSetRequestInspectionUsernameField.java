@@ -46,9 +46,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField();
-            o.identifier = identifier;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField();
+            _resultValue.identifier = identifier;
+            return _resultValue;
         }
     }
 }

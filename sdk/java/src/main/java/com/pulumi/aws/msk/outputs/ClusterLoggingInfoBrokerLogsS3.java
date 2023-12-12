@@ -87,11 +87,11 @@ public final class ClusterLoggingInfoBrokerLogsS3 {
             return this;
         }
         public ClusterLoggingInfoBrokerLogsS3 build() {
-            final var o = new ClusterLoggingInfoBrokerLogsS3();
-            o.bucket = bucket;
-            o.enabled = enabled;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new ClusterLoggingInfoBrokerLogsS3();
+            _resultValue.bucket = bucket;
+            _resultValue.enabled = enabled;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

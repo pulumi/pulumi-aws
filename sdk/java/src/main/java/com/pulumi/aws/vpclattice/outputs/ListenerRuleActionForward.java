@@ -54,9 +54,9 @@ public final class ListenerRuleActionForward {
             return targetGroups(List.of(targetGroups));
         }
         public ListenerRuleActionForward build() {
-            final var o = new ListenerRuleActionForward();
-            o.targetGroups = targetGroups;
-            return o;
+            final var _resultValue = new ListenerRuleActionForward();
+            _resultValue.targetGroups = targetGroups;
+            return _resultValue;
         }
     }
 }

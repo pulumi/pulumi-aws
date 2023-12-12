@@ -46,9 +46,9 @@ public final class GetThemeConfigurationTypographyFontFamily {
             return this;
         }
         public GetThemeConfigurationTypographyFontFamily build() {
-            final var o = new GetThemeConfigurationTypographyFontFamily();
-            o.fontFamily = fontFamily;
-            return o;
+            final var _resultValue = new GetThemeConfigurationTypographyFontFamily();
+            _resultValue.fontFamily = fontFamily;
+            return _resultValue;
         }
     }
 }

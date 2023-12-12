@@ -64,9 +64,9 @@ public final class InstanceBlueGreenUpdate {
             return this;
         }
         public InstanceBlueGreenUpdate build() {
-            final var o = new InstanceBlueGreenUpdate();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new InstanceBlueGreenUpdate();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

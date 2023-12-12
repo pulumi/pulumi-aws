@@ -107,12 +107,12 @@ public final class InstanceNetworkInterface {
             return this;
         }
         public InstanceNetworkInterface build() {
-            final var o = new InstanceNetworkInterface();
-            o.deleteOnTermination = deleteOnTermination;
-            o.deviceIndex = deviceIndex;
-            o.networkCardIndex = networkCardIndex;
-            o.networkInterfaceId = networkInterfaceId;
-            return o;
+            final var _resultValue = new InstanceNetworkInterface();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.deviceIndex = deviceIndex;
+            _resultValue.networkCardIndex = networkCardIndex;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            return _resultValue;
         }
     }
 }

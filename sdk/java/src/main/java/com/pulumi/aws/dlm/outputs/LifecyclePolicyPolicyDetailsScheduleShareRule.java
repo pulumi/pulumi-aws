@@ -75,11 +75,11 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRule {
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleShareRule build() {
-            final var o = new LifecyclePolicyPolicyDetailsScheduleShareRule();
-            o.targetAccounts = targetAccounts;
-            o.unshareInterval = unshareInterval;
-            o.unshareIntervalUnit = unshareIntervalUnit;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsScheduleShareRule();
+            _resultValue.targetAccounts = targetAccounts;
+            _resultValue.unshareInterval = unshareInterval;
+            _resultValue.unshareIntervalUnit = unshareIntervalUnit;
+            return _resultValue;
         }
     }
 }

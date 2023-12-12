@@ -48,9 +48,9 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchBody {
             return this;
         }
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchBody build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

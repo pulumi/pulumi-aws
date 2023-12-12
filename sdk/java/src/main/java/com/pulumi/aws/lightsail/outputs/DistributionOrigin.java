@@ -105,12 +105,12 @@ public final class DistributionOrigin {
             return this;
         }
         public DistributionOrigin build() {
-            final var o = new DistributionOrigin();
-            o.name = name;
-            o.protocolPolicy = protocolPolicy;
-            o.regionName = regionName;
-            o.resourceType = resourceType;
-            return o;
+            final var _resultValue = new DistributionOrigin();
+            _resultValue.name = name;
+            _resultValue.protocolPolicy = protocolPolicy;
+            _resultValue.regionName = regionName;
+            _resultValue.resourceType = resourceType;
+            return _resultValue;
         }
     }
 }

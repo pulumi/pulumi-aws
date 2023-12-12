@@ -65,10 +65,10 @@ public final class GetBudgetBudgetLimit {
             return this;
         }
         public GetBudgetBudgetLimit build() {
-            final var o = new GetBudgetBudgetLimit();
-            o.amount = amount;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new GetBudgetBudgetLimit();
+            _resultValue.amount = amount;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

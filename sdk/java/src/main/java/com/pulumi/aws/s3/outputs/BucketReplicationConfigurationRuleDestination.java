@@ -167,15 +167,15 @@ public final class BucketReplicationConfigurationRuleDestination {
             return this;
         }
         public BucketReplicationConfigurationRuleDestination build() {
-            final var o = new BucketReplicationConfigurationRuleDestination();
-            o.accessControlTranslation = accessControlTranslation;
-            o.accountId = accountId;
-            o.bucket = bucket;
-            o.metrics = metrics;
-            o.replicaKmsKeyId = replicaKmsKeyId;
-            o.replicationTime = replicationTime;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new BucketReplicationConfigurationRuleDestination();
+            _resultValue.accessControlTranslation = accessControlTranslation;
+            _resultValue.accountId = accountId;
+            _resultValue.bucket = bucket;
+            _resultValue.metrics = metrics;
+            _resultValue.replicaKmsKeyId = replicaKmsKeyId;
+            _resultValue.replicationTime = replicationTime;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

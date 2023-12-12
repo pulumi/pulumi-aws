@@ -114,12 +114,12 @@ public final class ObjectLambdaAccessPointConfiguration {
             return transformationConfigurations(List.of(transformationConfigurations));
         }
         public ObjectLambdaAccessPointConfiguration build() {
-            final var o = new ObjectLambdaAccessPointConfiguration();
-            o.allowedFeatures = allowedFeatures;
-            o.cloudWatchMetricsEnabled = cloudWatchMetricsEnabled;
-            o.supportingAccessPoint = supportingAccessPoint;
-            o.transformationConfigurations = transformationConfigurations;
-            return o;
+            final var _resultValue = new ObjectLambdaAccessPointConfiguration();
+            _resultValue.allowedFeatures = allowedFeatures;
+            _resultValue.cloudWatchMetricsEnabled = cloudWatchMetricsEnabled;
+            _resultValue.supportingAccessPoint = supportingAccessPoint;
+            _resultValue.transformationConfigurations = transformationConfigurations;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader {
             return this;
         }
         public RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader();
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader();
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

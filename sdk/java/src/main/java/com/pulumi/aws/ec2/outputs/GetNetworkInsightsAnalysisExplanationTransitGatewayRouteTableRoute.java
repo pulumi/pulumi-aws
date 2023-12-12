@@ -104,15 +104,15 @@ public final class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute();
-            o.attachmentId = attachmentId;
-            o.destinationCidr = destinationCidr;
-            o.prefixListId = prefixListId;
-            o.resourceId = resourceId;
-            o.resourceType = resourceType;
-            o.routeOrigin = routeOrigin;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute();
+            _resultValue.attachmentId = attachmentId;
+            _resultValue.destinationCidr = destinationCidr;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.resourceId = resourceId;
+            _resultValue.resourceType = resourceType;
+            _resultValue.routeOrigin = routeOrigin;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

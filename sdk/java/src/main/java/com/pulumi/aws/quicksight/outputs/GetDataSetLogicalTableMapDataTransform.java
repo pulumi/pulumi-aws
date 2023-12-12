@@ -132,15 +132,15 @@ public final class GetDataSetLogicalTableMapDataTransform {
             return untagColumnOperations(List.of(untagColumnOperations));
         }
         public GetDataSetLogicalTableMapDataTransform build() {
-            final var o = new GetDataSetLogicalTableMapDataTransform();
-            o.castColumnTypeOperations = castColumnTypeOperations;
-            o.createColumnsOperations = createColumnsOperations;
-            o.filterOperations = filterOperations;
-            o.projectOperations = projectOperations;
-            o.renameColumnOperations = renameColumnOperations;
-            o.tagColumnOperations = tagColumnOperations;
-            o.untagColumnOperations = untagColumnOperations;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransform();
+            _resultValue.castColumnTypeOperations = castColumnTypeOperations;
+            _resultValue.createColumnsOperations = createColumnsOperations;
+            _resultValue.filterOperations = filterOperations;
+            _resultValue.projectOperations = projectOperations;
+            _resultValue.renameColumnOperations = renameColumnOperations;
+            _resultValue.tagColumnOperations = tagColumnOperations;
+            _resultValue.untagColumnOperations = untagColumnOperations;
+            return _resultValue;
         }
     }
 }

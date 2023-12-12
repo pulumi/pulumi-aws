@@ -72,11 +72,11 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidati
             return sds(List.of(sds));
         }
         public GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust build() {
-            final var o = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust();
-            o.acms = acms;
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust();
+            _resultValue.acms = acms;
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

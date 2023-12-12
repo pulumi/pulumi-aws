@@ -87,12 +87,12 @@ public final class GetVirtualNodeSpecListenerTimeout {
             return tcps(List.of(tcps));
         }
         public GetVirtualNodeSpecListenerTimeout build() {
-            final var o = new GetVirtualNodeSpecListenerTimeout();
-            o.grpcs = grpcs;
-            o.http2s = http2s;
-            o.https = https;
-            o.tcps = tcps;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTimeout();
+            _resultValue.grpcs = grpcs;
+            _resultValue.http2s = http2s;
+            _resultValue.https = https;
+            _resultValue.tcps = tcps;
+            return _resultValue;
         }
     }
 }

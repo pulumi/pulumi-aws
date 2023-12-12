@@ -122,13 +122,13 @@ public final class TopicRuleErrorActionElasticsearch {
             return this;
         }
         public TopicRuleErrorActionElasticsearch build() {
-            final var o = new TopicRuleErrorActionElasticsearch();
-            o.endpoint = endpoint;
-            o.id = id;
-            o.index = index;
-            o.roleArn = roleArn;
-            o.type = type;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionElasticsearch();
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.index = index;
+            _resultValue.roleArn = roleArn;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

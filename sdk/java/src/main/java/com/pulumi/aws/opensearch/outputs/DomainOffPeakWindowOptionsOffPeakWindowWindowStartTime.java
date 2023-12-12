@@ -67,10 +67,10 @@ public final class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
             return this;
         }
         public DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime build() {
-            final var o = new DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime();
-            o.hours = hours;
-            o.minutes = minutes;
-            return o;
+            final var _resultValue = new DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime();
+            _resultValue.hours = hours;
+            _resultValue.minutes = minutes;
+            return _resultValue;
         }
     }
 }

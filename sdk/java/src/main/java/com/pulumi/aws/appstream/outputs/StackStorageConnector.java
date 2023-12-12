@@ -92,11 +92,11 @@ public final class StackStorageConnector {
             return this;
         }
         public StackStorageConnector build() {
-            final var o = new StackStorageConnector();
-            o.connectorType = connectorType;
-            o.domains = domains;
-            o.resourceIdentifier = resourceIdentifier;
-            return o;
+            final var _resultValue = new StackStorageConnector();
+            _resultValue.connectorType = connectorType;
+            _resultValue.domains = domains;
+            _resultValue.resourceIdentifier = resourceIdentifier;
+            return _resultValue;
         }
     }
 }

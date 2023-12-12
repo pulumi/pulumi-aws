@@ -48,9 +48,9 @@ public final class ContainerServicePrivateRegistryAccess {
             return this;
         }
         public ContainerServicePrivateRegistryAccess build() {
-            final var o = new ContainerServicePrivateRegistryAccess();
-            o.ecrImagePullerRole = ecrImagePullerRole;
-            return o;
+            final var _resultValue = new ContainerServicePrivateRegistryAccess();
+            _resultValue.ecrImagePullerRole = ecrImagePullerRole;
+            return _resultValue;
         }
     }
 }

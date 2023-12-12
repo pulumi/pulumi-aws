@@ -65,10 +65,10 @@ public final class ServerWorkflowDetailsOnPartialUpload {
             return this;
         }
         public ServerWorkflowDetailsOnPartialUpload build() {
-            final var o = new ServerWorkflowDetailsOnPartialUpload();
-            o.executionRole = executionRole;
-            o.workflowId = workflowId;
-            return o;
+            final var _resultValue = new ServerWorkflowDetailsOnPartialUpload();
+            _resultValue.executionRole = executionRole;
+            _resultValue.workflowId = workflowId;
+            return _resultValue;
         }
     }
 }

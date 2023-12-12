@@ -65,10 +65,10 @@ public final class InsightFiltersNetworkProtocol {
             return this;
         }
         public InsightFiltersNetworkProtocol build() {
-            final var o = new InsightFiltersNetworkProtocol();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersNetworkProtocol();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -146,14 +146,14 @@ public final class TriggerAction {
             return this;
         }
         public TriggerAction build() {
-            final var o = new TriggerAction();
-            o.arguments = arguments;
-            o.crawlerName = crawlerName;
-            o.jobName = jobName;
-            o.notificationProperty = notificationProperty;
-            o.securityConfiguration = securityConfiguration;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new TriggerAction();
+            _resultValue.arguments = arguments;
+            _resultValue.crawlerName = crawlerName;
+            _resultValue.jobName = jobName;
+            _resultValue.notificationProperty = notificationProperty;
+            _resultValue.securityConfiguration = securityConfiguration;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

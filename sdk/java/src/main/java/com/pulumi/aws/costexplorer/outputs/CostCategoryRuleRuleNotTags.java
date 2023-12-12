@@ -93,11 +93,11 @@ public final class CostCategoryRuleRuleNotTags {
             return values(List.of(values));
         }
         public CostCategoryRuleRuleNotTags build() {
-            final var o = new CostCategoryRuleRuleNotTags();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new CostCategoryRuleRuleNotTags();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

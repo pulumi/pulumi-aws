@@ -50,9 +50,9 @@ public final class GetVirtualClusterContainerProviderInfo {
             return eksInfos(List.of(eksInfos));
         }
         public GetVirtualClusterContainerProviderInfo build() {
-            final var o = new GetVirtualClusterContainerProviderInfo();
-            o.eksInfos = eksInfos;
-            return o;
+            final var _resultValue = new GetVirtualClusterContainerProviderInfo();
+            _resultValue.eksInfos = eksInfos;
+            return _resultValue;
         }
     }
 }

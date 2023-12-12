@@ -52,10 +52,10 @@ public final class ListenerRuleActionForwardTargetGroup {
             return this;
         }
         public ListenerRuleActionForwardTargetGroup build() {
-            final var o = new ListenerRuleActionForwardTargetGroup();
-            o.targetGroupIdentifier = targetGroupIdentifier;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new ListenerRuleActionForwardTargetGroup();
+            _resultValue.targetGroupIdentifier = targetGroupIdentifier;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

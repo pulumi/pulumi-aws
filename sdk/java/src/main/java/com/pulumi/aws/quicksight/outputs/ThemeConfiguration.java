@@ -108,12 +108,12 @@ public final class ThemeConfiguration {
             return this;
         }
         public ThemeConfiguration build() {
-            final var o = new ThemeConfiguration();
-            o.dataColorPalette = dataColorPalette;
-            o.sheet = sheet;
-            o.typography = typography;
-            o.uiColorPalette = uiColorPalette;
-            return o;
+            final var _resultValue = new ThemeConfiguration();
+            _resultValue.dataColorPalette = dataColorPalette;
+            _resultValue.sheet = sheet;
+            _resultValue.typography = typography;
+            _resultValue.uiColorPalette = uiColorPalette;
+            return _resultValue;
         }
     }
 }

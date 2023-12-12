@@ -155,14 +155,14 @@ public final class GetPermissionsTableWithColumns {
             return this;
         }
         public GetPermissionsTableWithColumns build() {
-            final var o = new GetPermissionsTableWithColumns();
-            o.catalogId = catalogId;
-            o.columnNames = columnNames;
-            o.databaseName = databaseName;
-            o.excludedColumnNames = excludedColumnNames;
-            o.name = name;
-            o.wildcard = wildcard;
-            return o;
+            final var _resultValue = new GetPermissionsTableWithColumns();
+            _resultValue.catalogId = catalogId;
+            _resultValue.columnNames = columnNames;
+            _resultValue.databaseName = databaseName;
+            _resultValue.excludedColumnNames = excludedColumnNames;
+            _resultValue.name = name;
+            _resultValue.wildcard = wildcard;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class VirtualNodeSpecListenerTlsValidation {
             return this;
         }
         public VirtualNodeSpecListenerTlsValidation build() {
-            final var o = new VirtualNodeSpecListenerTlsValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trust = trust;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTlsValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trust = trust;
+            return _resultValue;
         }
     }
 }

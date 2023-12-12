@@ -106,12 +106,12 @@ public final class WorkflowStepCustomStepDetails {
             return this;
         }
         public WorkflowStepCustomStepDetails build() {
-            final var o = new WorkflowStepCustomStepDetails();
-            o.name = name;
-            o.sourceFileLocation = sourceFileLocation;
-            o.target = target;
-            o.timeoutSeconds = timeoutSeconds;
-            return o;
+            final var _resultValue = new WorkflowStepCustomStepDetails();
+            _resultValue.name = name;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            _resultValue.target = target;
+            _resultValue.timeoutSeconds = timeoutSeconds;
+            return _resultValue;
         }
     }
 }

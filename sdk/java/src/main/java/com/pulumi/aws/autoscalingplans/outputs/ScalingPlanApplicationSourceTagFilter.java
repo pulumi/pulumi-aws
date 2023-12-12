@@ -70,10 +70,10 @@ public final class ScalingPlanApplicationSourceTagFilter {
             return values(List.of(values));
         }
         public ScalingPlanApplicationSourceTagFilter build() {
-            final var o = new ScalingPlanApplicationSourceTagFilter();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new ScalingPlanApplicationSourceTagFilter();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

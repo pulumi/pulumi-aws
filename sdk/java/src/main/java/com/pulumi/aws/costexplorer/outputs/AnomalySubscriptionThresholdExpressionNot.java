@@ -88,11 +88,11 @@ public final class AnomalySubscriptionThresholdExpressionNot {
             return this;
         }
         public AnomalySubscriptionThresholdExpressionNot build() {
-            final var o = new AnomalySubscriptionThresholdExpressionNot();
-            o.costCategory = costCategory;
-            o.dimension = dimension;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new AnomalySubscriptionThresholdExpressionNot();
+            _resultValue.costCategory = costCategory;
+            _resultValue.dimension = dimension;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

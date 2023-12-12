@@ -348,26 +348,26 @@ public final class GetVpcIpamPoolsIpamPool {
             return this;
         }
         public GetVpcIpamPoolsIpamPool build() {
-            final var o = new GetVpcIpamPoolsIpamPool();
-            o.addressFamily = addressFamily;
-            o.allocationDefaultNetmaskLength = allocationDefaultNetmaskLength;
-            o.allocationMaxNetmaskLength = allocationMaxNetmaskLength;
-            o.allocationMinNetmaskLength = allocationMinNetmaskLength;
-            o.allocationResourceTags = allocationResourceTags;
-            o.arn = arn;
-            o.autoImport = autoImport;
-            o.awsService = awsService;
-            o.description = description;
-            o.id = id;
-            o.ipamScopeId = ipamScopeId;
-            o.ipamScopeType = ipamScopeType;
-            o.locale = locale;
-            o.poolDepth = poolDepth;
-            o.publiclyAdvertisable = publiclyAdvertisable;
-            o.sourceIpamPoolId = sourceIpamPoolId;
-            o.state = state;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetVpcIpamPoolsIpamPool();
+            _resultValue.addressFamily = addressFamily;
+            _resultValue.allocationDefaultNetmaskLength = allocationDefaultNetmaskLength;
+            _resultValue.allocationMaxNetmaskLength = allocationMaxNetmaskLength;
+            _resultValue.allocationMinNetmaskLength = allocationMinNetmaskLength;
+            _resultValue.allocationResourceTags = allocationResourceTags;
+            _resultValue.arn = arn;
+            _resultValue.autoImport = autoImport;
+            _resultValue.awsService = awsService;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.ipamScopeId = ipamScopeId;
+            _resultValue.ipamScopeType = ipamScopeType;
+            _resultValue.locale = locale;
+            _resultValue.poolDepth = poolDepth;
+            _resultValue.publiclyAdvertisable = publiclyAdvertisable;
+            _resultValue.sourceIpamPoolId = sourceIpamPoolId;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

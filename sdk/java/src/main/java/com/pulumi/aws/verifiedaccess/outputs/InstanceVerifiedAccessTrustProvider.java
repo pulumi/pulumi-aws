@@ -124,13 +124,13 @@ public final class InstanceVerifiedAccessTrustProvider {
             return this;
         }
         public InstanceVerifiedAccessTrustProvider build() {
-            final var o = new InstanceVerifiedAccessTrustProvider();
-            o.description = description;
-            o.deviceTrustProviderType = deviceTrustProviderType;
-            o.trustProviderType = trustProviderType;
-            o.userTrustProviderType = userTrustProviderType;
-            o.verifiedAccessTrustProviderId = verifiedAccessTrustProviderId;
-            return o;
+            final var _resultValue = new InstanceVerifiedAccessTrustProvider();
+            _resultValue.description = description;
+            _resultValue.deviceTrustProviderType = deviceTrustProviderType;
+            _resultValue.trustProviderType = trustProviderType;
+            _resultValue.userTrustProviderType = userTrustProviderType;
+            _resultValue.verifiedAccessTrustProviderId = verifiedAccessTrustProviderId;
+            return _resultValue;
         }
     }
 }

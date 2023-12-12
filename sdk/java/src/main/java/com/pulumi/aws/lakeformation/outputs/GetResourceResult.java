@@ -95,12 +95,12 @@ public final class GetResourceResult {
             return this;
         }
         public GetResourceResult build() {
-            final var o = new GetResourceResult();
-            o.arn = arn;
-            o.id = id;
-            o.lastModified = lastModified;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new GetResourceResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.lastModified = lastModified;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

@@ -163,15 +163,15 @@ public final class TableReplica {
             return this;
         }
         public TableReplica build() {
-            final var o = new TableReplica();
-            o.arn = arn;
-            o.kmsKeyArn = kmsKeyArn;
-            o.pointInTimeRecovery = pointInTimeRecovery;
-            o.propagateTags = propagateTags;
-            o.regionName = regionName;
-            o.streamArn = streamArn;
-            o.streamLabel = streamLabel;
-            return o;
+            final var _resultValue = new TableReplica();
+            _resultValue.arn = arn;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.pointInTimeRecovery = pointInTimeRecovery;
+            _resultValue.propagateTags = propagateTags;
+            _resultValue.regionName = regionName;
+            _resultValue.streamArn = streamArn;
+            _resultValue.streamLabel = streamLabel;
+            return _resultValue;
         }
     }
 }

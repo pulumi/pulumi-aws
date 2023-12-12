@@ -124,13 +124,13 @@ public final class DataSourceRelationalDatabaseConfigHttpEndpointConfig {
             return this;
         }
         public DataSourceRelationalDatabaseConfigHttpEndpointConfig build() {
-            final var o = new DataSourceRelationalDatabaseConfigHttpEndpointConfig();
-            o.awsSecretStoreArn = awsSecretStoreArn;
-            o.databaseName = databaseName;
-            o.dbClusterIdentifier = dbClusterIdentifier;
-            o.region = region;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new DataSourceRelationalDatabaseConfigHttpEndpointConfig();
+            _resultValue.awsSecretStoreArn = awsSecretStoreArn;
+            _resultValue.databaseName = databaseName;
+            _resultValue.dbClusterIdentifier = dbClusterIdentifier;
+            _resultValue.region = region;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

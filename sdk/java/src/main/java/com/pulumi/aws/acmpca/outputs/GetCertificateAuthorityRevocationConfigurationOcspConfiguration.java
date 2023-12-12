@@ -50,10 +50,10 @@ public final class GetCertificateAuthorityRevocationConfigurationOcspConfigurati
             return this;
         }
         public GetCertificateAuthorityRevocationConfigurationOcspConfiguration build() {
-            final var o = new GetCertificateAuthorityRevocationConfigurationOcspConfiguration();
-            o.enabled = enabled;
-            o.ocspCustomCname = ocspCustomCname;
-            return o;
+            final var _resultValue = new GetCertificateAuthorityRevocationConfigurationOcspConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.ocspCustomCname = ocspCustomCname;
+            return _resultValue;
         }
     }
 }

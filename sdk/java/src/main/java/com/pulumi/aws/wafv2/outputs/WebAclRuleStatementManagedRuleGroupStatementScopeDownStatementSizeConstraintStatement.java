@@ -112,12 +112,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement();
-            o.comparisonOperator = comparisonOperator;
-            o.fieldToMatch = fieldToMatch;
-            o.size = size;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement();
+            _resultValue.comparisonOperator = comparisonOperator;
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.size = size;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class AnalysisParametersDateTimeParameter {
             return values(List.of(values));
         }
         public AnalysisParametersDateTimeParameter build() {
-            final var o = new AnalysisParametersDateTimeParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new AnalysisParametersDateTimeParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

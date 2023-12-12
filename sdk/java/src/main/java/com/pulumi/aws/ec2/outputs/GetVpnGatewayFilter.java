@@ -73,10 +73,10 @@ public final class GetVpnGatewayFilter {
             return values(List.of(values));
         }
         public GetVpnGatewayFilter build() {
-            final var o = new GetVpnGatewayFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpnGatewayFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

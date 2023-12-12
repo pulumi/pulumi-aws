@@ -46,9 +46,9 @@ public final class GetKeyXksKeyConfiguration {
             return this;
         }
         public GetKeyXksKeyConfiguration build() {
-            final var o = new GetKeyXksKeyConfiguration();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetKeyXksKeyConfiguration();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

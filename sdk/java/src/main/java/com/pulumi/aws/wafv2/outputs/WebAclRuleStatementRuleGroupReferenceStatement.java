@@ -71,10 +71,10 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
             return ruleActionOverrides(List.of(ruleActionOverrides));
         }
         public WebAclRuleStatementRuleGroupReferenceStatement build() {
-            final var o = new WebAclRuleStatementRuleGroupReferenceStatement();
-            o.arn = arn;
-            o.ruleActionOverrides = ruleActionOverrides;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRuleGroupReferenceStatement();
+            _resultValue.arn = arn;
+            _resultValue.ruleActionOverrides = ruleActionOverrides;
+            return _resultValue;
         }
     }
 }

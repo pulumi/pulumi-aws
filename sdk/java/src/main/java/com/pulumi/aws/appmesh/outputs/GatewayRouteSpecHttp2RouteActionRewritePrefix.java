@@ -67,10 +67,10 @@ public final class GatewayRouteSpecHttp2RouteActionRewritePrefix {
             return this;
         }
         public GatewayRouteSpecHttp2RouteActionRewritePrefix build() {
-            final var o = new GatewayRouteSpecHttp2RouteActionRewritePrefix();
-            o.defaultPrefix = defaultPrefix;
-            o.value = value;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2RouteActionRewritePrefix();
+            _resultValue.defaultPrefix = defaultPrefix;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

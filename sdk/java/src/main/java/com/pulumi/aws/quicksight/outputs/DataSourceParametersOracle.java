@@ -85,11 +85,11 @@ public final class DataSourceParametersOracle {
             return this;
         }
         public DataSourceParametersOracle build() {
-            final var o = new DataSourceParametersOracle();
-            o.database = database;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersOracle();
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

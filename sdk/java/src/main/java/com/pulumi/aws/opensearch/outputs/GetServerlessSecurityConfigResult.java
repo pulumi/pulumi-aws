@@ -155,15 +155,15 @@ public final class GetServerlessSecurityConfigResult {
             return this;
         }
         public GetServerlessSecurityConfigResult build() {
-            final var o = new GetServerlessSecurityConfigResult();
-            o.configVersion = configVersion;
-            o.createdDate = createdDate;
-            o.description = description;
-            o.id = id;
-            o.lastModifiedDate = lastModifiedDate;
-            o.samlOptions = samlOptions;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetServerlessSecurityConfigResult();
+            _resultValue.configVersion = configVersion;
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.lastModifiedDate = lastModifiedDate;
+            _resultValue.samlOptions = samlOptions;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

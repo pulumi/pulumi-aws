@@ -103,12 +103,12 @@ public final class TopicRuleCloudwatchAlarm {
             return this;
         }
         public TopicRuleCloudwatchAlarm build() {
-            final var o = new TopicRuleCloudwatchAlarm();
-            o.alarmName = alarmName;
-            o.roleArn = roleArn;
-            o.stateReason = stateReason;
-            o.stateValue = stateValue;
-            return o;
+            final var _resultValue = new TopicRuleCloudwatchAlarm();
+            _resultValue.alarmName = alarmName;
+            _resultValue.roleArn = roleArn;
+            _resultValue.stateReason = stateReason;
+            _resultValue.stateValue = stateValue;
+            return _resultValue;
         }
     }
 }

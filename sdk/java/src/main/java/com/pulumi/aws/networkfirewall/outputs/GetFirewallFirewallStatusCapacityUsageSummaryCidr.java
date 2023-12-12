@@ -89,11 +89,11 @@ public final class GetFirewallFirewallStatusCapacityUsageSummaryCidr {
             return this;
         }
         public GetFirewallFirewallStatusCapacityUsageSummaryCidr build() {
-            final var o = new GetFirewallFirewallStatusCapacityUsageSummaryCidr();
-            o.availableCidrCount = availableCidrCount;
-            o.ipSetReferences = ipSetReferences;
-            o.utilizedCidrCount = utilizedCidrCount;
-            return o;
+            final var _resultValue = new GetFirewallFirewallStatusCapacityUsageSummaryCidr();
+            _resultValue.availableCidrCount = availableCidrCount;
+            _resultValue.ipSetReferences = ipSetReferences;
+            _resultValue.utilizedCidrCount = utilizedCidrCount;
+            return _resultValue;
         }
     }
 }

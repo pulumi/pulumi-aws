@@ -87,11 +87,11 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings();
-            o.bitrate = bitrate;
-            o.codingMode = codingMode;
-            o.sampleRate = sampleRate;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings();
+            _resultValue.bitrate = bitrate;
+            _resultValue.codingMode = codingMode;
+            _resultValue.sampleRate = sampleRate;
+            return _resultValue;
         }
     }
 }

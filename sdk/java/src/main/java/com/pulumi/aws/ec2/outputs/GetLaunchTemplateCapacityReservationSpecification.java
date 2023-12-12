@@ -54,10 +54,10 @@ public final class GetLaunchTemplateCapacityReservationSpecification {
             return capacityReservationTargets(List.of(capacityReservationTargets));
         }
         public GetLaunchTemplateCapacityReservationSpecification build() {
-            final var o = new GetLaunchTemplateCapacityReservationSpecification();
-            o.capacityReservationPreference = capacityReservationPreference;
-            o.capacityReservationTargets = capacityReservationTargets;
-            return o;
+            final var _resultValue = new GetLaunchTemplateCapacityReservationSpecification();
+            _resultValue.capacityReservationPreference = capacityReservationPreference;
+            _resultValue.capacityReservationTargets = capacityReservationTargets;
+            return _resultValue;
         }
     }
 }

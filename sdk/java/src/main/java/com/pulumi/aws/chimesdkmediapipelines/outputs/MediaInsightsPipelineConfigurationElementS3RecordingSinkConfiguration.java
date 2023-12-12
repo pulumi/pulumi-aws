@@ -48,9 +48,9 @@ public final class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfi
             return this;
         }
         public MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration();
-            o.destination = destination;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration();
+            _resultValue.destination = destination;
+            return _resultValue;
         }
     }
 }

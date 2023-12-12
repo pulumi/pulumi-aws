@@ -84,11 +84,11 @@ public final class InstanceAddOn {
             return this;
         }
         public InstanceAddOn build() {
-            final var o = new InstanceAddOn();
-            o.snapshotTime = snapshotTime;
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new InstanceAddOn();
+            _resultValue.snapshotTime = snapshotTime;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

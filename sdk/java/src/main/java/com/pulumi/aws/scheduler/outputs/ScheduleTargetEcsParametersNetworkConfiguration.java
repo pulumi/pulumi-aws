@@ -94,11 +94,11 @@ public final class ScheduleTargetEcsParametersNetworkConfiguration {
             return subnets(List.of(subnets));
         }
         public ScheduleTargetEcsParametersNetworkConfiguration build() {
-            final var o = new ScheduleTargetEcsParametersNetworkConfiguration();
-            o.assignPublicIp = assignPublicIp;
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new ScheduleTargetEcsParametersNetworkConfiguration();
+            _resultValue.assignPublicIp = assignPublicIp;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

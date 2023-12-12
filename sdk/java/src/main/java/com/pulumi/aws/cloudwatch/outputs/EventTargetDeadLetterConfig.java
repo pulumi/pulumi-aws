@@ -48,9 +48,9 @@ public final class EventTargetDeadLetterConfig {
             return this;
         }
         public EventTargetDeadLetterConfig build() {
-            final var o = new EventTargetDeadLetterConfig();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new EventTargetDeadLetterConfig();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

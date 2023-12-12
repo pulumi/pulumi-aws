@@ -137,16 +137,16 @@ public final class GetListenerDefaultAction {
             return this;
         }
         public GetListenerDefaultAction build() {
-            final var o = new GetListenerDefaultAction();
-            o.authenticateCognitos = authenticateCognitos;
-            o.authenticateOidcs = authenticateOidcs;
-            o.fixedResponses = fixedResponses;
-            o.forwards = forwards;
-            o.order = order;
-            o.redirects = redirects;
-            o.targetGroupArn = targetGroupArn;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetListenerDefaultAction();
+            _resultValue.authenticateCognitos = authenticateCognitos;
+            _resultValue.authenticateOidcs = authenticateOidcs;
+            _resultValue.fixedResponses = fixedResponses;
+            _resultValue.forwards = forwards;
+            _resultValue.order = order;
+            _resultValue.redirects = redirects;
+            _resultValue.targetGroupArn = targetGroupArn;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

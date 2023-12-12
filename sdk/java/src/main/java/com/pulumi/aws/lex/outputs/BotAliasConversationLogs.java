@@ -71,10 +71,10 @@ public final class BotAliasConversationLogs {
             return logSettings(List.of(logSettings));
         }
         public BotAliasConversationLogs build() {
-            final var o = new BotAliasConversationLogs();
-            o.iamRoleArn = iamRoleArn;
-            o.logSettings = logSettings;
-            return o;
+            final var _resultValue = new BotAliasConversationLogs();
+            _resultValue.iamRoleArn = iamRoleArn;
+            _resultValue.logSettings = logSettings;
+            return _resultValue;
         }
     }
 }

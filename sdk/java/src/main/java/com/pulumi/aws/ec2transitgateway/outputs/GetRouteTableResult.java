@@ -160,15 +160,15 @@ public final class GetRouteTableResult {
             return this;
         }
         public GetRouteTableResult build() {
-            final var o = new GetRouteTableResult();
-            o.arn = arn;
-            o.defaultAssociationRouteTable = defaultAssociationRouteTable;
-            o.defaultPropagationRouteTable = defaultPropagationRouteTable;
-            o.filters = filters;
-            o.id = id;
-            o.tags = tags;
-            o.transitGatewayId = transitGatewayId;
-            return o;
+            final var _resultValue = new GetRouteTableResult();
+            _resultValue.arn = arn;
+            _resultValue.defaultAssociationRouteTable = defaultAssociationRouteTable;
+            _resultValue.defaultPropagationRouteTable = defaultPropagationRouteTable;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            return _resultValue;
         }
     }
 }

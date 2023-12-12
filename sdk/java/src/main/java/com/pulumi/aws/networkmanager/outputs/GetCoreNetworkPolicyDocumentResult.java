@@ -139,15 +139,15 @@ public final class GetCoreNetworkPolicyDocumentResult {
             return this;
         }
         public GetCoreNetworkPolicyDocumentResult build() {
-            final var o = new GetCoreNetworkPolicyDocumentResult();
-            o.attachmentPolicies = attachmentPolicies;
-            o.coreNetworkConfigurations = coreNetworkConfigurations;
-            o.id = id;
-            o.json = json;
-            o.segmentActions = segmentActions;
-            o.segments = segments;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentResult();
+            _resultValue.attachmentPolicies = attachmentPolicies;
+            _resultValue.coreNetworkConfigurations = coreNetworkConfigurations;
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.segmentActions = segmentActions;
+            _resultValue.segments = segments;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

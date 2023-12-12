@@ -94,11 +94,11 @@ public final class IndexingConfigurationThingGroupIndexingConfiguration {
             return this;
         }
         public IndexingConfigurationThingGroupIndexingConfiguration build() {
-            final var o = new IndexingConfigurationThingGroupIndexingConfiguration();
-            o.customFields = customFields;
-            o.managedFields = managedFields;
-            o.thingGroupIndexingMode = thingGroupIndexingMode;
-            return o;
+            final var _resultValue = new IndexingConfigurationThingGroupIndexingConfiguration();
+            _resultValue.customFields = customFields;
+            _resultValue.managedFields = managedFields;
+            _resultValue.thingGroupIndexingMode = thingGroupIndexingMode;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class DataSourceParametersTwitter {
             return this;
         }
         public DataSourceParametersTwitter build() {
-            final var o = new DataSourceParametersTwitter();
-            o.maxRows = maxRows;
-            o.query = query;
-            return o;
+            final var _resultValue = new DataSourceParametersTwitter();
+            _resultValue.maxRows = maxRows;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

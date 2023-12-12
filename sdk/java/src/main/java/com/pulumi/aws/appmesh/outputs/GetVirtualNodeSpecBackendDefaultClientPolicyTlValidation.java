@@ -57,10 +57,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation {
             return trusts(List.of(trusts));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trusts = trusts;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trusts = trusts;
+            return _resultValue;
         }
     }
 }

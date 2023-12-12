@@ -90,11 +90,11 @@ public final class DeploymentGroupEc2TagSetEc2TagFilter {
             return this;
         }
         public DeploymentGroupEc2TagSetEc2TagFilter build() {
-            final var o = new DeploymentGroupEc2TagSetEc2TagFilter();
-            o.key = key;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new DeploymentGroupEc2TagSetEc2TagFilter();
+            _resultValue.key = key;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

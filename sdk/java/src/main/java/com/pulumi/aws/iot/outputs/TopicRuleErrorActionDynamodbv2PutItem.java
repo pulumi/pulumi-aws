@@ -46,9 +46,9 @@ public final class TopicRuleErrorActionDynamodbv2PutItem {
             return this;
         }
         public TopicRuleErrorActionDynamodbv2PutItem build() {
-            final var o = new TopicRuleErrorActionDynamodbv2PutItem();
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionDynamodbv2PutItem();
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

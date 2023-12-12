@@ -56,10 +56,10 @@ public final class EcsClusterLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public EcsClusterLayerCloudwatchConfiguration build() {
-            final var o = new EcsClusterLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new EcsClusterLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

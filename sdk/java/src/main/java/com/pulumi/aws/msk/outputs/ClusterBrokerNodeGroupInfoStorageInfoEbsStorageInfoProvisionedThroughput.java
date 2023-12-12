@@ -68,10 +68,10 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisione
             return this;
         }
         public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput build() {
-            final var o = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput();
-            o.enabled = enabled;
-            o.volumeThroughput = volumeThroughput;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput();
+            _resultValue.enabled = enabled;
+            _resultValue.volumeThroughput = volumeThroughput;
+            return _resultValue;
         }
     }
 }

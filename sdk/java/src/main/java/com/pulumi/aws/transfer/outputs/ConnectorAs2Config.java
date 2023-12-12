@@ -181,16 +181,16 @@ public final class ConnectorAs2Config {
             return this;
         }
         public ConnectorAs2Config build() {
-            final var o = new ConnectorAs2Config();
-            o.compression = compression;
-            o.encryptionAlgorithm = encryptionAlgorithm;
-            o.localProfileId = localProfileId;
-            o.mdnResponse = mdnResponse;
-            o.mdnSigningAlgorithm = mdnSigningAlgorithm;
-            o.messageSubject = messageSubject;
-            o.partnerProfileId = partnerProfileId;
-            o.signingAlgorithm = signingAlgorithm;
-            return o;
+            final var _resultValue = new ConnectorAs2Config();
+            _resultValue.compression = compression;
+            _resultValue.encryptionAlgorithm = encryptionAlgorithm;
+            _resultValue.localProfileId = localProfileId;
+            _resultValue.mdnResponse = mdnResponse;
+            _resultValue.mdnSigningAlgorithm = mdnSigningAlgorithm;
+            _resultValue.messageSubject = messageSubject;
+            _resultValue.partnerProfileId = partnerProfileId;
+            _resultValue.signingAlgorithm = signingAlgorithm;
+            return _resultValue;
         }
     }
 }

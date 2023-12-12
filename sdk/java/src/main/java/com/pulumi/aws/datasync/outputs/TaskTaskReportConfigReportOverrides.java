@@ -105,12 +105,12 @@ public final class TaskTaskReportConfigReportOverrides {
             return this;
         }
         public TaskTaskReportConfigReportOverrides build() {
-            final var o = new TaskTaskReportConfigReportOverrides();
-            o.deletedOverride = deletedOverride;
-            o.skippedOverride = skippedOverride;
-            o.transferredOverride = transferredOverride;
-            o.verifiedOverride = verifiedOverride;
-            return o;
+            final var _resultValue = new TaskTaskReportConfigReportOverrides();
+            _resultValue.deletedOverride = deletedOverride;
+            _resultValue.skippedOverride = skippedOverride;
+            _resultValue.transferredOverride = transferredOverride;
+            _resultValue.verifiedOverride = verifiedOverride;
+            return _resultValue;
         }
     }
 }

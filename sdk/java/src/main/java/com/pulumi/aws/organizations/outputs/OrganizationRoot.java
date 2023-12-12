@@ -110,12 +110,12 @@ public final class OrganizationRoot {
             return policyTypes(List.of(policyTypes));
         }
         public OrganizationRoot build() {
-            final var o = new OrganizationRoot();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.policyTypes = policyTypes;
-            return o;
+            final var _resultValue = new OrganizationRoot();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.policyTypes = policyTypes;
+            return _resultValue;
         }
     }
 }

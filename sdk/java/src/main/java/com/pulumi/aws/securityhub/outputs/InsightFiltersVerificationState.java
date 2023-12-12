@@ -65,10 +65,10 @@ public final class InsightFiltersVerificationState {
             return this;
         }
         public InsightFiltersVerificationState build() {
-            final var o = new InsightFiltersVerificationState();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersVerificationState();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

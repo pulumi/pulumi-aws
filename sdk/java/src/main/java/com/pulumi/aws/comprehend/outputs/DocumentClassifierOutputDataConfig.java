@@ -90,11 +90,11 @@ public final class DocumentClassifierOutputDataConfig {
             return this;
         }
         public DocumentClassifierOutputDataConfig build() {
-            final var o = new DocumentClassifierOutputDataConfig();
-            o.kmsKeyId = kmsKeyId;
-            o.outputS3Uri = outputS3Uri;
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new DocumentClassifierOutputDataConfig();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.outputS3Uri = outputS3Uri;
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ThemeConfigurationSheetTileLayoutMargin {
             return this;
         }
         public ThemeConfigurationSheetTileLayoutMargin build() {
-            final var o = new ThemeConfigurationSheetTileLayoutMargin();
-            o.show = show;
-            return o;
+            final var _resultValue = new ThemeConfigurationSheetTileLayoutMargin();
+            _resultValue.show = show;
+            return _resultValue;
         }
     }
 }

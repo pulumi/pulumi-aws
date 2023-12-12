@@ -65,10 +65,10 @@ public final class ClusterSetting {
             return this;
         }
         public ClusterSetting build() {
-            final var o = new ClusterSetting();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new ClusterSetting();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

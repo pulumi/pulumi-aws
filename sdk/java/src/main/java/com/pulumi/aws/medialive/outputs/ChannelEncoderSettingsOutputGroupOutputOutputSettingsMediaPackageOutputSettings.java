@@ -25,8 +25,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPac
         }
 
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings();
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings();
+            return _resultValue;
         }
     }
 }

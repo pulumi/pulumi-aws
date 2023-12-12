@@ -25,8 +25,8 @@ public final class BucketLoggingV2TargetObjectKeyFormatSimplePrefix {
         }
 
         public BucketLoggingV2TargetObjectKeyFormatSimplePrefix build() {
-            final var o = new BucketLoggingV2TargetObjectKeyFormatSimplePrefix();
-            return o;
+            final var _resultValue = new BucketLoggingV2TargetObjectKeyFormatSimplePrefix();
+            return _resultValue;
         }
     }
 }

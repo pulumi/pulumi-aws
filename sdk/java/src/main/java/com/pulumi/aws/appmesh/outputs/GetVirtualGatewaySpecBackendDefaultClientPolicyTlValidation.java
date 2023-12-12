@@ -57,10 +57,10 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation {
             return trusts(List.of(trusts));
         }
         public GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation build() {
-            final var o = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trusts = trusts;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trusts = trusts;
+            return _resultValue;
         }
     }
 }

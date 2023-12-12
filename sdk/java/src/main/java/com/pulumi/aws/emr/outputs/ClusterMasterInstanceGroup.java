@@ -149,14 +149,14 @@ public final class ClusterMasterInstanceGroup {
             return this;
         }
         public ClusterMasterInstanceGroup build() {
-            final var o = new ClusterMasterInstanceGroup();
-            o.bidPrice = bidPrice;
-            o.ebsConfigs = ebsConfigs;
-            o.id = id;
-            o.instanceCount = instanceCount;
-            o.instanceType = instanceType;
-            o.name = name;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceGroup();
+            _resultValue.bidPrice = bidPrice;
+            _resultValue.ebsConfigs = ebsConfigs;
+            _resultValue.id = id;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.instanceType = instanceType;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class NodeGroupResourceAutoscalingGroup {
             return this;
         }
         public NodeGroupResourceAutoscalingGroup build() {
-            final var o = new NodeGroupResourceAutoscalingGroup();
-            o.name = name;
-            return o;
+            final var _resultValue = new NodeGroupResourceAutoscalingGroup();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

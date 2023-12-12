@@ -107,12 +107,12 @@ public final class WorkgroupConfigurationResultConfiguration {
             return this;
         }
         public WorkgroupConfigurationResultConfiguration build() {
-            final var o = new WorkgroupConfigurationResultConfiguration();
-            o.aclConfiguration = aclConfiguration;
-            o.encryptionConfiguration = encryptionConfiguration;
-            o.expectedBucketOwner = expectedBucketOwner;
-            o.outputLocation = outputLocation;
-            return o;
+            final var _resultValue = new WorkgroupConfigurationResultConfiguration();
+            _resultValue.aclConfiguration = aclConfiguration;
+            _resultValue.encryptionConfiguration = encryptionConfiguration;
+            _resultValue.expectedBucketOwner = expectedBucketOwner;
+            _resultValue.outputLocation = outputLocation;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange {
             return this;
         }
         public InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange build() {
-            final var o = new InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

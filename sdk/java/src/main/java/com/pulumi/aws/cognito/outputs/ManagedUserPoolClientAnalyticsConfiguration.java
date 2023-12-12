@@ -125,13 +125,13 @@ public final class ManagedUserPoolClientAnalyticsConfiguration {
             return this;
         }
         public ManagedUserPoolClientAnalyticsConfiguration build() {
-            final var o = new ManagedUserPoolClientAnalyticsConfiguration();
-            o.applicationArn = applicationArn;
-            o.applicationId = applicationId;
-            o.externalId = externalId;
-            o.roleArn = roleArn;
-            o.userDataShared = userDataShared;
-            return o;
+            final var _resultValue = new ManagedUserPoolClientAnalyticsConfiguration();
+            _resultValue.applicationArn = applicationArn;
+            _resultValue.applicationId = applicationId;
+            _resultValue.externalId = externalId;
+            _resultValue.roleArn = roleArn;
+            _resultValue.userDataShared = userDataShared;
+            return _resultValue;
         }
     }
 }

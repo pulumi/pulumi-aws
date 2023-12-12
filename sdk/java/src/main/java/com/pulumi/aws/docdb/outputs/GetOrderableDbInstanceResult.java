@@ -141,16 +141,16 @@ public final class GetOrderableDbInstanceResult {
             return this;
         }
         public GetOrderableDbInstanceResult build() {
-            final var o = new GetOrderableDbInstanceResult();
-            o.availabilityZones = availabilityZones;
-            o.engine = engine;
-            o.engineVersion = engineVersion;
-            o.id = id;
-            o.instanceClass = instanceClass;
-            o.licenseModel = licenseModel;
-            o.preferredInstanceClasses = preferredInstanceClasses;
-            o.vpc = vpc;
-            return o;
+            final var _resultValue = new GetOrderableDbInstanceResult();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.engine = engine;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.id = id;
+            _resultValue.instanceClass = instanceClass;
+            _resultValue.licenseModel = licenseModel;
+            _resultValue.preferredInstanceClasses = preferredInstanceClasses;
+            _resultValue.vpc = vpc;
+            return _resultValue;
         }
     }
 }

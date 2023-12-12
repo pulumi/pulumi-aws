@@ -194,16 +194,16 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
             return shareWiths(List.of(shareWiths));
         }
         public GetCoreNetworkPolicyDocumentSegmentAction build() {
-            final var o = new GetCoreNetworkPolicyDocumentSegmentAction();
-            o.action = action;
-            o.description = description;
-            o.destinationCidrBlocks = destinationCidrBlocks;
-            o.destinations = destinations;
-            o.mode = mode;
-            o.segment = segment;
-            o.shareWithExcepts = shareWithExcepts;
-            o.shareWiths = shareWiths;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentSegmentAction();
+            _resultValue.action = action;
+            _resultValue.description = description;
+            _resultValue.destinationCidrBlocks = destinationCidrBlocks;
+            _resultValue.destinations = destinations;
+            _resultValue.mode = mode;
+            _resultValue.segment = segment;
+            _resultValue.shareWithExcepts = shareWithExcepts;
+            _resultValue.shareWiths = shareWiths;
+            return _resultValue;
         }
     }
 }

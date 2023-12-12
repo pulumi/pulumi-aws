@@ -151,14 +151,14 @@ public final class DocumentClassifierInputDataConfigAugmentedManifest {
             return this;
         }
         public DocumentClassifierInputDataConfigAugmentedManifest build() {
-            final var o = new DocumentClassifierInputDataConfigAugmentedManifest();
-            o.annotationDataS3Uri = annotationDataS3Uri;
-            o.attributeNames = attributeNames;
-            o.documentType = documentType;
-            o.s3Uri = s3Uri;
-            o.sourceDocumentsS3Uri = sourceDocumentsS3Uri;
-            o.split = split;
-            return o;
+            final var _resultValue = new DocumentClassifierInputDataConfigAugmentedManifest();
+            _resultValue.annotationDataS3Uri = annotationDataS3Uri;
+            _resultValue.attributeNames = attributeNames;
+            _resultValue.documentType = documentType;
+            _resultValue.s3Uri = s3Uri;
+            _resultValue.sourceDocumentsS3Uri = sourceDocumentsS3Uri;
+            _resultValue.split = split;
+            return _resultValue;
         }
     }
 }

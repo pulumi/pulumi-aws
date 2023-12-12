@@ -74,10 +74,10 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
             return statelessRules(List.of(statelessRules));
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions();
-            o.customActions = customActions;
-            o.statelessRules = statelessRules;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions();
+            _resultValue.customActions = customActions;
+            _resultValue.statelessRules = statelessRules;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class InputInputDevice {
             return this;
         }
         public InputInputDevice build() {
-            final var o = new InputInputDevice();
-            o.id = id;
-            return o;
+            final var _resultValue = new InputInputDevice();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

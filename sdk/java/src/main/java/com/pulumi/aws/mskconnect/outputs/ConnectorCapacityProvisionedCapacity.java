@@ -67,10 +67,10 @@ public final class ConnectorCapacityProvisionedCapacity {
             return this;
         }
         public ConnectorCapacityProvisionedCapacity build() {
-            final var o = new ConnectorCapacityProvisionedCapacity();
-            o.mcuCount = mcuCount;
-            o.workerCount = workerCount;
-            return o;
+            final var _resultValue = new ConnectorCapacityProvisionedCapacity();
+            _resultValue.mcuCount = mcuCount;
+            _resultValue.workerCount = workerCount;
+            return _resultValue;
         }
     }
 }

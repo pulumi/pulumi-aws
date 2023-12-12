@@ -61,10 +61,10 @@ public final class DashboardParametersDateTimeParameter {
             return values(List.of(values));
         }
         public DashboardParametersDateTimeParameter build() {
-            final var o = new DashboardParametersDateTimeParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new DashboardParametersDateTimeParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

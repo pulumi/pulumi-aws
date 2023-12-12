@@ -66,10 +66,10 @@ public final class EventEndpointRoutingConfigFailoverConfig {
             return this;
         }
         public EventEndpointRoutingConfigFailoverConfig build() {
-            final var o = new EventEndpointRoutingConfigFailoverConfig();
-            o.primary = primary;
-            o.secondary = secondary;
-            return o;
+            final var _resultValue = new EventEndpointRoutingConfigFailoverConfig();
+            _resultValue.primary = primary;
+            _resultValue.secondary = secondary;
+            return _resultValue;
         }
     }
 }

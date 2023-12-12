@@ -50,9 +50,9 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExports {
             return clientConfigurations(List.of(clientConfigurations));
         }
         public OpenZfsFileSystemRootVolumeConfigurationNfsExports build() {
-            final var o = new OpenZfsFileSystemRootVolumeConfigurationNfsExports();
-            o.clientConfigurations = clientConfigurations;
-            return o;
+            final var _resultValue = new OpenZfsFileSystemRootVolumeConfigurationNfsExports();
+            _resultValue.clientConfigurations = clientConfigurations;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookies {
             return whitelistedNames(List.of(whitelistedNames));
         }
         public DistributionDefaultCacheBehaviorForwardedValuesCookies build() {
-            final var o = new DistributionDefaultCacheBehaviorForwardedValuesCookies();
-            o.forward = forward;
-            o.whitelistedNames = whitelistedNames;
-            return o;
+            final var _resultValue = new DistributionDefaultCacheBehaviorForwardedValuesCookies();
+            _resultValue.forward = forward;
+            _resultValue.whitelistedNames = whitelistedNames;
+            return _resultValue;
         }
     }
 }

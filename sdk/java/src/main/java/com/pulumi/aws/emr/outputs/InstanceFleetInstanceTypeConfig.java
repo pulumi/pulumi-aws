@@ -154,14 +154,14 @@ public final class InstanceFleetInstanceTypeConfig {
             return this;
         }
         public InstanceFleetInstanceTypeConfig build() {
-            final var o = new InstanceFleetInstanceTypeConfig();
-            o.bidPrice = bidPrice;
-            o.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
-            o.configurations = configurations;
-            o.ebsConfigs = ebsConfigs;
-            o.instanceType = instanceType;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new InstanceFleetInstanceTypeConfig();
+            _resultValue.bidPrice = bidPrice;
+            _resultValue.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
+            _resultValue.configurations = configurations;
+            _resultValue.ebsConfigs = ebsConfigs;
+            _resultValue.instanceType = instanceType;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

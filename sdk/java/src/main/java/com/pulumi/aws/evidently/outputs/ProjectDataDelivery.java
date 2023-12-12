@@ -68,10 +68,10 @@ public final class ProjectDataDelivery {
             return this;
         }
         public ProjectDataDelivery build() {
-            final var o = new ProjectDataDelivery();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.s3Destination = s3Destination;
-            return o;
+            final var _resultValue = new ProjectDataDelivery();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.s3Destination = s3Destination;
+            return _resultValue;
         }
     }
 }

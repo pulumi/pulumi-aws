@@ -88,13 +88,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting();
-            o.hlsAkamaiSettings = hlsAkamaiSettings;
-            o.hlsBasicPutSettings = hlsBasicPutSettings;
-            o.hlsMediaStoreSettings = hlsMediaStoreSettings;
-            o.hlsS3Settings = hlsS3Settings;
-            o.hlsWebdavSettings = hlsWebdavSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting();
+            _resultValue.hlsAkamaiSettings = hlsAkamaiSettings;
+            _resultValue.hlsBasicPutSettings = hlsBasicPutSettings;
+            _resultValue.hlsMediaStoreSettings = hlsMediaStoreSettings;
+            _resultValue.hlsS3Settings = hlsS3Settings;
+            _resultValue.hlsWebdavSettings = hlsWebdavSettings;
+            return _resultValue;
         }
     }
 }

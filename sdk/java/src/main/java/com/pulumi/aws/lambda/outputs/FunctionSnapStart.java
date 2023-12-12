@@ -59,10 +59,10 @@ public final class FunctionSnapStart {
             return this;
         }
         public FunctionSnapStart build() {
-            final var o = new FunctionSnapStart();
-            o.applyOn = applyOn;
-            o.optimizationStatus = optimizationStatus;
-            return o;
+            final var _resultValue = new FunctionSnapStart();
+            _resultValue.applyOn = applyOn;
+            _resultValue.optimizationStatus = optimizationStatus;
+            return _resultValue;
         }
     }
 }

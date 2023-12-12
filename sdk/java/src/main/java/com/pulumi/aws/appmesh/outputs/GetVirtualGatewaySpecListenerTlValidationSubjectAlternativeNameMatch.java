@@ -42,9 +42,9 @@ public final class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNa
             return exacts(List.of(exacts));
         }
         public GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch build() {
-            final var o = new GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch();
-            o.exacts = exacts;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch();
+            _resultValue.exacts = exacts;
+            return _resultValue;
         }
     }
 }

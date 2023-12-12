@@ -150,14 +150,14 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
             return targetAccountIds(List.of(targetAccountIds));
         }
         public GetDistributionConfigurationDistributionAmiDistributionConfiguration build() {
-            final var o = new GetDistributionConfigurationDistributionAmiDistributionConfiguration();
-            o.amiTags = amiTags;
-            o.description = description;
-            o.kmsKeyId = kmsKeyId;
-            o.launchPermissions = launchPermissions;
-            o.name = name;
-            o.targetAccountIds = targetAccountIds;
-            return o;
+            final var _resultValue = new GetDistributionConfigurationDistributionAmiDistributionConfiguration();
+            _resultValue.amiTags = amiTags;
+            _resultValue.description = description;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.launchPermissions = launchPermissions;
+            _resultValue.name = name;
+            _resultValue.targetAccountIds = targetAccountIds;
+            return _resultValue;
         }
     }
 }

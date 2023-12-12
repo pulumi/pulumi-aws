@@ -50,9 +50,9 @@ public final class VpcPeeringConnectionRequester {
             return this;
         }
         public VpcPeeringConnectionRequester build() {
-            final var o = new VpcPeeringConnectionRequester();
-            o.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-            return o;
+            final var _resultValue = new VpcPeeringConnectionRequester();
+            _resultValue.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
+            return _resultValue;
         }
     }
 }

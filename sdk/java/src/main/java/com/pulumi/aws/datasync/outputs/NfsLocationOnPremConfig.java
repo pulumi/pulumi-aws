@@ -50,9 +50,9 @@ public final class NfsLocationOnPremConfig {
             return agentArns(List.of(agentArns));
         }
         public NfsLocationOnPremConfig build() {
-            final var o = new NfsLocationOnPremConfig();
-            o.agentArns = agentArns;
-            return o;
+            final var _resultValue = new NfsLocationOnPremConfig();
+            _resultValue.agentArns = agentArns;
+            return _resultValue;
         }
     }
 }

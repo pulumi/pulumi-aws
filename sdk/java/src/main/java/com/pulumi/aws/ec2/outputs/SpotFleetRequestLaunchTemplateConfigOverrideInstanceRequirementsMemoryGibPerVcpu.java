@@ -67,10 +67,10 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

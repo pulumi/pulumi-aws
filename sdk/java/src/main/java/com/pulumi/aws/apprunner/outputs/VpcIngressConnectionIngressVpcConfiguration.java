@@ -67,10 +67,10 @@ public final class VpcIngressConnectionIngressVpcConfiguration {
             return this;
         }
         public VpcIngressConnectionIngressVpcConfiguration build() {
-            final var o = new VpcIngressConnectionIngressVpcConfiguration();
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new VpcIngressConnectionIngressVpcConfiguration();
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

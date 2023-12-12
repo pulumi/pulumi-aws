@@ -119,14 +119,14 @@ public final class GetNamedQueryResult {
             return this;
         }
         public GetNamedQueryResult build() {
-            final var o = new GetNamedQueryResult();
-            o.database = database;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.querystring = querystring;
-            o.workgroup = workgroup;
-            return o;
+            final var _resultValue = new GetNamedQueryResult();
+            _resultValue.database = database;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.querystring = querystring;
+            _resultValue.workgroup = workgroup;
+            return _resultValue;
         }
     }
 }

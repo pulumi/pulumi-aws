@@ -91,11 +91,11 @@ public final class ProjectVpcConfig {
             return this;
         }
         public ProjectVpcConfig build() {
-            final var o = new ProjectVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnets = subnets;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new ProjectVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnets = subnets;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

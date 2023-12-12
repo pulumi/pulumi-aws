@@ -114,12 +114,12 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverride {
             return this;
         }
         public GetGroupMixedInstancesPolicyLaunchTemplateOverride build() {
-            final var o = new GetGroupMixedInstancesPolicyLaunchTemplateOverride();
-            o.instanceRequirements = instanceRequirements;
-            o.instanceType = instanceType;
-            o.launchTemplateSpecifications = launchTemplateSpecifications;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicyLaunchTemplateOverride();
+            _resultValue.instanceRequirements = instanceRequirements;
+            _resultValue.instanceType = instanceType;
+            _resultValue.launchTemplateSpecifications = launchTemplateSpecifications;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

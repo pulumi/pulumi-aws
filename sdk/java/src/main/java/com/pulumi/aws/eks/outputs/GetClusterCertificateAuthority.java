@@ -46,9 +46,9 @@ public final class GetClusterCertificateAuthority {
             return this;
         }
         public GetClusterCertificateAuthority build() {
-            final var o = new GetClusterCertificateAuthority();
-            o.data = data;
-            return o;
+            final var _resultValue = new GetClusterCertificateAuthority();
+            _resultValue.data = data;
+            return _resultValue;
         }
     }
 }

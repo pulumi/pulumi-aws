@@ -134,14 +134,14 @@ public final class GetWorkerConfigurationResult {
             return this;
         }
         public GetWorkerConfigurationResult build() {
-            final var o = new GetWorkerConfigurationResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.latestRevision = latestRevision;
-            o.name = name;
-            o.propertiesFileContent = propertiesFileContent;
-            return o;
+            final var _resultValue = new GetWorkerConfigurationResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.latestRevision = latestRevision;
+            _resultValue.name = name;
+            _resultValue.propertiesFileContent = propertiesFileContent;
+            return _resultValue;
         }
     }
 }

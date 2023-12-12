@@ -247,19 +247,19 @@ public final class GetDomainClusterConfig {
             return this;
         }
         public GetDomainClusterConfig build() {
-            final var o = new GetDomainClusterConfig();
-            o.coldStorageOptions = coldStorageOptions;
-            o.dedicatedMasterCount = dedicatedMasterCount;
-            o.dedicatedMasterEnabled = dedicatedMasterEnabled;
-            o.dedicatedMasterType = dedicatedMasterType;
-            o.instanceCount = instanceCount;
-            o.instanceType = instanceType;
-            o.warmCount = warmCount;
-            o.warmEnabled = warmEnabled;
-            o.warmType = warmType;
-            o.zoneAwarenessConfigs = zoneAwarenessConfigs;
-            o.zoneAwarenessEnabled = zoneAwarenessEnabled;
-            return o;
+            final var _resultValue = new GetDomainClusterConfig();
+            _resultValue.coldStorageOptions = coldStorageOptions;
+            _resultValue.dedicatedMasterCount = dedicatedMasterCount;
+            _resultValue.dedicatedMasterEnabled = dedicatedMasterEnabled;
+            _resultValue.dedicatedMasterType = dedicatedMasterType;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.instanceType = instanceType;
+            _resultValue.warmCount = warmCount;
+            _resultValue.warmEnabled = warmEnabled;
+            _resultValue.warmType = warmType;
+            _resultValue.zoneAwarenessConfigs = zoneAwarenessConfigs;
+            _resultValue.zoneAwarenessEnabled = zoneAwarenessEnabled;
+            return _resultValue;
         }
     }
 }

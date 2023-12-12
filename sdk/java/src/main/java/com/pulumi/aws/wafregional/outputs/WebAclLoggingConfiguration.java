@@ -68,10 +68,10 @@ public final class WebAclLoggingConfiguration {
             return this;
         }
         public WebAclLoggingConfiguration build() {
-            final var o = new WebAclLoggingConfiguration();
-            o.logDestination = logDestination;
-            o.redactedFields = redactedFields;
-            return o;
+            final var _resultValue = new WebAclLoggingConfiguration();
+            _resultValue.logDestination = logDestination;
+            _resultValue.redactedFields = redactedFields;
+            return _resultValue;
         }
     }
 }

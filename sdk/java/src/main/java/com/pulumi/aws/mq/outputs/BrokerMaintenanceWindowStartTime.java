@@ -84,11 +84,11 @@ public final class BrokerMaintenanceWindowStartTime {
             return this;
         }
         public BrokerMaintenanceWindowStartTime build() {
-            final var o = new BrokerMaintenanceWindowStartTime();
-            o.dayOfWeek = dayOfWeek;
-            o.timeOfDay = timeOfDay;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new BrokerMaintenanceWindowStartTime();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.timeOfDay = timeOfDay;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

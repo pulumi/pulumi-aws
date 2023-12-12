@@ -104,12 +104,12 @@ public final class WorkforceWorkforceVpcConfig {
             return this;
         }
         public WorkforceWorkforceVpcConfig build() {
-            final var o = new WorkforceWorkforceVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnets = subnets;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new WorkforceWorkforceVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnets = subnets;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

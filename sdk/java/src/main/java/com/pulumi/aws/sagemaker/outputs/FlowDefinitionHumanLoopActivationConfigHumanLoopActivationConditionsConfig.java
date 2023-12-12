@@ -46,9 +46,9 @@ public final class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationCon
             return this;
         }
         public FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig build() {
-            final var o = new FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig();
-            o.humanLoopActivationConditions = humanLoopActivationConditions;
-            return o;
+            final var _resultValue = new FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig();
+            _resultValue.humanLoopActivationConditions = humanLoopActivationConditions;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryA
             return this;
         }
         public WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

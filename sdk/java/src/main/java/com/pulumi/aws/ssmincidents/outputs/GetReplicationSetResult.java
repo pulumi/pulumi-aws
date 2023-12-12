@@ -180,16 +180,16 @@ public final class GetReplicationSetResult {
             return this;
         }
         public GetReplicationSetResult build() {
-            final var o = new GetReplicationSetResult();
-            o.arn = arn;
-            o.createdBy = createdBy;
-            o.deletionProtected = deletionProtected;
-            o.id = id;
-            o.lastModifiedBy = lastModifiedBy;
-            o.regions = regions;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetReplicationSetResult();
+            _resultValue.arn = arn;
+            _resultValue.createdBy = createdBy;
+            _resultValue.deletionProtected = deletionProtected;
+            _resultValue.id = id;
+            _resultValue.lastModifiedBy = lastModifiedBy;
+            _resultValue.regions = regions;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

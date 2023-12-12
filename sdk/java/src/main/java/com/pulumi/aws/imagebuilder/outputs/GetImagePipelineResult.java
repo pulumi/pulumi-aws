@@ -387,27 +387,27 @@ public final class GetImagePipelineResult {
             return this;
         }
         public GetImagePipelineResult build() {
-            final var o = new GetImagePipelineResult();
-            o.arn = arn;
-            o.containerRecipeArn = containerRecipeArn;
-            o.dateCreated = dateCreated;
-            o.dateLastRun = dateLastRun;
-            o.dateNextRun = dateNextRun;
-            o.dateUpdated = dateUpdated;
-            o.description = description;
-            o.distributionConfigurationArn = distributionConfigurationArn;
-            o.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
-            o.id = id;
-            o.imageRecipeArn = imageRecipeArn;
-            o.imageScanningConfigurations = imageScanningConfigurations;
-            o.imageTestsConfigurations = imageTestsConfigurations;
-            o.infrastructureConfigurationArn = infrastructureConfigurationArn;
-            o.name = name;
-            o.platform = platform;
-            o.schedules = schedules;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetImagePipelineResult();
+            _resultValue.arn = arn;
+            _resultValue.containerRecipeArn = containerRecipeArn;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.dateLastRun = dateLastRun;
+            _resultValue.dateNextRun = dateNextRun;
+            _resultValue.dateUpdated = dateUpdated;
+            _resultValue.description = description;
+            _resultValue.distributionConfigurationArn = distributionConfigurationArn;
+            _resultValue.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
+            _resultValue.id = id;
+            _resultValue.imageRecipeArn = imageRecipeArn;
+            _resultValue.imageScanningConfigurations = imageScanningConfigurations;
+            _resultValue.imageTestsConfigurations = imageTestsConfigurations;
+            _resultValue.infrastructureConfigurationArn = infrastructureConfigurationArn;
+            _resultValue.name = name;
+            _resultValue.platform = platform;
+            _resultValue.schedules = schedules;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

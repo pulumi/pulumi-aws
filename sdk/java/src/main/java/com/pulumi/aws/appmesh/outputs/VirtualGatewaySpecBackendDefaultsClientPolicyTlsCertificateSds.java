@@ -46,9 +46,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSd
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

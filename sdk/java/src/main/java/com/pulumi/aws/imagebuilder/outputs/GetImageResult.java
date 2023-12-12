@@ -357,25 +357,25 @@ public final class GetImageResult {
             return this;
         }
         public GetImageResult build() {
-            final var o = new GetImageResult();
-            o.arn = arn;
-            o.buildVersionArn = buildVersionArn;
-            o.containerRecipeArn = containerRecipeArn;
-            o.dateCreated = dateCreated;
-            o.distributionConfigurationArn = distributionConfigurationArn;
-            o.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
-            o.id = id;
-            o.imageRecipeArn = imageRecipeArn;
-            o.imageScanningConfigurations = imageScanningConfigurations;
-            o.imageTestsConfigurations = imageTestsConfigurations;
-            o.infrastructureConfigurationArn = infrastructureConfigurationArn;
-            o.name = name;
-            o.osVersion = osVersion;
-            o.outputResources = outputResources;
-            o.platform = platform;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetImageResult();
+            _resultValue.arn = arn;
+            _resultValue.buildVersionArn = buildVersionArn;
+            _resultValue.containerRecipeArn = containerRecipeArn;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.distributionConfigurationArn = distributionConfigurationArn;
+            _resultValue.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
+            _resultValue.id = id;
+            _resultValue.imageRecipeArn = imageRecipeArn;
+            _resultValue.imageScanningConfigurations = imageScanningConfigurations;
+            _resultValue.imageTestsConfigurations = imageTestsConfigurations;
+            _resultValue.infrastructureConfigurationArn = infrastructureConfigurationArn;
+            _resultValue.name = name;
+            _resultValue.osVersion = osVersion;
+            _resultValue.outputResources = outputResources;
+            _resultValue.platform = platform;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

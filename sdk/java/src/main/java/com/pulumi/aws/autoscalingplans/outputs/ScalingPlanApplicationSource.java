@@ -72,10 +72,10 @@ public final class ScalingPlanApplicationSource {
             return tagFilters(List.of(tagFilters));
         }
         public ScalingPlanApplicationSource build() {
-            final var o = new ScalingPlanApplicationSource();
-            o.cloudformationStackArn = cloudformationStackArn;
-            o.tagFilters = tagFilters;
-            return o;
+            final var _resultValue = new ScalingPlanApplicationSource();
+            _resultValue.cloudformationStackArn = cloudformationStackArn;
+            _resultValue.tagFilters = tagFilters;
+            return _resultValue;
         }
     }
 }

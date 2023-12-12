@@ -84,11 +84,11 @@ public final class GetUserHierarchyGroupHierarchyPathLevelThree {
             return this;
         }
         public GetUserHierarchyGroupHierarchyPathLevelThree build() {
-            final var o = new GetUserHierarchyGroupHierarchyPathLevelThree();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetUserHierarchyGroupHierarchyPathLevelThree();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

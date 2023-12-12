@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSingular {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesSingular build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesSingular();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesSingular();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

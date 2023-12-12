@@ -67,10 +67,10 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGi
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

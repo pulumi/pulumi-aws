@@ -215,18 +215,18 @@ public final class GetModelResult {
             return this;
         }
         public GetModelResult build() {
-            final var o = new GetModelResult();
-            o.customizationsSupporteds = customizationsSupporteds;
-            o.id = id;
-            o.inferenceTypesSupporteds = inferenceTypesSupporteds;
-            o.inputModalities = inputModalities;
-            o.modelArn = modelArn;
-            o.modelId = modelId;
-            o.modelName = modelName;
-            o.outputModalities = outputModalities;
-            o.providerName = providerName;
-            o.responseStreamingSupported = responseStreamingSupported;
-            return o;
+            final var _resultValue = new GetModelResult();
+            _resultValue.customizationsSupporteds = customizationsSupporteds;
+            _resultValue.id = id;
+            _resultValue.inferenceTypesSupporteds = inferenceTypesSupporteds;
+            _resultValue.inputModalities = inputModalities;
+            _resultValue.modelArn = modelArn;
+            _resultValue.modelId = modelId;
+            _resultValue.modelName = modelName;
+            _resultValue.outputModalities = outputModalities;
+            _resultValue.providerName = providerName;
+            _resultValue.responseStreamingSupported = responseStreamingSupported;
+            return _resultValue;
         }
     }
 }

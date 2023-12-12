@@ -57,10 +57,10 @@ public final class GetVirtualGatewaySpecListenerTlValidationTrust {
             return sds(List.of(sds));
         }
         public GetVirtualGatewaySpecListenerTlValidationTrust build() {
-            final var o = new GetVirtualGatewaySpecListenerTlValidationTrust();
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerTlValidationTrust();
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

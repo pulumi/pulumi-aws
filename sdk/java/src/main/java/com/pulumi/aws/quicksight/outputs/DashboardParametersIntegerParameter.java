@@ -62,10 +62,10 @@ public final class DashboardParametersIntegerParameter {
             return values(List.of(values));
         }
         public DashboardParametersIntegerParameter build() {
-            final var o = new DashboardParametersIntegerParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new DashboardParametersIntegerParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

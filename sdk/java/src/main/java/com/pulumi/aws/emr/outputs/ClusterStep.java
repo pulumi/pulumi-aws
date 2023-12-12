@@ -85,11 +85,11 @@ public final class ClusterStep {
             return this;
         }
         public ClusterStep build() {
-            final var o = new ClusterStep();
-            o.actionOnFailure = actionOnFailure;
-            o.hadoopJarStep = hadoopJarStep;
-            o.name = name;
-            return o;
+            final var _resultValue = new ClusterStep();
+            _resultValue.actionOnFailure = actionOnFailure;
+            _resultValue.hadoopJarStep = hadoopJarStep;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -78,11 +78,11 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatch
             return includedCookies(List.of(includedCookies));
         }
         public WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern();
-            o.all = all;
-            o.excludedCookies = excludedCookies;
-            o.includedCookies = includedCookies;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedCookies = excludedCookies;
+            _resultValue.includedCookies = includedCookies;
+            return _resultValue;
         }
     }
 }

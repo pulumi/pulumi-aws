@@ -106,13 +106,13 @@ public final class GetDirectConnectGatewayAttachmentResult {
             return this;
         }
         public GetDirectConnectGatewayAttachmentResult build() {
-            final var o = new GetDirectConnectGatewayAttachmentResult();
-            o.dxGatewayId = dxGatewayId;
-            o.filters = filters;
-            o.id = id;
-            o.tags = tags;
-            o.transitGatewayId = transitGatewayId;
-            return o;
+            final var _resultValue = new GetDirectConnectGatewayAttachmentResult();
+            _resultValue.dxGatewayId = dxGatewayId;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            return _resultValue;
         }
     }
 }

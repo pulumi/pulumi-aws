@@ -50,10 +50,10 @@ public final class GetTableServerSideEncryption {
             return this;
         }
         public GetTableServerSideEncryption build() {
-            final var o = new GetTableServerSideEncryption();
-            o.enabled = enabled;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new GetTableServerSideEncryption();
+            _resultValue.enabled = enabled;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

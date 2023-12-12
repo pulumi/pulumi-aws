@@ -61,10 +61,10 @@ public final class GetOpenZfsSnapshotFilter {
             return values(List.of(values));
         }
         public GetOpenZfsSnapshotFilter build() {
-            final var o = new GetOpenZfsSnapshotFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetOpenZfsSnapshotFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

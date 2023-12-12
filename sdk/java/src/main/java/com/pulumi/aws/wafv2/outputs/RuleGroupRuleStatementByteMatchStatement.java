@@ -115,12 +115,12 @@ public final class RuleGroupRuleStatementByteMatchStatement {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementByteMatchStatement build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.positionalConstraint = positionalConstraint;
-            o.searchString = searchString;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.positionalConstraint = positionalConstraint;
+            _resultValue.searchString = searchString;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

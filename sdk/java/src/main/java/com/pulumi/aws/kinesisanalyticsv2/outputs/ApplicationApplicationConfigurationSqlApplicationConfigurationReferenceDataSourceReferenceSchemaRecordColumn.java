@@ -86,11 +86,11 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn();
-            o.mapping = mapping;
-            o.name = name;
-            o.sqlType = sqlType;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn();
+            _resultValue.mapping = mapping;
+            _resultValue.name = name;
+            _resultValue.sqlType = sqlType;
+            return _resultValue;
         }
     }
 }

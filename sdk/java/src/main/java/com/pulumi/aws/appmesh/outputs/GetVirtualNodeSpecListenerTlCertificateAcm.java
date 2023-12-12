@@ -38,9 +38,9 @@ public final class GetVirtualNodeSpecListenerTlCertificateAcm {
             return this;
         }
         public GetVirtualNodeSpecListenerTlCertificateAcm build() {
-            final var o = new GetVirtualNodeSpecListenerTlCertificateAcm();
-            o.certificateArn = certificateArn;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTlCertificateAcm();
+            _resultValue.certificateArn = certificateArn;
+            return _resultValue;
         }
     }
 }

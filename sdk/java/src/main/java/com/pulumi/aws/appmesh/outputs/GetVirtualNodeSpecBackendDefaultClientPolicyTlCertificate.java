@@ -57,10 +57,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate {
             return sds(List.of(sds));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate();
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate();
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

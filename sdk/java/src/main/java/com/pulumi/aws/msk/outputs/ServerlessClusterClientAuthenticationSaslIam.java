@@ -46,9 +46,9 @@ public final class ServerlessClusterClientAuthenticationSaslIam {
             return this;
         }
         public ServerlessClusterClientAuthenticationSaslIam build() {
-            final var o = new ServerlessClusterClientAuthenticationSaslIam();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ServerlessClusterClientAuthenticationSaslIam();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

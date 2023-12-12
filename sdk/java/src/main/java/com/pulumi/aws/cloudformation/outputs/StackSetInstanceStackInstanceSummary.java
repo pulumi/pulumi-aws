@@ -86,11 +86,11 @@ public final class StackSetInstanceStackInstanceSummary {
             return this;
         }
         public StackSetInstanceStackInstanceSummary build() {
-            final var o = new StackSetInstanceStackInstanceSummary();
-            o.accountId = accountId;
-            o.organizationalUnitId = organizationalUnitId;
-            o.stackId = stackId;
-            return o;
+            final var _resultValue = new StackSetInstanceStackInstanceSummary();
+            _resultValue.accountId = accountId;
+            _resultValue.organizationalUnitId = organizationalUnitId;
+            _resultValue.stackId = stackId;
+            return _resultValue;
         }
     }
 }

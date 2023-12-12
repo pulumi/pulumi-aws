@@ -72,11 +72,11 @@ public final class GetGatewayRouteSpecHttp2RouteActionRewrite {
             return prefixes(List.of(prefixes));
         }
         public GetGatewayRouteSpecHttp2RouteActionRewrite build() {
-            final var o = new GetGatewayRouteSpecHttp2RouteActionRewrite();
-            o.hostnames = hostnames;
-            o.paths = paths;
-            o.prefixes = prefixes;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttp2RouteActionRewrite();
+            _resultValue.hostnames = hostnames;
+            _resultValue.paths = paths;
+            _resultValue.prefixes = prefixes;
+            return _resultValue;
         }
     }
 }

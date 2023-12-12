@@ -65,10 +65,10 @@ public final class InsightFiltersNoteUpdatedBy {
             return this;
         }
         public InsightFiltersNoteUpdatedBy build() {
-            final var o = new InsightFiltersNoteUpdatedBy();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersNoteUpdatedBy();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -159,19 +159,19 @@ public final class GetAcceleratorResult {
             return this;
         }
         public GetAcceleratorResult build() {
-            final var o = new GetAcceleratorResult();
-            o.arn = arn;
-            o.attributes = attributes;
-            o.dnsName = dnsName;
-            o.dualStackDnsName = dualStackDnsName;
-            o.enabled = enabled;
-            o.hostedZoneId = hostedZoneId;
-            o.id = id;
-            o.ipAddressType = ipAddressType;
-            o.ipSets = ipSets;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetAcceleratorResult();
+            _resultValue.arn = arn;
+            _resultValue.attributes = attributes;
+            _resultValue.dnsName = dnsName;
+            _resultValue.dualStackDnsName = dualStackDnsName;
+            _resultValue.enabled = enabled;
+            _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.id = id;
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.ipSets = ipSets;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

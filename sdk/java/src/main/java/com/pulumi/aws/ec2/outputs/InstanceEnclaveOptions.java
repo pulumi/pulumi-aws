@@ -52,9 +52,9 @@ public final class InstanceEnclaveOptions {
             return this;
         }
         public InstanceEnclaveOptions build() {
-            final var o = new InstanceEnclaveOptions();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new InstanceEnclaveOptions();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

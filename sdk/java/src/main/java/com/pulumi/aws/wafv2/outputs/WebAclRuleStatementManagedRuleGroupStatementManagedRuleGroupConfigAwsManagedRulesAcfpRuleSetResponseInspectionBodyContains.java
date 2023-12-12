@@ -72,10 +72,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return successStrings(List.of(successStrings));
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains();
-            o.failureStrings = failureStrings;
-            o.successStrings = successStrings;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains();
+            _resultValue.failureStrings = failureStrings;
+            _resultValue.successStrings = successStrings;
+            return _resultValue;
         }
     }
 }

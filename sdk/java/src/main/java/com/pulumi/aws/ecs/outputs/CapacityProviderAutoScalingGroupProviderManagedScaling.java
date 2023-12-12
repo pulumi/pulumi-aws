@@ -125,13 +125,13 @@ public final class CapacityProviderAutoScalingGroupProviderManagedScaling {
             return this;
         }
         public CapacityProviderAutoScalingGroupProviderManagedScaling build() {
-            final var o = new CapacityProviderAutoScalingGroupProviderManagedScaling();
-            o.instanceWarmupPeriod = instanceWarmupPeriod;
-            o.maximumScalingStepSize = maximumScalingStepSize;
-            o.minimumScalingStepSize = minimumScalingStepSize;
-            o.status = status;
-            o.targetCapacity = targetCapacity;
-            return o;
+            final var _resultValue = new CapacityProviderAutoScalingGroupProviderManagedScaling();
+            _resultValue.instanceWarmupPeriod = instanceWarmupPeriod;
+            _resultValue.maximumScalingStepSize = maximumScalingStepSize;
+            _resultValue.minimumScalingStepSize = minimumScalingStepSize;
+            _resultValue.status = status;
+            _resultValue.targetCapacity = targetCapacity;
+            return _resultValue;
         }
     }
 }

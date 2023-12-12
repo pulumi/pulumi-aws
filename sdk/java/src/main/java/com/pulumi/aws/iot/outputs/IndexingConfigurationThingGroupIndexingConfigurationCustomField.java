@@ -67,10 +67,10 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationCustomFie
             return this;
         }
         public IndexingConfigurationThingGroupIndexingConfigurationCustomField build() {
-            final var o = new IndexingConfigurationThingGroupIndexingConfigurationCustomField();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new IndexingConfigurationThingGroupIndexingConfigurationCustomField();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

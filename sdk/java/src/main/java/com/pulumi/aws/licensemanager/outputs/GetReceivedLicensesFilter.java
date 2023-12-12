@@ -135,10 +135,10 @@ public final class GetReceivedLicensesFilter {
             return values(List.of(values));
         }
         public GetReceivedLicensesFilter build() {
-            final var o = new GetReceivedLicensesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetReceivedLicensesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

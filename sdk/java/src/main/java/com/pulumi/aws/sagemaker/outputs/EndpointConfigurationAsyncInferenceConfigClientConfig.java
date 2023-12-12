@@ -48,9 +48,9 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfig {
             return this;
         }
         public EndpointConfigurationAsyncInferenceConfigClientConfig build() {
-            final var o = new EndpointConfigurationAsyncInferenceConfigClientConfig();
-            o.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
-            return o;
+            final var _resultValue = new EndpointConfigurationAsyncInferenceConfigClientConfig();
+            _resultValue.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
+            return _resultValue;
         }
     }
 }

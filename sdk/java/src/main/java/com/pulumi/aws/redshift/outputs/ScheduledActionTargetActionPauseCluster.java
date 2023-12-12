@@ -46,9 +46,9 @@ public final class ScheduledActionTargetActionPauseCluster {
             return this;
         }
         public ScheduledActionTargetActionPauseCluster build() {
-            final var o = new ScheduledActionTargetActionPauseCluster();
-            o.clusterIdentifier = clusterIdentifier;
-            return o;
+            final var _resultValue = new ScheduledActionTargetActionPauseCluster();
+            _resultValue.clusterIdentifier = clusterIdentifier;
+            return _resultValue;
         }
     }
 }

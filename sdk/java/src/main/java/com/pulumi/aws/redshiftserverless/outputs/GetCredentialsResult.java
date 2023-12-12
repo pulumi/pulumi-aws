@@ -139,15 +139,15 @@ public final class GetCredentialsResult {
             return this;
         }
         public GetCredentialsResult build() {
-            final var o = new GetCredentialsResult();
-            o.dbName = dbName;
-            o.dbPassword = dbPassword;
-            o.dbUser = dbUser;
-            o.durationSeconds = durationSeconds;
-            o.expiration = expiration;
-            o.id = id;
-            o.workgroupName = workgroupName;
-            return o;
+            final var _resultValue = new GetCredentialsResult();
+            _resultValue.dbName = dbName;
+            _resultValue.dbPassword = dbPassword;
+            _resultValue.dbUser = dbUser;
+            _resultValue.durationSeconds = durationSeconds;
+            _resultValue.expiration = expiration;
+            _resultValue.id = id;
+            _resultValue.workgroupName = workgroupName;
+            return _resultValue;
         }
     }
 }

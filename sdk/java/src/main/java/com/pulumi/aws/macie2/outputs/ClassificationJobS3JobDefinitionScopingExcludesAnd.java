@@ -68,10 +68,10 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAnd {
             return this;
         }
         public ClassificationJobS3JobDefinitionScopingExcludesAnd build() {
-            final var o = new ClassificationJobS3JobDefinitionScopingExcludesAnd();
-            o.simpleScopeTerm = simpleScopeTerm;
-            o.tagScopeTerm = tagScopeTerm;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionScopingExcludesAnd();
+            _resultValue.simpleScopeTerm = simpleScopeTerm;
+            _resultValue.tagScopeTerm = tagScopeTerm;
+            return _resultValue;
         }
     }
 }

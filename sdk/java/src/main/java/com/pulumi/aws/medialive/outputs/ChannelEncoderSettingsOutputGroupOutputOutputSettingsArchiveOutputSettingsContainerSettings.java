@@ -68,10 +68,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings();
-            o.m2tsSettings = m2tsSettings;
-            o.rawSettings = rawSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings();
+            _resultValue.m2tsSettings = m2tsSettings;
+            _resultValue.rawSettings = rawSettings;
+            return _resultValue;
         }
     }
 }

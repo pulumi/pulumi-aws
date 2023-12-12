@@ -102,12 +102,12 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue();
-            o.dateValue = dateValue;
-            o.longValue = longValue;
-            o.stringListValues = stringListValues;
-            o.stringValue = stringValue;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue();
+            _resultValue.dateValue = dateValue;
+            _resultValue.longValue = longValue;
+            _resultValue.stringListValues = stringListValues;
+            _resultValue.stringValue = stringValue;
+            return _resultValue;
         }
     }
 }

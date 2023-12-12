@@ -70,11 +70,11 @@ public final class GetHostedZoneIdResult {
             return this;
         }
         public GetHostedZoneIdResult build() {
-            final var o = new GetHostedZoneIdResult();
-            o.id = id;
-            o.loadBalancerType = loadBalancerType;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetHostedZoneIdResult();
+            _resultValue.id = id;
+            _resultValue.loadBalancerType = loadBalancerType;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

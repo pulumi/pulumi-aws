@@ -46,9 +46,9 @@ public final class VirtualRouterSpecListener {
             return this;
         }
         public VirtualRouterSpecListener build() {
-            final var o = new VirtualRouterSpecListener();
-            o.portMapping = portMapping;
-            return o;
+            final var _resultValue = new VirtualRouterSpecListener();
+            _resultValue.portMapping = portMapping;
+            return _resultValue;
         }
     }
 }

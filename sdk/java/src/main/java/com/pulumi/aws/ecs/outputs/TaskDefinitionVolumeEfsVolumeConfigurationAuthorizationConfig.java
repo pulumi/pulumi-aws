@@ -67,10 +67,10 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig
             return this;
         }
         public TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig build() {
-            final var o = new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig();
-            o.accessPointId = accessPointId;
-            o.iam = iam;
-            return o;
+            final var _resultValue = new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig();
+            _resultValue.accessPointId = accessPointId;
+            _resultValue.iam = iam;
+            return _resultValue;
         }
     }
 }

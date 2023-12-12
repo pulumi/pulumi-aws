@@ -48,9 +48,9 @@ public final class DashboardDashboardPublishOptionsSheetLayoutElementMaximizatio
             return this;
         }
         public DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption build() {
-            final var o = new DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

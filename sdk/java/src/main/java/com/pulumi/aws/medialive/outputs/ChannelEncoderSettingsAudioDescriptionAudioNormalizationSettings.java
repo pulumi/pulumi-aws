@@ -87,11 +87,11 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSetti
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings();
-            o.algorithm = algorithm;
-            o.algorithmControl = algorithmControl;
-            o.targetLkfs = targetLkfs;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings();
+            _resultValue.algorithm = algorithm;
+            _resultValue.algorithmControl = algorithmControl;
+            _resultValue.targetLkfs = targetLkfs;
+            return _resultValue;
         }
     }
 }

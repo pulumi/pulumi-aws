@@ -46,9 +46,9 @@ public final class DataSourceParametersJira {
             return this;
         }
         public DataSourceParametersJira build() {
-            final var o = new DataSourceParametersJira();
-            o.siteBaseUrl = siteBaseUrl;
-            return o;
+            final var _resultValue = new DataSourceParametersJira();
+            _resultValue.siteBaseUrl = siteBaseUrl;
+            return _resultValue;
         }
     }
 }

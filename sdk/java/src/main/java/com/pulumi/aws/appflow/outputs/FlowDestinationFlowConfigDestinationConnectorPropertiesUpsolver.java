@@ -87,11 +87,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.s3OutputFormatConfig = s3OutputFormatConfig;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.s3OutputFormatConfig = s3OutputFormatConfig;
+            return _resultValue;
         }
     }
 }

@@ -108,12 +108,12 @@ public final class ServiceSourceConfiguration {
             return this;
         }
         public ServiceSourceConfiguration build() {
-            final var o = new ServiceSourceConfiguration();
-            o.authenticationConfiguration = authenticationConfiguration;
-            o.autoDeploymentsEnabled = autoDeploymentsEnabled;
-            o.codeRepository = codeRepository;
-            o.imageRepository = imageRepository;
-            return o;
+            final var _resultValue = new ServiceSourceConfiguration();
+            _resultValue.authenticationConfiguration = authenticationConfiguration;
+            _resultValue.autoDeploymentsEnabled = autoDeploymentsEnabled;
+            _resultValue.codeRepository = codeRepository;
+            _resultValue.imageRepository = imageRepository;
+            return _resultValue;
         }
     }
 }

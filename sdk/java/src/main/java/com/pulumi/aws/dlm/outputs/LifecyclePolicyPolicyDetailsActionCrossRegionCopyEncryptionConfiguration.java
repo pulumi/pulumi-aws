@@ -68,10 +68,10 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
             return this;
         }
         public LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration build() {
-            final var o = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration();
-            o.cmkArn = cmkArn;
-            o.encrypted = encrypted;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration();
+            _resultValue.cmkArn = cmkArn;
+            _resultValue.encrypted = encrypted;
+            return _resultValue;
         }
     }
 }

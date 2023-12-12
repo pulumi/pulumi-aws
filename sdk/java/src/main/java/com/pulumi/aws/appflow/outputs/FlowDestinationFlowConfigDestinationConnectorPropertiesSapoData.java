@@ -130,13 +130,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData();
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.idFieldNames = idFieldNames;
-            o.objectPath = objectPath;
-            o.successResponseHandlingConfig = successResponseHandlingConfig;
-            o.writeOperationType = writeOperationType;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData();
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.idFieldNames = idFieldNames;
+            _resultValue.objectPath = objectPath;
+            _resultValue.successResponseHandlingConfig = successResponseHandlingConfig;
+            _resultValue.writeOperationType = writeOperationType;
+            return _resultValue;
         }
     }
 }

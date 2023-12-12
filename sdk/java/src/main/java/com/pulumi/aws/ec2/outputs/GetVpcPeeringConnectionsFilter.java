@@ -73,10 +73,10 @@ public final class GetVpcPeeringConnectionsFilter {
             return values(List.of(values));
         }
         public GetVpcPeeringConnectionsFilter build() {
-            final var o = new GetVpcPeeringConnectionsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpcPeeringConnectionsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

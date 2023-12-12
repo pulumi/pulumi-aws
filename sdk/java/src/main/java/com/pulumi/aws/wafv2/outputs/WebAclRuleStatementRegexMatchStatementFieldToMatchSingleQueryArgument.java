@@ -46,9 +46,9 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQuery
             return this;
         }
         public WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

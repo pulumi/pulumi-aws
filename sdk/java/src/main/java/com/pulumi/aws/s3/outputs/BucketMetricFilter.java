@@ -68,10 +68,10 @@ public final class BucketMetricFilter {
             return this;
         }
         public BucketMetricFilter build() {
-            final var o = new BucketMetricFilter();
-            o.prefix = prefix;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new BucketMetricFilter();
+            _resultValue.prefix = prefix;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

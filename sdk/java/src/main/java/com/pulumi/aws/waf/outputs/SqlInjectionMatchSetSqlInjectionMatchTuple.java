@@ -74,10 +74,10 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTuple {
             return this;
         }
         public SqlInjectionMatchSetSqlInjectionMatchTuple build() {
-            final var o = new SqlInjectionMatchSetSqlInjectionMatchTuple();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformation = textTransformation;
-            return o;
+            final var _resultValue = new SqlInjectionMatchSetSqlInjectionMatchTuple();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformation = textTransformation;
+            return _resultValue;
         }
     }
 }

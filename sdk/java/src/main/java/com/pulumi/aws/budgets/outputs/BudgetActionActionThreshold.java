@@ -66,10 +66,10 @@ public final class BudgetActionActionThreshold {
             return this;
         }
         public BudgetActionActionThreshold build() {
-            final var o = new BudgetActionActionThreshold();
-            o.actionThresholdType = actionThresholdType;
-            o.actionThresholdValue = actionThresholdValue;
-            return o;
+            final var _resultValue = new BudgetActionActionThreshold();
+            _resultValue.actionThresholdType = actionThresholdType;
+            _resultValue.actionThresholdValue = actionThresholdValue;
+            return _resultValue;
         }
     }
 }

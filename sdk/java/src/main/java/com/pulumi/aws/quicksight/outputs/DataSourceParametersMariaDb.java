@@ -85,11 +85,11 @@ public final class DataSourceParametersMariaDb {
             return this;
         }
         public DataSourceParametersMariaDb build() {
-            final var o = new DataSourceParametersMariaDb();
-            o.database = database;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersMariaDb();
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

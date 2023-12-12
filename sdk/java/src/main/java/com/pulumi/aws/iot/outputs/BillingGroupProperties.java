@@ -48,9 +48,9 @@ public final class BillingGroupProperties {
             return this;
         }
         public BillingGroupProperties build() {
-            final var o = new BillingGroupProperties();
-            o.description = description;
-            return o;
+            final var _resultValue = new BillingGroupProperties();
+            _resultValue.description = description;
+            return _resultValue;
         }
     }
 }

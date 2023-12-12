@@ -128,14 +128,14 @@ public final class GetScriptResult {
             return this;
         }
         public GetScriptResult build() {
-            final var o = new GetScriptResult();
-            o.dagEdges = dagEdges;
-            o.dagNodes = dagNodes;
-            o.id = id;
-            o.language = language;
-            o.pythonScript = pythonScript;
-            o.scalaCode = scalaCode;
-            return o;
+            final var _resultValue = new GetScriptResult();
+            _resultValue.dagEdges = dagEdges;
+            _resultValue.dagNodes = dagNodes;
+            _resultValue.id = id;
+            _resultValue.language = language;
+            _resultValue.pythonScript = pythonScript;
+            _resultValue.scalaCode = scalaCode;
+            return _resultValue;
         }
     }
 }

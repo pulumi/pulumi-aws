@@ -46,9 +46,9 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository {
             return this;
         }
         public SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository build() {
-            final var o = new SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository();
-            o.repositoryUrl = repositoryUrl;
-            return o;
+            final var _resultValue = new SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository();
+            _resultValue.repositoryUrl = repositoryUrl;
+            return _resultValue;
         }
     }
 }

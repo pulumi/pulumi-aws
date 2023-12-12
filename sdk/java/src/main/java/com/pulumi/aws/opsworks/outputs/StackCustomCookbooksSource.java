@@ -143,14 +143,14 @@ public final class StackCustomCookbooksSource {
             return this;
         }
         public StackCustomCookbooksSource build() {
-            final var o = new StackCustomCookbooksSource();
-            o.password = password;
-            o.revision = revision;
-            o.sshKey = sshKey;
-            o.type = type;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new StackCustomCookbooksSource();
+            _resultValue.password = password;
+            _resultValue.revision = revision;
+            _resultValue.sshKey = sshKey;
+            _resultValue.type = type;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

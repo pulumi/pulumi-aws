@@ -90,11 +90,11 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig();
-            o.notificationArn = notificationArn;
-            o.notificationEvents = notificationEvents;
-            o.notificationType = notificationType;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig();
+            _resultValue.notificationArn = notificationArn;
+            _resultValue.notificationEvents = notificationEvents;
+            _resultValue.notificationType = notificationType;
+            return _resultValue;
         }
     }
 }

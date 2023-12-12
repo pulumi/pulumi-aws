@@ -48,9 +48,9 @@ public final class OrganizationConfigurationDatasourcesKubernetesAuditLogs {
             return this;
         }
         public OrganizationConfigurationDatasourcesKubernetesAuditLogs build() {
-            final var o = new OrganizationConfigurationDatasourcesKubernetesAuditLogs();
-            o.enable = enable;
-            return o;
+            final var _resultValue = new OrganizationConfigurationDatasourcesKubernetesAuditLogs();
+            _resultValue.enable = enable;
+            return _resultValue;
         }
     }
 }

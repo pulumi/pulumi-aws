@@ -89,11 +89,11 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchCookies {
             return this;
         }
         public WebAclRuleStatementByteMatchStatementFieldToMatchCookies build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchCookies();
-            o.matchPatterns = matchPatterns;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchCookies();
+            _resultValue.matchPatterns = matchPatterns;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class RuleGroupRuleGroupRuleVariablesIpSet {
             return this;
         }
         public RuleGroupRuleGroupRuleVariablesIpSet build() {
-            final var o = new RuleGroupRuleGroupRuleVariablesIpSet();
-            o.ipSet = ipSet;
-            o.key = key;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRuleVariablesIpSet();
+            _resultValue.ipSet = ipSet;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

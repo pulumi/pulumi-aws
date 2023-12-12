@@ -73,10 +73,10 @@ public final class GetOntapFileSystemEndpoint {
             return managements(List.of(managements));
         }
         public GetOntapFileSystemEndpoint build() {
-            final var o = new GetOntapFileSystemEndpoint();
-            o.interclusters = interclusters;
-            o.managements = managements;
-            return o;
+            final var _resultValue = new GetOntapFileSystemEndpoint();
+            _resultValue.interclusters = interclusters;
+            _resultValue.managements = managements;
+            return _resultValue;
         }
     }
 }

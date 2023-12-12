@@ -288,29 +288,29 @@ public final class GetLoadBalancerResult {
             return this;
         }
         public GetLoadBalancerResult build() {
-            final var o = new GetLoadBalancerResult();
-            o.accessLogs = accessLogs;
-            o.arn = arn;
-            o.availabilityZones = availabilityZones;
-            o.connectionDraining = connectionDraining;
-            o.connectionDrainingTimeout = connectionDrainingTimeout;
-            o.crossZoneLoadBalancing = crossZoneLoadBalancing;
-            o.desyncMitigationMode = desyncMitigationMode;
-            o.dnsName = dnsName;
-            o.healthCheck = healthCheck;
-            o.id = id;
-            o.idleTimeout = idleTimeout;
-            o.instances = instances;
-            o.internal = internal;
-            o.listeners = listeners;
-            o.name = name;
-            o.securityGroups = securityGroups;
-            o.sourceSecurityGroup = sourceSecurityGroup;
-            o.sourceSecurityGroupId = sourceSecurityGroupId;
-            o.subnets = subnets;
-            o.tags = tags;
-            o.zoneId = zoneId;
-            return o;
+            final var _resultValue = new GetLoadBalancerResult();
+            _resultValue.accessLogs = accessLogs;
+            _resultValue.arn = arn;
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.connectionDraining = connectionDraining;
+            _resultValue.connectionDrainingTimeout = connectionDrainingTimeout;
+            _resultValue.crossZoneLoadBalancing = crossZoneLoadBalancing;
+            _resultValue.desyncMitigationMode = desyncMitigationMode;
+            _resultValue.dnsName = dnsName;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.id = id;
+            _resultValue.idleTimeout = idleTimeout;
+            _resultValue.instances = instances;
+            _resultValue.internal = internal;
+            _resultValue.listeners = listeners;
+            _resultValue.name = name;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.sourceSecurityGroup = sourceSecurityGroup;
+            _resultValue.sourceSecurityGroupId = sourceSecurityGroupId;
+            _resultValue.subnets = subnets;
+            _resultValue.tags = tags;
+            _resultValue.zoneId = zoneId;
+            return _resultValue;
         }
     }
 }

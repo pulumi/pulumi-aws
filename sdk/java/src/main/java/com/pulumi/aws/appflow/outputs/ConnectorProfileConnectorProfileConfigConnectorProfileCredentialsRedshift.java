@@ -65,10 +65,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

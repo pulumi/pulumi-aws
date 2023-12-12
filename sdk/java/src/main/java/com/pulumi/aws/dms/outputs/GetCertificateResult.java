@@ -241,20 +241,20 @@ public final class GetCertificateResult {
             return this;
         }
         public GetCertificateResult build() {
-            final var o = new GetCertificateResult();
-            o.certificateArn = certificateArn;
-            o.certificateCreationDate = certificateCreationDate;
-            o.certificateId = certificateId;
-            o.certificateOwner = certificateOwner;
-            o.certificatePem = certificatePem;
-            o.certificateWallet = certificateWallet;
-            o.id = id;
-            o.keyLength = keyLength;
-            o.signingAlgorithm = signingAlgorithm;
-            o.tags = tags;
-            o.validFromDate = validFromDate;
-            o.validToDate = validToDate;
-            return o;
+            final var _resultValue = new GetCertificateResult();
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.certificateCreationDate = certificateCreationDate;
+            _resultValue.certificateId = certificateId;
+            _resultValue.certificateOwner = certificateOwner;
+            _resultValue.certificatePem = certificatePem;
+            _resultValue.certificateWallet = certificateWallet;
+            _resultValue.id = id;
+            _resultValue.keyLength = keyLength;
+            _resultValue.signingAlgorithm = signingAlgorithm;
+            _resultValue.tags = tags;
+            _resultValue.validFromDate = validFromDate;
+            _resultValue.validToDate = validToDate;
+            return _resultValue;
         }
     }
 }

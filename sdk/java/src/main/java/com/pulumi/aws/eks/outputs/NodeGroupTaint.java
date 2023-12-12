@@ -86,11 +86,11 @@ public final class NodeGroupTaint {
             return this;
         }
         public NodeGroupTaint build() {
-            final var o = new NodeGroupTaint();
-            o.effect = effect;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new NodeGroupTaint();
+            _resultValue.effect = effect;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

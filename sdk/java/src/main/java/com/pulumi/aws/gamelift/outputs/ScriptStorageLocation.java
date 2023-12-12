@@ -105,12 +105,12 @@ public final class ScriptStorageLocation {
             return this;
         }
         public ScriptStorageLocation build() {
-            final var o = new ScriptStorageLocation();
-            o.bucket = bucket;
-            o.key = key;
-            o.objectVersion = objectVersion;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new ScriptStorageLocation();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            _resultValue.objectVersion = objectVersion;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

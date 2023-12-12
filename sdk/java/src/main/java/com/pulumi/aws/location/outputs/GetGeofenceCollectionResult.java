@@ -172,16 +172,16 @@ public final class GetGeofenceCollectionResult {
             return this;
         }
         public GetGeofenceCollectionResult build() {
-            final var o = new GetGeofenceCollectionResult();
-            o.collectionArn = collectionArn;
-            o.collectionName = collectionName;
-            o.createTime = createTime;
-            o.description = description;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.tags = tags;
-            o.updateTime = updateTime;
-            return o;
+            final var _resultValue = new GetGeofenceCollectionResult();
+            _resultValue.collectionArn = collectionArn;
+            _resultValue.collectionName = collectionName;
+            _resultValue.createTime = createTime;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.tags = tags;
+            _resultValue.updateTime = updateTime;
+            return _resultValue;
         }
     }
 }

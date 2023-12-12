@@ -40,9 +40,9 @@ public final class InternetMonitorInternetMeasurementsLogDelivery {
             return this;
         }
         public InternetMonitorInternetMeasurementsLogDelivery build() {
-            final var o = new InternetMonitorInternetMeasurementsLogDelivery();
-            o.s3Config = s3Config;
-            return o;
+            final var _resultValue = new InternetMonitorInternetMeasurementsLogDelivery();
+            _resultValue.s3Config = s3Config;
+            return _resultValue;
         }
     }
 }

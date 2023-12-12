@@ -87,11 +87,11 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
             return this;
         }
         public VpnConnectionTunnel2LogOptionsCloudwatchLogOptions build() {
-            final var o = new VpnConnectionTunnel2LogOptionsCloudwatchLogOptions();
-            o.logEnabled = logEnabled;
-            o.logGroupArn = logGroupArn;
-            o.logOutputFormat = logOutputFormat;
-            return o;
+            final var _resultValue = new VpnConnectionTunnel2LogOptionsCloudwatchLogOptions();
+            _resultValue.logEnabled = logEnabled;
+            _resultValue.logGroupArn = logGroupArn;
+            _resultValue.logOutputFormat = logOutputFormat;
+            return _resultValue;
         }
     }
 }

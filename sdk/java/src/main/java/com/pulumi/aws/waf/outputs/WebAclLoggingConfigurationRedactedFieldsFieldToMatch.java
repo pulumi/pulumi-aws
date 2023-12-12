@@ -67,10 +67,10 @@ public final class WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
             return this;
         }
         public WebAclLoggingConfigurationRedactedFieldsFieldToMatch build() {
-            final var o = new WebAclLoggingConfigurationRedactedFieldsFieldToMatch();
-            o.data = data;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationRedactedFieldsFieldToMatch();
+            _resultValue.data = data;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

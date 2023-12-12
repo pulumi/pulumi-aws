@@ -307,23 +307,23 @@ public final class GetMulticastDomainResult {
             return this;
         }
         public GetMulticastDomainResult build() {
-            final var o = new GetMulticastDomainResult();
-            o.arn = arn;
-            o.associations = associations;
-            o.autoAcceptSharedAssociations = autoAcceptSharedAssociations;
-            o.filters = filters;
-            o.id = id;
-            o.igmpv2Support = igmpv2Support;
-            o.members = members;
-            o.ownerId = ownerId;
-            o.sources = sources;
-            o.state = state;
-            o.staticSourcesSupport = staticSourcesSupport;
-            o.tags = tags;
-            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
-            o.transitGatewayId = transitGatewayId;
-            o.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
-            return o;
+            final var _resultValue = new GetMulticastDomainResult();
+            _resultValue.arn = arn;
+            _resultValue.associations = associations;
+            _resultValue.autoAcceptSharedAssociations = autoAcceptSharedAssociations;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.igmpv2Support = igmpv2Support;
+            _resultValue.members = members;
+            _resultValue.ownerId = ownerId;
+            _resultValue.sources = sources;
+            _resultValue.state = state;
+            _resultValue.staticSourcesSupport = staticSourcesSupport;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
+            return _resultValue;
         }
     }
 }

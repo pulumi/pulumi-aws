@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationPrefixList {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationPrefixList build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationPrefixList();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationPrefixList();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

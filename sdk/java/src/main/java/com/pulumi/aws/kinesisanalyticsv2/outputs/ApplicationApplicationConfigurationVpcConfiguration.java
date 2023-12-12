@@ -96,12 +96,12 @@ public final class ApplicationApplicationConfigurationVpcConfiguration {
             return this;
         }
         public ApplicationApplicationConfigurationVpcConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationVpcConfiguration();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcConfigurationId = vpcConfigurationId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationVpcConfiguration();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcConfigurationId = vpcConfigurationId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

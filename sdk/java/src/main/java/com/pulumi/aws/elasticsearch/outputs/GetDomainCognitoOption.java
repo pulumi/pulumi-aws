@@ -104,12 +104,12 @@ public final class GetDomainCognitoOption {
             return this;
         }
         public GetDomainCognitoOption build() {
-            final var o = new GetDomainCognitoOption();
-            o.enabled = enabled;
-            o.identityPoolId = identityPoolId;
-            o.roleArn = roleArn;
-            o.userPoolId = userPoolId;
-            return o;
+            final var _resultValue = new GetDomainCognitoOption();
+            _resultValue.enabled = enabled;
+            _resultValue.identityPoolId = identityPoolId;
+            _resultValue.roleArn = roleArn;
+            _resultValue.userPoolId = userPoolId;
+            return _resultValue;
         }
     }
 }

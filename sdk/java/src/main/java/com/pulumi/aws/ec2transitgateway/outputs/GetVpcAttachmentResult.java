@@ -219,18 +219,18 @@ public final class GetVpcAttachmentResult {
             return this;
         }
         public GetVpcAttachmentResult build() {
-            final var o = new GetVpcAttachmentResult();
-            o.applianceModeSupport = applianceModeSupport;
-            o.dnsSupport = dnsSupport;
-            o.filters = filters;
-            o.id = id;
-            o.ipv6Support = ipv6Support;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.transitGatewayId = transitGatewayId;
-            o.vpcId = vpcId;
-            o.vpcOwnerId = vpcOwnerId;
-            return o;
+            final var _resultValue = new GetVpcAttachmentResult();
+            _resultValue.applianceModeSupport = applianceModeSupport;
+            _resultValue.dnsSupport = dnsSupport;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipv6Support = ipv6Support;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.vpcId = vpcId;
+            _resultValue.vpcOwnerId = vpcOwnerId;
+            return _resultValue;
         }
     }
 }

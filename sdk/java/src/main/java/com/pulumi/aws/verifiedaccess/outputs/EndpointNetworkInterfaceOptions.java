@@ -63,11 +63,11 @@ public final class EndpointNetworkInterfaceOptions {
             return this;
         }
         public EndpointNetworkInterfaceOptions build() {
-            final var o = new EndpointNetworkInterfaceOptions();
-            o.networkInterfaceId = networkInterfaceId;
-            o.port = port;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new EndpointNetworkInterfaceOptions();
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

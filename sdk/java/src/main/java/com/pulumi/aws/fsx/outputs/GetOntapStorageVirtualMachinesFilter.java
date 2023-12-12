@@ -69,10 +69,10 @@ public final class GetOntapStorageVirtualMachinesFilter {
             return values(List.of(values));
         }
         public GetOntapStorageVirtualMachinesFilter build() {
-            final var o = new GetOntapStorageVirtualMachinesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachinesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -50,10 +50,10 @@ public final class GetBrokerConfiguration {
             return this;
         }
         public GetBrokerConfiguration build() {
-            final var o = new GetBrokerConfiguration();
-            o.id = id;
-            o.revision = revision;
-            return o;
+            final var _resultValue = new GetBrokerConfiguration();
+            _resultValue.id = id;
+            _resultValue.revision = revision;
+            return _resultValue;
         }
     }
 }

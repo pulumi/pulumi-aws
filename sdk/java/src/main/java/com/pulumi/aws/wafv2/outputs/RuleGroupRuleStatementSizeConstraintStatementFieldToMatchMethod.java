@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMeth
         }
 
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod();
+            return _resultValue;
         }
     }
 }

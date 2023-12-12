@@ -49,10 +49,10 @@ public final class SpotFleetRequestLaunchSpecificationEphemeralBlockDevice {
             return this;
         }
         public SpotFleetRequestLaunchSpecificationEphemeralBlockDevice build() {
-            final var o = new SpotFleetRequestLaunchSpecificationEphemeralBlockDevice();
-            o.deviceName = deviceName;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchSpecificationEphemeralBlockDevice();
+            _resultValue.deviceName = deviceName;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

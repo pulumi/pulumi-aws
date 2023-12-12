@@ -46,9 +46,9 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs();
-            o.s3Output = s3Output;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs();
+            _resultValue.s3Output = s3Output;
+            return _resultValue;
         }
     }
 }

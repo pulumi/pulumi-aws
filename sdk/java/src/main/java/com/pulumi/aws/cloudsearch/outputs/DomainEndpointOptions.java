@@ -68,10 +68,10 @@ public final class DomainEndpointOptions {
             return this;
         }
         public DomainEndpointOptions build() {
-            final var o = new DomainEndpointOptions();
-            o.enforceHttps = enforceHttps;
-            o.tlsSecurityPolicy = tlsSecurityPolicy;
-            return o;
+            final var _resultValue = new DomainEndpointOptions();
+            _resultValue.enforceHttps = enforceHttps;
+            _resultValue.tlsSecurityPolicy = tlsSecurityPolicy;
+            return _resultValue;
         }
     }
 }

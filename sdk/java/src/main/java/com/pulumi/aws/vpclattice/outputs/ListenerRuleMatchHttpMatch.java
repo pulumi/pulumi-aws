@@ -92,11 +92,11 @@ public final class ListenerRuleMatchHttpMatch {
             return this;
         }
         public ListenerRuleMatchHttpMatch build() {
-            final var o = new ListenerRuleMatchHttpMatch();
-            o.headerMatches = headerMatches;
-            o.method = method;
-            o.pathMatch = pathMatch;
-            return o;
+            final var _resultValue = new ListenerRuleMatchHttpMatch();
+            _resultValue.headerMatches = headerMatches;
+            _resultValue.method = method;
+            _resultValue.pathMatch = pathMatch;
+            return _resultValue;
         }
     }
 }

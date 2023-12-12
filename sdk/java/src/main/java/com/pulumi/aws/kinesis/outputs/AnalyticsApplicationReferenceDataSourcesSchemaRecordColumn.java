@@ -86,11 +86,11 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn {
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn();
-            o.mapping = mapping;
-            o.name = name;
-            o.sqlType = sqlType;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn();
+            _resultValue.mapping = mapping;
+            _resultValue.name = name;
+            _resultValue.sqlType = sqlType;
+            return _resultValue;
         }
     }
 }

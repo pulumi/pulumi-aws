@@ -67,10 +67,10 @@ public final class ConfigurationProfileValidator {
             return this;
         }
         public ConfigurationProfileValidator build() {
-            final var o = new ConfigurationProfileValidator();
-            o.content = content;
-            o.type = type;
-            return o;
+            final var _resultValue = new ConfigurationProfileValidator();
+            _resultValue.content = content;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

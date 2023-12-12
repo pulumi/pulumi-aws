@@ -87,11 +87,11 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersBody {
             return this;
         }
         public EventConnectionAuthParametersOauthOauthHttpParametersBody build() {
-            final var o = new EventConnectionAuthParametersOauthOauthHttpParametersBody();
-            o.isValueSecret = isValueSecret;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersOauthOauthHttpParametersBody();
+            _resultValue.isValueSecret = isValueSecret;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

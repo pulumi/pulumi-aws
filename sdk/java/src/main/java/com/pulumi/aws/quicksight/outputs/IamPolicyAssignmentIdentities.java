@@ -65,10 +65,10 @@ public final class IamPolicyAssignmentIdentities {
             return users(List.of(users));
         }
         public IamPolicyAssignmentIdentities build() {
-            final var o = new IamPolicyAssignmentIdentities();
-            o.groups = groups;
-            o.users = users;
-            return o;
+            final var _resultValue = new IamPolicyAssignmentIdentities();
+            _resultValue.groups = groups;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

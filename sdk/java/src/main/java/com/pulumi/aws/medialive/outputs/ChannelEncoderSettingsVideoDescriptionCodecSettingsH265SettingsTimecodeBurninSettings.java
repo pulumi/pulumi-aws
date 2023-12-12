@@ -86,11 +86,11 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings();
-            o.prefix = prefix;
-            o.timecodeBurninFontSize = timecodeBurninFontSize;
-            o.timecodeBurninPosition = timecodeBurninPosition;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings();
+            _resultValue.prefix = prefix;
+            _resultValue.timecodeBurninFontSize = timecodeBurninFontSize;
+            _resultValue.timecodeBurninPosition = timecodeBurninPosition;
+            return _resultValue;
         }
     }
 }

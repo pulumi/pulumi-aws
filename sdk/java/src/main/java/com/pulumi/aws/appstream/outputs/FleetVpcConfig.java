@@ -73,10 +73,10 @@ public final class FleetVpcConfig {
             return subnetIds(List.of(subnetIds));
         }
         public FleetVpcConfig build() {
-            final var o = new FleetVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new FleetVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

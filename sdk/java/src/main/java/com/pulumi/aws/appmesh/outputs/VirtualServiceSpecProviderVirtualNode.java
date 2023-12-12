@@ -46,9 +46,9 @@ public final class VirtualServiceSpecProviderVirtualNode {
             return this;
         }
         public VirtualServiceSpecProviderVirtualNode build() {
-            final var o = new VirtualServiceSpecProviderVirtualNode();
-            o.virtualNodeName = virtualNodeName;
-            return o;
+            final var _resultValue = new VirtualServiceSpecProviderVirtualNode();
+            _resultValue.virtualNodeName = virtualNodeName;
+            return _resultValue;
         }
     }
 }

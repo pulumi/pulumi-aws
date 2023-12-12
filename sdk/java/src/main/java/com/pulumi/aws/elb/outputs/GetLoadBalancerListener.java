@@ -83,13 +83,13 @@ public final class GetLoadBalancerListener {
             return this;
         }
         public GetLoadBalancerListener build() {
-            final var o = new GetLoadBalancerListener();
-            o.instancePort = instancePort;
-            o.instanceProtocol = instanceProtocol;
-            o.lbPort = lbPort;
-            o.lbProtocol = lbProtocol;
-            o.sslCertificateId = sslCertificateId;
-            return o;
+            final var _resultValue = new GetLoadBalancerListener();
+            _resultValue.instancePort = instancePort;
+            _resultValue.instanceProtocol = instanceProtocol;
+            _resultValue.lbPort = lbPort;
+            _resultValue.lbProtocol = lbProtocol;
+            _resultValue.sslCertificateId = sslCertificateId;
+            return _resultValue;
         }
     }
 }

@@ -151,15 +151,15 @@ public final class GetConnectResult {
             return this;
         }
         public GetConnectResult build() {
-            final var o = new GetConnectResult();
-            o.filters = filters;
-            o.id = id;
-            o.protocol = protocol;
-            o.tags = tags;
-            o.transitGatewayConnectId = transitGatewayConnectId;
-            o.transitGatewayId = transitGatewayId;
-            o.transportAttachmentId = transportAttachmentId;
-            return o;
+            final var _resultValue = new GetConnectResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.protocol = protocol;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayConnectId = transitGatewayConnectId;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.transportAttachmentId = transportAttachmentId;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class ProvisioningTemplatePreProvisioningHook {
             return this;
         }
         public ProvisioningTemplatePreProvisioningHook build() {
-            final var o = new ProvisioningTemplatePreProvisioningHook();
-            o.payloadVersion = payloadVersion;
-            o.targetArn = targetArn;
-            return o;
+            final var _resultValue = new ProvisioningTemplatePreProvisioningHook();
+            _resultValue.payloadVersion = payloadVersion;
+            _resultValue.targetArn = targetArn;
+            return _resultValue;
         }
     }
 }

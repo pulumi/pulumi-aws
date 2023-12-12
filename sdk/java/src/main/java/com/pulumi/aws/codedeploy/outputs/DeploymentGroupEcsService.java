@@ -65,10 +65,10 @@ public final class DeploymentGroupEcsService {
             return this;
         }
         public DeploymentGroupEcsService build() {
-            final var o = new DeploymentGroupEcsService();
-            o.clusterName = clusterName;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new DeploymentGroupEcsService();
+            _resultValue.clusterName = clusterName;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

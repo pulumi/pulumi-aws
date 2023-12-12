@@ -107,12 +107,12 @@ public final class AnalyticsApplicationReferenceDataSources {
             return this;
         }
         public AnalyticsApplicationReferenceDataSources build() {
-            final var o = new AnalyticsApplicationReferenceDataSources();
-            o.id = id;
-            o.s3 = s3;
-            o.schema = schema;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSources();
+            _resultValue.id = id;
+            _resultValue.s3 = s3;
+            _resultValue.schema = schema;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

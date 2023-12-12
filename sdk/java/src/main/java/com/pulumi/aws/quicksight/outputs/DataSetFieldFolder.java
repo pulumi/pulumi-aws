@@ -90,11 +90,11 @@ public final class DataSetFieldFolder {
             return this;
         }
         public DataSetFieldFolder build() {
-            final var o = new DataSetFieldFolder();
-            o.columns = columns;
-            o.description = description;
-            o.fieldFoldersId = fieldFoldersId;
-            return o;
+            final var _resultValue = new DataSetFieldFolder();
+            _resultValue.columns = columns;
+            _resultValue.description = description;
+            _resultValue.fieldFoldersId = fieldFoldersId;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class GetFunctionsResult {
             return this;
         }
         public GetFunctionsResult build() {
-            final var o = new GetFunctionsResult();
-            o.functionArns = functionArns;
-            o.functionNames = functionNames;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetFunctionsResult();
+            _resultValue.functionArns = functionArns;
+            _resultValue.functionNames = functionNames;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

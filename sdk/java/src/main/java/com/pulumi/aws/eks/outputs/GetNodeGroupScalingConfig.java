@@ -84,11 +84,11 @@ public final class GetNodeGroupScalingConfig {
             return this;
         }
         public GetNodeGroupScalingConfig build() {
-            final var o = new GetNodeGroupScalingConfig();
-            o.desiredSize = desiredSize;
-            o.maxSize = maxSize;
-            o.minSize = minSize;
-            return o;
+            final var _resultValue = new GetNodeGroupScalingConfig();
+            _resultValue.desiredSize = desiredSize;
+            _resultValue.maxSize = maxSize;
+            _resultValue.minSize = minSize;
+            return _resultValue;
         }
     }
 }

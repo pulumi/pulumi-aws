@@ -65,10 +65,10 @@ public final class GetConfigurationSetDeliveryOption {
             return this;
         }
         public GetConfigurationSetDeliveryOption build() {
-            final var o = new GetConfigurationSetDeliveryOption();
-            o.sendingPoolName = sendingPoolName;
-            o.tlsPolicy = tlsPolicy;
-            return o;
+            final var _resultValue = new GetConfigurationSetDeliveryOption();
+            _resultValue.sendingPoolName = sendingPoolName;
+            _resultValue.tlsPolicy = tlsPolicy;
+            return _resultValue;
         }
     }
 }

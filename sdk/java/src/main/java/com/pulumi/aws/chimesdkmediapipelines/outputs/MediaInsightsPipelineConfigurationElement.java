@@ -208,17 +208,17 @@ public final class MediaInsightsPipelineConfigurationElement {
             return this;
         }
         public MediaInsightsPipelineConfigurationElement build() {
-            final var o = new MediaInsightsPipelineConfigurationElement();
-            o.amazonTranscribeCallAnalyticsProcessorConfiguration = amazonTranscribeCallAnalyticsProcessorConfiguration;
-            o.amazonTranscribeProcessorConfiguration = amazonTranscribeProcessorConfiguration;
-            o.kinesisDataStreamSinkConfiguration = kinesisDataStreamSinkConfiguration;
-            o.lambdaFunctionSinkConfiguration = lambdaFunctionSinkConfiguration;
-            o.s3RecordingSinkConfiguration = s3RecordingSinkConfiguration;
-            o.snsTopicSinkConfiguration = snsTopicSinkConfiguration;
-            o.sqsQueueSinkConfiguration = sqsQueueSinkConfiguration;
-            o.type = type;
-            o.voiceAnalyticsProcessorConfiguration = voiceAnalyticsProcessorConfiguration;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElement();
+            _resultValue.amazonTranscribeCallAnalyticsProcessorConfiguration = amazonTranscribeCallAnalyticsProcessorConfiguration;
+            _resultValue.amazonTranscribeProcessorConfiguration = amazonTranscribeProcessorConfiguration;
+            _resultValue.kinesisDataStreamSinkConfiguration = kinesisDataStreamSinkConfiguration;
+            _resultValue.lambdaFunctionSinkConfiguration = lambdaFunctionSinkConfiguration;
+            _resultValue.s3RecordingSinkConfiguration = s3RecordingSinkConfiguration;
+            _resultValue.snsTopicSinkConfiguration = snsTopicSinkConfiguration;
+            _resultValue.sqsQueueSinkConfiguration = sqsQueueSinkConfiguration;
+            _resultValue.type = type;
+            _resultValue.voiceAnalyticsProcessorConfiguration = voiceAnalyticsProcessorConfiguration;
+            return _resultValue;
         }
     }
 }

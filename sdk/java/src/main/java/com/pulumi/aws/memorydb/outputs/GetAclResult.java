@@ -138,14 +138,14 @@ public final class GetAclResult {
             return userNames(List.of(userNames));
         }
         public GetAclResult build() {
-            final var o = new GetAclResult();
-            o.arn = arn;
-            o.id = id;
-            o.minimumEngineVersion = minimumEngineVersion;
-            o.name = name;
-            o.tags = tags;
-            o.userNames = userNames;
-            return o;
+            final var _resultValue = new GetAclResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.minimumEngineVersion = minimumEngineVersion;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.userNames = userNames;
+            return _resultValue;
         }
     }
 }

@@ -114,12 +114,12 @@ public final class TrailEventSelector {
             return this;
         }
         public TrailEventSelector build() {
-            final var o = new TrailEventSelector();
-            o.dataResources = dataResources;
-            o.excludeManagementEventSources = excludeManagementEventSources;
-            o.includeManagementEvents = includeManagementEvents;
-            o.readWriteType = readWriteType;
-            return o;
+            final var _resultValue = new TrailEventSelector();
+            _resultValue.dataResources = dataResources;
+            _resultValue.excludeManagementEventSources = excludeManagementEventSources;
+            _resultValue.includeManagementEvents = includeManagementEvents;
+            _resultValue.readWriteType = readWriteType;
+            return _resultValue;
         }
     }
 }

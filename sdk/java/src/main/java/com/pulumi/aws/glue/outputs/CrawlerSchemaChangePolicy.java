@@ -67,10 +67,10 @@ public final class CrawlerSchemaChangePolicy {
             return this;
         }
         public CrawlerSchemaChangePolicy build() {
-            final var o = new CrawlerSchemaChangePolicy();
-            o.deleteBehavior = deleteBehavior;
-            o.updateBehavior = updateBehavior;
-            return o;
+            final var _resultValue = new CrawlerSchemaChangePolicy();
+            _resultValue.deleteBehavior = deleteBehavior;
+            _resultValue.updateBehavior = updateBehavior;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class InsightFiltersNetworkDirection {
             return this;
         }
         public InsightFiltersNetworkDirection build() {
-            final var o = new InsightFiltersNetworkDirection();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersNetworkDirection();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

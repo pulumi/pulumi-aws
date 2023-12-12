@@ -91,11 +91,11 @@ public final class InstanceCpuOptions {
             return this;
         }
         public InstanceCpuOptions build() {
-            final var o = new InstanceCpuOptions();
-            o.amdSevSnp = amdSevSnp;
-            o.coreCount = coreCount;
-            o.threadsPerCore = threadsPerCore;
-            return o;
+            final var _resultValue = new InstanceCpuOptions();
+            _resultValue.amdSevSnp = amdSevSnp;
+            _resultValue.coreCount = coreCount;
+            _resultValue.threadsPerCore = threadsPerCore;
+            return _resultValue;
         }
     }
 }

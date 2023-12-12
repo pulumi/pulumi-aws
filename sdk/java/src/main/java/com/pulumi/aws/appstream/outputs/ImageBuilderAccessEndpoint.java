@@ -67,10 +67,10 @@ public final class ImageBuilderAccessEndpoint {
             return this;
         }
         public ImageBuilderAccessEndpoint build() {
-            final var o = new ImageBuilderAccessEndpoint();
-            o.endpointType = endpointType;
-            o.vpceId = vpceId;
-            return o;
+            final var _resultValue = new ImageBuilderAccessEndpoint();
+            _resultValue.endpointType = endpointType;
+            _resultValue.vpceId = vpceId;
+            return _resultValue;
         }
     }
 }

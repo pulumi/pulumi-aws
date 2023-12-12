@@ -97,12 +97,12 @@ public final class GetVpcIpamPoolCidrsResult {
             return this;
         }
         public GetVpcIpamPoolCidrsResult build() {
-            final var o = new GetVpcIpamPoolCidrsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ipamPoolCidrs = ipamPoolCidrs;
-            o.ipamPoolId = ipamPoolId;
-            return o;
+            final var _resultValue = new GetVpcIpamPoolCidrsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipamPoolCidrs = ipamPoolCidrs;
+            _resultValue.ipamPoolId = ipamPoolId;
+            return _resultValue;
         }
     }
 }

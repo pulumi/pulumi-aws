@@ -53,10 +53,10 @@ public final class GetNetworkInterfaceFilter {
             return values(List.of(values));
         }
         public GetNetworkInterfaceFilter build() {
-            final var o = new GetNetworkInterfaceFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetNetworkInterfaceFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

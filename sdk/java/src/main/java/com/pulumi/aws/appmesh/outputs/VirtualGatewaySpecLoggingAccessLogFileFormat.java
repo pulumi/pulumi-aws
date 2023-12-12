@@ -72,10 +72,10 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormat {
             return this;
         }
         public VirtualGatewaySpecLoggingAccessLogFileFormat build() {
-            final var o = new VirtualGatewaySpecLoggingAccessLogFileFormat();
-            o.jsons = jsons;
-            o.text = text;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecLoggingAccessLogFileFormat();
+            _resultValue.jsons = jsons;
+            _resultValue.text = text;
+            return _resultValue;
         }
     }
 }

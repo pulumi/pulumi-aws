@@ -87,11 +87,11 @@ public final class SpotInstanceRequestPrivateDnsNameOptions {
             return this;
         }
         public SpotInstanceRequestPrivateDnsNameOptions build() {
-            final var o = new SpotInstanceRequestPrivateDnsNameOptions();
-            o.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
-            o.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
-            o.hostnameType = hostnameType;
-            return o;
+            final var _resultValue = new SpotInstanceRequestPrivateDnsNameOptions();
+            _resultValue.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
+            _resultValue.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
+            _resultValue.hostnameType = hostnameType;
+            return _resultValue;
         }
     }
 }

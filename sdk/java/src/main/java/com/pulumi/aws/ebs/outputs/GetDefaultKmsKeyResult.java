@@ -65,10 +65,10 @@ public final class GetDefaultKmsKeyResult {
             return this;
         }
         public GetDefaultKmsKeyResult build() {
-            final var o = new GetDefaultKmsKeyResult();
-            o.id = id;
-            o.keyArn = keyArn;
-            return o;
+            final var _resultValue = new GetDefaultKmsKeyResult();
+            _resultValue.id = id;
+            _resultValue.keyArn = keyArn;
+            return _resultValue;
         }
     }
 }

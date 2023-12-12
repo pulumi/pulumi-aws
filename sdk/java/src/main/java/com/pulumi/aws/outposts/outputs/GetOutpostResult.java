@@ -226,20 +226,20 @@ public final class GetOutpostResult {
             return this;
         }
         public GetOutpostResult build() {
-            final var o = new GetOutpostResult();
-            o.arn = arn;
-            o.availabilityZone = availabilityZone;
-            o.availabilityZoneId = availabilityZoneId;
-            o.description = description;
-            o.id = id;
-            o.lifecycleStatus = lifecycleStatus;
-            o.name = name;
-            o.ownerId = ownerId;
-            o.siteArn = siteArn;
-            o.siteId = siteId;
-            o.supportedHardwareType = supportedHardwareType;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetOutpostResult();
+            _resultValue.arn = arn;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.availabilityZoneId = availabilityZoneId;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.lifecycleStatus = lifecycleStatus;
+            _resultValue.name = name;
+            _resultValue.ownerId = ownerId;
+            _resultValue.siteArn = siteArn;
+            _resultValue.siteId = siteId;
+            _resultValue.supportedHardwareType = supportedHardwareType;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

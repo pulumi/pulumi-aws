@@ -72,10 +72,10 @@ public final class CatalogDatabaseCreateTableDefaultPermission {
             return this;
         }
         public CatalogDatabaseCreateTableDefaultPermission build() {
-            final var o = new CatalogDatabaseCreateTableDefaultPermission();
-            o.permissions = permissions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new CatalogDatabaseCreateTableDefaultPermission();
+            _resultValue.permissions = permissions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

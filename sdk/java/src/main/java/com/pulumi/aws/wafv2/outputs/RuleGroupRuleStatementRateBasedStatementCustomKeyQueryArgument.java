@@ -74,10 +74,10 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumen
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument();
-            o.name = name;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument();
+            _resultValue.name = name;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

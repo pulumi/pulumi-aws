@@ -87,11 +87,11 @@ public final class CatalogTableStorageDescriptorSerDeInfo {
             return this;
         }
         public CatalogTableStorageDescriptorSerDeInfo build() {
-            final var o = new CatalogTableStorageDescriptorSerDeInfo();
-            o.name = name;
-            o.parameters = parameters;
-            o.serializationLibrary = serializationLibrary;
-            return o;
+            final var _resultValue = new CatalogTableStorageDescriptorSerDeInfo();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.serializationLibrary = serializationLibrary;
+            return _resultValue;
         }
     }
 }

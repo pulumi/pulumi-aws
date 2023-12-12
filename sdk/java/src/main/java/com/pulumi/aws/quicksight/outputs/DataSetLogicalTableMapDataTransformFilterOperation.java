@@ -46,9 +46,9 @@ public final class DataSetLogicalTableMapDataTransformFilterOperation {
             return this;
         }
         public DataSetLogicalTableMapDataTransformFilterOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformFilterOperation();
-            o.conditionExpression = conditionExpression;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformFilterOperation();
+            _resultValue.conditionExpression = conditionExpression;
+            return _resultValue;
         }
     }
 }

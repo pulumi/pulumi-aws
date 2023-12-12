@@ -65,10 +65,10 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader {
             return this;
         }
         public RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader build() {
-            final var o = new RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

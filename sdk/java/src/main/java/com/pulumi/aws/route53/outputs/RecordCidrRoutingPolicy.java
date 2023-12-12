@@ -65,10 +65,10 @@ public final class RecordCidrRoutingPolicy {
             return this;
         }
         public RecordCidrRoutingPolicy build() {
-            final var o = new RecordCidrRoutingPolicy();
-            o.collectionId = collectionId;
-            o.locationName = locationName;
-            return o;
+            final var _resultValue = new RecordCidrRoutingPolicy();
+            _resultValue.collectionId = collectionId;
+            _resultValue.locationName = locationName;
+            return _resultValue;
         }
     }
 }

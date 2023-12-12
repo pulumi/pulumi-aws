@@ -49,10 +49,10 @@ public final class GetAmiProductCode {
             return this;
         }
         public GetAmiProductCode build() {
-            final var o = new GetAmiProductCode();
-            o.productCodeId = productCodeId;
-            o.productCodeType = productCodeType;
-            return o;
+            final var _resultValue = new GetAmiProductCode();
+            _resultValue.productCodeId = productCodeId;
+            _resultValue.productCodeType = productCodeType;
+            return _resultValue;
         }
     }
 }

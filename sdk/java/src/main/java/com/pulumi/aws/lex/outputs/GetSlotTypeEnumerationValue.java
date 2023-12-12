@@ -53,10 +53,10 @@ public final class GetSlotTypeEnumerationValue {
             return this;
         }
         public GetSlotTypeEnumerationValue build() {
-            final var o = new GetSlotTypeEnumerationValue();
-            o.synonyms = synonyms;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetSlotTypeEnumerationValue();
+            _resultValue.synonyms = synonyms;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

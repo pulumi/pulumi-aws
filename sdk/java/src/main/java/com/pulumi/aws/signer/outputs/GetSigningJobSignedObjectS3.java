@@ -49,10 +49,10 @@ public final class GetSigningJobSignedObjectS3 {
             return this;
         }
         public GetSigningJobSignedObjectS3 build() {
-            final var o = new GetSigningJobSignedObjectS3();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new GetSigningJobSignedObjectS3();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStrin
         }
 
         public RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString build() {
-            final var o = new RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString();
+            return _resultValue;
         }
     }
 }

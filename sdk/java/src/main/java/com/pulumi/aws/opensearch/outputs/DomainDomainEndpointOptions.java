@@ -125,13 +125,13 @@ public final class DomainDomainEndpointOptions {
             return this;
         }
         public DomainDomainEndpointOptions build() {
-            final var o = new DomainDomainEndpointOptions();
-            o.customEndpoint = customEndpoint;
-            o.customEndpointCertificateArn = customEndpointCertificateArn;
-            o.customEndpointEnabled = customEndpointEnabled;
-            o.enforceHttps = enforceHttps;
-            o.tlsSecurityPolicy = tlsSecurityPolicy;
-            return o;
+            final var _resultValue = new DomainDomainEndpointOptions();
+            _resultValue.customEndpoint = customEndpoint;
+            _resultValue.customEndpointCertificateArn = customEndpointCertificateArn;
+            _resultValue.customEndpointEnabled = customEndpointEnabled;
+            _resultValue.enforceHttps = enforceHttps;
+            _resultValue.tlsSecurityPolicy = tlsSecurityPolicy;
+            return _resultValue;
         }
     }
 }

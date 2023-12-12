@@ -72,10 +72,10 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpc {
             return subnets(List.of(subnets));
         }
         public ConnectorKafkaClusterApacheKafkaClusterVpc build() {
-            final var o = new ConnectorKafkaClusterApacheKafkaClusterVpc();
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new ConnectorKafkaClusterApacheKafkaClusterVpc();
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

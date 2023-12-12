@@ -46,9 +46,9 @@ public final class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigur
             return this;
         }
         public MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration();
-            o.insightsTarget = insightsTarget;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration();
+            _resultValue.insightsTarget = insightsTarget;
+            return _resultValue;
         }
     }
 }

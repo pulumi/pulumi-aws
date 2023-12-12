@@ -48,9 +48,9 @@ public final class ConfigurationSetDeliveryOptions {
             return this;
         }
         public ConfigurationSetDeliveryOptions build() {
-            final var o = new ConfigurationSetDeliveryOptions();
-            o.tlsPolicy = tlsPolicy;
-            return o;
+            final var _resultValue = new ConfigurationSetDeliveryOptions();
+            _resultValue.tlsPolicy = tlsPolicy;
+            return _resultValue;
         }
     }
 }

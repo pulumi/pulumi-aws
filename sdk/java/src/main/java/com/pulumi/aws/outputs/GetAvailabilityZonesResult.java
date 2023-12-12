@@ -181,17 +181,17 @@ public final class GetAvailabilityZonesResult {
             return zoneIds(List.of(zoneIds));
         }
         public GetAvailabilityZonesResult build() {
-            final var o = new GetAvailabilityZonesResult();
-            o.allAvailabilityZones = allAvailabilityZones;
-            o.excludeNames = excludeNames;
-            o.excludeZoneIds = excludeZoneIds;
-            o.filters = filters;
-            o.groupNames = groupNames;
-            o.id = id;
-            o.names = names;
-            o.state = state;
-            o.zoneIds = zoneIds;
-            return o;
+            final var _resultValue = new GetAvailabilityZonesResult();
+            _resultValue.allAvailabilityZones = allAvailabilityZones;
+            _resultValue.excludeNames = excludeNames;
+            _resultValue.excludeZoneIds = excludeZoneIds;
+            _resultValue.filters = filters;
+            _resultValue.groupNames = groupNames;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            _resultValue.state = state;
+            _resultValue.zoneIds = zoneIds;
+            return _resultValue;
         }
     }
 }

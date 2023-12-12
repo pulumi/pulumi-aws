@@ -145,14 +145,14 @@ public final class ChannelEncoderSettingsGlobalConfiguration {
             return this;
         }
         public ChannelEncoderSettingsGlobalConfiguration build() {
-            final var o = new ChannelEncoderSettingsGlobalConfiguration();
-            o.initialAudioGain = initialAudioGain;
-            o.inputEndAction = inputEndAction;
-            o.inputLossBehavior = inputLossBehavior;
-            o.outputLockingMode = outputLockingMode;
-            o.outputTimingSource = outputTimingSource;
-            o.supportLowFramerateInputs = supportLowFramerateInputs;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsGlobalConfiguration();
+            _resultValue.initialAudioGain = initialAudioGain;
+            _resultValue.inputEndAction = inputEndAction;
+            _resultValue.inputLossBehavior = inputLossBehavior;
+            _resultValue.outputLockingMode = outputLockingMode;
+            _resultValue.outputTimingSource = outputTimingSource;
+            _resultValue.supportLowFramerateInputs = supportLowFramerateInputs;
+            return _resultValue;
         }
     }
 }

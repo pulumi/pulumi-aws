@@ -67,10 +67,10 @@ public final class EndpointConfigurationProductionVariantCoreDumpConfig {
             return this;
         }
         public EndpointConfigurationProductionVariantCoreDumpConfig build() {
-            final var o = new EndpointConfigurationProductionVariantCoreDumpConfig();
-            o.destinationS3Uri = destinationS3Uri;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new EndpointConfigurationProductionVariantCoreDumpConfig();
+            _resultValue.destinationS3Uri = destinationS3Uri;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

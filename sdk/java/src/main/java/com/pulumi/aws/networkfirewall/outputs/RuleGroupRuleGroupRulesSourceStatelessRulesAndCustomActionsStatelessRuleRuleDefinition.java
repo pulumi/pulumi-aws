@@ -70,10 +70,10 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
             return this;
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition();
-            o.actions = actions;
-            o.matchAttributes = matchAttributes;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition();
+            _resultValue.actions = actions;
+            _resultValue.matchAttributes = matchAttributes;
+            return _resultValue;
         }
     }
 }

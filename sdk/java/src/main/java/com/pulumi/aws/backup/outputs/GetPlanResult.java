@@ -134,14 +134,14 @@ public final class GetPlanResult {
             return this;
         }
         public GetPlanResult build() {
-            final var o = new GetPlanResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.planId = planId;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetPlanResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.planId = planId;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

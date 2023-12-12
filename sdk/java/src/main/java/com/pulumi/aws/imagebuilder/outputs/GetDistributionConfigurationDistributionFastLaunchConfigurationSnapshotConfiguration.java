@@ -46,9 +46,9 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
             return this;
         }
         public GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration build() {
-            final var o = new GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration();
-            o.targetResourceCount = targetResourceCount;
-            return o;
+            final var _resultValue = new GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration();
+            _resultValue.targetResourceCount = targetResourceCount;
+            return _resultValue;
         }
     }
 }

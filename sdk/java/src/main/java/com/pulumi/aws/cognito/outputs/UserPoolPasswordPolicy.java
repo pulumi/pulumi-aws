@@ -144,14 +144,14 @@ public final class UserPoolPasswordPolicy {
             return this;
         }
         public UserPoolPasswordPolicy build() {
-            final var o = new UserPoolPasswordPolicy();
-            o.minimumLength = minimumLength;
-            o.requireLowercase = requireLowercase;
-            o.requireNumbers = requireNumbers;
-            o.requireSymbols = requireSymbols;
-            o.requireUppercase = requireUppercase;
-            o.temporaryPasswordValidityDays = temporaryPasswordValidityDays;
-            return o;
+            final var _resultValue = new UserPoolPasswordPolicy();
+            _resultValue.minimumLength = minimumLength;
+            _resultValue.requireLowercase = requireLowercase;
+            _resultValue.requireNumbers = requireNumbers;
+            _resultValue.requireSymbols = requireSymbols;
+            _resultValue.requireUppercase = requireUppercase;
+            _resultValue.temporaryPasswordValidityDays = temporaryPasswordValidityDays;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
             return this;
         }
         public DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository build() {
-            final var o = new DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository();
-            o.repositoryName = repositoryName;
-            o.service = service;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository();
+            _resultValue.repositoryName = repositoryName;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

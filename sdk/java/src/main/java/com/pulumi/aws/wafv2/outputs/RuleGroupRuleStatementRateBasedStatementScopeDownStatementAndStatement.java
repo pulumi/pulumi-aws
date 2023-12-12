@@ -50,9 +50,9 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAnd
             return statements(List.of(statements));
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetNetworkInsightsPathFilter {
             return values(List.of(values));
         }
         public GetNetworkInsightsPathFilter build() {
-            final var o = new GetNetworkInsightsPathFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetNetworkInsightsPathFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetRouteTableFilter {
             return values(List.of(values));
         }
         public GetRouteTableFilter build() {
-            final var o = new GetRouteTableFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetRouteTableFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

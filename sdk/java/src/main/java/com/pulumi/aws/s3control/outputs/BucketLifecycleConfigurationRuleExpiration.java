@@ -88,11 +88,11 @@ public final class BucketLifecycleConfigurationRuleExpiration {
             return this;
         }
         public BucketLifecycleConfigurationRuleExpiration build() {
-            final var o = new BucketLifecycleConfigurationRuleExpiration();
-            o.date = date;
-            o.days = days;
-            o.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationRuleExpiration();
+            _resultValue.date = date;
+            _resultValue.days = days;
+            _resultValue.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
+            return _resultValue;
         }
     }
 }

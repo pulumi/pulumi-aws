@@ -68,10 +68,10 @@ public final class ChannelEncoderSettingsTimecodeConfig {
             return this;
         }
         public ChannelEncoderSettingsTimecodeConfig build() {
-            final var o = new ChannelEncoderSettingsTimecodeConfig();
-            o.source = source;
-            o.syncThreshold = syncThreshold;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsTimecodeConfig();
+            _resultValue.source = source;
+            _resultValue.syncThreshold = syncThreshold;
+            return _resultValue;
         }
     }
 }

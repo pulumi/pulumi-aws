@@ -67,10 +67,10 @@ public final class PipeTargetParametersEcsTaskParametersPlacementStrategy {
             return this;
         }
         public PipeTargetParametersEcsTaskParametersPlacementStrategy build() {
-            final var o = new PipeTargetParametersEcsTaskParametersPlacementStrategy();
-            o.field = field;
-            o.type = type;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersPlacementStrategy();
+            _resultValue.field = field;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -230,18 +230,18 @@ public final class ScheduleTarget {
             return this;
         }
         public ScheduleTarget build() {
-            final var o = new ScheduleTarget();
-            o.arn = arn;
-            o.deadLetterConfig = deadLetterConfig;
-            o.ecsParameters = ecsParameters;
-            o.eventbridgeParameters = eventbridgeParameters;
-            o.input = input;
-            o.kinesisParameters = kinesisParameters;
-            o.retryPolicy = retryPolicy;
-            o.roleArn = roleArn;
-            o.sagemakerPipelineParameters = sagemakerPipelineParameters;
-            o.sqsParameters = sqsParameters;
-            return o;
+            final var _resultValue = new ScheduleTarget();
+            _resultValue.arn = arn;
+            _resultValue.deadLetterConfig = deadLetterConfig;
+            _resultValue.ecsParameters = ecsParameters;
+            _resultValue.eventbridgeParameters = eventbridgeParameters;
+            _resultValue.input = input;
+            _resultValue.kinesisParameters = kinesisParameters;
+            _resultValue.retryPolicy = retryPolicy;
+            _resultValue.roleArn = roleArn;
+            _resultValue.sagemakerPipelineParameters = sagemakerPipelineParameters;
+            _resultValue.sqsParameters = sqsParameters;
+            return _resultValue;
         }
     }
 }

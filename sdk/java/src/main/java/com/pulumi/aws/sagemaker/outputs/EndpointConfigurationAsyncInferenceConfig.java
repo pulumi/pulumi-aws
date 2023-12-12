@@ -68,10 +68,10 @@ public final class EndpointConfigurationAsyncInferenceConfig {
             return this;
         }
         public EndpointConfigurationAsyncInferenceConfig build() {
-            final var o = new EndpointConfigurationAsyncInferenceConfig();
-            o.clientConfig = clientConfig;
-            o.outputConfig = outputConfig;
-            return o;
+            final var _resultValue = new EndpointConfigurationAsyncInferenceConfig();
+            _resultValue.clientConfig = clientConfig;
+            _resultValue.outputConfig = outputConfig;
+            return _resultValue;
         }
     }
 }

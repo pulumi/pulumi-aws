@@ -244,19 +244,19 @@ public final class ListenerDefaultActionAuthenticateOidc {
             return this;
         }
         public ListenerDefaultActionAuthenticateOidc build() {
-            final var o = new ListenerDefaultActionAuthenticateOidc();
-            o.authenticationRequestExtraParams = authenticationRequestExtraParams;
-            o.authorizationEndpoint = authorizationEndpoint;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.issuer = issuer;
-            o.onUnauthenticatedRequest = onUnauthenticatedRequest;
-            o.scope = scope;
-            o.sessionCookieName = sessionCookieName;
-            o.sessionTimeout = sessionTimeout;
-            o.tokenEndpoint = tokenEndpoint;
-            o.userInfoEndpoint = userInfoEndpoint;
-            return o;
+            final var _resultValue = new ListenerDefaultActionAuthenticateOidc();
+            _resultValue.authenticationRequestExtraParams = authenticationRequestExtraParams;
+            _resultValue.authorizationEndpoint = authorizationEndpoint;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.issuer = issuer;
+            _resultValue.onUnauthenticatedRequest = onUnauthenticatedRequest;
+            _resultValue.scope = scope;
+            _resultValue.sessionCookieName = sessionCookieName;
+            _resultValue.sessionTimeout = sessionTimeout;
+            _resultValue.tokenEndpoint = tokenEndpoint;
+            _resultValue.userInfoEndpoint = userInfoEndpoint;
+            return _resultValue;
         }
     }
 }

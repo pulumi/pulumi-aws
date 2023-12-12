@@ -86,11 +86,11 @@ public final class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInp
             return this;
         }
         public ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate build() {
-            final var o = new ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate();
-            o.passwordParam = passwordParam;
-            o.uri = uri;
-            o.username = username;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate();
+            _resultValue.passwordParam = passwordParam;
+            _resultValue.uri = uri;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

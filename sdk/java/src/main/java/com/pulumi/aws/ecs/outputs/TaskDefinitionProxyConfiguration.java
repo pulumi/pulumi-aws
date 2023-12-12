@@ -87,11 +87,11 @@ public final class TaskDefinitionProxyConfiguration {
             return this;
         }
         public TaskDefinitionProxyConfiguration build() {
-            final var o = new TaskDefinitionProxyConfiguration();
-            o.containerName = containerName;
-            o.properties = properties;
-            o.type = type;
-            return o;
+            final var _resultValue = new TaskDefinitionProxyConfiguration();
+            _resultValue.containerName = containerName;
+            _resultValue.properties = properties;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

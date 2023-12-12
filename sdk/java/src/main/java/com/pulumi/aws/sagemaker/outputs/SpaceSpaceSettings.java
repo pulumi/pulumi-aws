@@ -68,10 +68,10 @@ public final class SpaceSpaceSettings {
             return this;
         }
         public SpaceSpaceSettings build() {
-            final var o = new SpaceSpaceSettings();
-            o.jupyterServerAppSettings = jupyterServerAppSettings;
-            o.kernelGatewayAppSettings = kernelGatewayAppSettings;
-            return o;
+            final var _resultValue = new SpaceSpaceSettings();
+            _resultValue.jupyterServerAppSettings = jupyterServerAppSettings;
+            _resultValue.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class SnapshotImportDiskContainer {
             return this;
         }
         public SnapshotImportDiskContainer build() {
-            final var o = new SnapshotImportDiskContainer();
-            o.description = description;
-            o.format = format;
-            o.url = url;
-            o.userBucket = userBucket;
-            return o;
+            final var _resultValue = new SnapshotImportDiskContainer();
+            _resultValue.description = description;
+            _resultValue.format = format;
+            _resultValue.url = url;
+            _resultValue.userBucket = userBucket;
+            return _resultValue;
         }
     }
 }

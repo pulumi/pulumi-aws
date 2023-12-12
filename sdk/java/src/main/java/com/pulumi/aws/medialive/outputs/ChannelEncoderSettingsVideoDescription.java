@@ -164,15 +164,15 @@ public final class ChannelEncoderSettingsVideoDescription {
             return this;
         }
         public ChannelEncoderSettingsVideoDescription build() {
-            final var o = new ChannelEncoderSettingsVideoDescription();
-            o.codecSettings = codecSettings;
-            o.height = height;
-            o.name = name;
-            o.respondToAfd = respondToAfd;
-            o.scalingBehavior = scalingBehavior;
-            o.sharpness = sharpness;
-            o.width = width;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescription();
+            _resultValue.codecSettings = codecSettings;
+            _resultValue.height = height;
+            _resultValue.name = name;
+            _resultValue.respondToAfd = respondToAfd;
+            _resultValue.scalingBehavior = scalingBehavior;
+            _resultValue.sharpness = sharpness;
+            _resultValue.width = width;
+            return _resultValue;
         }
     }
 }

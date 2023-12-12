@@ -72,10 +72,10 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
             return processors(List.of(processors));
         }
         public FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration build() {
-            final var o = new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration();
-            o.enabled = enabled;
-            o.processors = processors;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.processors = processors;
+            return _resultValue;
         }
     }
 }

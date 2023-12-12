@@ -50,9 +50,9 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetIpSet {
             return definitions(List.of(definitions));
         }
         public RuleGroupRuleGroupRuleVariablesIpSetIpSet build() {
-            final var o = new RuleGroupRuleGroupRuleVariablesIpSetIpSet();
-            o.definitions = definitions;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRuleVariablesIpSetIpSet();
+            _resultValue.definitions = definitions;
+            return _resultValue;
         }
     }
 }

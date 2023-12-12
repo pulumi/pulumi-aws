@@ -65,10 +65,10 @@ public final class MatchmakingConfigurationGameProperty {
             return this;
         }
         public MatchmakingConfigurationGameProperty build() {
-            final var o = new MatchmakingConfigurationGameProperty();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new MatchmakingConfigurationGameProperty();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

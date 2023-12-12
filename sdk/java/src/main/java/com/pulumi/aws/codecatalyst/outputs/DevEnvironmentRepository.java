@@ -71,10 +71,10 @@ public final class DevEnvironmentRepository {
             return this;
         }
         public DevEnvironmentRepository build() {
-            final var o = new DevEnvironmentRepository();
-            o.branchName = branchName;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new DevEnvironmentRepository();
+            _resultValue.branchName = branchName;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

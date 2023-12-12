@@ -66,10 +66,10 @@ public final class PlanAdvancedBackupSetting {
             return this;
         }
         public PlanAdvancedBackupSetting build() {
-            final var o = new PlanAdvancedBackupSetting();
-            o.backupOptions = backupOptions;
-            o.resourceType = resourceType;
-            return o;
+            final var _resultValue = new PlanAdvancedBackupSetting();
+            _resultValue.backupOptions = backupOptions;
+            _resultValue.resourceType = resourceType;
+            return _resultValue;
         }
     }
 }

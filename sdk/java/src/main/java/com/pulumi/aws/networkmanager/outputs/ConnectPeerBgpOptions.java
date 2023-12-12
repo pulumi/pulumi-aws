@@ -40,9 +40,9 @@ public final class ConnectPeerBgpOptions {
             return this;
         }
         public ConnectPeerBgpOptions build() {
-            final var o = new ConnectPeerBgpOptions();
-            o.peerAsn = peerAsn;
-            return o;
+            final var _resultValue = new ConnectPeerBgpOptions();
+            _resultValue.peerAsn = peerAsn;
+            return _resultValue;
         }
     }
 }

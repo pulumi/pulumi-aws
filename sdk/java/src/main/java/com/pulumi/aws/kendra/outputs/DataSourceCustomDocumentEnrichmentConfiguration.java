@@ -112,12 +112,12 @@ public final class DataSourceCustomDocumentEnrichmentConfiguration {
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfiguration build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfiguration();
-            o.inlineConfigurations = inlineConfigurations;
-            o.postExtractionHookConfiguration = postExtractionHookConfiguration;
-            o.preExtractionHookConfiguration = preExtractionHookConfiguration;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfiguration();
+            _resultValue.inlineConfigurations = inlineConfigurations;
+            _resultValue.postExtractionHookConfiguration = postExtractionHookConfiguration;
+            _resultValue.preExtractionHookConfiguration = preExtractionHookConfiguration;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

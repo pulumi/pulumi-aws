@@ -294,21 +294,21 @@ public final class CatalogTableStorageDescriptor {
             return this;
         }
         public CatalogTableStorageDescriptor build() {
-            final var o = new CatalogTableStorageDescriptor();
-            o.bucketColumns = bucketColumns;
-            o.columns = columns;
-            o.compressed = compressed;
-            o.inputFormat = inputFormat;
-            o.location = location;
-            o.numberOfBuckets = numberOfBuckets;
-            o.outputFormat = outputFormat;
-            o.parameters = parameters;
-            o.schemaReference = schemaReference;
-            o.serDeInfo = serDeInfo;
-            o.skewedInfo = skewedInfo;
-            o.sortColumns = sortColumns;
-            o.storedAsSubDirectories = storedAsSubDirectories;
-            return o;
+            final var _resultValue = new CatalogTableStorageDescriptor();
+            _resultValue.bucketColumns = bucketColumns;
+            _resultValue.columns = columns;
+            _resultValue.compressed = compressed;
+            _resultValue.inputFormat = inputFormat;
+            _resultValue.location = location;
+            _resultValue.numberOfBuckets = numberOfBuckets;
+            _resultValue.outputFormat = outputFormat;
+            _resultValue.parameters = parameters;
+            _resultValue.schemaReference = schemaReference;
+            _resultValue.serDeInfo = serDeInfo;
+            _resultValue.skewedInfo = skewedInfo;
+            _resultValue.sortColumns = sortColumns;
+            _resultValue.storedAsSubDirectories = storedAsSubDirectories;
+            return _resultValue;
         }
     }
 }

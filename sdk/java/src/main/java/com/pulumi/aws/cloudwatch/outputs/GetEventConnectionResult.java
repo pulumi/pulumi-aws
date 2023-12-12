@@ -122,13 +122,13 @@ public final class GetEventConnectionResult {
             return this;
         }
         public GetEventConnectionResult build() {
-            final var o = new GetEventConnectionResult();
-            o.arn = arn;
-            o.authorizationType = authorizationType;
-            o.id = id;
-            o.name = name;
-            o.secretArn = secretArn;
-            return o;
+            final var _resultValue = new GetEventConnectionResult();
+            _resultValue.arn = arn;
+            _resultValue.authorizationType = authorizationType;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.secretArn = secretArn;
+            return _resultValue;
         }
     }
 }

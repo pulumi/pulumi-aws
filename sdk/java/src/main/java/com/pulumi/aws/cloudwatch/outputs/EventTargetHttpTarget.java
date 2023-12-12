@@ -90,11 +90,11 @@ public final class EventTargetHttpTarget {
             return this;
         }
         public EventTargetHttpTarget build() {
-            final var o = new EventTargetHttpTarget();
-            o.headerParameters = headerParameters;
-            o.pathParameterValues = pathParameterValues;
-            o.queryStringParameters = queryStringParameters;
-            return o;
+            final var _resultValue = new EventTargetHttpTarget();
+            _resultValue.headerParameters = headerParameters;
+            _resultValue.pathParameterValues = pathParameterValues;
+            _resultValue.queryStringParameters = queryStringParameters;
+            return _resultValue;
         }
     }
 }

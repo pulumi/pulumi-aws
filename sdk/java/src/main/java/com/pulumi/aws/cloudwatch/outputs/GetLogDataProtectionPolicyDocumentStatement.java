@@ -91,11 +91,11 @@ public final class GetLogDataProtectionPolicyDocumentStatement {
             return this;
         }
         public GetLogDataProtectionPolicyDocumentStatement build() {
-            final var o = new GetLogDataProtectionPolicyDocumentStatement();
-            o.dataIdentifiers = dataIdentifiers;
-            o.operation = operation;
-            o.sid = sid;
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentStatement();
+            _resultValue.dataIdentifiers = dataIdentifiers;
+            _resultValue.operation = operation;
+            _resultValue.sid = sid;
+            return _resultValue;
         }
     }
 }

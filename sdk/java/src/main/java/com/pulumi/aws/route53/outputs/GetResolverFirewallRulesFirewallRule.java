@@ -256,20 +256,20 @@ public final class GetResolverFirewallRulesFirewallRule {
             return this;
         }
         public GetResolverFirewallRulesFirewallRule build() {
-            final var o = new GetResolverFirewallRulesFirewallRule();
-            o.action = action;
-            o.blockOverrideDnsType = blockOverrideDnsType;
-            o.blockOverrideDomain = blockOverrideDomain;
-            o.blockOverrideTtl = blockOverrideTtl;
-            o.blockResponse = blockResponse;
-            o.creationTime = creationTime;
-            o.creatorRequestId = creatorRequestId;
-            o.firewallDomainListId = firewallDomainListId;
-            o.firewallRuleGroupId = firewallRuleGroupId;
-            o.modificationTime = modificationTime;
-            o.name = name;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new GetResolverFirewallRulesFirewallRule();
+            _resultValue.action = action;
+            _resultValue.blockOverrideDnsType = blockOverrideDnsType;
+            _resultValue.blockOverrideDomain = blockOverrideDomain;
+            _resultValue.blockOverrideTtl = blockOverrideTtl;
+            _resultValue.blockResponse = blockResponse;
+            _resultValue.creationTime = creationTime;
+            _resultValue.creatorRequestId = creatorRequestId;
+            _resultValue.firewallDomainListId = firewallDomainListId;
+            _resultValue.firewallRuleGroupId = firewallRuleGroupId;
+            _resultValue.modificationTime = modificationTime;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

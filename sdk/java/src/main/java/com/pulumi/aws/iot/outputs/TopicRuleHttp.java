@@ -91,11 +91,11 @@ public final class TopicRuleHttp {
             return this;
         }
         public TopicRuleHttp build() {
-            final var o = new TopicRuleHttp();
-            o.confirmationUrl = confirmationUrl;
-            o.httpHeaders = httpHeaders;
-            o.url = url;
-            return o;
+            final var _resultValue = new TopicRuleHttp();
+            _resultValue.confirmationUrl = confirmationUrl;
+            _resultValue.httpHeaders = httpHeaders;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

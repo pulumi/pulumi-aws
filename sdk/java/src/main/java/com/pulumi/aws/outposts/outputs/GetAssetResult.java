@@ -145,15 +145,15 @@ public final class GetAssetResult {
             return this;
         }
         public GetAssetResult build() {
-            final var o = new GetAssetResult();
-            o.arn = arn;
-            o.assetId = assetId;
-            o.assetType = assetType;
-            o.hostId = hostId;
-            o.id = id;
-            o.rackElevation = rackElevation;
-            o.rackId = rackId;
-            return o;
+            final var _resultValue = new GetAssetResult();
+            _resultValue.arn = arn;
+            _resultValue.assetId = assetId;
+            _resultValue.assetType = assetType;
+            _resultValue.hostId = hostId;
+            _resultValue.id = id;
+            _resultValue.rackElevation = rackElevation;
+            _resultValue.rackId = rackId;
+            return _resultValue;
         }
     }
 }

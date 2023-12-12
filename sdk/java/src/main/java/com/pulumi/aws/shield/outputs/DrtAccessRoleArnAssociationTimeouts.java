@@ -62,11 +62,11 @@ public final class DrtAccessRoleArnAssociationTimeouts {
             return this;
         }
         public DrtAccessRoleArnAssociationTimeouts build() {
-            final var o = new DrtAccessRoleArnAssociationTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.read = read;
-            return o;
+            final var _resultValue = new DrtAccessRoleArnAssociationTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.read = read;
+            return _resultValue;
         }
     }
 }

@@ -108,12 +108,12 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration();
-            o.enabled = enabled;
-            o.inputFormatConfiguration = inputFormatConfiguration;
-            o.outputFormatConfiguration = outputFormatConfiguration;
-            o.schemaConfiguration = schemaConfiguration;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.inputFormatConfiguration = inputFormatConfiguration;
+            _resultValue.outputFormatConfiguration = outputFormatConfiguration;
+            _resultValue.schemaConfiguration = schemaConfiguration;
+            return _resultValue;
         }
     }
 }

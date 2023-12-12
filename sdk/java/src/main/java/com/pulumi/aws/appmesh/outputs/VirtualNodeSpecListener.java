@@ -148,14 +148,14 @@ public final class VirtualNodeSpecListener {
             return this;
         }
         public VirtualNodeSpecListener build() {
-            final var o = new VirtualNodeSpecListener();
-            o.connectionPool = connectionPool;
-            o.healthCheck = healthCheck;
-            o.outlierDetection = outlierDetection;
-            o.portMapping = portMapping;
-            o.timeout = timeout;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListener();
+            _resultValue.connectionPool = connectionPool;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.outlierDetection = outlierDetection;
+            _resultValue.portMapping = portMapping;
+            _resultValue.timeout = timeout;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

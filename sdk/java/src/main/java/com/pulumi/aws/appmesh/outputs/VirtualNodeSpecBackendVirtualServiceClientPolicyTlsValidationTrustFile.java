@@ -46,9 +46,9 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
             return this;
         }
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile build() {
-            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile();
-            o.certificateChain = certificateChain;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile();
+            _resultValue.certificateChain = certificateChain;
+            return _resultValue;
         }
     }
 }

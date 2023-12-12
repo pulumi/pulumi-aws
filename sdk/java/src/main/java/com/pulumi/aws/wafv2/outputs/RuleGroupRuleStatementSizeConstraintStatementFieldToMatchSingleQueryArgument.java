@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSing
             return this;
         }
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

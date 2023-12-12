@@ -90,11 +90,11 @@ public final class ProjectCache {
             return this;
         }
         public ProjectCache build() {
-            final var o = new ProjectCache();
-            o.location = location;
-            o.modes = modes;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProjectCache();
+            _resultValue.location = location;
+            _resultValue.modes = modes;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

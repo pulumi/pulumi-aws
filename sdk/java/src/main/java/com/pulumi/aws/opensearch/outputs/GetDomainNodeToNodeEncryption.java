@@ -46,9 +46,9 @@ public final class GetDomainNodeToNodeEncryption {
             return this;
         }
         public GetDomainNodeToNodeEncryption build() {
-            final var o = new GetDomainNodeToNodeEncryption();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetDomainNodeToNodeEncryption();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

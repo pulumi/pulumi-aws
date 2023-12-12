@@ -108,12 +108,12 @@ public final class RouteSpecGrpcRoute {
             return this;
         }
         public RouteSpecGrpcRoute build() {
-            final var o = new RouteSpecGrpcRoute();
-            o.action = action;
-            o.match = match;
-            o.retryPolicy = retryPolicy;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new RouteSpecGrpcRoute();
+            _resultValue.action = action;
+            _resultValue.match = match;
+            _resultValue.retryPolicy = retryPolicy;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

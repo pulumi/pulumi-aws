@@ -73,10 +73,10 @@ public final class ImageBuilderVpcConfig {
             return subnetIds(List.of(subnetIds));
         }
         public ImageBuilderVpcConfig build() {
-            final var o = new ImageBuilderVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ImageBuilderVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

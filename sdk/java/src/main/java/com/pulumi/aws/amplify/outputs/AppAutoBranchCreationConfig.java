@@ -221,18 +221,18 @@ public final class AppAutoBranchCreationConfig {
             return this;
         }
         public AppAutoBranchCreationConfig build() {
-            final var o = new AppAutoBranchCreationConfig();
-            o.basicAuthCredentials = basicAuthCredentials;
-            o.buildSpec = buildSpec;
-            o.enableAutoBuild = enableAutoBuild;
-            o.enableBasicAuth = enableBasicAuth;
-            o.enablePerformanceMode = enablePerformanceMode;
-            o.enablePullRequestPreview = enablePullRequestPreview;
-            o.environmentVariables = environmentVariables;
-            o.framework = framework;
-            o.pullRequestEnvironmentName = pullRequestEnvironmentName;
-            o.stage = stage;
-            return o;
+            final var _resultValue = new AppAutoBranchCreationConfig();
+            _resultValue.basicAuthCredentials = basicAuthCredentials;
+            _resultValue.buildSpec = buildSpec;
+            _resultValue.enableAutoBuild = enableAutoBuild;
+            _resultValue.enableBasicAuth = enableBasicAuth;
+            _resultValue.enablePerformanceMode = enablePerformanceMode;
+            _resultValue.enablePullRequestPreview = enablePullRequestPreview;
+            _resultValue.environmentVariables = environmentVariables;
+            _resultValue.framework = framework;
+            _resultValue.pullRequestEnvironmentName = pullRequestEnvironmentName;
+            _resultValue.stage = stage;
+            return _resultValue;
         }
     }
 }

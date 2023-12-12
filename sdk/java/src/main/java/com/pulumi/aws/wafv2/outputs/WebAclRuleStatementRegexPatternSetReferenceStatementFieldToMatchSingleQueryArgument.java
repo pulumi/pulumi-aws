@@ -46,9 +46,9 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
             return this;
         }
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

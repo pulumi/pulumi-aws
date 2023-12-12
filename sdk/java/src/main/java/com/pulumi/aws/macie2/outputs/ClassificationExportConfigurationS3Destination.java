@@ -90,11 +90,11 @@ public final class ClassificationExportConfigurationS3Destination {
             return this;
         }
         public ClassificationExportConfigurationS3Destination build() {
-            final var o = new ClassificationExportConfigurationS3Destination();
-            o.bucketName = bucketName;
-            o.keyPrefix = keyPrefix;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new ClassificationExportConfigurationS3Destination();
+            _resultValue.bucketName = bucketName;
+            _resultValue.keyPrefix = keyPrefix;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

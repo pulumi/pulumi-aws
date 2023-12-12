@@ -107,12 +107,12 @@ public final class GetSecretsResult {
             return names(List.of(names));
         }
         public GetSecretsResult build() {
-            final var o = new GetSecretsResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetSecretsResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

@@ -201,17 +201,17 @@ public final class EndpointKinesisSettings {
             return this;
         }
         public EndpointKinesisSettings build() {
-            final var o = new EndpointKinesisSettings();
-            o.includeControlDetails = includeControlDetails;
-            o.includeNullAndEmpty = includeNullAndEmpty;
-            o.includePartitionValue = includePartitionValue;
-            o.includeTableAlterOperations = includeTableAlterOperations;
-            o.includeTransactionDetails = includeTransactionDetails;
-            o.messageFormat = messageFormat;
-            o.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
-            o.serviceAccessRoleArn = serviceAccessRoleArn;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new EndpointKinesisSettings();
+            _resultValue.includeControlDetails = includeControlDetails;
+            _resultValue.includeNullAndEmpty = includeNullAndEmpty;
+            _resultValue.includePartitionValue = includePartitionValue;
+            _resultValue.includeTableAlterOperations = includeTableAlterOperations;
+            _resultValue.includeTransactionDetails = includeTransactionDetails;
+            _resultValue.messageFormat = messageFormat;
+            _resultValue.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

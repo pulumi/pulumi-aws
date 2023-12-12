@@ -60,10 +60,10 @@ public final class PolicySecurityServicePolicyDataPolicyOption {
             return this;
         }
         public PolicySecurityServicePolicyDataPolicyOption build() {
-            final var o = new PolicySecurityServicePolicyDataPolicyOption();
-            o.networkFirewallPolicy = networkFirewallPolicy;
-            o.thirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
-            return o;
+            final var _resultValue = new PolicySecurityServicePolicyDataPolicyOption();
+            _resultValue.networkFirewallPolicy = networkFirewallPolicy;
+            _resultValue.thirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
+            return _resultValue;
         }
     }
 }

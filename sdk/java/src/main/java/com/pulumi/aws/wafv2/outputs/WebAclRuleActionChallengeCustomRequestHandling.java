@@ -50,9 +50,9 @@ public final class WebAclRuleActionChallengeCustomRequestHandling {
             return insertHeaders(List.of(insertHeaders));
         }
         public WebAclRuleActionChallengeCustomRequestHandling build() {
-            final var o = new WebAclRuleActionChallengeCustomRequestHandling();
-            o.insertHeaders = insertHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleActionChallengeCustomRequestHandling();
+            _resultValue.insertHeaders = insertHeaders;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ScheduleTargetKinesisParameters {
             return this;
         }
         public ScheduleTargetKinesisParameters build() {
-            final var o = new ScheduleTargetKinesisParameters();
-            o.partitionKey = partitionKey;
-            return o;
+            final var _resultValue = new ScheduleTargetKinesisParameters();
+            _resultValue.partitionKey = partitionKey;
+            return _resultValue;
         }
     }
 }

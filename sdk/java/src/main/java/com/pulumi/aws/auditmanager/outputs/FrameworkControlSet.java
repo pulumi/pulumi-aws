@@ -91,11 +91,11 @@ public final class FrameworkControlSet {
             return this;
         }
         public FrameworkControlSet build() {
-            final var o = new FrameworkControlSet();
-            o.controls = controls;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new FrameworkControlSet();
+            _resultValue.controls = controls;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

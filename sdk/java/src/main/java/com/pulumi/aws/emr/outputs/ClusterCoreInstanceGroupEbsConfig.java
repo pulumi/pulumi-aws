@@ -125,13 +125,13 @@ public final class ClusterCoreInstanceGroupEbsConfig {
             return this;
         }
         public ClusterCoreInstanceGroupEbsConfig build() {
-            final var o = new ClusterCoreInstanceGroupEbsConfig();
-            o.iops = iops;
-            o.size = size;
-            o.throughput = throughput;
-            o.type = type;
-            o.volumesPerInstance = volumesPerInstance;
-            return o;
+            final var _resultValue = new ClusterCoreInstanceGroupEbsConfig();
+            _resultValue.iops = iops;
+            _resultValue.size = size;
+            _resultValue.throughput = throughput;
+            _resultValue.type = type;
+            _resultValue.volumesPerInstance = volumesPerInstance;
+            return _resultValue;
         }
     }
 }

@@ -38,9 +38,9 @@ public final class GetFrameworkControlSetControl {
             return this;
         }
         public GetFrameworkControlSetControl build() {
-            final var o = new GetFrameworkControlSetControl();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetFrameworkControlSetControl();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism();
-            o.count = count;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism();
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

@@ -51,9 +51,9 @@ public final class UserPoolAccountRecoverySetting {
             return recoveryMechanisms(List.of(recoveryMechanisms));
         }
         public UserPoolAccountRecoverySetting build() {
-            final var o = new UserPoolAccountRecoverySetting();
-            o.recoveryMechanisms = recoveryMechanisms;
-            return o;
+            final var _resultValue = new UserPoolAccountRecoverySetting();
+            _resultValue.recoveryMechanisms = recoveryMechanisms;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class DistributionDefaultCacheBehaviorFunctionAssociation {
             return this;
         }
         public DistributionDefaultCacheBehaviorFunctionAssociation build() {
-            final var o = new DistributionDefaultCacheBehaviorFunctionAssociation();
-            o.eventType = eventType;
-            o.functionArn = functionArn;
-            return o;
+            final var _resultValue = new DistributionDefaultCacheBehaviorFunctionAssociation();
+            _resultValue.eventType = eventType;
+            _resultValue.functionArn = functionArn;
+            return _resultValue;
         }
     }
 }

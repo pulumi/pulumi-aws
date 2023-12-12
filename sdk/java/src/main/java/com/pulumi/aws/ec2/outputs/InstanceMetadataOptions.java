@@ -129,13 +129,13 @@ public final class InstanceMetadataOptions {
             return this;
         }
         public InstanceMetadataOptions build() {
-            final var o = new InstanceMetadataOptions();
-            o.httpEndpoint = httpEndpoint;
-            o.httpProtocolIpv6 = httpProtocolIpv6;
-            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
-            o.httpTokens = httpTokens;
-            o.instanceMetadataTags = instanceMetadataTags;
-            return o;
+            final var _resultValue = new InstanceMetadataOptions();
+            _resultValue.httpEndpoint = httpEndpoint;
+            _resultValue.httpProtocolIpv6 = httpProtocolIpv6;
+            _resultValue.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            _resultValue.httpTokens = httpTokens;
+            _resultValue.instanceMetadataTags = instanceMetadataTags;
+            return _resultValue;
         }
     }
 }

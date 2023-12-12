@@ -69,10 +69,10 @@ public final class IntentFulfillmentActivityCodeHook {
             return this;
         }
         public IntentFulfillmentActivityCodeHook build() {
-            final var o = new IntentFulfillmentActivityCodeHook();
-            o.messageVersion = messageVersion;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new IntentFulfillmentActivityCodeHook();
+            _resultValue.messageVersion = messageVersion;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

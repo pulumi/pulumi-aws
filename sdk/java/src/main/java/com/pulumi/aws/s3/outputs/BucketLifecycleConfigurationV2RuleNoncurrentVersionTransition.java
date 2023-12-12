@@ -87,11 +87,11 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
             return this;
         }
         public BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition build() {
-            final var o = new BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition();
-            o.newerNoncurrentVersions = newerNoncurrentVersions;
-            o.noncurrentDays = noncurrentDays;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition();
+            _resultValue.newerNoncurrentVersions = newerNoncurrentVersions;
+            _resultValue.noncurrentDays = noncurrentDays;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

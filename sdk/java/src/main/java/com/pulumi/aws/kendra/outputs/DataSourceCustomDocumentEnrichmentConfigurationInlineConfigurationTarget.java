@@ -88,11 +88,11 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget();
-            o.targetDocumentAttributeKey = targetDocumentAttributeKey;
-            o.targetDocumentAttributeValue = targetDocumentAttributeValue;
-            o.targetDocumentAttributeValueDeletion = targetDocumentAttributeValueDeletion;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget();
+            _resultValue.targetDocumentAttributeKey = targetDocumentAttributeKey;
+            _resultValue.targetDocumentAttributeValue = targetDocumentAttributeValue;
+            _resultValue.targetDocumentAttributeValueDeletion = targetDocumentAttributeValueDeletion;
+            return _resultValue;
         }
     }
 }

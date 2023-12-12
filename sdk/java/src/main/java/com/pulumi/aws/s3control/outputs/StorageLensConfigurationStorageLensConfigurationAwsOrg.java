@@ -46,9 +46,9 @@ public final class StorageLensConfigurationStorageLensConfigurationAwsOrg {
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAwsOrg build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationAwsOrg();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationAwsOrg();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

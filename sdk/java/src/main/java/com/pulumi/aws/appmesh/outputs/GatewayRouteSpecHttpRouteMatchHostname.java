@@ -67,10 +67,10 @@ public final class GatewayRouteSpecHttpRouteMatchHostname {
             return this;
         }
         public GatewayRouteSpecHttpRouteMatchHostname build() {
-            final var o = new GatewayRouteSpecHttpRouteMatchHostname();
-            o.exact = exact;
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteMatchHostname();
+            _resultValue.exact = exact;
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

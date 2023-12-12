@@ -108,12 +108,12 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
             return this;
         }
         public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule build() {
-            final var o = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule();
-            o.issueDetectionConfiguration = issueDetectionConfiguration;
-            o.keywordMatchConfiguration = keywordMatchConfiguration;
-            o.sentimentConfiguration = sentimentConfiguration;
-            o.type = type;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule();
+            _resultValue.issueDetectionConfiguration = issueDetectionConfiguration;
+            _resultValue.keywordMatchConfiguration = keywordMatchConfiguration;
+            _resultValue.sentimentConfiguration = sentimentConfiguration;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

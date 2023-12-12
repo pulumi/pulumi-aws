@@ -91,11 +91,11 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
             return this;
         }
         public InvocationLoggingConfigurationLoggingConfigCloudwatchConfig build() {
-            final var o = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfig();
-            o.largeDataDeliveryS3Config = largeDataDeliveryS3Config;
-            o.logGroupName = logGroupName;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfig();
+            _resultValue.largeDataDeliveryS3Config = largeDataDeliveryS3Config;
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

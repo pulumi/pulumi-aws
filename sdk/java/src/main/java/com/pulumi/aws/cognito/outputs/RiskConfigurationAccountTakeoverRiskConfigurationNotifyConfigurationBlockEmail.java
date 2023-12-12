@@ -84,11 +84,11 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
             return this;
         }
         public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail build() {
-            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail();
-            o.htmlBody = htmlBody;
-            o.subject = subject;
-            o.textBody = textBody;
-            return o;
+            final var _resultValue = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail();
+            _resultValue.htmlBody = htmlBody;
+            _resultValue.subject = subject;
+            _resultValue.textBody = textBody;
+            return _resultValue;
         }
     }
 }

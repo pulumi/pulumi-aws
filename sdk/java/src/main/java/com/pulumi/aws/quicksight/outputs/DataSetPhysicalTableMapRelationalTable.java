@@ -129,13 +129,13 @@ public final class DataSetPhysicalTableMapRelationalTable {
             return this;
         }
         public DataSetPhysicalTableMapRelationalTable build() {
-            final var o = new DataSetPhysicalTableMapRelationalTable();
-            o.catalog = catalog;
-            o.dataSourceArn = dataSourceArn;
-            o.inputColumns = inputColumns;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMapRelationalTable();
+            _resultValue.catalog = catalog;
+            _resultValue.dataSourceArn = dataSourceArn;
+            _resultValue.inputColumns = inputColumns;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

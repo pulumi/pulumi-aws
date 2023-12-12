@@ -46,9 +46,9 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsCodeRepository
             return this;
         }
         public UserProfileUserSettingsJupyterServerAppSettingsCodeRepository build() {
-            final var o = new UserProfileUserSettingsJupyterServerAppSettingsCodeRepository();
-            o.repositoryUrl = repositoryUrl;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsJupyterServerAppSettingsCodeRepository();
+            _resultValue.repositoryUrl = repositoryUrl;
+            return _resultValue;
         }
     }
 }

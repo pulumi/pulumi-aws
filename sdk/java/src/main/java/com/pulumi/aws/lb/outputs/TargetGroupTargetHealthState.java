@@ -46,9 +46,9 @@ public final class TargetGroupTargetHealthState {
             return this;
         }
         public TargetGroupTargetHealthState build() {
-            final var o = new TargetGroupTargetHealthState();
-            o.enableUnhealthyConnectionTermination = enableUnhealthyConnectionTermination;
-            return o;
+            final var _resultValue = new TargetGroupTargetHealthState();
+            _resultValue.enableUnhealthyConnectionTermination = enableUnhealthyConnectionTermination;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class ContainerServiceDeploymentVersionPublicEndpoint {
             return this;
         }
         public ContainerServiceDeploymentVersionPublicEndpoint build() {
-            final var o = new ContainerServiceDeploymentVersionPublicEndpoint();
-            o.containerName = containerName;
-            o.containerPort = containerPort;
-            o.healthCheck = healthCheck;
-            return o;
+            final var _resultValue = new ContainerServiceDeploymentVersionPublicEndpoint();
+            _resultValue.containerName = containerName;
+            _resultValue.containerPort = containerPort;
+            _resultValue.healthCheck = healthCheck;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class GetDomainEncryptionAtRest {
             return this;
         }
         public GetDomainEncryptionAtRest build() {
-            final var o = new GetDomainEncryptionAtRest();
-            o.enabled = enabled;
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new GetDomainEncryptionAtRest();
+            _resultValue.enabled = enabled;
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

@@ -431,33 +431,33 @@ public final class GetSubnetResult {
             return this;
         }
         public GetSubnetResult build() {
-            final var o = new GetSubnetResult();
-            o.arn = arn;
-            o.assignIpv6AddressOnCreation = assignIpv6AddressOnCreation;
-            o.availabilityZone = availabilityZone;
-            o.availabilityZoneId = availabilityZoneId;
-            o.availableIpAddressCount = availableIpAddressCount;
-            o.cidrBlock = cidrBlock;
-            o.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
-            o.defaultForAz = defaultForAz;
-            o.enableDns64 = enableDns64;
-            o.enableLniAtDeviceIndex = enableLniAtDeviceIndex;
-            o.enableResourceNameDnsARecordOnLaunch = enableResourceNameDnsARecordOnLaunch;
-            o.enableResourceNameDnsAaaaRecordOnLaunch = enableResourceNameDnsAaaaRecordOnLaunch;
-            o.filters = filters;
-            o.id = id;
-            o.ipv6CidrBlock = ipv6CidrBlock;
-            o.ipv6CidrBlockAssociationId = ipv6CidrBlockAssociationId;
-            o.ipv6Native = ipv6Native;
-            o.mapCustomerOwnedIpOnLaunch = mapCustomerOwnedIpOnLaunch;
-            o.mapPublicIpOnLaunch = mapPublicIpOnLaunch;
-            o.outpostArn = outpostArn;
-            o.ownerId = ownerId;
-            o.privateDnsHostnameTypeOnLaunch = privateDnsHostnameTypeOnLaunch;
-            o.state = state;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetSubnetResult();
+            _resultValue.arn = arn;
+            _resultValue.assignIpv6AddressOnCreation = assignIpv6AddressOnCreation;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.availabilityZoneId = availabilityZoneId;
+            _resultValue.availableIpAddressCount = availableIpAddressCount;
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
+            _resultValue.defaultForAz = defaultForAz;
+            _resultValue.enableDns64 = enableDns64;
+            _resultValue.enableLniAtDeviceIndex = enableLniAtDeviceIndex;
+            _resultValue.enableResourceNameDnsARecordOnLaunch = enableResourceNameDnsARecordOnLaunch;
+            _resultValue.enableResourceNameDnsAaaaRecordOnLaunch = enableResourceNameDnsAaaaRecordOnLaunch;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipv6CidrBlock = ipv6CidrBlock;
+            _resultValue.ipv6CidrBlockAssociationId = ipv6CidrBlockAssociationId;
+            _resultValue.ipv6Native = ipv6Native;
+            _resultValue.mapCustomerOwnedIpOnLaunch = mapCustomerOwnedIpOnLaunch;
+            _resultValue.mapPublicIpOnLaunch = mapPublicIpOnLaunch;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.ownerId = ownerId;
+            _resultValue.privateDnsHostnameTypeOnLaunch = privateDnsHostnameTypeOnLaunch;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

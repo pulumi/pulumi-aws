@@ -98,12 +98,12 @@ public final class GetRegionsResult {
             return names(List.of(names));
         }
         public GetRegionsResult build() {
-            final var o = new GetRegionsResult();
-            o.allRegions = allRegions;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetRegionsResult();
+            _resultValue.allRegions = allRegions;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

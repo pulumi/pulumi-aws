@@ -91,11 +91,11 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
             return this;
         }
         public DistributionConfigurationDistributionContainerDistributionConfiguration build() {
-            final var o = new DistributionConfigurationDistributionContainerDistributionConfiguration();
-            o.containerTags = containerTags;
-            o.description = description;
-            o.targetRepository = targetRepository;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionContainerDistributionConfiguration();
+            _resultValue.containerTags = containerTags;
+            _resultValue.description = description;
+            _resultValue.targetRepository = targetRepository;
+            return _resultValue;
         }
     }
 }

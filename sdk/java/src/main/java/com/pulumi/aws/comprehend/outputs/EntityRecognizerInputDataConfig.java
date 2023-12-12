@@ -177,14 +177,14 @@ public final class EntityRecognizerInputDataConfig {
             return entityTypes(List.of(entityTypes));
         }
         public EntityRecognizerInputDataConfig build() {
-            final var o = new EntityRecognizerInputDataConfig();
-            o.annotations = annotations;
-            o.augmentedManifests = augmentedManifests;
-            o.dataFormat = dataFormat;
-            o.documents = documents;
-            o.entityList = entityList;
-            o.entityTypes = entityTypes;
-            return o;
+            final var _resultValue = new EntityRecognizerInputDataConfig();
+            _resultValue.annotations = annotations;
+            _resultValue.augmentedManifests = augmentedManifests;
+            _resultValue.dataFormat = dataFormat;
+            _resultValue.documents = documents;
+            _resultValue.entityList = entityList;
+            _resultValue.entityTypes = entityTypes;
+            return _resultValue;
         }
     }
 }

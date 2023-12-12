@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesSapoData build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesSapoData();
-            o.objectPath = objectPath;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesSapoData();
+            _resultValue.objectPath = objectPath;
+            return _resultValue;
         }
     }
 }

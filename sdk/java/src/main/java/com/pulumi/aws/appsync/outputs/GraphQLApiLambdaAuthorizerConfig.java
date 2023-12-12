@@ -87,11 +87,11 @@ public final class GraphQLApiLambdaAuthorizerConfig {
             return this;
         }
         public GraphQLApiLambdaAuthorizerConfig build() {
-            final var o = new GraphQLApiLambdaAuthorizerConfig();
-            o.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
-            o.authorizerUri = authorizerUri;
-            o.identityValidationExpression = identityValidationExpression;
-            return o;
+            final var _resultValue = new GraphQLApiLambdaAuthorizerConfig();
+            _resultValue.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
+            _resultValue.authorizerUri = authorizerUri;
+            _resultValue.identityValidationExpression = identityValidationExpression;
+            return _resultValue;
         }
     }
 }

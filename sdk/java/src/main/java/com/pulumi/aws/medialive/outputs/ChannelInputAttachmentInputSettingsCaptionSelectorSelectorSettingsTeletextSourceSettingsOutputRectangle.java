@@ -103,12 +103,12 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle();
-            o.height = height;
-            o.leftOffset = leftOffset;
-            o.topOffset = topOffset;
-            o.width = width;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle();
+            _resultValue.height = height;
+            _resultValue.leftOffset = leftOffset;
+            _resultValue.topOffset = topOffset;
+            _resultValue.width = width;
+            return _resultValue;
         }
     }
 }

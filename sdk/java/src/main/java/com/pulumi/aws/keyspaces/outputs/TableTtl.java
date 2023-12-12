@@ -46,9 +46,9 @@ public final class TableTtl {
             return this;
         }
         public TableTtl build() {
-            final var o = new TableTtl();
-            o.status = status;
-            return o;
+            final var _resultValue = new TableTtl();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class FrameworkControlInputParameter {
             return this;
         }
         public FrameworkControlInputParameter build() {
-            final var o = new FrameworkControlInputParameter();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new FrameworkControlInputParameter();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

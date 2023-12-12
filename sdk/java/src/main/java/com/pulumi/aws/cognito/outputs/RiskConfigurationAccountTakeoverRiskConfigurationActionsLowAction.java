@@ -66,10 +66,10 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAc
             return this;
         }
         public RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction build() {
-            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction();
-            o.eventAction = eventAction;
-            o.notify = notify;
-            return o;
+            final var _resultValue = new RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction();
+            _resultValue.eventAction = eventAction;
+            _resultValue.notify = notify;
+            return _resultValue;
         }
     }
 }

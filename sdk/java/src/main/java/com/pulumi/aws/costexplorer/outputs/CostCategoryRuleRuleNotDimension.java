@@ -93,11 +93,11 @@ public final class CostCategoryRuleRuleNotDimension {
             return values(List.of(values));
         }
         public CostCategoryRuleRuleNotDimension build() {
-            final var o = new CostCategoryRuleRuleNotDimension();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new CostCategoryRuleRuleNotDimension();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

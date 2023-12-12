@@ -88,11 +88,11 @@ public final class ServiceNetworkConfiguration {
             return this;
         }
         public ServiceNetworkConfiguration build() {
-            final var o = new ServiceNetworkConfiguration();
-            o.egressConfiguration = egressConfiguration;
-            o.ingressConfiguration = ingressConfiguration;
-            o.ipAddressType = ipAddressType;
-            return o;
+            final var _resultValue = new ServiceNetworkConfiguration();
+            _resultValue.egressConfiguration = egressConfiguration;
+            _resultValue.ingressConfiguration = ingressConfiguration;
+            _resultValue.ipAddressType = ipAddressType;
+            return _resultValue;
         }
     }
 }

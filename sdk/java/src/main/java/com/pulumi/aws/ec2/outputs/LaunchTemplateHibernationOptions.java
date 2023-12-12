@@ -46,9 +46,9 @@ public final class LaunchTemplateHibernationOptions {
             return this;
         }
         public LaunchTemplateHibernationOptions build() {
-            final var o = new LaunchTemplateHibernationOptions();
-            o.configured = configured;
-            return o;
+            final var _resultValue = new LaunchTemplateHibernationOptions();
+            _resultValue.configured = configured;
+            return _resultValue;
         }
     }
 }

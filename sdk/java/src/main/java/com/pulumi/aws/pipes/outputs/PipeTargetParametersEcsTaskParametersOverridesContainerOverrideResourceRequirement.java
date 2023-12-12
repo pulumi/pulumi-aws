@@ -65,10 +65,10 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
             return this;
         }
         public PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement build() {
-            final var o = new PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

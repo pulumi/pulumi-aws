@@ -122,13 +122,13 @@ public final class V2modelsBotMember {
             return this;
         }
         public V2modelsBotMember build() {
-            final var o = new V2modelsBotMember();
-            o.aliasId = aliasId;
-            o.aliasName = aliasName;
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new V2modelsBotMember();
+            _resultValue.aliasId = aliasId;
+            _resultValue.aliasName = aliasName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

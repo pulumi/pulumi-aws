@@ -48,9 +48,9 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchBody {
             return this;
         }
         public RuleGroupRuleStatementXssMatchStatementFieldToMatchBody build() {
-            final var o = new RuleGroupRuleStatementXssMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementXssMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

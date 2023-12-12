@@ -68,10 +68,10 @@ public final class TableMagneticStoreWriteProperties {
             return this;
         }
         public TableMagneticStoreWriteProperties build() {
-            final var o = new TableMagneticStoreWriteProperties();
-            o.enableMagneticStoreWrites = enableMagneticStoreWrites;
-            o.magneticStoreRejectedDataLocation = magneticStoreRejectedDataLocation;
-            return o;
+            final var _resultValue = new TableMagneticStoreWriteProperties();
+            _resultValue.enableMagneticStoreWrites = enableMagneticStoreWrites;
+            _resultValue.magneticStoreRejectedDataLocation = magneticStoreRejectedDataLocation;
+            return _resultValue;
         }
     }
 }

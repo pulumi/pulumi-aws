@@ -87,11 +87,11 @@ public final class DomainScalingParameters {
             return this;
         }
         public DomainScalingParameters build() {
-            final var o = new DomainScalingParameters();
-            o.desiredInstanceType = desiredInstanceType;
-            o.desiredPartitionCount = desiredPartitionCount;
-            o.desiredReplicationCount = desiredReplicationCount;
-            return o;
+            final var _resultValue = new DomainScalingParameters();
+            _resultValue.desiredInstanceType = desiredInstanceType;
+            _resultValue.desiredPartitionCount = desiredPartitionCount;
+            _resultValue.desiredReplicationCount = desiredReplicationCount;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetNetworkInsightsAnalysisFilter {
             return values(List.of(values));
         }
         public GetNetworkInsightsAnalysisFilter build() {
-            final var o = new GetNetworkInsightsAnalysisFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

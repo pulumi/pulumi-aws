@@ -74,11 +74,11 @@ public final class GetGatewayRouteSpecHttp2RouteMatchHeader {
             return this;
         }
         public GetGatewayRouteSpecHttp2RouteMatchHeader build() {
-            final var o = new GetGatewayRouteSpecHttp2RouteMatchHeader();
-            o.invert = invert;
-            o.matches = matches;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttp2RouteMatchHeader();
+            _resultValue.invert = invert;
+            _resultValue.matches = matches;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

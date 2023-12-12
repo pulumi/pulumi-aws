@@ -69,10 +69,10 @@ public final class AnalysisPermission {
             return this;
         }
         public AnalysisPermission build() {
-            final var o = new AnalysisPermission();
-            o.actions = actions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new AnalysisPermission();
+            _resultValue.actions = actions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class IpSetIpSetDescriptor {
             return this;
         }
         public IpSetIpSetDescriptor build() {
-            final var o = new IpSetIpSetDescriptor();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new IpSetIpSetDescriptor();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

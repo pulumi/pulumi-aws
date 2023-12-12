@@ -43,9 +43,9 @@ public final class ResponseHeadersPolicyCustomHeadersConfig {
             return items(List.of(items));
         }
         public ResponseHeadersPolicyCustomHeadersConfig build() {
-            final var o = new ResponseHeadersPolicyCustomHeadersConfig();
-            o.items = items;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicyCustomHeadersConfig();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

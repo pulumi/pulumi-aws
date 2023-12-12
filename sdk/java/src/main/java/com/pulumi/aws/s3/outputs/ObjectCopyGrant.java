@@ -132,13 +132,13 @@ public final class ObjectCopyGrant {
             return this;
         }
         public ObjectCopyGrant build() {
-            final var o = new ObjectCopyGrant();
-            o.email = email;
-            o.id = id;
-            o.permissions = permissions;
-            o.type = type;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new ObjectCopyGrant();
+            _resultValue.email = email;
+            _resultValue.id = id;
+            _resultValue.permissions = permissions;
+            _resultValue.type = type;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

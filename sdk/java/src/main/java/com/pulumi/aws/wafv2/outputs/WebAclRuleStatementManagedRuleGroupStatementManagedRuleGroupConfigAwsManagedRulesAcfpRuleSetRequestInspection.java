@@ -100,12 +100,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection();
-            o.emailField = emailField;
-            o.passwordField = passwordField;
-            o.payloadType = payloadType;
-            o.usernameField = usernameField;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection();
+            _resultValue.emailField = emailField;
+            _resultValue.passwordField = passwordField;
+            _resultValue.payloadType = payloadType;
+            _resultValue.usernameField = usernameField;
+            return _resultValue;
         }
     }
 }

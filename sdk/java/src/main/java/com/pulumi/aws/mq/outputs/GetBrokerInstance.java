@@ -64,11 +64,11 @@ public final class GetBrokerInstance {
             return this;
         }
         public GetBrokerInstance build() {
-            final var o = new GetBrokerInstance();
-            o.consoleUrl = consoleUrl;
-            o.endpoints = endpoints;
-            o.ipAddress = ipAddress;
-            return o;
+            final var _resultValue = new GetBrokerInstance();
+            _resultValue.consoleUrl = consoleUrl;
+            _resultValue.endpoints = endpoints;
+            _resultValue.ipAddress = ipAddress;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class WorkgroupConfigurationResultConfigurationAclConfiguration {
             return this;
         }
         public WorkgroupConfigurationResultConfigurationAclConfiguration build() {
-            final var o = new WorkgroupConfigurationResultConfigurationAclConfiguration();
-            o.s3AclOption = s3AclOption;
-            return o;
+            final var _resultValue = new WorkgroupConfigurationResultConfigurationAclConfiguration();
+            _resultValue.s3AclOption = s3AclOption;
+            return _resultValue;
         }
     }
 }

@@ -120,12 +120,12 @@ public final class DashboardParameters {
             return stringParameters(List.of(stringParameters));
         }
         public DashboardParameters build() {
-            final var o = new DashboardParameters();
-            o.dateTimeParameters = dateTimeParameters;
-            o.decimalParameters = decimalParameters;
-            o.integerParameters = integerParameters;
-            o.stringParameters = stringParameters;
-            return o;
+            final var _resultValue = new DashboardParameters();
+            _resultValue.dateTimeParameters = dateTimeParameters;
+            _resultValue.decimalParameters = decimalParameters;
+            _resultValue.integerParameters = integerParameters;
+            _resultValue.stringParameters = stringParameters;
+            return _resultValue;
         }
     }
 }

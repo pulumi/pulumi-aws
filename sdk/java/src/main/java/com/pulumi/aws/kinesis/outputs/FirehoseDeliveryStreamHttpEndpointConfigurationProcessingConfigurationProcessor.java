@@ -71,10 +71,10 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
             return this;
         }
         public FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor build() {
-            final var o = new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor();
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor();
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

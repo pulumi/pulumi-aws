@@ -139,13 +139,13 @@ public final class GetInstanceStorageConfigStorageConfig {
             return this;
         }
         public GetInstanceStorageConfigStorageConfig build() {
-            final var o = new GetInstanceStorageConfigStorageConfig();
-            o.kinesisFirehoseConfigs = kinesisFirehoseConfigs;
-            o.kinesisStreamConfigs = kinesisStreamConfigs;
-            o.kinesisVideoStreamConfigs = kinesisVideoStreamConfigs;
-            o.s3Configs = s3Configs;
-            o.storageType = storageType;
-            return o;
+            final var _resultValue = new GetInstanceStorageConfigStorageConfig();
+            _resultValue.kinesisFirehoseConfigs = kinesisFirehoseConfigs;
+            _resultValue.kinesisStreamConfigs = kinesisStreamConfigs;
+            _resultValue.kinesisVideoStreamConfigs = kinesisVideoStreamConfigs;
+            _resultValue.s3Configs = s3Configs;
+            _resultValue.storageType = storageType;
+            return _resultValue;
         }
     }
 }

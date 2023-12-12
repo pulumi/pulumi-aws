@@ -48,9 +48,9 @@ public final class CrawlerRecrawlPolicy {
             return this;
         }
         public CrawlerRecrawlPolicy build() {
-            final var o = new CrawlerRecrawlPolicy();
-            o.recrawlBehavior = recrawlBehavior;
-            return o;
+            final var _resultValue = new CrawlerRecrawlPolicy();
+            _resultValue.recrawlBehavior = recrawlBehavior;
+            return _resultValue;
         }
     }
 }

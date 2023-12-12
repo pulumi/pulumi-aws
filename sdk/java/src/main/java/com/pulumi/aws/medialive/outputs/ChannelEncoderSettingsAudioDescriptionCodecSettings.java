@@ -144,15 +144,15 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettings();
-            o.aacSettings = aacSettings;
-            o.ac3Settings = ac3Settings;
-            o.eac3AtmosSettings = eac3AtmosSettings;
-            o.eac3Settings = eac3Settings;
-            o.mp2Settings = mp2Settings;
-            o.passThroughSettings = passThroughSettings;
-            o.wavSettings = wavSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettings();
+            _resultValue.aacSettings = aacSettings;
+            _resultValue.ac3Settings = ac3Settings;
+            _resultValue.eac3AtmosSettings = eac3AtmosSettings;
+            _resultValue.eac3Settings = eac3Settings;
+            _resultValue.mp2Settings = mp2Settings;
+            _resultValue.passThroughSettings = passThroughSettings;
+            _resultValue.wavSettings = wavSettings;
+            return _resultValue;
         }
     }
 }

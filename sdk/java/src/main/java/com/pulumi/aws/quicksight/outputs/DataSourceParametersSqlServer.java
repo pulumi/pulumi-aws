@@ -85,11 +85,11 @@ public final class DataSourceParametersSqlServer {
             return this;
         }
         public DataSourceParametersSqlServer build() {
-            final var o = new DataSourceParametersSqlServer();
-            o.database = database;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersSqlServer();
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

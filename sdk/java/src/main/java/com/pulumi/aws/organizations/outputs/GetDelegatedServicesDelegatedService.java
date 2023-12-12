@@ -65,10 +65,10 @@ public final class GetDelegatedServicesDelegatedService {
             return this;
         }
         public GetDelegatedServicesDelegatedService build() {
-            final var o = new GetDelegatedServicesDelegatedService();
-            o.delegationEnabledDate = delegationEnabledDate;
-            o.servicePrincipal = servicePrincipal;
-            return o;
+            final var _resultValue = new GetDelegatedServicesDelegatedService();
+            _resultValue.delegationEnabledDate = delegationEnabledDate;
+            _resultValue.servicePrincipal = servicePrincipal;
+            return _resultValue;
         }
     }
 }

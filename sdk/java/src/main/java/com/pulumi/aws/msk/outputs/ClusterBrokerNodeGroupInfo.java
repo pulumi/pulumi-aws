@@ -152,14 +152,14 @@ public final class ClusterBrokerNodeGroupInfo {
             return this;
         }
         public ClusterBrokerNodeGroupInfo build() {
-            final var o = new ClusterBrokerNodeGroupInfo();
-            o.azDistribution = azDistribution;
-            o.clientSubnets = clientSubnets;
-            o.connectivityInfo = connectivityInfo;
-            o.instanceType = instanceType;
-            o.securityGroups = securityGroups;
-            o.storageInfo = storageInfo;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfo();
+            _resultValue.azDistribution = azDistribution;
+            _resultValue.clientSubnets = clientSubnets;
+            _resultValue.connectivityInfo = connectivityInfo;
+            _resultValue.instanceType = instanceType;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.storageInfo = storageInfo;
+            return _resultValue;
         }
     }
 }

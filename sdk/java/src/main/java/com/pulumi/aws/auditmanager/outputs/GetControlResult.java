@@ -144,18 +144,18 @@ public final class GetControlResult {
             return this;
         }
         public GetControlResult build() {
-            final var o = new GetControlResult();
-            o.actionPlanInstructions = actionPlanInstructions;
-            o.actionPlanTitle = actionPlanTitle;
-            o.arn = arn;
-            o.controlMappingSources = controlMappingSources;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            o.testingInformation = testingInformation;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetControlResult();
+            _resultValue.actionPlanInstructions = actionPlanInstructions;
+            _resultValue.actionPlanTitle = actionPlanTitle;
+            _resultValue.arn = arn;
+            _resultValue.controlMappingSources = controlMappingSources;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.testingInformation = testingInformation;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

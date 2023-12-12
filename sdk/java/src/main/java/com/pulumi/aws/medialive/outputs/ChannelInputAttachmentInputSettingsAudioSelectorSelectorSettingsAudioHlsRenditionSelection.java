@@ -65,10 +65,10 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection();
-            o.groupId = groupId;
-            o.name = name;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection();
+            _resultValue.groupId = groupId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

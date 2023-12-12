@@ -46,9 +46,9 @@ public final class VirtualGatewaySpecListenerTlsValidationTrustSds {
             return this;
         }
         public VirtualGatewaySpecListenerTlsValidationTrustSds build() {
-            final var o = new VirtualGatewaySpecListenerTlsValidationTrustSds();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerTlsValidationTrustSds();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

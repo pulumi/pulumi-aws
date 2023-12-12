@@ -68,10 +68,10 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarket
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo();
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo();
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

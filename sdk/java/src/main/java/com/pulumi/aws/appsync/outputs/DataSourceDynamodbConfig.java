@@ -126,13 +126,13 @@ public final class DataSourceDynamodbConfig {
             return this;
         }
         public DataSourceDynamodbConfig build() {
-            final var o = new DataSourceDynamodbConfig();
-            o.deltaSyncConfig = deltaSyncConfig;
-            o.region = region;
-            o.tableName = tableName;
-            o.useCallerCredentials = useCallerCredentials;
-            o.versioned = versioned;
-            return o;
+            final var _resultValue = new DataSourceDynamodbConfig();
+            _resultValue.deltaSyncConfig = deltaSyncConfig;
+            _resultValue.region = region;
+            _resultValue.tableName = tableName;
+            _resultValue.useCallerCredentials = useCallerCredentials;
+            _resultValue.versioned = versioned;
+            return _resultValue;
         }
     }
 }

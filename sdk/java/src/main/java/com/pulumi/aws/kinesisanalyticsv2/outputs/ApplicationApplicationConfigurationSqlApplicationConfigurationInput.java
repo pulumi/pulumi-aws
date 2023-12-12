@@ -199,17 +199,17 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInput build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInput();
-            o.inAppStreamNames = inAppStreamNames;
-            o.inputId = inputId;
-            o.inputParallelism = inputParallelism;
-            o.inputProcessingConfiguration = inputProcessingConfiguration;
-            o.inputSchema = inputSchema;
-            o.inputStartingPositionConfigurations = inputStartingPositionConfigurations;
-            o.kinesisFirehoseInput = kinesisFirehoseInput;
-            o.kinesisStreamsInput = kinesisStreamsInput;
-            o.namePrefix = namePrefix;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInput();
+            _resultValue.inAppStreamNames = inAppStreamNames;
+            _resultValue.inputId = inputId;
+            _resultValue.inputParallelism = inputParallelism;
+            _resultValue.inputProcessingConfiguration = inputProcessingConfiguration;
+            _resultValue.inputSchema = inputSchema;
+            _resultValue.inputStartingPositionConfigurations = inputStartingPositionConfigurations;
+            _resultValue.kinesisFirehoseInput = kinesisFirehoseInput;
+            _resultValue.kinesisStreamsInput = kinesisStreamsInput;
+            _resultValue.namePrefix = namePrefix;
+            return _resultValue;
         }
     }
 }

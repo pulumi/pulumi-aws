@@ -88,11 +88,11 @@ public final class OrganizationConfigurationDatasources {
             return this;
         }
         public OrganizationConfigurationDatasources build() {
-            final var o = new OrganizationConfigurationDatasources();
-            o.kubernetes = kubernetes;
-            o.malwareProtection = malwareProtection;
-            o.s3Logs = s3Logs;
-            return o;
+            final var _resultValue = new OrganizationConfigurationDatasources();
+            _resultValue.kubernetes = kubernetes;
+            _resultValue.malwareProtection = malwareProtection;
+            _resultValue.s3Logs = s3Logs;
+            return _resultValue;
         }
     }
 }

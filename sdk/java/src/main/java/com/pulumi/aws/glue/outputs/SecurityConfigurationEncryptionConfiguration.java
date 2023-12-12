@@ -70,11 +70,11 @@ public final class SecurityConfigurationEncryptionConfiguration {
             return this;
         }
         public SecurityConfigurationEncryptionConfiguration build() {
-            final var o = new SecurityConfigurationEncryptionConfiguration();
-            o.cloudwatchEncryption = cloudwatchEncryption;
-            o.jobBookmarksEncryption = jobBookmarksEncryption;
-            o.s3Encryption = s3Encryption;
-            return o;
+            final var _resultValue = new SecurityConfigurationEncryptionConfiguration();
+            _resultValue.cloudwatchEncryption = cloudwatchEncryption;
+            _resultValue.jobBookmarksEncryption = jobBookmarksEncryption;
+            _resultValue.s3Encryption = s3Encryption;
+            return _resultValue;
         }
     }
 }

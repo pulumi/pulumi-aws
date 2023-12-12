@@ -208,17 +208,17 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKey build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKey();
-            o.cookie = cookie;
-            o.forwardedIp = forwardedIp;
-            o.header = header;
-            o.httpMethod = httpMethod;
-            o.ip = ip;
-            o.labelNamespace = labelNamespace;
-            o.queryArgument = queryArgument;
-            o.queryString = queryString;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKey();
+            _resultValue.cookie = cookie;
+            _resultValue.forwardedIp = forwardedIp;
+            _resultValue.header = header;
+            _resultValue.httpMethod = httpMethod;
+            _resultValue.ip = ip;
+            _resultValue.labelNamespace = labelNamespace;
+            _resultValue.queryArgument = queryArgument;
+            _resultValue.queryString = queryString;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

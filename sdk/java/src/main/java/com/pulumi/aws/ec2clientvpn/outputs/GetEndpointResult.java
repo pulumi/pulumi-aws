@@ -452,30 +452,30 @@ public final class GetEndpointResult {
             return this;
         }
         public GetEndpointResult build() {
-            final var o = new GetEndpointResult();
-            o.arn = arn;
-            o.authenticationOptions = authenticationOptions;
-            o.clientCidrBlock = clientCidrBlock;
-            o.clientConnectOptions = clientConnectOptions;
-            o.clientLoginBannerOptions = clientLoginBannerOptions;
-            o.clientVpnEndpointId = clientVpnEndpointId;
-            o.connectionLogOptions = connectionLogOptions;
-            o.description = description;
-            o.dnsName = dnsName;
-            o.dnsServers = dnsServers;
-            o.filters = filters;
-            o.id = id;
-            o.securityGroupIds = securityGroupIds;
-            o.selfServicePortal = selfServicePortal;
-            o.selfServicePortalUrl = selfServicePortalUrl;
-            o.serverCertificateArn = serverCertificateArn;
-            o.sessionTimeoutHours = sessionTimeoutHours;
-            o.splitTunnel = splitTunnel;
-            o.tags = tags;
-            o.transportProtocol = transportProtocol;
-            o.vpcId = vpcId;
-            o.vpnPort = vpnPort;
-            return o;
+            final var _resultValue = new GetEndpointResult();
+            _resultValue.arn = arn;
+            _resultValue.authenticationOptions = authenticationOptions;
+            _resultValue.clientCidrBlock = clientCidrBlock;
+            _resultValue.clientConnectOptions = clientConnectOptions;
+            _resultValue.clientLoginBannerOptions = clientLoginBannerOptions;
+            _resultValue.clientVpnEndpointId = clientVpnEndpointId;
+            _resultValue.connectionLogOptions = connectionLogOptions;
+            _resultValue.description = description;
+            _resultValue.dnsName = dnsName;
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.selfServicePortal = selfServicePortal;
+            _resultValue.selfServicePortalUrl = selfServicePortalUrl;
+            _resultValue.serverCertificateArn = serverCertificateArn;
+            _resultValue.sessionTimeoutHours = sessionTimeoutHours;
+            _resultValue.splitTunnel = splitTunnel;
+            _resultValue.tags = tags;
+            _resultValue.transportProtocol = transportProtocol;
+            _resultValue.vpcId = vpcId;
+            _resultValue.vpnPort = vpnPort;
+            return _resultValue;
         }
     }
 }

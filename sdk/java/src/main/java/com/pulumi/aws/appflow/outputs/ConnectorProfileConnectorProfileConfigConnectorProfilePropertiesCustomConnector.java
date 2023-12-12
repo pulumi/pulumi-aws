@@ -69,10 +69,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector();
-            o.oauth2Properties = oauth2Properties;
-            o.profileProperties = profileProperties;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector();
+            _resultValue.oauth2Properties = oauth2Properties;
+            _resultValue.profileProperties = profileProperties;
+            return _resultValue;
         }
     }
 }

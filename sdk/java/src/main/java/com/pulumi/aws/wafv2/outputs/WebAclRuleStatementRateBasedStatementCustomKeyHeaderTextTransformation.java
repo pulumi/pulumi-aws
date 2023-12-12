@@ -66,10 +66,10 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTrans
             return this;
         }
         public WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

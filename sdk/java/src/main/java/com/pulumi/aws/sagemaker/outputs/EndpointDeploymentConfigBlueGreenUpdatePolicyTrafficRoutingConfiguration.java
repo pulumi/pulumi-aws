@@ -108,12 +108,12 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
             return this;
         }
         public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration build() {
-            final var o = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration();
-            o.canarySize = canarySize;
-            o.linearStepSize = linearStepSize;
-            o.type = type;
-            o.waitIntervalInSeconds = waitIntervalInSeconds;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration();
+            _resultValue.canarySize = canarySize;
+            _resultValue.linearStepSize = linearStepSize;
+            _resultValue.type = type;
+            _resultValue.waitIntervalInSeconds = waitIntervalInSeconds;
+            return _resultValue;
         }
     }
 }

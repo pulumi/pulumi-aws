@@ -68,10 +68,10 @@ public final class ClusterOpenMonitoringPrometheus {
             return this;
         }
         public ClusterOpenMonitoringPrometheus build() {
-            final var o = new ClusterOpenMonitoringPrometheus();
-            o.jmxExporter = jmxExporter;
-            o.nodeExporter = nodeExporter;
-            return o;
+            final var _resultValue = new ClusterOpenMonitoringPrometheus();
+            _resultValue.jmxExporter = jmxExporter;
+            _resultValue.nodeExporter = nodeExporter;
+            return _resultValue;
         }
     }
 }

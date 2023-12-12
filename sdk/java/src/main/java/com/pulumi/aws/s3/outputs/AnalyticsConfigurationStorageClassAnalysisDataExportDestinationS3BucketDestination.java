@@ -105,12 +105,12 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
             return this;
         }
         public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination build() {
-            final var o = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination();
-            o.bucketAccountId = bucketAccountId;
-            o.bucketArn = bucketArn;
-            o.format = format;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination();
+            _resultValue.bucketAccountId = bucketAccountId;
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.format = format;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

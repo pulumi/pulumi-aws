@@ -56,10 +56,10 @@ public final class StaticWebLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public StaticWebLayerCloudwatchConfiguration build() {
-            final var o = new StaticWebLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new StaticWebLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class SpotInstanceRequestLaunchTemplate {
             return this;
         }
         public SpotInstanceRequestLaunchTemplate build() {
-            final var o = new SpotInstanceRequestLaunchTemplate();
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new SpotInstanceRequestLaunchTemplate();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

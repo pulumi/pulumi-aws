@@ -85,11 +85,11 @@ public final class DataSourceParametersAuroraPostgresql {
             return this;
         }
         public DataSourceParametersAuroraPostgresql build() {
-            final var o = new DataSourceParametersAuroraPostgresql();
-            o.database = database;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersAuroraPostgresql();
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

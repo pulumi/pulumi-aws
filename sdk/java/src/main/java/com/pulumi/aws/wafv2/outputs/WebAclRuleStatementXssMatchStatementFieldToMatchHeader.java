@@ -85,11 +85,11 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchHeader {
             return this;
         }
         public WebAclRuleStatementXssMatchStatementFieldToMatchHeader build() {
-            final var o = new WebAclRuleStatementXssMatchStatementFieldToMatchHeader();
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementXssMatchStatementFieldToMatchHeader();
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

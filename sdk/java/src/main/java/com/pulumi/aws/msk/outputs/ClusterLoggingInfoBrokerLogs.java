@@ -64,11 +64,11 @@ public final class ClusterLoggingInfoBrokerLogs {
             return this;
         }
         public ClusterLoggingInfoBrokerLogs build() {
-            final var o = new ClusterLoggingInfoBrokerLogs();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.firehose = firehose;
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new ClusterLoggingInfoBrokerLogs();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.firehose = firehose;
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

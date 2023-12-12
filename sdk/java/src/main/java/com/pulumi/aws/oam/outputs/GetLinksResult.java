@@ -69,10 +69,10 @@ public final class GetLinksResult {
             return this;
         }
         public GetLinksResult build() {
-            final var o = new GetLinksResult();
-            o.arns = arns;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetLinksResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

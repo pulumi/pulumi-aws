@@ -52,9 +52,9 @@ public final class LaunchTemplateEnclaveOptions {
             return this;
         }
         public LaunchTemplateEnclaveOptions build() {
-            final var o = new LaunchTemplateEnclaveOptions();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new LaunchTemplateEnclaveOptions();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

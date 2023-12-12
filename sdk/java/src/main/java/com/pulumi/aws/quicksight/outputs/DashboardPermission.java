@@ -69,10 +69,10 @@ public final class DashboardPermission {
             return this;
         }
         public DashboardPermission build() {
-            final var o = new DashboardPermission();
-            o.actions = actions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new DashboardPermission();
+            _resultValue.actions = actions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class GetUserAlternateIdentifier {
             return this;
         }
         public GetUserAlternateIdentifier build() {
-            final var o = new GetUserAlternateIdentifier();
-            o.externalId = externalId;
-            o.uniqueAttribute = uniqueAttribute;
-            return o;
+            final var _resultValue = new GetUserAlternateIdentifier();
+            _resultValue.externalId = externalId;
+            _resultValue.uniqueAttribute = uniqueAttribute;
+            return _resultValue;
         }
     }
 }

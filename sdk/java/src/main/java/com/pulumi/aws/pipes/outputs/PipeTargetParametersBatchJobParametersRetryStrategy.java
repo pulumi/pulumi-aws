@@ -48,9 +48,9 @@ public final class PipeTargetParametersBatchJobParametersRetryStrategy {
             return this;
         }
         public PipeTargetParametersBatchJobParametersRetryStrategy build() {
-            final var o = new PipeTargetParametersBatchJobParametersRetryStrategy();
-            o.attempts = attempts;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParametersRetryStrategy();
+            _resultValue.attempts = attempts;
+            return _resultValue;
         }
     }
 }

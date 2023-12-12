@@ -67,10 +67,10 @@ public final class EventTargetRetryPolicy {
             return this;
         }
         public EventTargetRetryPolicy build() {
-            final var o = new EventTargetRetryPolicy();
-            o.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
-            o.maximumRetryAttempts = maximumRetryAttempts;
-            return o;
+            final var _resultValue = new EventTargetRetryPolicy();
+            _resultValue.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
+            _resultValue.maximumRetryAttempts = maximumRetryAttempts;
+            return _resultValue;
         }
     }
 }

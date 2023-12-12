@@ -85,11 +85,11 @@ public final class TagTag {
             return this;
         }
         public TagTag build() {
-            final var o = new TagTag();
-            o.key = key;
-            o.propagateAtLaunch = propagateAtLaunch;
-            o.value = value;
-            return o;
+            final var _resultValue = new TagTag();
+            _resultValue.key = key;
+            _resultValue.propagateAtLaunch = propagateAtLaunch;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

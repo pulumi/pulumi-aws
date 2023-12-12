@@ -124,13 +124,13 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirect {
             return this;
         }
         public BucketWebsiteConfigurationV2RoutingRuleRedirect build() {
-            final var o = new BucketWebsiteConfigurationV2RoutingRuleRedirect();
-            o.hostName = hostName;
-            o.httpRedirectCode = httpRedirectCode;
-            o.protocol = protocol;
-            o.replaceKeyPrefixWith = replaceKeyPrefixWith;
-            o.replaceKeyWith = replaceKeyWith;
-            return o;
+            final var _resultValue = new BucketWebsiteConfigurationV2RoutingRuleRedirect();
+            _resultValue.hostName = hostName;
+            _resultValue.httpRedirectCode = httpRedirectCode;
+            _resultValue.protocol = protocol;
+            _resultValue.replaceKeyPrefixWith = replaceKeyPrefixWith;
+            _resultValue.replaceKeyWith = replaceKeyWith;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ClusterOpenMonitoringPrometheusJmxExporter {
             return this;
         }
         public ClusterOpenMonitoringPrometheusJmxExporter build() {
-            final var o = new ClusterOpenMonitoringPrometheusJmxExporter();
-            o.enabledInBroker = enabledInBroker;
-            return o;
+            final var _resultValue = new ClusterOpenMonitoringPrometheusJmxExporter();
+            _resultValue.enabledInBroker = enabledInBroker;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class AppMonitorCustomEvents {
             return this;
         }
         public AppMonitorCustomEvents build() {
-            final var o = new AppMonitorCustomEvents();
-            o.status = status;
-            return o;
+            final var _resultValue = new AppMonitorCustomEvents();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

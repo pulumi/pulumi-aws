@@ -134,14 +134,14 @@ public final class GetContactResult {
             return this;
         }
         public GetContactResult build() {
-            final var o = new GetContactResult();
-            o.alias = alias;
-            o.arn = arn;
-            o.displayName = displayName;
-            o.id = id;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetContactResult();
+            _resultValue.alias = alias;
+            _resultValue.arn = arn;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

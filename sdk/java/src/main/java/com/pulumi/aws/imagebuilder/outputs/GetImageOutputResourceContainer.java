@@ -69,10 +69,10 @@ public final class GetImageOutputResourceContainer {
             return this;
         }
         public GetImageOutputResourceContainer build() {
-            final var o = new GetImageOutputResourceContainer();
-            o.imageUris = imageUris;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetImageOutputResourceContainer();
+            _resultValue.imageUris = imageUris;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

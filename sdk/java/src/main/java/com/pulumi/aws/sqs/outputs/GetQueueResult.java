@@ -115,13 +115,13 @@ public final class GetQueueResult {
             return this;
         }
         public GetQueueResult build() {
-            final var o = new GetQueueResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetQueueResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

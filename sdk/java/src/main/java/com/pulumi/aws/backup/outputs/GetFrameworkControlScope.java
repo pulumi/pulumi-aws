@@ -92,11 +92,11 @@ public final class GetFrameworkControlScope {
             return this;
         }
         public GetFrameworkControlScope build() {
-            final var o = new GetFrameworkControlScope();
-            o.complianceResourceIds = complianceResourceIds;
-            o.complianceResourceTypes = complianceResourceTypes;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetFrameworkControlScope();
+            _resultValue.complianceResourceIds = complianceResourceIds;
+            _resultValue.complianceResourceTypes = complianceResourceTypes;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

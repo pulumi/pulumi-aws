@@ -68,10 +68,10 @@ public final class StreamKinesisConfiguration {
             return this;
         }
         public StreamKinesisConfiguration build() {
-            final var o = new StreamKinesisConfiguration();
-            o.aggregationEnabled = aggregationEnabled;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new StreamKinesisConfiguration();
+            _resultValue.aggregationEnabled = aggregationEnabled;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

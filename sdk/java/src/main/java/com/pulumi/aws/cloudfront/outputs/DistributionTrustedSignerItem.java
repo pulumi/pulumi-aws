@@ -71,10 +71,10 @@ public final class DistributionTrustedSignerItem {
             return keyPairIds(List.of(keyPairIds));
         }
         public DistributionTrustedSignerItem build() {
-            final var o = new DistributionTrustedSignerItem();
-            o.awsAccountNumber = awsAccountNumber;
-            o.keyPairIds = keyPairIds;
-            return o;
+            final var _resultValue = new DistributionTrustedSignerItem();
+            _resultValue.awsAccountNumber = awsAccountNumber;
+            _resultValue.keyPairIds = keyPairIds;
+            return _resultValue;
         }
     }
 }

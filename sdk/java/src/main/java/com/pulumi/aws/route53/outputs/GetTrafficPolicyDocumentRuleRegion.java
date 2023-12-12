@@ -125,13 +125,13 @@ public final class GetTrafficPolicyDocumentRuleRegion {
             return this;
         }
         public GetTrafficPolicyDocumentRuleRegion build() {
-            final var o = new GetTrafficPolicyDocumentRuleRegion();
-            o.endpointReference = endpointReference;
-            o.evaluateTargetHealth = evaluateTargetHealth;
-            o.healthCheck = healthCheck;
-            o.region = region;
-            o.ruleReference = ruleReference;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentRuleRegion();
+            _resultValue.endpointReference = endpointReference;
+            _resultValue.evaluateTargetHealth = evaluateTargetHealth;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.region = region;
+            _resultValue.ruleReference = ruleReference;
+            return _resultValue;
         }
     }
 }

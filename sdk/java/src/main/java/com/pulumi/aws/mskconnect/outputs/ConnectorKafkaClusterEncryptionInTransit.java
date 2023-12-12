@@ -48,9 +48,9 @@ public final class ConnectorKafkaClusterEncryptionInTransit {
             return this;
         }
         public ConnectorKafkaClusterEncryptionInTransit build() {
-            final var o = new ConnectorKafkaClusterEncryptionInTransit();
-            o.encryptionType = encryptionType;
-            return o;
+            final var _resultValue = new ConnectorKafkaClusterEncryptionInTransit();
+            _resultValue.encryptionType = encryptionType;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv();
-            o.header = header;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv();
+            _resultValue.header = header;
+            return _resultValue;
         }
     }
 }

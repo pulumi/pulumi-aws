@@ -67,10 +67,10 @@ public final class FirewallFirewallStatusSyncStateAttachment {
             return this;
         }
         public FirewallFirewallStatusSyncStateAttachment build() {
-            final var o = new FirewallFirewallStatusSyncStateAttachment();
-            o.endpointId = endpointId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new FirewallFirewallStatusSyncStateAttachment();
+            _resultValue.endpointId = endpointId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

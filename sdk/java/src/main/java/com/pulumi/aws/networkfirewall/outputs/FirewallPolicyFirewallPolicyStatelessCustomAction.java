@@ -66,10 +66,10 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomAction {
             return this;
         }
         public FirewallPolicyFirewallPolicyStatelessCustomAction build() {
-            final var o = new FirewallPolicyFirewallPolicyStatelessCustomAction();
-            o.actionDefinition = actionDefinition;
-            o.actionName = actionName;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatelessCustomAction();
+            _resultValue.actionDefinition = actionDefinition;
+            _resultValue.actionName = actionName;
+            return _resultValue;
         }
     }
 }

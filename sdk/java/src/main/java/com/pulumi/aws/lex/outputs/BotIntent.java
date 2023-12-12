@@ -65,10 +65,10 @@ public final class BotIntent {
             return this;
         }
         public BotIntent build() {
-            final var o = new BotIntent();
-            o.intentName = intentName;
-            o.intentVersion = intentVersion;
-            return o;
+            final var _resultValue = new BotIntent();
+            _resultValue.intentName = intentName;
+            _resultValue.intentVersion = intentVersion;
+            return _resultValue;
         }
     }
 }

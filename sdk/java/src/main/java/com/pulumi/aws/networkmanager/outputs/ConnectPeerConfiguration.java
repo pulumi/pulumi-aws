@@ -120,13 +120,13 @@ public final class ConnectPeerConfiguration {
             return this;
         }
         public ConnectPeerConfiguration build() {
-            final var o = new ConnectPeerConfiguration();
-            o.bgpConfigurations = bgpConfigurations;
-            o.coreNetworkAddress = coreNetworkAddress;
-            o.insideCidrBlocks = insideCidrBlocks;
-            o.peerAddress = peerAddress;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new ConnectPeerConfiguration();
+            _resultValue.bgpConfigurations = bgpConfigurations;
+            _resultValue.coreNetworkAddress = coreNetworkAddress;
+            _resultValue.insideCidrBlocks = insideCidrBlocks;
+            _resultValue.peerAddress = peerAddress;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

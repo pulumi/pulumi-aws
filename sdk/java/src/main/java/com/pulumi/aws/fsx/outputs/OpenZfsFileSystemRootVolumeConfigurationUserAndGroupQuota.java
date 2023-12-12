@@ -85,11 +85,11 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
             return this;
         }
         public OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota build() {
-            final var o = new OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota();
-            o.id = id;
-            o.storageCapacityQuotaGib = storageCapacityQuotaGib;
-            o.type = type;
-            return o;
+            final var _resultValue = new OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota();
+            _resultValue.id = id;
+            _resultValue.storageCapacityQuotaGib = storageCapacityQuotaGib;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

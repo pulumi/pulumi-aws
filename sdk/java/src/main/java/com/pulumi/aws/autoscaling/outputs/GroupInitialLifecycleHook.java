@@ -115,15 +115,15 @@ public final class GroupInitialLifecycleHook {
             return this;
         }
         public GroupInitialLifecycleHook build() {
-            final var o = new GroupInitialLifecycleHook();
-            o.defaultResult = defaultResult;
-            o.heartbeatTimeout = heartbeatTimeout;
-            o.lifecycleTransition = lifecycleTransition;
-            o.name = name;
-            o.notificationMetadata = notificationMetadata;
-            o.notificationTargetArn = notificationTargetArn;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new GroupInitialLifecycleHook();
+            _resultValue.defaultResult = defaultResult;
+            _resultValue.heartbeatTimeout = heartbeatTimeout;
+            _resultValue.lifecycleTransition = lifecycleTransition;
+            _resultValue.name = name;
+            _resultValue.notificationMetadata = notificationMetadata;
+            _resultValue.notificationTargetArn = notificationTargetArn;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

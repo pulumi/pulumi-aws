@@ -87,11 +87,11 @@ public final class SecretRotationRotationRules {
             return this;
         }
         public SecretRotationRotationRules build() {
-            final var o = new SecretRotationRotationRules();
-            o.automaticallyAfterDays = automaticallyAfterDays;
-            o.duration = duration;
-            o.scheduleExpression = scheduleExpression;
-            return o;
+            final var _resultValue = new SecretRotationRotationRules();
+            _resultValue.automaticallyAfterDays = automaticallyAfterDays;
+            _resultValue.duration = duration;
+            _resultValue.scheduleExpression = scheduleExpression;
+            return _resultValue;
         }
     }
 }

@@ -88,11 +88,11 @@ public final class GatewayRouteSpecHttp2RouteMatchHeader {
             return this;
         }
         public GatewayRouteSpecHttp2RouteMatchHeader build() {
-            final var o = new GatewayRouteSpecHttp2RouteMatchHeader();
-            o.invert = invert;
-            o.match = match;
-            o.name = name;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2RouteMatchHeader();
+            _resultValue.invert = invert;
+            _resultValue.match = match;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStr
         }
 
         public RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString();
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetFirewallEncryptionConfiguration {
             return this;
         }
         public GetFirewallEncryptionConfiguration build() {
-            final var o = new GetFirewallEncryptionConfiguration();
-            o.keyId = keyId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetFirewallEncryptionConfiguration();
+            _resultValue.keyId = keyId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

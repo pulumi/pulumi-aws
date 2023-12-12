@@ -273,25 +273,25 @@ public final class GetDataSetResult {
             return this;
         }
         public GetDataSetResult build() {
-            final var o = new GetDataSetResult();
-            o.arn = arn;
-            o.awsAccountId = awsAccountId;
-            o.columnGroups = columnGroups;
-            o.columnLevelPermissionRules = columnLevelPermissionRules;
-            o.dataSetId = dataSetId;
-            o.dataSetUsageConfigurations = dataSetUsageConfigurations;
-            o.fieldFolders = fieldFolders;
-            o.id = id;
-            o.importMode = importMode;
-            o.logicalTableMaps = logicalTableMaps;
-            o.name = name;
-            o.permissions = permissions;
-            o.physicalTableMaps = physicalTableMaps;
-            o.rowLevelPermissionDataSets = rowLevelPermissionDataSets;
-            o.rowLevelPermissionTagConfigurations = rowLevelPermissionTagConfigurations;
-            o.tags = tags;
-            o.tagsAll = tagsAll;
-            return o;
+            final var _resultValue = new GetDataSetResult();
+            _resultValue.arn = arn;
+            _resultValue.awsAccountId = awsAccountId;
+            _resultValue.columnGroups = columnGroups;
+            _resultValue.columnLevelPermissionRules = columnLevelPermissionRules;
+            _resultValue.dataSetId = dataSetId;
+            _resultValue.dataSetUsageConfigurations = dataSetUsageConfigurations;
+            _resultValue.fieldFolders = fieldFolders;
+            _resultValue.id = id;
+            _resultValue.importMode = importMode;
+            _resultValue.logicalTableMaps = logicalTableMaps;
+            _resultValue.name = name;
+            _resultValue.permissions = permissions;
+            _resultValue.physicalTableMaps = physicalTableMaps;
+            _resultValue.rowLevelPermissionDataSets = rowLevelPermissionDataSets;
+            _resultValue.rowLevelPermissionTagConfigurations = rowLevelPermissionTagConfigurations;
+            _resultValue.tags = tags;
+            _resultValue.tagsAll = tagsAll;
+            return _resultValue;
         }
     }
 }

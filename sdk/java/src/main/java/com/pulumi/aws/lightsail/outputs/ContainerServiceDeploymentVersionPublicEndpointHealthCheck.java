@@ -144,14 +144,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
             return this;
         }
         public ContainerServiceDeploymentVersionPublicEndpointHealthCheck build() {
-            final var o = new ContainerServiceDeploymentVersionPublicEndpointHealthCheck();
-            o.healthyThreshold = healthyThreshold;
-            o.intervalSeconds = intervalSeconds;
-            o.path = path;
-            o.successCodes = successCodes;
-            o.timeoutSeconds = timeoutSeconds;
-            o.unhealthyThreshold = unhealthyThreshold;
-            return o;
+            final var _resultValue = new ContainerServiceDeploymentVersionPublicEndpointHealthCheck();
+            _resultValue.healthyThreshold = healthyThreshold;
+            _resultValue.intervalSeconds = intervalSeconds;
+            _resultValue.path = path;
+            _resultValue.successCodes = successCodes;
+            _resultValue.timeoutSeconds = timeoutSeconds;
+            _resultValue.unhealthyThreshold = unhealthyThreshold;
+            return _resultValue;
         }
     }
 }

@@ -126,13 +126,13 @@ public final class FlowSourceFlowConfig {
             return this;
         }
         public FlowSourceFlowConfig build() {
-            final var o = new FlowSourceFlowConfig();
-            o.apiVersion = apiVersion;
-            o.connectorProfileName = connectorProfileName;
-            o.connectorType = connectorType;
-            o.incrementalPullConfig = incrementalPullConfig;
-            o.sourceConnectorProperties = sourceConnectorProperties;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfig();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.connectorProfileName = connectorProfileName;
+            _resultValue.connectorType = connectorType;
+            _resultValue.incrementalPullConfig = incrementalPullConfig;
+            _resultValue.sourceConnectorProperties = sourceConnectorProperties;
+            return _resultValue;
         }
     }
 }

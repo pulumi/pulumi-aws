@@ -125,13 +125,13 @@ public final class ClusterMasterInstanceGroupEbsConfig {
             return this;
         }
         public ClusterMasterInstanceGroupEbsConfig build() {
-            final var o = new ClusterMasterInstanceGroupEbsConfig();
-            o.iops = iops;
-            o.size = size;
-            o.throughput = throughput;
-            o.type = type;
-            o.volumesPerInstance = volumesPerInstance;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceGroupEbsConfig();
+            _resultValue.iops = iops;
+            _resultValue.size = size;
+            _resultValue.throughput = throughput;
+            _resultValue.type = type;
+            _resultValue.volumesPerInstance = volumesPerInstance;
+            return _resultValue;
         }
     }
 }

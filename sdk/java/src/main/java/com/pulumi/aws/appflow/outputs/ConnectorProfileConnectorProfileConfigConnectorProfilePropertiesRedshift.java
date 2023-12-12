@@ -162,15 +162,15 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.clusterIdentifier = clusterIdentifier;
-            o.dataApiRoleArn = dataApiRoleArn;
-            o.databaseName = databaseName;
-            o.databaseUrl = databaseUrl;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.clusterIdentifier = clusterIdentifier;
+            _resultValue.dataApiRoleArn = dataApiRoleArn;
+            _resultValue.databaseName = databaseName;
+            _resultValue.databaseUrl = databaseUrl;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class FunctionTracingConfig {
             return this;
         }
         public FunctionTracingConfig build() {
-            final var o = new FunctionTracingConfig();
-            o.mode = mode;
-            return o;
+            final var _resultValue = new FunctionTracingConfig();
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class BuildStorageLocation {
             return this;
         }
         public BuildStorageLocation build() {
-            final var o = new BuildStorageLocation();
-            o.bucket = bucket;
-            o.key = key;
-            o.objectVersion = objectVersion;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new BuildStorageLocation();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            _resultValue.objectVersion = objectVersion;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class RouteRequestParameter {
             return this;
         }
         public RouteRequestParameter build() {
-            final var o = new RouteRequestParameter();
-            o.requestParameterKey = requestParameterKey;
-            o.required = required;
-            return o;
+            final var _resultValue = new RouteRequestParameter();
+            _resultValue.requestParameterKey = requestParameterKey;
+            _resultValue.required = required;
+            return _resultValue;
         }
     }
 }

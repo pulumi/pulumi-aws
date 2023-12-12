@@ -106,12 +106,12 @@ public final class TopicRuleIotEvent {
             return this;
         }
         public TopicRuleIotEvent build() {
-            final var o = new TopicRuleIotEvent();
-            o.batchMode = batchMode;
-            o.inputName = inputName;
-            o.messageId = messageId;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleIotEvent();
+            _resultValue.batchMode = batchMode;
+            _resultValue.inputName = inputName;
+            _resultValue.messageId = messageId;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

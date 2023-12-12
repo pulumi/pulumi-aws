@@ -46,9 +46,9 @@ public final class RuleLockConfiguration {
             return this;
         }
         public RuleLockConfiguration build() {
-            final var o = new RuleLockConfiguration();
-            o.unlockDelay = unlockDelay;
-            return o;
+            final var _resultValue = new RuleLockConfiguration();
+            _resultValue.unlockDelay = unlockDelay;
+            return _resultValue;
         }
     }
 }

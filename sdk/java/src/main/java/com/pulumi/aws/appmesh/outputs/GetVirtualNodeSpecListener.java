@@ -117,14 +117,14 @@ public final class GetVirtualNodeSpecListener {
             return tls(List.of(tls));
         }
         public GetVirtualNodeSpecListener build() {
-            final var o = new GetVirtualNodeSpecListener();
-            o.connectionPools = connectionPools;
-            o.healthChecks = healthChecks;
-            o.outlierDetections = outlierDetections;
-            o.portMappings = portMappings;
-            o.timeouts = timeouts;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListener();
+            _resultValue.connectionPools = connectionPools;
+            _resultValue.healthChecks = healthChecks;
+            _resultValue.outlierDetections = outlierDetections;
+            _resultValue.portMappings = portMappings;
+            _resultValue.timeouts = timeouts;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

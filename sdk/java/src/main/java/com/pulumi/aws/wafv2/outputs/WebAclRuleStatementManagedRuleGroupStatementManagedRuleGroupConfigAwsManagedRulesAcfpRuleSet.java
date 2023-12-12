@@ -127,13 +127,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet();
-            o.creationPath = creationPath;
-            o.enableRegexInPath = enableRegexInPath;
-            o.registrationPagePath = registrationPagePath;
-            o.requestInspection = requestInspection;
-            o.responseInspection = responseInspection;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet();
+            _resultValue.creationPath = creationPath;
+            _resultValue.enableRegexInPath = enableRegexInPath;
+            _resultValue.registrationPagePath = registrationPagePath;
+            _resultValue.requestInspection = requestInspection;
+            _resultValue.responseInspection = responseInspection;
+            return _resultValue;
         }
     }
 }

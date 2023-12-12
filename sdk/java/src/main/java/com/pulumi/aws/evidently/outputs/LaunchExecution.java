@@ -67,10 +67,10 @@ public final class LaunchExecution {
             return this;
         }
         public LaunchExecution build() {
-            final var o = new LaunchExecution();
-            o.endedTime = endedTime;
-            o.startedTime = startedTime;
-            return o;
+            final var _resultValue = new LaunchExecution();
+            _resultValue.endedTime = endedTime;
+            _resultValue.startedTime = startedTime;
+            return _resultValue;
         }
     }
 }
