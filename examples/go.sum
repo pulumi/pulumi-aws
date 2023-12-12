@@ -2386,12 +2386,12 @@ github.com/pulumi/esc v0.6.1-0.20231111193429-44b746a5b3b5 h1:1DJMji9F7XPea46bSu
 github.com/pulumi/esc v0.6.1-0.20231111193429-44b746a5b3b5/go.mod h1:Y6W21yUukvxS2NnS5ae1beMSPhMvj0xNAYcDqDHVj/g=
 github.com/pulumi/providertest v0.0.3 h1:DLcAvVGgeP4mHEi1Ftk5zTX9QHjcrO6u5w5GCZrF99s=
 github.com/pulumi/providertest v0.0.3/go.mod h1:kZYBA14iemv3X4G4xsBKaa72zVbn//IyL5HTYKpLuy0=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231207205658-538570c1932f h1:vYOnyhGczomd2iLb8judh5kLHdIqpIFYW/0yAH9LlgY=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231207205658-538570c1932f/go.mod h1:4XbozjoCh9lbGcUD5+83LrjAqzGPQGjya0lavqVq1sQ=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231212222643-ba3ef0bc9481 h1:c2ek/ZIwI2U8ITg5jOb+FC9KuKOVd7jsXABXkbfxnOw=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231212222643-ba3ef0bc9481/go.mod h1:UbX/bHDY93Jggd4WYvoD1Pv/2c1s+hg+ks8rcfKBAO8=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3 h1:bBWWeAtSPPYpKYlPZr2h0BiYgWQpHRIk0HO/MQmB+jc=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3/go.mod h1:vAQ7DeddebQ7FHdRaSG6ijuS28FS9PC4j8Y9wUuue0c=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.0 h1:HNbo4GeJZP2AjKubxV08o+3K0mt6iNrwbQ//EgPz6bc=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.0/go.mod h1:FQgtkWHv3rMPVA3OMu8yMHkZA4nGEuvCRwshrs4sw0s=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.1-0.20231212222643-ba3ef0bc9481 h1:dWfsObXD313U8FJq3PjEqw9I5Dw+0f8XT9HY/xP21Ik=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.1-0.20231212222643-ba3ef0bc9481/go.mod h1:uOgzTL/TwJiBQEBckhXzr4k/JHMCtkhguXls66wuGKs=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20231130182140-6385710fcbc4 h1:8lK+vlRrnAxB6K3J2YIPAq50ETpvvWZ92vi66Hko/4o=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20231130182140-6385710fcbc4/go.mod h1:F/fzVS4Ksc4SPPLtMjGFRM9M76QtM1Rc0CYGnHCHEwU=
 github.com/pulumi/pulumi/pkg/v3 v3.96.2 h1:d+zDsh4K1j90q/upDRkhgxHkspP20Xxd3g6OaMbw574=
