@@ -46,9 +46,9 @@ public final class GetBundleComputeType {
             return this;
         }
         public GetBundleComputeType build() {
-            final var o = new GetBundleComputeType();
-            o.name = name;
-            return o;
+            final var _resultValue = new GetBundleComputeType();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

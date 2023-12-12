@@ -132,13 +132,13 @@ public final class ReplicatorReplicationInfoListTopicReplication {
             return topicsToReplicates(List.of(topicsToReplicates));
         }
         public ReplicatorReplicationInfoListTopicReplication build() {
-            final var o = new ReplicatorReplicationInfoListTopicReplication();
-            o.copyAccessControlListsForTopics = copyAccessControlListsForTopics;
-            o.copyTopicConfigurations = copyTopicConfigurations;
-            o.detectAndCopyNewTopics = detectAndCopyNewTopics;
-            o.topicsToExcludes = topicsToExcludes;
-            o.topicsToReplicates = topicsToReplicates;
-            return o;
+            final var _resultValue = new ReplicatorReplicationInfoListTopicReplication();
+            _resultValue.copyAccessControlListsForTopics = copyAccessControlListsForTopics;
+            _resultValue.copyTopicConfigurations = copyTopicConfigurations;
+            _resultValue.detectAndCopyNewTopics = detectAndCopyNewTopics;
+            _resultValue.topicsToExcludes = topicsToExcludes;
+            _resultValue.topicsToReplicates = topicsToReplicates;
+            return _resultValue;
         }
     }
 }

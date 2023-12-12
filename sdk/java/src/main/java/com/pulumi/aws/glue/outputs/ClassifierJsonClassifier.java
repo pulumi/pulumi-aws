@@ -46,9 +46,9 @@ public final class ClassifierJsonClassifier {
             return this;
         }
         public ClassifierJsonClassifier build() {
-            final var o = new ClassifierJsonClassifier();
-            o.jsonPath = jsonPath;
-            return o;
+            final var _resultValue = new ClassifierJsonClassifier();
+            _resultValue.jsonPath = jsonPath;
+            return _resultValue;
         }
     }
 }

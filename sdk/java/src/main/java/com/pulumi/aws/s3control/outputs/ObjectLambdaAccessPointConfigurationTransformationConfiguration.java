@@ -70,10 +70,10 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
             return this;
         }
         public ObjectLambdaAccessPointConfigurationTransformationConfiguration build() {
-            final var o = new ObjectLambdaAccessPointConfigurationTransformationConfiguration();
-            o.actions = actions;
-            o.contentTransformation = contentTransformation;
-            return o;
+            final var _resultValue = new ObjectLambdaAccessPointConfigurationTransformationConfiguration();
+            _resultValue.actions = actions;
+            _resultValue.contentTransformation = contentTransformation;
+            return _resultValue;
         }
     }
 }

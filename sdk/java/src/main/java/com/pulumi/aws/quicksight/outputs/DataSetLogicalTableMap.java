@@ -110,12 +110,12 @@ public final class DataSetLogicalTableMap {
             return this;
         }
         public DataSetLogicalTableMap build() {
-            final var o = new DataSetLogicalTableMap();
-            o.alias = alias;
-            o.dataTransforms = dataTransforms;
-            o.logicalTableMapId = logicalTableMapId;
-            o.source = source;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMap();
+            _resultValue.alias = alias;
+            _resultValue.dataTransforms = dataTransforms;
+            _resultValue.logicalTableMapId = logicalTableMapId;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

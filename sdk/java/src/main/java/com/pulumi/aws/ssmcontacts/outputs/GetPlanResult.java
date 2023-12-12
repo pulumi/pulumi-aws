@@ -81,11 +81,11 @@ public final class GetPlanResult {
             return stages(List.of(stages));
         }
         public GetPlanResult build() {
-            final var o = new GetPlanResult();
-            o.contactId = contactId;
-            o.id = id;
-            o.stages = stages;
-            return o;
+            final var _resultValue = new GetPlanResult();
+            _resultValue.contactId = contactId;
+            _resultValue.id = id;
+            _resultValue.stages = stages;
+            return _resultValue;
         }
     }
 }

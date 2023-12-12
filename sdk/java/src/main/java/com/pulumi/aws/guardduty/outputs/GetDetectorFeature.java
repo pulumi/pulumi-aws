@@ -89,11 +89,11 @@ public final class GetDetectorFeature {
             return this;
         }
         public GetDetectorFeature build() {
-            final var o = new GetDetectorFeature();
-            o.additionalConfigurations = additionalConfigurations;
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetDetectorFeature();
+            _resultValue.additionalConfigurations = additionalConfigurations;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings build() {
-            final var o = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings();
-            o.inputLossThresholdMsec = inputLossThresholdMsec;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings();
+            _resultValue.inputLossThresholdMsec = inputLossThresholdMsec;
+            return _resultValue;
         }
     }
 }

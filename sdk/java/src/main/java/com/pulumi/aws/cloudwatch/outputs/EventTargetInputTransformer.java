@@ -73,10 +73,10 @@ public final class EventTargetInputTransformer {
             return this;
         }
         public EventTargetInputTransformer build() {
-            final var o = new EventTargetInputTransformer();
-            o.inputPaths = inputPaths;
-            o.inputTemplate = inputTemplate;
-            return o;
+            final var _resultValue = new EventTargetInputTransformer();
+            _resultValue.inputPaths = inputPaths;
+            _resultValue.inputTemplate = inputTemplate;
+            return _resultValue;
         }
     }
 }

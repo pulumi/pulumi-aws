@@ -43,9 +43,9 @@ public final class ResponseHeadersPolicyRemoveHeadersConfig {
             return items(List.of(items));
         }
         public ResponseHeadersPolicyRemoveHeadersConfig build() {
-            final var o = new ResponseHeadersPolicyRemoveHeadersConfig();
-            o.items = items;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicyRemoveHeadersConfig();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

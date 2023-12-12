@@ -69,10 +69,10 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter();
-            o.parameterName = parameterName;
-            o.parameterValue = parameterValue;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter();
+            _resultValue.parameterName = parameterName;
+            _resultValue.parameterValue = parameterValue;
+            return _resultValue;
         }
     }
 }

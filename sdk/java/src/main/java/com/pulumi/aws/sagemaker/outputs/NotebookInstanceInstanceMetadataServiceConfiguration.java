@@ -48,9 +48,9 @@ public final class NotebookInstanceInstanceMetadataServiceConfiguration {
             return this;
         }
         public NotebookInstanceInstanceMetadataServiceConfiguration build() {
-            final var o = new NotebookInstanceInstanceMetadataServiceConfiguration();
-            o.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
-            return o;
+            final var _resultValue = new NotebookInstanceInstanceMetadataServiceConfiguration();
+            _resultValue.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
+            return _resultValue;
         }
     }
 }

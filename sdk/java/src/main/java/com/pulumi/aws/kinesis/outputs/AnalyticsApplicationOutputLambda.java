@@ -65,10 +65,10 @@ public final class AnalyticsApplicationOutputLambda {
             return this;
         }
         public AnalyticsApplicationOutputLambda build() {
-            final var o = new AnalyticsApplicationOutputLambda();
-            o.resourceArn = resourceArn;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new AnalyticsApplicationOutputLambda();
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

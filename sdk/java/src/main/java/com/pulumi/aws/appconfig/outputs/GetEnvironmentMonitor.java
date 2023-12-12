@@ -65,10 +65,10 @@ public final class GetEnvironmentMonitor {
             return this;
         }
         public GetEnvironmentMonitor build() {
-            final var o = new GetEnvironmentMonitor();
-            o.alarmArn = alarmArn;
-            o.alarmRoleArn = alarmRoleArn;
-            return o;
+            final var _resultValue = new GetEnvironmentMonitor();
+            _resultValue.alarmArn = alarmArn;
+            _resultValue.alarmRoleArn = alarmRoleArn;
+            return _resultValue;
         }
     }
 }

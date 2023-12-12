@@ -83,12 +83,12 @@ public final class GetRouteSpecHttp2RouteRetryPolicy {
             return tcpRetryEvents(List.of(tcpRetryEvents));
         }
         public GetRouteSpecHttp2RouteRetryPolicy build() {
-            final var o = new GetRouteSpecHttp2RouteRetryPolicy();
-            o.httpRetryEvents = httpRetryEvents;
-            o.maxRetries = maxRetries;
-            o.perRetryTimeouts = perRetryTimeouts;
-            o.tcpRetryEvents = tcpRetryEvents;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteRetryPolicy();
+            _resultValue.httpRetryEvents = httpRetryEvents;
+            _resultValue.maxRetries = maxRetries;
+            _resultValue.perRetryTimeouts = perRetryTimeouts;
+            _resultValue.tcpRetryEvents = tcpRetryEvents;
+            return _resultValue;
         }
     }
 }

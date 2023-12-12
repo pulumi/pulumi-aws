@@ -46,9 +46,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination();
-            o.destinationRefId = destinationRefId;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination();
+            _resultValue.destinationRefId = destinationRefId;
+            return _resultValue;
         }
     }
 }

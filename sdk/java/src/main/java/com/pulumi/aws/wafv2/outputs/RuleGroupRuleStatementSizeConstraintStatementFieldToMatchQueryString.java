@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQuer
         }
 
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString();
+            return _resultValue;
         }
     }
 }

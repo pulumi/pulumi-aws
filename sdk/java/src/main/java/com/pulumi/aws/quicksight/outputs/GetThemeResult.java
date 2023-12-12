@@ -288,22 +288,22 @@ public final class GetThemeResult {
             return this;
         }
         public GetThemeResult build() {
-            final var o = new GetThemeResult();
-            o.arn = arn;
-            o.awsAccountId = awsAccountId;
-            o.baseThemeId = baseThemeId;
-            o.configurations = configurations;
-            o.createdTime = createdTime;
-            o.id = id;
-            o.lastUpdatedTime = lastUpdatedTime;
-            o.name = name;
-            o.permissions = permissions;
-            o.status = status;
-            o.tags = tags;
-            o.themeId = themeId;
-            o.versionDescription = versionDescription;
-            o.versionNumber = versionNumber;
-            return o;
+            final var _resultValue = new GetThemeResult();
+            _resultValue.arn = arn;
+            _resultValue.awsAccountId = awsAccountId;
+            _resultValue.baseThemeId = baseThemeId;
+            _resultValue.configurations = configurations;
+            _resultValue.createdTime = createdTime;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedTime = lastUpdatedTime;
+            _resultValue.name = name;
+            _resultValue.permissions = permissions;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.themeId = themeId;
+            _resultValue.versionDescription = versionDescription;
+            _resultValue.versionNumber = versionNumber;
+            return _resultValue;
         }
     }
 }

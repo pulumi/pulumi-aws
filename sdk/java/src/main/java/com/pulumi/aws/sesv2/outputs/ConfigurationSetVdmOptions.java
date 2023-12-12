@@ -68,10 +68,10 @@ public final class ConfigurationSetVdmOptions {
             return this;
         }
         public ConfigurationSetVdmOptions build() {
-            final var o = new ConfigurationSetVdmOptions();
-            o.dashboardOptions = dashboardOptions;
-            o.guardianOptions = guardianOptions;
-            return o;
+            final var _resultValue = new ConfigurationSetVdmOptions();
+            _resultValue.dashboardOptions = dashboardOptions;
+            _resultValue.guardianOptions = guardianOptions;
+            return _resultValue;
         }
     }
 }

@@ -42,9 +42,9 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicy {
             return tls(List.of(tls));
         }
         public GetVirtualGatewaySpecBackendDefaultClientPolicy build() {
-            final var o = new GetVirtualGatewaySpecBackendDefaultClientPolicy();
-            o.tls = tls;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefaultClientPolicy();
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

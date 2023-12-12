@@ -68,10 +68,10 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterCondition {
             return this;
         }
         public WebAclLoggingConfigurationLoggingFilterFilterCondition build() {
-            final var o = new WebAclLoggingConfigurationLoggingFilterFilterCondition();
-            o.actionCondition = actionCondition;
-            o.labelNameCondition = labelNameCondition;
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationLoggingFilterFilterCondition();
+            _resultValue.actionCondition = actionCondition;
+            _resultValue.labelNameCondition = labelNameCondition;
+            return _resultValue;
         }
     }
 }

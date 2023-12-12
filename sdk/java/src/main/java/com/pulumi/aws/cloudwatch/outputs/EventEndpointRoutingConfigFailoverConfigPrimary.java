@@ -48,9 +48,9 @@ public final class EventEndpointRoutingConfigFailoverConfigPrimary {
             return this;
         }
         public EventEndpointRoutingConfigFailoverConfigPrimary build() {
-            final var o = new EventEndpointRoutingConfigFailoverConfigPrimary();
-            o.healthCheck = healthCheck;
-            return o;
+            final var _resultValue = new EventEndpointRoutingConfigFailoverConfigPrimary();
+            _resultValue.healthCheck = healthCheck;
+            return _resultValue;
         }
     }
 }

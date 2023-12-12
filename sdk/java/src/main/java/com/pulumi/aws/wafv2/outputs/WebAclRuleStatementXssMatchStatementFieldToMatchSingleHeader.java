@@ -46,9 +46,9 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader 
             return this;
         }
         public WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader build() {
-            final var o = new WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

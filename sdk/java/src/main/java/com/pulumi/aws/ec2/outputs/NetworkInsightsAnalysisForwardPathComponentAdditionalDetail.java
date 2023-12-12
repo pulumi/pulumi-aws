@@ -56,10 +56,10 @@ public final class NetworkInsightsAnalysisForwardPathComponentAdditionalDetail {
             return components(List.of(components));
         }
         public NetworkInsightsAnalysisForwardPathComponentAdditionalDetail build() {
-            final var o = new NetworkInsightsAnalysisForwardPathComponentAdditionalDetail();
-            o.additionalDetailType = additionalDetailType;
-            o.components = components;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisForwardPathComponentAdditionalDetail();
+            _resultValue.additionalDetailType = additionalDetailType;
+            _resultValue.components = components;
+            return _resultValue;
         }
     }
 }

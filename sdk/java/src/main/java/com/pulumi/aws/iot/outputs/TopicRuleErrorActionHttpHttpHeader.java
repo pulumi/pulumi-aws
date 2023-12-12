@@ -65,10 +65,10 @@ public final class TopicRuleErrorActionHttpHttpHeader {
             return this;
         }
         public TopicRuleErrorActionHttpHttpHeader build() {
-            final var o = new TopicRuleErrorActionHttpHttpHeader();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionHttpHttpHeader();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

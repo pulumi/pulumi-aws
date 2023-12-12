@@ -289,23 +289,23 @@ public final class GetInstanceResult {
             return this;
         }
         public GetInstanceResult build() {
-            final var o = new GetInstanceResult();
-            o.arn = arn;
-            o.autoResolveBestVoicesEnabled = autoResolveBestVoicesEnabled;
-            o.contactFlowLogsEnabled = contactFlowLogsEnabled;
-            o.contactLensEnabled = contactLensEnabled;
-            o.createdTime = createdTime;
-            o.earlyMediaEnabled = earlyMediaEnabled;
-            o.id = id;
-            o.identityManagementType = identityManagementType;
-            o.inboundCallsEnabled = inboundCallsEnabled;
-            o.instanceAlias = instanceAlias;
-            o.instanceId = instanceId;
-            o.multiPartyConferenceEnabled = multiPartyConferenceEnabled;
-            o.outboundCallsEnabled = outboundCallsEnabled;
-            o.serviceRole = serviceRole;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetInstanceResult();
+            _resultValue.arn = arn;
+            _resultValue.autoResolveBestVoicesEnabled = autoResolveBestVoicesEnabled;
+            _resultValue.contactFlowLogsEnabled = contactFlowLogsEnabled;
+            _resultValue.contactLensEnabled = contactLensEnabled;
+            _resultValue.createdTime = createdTime;
+            _resultValue.earlyMediaEnabled = earlyMediaEnabled;
+            _resultValue.id = id;
+            _resultValue.identityManagementType = identityManagementType;
+            _resultValue.inboundCallsEnabled = inboundCallsEnabled;
+            _resultValue.instanceAlias = instanceAlias;
+            _resultValue.instanceId = instanceId;
+            _resultValue.multiPartyConferenceEnabled = multiPartyConferenceEnabled;
+            _resultValue.outboundCallsEnabled = outboundCallsEnabled;
+            _resultValue.serviceRole = serviceRole;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

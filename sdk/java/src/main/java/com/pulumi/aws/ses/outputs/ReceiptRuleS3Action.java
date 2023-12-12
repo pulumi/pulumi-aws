@@ -125,13 +125,13 @@ public final class ReceiptRuleS3Action {
             return this;
         }
         public ReceiptRuleS3Action build() {
-            final var o = new ReceiptRuleS3Action();
-            o.bucketName = bucketName;
-            o.kmsKeyArn = kmsKeyArn;
-            o.objectKeyPrefix = objectKeyPrefix;
-            o.position = position;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ReceiptRuleS3Action();
+            _resultValue.bucketName = bucketName;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.objectKeyPrefix = objectKeyPrefix;
+            _resultValue.position = position;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

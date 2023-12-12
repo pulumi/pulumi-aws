@@ -46,9 +46,9 @@ public final class PipelineParallelismConfiguration {
             return this;
         }
         public PipelineParallelismConfiguration build() {
-            final var o = new PipelineParallelismConfiguration();
-            o.maxParallelExecutionSteps = maxParallelExecutionSteps;
-            return o;
+            final var _resultValue = new PipelineParallelismConfiguration();
+            _resultValue.maxParallelExecutionSteps = maxParallelExecutionSteps;
+            return _resultValue;
         }
     }
 }

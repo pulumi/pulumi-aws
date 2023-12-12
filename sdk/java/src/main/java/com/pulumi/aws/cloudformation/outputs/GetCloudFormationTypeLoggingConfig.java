@@ -65,10 +65,10 @@ public final class GetCloudFormationTypeLoggingConfig {
             return this;
         }
         public GetCloudFormationTypeLoggingConfig build() {
-            final var o = new GetCloudFormationTypeLoggingConfig();
-            o.logGroupName = logGroupName;
-            o.logRoleArn = logRoleArn;
-            return o;
+            final var _resultValue = new GetCloudFormationTypeLoggingConfig();
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.logRoleArn = logRoleArn;
+            return _resultValue;
         }
     }
 }

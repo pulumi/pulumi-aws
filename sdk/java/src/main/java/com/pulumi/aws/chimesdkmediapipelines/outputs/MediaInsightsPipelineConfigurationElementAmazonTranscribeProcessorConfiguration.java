@@ -258,20 +258,20 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeProc
             return this;
         }
         public MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration();
-            o.contentIdentificationType = contentIdentificationType;
-            o.contentRedactionType = contentRedactionType;
-            o.enablePartialResultsStabilization = enablePartialResultsStabilization;
-            o.filterPartialResults = filterPartialResults;
-            o.languageCode = languageCode;
-            o.languageModelName = languageModelName;
-            o.partialResultsStability = partialResultsStability;
-            o.piiEntityTypes = piiEntityTypes;
-            o.showSpeakerLabel = showSpeakerLabel;
-            o.vocabularyFilterMethod = vocabularyFilterMethod;
-            o.vocabularyFilterName = vocabularyFilterName;
-            o.vocabularyName = vocabularyName;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration();
+            _resultValue.contentIdentificationType = contentIdentificationType;
+            _resultValue.contentRedactionType = contentRedactionType;
+            _resultValue.enablePartialResultsStabilization = enablePartialResultsStabilization;
+            _resultValue.filterPartialResults = filterPartialResults;
+            _resultValue.languageCode = languageCode;
+            _resultValue.languageModelName = languageModelName;
+            _resultValue.partialResultsStability = partialResultsStability;
+            _resultValue.piiEntityTypes = piiEntityTypes;
+            _resultValue.showSpeakerLabel = showSpeakerLabel;
+            _resultValue.vocabularyFilterMethod = vocabularyFilterMethod;
+            _resultValue.vocabularyFilterName = vocabularyFilterName;
+            _resultValue.vocabularyName = vocabularyName;
+            return _resultValue;
         }
     }
 }

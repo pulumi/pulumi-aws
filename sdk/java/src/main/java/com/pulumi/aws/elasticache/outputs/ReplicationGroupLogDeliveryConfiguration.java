@@ -103,12 +103,12 @@ public final class ReplicationGroupLogDeliveryConfiguration {
             return this;
         }
         public ReplicationGroupLogDeliveryConfiguration build() {
-            final var o = new ReplicationGroupLogDeliveryConfiguration();
-            o.destination = destination;
-            o.destinationType = destinationType;
-            o.logFormat = logFormat;
-            o.logType = logType;
-            return o;
+            final var _resultValue = new ReplicationGroupLogDeliveryConfiguration();
+            _resultValue.destination = destination;
+            _resultValue.destinationType = destinationType;
+            _resultValue.logFormat = logFormat;
+            _resultValue.logType = logType;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class DomainAdvancedSecurityOptions {
             return this;
         }
         public DomainAdvancedSecurityOptions build() {
-            final var o = new DomainAdvancedSecurityOptions();
-            o.enabled = enabled;
-            o.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
-            o.masterUserOptions = masterUserOptions;
-            return o;
+            final var _resultValue = new DomainAdvancedSecurityOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            _resultValue.masterUserOptions = masterUserOptions;
+            return _resultValue;
         }
     }
 }

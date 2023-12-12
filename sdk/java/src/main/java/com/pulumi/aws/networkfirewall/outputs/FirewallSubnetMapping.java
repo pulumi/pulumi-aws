@@ -67,10 +67,10 @@ public final class FirewallSubnetMapping {
             return this;
         }
         public FirewallSubnetMapping build() {
-            final var o = new FirewallSubnetMapping();
-            o.ipAddressType = ipAddressType;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new FirewallSubnetMapping();
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

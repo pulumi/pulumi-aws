@@ -48,9 +48,9 @@ public final class ClusterIdentityOidc {
             return this;
         }
         public ClusterIdentityOidc build() {
-            final var o = new ClusterIdentityOidc();
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new ClusterIdentityOidc();
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

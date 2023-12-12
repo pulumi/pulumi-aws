@@ -72,10 +72,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return successCodes(List.of(successCodes));
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode();
-            o.failureCodes = failureCodes;
-            o.successCodes = successCodes;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode();
+            _resultValue.failureCodes = failureCodes;
+            _resultValue.successCodes = successCodes;
+            return _resultValue;
         }
     }
 }

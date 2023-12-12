@@ -42,9 +42,9 @@ public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidati
             return certificateAuthorityArns(List.of(certificateAuthorityArns));
         }
         public GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm build() {
-            final var o = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm();
-            o.certificateAuthorityArns = certificateAuthorityArns;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm();
+            _resultValue.certificateAuthorityArns = certificateAuthorityArns;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
             return this;
         }
         public ServiceServiceConnectConfigurationLogConfigurationSecretOption build() {
-            final var o = new ServiceServiceConnectConfigurationLogConfigurationSecretOption();
-            o.name = name;
-            o.valueFrom = valueFrom;
-            return o;
+            final var _resultValue = new ServiceServiceConnectConfigurationLogConfigurationSecretOption();
+            _resultValue.name = name;
+            _resultValue.valueFrom = valueFrom;
+            return _resultValue;
         }
     }
 }

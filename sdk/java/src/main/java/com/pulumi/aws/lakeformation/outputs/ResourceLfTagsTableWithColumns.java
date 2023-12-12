@@ -155,14 +155,14 @@ public final class ResourceLfTagsTableWithColumns {
             return this;
         }
         public ResourceLfTagsTableWithColumns build() {
-            final var o = new ResourceLfTagsTableWithColumns();
-            o.catalogId = catalogId;
-            o.columnNames = columnNames;
-            o.databaseName = databaseName;
-            o.excludedColumnNames = excludedColumnNames;
-            o.name = name;
-            o.wildcard = wildcard;
-            return o;
+            final var _resultValue = new ResourceLfTagsTableWithColumns();
+            _resultValue.catalogId = catalogId;
+            _resultValue.columnNames = columnNames;
+            _resultValue.databaseName = databaseName;
+            _resultValue.excludedColumnNames = excludedColumnNames;
+            _resultValue.name = name;
+            _resultValue.wildcard = wildcard;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class GatewayRouteSpecHttp2RouteMatchQueryParameterMatch {
             return this;
         }
         public GatewayRouteSpecHttp2RouteMatchQueryParameterMatch build() {
-            final var o = new GatewayRouteSpecHttp2RouteMatchQueryParameterMatch();
-            o.exact = exact;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2RouteMatchQueryParameterMatch();
+            _resultValue.exact = exact;
+            return _resultValue;
         }
     }
 }

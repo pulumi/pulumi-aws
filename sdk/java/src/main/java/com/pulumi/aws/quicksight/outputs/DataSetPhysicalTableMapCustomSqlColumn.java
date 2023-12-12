@@ -65,10 +65,10 @@ public final class DataSetPhysicalTableMapCustomSqlColumn {
             return this;
         }
         public DataSetPhysicalTableMapCustomSqlColumn build() {
-            final var o = new DataSetPhysicalTableMapCustomSqlColumn();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMapCustomSqlColumn();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

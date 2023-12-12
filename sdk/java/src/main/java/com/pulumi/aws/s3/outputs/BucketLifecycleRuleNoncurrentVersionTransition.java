@@ -68,10 +68,10 @@ public final class BucketLifecycleRuleNoncurrentVersionTransition {
             return this;
         }
         public BucketLifecycleRuleNoncurrentVersionTransition build() {
-            final var o = new BucketLifecycleRuleNoncurrentVersionTransition();
-            o.days = days;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new BucketLifecycleRuleNoncurrentVersionTransition();
+            _resultValue.days = days;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

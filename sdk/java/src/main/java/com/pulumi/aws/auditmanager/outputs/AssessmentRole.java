@@ -65,10 +65,10 @@ public final class AssessmentRole {
             return this;
         }
         public AssessmentRole build() {
-            final var o = new AssessmentRole();
-            o.roleArn = roleArn;
-            o.roleType = roleType;
-            return o;
+            final var _resultValue = new AssessmentRole();
+            _resultValue.roleArn = roleArn;
+            _resultValue.roleType = roleType;
+            return _resultValue;
         }
     }
 }

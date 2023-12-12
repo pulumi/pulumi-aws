@@ -107,12 +107,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings();
-            o.certificateMode = certificateMode;
-            o.connectionRetryInterval = connectionRetryInterval;
-            o.destination = destination;
-            o.numRetries = numRetries;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings();
+            _resultValue.certificateMode = certificateMode;
+            _resultValue.connectionRetryInterval = connectionRetryInterval;
+            _resultValue.destination = destination;
+            _resultValue.numRetries = numRetries;
+            return _resultValue;
         }
     }
 }

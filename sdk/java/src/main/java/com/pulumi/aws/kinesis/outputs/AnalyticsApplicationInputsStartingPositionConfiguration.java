@@ -48,9 +48,9 @@ public final class AnalyticsApplicationInputsStartingPositionConfiguration {
             return this;
         }
         public AnalyticsApplicationInputsStartingPositionConfiguration build() {
-            final var o = new AnalyticsApplicationInputsStartingPositionConfiguration();
-            o.startingPosition = startingPosition;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsStartingPositionConfiguration();
+            _resultValue.startingPosition = startingPosition;
+            return _resultValue;
         }
     }
 }

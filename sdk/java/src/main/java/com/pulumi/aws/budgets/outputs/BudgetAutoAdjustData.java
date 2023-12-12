@@ -63,11 +63,11 @@ public final class BudgetAutoAdjustData {
             return this;
         }
         public BudgetAutoAdjustData build() {
-            final var o = new BudgetAutoAdjustData();
-            o.autoAdjustType = autoAdjustType;
-            o.historicalOptions = historicalOptions;
-            o.lastAutoAdjustTime = lastAutoAdjustTime;
-            return o;
+            final var _resultValue = new BudgetAutoAdjustData();
+            _resultValue.autoAdjustType = autoAdjustType;
+            _resultValue.historicalOptions = historicalOptions;
+            _resultValue.lastAutoAdjustTime = lastAutoAdjustTime;
+            return _resultValue;
         }
     }
 }

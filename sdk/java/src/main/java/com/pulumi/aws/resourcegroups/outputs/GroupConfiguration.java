@@ -71,10 +71,10 @@ public final class GroupConfiguration {
             return this;
         }
         public GroupConfiguration build() {
-            final var o = new GroupConfiguration();
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new GroupConfiguration();
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

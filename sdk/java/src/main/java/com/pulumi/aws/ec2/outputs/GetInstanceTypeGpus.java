@@ -80,12 +80,12 @@ public final class GetInstanceTypeGpus {
             return this;
         }
         public GetInstanceTypeGpus build() {
-            final var o = new GetInstanceTypeGpus();
-            o.count = count;
-            o.manufacturer = manufacturer;
-            o.memorySize = memorySize;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetInstanceTypeGpus();
+            _resultValue.count = count;
+            _resultValue.manufacturer = manufacturer;
+            _resultValue.memorySize = memorySize;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

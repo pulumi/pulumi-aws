@@ -67,10 +67,10 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

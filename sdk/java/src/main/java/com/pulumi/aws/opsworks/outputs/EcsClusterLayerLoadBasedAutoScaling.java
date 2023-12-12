@@ -64,11 +64,11 @@ public final class EcsClusterLayerLoadBasedAutoScaling {
             return this;
         }
         public EcsClusterLayerLoadBasedAutoScaling build() {
-            final var o = new EcsClusterLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new EcsClusterLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

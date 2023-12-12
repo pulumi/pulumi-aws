@@ -92,11 +92,11 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatement {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementRegexPatternSetReferenceStatement build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatement();
-            o.arn = arn;
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatement();
+            _resultValue.arn = arn;
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

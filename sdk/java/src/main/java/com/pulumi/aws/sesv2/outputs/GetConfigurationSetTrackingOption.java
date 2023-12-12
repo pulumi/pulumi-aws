@@ -46,9 +46,9 @@ public final class GetConfigurationSetTrackingOption {
             return this;
         }
         public GetConfigurationSetTrackingOption build() {
-            final var o = new GetConfigurationSetTrackingOption();
-            o.customRedirectDomain = customRedirectDomain;
-            return o;
+            final var _resultValue = new GetConfigurationSetTrackingOption();
+            _resultValue.customRedirectDomain = customRedirectDomain;
+            return _resultValue;
         }
     }
 }

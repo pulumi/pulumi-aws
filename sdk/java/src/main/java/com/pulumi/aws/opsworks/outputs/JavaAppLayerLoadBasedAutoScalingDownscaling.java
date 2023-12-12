@@ -112,15 +112,15 @@ public final class JavaAppLayerLoadBasedAutoScalingDownscaling {
             return this;
         }
         public JavaAppLayerLoadBasedAutoScalingDownscaling build() {
-            final var o = new JavaAppLayerLoadBasedAutoScalingDownscaling();
-            o.alarms = alarms;
-            o.cpuThreshold = cpuThreshold;
-            o.ignoreMetricsTime = ignoreMetricsTime;
-            o.instanceCount = instanceCount;
-            o.loadThreshold = loadThreshold;
-            o.memoryThreshold = memoryThreshold;
-            o.thresholdsWaitTime = thresholdsWaitTime;
-            return o;
+            final var _resultValue = new JavaAppLayerLoadBasedAutoScalingDownscaling();
+            _resultValue.alarms = alarms;
+            _resultValue.cpuThreshold = cpuThreshold;
+            _resultValue.ignoreMetricsTime = ignoreMetricsTime;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.loadThreshold = loadThreshold;
+            _resultValue.memoryThreshold = memoryThreshold;
+            _resultValue.thresholdsWaitTime = thresholdsWaitTime;
+            return _resultValue;
         }
     }
 }

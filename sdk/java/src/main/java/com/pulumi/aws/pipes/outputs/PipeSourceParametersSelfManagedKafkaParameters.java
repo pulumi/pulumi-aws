@@ -207,17 +207,17 @@ public final class PipeSourceParametersSelfManagedKafkaParameters {
             return this;
         }
         public PipeSourceParametersSelfManagedKafkaParameters build() {
-            final var o = new PipeSourceParametersSelfManagedKafkaParameters();
-            o.additionalBootstrapServers = additionalBootstrapServers;
-            o.batchSize = batchSize;
-            o.consumerGroupId = consumerGroupId;
-            o.credentials = credentials;
-            o.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
-            o.serverRootCaCertificate = serverRootCaCertificate;
-            o.startingPosition = startingPosition;
-            o.topicName = topicName;
-            o.vpc = vpc;
-            return o;
+            final var _resultValue = new PipeSourceParametersSelfManagedKafkaParameters();
+            _resultValue.additionalBootstrapServers = additionalBootstrapServers;
+            _resultValue.batchSize = batchSize;
+            _resultValue.consumerGroupId = consumerGroupId;
+            _resultValue.credentials = credentials;
+            _resultValue.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
+            _resultValue.serverRootCaCertificate = serverRootCaCertificate;
+            _resultValue.startingPosition = startingPosition;
+            _resultValue.topicName = topicName;
+            _resultValue.vpc = vpc;
+            return _resultValue;
         }
     }
 }

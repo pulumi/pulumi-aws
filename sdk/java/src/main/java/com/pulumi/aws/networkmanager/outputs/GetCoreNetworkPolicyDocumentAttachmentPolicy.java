@@ -131,13 +131,13 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
             return this;
         }
         public GetCoreNetworkPolicyDocumentAttachmentPolicy build() {
-            final var o = new GetCoreNetworkPolicyDocumentAttachmentPolicy();
-            o.action = action;
-            o.conditionLogic = conditionLogic;
-            o.conditions = conditions;
-            o.description = description;
-            o.ruleNumber = ruleNumber;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentAttachmentPolicy();
+            _resultValue.action = action;
+            _resultValue.conditionLogic = conditionLogic;
+            _resultValue.conditions = conditions;
+            _resultValue.description = description;
+            _resultValue.ruleNumber = ruleNumber;
+            return _resultValue;
         }
     }
 }

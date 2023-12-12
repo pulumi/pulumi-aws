@@ -46,9 +46,9 @@ public final class InputMediaConnectFlow {
             return this;
         }
         public InputMediaConnectFlow build() {
-            final var o = new InputMediaConnectFlow();
-            o.flowArn = flowArn;
-            return o;
+            final var _resultValue = new InputMediaConnectFlow();
+            _resultValue.flowArn = flowArn;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class ResolverRuleTargetIp {
             return this;
         }
         public ResolverRuleTargetIp build() {
-            final var o = new ResolverRuleTargetIp();
-            o.ip = ip;
-            o.port = port;
-            return o;
+            final var _resultValue = new ResolverRuleTargetIp();
+            _resultValue.ip = ip;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

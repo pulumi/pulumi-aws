@@ -88,11 +88,11 @@ public final class GetTagsFilterOr {
             return this;
         }
         public GetTagsFilterOr build() {
-            final var o = new GetTagsFilterOr();
-            o.costCategory = costCategory;
-            o.dimension = dimension;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetTagsFilterOr();
+            _resultValue.costCategory = costCategory;
+            _resultValue.dimension = dimension;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

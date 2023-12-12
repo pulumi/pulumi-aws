@@ -177,16 +177,16 @@ public final class GetMapResult {
             return this;
         }
         public GetMapResult build() {
-            final var o = new GetMapResult();
-            o.configurations = configurations;
-            o.createTime = createTime;
-            o.description = description;
-            o.id = id;
-            o.mapArn = mapArn;
-            o.mapName = mapName;
-            o.tags = tags;
-            o.updateTime = updateTime;
-            return o;
+            final var _resultValue = new GetMapResult();
+            _resultValue.configurations = configurations;
+            _resultValue.createTime = createTime;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.mapArn = mapArn;
+            _resultValue.mapName = mapName;
+            _resultValue.tags = tags;
+            _resultValue.updateTime = updateTime;
+            return _resultValue;
         }
     }
 }

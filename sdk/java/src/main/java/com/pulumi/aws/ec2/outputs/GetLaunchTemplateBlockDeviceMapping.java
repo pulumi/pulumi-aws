@@ -76,12 +76,12 @@ public final class GetLaunchTemplateBlockDeviceMapping {
             return this;
         }
         public GetLaunchTemplateBlockDeviceMapping build() {
-            final var o = new GetLaunchTemplateBlockDeviceMapping();
-            o.deviceName = deviceName;
-            o.ebs = ebs;
-            o.noDevice = noDevice;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new GetLaunchTemplateBlockDeviceMapping();
+            _resultValue.deviceName = deviceName;
+            _resultValue.ebs = ebs;
+            _resultValue.noDevice = noDevice;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

@@ -49,10 +49,10 @@ public final class GetDataSetLogicalTableMapDataTransformRenameColumnOperation {
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformRenameColumnOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformRenameColumnOperation();
-            o.columnName = columnName;
-            o.newColumnName = newColumnName;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformRenameColumnOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.newColumnName = newColumnName;
+            return _resultValue;
         }
     }
 }

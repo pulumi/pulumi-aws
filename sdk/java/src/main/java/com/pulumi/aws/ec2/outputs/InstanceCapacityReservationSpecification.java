@@ -72,10 +72,10 @@ public final class InstanceCapacityReservationSpecification {
             return this;
         }
         public InstanceCapacityReservationSpecification build() {
-            final var o = new InstanceCapacityReservationSpecification();
-            o.capacityReservationPreference = capacityReservationPreference;
-            o.capacityReservationTarget = capacityReservationTarget;
-            return o;
+            final var _resultValue = new InstanceCapacityReservationSpecification();
+            _resultValue.capacityReservationPreference = capacityReservationPreference;
+            _resultValue.capacityReservationTarget = capacityReservationTarget;
+            return _resultValue;
         }
     }
 }

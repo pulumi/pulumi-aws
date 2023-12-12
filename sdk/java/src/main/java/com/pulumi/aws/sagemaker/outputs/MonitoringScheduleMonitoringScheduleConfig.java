@@ -87,11 +87,11 @@ public final class MonitoringScheduleMonitoringScheduleConfig {
             return this;
         }
         public MonitoringScheduleMonitoringScheduleConfig build() {
-            final var o = new MonitoringScheduleMonitoringScheduleConfig();
-            o.monitoringJobDefinitionName = monitoringJobDefinitionName;
-            o.monitoringType = monitoringType;
-            o.scheduleConfig = scheduleConfig;
-            return o;
+            final var _resultValue = new MonitoringScheduleMonitoringScheduleConfig();
+            _resultValue.monitoringJobDefinitionName = monitoringJobDefinitionName;
+            _resultValue.monitoringType = monitoringType;
+            _resultValue.scheduleConfig = scheduleConfig;
+            return _resultValue;
         }
     }
 }

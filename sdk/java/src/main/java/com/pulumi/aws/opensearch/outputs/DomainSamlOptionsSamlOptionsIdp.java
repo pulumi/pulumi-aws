@@ -65,10 +65,10 @@ public final class DomainSamlOptionsSamlOptionsIdp {
             return this;
         }
         public DomainSamlOptionsSamlOptionsIdp build() {
-            final var o = new DomainSamlOptionsSamlOptionsIdp();
-            o.entityId = entityId;
-            o.metadataContent = metadataContent;
-            return o;
+            final var _resultValue = new DomainSamlOptionsSamlOptionsIdp();
+            _resultValue.entityId = entityId;
+            _resultValue.metadataContent = metadataContent;
+            return _resultValue;
         }
     }
 }

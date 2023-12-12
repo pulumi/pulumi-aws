@@ -87,11 +87,11 @@ public final class ClusterCapacityProvidersDefaultCapacityProviderStrategy {
             return this;
         }
         public ClusterCapacityProvidersDefaultCapacityProviderStrategy build() {
-            final var o = new ClusterCapacityProvidersDefaultCapacityProviderStrategy();
-            o.base = base;
-            o.capacityProvider = capacityProvider;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new ClusterCapacityProvidersDefaultCapacityProviderStrategy();
+            _resultValue.base = base;
+            _resultValue.capacityProvider = capacityProvider;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

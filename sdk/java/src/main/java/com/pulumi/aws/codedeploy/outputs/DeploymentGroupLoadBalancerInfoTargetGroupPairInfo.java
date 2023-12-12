@@ -92,11 +92,11 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
             return this;
         }
         public DeploymentGroupLoadBalancerInfoTargetGroupPairInfo build() {
-            final var o = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfo();
-            o.prodTrafficRoute = prodTrafficRoute;
-            o.targetGroups = targetGroups;
-            o.testTrafficRoute = testTrafficRoute;
-            return o;
+            final var _resultValue = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfo();
+            _resultValue.prodTrafficRoute = prodTrafficRoute;
+            _resultValue.targetGroups = targetGroups;
+            _resultValue.testTrafficRoute = testTrafficRoute;
+            return _resultValue;
         }
     }
 }

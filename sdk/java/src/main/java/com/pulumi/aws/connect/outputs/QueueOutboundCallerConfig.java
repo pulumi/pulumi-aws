@@ -86,11 +86,11 @@ public final class QueueOutboundCallerConfig {
             return this;
         }
         public QueueOutboundCallerConfig build() {
-            final var o = new QueueOutboundCallerConfig();
-            o.outboundCallerIdName = outboundCallerIdName;
-            o.outboundCallerIdNumberId = outboundCallerIdNumberId;
-            o.outboundFlowId = outboundFlowId;
-            return o;
+            final var _resultValue = new QueueOutboundCallerConfig();
+            _resultValue.outboundCallerIdName = outboundCallerIdName;
+            _resultValue.outboundCallerIdNumberId = outboundCallerIdNumberId;
+            _resultValue.outboundFlowId = outboundFlowId;
+            return _resultValue;
         }
     }
 }

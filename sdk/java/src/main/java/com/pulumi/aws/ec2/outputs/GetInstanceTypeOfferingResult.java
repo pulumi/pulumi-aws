@@ -108,13 +108,13 @@ public final class GetInstanceTypeOfferingResult {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
         }
         public GetInstanceTypeOfferingResult build() {
-            final var o = new GetInstanceTypeOfferingResult();
-            o.filters = filters;
-            o.id = id;
-            o.instanceType = instanceType;
-            o.locationType = locationType;
-            o.preferredInstanceTypes = preferredInstanceTypes;
-            return o;
+            final var _resultValue = new GetInstanceTypeOfferingResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceType = instanceType;
+            _resultValue.locationType = locationType;
+            _resultValue.preferredInstanceTypes = preferredInstanceTypes;
+            return _resultValue;
         }
     }
 }

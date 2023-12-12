@@ -292,22 +292,22 @@ public final class GetServerResult {
             return this;
         }
         public GetServerResult build() {
-            final var o = new GetServerResult();
-            o.arn = arn;
-            o.certificate = certificate;
-            o.domain = domain;
-            o.endpoint = endpoint;
-            o.endpointType = endpointType;
-            o.id = id;
-            o.identityProviderType = identityProviderType;
-            o.invocationRole = invocationRole;
-            o.loggingRole = loggingRole;
-            o.protocols = protocols;
-            o.securityPolicyName = securityPolicyName;
-            o.serverId = serverId;
-            o.structuredLogDestinations = structuredLogDestinations;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetServerResult();
+            _resultValue.arn = arn;
+            _resultValue.certificate = certificate;
+            _resultValue.domain = domain;
+            _resultValue.endpoint = endpoint;
+            _resultValue.endpointType = endpointType;
+            _resultValue.id = id;
+            _resultValue.identityProviderType = identityProviderType;
+            _resultValue.invocationRole = invocationRole;
+            _resultValue.loggingRole = loggingRole;
+            _resultValue.protocols = protocols;
+            _resultValue.securityPolicyName = securityPolicyName;
+            _resultValue.serverId = serverId;
+            _resultValue.structuredLogDestinations = structuredLogDestinations;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

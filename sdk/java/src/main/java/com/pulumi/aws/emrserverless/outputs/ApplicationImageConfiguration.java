@@ -46,9 +46,9 @@ public final class ApplicationImageConfiguration {
             return this;
         }
         public ApplicationImageConfiguration build() {
-            final var o = new ApplicationImageConfiguration();
-            o.imageUri = imageUri;
-            return o;
+            final var _resultValue = new ApplicationImageConfiguration();
+            _resultValue.imageUri = imageUri;
+            return _resultValue;
         }
     }
 }

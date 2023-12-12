@@ -70,10 +70,10 @@ public final class IntentFollowUpPrompt {
             return this;
         }
         public IntentFollowUpPrompt build() {
-            final var o = new IntentFollowUpPrompt();
-            o.prompt = prompt;
-            o.rejectionStatement = rejectionStatement;
-            return o;
+            final var _resultValue = new IntentFollowUpPrompt();
+            _resultValue.prompt = prompt;
+            _resultValue.rejectionStatement = rejectionStatement;
+            return _resultValue;
         }
     }
 }

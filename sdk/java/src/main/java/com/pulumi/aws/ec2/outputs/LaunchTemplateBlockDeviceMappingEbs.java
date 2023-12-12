@@ -192,16 +192,16 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
             return this;
         }
         public LaunchTemplateBlockDeviceMappingEbs build() {
-            final var o = new LaunchTemplateBlockDeviceMappingEbs();
-            o.deleteOnTermination = deleteOnTermination;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.kmsKeyId = kmsKeyId;
-            o.snapshotId = snapshotId;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new LaunchTemplateBlockDeviceMappingEbs();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

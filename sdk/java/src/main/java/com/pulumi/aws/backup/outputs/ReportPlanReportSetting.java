@@ -157,14 +157,14 @@ public final class ReportPlanReportSetting {
             return this;
         }
         public ReportPlanReportSetting build() {
-            final var o = new ReportPlanReportSetting();
-            o.accounts = accounts;
-            o.frameworkArns = frameworkArns;
-            o.numberOfFrameworks = numberOfFrameworks;
-            o.organizationUnits = organizationUnits;
-            o.regions = regions;
-            o.reportTemplate = reportTemplate;
-            return o;
+            final var _resultValue = new ReportPlanReportSetting();
+            _resultValue.accounts = accounts;
+            _resultValue.frameworkArns = frameworkArns;
+            _resultValue.numberOfFrameworks = numberOfFrameworks;
+            _resultValue.organizationUnits = organizationUnits;
+            _resultValue.regions = regions;
+            _resultValue.reportTemplate = reportTemplate;
+            return _resultValue;
         }
     }
 }

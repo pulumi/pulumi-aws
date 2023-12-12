@@ -147,14 +147,14 @@ public final class DirectoryConnectSettings {
             return this;
         }
         public DirectoryConnectSettings build() {
-            final var o = new DirectoryConnectSettings();
-            o.availabilityZones = availabilityZones;
-            o.connectIps = connectIps;
-            o.customerDnsIps = customerDnsIps;
-            o.customerUsername = customerUsername;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new DirectoryConnectSettings();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.connectIps = connectIps;
+            _resultValue.customerDnsIps = customerDnsIps;
+            _resultValue.customerUsername = customerUsername;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

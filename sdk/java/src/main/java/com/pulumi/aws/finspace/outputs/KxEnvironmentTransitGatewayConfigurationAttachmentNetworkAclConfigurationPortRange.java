@@ -65,10 +65,10 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
             return this;
         }
         public KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange build() {
-            final var o = new KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

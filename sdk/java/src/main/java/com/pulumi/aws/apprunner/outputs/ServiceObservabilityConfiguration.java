@@ -68,10 +68,10 @@ public final class ServiceObservabilityConfiguration {
             return this;
         }
         public ServiceObservabilityConfiguration build() {
-            final var o = new ServiceObservabilityConfiguration();
-            o.observabilityConfigurationArn = observabilityConfigurationArn;
-            o.observabilityEnabled = observabilityEnabled;
-            return o;
+            final var _resultValue = new ServiceObservabilityConfiguration();
+            _resultValue.observabilityConfigurationArn = observabilityConfigurationArn;
+            _resultValue.observabilityEnabled = observabilityEnabled;
+            return _resultValue;
         }
     }
 }

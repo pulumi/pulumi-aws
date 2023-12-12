@@ -64,10 +64,10 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

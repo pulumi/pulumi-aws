@@ -38,9 +38,9 @@ public final class ConfigurationSetEventDestinationEventDestinationPinpointDesti
             return this;
         }
         public ConfigurationSetEventDestinationEventDestinationPinpointDestination build() {
-            final var o = new ConfigurationSetEventDestinationEventDestinationPinpointDestination();
-            o.applicationArn = applicationArn;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestinationPinpointDestination();
+            _resultValue.applicationArn = applicationArn;
+            return _resultValue;
         }
     }
 }

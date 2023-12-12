@@ -88,11 +88,11 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria();
-            o.delimiter = delimiter;
-            o.maxDepth = maxDepth;
-            o.minStorageBytesPercentage = minStorageBytesPercentage;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria();
+            _resultValue.delimiter = delimiter;
+            _resultValue.maxDepth = maxDepth;
+            _resultValue.minStorageBytesPercentage = minStorageBytesPercentage;
+            return _resultValue;
         }
     }
 }

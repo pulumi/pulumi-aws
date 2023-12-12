@@ -46,9 +46,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile();
-            o.certificateChain = certificateChain;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile();
+            _resultValue.certificateChain = certificateChain;
+            return _resultValue;
         }
     }
 }

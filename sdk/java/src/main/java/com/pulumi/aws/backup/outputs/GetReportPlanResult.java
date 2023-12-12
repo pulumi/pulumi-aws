@@ -200,17 +200,17 @@ public final class GetReportPlanResult {
             return this;
         }
         public GetReportPlanResult build() {
-            final var o = new GetReportPlanResult();
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.deploymentStatus = deploymentStatus;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.reportDeliveryChannels = reportDeliveryChannels;
-            o.reportSettings = reportSettings;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetReportPlanResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.deploymentStatus = deploymentStatus;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.reportDeliveryChannels = reportDeliveryChannels;
+            _resultValue.reportSettings = reportSettings;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

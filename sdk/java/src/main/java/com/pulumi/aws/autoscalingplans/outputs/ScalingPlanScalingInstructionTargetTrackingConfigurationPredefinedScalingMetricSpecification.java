@@ -67,10 +67,10 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationPrede
             return this;
         }
         public ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification build() {
-            final var o = new ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification();
-            o.predefinedScalingMetricType = predefinedScalingMetricType;
-            o.resourceLabel = resourceLabel;
-            return o;
+            final var _resultValue = new ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification();
+            _resultValue.predefinedScalingMetricType = predefinedScalingMetricType;
+            _resultValue.resourceLabel = resourceLabel;
+            return _resultValue;
         }
     }
 }

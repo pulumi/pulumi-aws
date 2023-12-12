@@ -76,12 +76,12 @@ public final class GetDataSetPhysicalTableMapCustomSql {
             return this;
         }
         public GetDataSetPhysicalTableMapCustomSql build() {
-            final var o = new GetDataSetPhysicalTableMapCustomSql();
-            o.columns = columns;
-            o.dataSourceArn = dataSourceArn;
-            o.name = name;
-            o.sqlQuery = sqlQuery;
-            return o;
+            final var _resultValue = new GetDataSetPhysicalTableMapCustomSql();
+            _resultValue.columns = columns;
+            _resultValue.dataSourceArn = dataSourceArn;
+            _resultValue.name = name;
+            _resultValue.sqlQuery = sqlQuery;
+            return _resultValue;
         }
     }
 }

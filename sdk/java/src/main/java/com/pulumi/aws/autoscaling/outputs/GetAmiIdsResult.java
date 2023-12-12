@@ -107,12 +107,12 @@ public final class GetAmiIdsResult {
             return names(List.of(names));
         }
         public GetAmiIdsResult build() {
-            final var o = new GetAmiIdsResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetAmiIdsResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

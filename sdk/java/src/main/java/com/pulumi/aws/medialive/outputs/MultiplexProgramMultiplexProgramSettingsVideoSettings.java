@@ -68,10 +68,10 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettings {
             return this;
         }
         public MultiplexProgramMultiplexProgramSettingsVideoSettings build() {
-            final var o = new MultiplexProgramMultiplexProgramSettingsVideoSettings();
-            o.constantBitrate = constantBitrate;
-            o.statmuxSettings = statmuxSettings;
-            return o;
+            final var _resultValue = new MultiplexProgramMultiplexProgramSettingsVideoSettings();
+            _resultValue.constantBitrate = constantBitrate;
+            _resultValue.statmuxSettings = statmuxSettings;
+            return _resultValue;
         }
     }
 }

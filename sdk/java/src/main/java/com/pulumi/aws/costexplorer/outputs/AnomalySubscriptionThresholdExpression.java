@@ -155,14 +155,14 @@ public final class AnomalySubscriptionThresholdExpression {
             return this;
         }
         public AnomalySubscriptionThresholdExpression build() {
-            final var o = new AnomalySubscriptionThresholdExpression();
-            o.ands = ands;
-            o.costCategory = costCategory;
-            o.dimension = dimension;
-            o.not = not;
-            o.ors = ors;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new AnomalySubscriptionThresholdExpression();
+            _resultValue.ands = ands;
+            _resultValue.costCategory = costCategory;
+            _resultValue.dimension = dimension;
+            _resultValue.not = not;
+            _resultValue.ors = ors;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

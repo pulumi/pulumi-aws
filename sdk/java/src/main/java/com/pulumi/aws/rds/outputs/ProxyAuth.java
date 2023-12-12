@@ -143,14 +143,14 @@ public final class ProxyAuth {
             return this;
         }
         public ProxyAuth build() {
-            final var o = new ProxyAuth();
-            o.authScheme = authScheme;
-            o.clientPasswordAuthType = clientPasswordAuthType;
-            o.description = description;
-            o.iamAuth = iamAuth;
-            o.secretArn = secretArn;
-            o.username = username;
-            return o;
+            final var _resultValue = new ProxyAuth();
+            _resultValue.authScheme = authScheme;
+            _resultValue.clientPasswordAuthType = clientPasswordAuthType;
+            _resultValue.description = description;
+            _resultValue.iamAuth = iamAuth;
+            _resultValue.secretArn = secretArn;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

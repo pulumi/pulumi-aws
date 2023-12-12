@@ -127,13 +127,13 @@ public final class LaunchTemplateInstanceMarketOptionsSpotOptions {
             return this;
         }
         public LaunchTemplateInstanceMarketOptionsSpotOptions build() {
-            final var o = new LaunchTemplateInstanceMarketOptionsSpotOptions();
-            o.blockDurationMinutes = blockDurationMinutes;
-            o.instanceInterruptionBehavior = instanceInterruptionBehavior;
-            o.maxPrice = maxPrice;
-            o.spotInstanceType = spotInstanceType;
-            o.validUntil = validUntil;
-            return o;
+            final var _resultValue = new LaunchTemplateInstanceMarketOptionsSpotOptions();
+            _resultValue.blockDurationMinutes = blockDurationMinutes;
+            _resultValue.instanceInterruptionBehavior = instanceInterruptionBehavior;
+            _resultValue.maxPrice = maxPrice;
+            _resultValue.spotInstanceType = spotInstanceType;
+            _resultValue.validUntil = validUntil;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             return tracks(List.of(tracks));
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection();
-            o.dolbyEDecode = dolbyEDecode;
-            o.tracks = tracks;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection();
+            _resultValue.dolbyEDecode = dolbyEDecode;
+            _resultValue.tracks = tracks;
+            return _resultValue;
         }
     }
 }

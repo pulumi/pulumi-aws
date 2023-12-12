@@ -48,9 +48,9 @@ public final class VirtualNodeSpecBackendDefaults {
             return this;
         }
         public VirtualNodeSpecBackendDefaults build() {
-            final var o = new VirtualNodeSpecBackendDefaults();
-            o.clientPolicy = clientPolicy;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendDefaults();
+            _resultValue.clientPolicy = clientPolicy;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ObservabilityConfigurationTraceConfiguration {
             return this;
         }
         public ObservabilityConfigurationTraceConfiguration build() {
-            final var o = new ObservabilityConfigurationTraceConfiguration();
-            o.vendor = vendor;
-            return o;
+            final var _resultValue = new ObservabilityConfigurationTraceConfiguration();
+            _resultValue.vendor = vendor;
+            return _resultValue;
         }
     }
 }

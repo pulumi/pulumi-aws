@@ -49,10 +49,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile
             return this;
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile();
-            o.certificateChain = certificateChain;
-            o.privateKey = privateKey;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile();
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.privateKey = privateKey;
+            return _resultValue;
         }
     }
 }

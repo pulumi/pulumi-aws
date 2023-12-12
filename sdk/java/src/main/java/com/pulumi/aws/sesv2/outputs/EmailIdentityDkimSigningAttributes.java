@@ -189,16 +189,16 @@ public final class EmailIdentityDkimSigningAttributes {
             return tokens(List.of(tokens));
         }
         public EmailIdentityDkimSigningAttributes build() {
-            final var o = new EmailIdentityDkimSigningAttributes();
-            o.currentSigningKeyLength = currentSigningKeyLength;
-            o.domainSigningPrivateKey = domainSigningPrivateKey;
-            o.domainSigningSelector = domainSigningSelector;
-            o.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
-            o.nextSigningKeyLength = nextSigningKeyLength;
-            o.signingAttributesOrigin = signingAttributesOrigin;
-            o.status = status;
-            o.tokens = tokens;
-            return o;
+            final var _resultValue = new EmailIdentityDkimSigningAttributes();
+            _resultValue.currentSigningKeyLength = currentSigningKeyLength;
+            _resultValue.domainSigningPrivateKey = domainSigningPrivateKey;
+            _resultValue.domainSigningSelector = domainSigningSelector;
+            _resultValue.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
+            _resultValue.nextSigningKeyLength = nextSigningKeyLength;
+            _resultValue.signingAttributesOrigin = signingAttributesOrigin;
+            _resultValue.status = status;
+            _resultValue.tokens = tokens;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class ClusterPlacementGroupConfig {
             return this;
         }
         public ClusterPlacementGroupConfig build() {
-            final var o = new ClusterPlacementGroupConfig();
-            o.instanceRole = instanceRole;
-            o.placementStrategy = placementStrategy;
-            return o;
+            final var _resultValue = new ClusterPlacementGroupConfig();
+            _resultValue.instanceRole = instanceRole;
+            _resultValue.placementStrategy = placementStrategy;
+            return _resultValue;
         }
     }
 }

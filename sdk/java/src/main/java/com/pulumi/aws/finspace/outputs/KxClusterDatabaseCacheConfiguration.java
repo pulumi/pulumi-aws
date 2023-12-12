@@ -70,10 +70,10 @@ public final class KxClusterDatabaseCacheConfiguration {
             return dbPaths(List.of(dbPaths));
         }
         public KxClusterDatabaseCacheConfiguration build() {
-            final var o = new KxClusterDatabaseCacheConfiguration();
-            o.cacheType = cacheType;
-            o.dbPaths = dbPaths;
-            return o;
+            final var _resultValue = new KxClusterDatabaseCacheConfiguration();
+            _resultValue.cacheType = cacheType;
+            _resultValue.dbPaths = dbPaths;
+            return _resultValue;
         }
     }
 }

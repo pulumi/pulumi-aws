@@ -93,11 +93,11 @@ public final class GetFrameworkControl {
             return scopes(List.of(scopes));
         }
         public GetFrameworkControl build() {
-            final var o = new GetFrameworkControl();
-            o.inputParameters = inputParameters;
-            o.name = name;
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new GetFrameworkControl();
+            _resultValue.inputParameters = inputParameters;
+            _resultValue.name = name;
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }

@@ -220,18 +220,18 @@ public final class DomainIndexField {
             return this;
         }
         public DomainIndexField build() {
-            final var o = new DomainIndexField();
-            o.analysisScheme = analysisScheme;
-            o.defaultValue = defaultValue;
-            o.facet = facet;
-            o.highlight = highlight;
-            o.name = name;
-            o.return_ = return_;
-            o.search = search;
-            o.sort = sort;
-            o.sourceFields = sourceFields;
-            o.type = type;
-            return o;
+            final var _resultValue = new DomainIndexField();
+            _resultValue.analysisScheme = analysisScheme;
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.facet = facet;
+            _resultValue.highlight = highlight;
+            _resultValue.name = name;
+            _resultValue.return_ = return_;
+            _resultValue.search = search;
+            _resultValue.sort = sort;
+            _resultValue.sourceFields = sourceFields;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

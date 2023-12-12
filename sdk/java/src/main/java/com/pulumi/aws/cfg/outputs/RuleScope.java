@@ -109,12 +109,12 @@ public final class RuleScope {
             return this;
         }
         public RuleScope build() {
-            final var o = new RuleScope();
-            o.complianceResourceId = complianceResourceId;
-            o.complianceResourceTypes = complianceResourceTypes;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            return o;
+            final var _resultValue = new RuleScope();
+            _resultValue.complianceResourceId = complianceResourceId;
+            _resultValue.complianceResourceTypes = complianceResourceTypes;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            return _resultValue;
         }
     }
 }

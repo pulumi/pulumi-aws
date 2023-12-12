@@ -88,11 +88,11 @@ public final class GetPatchBaselineSource {
             return products(List.of(products));
         }
         public GetPatchBaselineSource build() {
-            final var o = new GetPatchBaselineSource();
-            o.configuration = configuration;
-            o.name = name;
-            o.products = products;
-            return o;
+            final var _resultValue = new GetPatchBaselineSource();
+            _resultValue.configuration = configuration;
+            _resultValue.name = name;
+            _resultValue.products = products;
+            return _resultValue;
         }
     }
 }

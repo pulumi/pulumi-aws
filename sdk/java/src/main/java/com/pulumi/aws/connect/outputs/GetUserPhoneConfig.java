@@ -105,12 +105,12 @@ public final class GetUserPhoneConfig {
             return this;
         }
         public GetUserPhoneConfig build() {
-            final var o = new GetUserPhoneConfig();
-            o.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
-            o.autoAccept = autoAccept;
-            o.deskPhoneNumber = deskPhoneNumber;
-            o.phoneType = phoneType;
-            return o;
+            final var _resultValue = new GetUserPhoneConfig();
+            _resultValue.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
+            _resultValue.autoAccept = autoAccept;
+            _resultValue.deskPhoneNumber = deskPhoneNumber;
+            _resultValue.phoneType = phoneType;
+            return _resultValue;
         }
     }
 }

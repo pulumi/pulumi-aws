@@ -65,10 +65,10 @@ public final class DataSetPhysicalTableMapS3SourceInputColumn {
             return this;
         }
         public DataSetPhysicalTableMapS3SourceInputColumn build() {
-            final var o = new DataSetPhysicalTableMapS3SourceInputColumn();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMapS3SourceInputColumn();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

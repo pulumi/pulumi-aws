@@ -185,17 +185,17 @@ public final class GetPolicyResult {
             return this;
         }
         public GetPolicyResult build() {
-            final var o = new GetPolicyResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.path = path;
-            o.pathPrefix = pathPrefix;
-            o.policy = policy;
-            o.policyId = policyId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetPolicyResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.pathPrefix = pathPrefix;
+            _resultValue.policy = policy;
+            _resultValue.policyId = policyId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class CrawlerLineageConfiguration {
             return this;
         }
         public CrawlerLineageConfiguration build() {
-            final var o = new CrawlerLineageConfiguration();
-            o.crawlerLineageSettings = crawlerLineageSettings;
-            return o;
+            final var _resultValue = new CrawlerLineageConfiguration();
+            _resultValue.crawlerLineageSettings = crawlerLineageSettings;
+            return _resultValue;
         }
     }
 }

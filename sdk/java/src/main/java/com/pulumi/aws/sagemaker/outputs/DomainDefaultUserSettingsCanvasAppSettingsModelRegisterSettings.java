@@ -67,10 +67,10 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettin
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings();
-            o.crossAccountModelRegisterRoleArn = crossAccountModelRegisterRoleArn;
-            o.status = status;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings();
+            _resultValue.crossAccountModelRegisterRoleArn = crossAccountModelRegisterRoleArn;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

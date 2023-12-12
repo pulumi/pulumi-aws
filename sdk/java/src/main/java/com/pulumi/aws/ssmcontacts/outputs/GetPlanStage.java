@@ -54,10 +54,10 @@ public final class GetPlanStage {
             return targets(List.of(targets));
         }
         public GetPlanStage build() {
-            final var o = new GetPlanStage();
-            o.durationInMinutes = durationInMinutes;
-            o.targets = targets;
-            return o;
+            final var _resultValue = new GetPlanStage();
+            _resultValue.durationInMinutes = durationInMinutes;
+            _resultValue.targets = targets;
+            return _resultValue;
         }
     }
 }

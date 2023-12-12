@@ -107,12 +107,12 @@ public final class PipeSourceParametersActivemqBrokerParameters {
             return this;
         }
         public PipeSourceParametersActivemqBrokerParameters build() {
-            final var o = new PipeSourceParametersActivemqBrokerParameters();
-            o.batchSize = batchSize;
-            o.credentials = credentials;
-            o.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
-            o.queueName = queueName;
-            return o;
+            final var _resultValue = new PipeSourceParametersActivemqBrokerParameters();
+            _resultValue.batchSize = batchSize;
+            _resultValue.credentials = credentials;
+            _resultValue.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
+            _resultValue.queueName = queueName;
+            return _resultValue;
         }
     }
 }

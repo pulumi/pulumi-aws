@@ -68,10 +68,10 @@ public final class DistributionOriginOriginShield {
             return this;
         }
         public DistributionOriginOriginShield build() {
-            final var o = new DistributionOriginOriginShield();
-            o.enabled = enabled;
-            o.originShieldRegion = originShieldRegion;
-            return o;
+            final var _resultValue = new DistributionOriginOriginShield();
+            _resultValue.enabled = enabled;
+            _resultValue.originShieldRegion = originShieldRegion;
+            return _resultValue;
         }
     }
 }

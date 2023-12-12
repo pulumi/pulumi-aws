@@ -73,10 +73,10 @@ public final class MetricStreamStatisticsConfiguration {
             return includeMetrics(List.of(includeMetrics));
         }
         public MetricStreamStatisticsConfiguration build() {
-            final var o = new MetricStreamStatisticsConfiguration();
-            o.additionalStatistics = additionalStatistics;
-            o.includeMetrics = includeMetrics;
-            return o;
+            final var _resultValue = new MetricStreamStatisticsConfiguration();
+            _resultValue.additionalStatistics = additionalStatistics;
+            _resultValue.includeMetrics = includeMetrics;
+            return _resultValue;
         }
     }
 }

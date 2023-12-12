@@ -50,9 +50,9 @@ public final class LoggingConfigurationLoggingConfiguration {
             return logDestinationConfigs(List.of(logDestinationConfigs));
         }
         public LoggingConfigurationLoggingConfiguration build() {
-            final var o = new LoggingConfigurationLoggingConfiguration();
-            o.logDestinationConfigs = logDestinationConfigs;
-            return o;
+            final var _resultValue = new LoggingConfigurationLoggingConfiguration();
+            _resultValue.logDestinationConfigs = logDestinationConfigs;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class ServiceDnsConfigDnsRecord {
             return this;
         }
         public ServiceDnsConfigDnsRecord build() {
-            final var o = new ServiceDnsConfigDnsRecord();
-            o.ttl = ttl;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceDnsConfigDnsRecord();
+            _resultValue.ttl = ttl;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -126,13 +126,13 @@ public final class TaskDefinitionVolumeDockerVolumeConfiguration {
             return this;
         }
         public TaskDefinitionVolumeDockerVolumeConfiguration build() {
-            final var o = new TaskDefinitionVolumeDockerVolumeConfiguration();
-            o.autoprovision = autoprovision;
-            o.driver = driver;
-            o.driverOpts = driverOpts;
-            o.labels = labels;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new TaskDefinitionVolumeDockerVolumeConfiguration();
+            _resultValue.autoprovision = autoprovision;
+            _resultValue.driver = driver;
+            _resultValue.driverOpts = driverOpts;
+            _resultValue.labels = labels;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

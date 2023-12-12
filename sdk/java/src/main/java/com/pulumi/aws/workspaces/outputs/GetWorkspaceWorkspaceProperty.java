@@ -123,13 +123,13 @@ public final class GetWorkspaceWorkspaceProperty {
             return this;
         }
         public GetWorkspaceWorkspaceProperty build() {
-            final var o = new GetWorkspaceWorkspaceProperty();
-            o.computeTypeName = computeTypeName;
-            o.rootVolumeSizeGib = rootVolumeSizeGib;
-            o.runningMode = runningMode;
-            o.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
-            o.userVolumeSizeGib = userVolumeSizeGib;
-            return o;
+            final var _resultValue = new GetWorkspaceWorkspaceProperty();
+            _resultValue.computeTypeName = computeTypeName;
+            _resultValue.rootVolumeSizeGib = rootVolumeSizeGib;
+            _resultValue.runningMode = runningMode;
+            _resultValue.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
+            _resultValue.userVolumeSizeGib = userVolumeSizeGib;
+            return _resultValue;
         }
     }
 }

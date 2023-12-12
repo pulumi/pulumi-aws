@@ -163,15 +163,15 @@ public final class CustomActionTypeConfigurationProperty {
             return this;
         }
         public CustomActionTypeConfigurationProperty build() {
-            final var o = new CustomActionTypeConfigurationProperty();
-            o.description = description;
-            o.key = key;
-            o.name = name;
-            o.queryable = queryable;
-            o.required = required;
-            o.secret = secret;
-            o.type = type;
-            return o;
+            final var _resultValue = new CustomActionTypeConfigurationProperty();
+            _resultValue.description = description;
+            _resultValue.key = key;
+            _resultValue.name = name;
+            _resultValue.queryable = queryable;
+            _resultValue.required = required;
+            _resultValue.secret = secret;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

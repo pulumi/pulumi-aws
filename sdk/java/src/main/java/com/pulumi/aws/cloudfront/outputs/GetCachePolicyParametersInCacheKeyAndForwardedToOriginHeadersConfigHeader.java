@@ -50,9 +50,9 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeaders
             return items(List.of(items));
         }
         public GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader build() {
-            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

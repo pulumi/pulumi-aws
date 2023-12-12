@@ -67,10 +67,10 @@ public final class BotAssociationLexBot {
             return this;
         }
         public BotAssociationLexBot build() {
-            final var o = new BotAssociationLexBot();
-            o.lexRegion = lexRegion;
-            o.name = name;
-            return o;
+            final var _resultValue = new BotAssociationLexBot();
+            _resultValue.lexRegion = lexRegion;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class EventDataStoreAdvancedEventSelector {
             return this;
         }
         public EventDataStoreAdvancedEventSelector build() {
-            final var o = new EventDataStoreAdvancedEventSelector();
-            o.fieldSelectors = fieldSelectors;
-            o.name = name;
-            return o;
+            final var _resultValue = new EventDataStoreAdvancedEventSelector();
+            _resultValue.fieldSelectors = fieldSelectors;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

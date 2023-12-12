@@ -46,9 +46,9 @@ public final class PipeTargetParametersKinesisStreamParameters {
             return this;
         }
         public PipeTargetParametersKinesisStreamParameters build() {
-            final var o = new PipeTargetParametersKinesisStreamParameters();
-            o.partitionKey = partitionKey;
-            return o;
+            final var _resultValue = new PipeTargetParametersKinesisStreamParameters();
+            _resultValue.partitionKey = partitionKey;
+            return _resultValue;
         }
     }
 }

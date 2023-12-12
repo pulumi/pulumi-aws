@@ -67,10 +67,10 @@ public final class LaunchTemplateCapacityReservationSpecificationCapacityReserva
             return this;
         }
         public LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget build() {
-            final var o = new LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget();
-            o.capacityReservationId = capacityReservationId;
-            o.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
-            return o;
+            final var _resultValue = new LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget();
+            _resultValue.capacityReservationId = capacityReservationId;
+            _resultValue.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
+            return _resultValue;
         }
     }
 }

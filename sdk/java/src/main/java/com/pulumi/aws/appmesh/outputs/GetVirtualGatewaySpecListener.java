@@ -87,12 +87,12 @@ public final class GetVirtualGatewaySpecListener {
             return tls(List.of(tls));
         }
         public GetVirtualGatewaySpecListener build() {
-            final var o = new GetVirtualGatewaySpecListener();
-            o.connectionPools = connectionPools;
-            o.healthChecks = healthChecks;
-            o.portMappings = portMappings;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListener();
+            _resultValue.connectionPools = connectionPools;
+            _resultValue.healthChecks = healthChecks;
+            _resultValue.portMappings = portMappings;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

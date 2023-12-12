@@ -48,9 +48,9 @@ public final class RuleGroupRuleCaptchaConfigImmunityTimeProperty {
             return this;
         }
         public RuleGroupRuleCaptchaConfigImmunityTimeProperty build() {
-            final var o = new RuleGroupRuleCaptchaConfigImmunityTimeProperty();
-            o.immunityTime = immunityTime;
-            return o;
+            final var _resultValue = new RuleGroupRuleCaptchaConfigImmunityTimeProperty();
+            _resultValue.immunityTime = immunityTime;
+            return _resultValue;
         }
     }
 }

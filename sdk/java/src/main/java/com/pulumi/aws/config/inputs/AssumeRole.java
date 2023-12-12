@@ -136,17 +136,17 @@ public final class AssumeRole {
             return transitiveTagKeys(List.of(transitiveTagKeys));
         }
         public AssumeRole build() {
-            final var o = new AssumeRole();
-            o.duration = duration;
-            o.externalId = externalId;
-            o.policy = policy;
-            o.policyArns = policyArns;
-            o.roleArn = roleArn;
-            o.sessionName = sessionName;
-            o.sourceIdentity = sourceIdentity;
-            o.tags = tags;
-            o.transitiveTagKeys = transitiveTagKeys;
-            return o;
+            final var _resultValue = new AssumeRole();
+            _resultValue.duration = duration;
+            _resultValue.externalId = externalId;
+            _resultValue.policy = policy;
+            _resultValue.policyArns = policyArns;
+            _resultValue.roleArn = roleArn;
+            _resultValue.sessionName = sessionName;
+            _resultValue.sourceIdentity = sourceIdentity;
+            _resultValue.tags = tags;
+            _resultValue.transitiveTagKeys = transitiveTagKeys;
+            return _resultValue;
         }
     }
 }

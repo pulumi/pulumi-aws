@@ -108,12 +108,12 @@ public final class FeatureGroupOfflineStoreConfig {
             return this;
         }
         public FeatureGroupOfflineStoreConfig build() {
-            final var o = new FeatureGroupOfflineStoreConfig();
-            o.dataCatalogConfig = dataCatalogConfig;
-            o.disableGlueTableCreation = disableGlueTableCreation;
-            o.s3StorageConfig = s3StorageConfig;
-            o.tableFormat = tableFormat;
-            return o;
+            final var _resultValue = new FeatureGroupOfflineStoreConfig();
+            _resultValue.dataCatalogConfig = dataCatalogConfig;
+            _resultValue.disableGlueTableCreation = disableGlueTableCreation;
+            _resultValue.s3StorageConfig = s3StorageConfig;
+            _resultValue.tableFormat = tableFormat;
+            return _resultValue;
         }
     }
 }

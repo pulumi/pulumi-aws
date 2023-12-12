@@ -387,29 +387,29 @@ public final class GetClusterSnapshotResult {
             return this;
         }
         public GetClusterSnapshotResult build() {
-            final var o = new GetClusterSnapshotResult();
-            o.allocatedStorage = allocatedStorage;
-            o.availabilityZones = availabilityZones;
-            o.dbClusterIdentifier = dbClusterIdentifier;
-            o.dbClusterSnapshotArn = dbClusterSnapshotArn;
-            o.dbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
-            o.engine = engine;
-            o.engineVersion = engineVersion;
-            o.id = id;
-            o.includePublic = includePublic;
-            o.includeShared = includeShared;
-            o.kmsKeyId = kmsKeyId;
-            o.licenseModel = licenseModel;
-            o.mostRecent = mostRecent;
-            o.port = port;
-            o.snapshotCreateTime = snapshotCreateTime;
-            o.snapshotType = snapshotType;
-            o.sourceDbClusterSnapshotArn = sourceDbClusterSnapshotArn;
-            o.status = status;
-            o.storageEncrypted = storageEncrypted;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetClusterSnapshotResult();
+            _resultValue.allocatedStorage = allocatedStorage;
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.dbClusterIdentifier = dbClusterIdentifier;
+            _resultValue.dbClusterSnapshotArn = dbClusterSnapshotArn;
+            _resultValue.dbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
+            _resultValue.engine = engine;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.id = id;
+            _resultValue.includePublic = includePublic;
+            _resultValue.includeShared = includeShared;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.licenseModel = licenseModel;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.port = port;
+            _resultValue.snapshotCreateTime = snapshotCreateTime;
+            _resultValue.snapshotType = snapshotType;
+            _resultValue.sourceDbClusterSnapshotArn = sourceDbClusterSnapshotArn;
+            _resultValue.status = status;
+            _resultValue.storageEncrypted = storageEncrypted;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

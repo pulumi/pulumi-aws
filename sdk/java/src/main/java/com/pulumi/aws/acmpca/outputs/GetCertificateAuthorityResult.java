@@ -299,22 +299,22 @@ public final class GetCertificateAuthorityResult {
             return this;
         }
         public GetCertificateAuthorityResult build() {
-            final var o = new GetCertificateAuthorityResult();
-            o.arn = arn;
-            o.certificate = certificate;
-            o.certificateChain = certificateChain;
-            o.certificateSigningRequest = certificateSigningRequest;
-            o.id = id;
-            o.keyStorageSecurityStandard = keyStorageSecurityStandard;
-            o.notAfter = notAfter;
-            o.notBefore = notBefore;
-            o.revocationConfigurations = revocationConfigurations;
-            o.serial = serial;
-            o.status = status;
-            o.tags = tags;
-            o.type = type;
-            o.usageMode = usageMode;
-            return o;
+            final var _resultValue = new GetCertificateAuthorityResult();
+            _resultValue.arn = arn;
+            _resultValue.certificate = certificate;
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.certificateSigningRequest = certificateSigningRequest;
+            _resultValue.id = id;
+            _resultValue.keyStorageSecurityStandard = keyStorageSecurityStandard;
+            _resultValue.notAfter = notAfter;
+            _resultValue.notBefore = notBefore;
+            _resultValue.revocationConfigurations = revocationConfigurations;
+            _resultValue.serial = serial;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.usageMode = usageMode;
+            return _resultValue;
         }
     }
 }

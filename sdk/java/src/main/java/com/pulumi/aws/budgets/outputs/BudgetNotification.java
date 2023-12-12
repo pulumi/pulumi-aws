@@ -150,14 +150,14 @@ public final class BudgetNotification {
             return this;
         }
         public BudgetNotification build() {
-            final var o = new BudgetNotification();
-            o.comparisonOperator = comparisonOperator;
-            o.notificationType = notificationType;
-            o.subscriberEmailAddresses = subscriberEmailAddresses;
-            o.subscriberSnsTopicArns = subscriberSnsTopicArns;
-            o.threshold = threshold;
-            o.thresholdType = thresholdType;
-            return o;
+            final var _resultValue = new BudgetNotification();
+            _resultValue.comparisonOperator = comparisonOperator;
+            _resultValue.notificationType = notificationType;
+            _resultValue.subscriberEmailAddresses = subscriberEmailAddresses;
+            _resultValue.subscriberSnsTopicArns = subscriberSnsTopicArns;
+            _resultValue.threshold = threshold;
+            _resultValue.thresholdType = thresholdType;
+            return _resultValue;
         }
     }
 }

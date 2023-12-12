@@ -50,9 +50,9 @@ public final class WorkteamMemberDefinitionOidcMemberDefinition {
             return groups(List.of(groups));
         }
         public WorkteamMemberDefinitionOidcMemberDefinition build() {
-            final var o = new WorkteamMemberDefinitionOidcMemberDefinition();
-            o.groups = groups;
-            return o;
+            final var _resultValue = new WorkteamMemberDefinitionOidcMemberDefinition();
+            _resultValue.groups = groups;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class FileCacheDataRepositoryAssociationNf {
             return this;
         }
         public FileCacheDataRepositoryAssociationNf build() {
-            final var o = new FileCacheDataRepositoryAssociationNf();
-            o.dnsIps = dnsIps;
-            o.version = version;
-            return o;
+            final var _resultValue = new FileCacheDataRepositoryAssociationNf();
+            _resultValue.dnsIps = dnsIps;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

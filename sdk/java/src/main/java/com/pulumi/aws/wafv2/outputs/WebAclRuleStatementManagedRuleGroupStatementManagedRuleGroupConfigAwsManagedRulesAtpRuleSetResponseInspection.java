@@ -108,12 +108,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection();
-            o.bodyContains = bodyContains;
-            o.header = header;
-            o.json = json;
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection();
+            _resultValue.bodyContains = bodyContains;
+            _resultValue.header = header;
+            _resultValue.json = json;
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

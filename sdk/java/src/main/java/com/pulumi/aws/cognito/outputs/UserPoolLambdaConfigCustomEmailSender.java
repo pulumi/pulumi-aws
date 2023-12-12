@@ -65,10 +65,10 @@ public final class UserPoolLambdaConfigCustomEmailSender {
             return this;
         }
         public UserPoolLambdaConfigCustomEmailSender build() {
-            final var o = new UserPoolLambdaConfigCustomEmailSender();
-            o.lambdaArn = lambdaArn;
-            o.lambdaVersion = lambdaVersion;
-            return o;
+            final var _resultValue = new UserPoolLambdaConfigCustomEmailSender();
+            _resultValue.lambdaArn = lambdaArn;
+            _resultValue.lambdaVersion = lambdaVersion;
+            return _resultValue;
         }
     }
 }

@@ -210,18 +210,18 @@ public final class GetMultiRegionAccessPointResult {
             return this;
         }
         public GetMultiRegionAccessPointResult build() {
-            final var o = new GetMultiRegionAccessPointResult();
-            o.accountId = accountId;
-            o.alias = alias;
-            o.arn = arn;
-            o.createdAt = createdAt;
-            o.domainName = domainName;
-            o.id = id;
-            o.name = name;
-            o.publicAccessBlocks = publicAccessBlocks;
-            o.regions = regions;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetMultiRegionAccessPointResult();
+            _resultValue.accountId = accountId;
+            _resultValue.alias = alias;
+            _resultValue.arn = arn;
+            _resultValue.createdAt = createdAt;
+            _resultValue.domainName = domainName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.publicAccessBlocks = publicAccessBlocks;
+            _resultValue.regions = regions;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

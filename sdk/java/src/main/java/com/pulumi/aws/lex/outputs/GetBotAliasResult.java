@@ -198,17 +198,17 @@ public final class GetBotAliasResult {
             return this;
         }
         public GetBotAliasResult build() {
-            final var o = new GetBotAliasResult();
-            o.arn = arn;
-            o.botName = botName;
-            o.botVersion = botVersion;
-            o.checksum = checksum;
-            o.createdDate = createdDate;
-            o.description = description;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetBotAliasResult();
+            _resultValue.arn = arn;
+            _resultValue.botName = botName;
+            _resultValue.botVersion = botVersion;
+            _resultValue.checksum = checksum;
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -50,10 +50,10 @@ public final class GetVirtualNodeSpecListenerTimeoutHttp2Idle {
             return this;
         }
         public GetVirtualNodeSpecListenerTimeoutHttp2Idle build() {
-            final var o = new GetVirtualNodeSpecListenerTimeoutHttp2Idle();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTimeoutHttp2Idle();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

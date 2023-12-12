@@ -86,11 +86,11 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverride {
             return this;
         }
         public LaunchScheduledSplitsConfigStepSegmentOverride build() {
-            final var o = new LaunchScheduledSplitsConfigStepSegmentOverride();
-            o.evaluationOrder = evaluationOrder;
-            o.segment = segment;
-            o.weights = weights;
-            return o;
+            final var _resultValue = new LaunchScheduledSplitsConfigStepSegmentOverride();
+            _resultValue.evaluationOrder = evaluationOrder;
+            _resultValue.segment = segment;
+            _resultValue.weights = weights;
+            return _resultValue;
         }
     }
 }

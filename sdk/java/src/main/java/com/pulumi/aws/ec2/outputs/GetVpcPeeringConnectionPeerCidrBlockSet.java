@@ -46,9 +46,9 @@ public final class GetVpcPeeringConnectionPeerCidrBlockSet {
             return this;
         }
         public GetVpcPeeringConnectionPeerCidrBlockSet build() {
-            final var o = new GetVpcPeeringConnectionPeerCidrBlockSet();
-            o.cidrBlock = cidrBlock;
-            return o;
+            final var _resultValue = new GetVpcPeeringConnectionPeerCidrBlockSet();
+            _resultValue.cidrBlock = cidrBlock;
+            return _resultValue;
         }
     }
 }

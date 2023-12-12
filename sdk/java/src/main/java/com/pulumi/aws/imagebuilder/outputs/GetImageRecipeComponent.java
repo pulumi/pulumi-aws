@@ -70,10 +70,10 @@ public final class GetImageRecipeComponent {
             return parameters(List.of(parameters));
         }
         public GetImageRecipeComponent build() {
-            final var o = new GetImageRecipeComponent();
-            o.componentArn = componentArn;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new GetImageRecipeComponent();
+            _resultValue.componentArn = componentArn;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

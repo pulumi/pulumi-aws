@@ -393,27 +393,27 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.addresses = addresses;
-            o.alternateIdentifier = alternateIdentifier;
-            o.displayName = displayName;
-            o.emails = emails;
-            o.externalIds = externalIds;
-            o.filter = filter;
-            o.id = id;
-            o.identityStoreId = identityStoreId;
-            o.locale = locale;
-            o.names = names;
-            o.nickname = nickname;
-            o.phoneNumbers = phoneNumbers;
-            o.preferredLanguage = preferredLanguage;
-            o.profileUrl = profileUrl;
-            o.timezone = timezone;
-            o.title = title;
-            o.userId = userId;
-            o.userName = userName;
-            o.userType = userType;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.addresses = addresses;
+            _resultValue.alternateIdentifier = alternateIdentifier;
+            _resultValue.displayName = displayName;
+            _resultValue.emails = emails;
+            _resultValue.externalIds = externalIds;
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.identityStoreId = identityStoreId;
+            _resultValue.locale = locale;
+            _resultValue.names = names;
+            _resultValue.nickname = nickname;
+            _resultValue.phoneNumbers = phoneNumbers;
+            _resultValue.preferredLanguage = preferredLanguage;
+            _resultValue.profileUrl = profileUrl;
+            _resultValue.timezone = timezone;
+            _resultValue.title = title;
+            _resultValue.userId = userId;
+            _resultValue.userName = userName;
+            _resultValue.userType = userType;
+            return _resultValue;
         }
     }
 }

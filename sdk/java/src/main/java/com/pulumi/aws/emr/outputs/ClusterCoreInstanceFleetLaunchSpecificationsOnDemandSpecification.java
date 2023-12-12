@@ -46,9 +46,9 @@ public final class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecifica
             return this;
         }
         public ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification build() {
-            final var o = new ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification();
-            o.allocationStrategy = allocationStrategy;
-            return o;
+            final var _resultValue = new ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification();
+            _resultValue.allocationStrategy = allocationStrategy;
+            return _resultValue;
         }
     }
 }

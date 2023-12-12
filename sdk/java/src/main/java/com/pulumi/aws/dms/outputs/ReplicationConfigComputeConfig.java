@@ -216,17 +216,17 @@ public final class ReplicationConfigComputeConfig {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }
         public ReplicationConfigComputeConfig build() {
-            final var o = new ReplicationConfigComputeConfig();
-            o.availabilityZone = availabilityZone;
-            o.dnsNameServers = dnsNameServers;
-            o.kmsKeyId = kmsKeyId;
-            o.maxCapacityUnits = maxCapacityUnits;
-            o.minCapacityUnits = minCapacityUnits;
-            o.multiAz = multiAz;
-            o.preferredMaintenanceWindow = preferredMaintenanceWindow;
-            o.replicationSubnetGroupId = replicationSubnetGroupId;
-            o.vpcSecurityGroupIds = vpcSecurityGroupIds;
-            return o;
+            final var _resultValue = new ReplicationConfigComputeConfig();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.dnsNameServers = dnsNameServers;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.maxCapacityUnits = maxCapacityUnits;
+            _resultValue.minCapacityUnits = minCapacityUnits;
+            _resultValue.multiAz = multiAz;
+            _resultValue.preferredMaintenanceWindow = preferredMaintenanceWindow;
+            _resultValue.replicationSubnetGroupId = replicationSubnetGroupId;
+            _resultValue.vpcSecurityGroupIds = vpcSecurityGroupIds;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class EventTargetSqsTarget {
             return this;
         }
         public EventTargetSqsTarget build() {
-            final var o = new EventTargetSqsTarget();
-            o.messageGroupId = messageGroupId;
-            return o;
+            final var _resultValue = new EventTargetSqsTarget();
+            _resultValue.messageGroupId = messageGroupId;
+            return _resultValue;
         }
     }
 }

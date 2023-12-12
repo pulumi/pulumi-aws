@@ -65,10 +65,10 @@ public final class GetUserAlternateIdentifierUniqueAttribute {
             return this;
         }
         public GetUserAlternateIdentifierUniqueAttribute build() {
-            final var o = new GetUserAlternateIdentifierUniqueAttribute();
-            o.attributePath = attributePath;
-            o.attributeValue = attributeValue;
-            return o;
+            final var _resultValue = new GetUserAlternateIdentifierUniqueAttribute();
+            _resultValue.attributePath = attributePath;
+            _resultValue.attributeValue = attributeValue;
+            return _resultValue;
         }
     }
 }

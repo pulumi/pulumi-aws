@@ -66,10 +66,10 @@ public final class FirewallPolicyFirewallPolicyStatelessRuleGroupReference {
             return this;
         }
         public FirewallPolicyFirewallPolicyStatelessRuleGroupReference build() {
-            final var o = new FirewallPolicyFirewallPolicyStatelessRuleGroupReference();
-            o.priority = priority;
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatelessRuleGroupReference();
+            _resultValue.priority = priority;
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

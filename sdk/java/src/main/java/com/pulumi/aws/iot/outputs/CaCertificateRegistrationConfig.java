@@ -87,11 +87,11 @@ public final class CaCertificateRegistrationConfig {
             return this;
         }
         public CaCertificateRegistrationConfig build() {
-            final var o = new CaCertificateRegistrationConfig();
-            o.roleArn = roleArn;
-            o.templateBody = templateBody;
-            o.templateName = templateName;
-            return o;
+            final var _resultValue = new CaCertificateRegistrationConfig();
+            _resultValue.roleArn = roleArn;
+            _resultValue.templateBody = templateBody;
+            _resultValue.templateName = templateName;
+            return _resultValue;
         }
     }
 }

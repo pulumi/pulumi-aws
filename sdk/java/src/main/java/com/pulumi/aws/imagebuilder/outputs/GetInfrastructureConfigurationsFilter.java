@@ -69,10 +69,10 @@ public final class GetInfrastructureConfigurationsFilter {
             return values(List.of(values));
         }
         public GetInfrastructureConfigurationsFilter build() {
-            final var o = new GetInfrastructureConfigurationsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetInfrastructureConfigurationsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

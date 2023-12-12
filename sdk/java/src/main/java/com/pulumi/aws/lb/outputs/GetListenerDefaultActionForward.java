@@ -57,10 +57,10 @@ public final class GetListenerDefaultActionForward {
             return targetGroups(List.of(targetGroups));
         }
         public GetListenerDefaultActionForward build() {
-            final var o = new GetListenerDefaultActionForward();
-            o.stickinesses = stickinesses;
-            o.targetGroups = targetGroups;
-            return o;
+            final var _resultValue = new GetListenerDefaultActionForward();
+            _resultValue.stickinesses = stickinesses;
+            _resultValue.targetGroups = targetGroups;
+            return _resultValue;
         }
     }
 }

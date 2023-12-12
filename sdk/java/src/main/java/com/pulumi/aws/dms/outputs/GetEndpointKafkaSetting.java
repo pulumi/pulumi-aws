@@ -227,26 +227,26 @@ public final class GetEndpointKafkaSetting {
             return this;
         }
         public GetEndpointKafkaSetting build() {
-            final var o = new GetEndpointKafkaSetting();
-            o.broker = broker;
-            o.includeControlDetails = includeControlDetails;
-            o.includeNullAndEmpty = includeNullAndEmpty;
-            o.includePartitionValue = includePartitionValue;
-            o.includeTableAlterOperations = includeTableAlterOperations;
-            o.includeTransactionDetails = includeTransactionDetails;
-            o.messageFormat = messageFormat;
-            o.messageMaxBytes = messageMaxBytes;
-            o.noHexPrefix = noHexPrefix;
-            o.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
-            o.saslPassword = saslPassword;
-            o.saslUsername = saslUsername;
-            o.securityProtocol = securityProtocol;
-            o.sslCaCertificateArn = sslCaCertificateArn;
-            o.sslClientCertificateArn = sslClientCertificateArn;
-            o.sslClientKeyArn = sslClientKeyArn;
-            o.sslClientKeyPassword = sslClientKeyPassword;
-            o.topic = topic;
-            return o;
+            final var _resultValue = new GetEndpointKafkaSetting();
+            _resultValue.broker = broker;
+            _resultValue.includeControlDetails = includeControlDetails;
+            _resultValue.includeNullAndEmpty = includeNullAndEmpty;
+            _resultValue.includePartitionValue = includePartitionValue;
+            _resultValue.includeTableAlterOperations = includeTableAlterOperations;
+            _resultValue.includeTransactionDetails = includeTransactionDetails;
+            _resultValue.messageFormat = messageFormat;
+            _resultValue.messageMaxBytes = messageMaxBytes;
+            _resultValue.noHexPrefix = noHexPrefix;
+            _resultValue.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            _resultValue.saslPassword = saslPassword;
+            _resultValue.saslUsername = saslUsername;
+            _resultValue.securityProtocol = securityProtocol;
+            _resultValue.sslCaCertificateArn = sslCaCertificateArn;
+            _resultValue.sslClientCertificateArn = sslClientCertificateArn;
+            _resultValue.sslClientKeyArn = sslClientKeyArn;
+            _resultValue.sslClientKeyPassword = sslClientKeyPassword;
+            _resultValue.topic = topic;
+            return _resultValue;
         }
     }
 }

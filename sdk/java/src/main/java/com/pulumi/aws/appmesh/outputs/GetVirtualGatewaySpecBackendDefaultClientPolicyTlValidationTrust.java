@@ -72,11 +72,11 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
             return sds(List.of(sds));
         }
         public GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust build() {
-            final var o = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust();
-            o.acms = acms;
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust();
+            _resultValue.acms = acms;
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class BucketReplicationConfigRuleDestinationMetricsEventThreshold {
             return this;
         }
         public BucketReplicationConfigRuleDestinationMetricsEventThreshold build() {
-            final var o = new BucketReplicationConfigRuleDestinationMetricsEventThreshold();
-            o.minutes = minutes;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleDestinationMetricsEventThreshold();
+            _resultValue.minutes = minutes;
+            return _resultValue;
         }
     }
 }

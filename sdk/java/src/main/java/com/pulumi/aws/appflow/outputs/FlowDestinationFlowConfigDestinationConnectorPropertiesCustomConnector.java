@@ -130,13 +130,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector();
-            o.customProperties = customProperties;
-            o.entityName = entityName;
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.idFieldNames = idFieldNames;
-            o.writeOperationType = writeOperationType;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector();
+            _resultValue.customProperties = customProperties;
+            _resultValue.entityName = entityName;
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.idFieldNames = idFieldNames;
+            _resultValue.writeOperationType = writeOperationType;
+            return _resultValue;
         }
     }
 }

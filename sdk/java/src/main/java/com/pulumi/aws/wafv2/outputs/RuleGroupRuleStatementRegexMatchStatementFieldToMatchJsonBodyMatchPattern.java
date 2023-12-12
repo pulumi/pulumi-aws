@@ -64,10 +64,10 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody
             return includedPaths(List.of(includedPaths));
         }
         public RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

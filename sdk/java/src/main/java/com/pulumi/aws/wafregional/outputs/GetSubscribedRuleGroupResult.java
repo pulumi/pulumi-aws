@@ -70,11 +70,11 @@ public final class GetSubscribedRuleGroupResult {
             return this;
         }
         public GetSubscribedRuleGroupResult build() {
-            final var o = new GetSubscribedRuleGroupResult();
-            o.id = id;
-            o.metricName = metricName;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetSubscribedRuleGroupResult();
+            _resultValue.id = id;
+            _resultValue.metricName = metricName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class InsightFiltersLastObservedAt {
             return this;
         }
         public InsightFiltersLastObservedAt build() {
-            final var o = new InsightFiltersLastObservedAt();
-            o.dateRange = dateRange;
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new InsightFiltersLastObservedAt();
+            _resultValue.dateRange = dateRange;
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

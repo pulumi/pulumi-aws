@@ -65,10 +65,10 @@ public final class FunctionFileSystemConfig {
             return this;
         }
         public FunctionFileSystemConfig build() {
-            final var o = new FunctionFileSystemConfig();
-            o.arn = arn;
-            o.localMountPath = localMountPath;
-            return o;
+            final var _resultValue = new FunctionFileSystemConfig();
+            _resultValue.arn = arn;
+            _resultValue.localMountPath = localMountPath;
+            return _resultValue;
         }
     }
 }

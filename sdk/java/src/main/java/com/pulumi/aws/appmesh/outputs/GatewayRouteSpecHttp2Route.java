@@ -66,10 +66,10 @@ public final class GatewayRouteSpecHttp2Route {
             return this;
         }
         public GatewayRouteSpecHttp2Route build() {
-            final var o = new GatewayRouteSpecHttp2Route();
-            o.action = action;
-            o.match = match;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2Route();
+            _resultValue.action = action;
+            _resultValue.match = match;
+            return _resultValue;
         }
     }
 }

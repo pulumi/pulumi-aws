@@ -67,10 +67,10 @@ public final class TrafficMirrorFilterRuleSourcePortRange {
             return this;
         }
         public TrafficMirrorFilterRuleSourcePortRange build() {
-            final var o = new TrafficMirrorFilterRuleSourcePortRange();
-            o.fromPort = fromPort;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new TrafficMirrorFilterRuleSourcePortRange();
+            _resultValue.fromPort = fromPort;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

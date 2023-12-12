@@ -105,12 +105,12 @@ public final class CustomActionTypeSettings {
             return this;
         }
         public CustomActionTypeSettings build() {
-            final var o = new CustomActionTypeSettings();
-            o.entityUrlTemplate = entityUrlTemplate;
-            o.executionUrlTemplate = executionUrlTemplate;
-            o.revisionUrlTemplate = revisionUrlTemplate;
-            o.thirdPartyConfigurationUrl = thirdPartyConfigurationUrl;
-            return o;
+            final var _resultValue = new CustomActionTypeSettings();
+            _resultValue.entityUrlTemplate = entityUrlTemplate;
+            _resultValue.executionUrlTemplate = executionUrlTemplate;
+            _resultValue.revisionUrlTemplate = revisionUrlTemplate;
+            _resultValue.thirdPartyConfigurationUrl = thirdPartyConfigurationUrl;
+            return _resultValue;
         }
     }
 }

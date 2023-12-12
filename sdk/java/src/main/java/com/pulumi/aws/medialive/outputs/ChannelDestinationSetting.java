@@ -105,12 +105,12 @@ public final class ChannelDestinationSetting {
             return this;
         }
         public ChannelDestinationSetting build() {
-            final var o = new ChannelDestinationSetting();
-            o.passwordParam = passwordParam;
-            o.streamName = streamName;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new ChannelDestinationSetting();
+            _resultValue.passwordParam = passwordParam;
+            _resultValue.streamName = streamName;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

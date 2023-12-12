@@ -68,10 +68,10 @@ public final class GlobalClusterGlobalClusterMember {
             return this;
         }
         public GlobalClusterGlobalClusterMember build() {
-            final var o = new GlobalClusterGlobalClusterMember();
-            o.dbClusterArn = dbClusterArn;
-            o.isWriter = isWriter;
-            return o;
+            final var _resultValue = new GlobalClusterGlobalClusterMember();
+            _resultValue.dbClusterArn = dbClusterArn;
+            _resultValue.isWriter = isWriter;
+            return _resultValue;
         }
     }
 }

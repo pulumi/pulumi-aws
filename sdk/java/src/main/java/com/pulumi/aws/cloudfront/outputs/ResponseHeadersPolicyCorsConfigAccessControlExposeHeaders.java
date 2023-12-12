@@ -43,9 +43,9 @@ public final class ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders {
             return items(List.of(items));
         }
         public ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders build() {
-            final var o = new ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders();
-            o.items = items;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class RuleGroupRuleGroupStatefulRuleOptions {
             return this;
         }
         public RuleGroupRuleGroupStatefulRuleOptions build() {
-            final var o = new RuleGroupRuleGroupStatefulRuleOptions();
-            o.ruleOrder = ruleOrder;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupStatefulRuleOptions();
+            _resultValue.ruleOrder = ruleOrder;
+            return _resultValue;
         }
     }
 }

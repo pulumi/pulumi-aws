@@ -61,11 +61,11 @@ public final class GetInstanceTypeInferenceAccelerator {
             return this;
         }
         public GetInstanceTypeInferenceAccelerator build() {
-            final var o = new GetInstanceTypeInferenceAccelerator();
-            o.count = count;
-            o.manufacturer = manufacturer;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetInstanceTypeInferenceAccelerator();
+            _resultValue.count = count;
+            _resultValue.manufacturer = manufacturer;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

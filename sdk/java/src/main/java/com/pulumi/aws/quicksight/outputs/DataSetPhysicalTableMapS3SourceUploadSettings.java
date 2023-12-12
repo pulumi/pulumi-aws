@@ -126,13 +126,13 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettings {
             return this;
         }
         public DataSetPhysicalTableMapS3SourceUploadSettings build() {
-            final var o = new DataSetPhysicalTableMapS3SourceUploadSettings();
-            o.containsHeader = containsHeader;
-            o.delimiter = delimiter;
-            o.format = format;
-            o.startFromRow = startFromRow;
-            o.textQualifier = textQualifier;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMapS3SourceUploadSettings();
+            _resultValue.containsHeader = containsHeader;
+            _resultValue.delimiter = delimiter;
+            _resultValue.format = format;
+            _resultValue.startFromRow = startFromRow;
+            _resultValue.textQualifier = textQualifier;
+            return _resultValue;
         }
     }
 }

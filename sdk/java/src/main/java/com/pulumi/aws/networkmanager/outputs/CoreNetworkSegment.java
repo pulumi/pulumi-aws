@@ -93,11 +93,11 @@ public final class CoreNetworkSegment {
             return sharedSegments(List.of(sharedSegments));
         }
         public CoreNetworkSegment build() {
-            final var o = new CoreNetworkSegment();
-            o.edgeLocations = edgeLocations;
-            o.name = name;
-            o.sharedSegments = sharedSegments;
-            return o;
+            final var _resultValue = new CoreNetworkSegment();
+            _resultValue.edgeLocations = edgeLocations;
+            _resultValue.name = name;
+            _resultValue.sharedSegments = sharedSegments;
+            return _resultValue;
         }
     }
 }

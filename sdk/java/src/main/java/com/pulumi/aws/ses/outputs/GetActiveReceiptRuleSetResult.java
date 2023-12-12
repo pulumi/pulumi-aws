@@ -84,11 +84,11 @@ public final class GetActiveReceiptRuleSetResult {
             return this;
         }
         public GetActiveReceiptRuleSetResult build() {
-            final var o = new GetActiveReceiptRuleSetResult();
-            o.arn = arn;
-            o.id = id;
-            o.ruleSetName = ruleSetName;
-            return o;
+            final var _resultValue = new GetActiveReceiptRuleSetResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.ruleSetName = ruleSetName;
+            return _resultValue;
         }
     }
 }

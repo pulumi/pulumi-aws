@@ -156,14 +156,14 @@ public final class ListenerRuleCondition {
             return this;
         }
         public ListenerRuleCondition build() {
-            final var o = new ListenerRuleCondition();
-            o.hostHeader = hostHeader;
-            o.httpHeader = httpHeader;
-            o.httpRequestMethod = httpRequestMethod;
-            o.pathPattern = pathPattern;
-            o.queryStrings = queryStrings;
-            o.sourceIp = sourceIp;
-            return o;
+            final var _resultValue = new ListenerRuleCondition();
+            _resultValue.hostHeader = hostHeader;
+            _resultValue.httpHeader = httpHeader;
+            _resultValue.httpRequestMethod = httpRequestMethod;
+            _resultValue.pathPattern = pathPattern;
+            _resultValue.queryStrings = queryStrings;
+            _resultValue.sourceIp = sourceIp;
+            return _resultValue;
         }
     }
 }

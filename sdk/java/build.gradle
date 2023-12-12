@@ -30,6 +30,7 @@ java {
 compileJava {
     options.fork = true
     options.forkOptions.jvmArgs.addAll(["-Xmx16g"])
+    options.encoding = "UTF-8"
 }
 
 repositories {
@@ -43,7 +44,7 @@ repositories {
 dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
-    implementation("com.pulumi:pulumi:0.9.5")
+    implementation("com.pulumi:pulumi:0.9.8")
 }
 
 task sourcesJar(type: Jar) {

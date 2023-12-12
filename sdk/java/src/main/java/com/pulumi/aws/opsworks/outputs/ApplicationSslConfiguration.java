@@ -86,11 +86,11 @@ public final class ApplicationSslConfiguration {
             return this;
         }
         public ApplicationSslConfiguration build() {
-            final var o = new ApplicationSslConfiguration();
-            o.certificate = certificate;
-            o.chain = chain;
-            o.privateKey = privateKey;
-            return o;
+            final var _resultValue = new ApplicationSslConfiguration();
+            _resultValue.certificate = certificate;
+            _resultValue.chain = chain;
+            _resultValue.privateKey = privateKey;
+            return _resultValue;
         }
     }
 }

@@ -98,11 +98,11 @@ public final class TaskSetNetworkConfiguration {
             return subnets(List.of(subnets));
         }
         public TaskSetNetworkConfiguration build() {
-            final var o = new TaskSetNetworkConfiguration();
-            o.assignPublicIp = assignPublicIp;
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new TaskSetNetworkConfiguration();
+            _resultValue.assignPublicIp = assignPublicIp;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

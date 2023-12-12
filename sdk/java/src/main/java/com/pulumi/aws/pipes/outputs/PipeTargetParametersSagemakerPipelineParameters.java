@@ -51,9 +51,9 @@ public final class PipeTargetParametersSagemakerPipelineParameters {
             return pipelineParameters(List.of(pipelineParameters));
         }
         public PipeTargetParametersSagemakerPipelineParameters build() {
-            final var o = new PipeTargetParametersSagemakerPipelineParameters();
-            o.pipelineParameters = pipelineParameters;
-            return o;
+            final var _resultValue = new PipeTargetParametersSagemakerPipelineParameters();
+            _resultValue.pipelineParameters = pipelineParameters;
+            return _resultValue;
         }
     }
 }

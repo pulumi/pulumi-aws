@@ -50,9 +50,9 @@ public final class ListenerRuleConditionSourceIp {
             return values(List.of(values));
         }
         public ListenerRuleConditionSourceIp build() {
-            final var o = new ListenerRuleConditionSourceIp();
-            o.values = values;
-            return o;
+            final var _resultValue = new ListenerRuleConditionSourceIp();
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

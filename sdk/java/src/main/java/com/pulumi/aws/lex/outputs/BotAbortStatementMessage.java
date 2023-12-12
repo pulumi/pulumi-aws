@@ -89,11 +89,11 @@ public final class BotAbortStatementMessage {
             return this;
         }
         public BotAbortStatementMessage build() {
-            final var o = new BotAbortStatementMessage();
-            o.content = content;
-            o.contentType = contentType;
-            o.groupNumber = groupNumber;
-            return o;
+            final var _resultValue = new BotAbortStatementMessage();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.groupNumber = groupNumber;
+            return _resultValue;
         }
     }
 }

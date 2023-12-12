@@ -46,9 +46,9 @@ public final class AnalyticsApplicationOutputSchema {
             return this;
         }
         public AnalyticsApplicationOutputSchema build() {
-            final var o = new AnalyticsApplicationOutputSchema();
-            o.recordFormatType = recordFormatType;
-            return o;
+            final var _resultValue = new AnalyticsApplicationOutputSchema();
+            _resultValue.recordFormatType = recordFormatType;
+            return _resultValue;
         }
     }
 }

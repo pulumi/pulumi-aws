@@ -86,11 +86,11 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplate {
             return this;
         }
         public ComputeEnvironmentComputeResourcesLaunchTemplate build() {
-            final var o = new ComputeEnvironmentComputeResourcesLaunchTemplate();
-            o.launchTemplateId = launchTemplateId;
-            o.launchTemplateName = launchTemplateName;
-            o.version = version;
-            return o;
+            final var _resultValue = new ComputeEnvironmentComputeResourcesLaunchTemplate();
+            _resultValue.launchTemplateId = launchTemplateId;
+            _resultValue.launchTemplateName = launchTemplateName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

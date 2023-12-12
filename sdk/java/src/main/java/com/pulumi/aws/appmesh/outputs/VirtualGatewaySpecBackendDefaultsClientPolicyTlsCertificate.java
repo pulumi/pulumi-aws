@@ -68,10 +68,10 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate();
-            o.file = file;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate();
+            _resultValue.file = file;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

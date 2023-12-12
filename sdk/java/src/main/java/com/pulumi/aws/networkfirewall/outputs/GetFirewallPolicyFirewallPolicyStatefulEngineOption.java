@@ -49,10 +49,10 @@ public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatefulEngineOption build() {
-            final var o = new GetFirewallPolicyFirewallPolicyStatefulEngineOption();
-            o.ruleOrder = ruleOrder;
-            o.streamExceptionPolicy = streamExceptionPolicy;
-            return o;
+            final var _resultValue = new GetFirewallPolicyFirewallPolicyStatefulEngineOption();
+            _resultValue.ruleOrder = ruleOrder;
+            _resultValue.streamExceptionPolicy = streamExceptionPolicy;
+            return _resultValue;
         }
     }
 }

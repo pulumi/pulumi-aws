@@ -68,10 +68,10 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
             return this;
         }
         public ApplicationApplicationConfigurationApplicationCodeConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationApplicationCodeConfiguration();
-            o.codeContent = codeContent;
-            o.codeContentType = codeContentType;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationApplicationCodeConfiguration();
+            _resultValue.codeContent = codeContent;
+            _resultValue.codeContentType = codeContentType;
+            return _resultValue;
         }
     }
 }

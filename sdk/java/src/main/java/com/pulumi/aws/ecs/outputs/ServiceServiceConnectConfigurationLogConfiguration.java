@@ -91,11 +91,11 @@ public final class ServiceServiceConnectConfigurationLogConfiguration {
             return secretOptions(List.of(secretOptions));
         }
         public ServiceServiceConnectConfigurationLogConfiguration build() {
-            final var o = new ServiceServiceConnectConfigurationLogConfiguration();
-            o.logDriver = logDriver;
-            o.options = options;
-            o.secretOptions = secretOptions;
-            return o;
+            final var _resultValue = new ServiceServiceConnectConfigurationLogConfiguration();
+            _resultValue.logDriver = logDriver;
+            _resultValue.options = options;
+            _resultValue.secretOptions = secretOptions;
+            return _resultValue;
         }
     }
 }

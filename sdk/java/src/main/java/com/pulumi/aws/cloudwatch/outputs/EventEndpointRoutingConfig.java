@@ -46,9 +46,9 @@ public final class EventEndpointRoutingConfig {
             return this;
         }
         public EventEndpointRoutingConfig build() {
-            final var o = new EventEndpointRoutingConfig();
-            o.failoverConfig = failoverConfig;
-            return o;
+            final var _resultValue = new EventEndpointRoutingConfig();
+            _resultValue.failoverConfig = failoverConfig;
+            return _resultValue;
         }
     }
 }

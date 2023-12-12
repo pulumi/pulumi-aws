@@ -46,9 +46,9 @@ public final class FsxOpenZfsFileSystemProtocol {
             return this;
         }
         public FsxOpenZfsFileSystemProtocol build() {
-            final var o = new FsxOpenZfsFileSystemProtocol();
-            o.nfs = nfs;
-            return o;
+            final var _resultValue = new FsxOpenZfsFileSystemProtocol();
+            _resultValue.nfs = nfs;
+            return _resultValue;
         }
     }
 }

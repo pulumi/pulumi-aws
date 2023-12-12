@@ -105,12 +105,12 @@ public final class FeatureVariationValue {
             return this;
         }
         public FeatureVariationValue build() {
-            final var o = new FeatureVariationValue();
-            o.boolValue = boolValue;
-            o.doubleValue = doubleValue;
-            o.longValue = longValue;
-            o.stringValue = stringValue;
-            return o;
+            final var _resultValue = new FeatureVariationValue();
+            _resultValue.boolValue = boolValue;
+            _resultValue.doubleValue = doubleValue;
+            _resultValue.longValue = longValue;
+            _resultValue.stringValue = stringValue;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetClustersResult {
             return names(List.of(names));
         }
         public GetClustersResult build() {
-            final var o = new GetClustersResult();
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetClustersResult();
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

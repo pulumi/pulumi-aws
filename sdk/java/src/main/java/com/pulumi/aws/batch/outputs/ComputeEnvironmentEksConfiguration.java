@@ -65,10 +65,10 @@ public final class ComputeEnvironmentEksConfiguration {
             return this;
         }
         public ComputeEnvironmentEksConfiguration build() {
-            final var o = new ComputeEnvironmentEksConfiguration();
-            o.eksClusterArn = eksClusterArn;
-            o.kubernetesNamespace = kubernetesNamespace;
-            return o;
+            final var _resultValue = new ComputeEnvironmentEksConfiguration();
+            _resultValue.eksClusterArn = eksClusterArn;
+            _resultValue.kubernetesNamespace = kubernetesNamespace;
+            return _resultValue;
         }
     }
 }

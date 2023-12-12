@@ -67,10 +67,10 @@ public final class BucketLogging {
             return this;
         }
         public BucketLogging build() {
-            final var o = new BucketLogging();
-            o.targetBucket = targetBucket;
-            o.targetPrefix = targetPrefix;
-            return o;
+            final var _resultValue = new BucketLogging();
+            _resultValue.targetBucket = targetBucket;
+            _resultValue.targetPrefix = targetPrefix;
+            return _resultValue;
         }
     }
 }

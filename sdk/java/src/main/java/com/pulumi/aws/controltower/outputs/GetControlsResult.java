@@ -80,11 +80,11 @@ public final class GetControlsResult {
             return this;
         }
         public GetControlsResult build() {
-            final var o = new GetControlsResult();
-            o.enabledControls = enabledControls;
-            o.id = id;
-            o.targetIdentifier = targetIdentifier;
-            return o;
+            final var _resultValue = new GetControlsResult();
+            _resultValue.enabledControls = enabledControls;
+            _resultValue.id = id;
+            _resultValue.targetIdentifier = targetIdentifier;
+            return _resultValue;
         }
     }
 }

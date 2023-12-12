@@ -108,12 +108,12 @@ public final class MaintenanceWindowTaskTaskInvocationParameters {
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParameters build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParameters();
-            o.automationParameters = automationParameters;
-            o.lambdaParameters = lambdaParameters;
-            o.runCommandParameters = runCommandParameters;
-            o.stepFunctionsParameters = stepFunctionsParameters;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParameters();
+            _resultValue.automationParameters = automationParameters;
+            _resultValue.lambdaParameters = lambdaParameters;
+            _resultValue.runCommandParameters = runCommandParameters;
+            _resultValue.stepFunctionsParameters = stepFunctionsParameters;
+            return _resultValue;
         }
     }
 }

@@ -98,11 +98,11 @@ public final class GetTaskExecutionNetworkConfiguration {
             return subnets(List.of(subnets));
         }
         public GetTaskExecutionNetworkConfiguration build() {
-            final var o = new GetTaskExecutionNetworkConfiguration();
-            o.assignPublicIp = assignPublicIp;
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new GetTaskExecutionNetworkConfiguration();
+            _resultValue.assignPublicIp = assignPublicIp;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

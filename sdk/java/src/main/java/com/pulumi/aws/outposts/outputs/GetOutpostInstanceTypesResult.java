@@ -80,11 +80,11 @@ public final class GetOutpostInstanceTypesResult {
             return instanceTypes(List.of(instanceTypes));
         }
         public GetOutpostInstanceTypesResult build() {
-            final var o = new GetOutpostInstanceTypesResult();
-            o.arn = arn;
-            o.id = id;
-            o.instanceTypes = instanceTypes;
-            return o;
+            final var _resultValue = new GetOutpostInstanceTypesResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.instanceTypes = instanceTypes;
+            return _resultValue;
         }
     }
 }

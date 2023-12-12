@@ -87,11 +87,11 @@ public final class UserProfileUserSettingsRSessionAppSettingsCustomImage {
             return this;
         }
         public UserProfileUserSettingsRSessionAppSettingsCustomImage build() {
-            final var o = new UserProfileUserSettingsRSessionAppSettingsCustomImage();
-            o.appImageConfigName = appImageConfigName;
-            o.imageName = imageName;
-            o.imageVersionNumber = imageVersionNumber;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsRSessionAppSettingsCustomImage();
+            _resultValue.appImageConfigName = appImageConfigName;
+            _resultValue.imageName = imageName;
+            _resultValue.imageVersionNumber = imageVersionNumber;
+            return _resultValue;
         }
     }
 }

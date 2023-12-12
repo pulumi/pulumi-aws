@@ -230,19 +230,19 @@ public final class GetConnectionResult {
             return this;
         }
         public GetConnectionResult build() {
-            final var o = new GetConnectionResult();
-            o.arn = arn;
-            o.awsDevice = awsDevice;
-            o.bandwidth = bandwidth;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.ownerAccountId = ownerAccountId;
-            o.partnerName = partnerName;
-            o.providerName = providerName;
-            o.tags = tags;
-            o.vlanId = vlanId;
-            return o;
+            final var _resultValue = new GetConnectionResult();
+            _resultValue.arn = arn;
+            _resultValue.awsDevice = awsDevice;
+            _resultValue.bandwidth = bandwidth;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.ownerAccountId = ownerAccountId;
+            _resultValue.partnerName = partnerName;
+            _resultValue.providerName = providerName;
+            _resultValue.tags = tags;
+            _resultValue.vlanId = vlanId;
+            return _resultValue;
         }
     }
 }

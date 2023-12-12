@@ -38,9 +38,9 @@ public final class GetLaunchTemplateMonitoring {
             return this;
         }
         public GetLaunchTemplateMonitoring build() {
-            final var o = new GetLaunchTemplateMonitoring();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetLaunchTemplateMonitoring();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

@@ -93,11 +93,11 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
             return subnets(List.of(subnets));
         }
         public PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration build() {
-            final var o = new PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration();
-            o.assignPublicIp = assignPublicIp;
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration();
+            _resultValue.assignPublicIp = assignPublicIp;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

@@ -124,13 +124,13 @@ public final class OrganizationAccount {
             return this;
         }
         public OrganizationAccount build() {
-            final var o = new OrganizationAccount();
-            o.arn = arn;
-            o.email = email;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new OrganizationAccount();
+            _resultValue.arn = arn;
+            _resultValue.email = email;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -84,11 +84,11 @@ public final class GetBudgetPlannedLimit {
             return this;
         }
         public GetBudgetPlannedLimit build() {
-            final var o = new GetBudgetPlannedLimit();
-            o.amount = amount;
-            o.startTime = startTime;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new GetBudgetPlannedLimit();
+            _resultValue.amount = amount;
+            _resultValue.startTime = startTime;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
             return this;
         }
         public JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration build() {
-            final var o = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration();
-            o.logGroupName = logGroupName;
-            o.logStreamNamePrefix = logStreamNamePrefix;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration();
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.logStreamNamePrefix = logStreamNamePrefix;
+            return _resultValue;
         }
     }
 }

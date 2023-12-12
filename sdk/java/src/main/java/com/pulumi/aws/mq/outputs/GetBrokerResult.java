@@ -305,30 +305,30 @@ public final class GetBrokerResult {
             return users(List.of(users));
         }
         public GetBrokerResult build() {
-            final var o = new GetBrokerResult();
-            o.arn = arn;
-            o.authenticationStrategy = authenticationStrategy;
-            o.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
-            o.brokerId = brokerId;
-            o.brokerName = brokerName;
-            o.configuration = configuration;
-            o.deploymentMode = deploymentMode;
-            o.encryptionOptions = encryptionOptions;
-            o.engineType = engineType;
-            o.engineVersion = engineVersion;
-            o.hostInstanceType = hostInstanceType;
-            o.id = id;
-            o.instances = instances;
-            o.ldapServerMetadatas = ldapServerMetadatas;
-            o.logs = logs;
-            o.maintenanceWindowStartTime = maintenanceWindowStartTime;
-            o.publiclyAccessible = publiclyAccessible;
-            o.securityGroups = securityGroups;
-            o.storageType = storageType;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.users = users;
-            return o;
+            final var _resultValue = new GetBrokerResult();
+            _resultValue.arn = arn;
+            _resultValue.authenticationStrategy = authenticationStrategy;
+            _resultValue.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
+            _resultValue.brokerId = brokerId;
+            _resultValue.brokerName = brokerName;
+            _resultValue.configuration = configuration;
+            _resultValue.deploymentMode = deploymentMode;
+            _resultValue.encryptionOptions = encryptionOptions;
+            _resultValue.engineType = engineType;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.hostInstanceType = hostInstanceType;
+            _resultValue.id = id;
+            _resultValue.instances = instances;
+            _resultValue.ldapServerMetadatas = ldapServerMetadatas;
+            _resultValue.logs = logs;
+            _resultValue.maintenanceWindowStartTime = maintenanceWindowStartTime;
+            _resultValue.publiclyAccessible = publiclyAccessible;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.storageType = storageType;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

@@ -84,11 +84,11 @@ public final class RepositoryAssociationRepositoryBitbucket {
             return this;
         }
         public RepositoryAssociationRepositoryBitbucket build() {
-            final var o = new RepositoryAssociationRepositoryBitbucket();
-            o.connectionArn = connectionArn;
-            o.name = name;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new RepositoryAssociationRepositoryBitbucket();
+            _resultValue.connectionArn = connectionArn;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

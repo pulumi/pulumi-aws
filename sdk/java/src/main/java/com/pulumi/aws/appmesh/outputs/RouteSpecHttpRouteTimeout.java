@@ -68,10 +68,10 @@ public final class RouteSpecHttpRouteTimeout {
             return this;
         }
         public RouteSpecHttpRouteTimeout build() {
-            final var o = new RouteSpecHttpRouteTimeout();
-            o.idle = idle;
-            o.perRequest = perRequest;
-            return o;
+            final var _resultValue = new RouteSpecHttpRouteTimeout();
+            _resultValue.idle = idle;
+            _resultValue.perRequest = perRequest;
+            return _resultValue;
         }
     }
 }

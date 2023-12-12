@@ -148,14 +148,14 @@ public final class PipeTargetParametersRedshiftDataParameters {
             return this;
         }
         public PipeTargetParametersRedshiftDataParameters build() {
-            final var o = new PipeTargetParametersRedshiftDataParameters();
-            o.database = database;
-            o.dbUser = dbUser;
-            o.secretManagerArn = secretManagerArn;
-            o.sqls = sqls;
-            o.statementName = statementName;
-            o.withEvent = withEvent;
-            return o;
+            final var _resultValue = new PipeTargetParametersRedshiftDataParameters();
+            _resultValue.database = database;
+            _resultValue.dbUser = dbUser;
+            _resultValue.secretManagerArn = secretManagerArn;
+            _resultValue.sqls = sqls;
+            _resultValue.statementName = statementName;
+            _resultValue.withEvent = withEvent;
+            return _resultValue;
         }
     }
 }

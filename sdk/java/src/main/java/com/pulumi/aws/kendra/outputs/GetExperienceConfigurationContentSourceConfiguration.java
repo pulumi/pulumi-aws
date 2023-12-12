@@ -92,11 +92,11 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
             return faqIds(List.of(faqIds));
         }
         public GetExperienceConfigurationContentSourceConfiguration build() {
-            final var o = new GetExperienceConfigurationContentSourceConfiguration();
-            o.dataSourceIds = dataSourceIds;
-            o.directPutContent = directPutContent;
-            o.faqIds = faqIds;
-            return o;
+            final var _resultValue = new GetExperienceConfigurationContentSourceConfiguration();
+            _resultValue.dataSourceIds = dataSourceIds;
+            _resultValue.directPutContent = directPutContent;
+            _resultValue.faqIds = faqIds;
+            return _resultValue;
         }
     }
 }

@@ -196,18 +196,18 @@ public final class GetResourceShareResult {
             return this;
         }
         public GetResourceShareResult build() {
-            final var o = new GetResourceShareResult();
-            o.arn = arn;
-            o.filters = filters;
-            o.id = id;
-            o.name = name;
-            o.owningAccountId = owningAccountId;
-            o.resourceArns = resourceArns;
-            o.resourceOwner = resourceOwner;
-            o.resourceShareStatus = resourceShareStatus;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResourceShareResult();
+            _resultValue.arn = arn;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.owningAccountId = owningAccountId;
+            _resultValue.resourceArns = resourceArns;
+            _resultValue.resourceOwner = resourceOwner;
+            _resultValue.resourceShareStatus = resourceShareStatus;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

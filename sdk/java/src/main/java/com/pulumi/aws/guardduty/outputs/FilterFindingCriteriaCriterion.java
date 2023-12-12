@@ -169,15 +169,15 @@ public final class FilterFindingCriteriaCriterion {
             return notEquals(List.of(notEquals));
         }
         public FilterFindingCriteriaCriterion build() {
-            final var o = new FilterFindingCriteriaCriterion();
-            o.equals = equals;
-            o.field = field;
-            o.greaterThan = greaterThan;
-            o.greaterThanOrEqual = greaterThanOrEqual;
-            o.lessThan = lessThan;
-            o.lessThanOrEqual = lessThanOrEqual;
-            o.notEquals = notEquals;
-            return o;
+            final var _resultValue = new FilterFindingCriteriaCriterion();
+            _resultValue.equals = equals;
+            _resultValue.field = field;
+            _resultValue.greaterThan = greaterThan;
+            _resultValue.greaterThanOrEqual = greaterThanOrEqual;
+            _resultValue.lessThan = lessThan;
+            _resultValue.lessThanOrEqual = lessThanOrEqual;
+            _resultValue.notEquals = notEquals;
+            return _resultValue;
         }
     }
 }

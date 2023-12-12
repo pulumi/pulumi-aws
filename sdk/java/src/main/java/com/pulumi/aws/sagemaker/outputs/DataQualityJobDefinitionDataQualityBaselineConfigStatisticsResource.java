@@ -48,9 +48,9 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsRe
             return this;
         }
         public DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource build() {
-            final var o = new DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource();
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource();
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

@@ -212,18 +212,18 @@ public final class GetPublicKeyResult {
             return signingAlgorithms(List.of(signingAlgorithms));
         }
         public GetPublicKeyResult build() {
-            final var o = new GetPublicKeyResult();
-            o.arn = arn;
-            o.customerMasterKeySpec = customerMasterKeySpec;
-            o.encryptionAlgorithms = encryptionAlgorithms;
-            o.grantTokens = grantTokens;
-            o.id = id;
-            o.keyId = keyId;
-            o.keyUsage = keyUsage;
-            o.publicKey = publicKey;
-            o.publicKeyPem = publicKeyPem;
-            o.signingAlgorithms = signingAlgorithms;
-            return o;
+            final var _resultValue = new GetPublicKeyResult();
+            _resultValue.arn = arn;
+            _resultValue.customerMasterKeySpec = customerMasterKeySpec;
+            _resultValue.encryptionAlgorithms = encryptionAlgorithms;
+            _resultValue.grantTokens = grantTokens;
+            _resultValue.id = id;
+            _resultValue.keyId = keyId;
+            _resultValue.keyUsage = keyUsage;
+            _resultValue.publicKey = publicKey;
+            _resultValue.publicKeyPem = publicKeyPem;
+            _resultValue.signingAlgorithms = signingAlgorithms;
+            return _resultValue;
         }
     }
 }

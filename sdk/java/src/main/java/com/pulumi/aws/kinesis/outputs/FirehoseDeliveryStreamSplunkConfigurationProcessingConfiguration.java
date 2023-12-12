@@ -72,10 +72,10 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
             return processors(List.of(processors));
         }
         public FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration build() {
-            final var o = new FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration();
-            o.enabled = enabled;
-            o.processors = processors;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.processors = processors;
+            return _resultValue;
         }
     }
 }

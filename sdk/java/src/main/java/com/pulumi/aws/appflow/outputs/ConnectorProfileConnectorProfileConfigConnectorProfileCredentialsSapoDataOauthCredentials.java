@@ -125,13 +125,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials();
-            o.accessToken = accessToken;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthRequest = oauthRequest;
-            o.refreshToken = refreshToken;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials();
+            _resultValue.accessToken = accessToken;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthRequest = oauthRequest;
+            _resultValue.refreshToken = refreshToken;
+            return _resultValue;
         }
     }
 }

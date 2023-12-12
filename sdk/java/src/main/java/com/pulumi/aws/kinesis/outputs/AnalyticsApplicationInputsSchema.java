@@ -96,11 +96,11 @@ public final class AnalyticsApplicationInputsSchema {
             return this;
         }
         public AnalyticsApplicationInputsSchema build() {
-            final var o = new AnalyticsApplicationInputsSchema();
-            o.recordColumns = recordColumns;
-            o.recordEncoding = recordEncoding;
-            o.recordFormat = recordFormat;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsSchema();
+            _resultValue.recordColumns = recordColumns;
+            _resultValue.recordEncoding = recordEncoding;
+            _resultValue.recordFormat = recordFormat;
+            return _resultValue;
         }
     }
 }

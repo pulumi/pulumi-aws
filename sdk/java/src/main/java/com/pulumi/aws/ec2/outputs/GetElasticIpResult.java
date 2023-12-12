@@ -330,24 +330,24 @@ public final class GetElasticIpResult {
             return this;
         }
         public GetElasticIpResult build() {
-            final var o = new GetElasticIpResult();
-            o.associationId = associationId;
-            o.carrierIp = carrierIp;
-            o.customerOwnedIp = customerOwnedIp;
-            o.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
-            o.domain = domain;
-            o.filters = filters;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.networkInterfaceId = networkInterfaceId;
-            o.networkInterfaceOwnerId = networkInterfaceOwnerId;
-            o.privateDns = privateDns;
-            o.privateIp = privateIp;
-            o.publicDns = publicDns;
-            o.publicIp = publicIp;
-            o.publicIpv4Pool = publicIpv4Pool;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetElasticIpResult();
+            _resultValue.associationId = associationId;
+            _resultValue.carrierIp = carrierIp;
+            _resultValue.customerOwnedIp = customerOwnedIp;
+            _resultValue.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
+            _resultValue.domain = domain;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.networkInterfaceOwnerId = networkInterfaceOwnerId;
+            _resultValue.privateDns = privateDns;
+            _resultValue.privateIp = privateIp;
+            _resultValue.publicDns = publicDns;
+            _resultValue.publicIp = publicIp;
+            _resultValue.publicIpv4Pool = publicIpv4Pool;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

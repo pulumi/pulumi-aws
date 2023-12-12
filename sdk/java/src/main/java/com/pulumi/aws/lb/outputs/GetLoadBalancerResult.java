@@ -347,35 +347,35 @@ public final class GetLoadBalancerResult {
             return this;
         }
         public GetLoadBalancerResult build() {
-            final var o = new GetLoadBalancerResult();
-            o.accessLogs = accessLogs;
-            o.arn = arn;
-            o.arnSuffix = arnSuffix;
-            o.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
-            o.desyncMitigationMode = desyncMitigationMode;
-            o.dnsName = dnsName;
-            o.dropInvalidHeaderFields = dropInvalidHeaderFields;
-            o.enableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
-            o.enableDeletionProtection = enableDeletionProtection;
-            o.enableHttp2 = enableHttp2;
-            o.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
-            o.enableWafFailOpen = enableWafFailOpen;
-            o.enableXffClientPort = enableXffClientPort;
-            o.id = id;
-            o.idleTimeout = idleTimeout;
-            o.internal = internal;
-            o.ipAddressType = ipAddressType;
-            o.loadBalancerType = loadBalancerType;
-            o.name = name;
-            o.preserveHostHeader = preserveHostHeader;
-            o.securityGroups = securityGroups;
-            o.subnetMappings = subnetMappings;
-            o.subnets = subnets;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            o.xffHeaderProcessingMode = xffHeaderProcessingMode;
-            o.zoneId = zoneId;
-            return o;
+            final var _resultValue = new GetLoadBalancerResult();
+            _resultValue.accessLogs = accessLogs;
+            _resultValue.arn = arn;
+            _resultValue.arnSuffix = arnSuffix;
+            _resultValue.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
+            _resultValue.desyncMitigationMode = desyncMitigationMode;
+            _resultValue.dnsName = dnsName;
+            _resultValue.dropInvalidHeaderFields = dropInvalidHeaderFields;
+            _resultValue.enableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
+            _resultValue.enableDeletionProtection = enableDeletionProtection;
+            _resultValue.enableHttp2 = enableHttp2;
+            _resultValue.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
+            _resultValue.enableWafFailOpen = enableWafFailOpen;
+            _resultValue.enableXffClientPort = enableXffClientPort;
+            _resultValue.id = id;
+            _resultValue.idleTimeout = idleTimeout;
+            _resultValue.internal = internal;
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.loadBalancerType = loadBalancerType;
+            _resultValue.name = name;
+            _resultValue.preserveHostHeader = preserveHostHeader;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnetMappings = subnetMappings;
+            _resultValue.subnets = subnets;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            _resultValue.xffHeaderProcessingMode = xffHeaderProcessingMode;
+            _resultValue.zoneId = zoneId;
+            return _resultValue;
         }
     }
 }

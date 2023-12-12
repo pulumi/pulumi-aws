@@ -48,9 +48,9 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySetting
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings();
-            o.status = status;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

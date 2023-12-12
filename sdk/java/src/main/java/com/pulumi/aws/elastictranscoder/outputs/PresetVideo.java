@@ -276,21 +276,21 @@ public final class PresetVideo {
             return this;
         }
         public PresetVideo build() {
-            final var o = new PresetVideo();
-            o.aspectRatio = aspectRatio;
-            o.bitRate = bitRate;
-            o.codec = codec;
-            o.displayAspectRatio = displayAspectRatio;
-            o.fixedGop = fixedGop;
-            o.frameRate = frameRate;
-            o.keyframesMaxDist = keyframesMaxDist;
-            o.maxFrameRate = maxFrameRate;
-            o.maxHeight = maxHeight;
-            o.maxWidth = maxWidth;
-            o.paddingPolicy = paddingPolicy;
-            o.resolution = resolution;
-            o.sizingPolicy = sizingPolicy;
-            return o;
+            final var _resultValue = new PresetVideo();
+            _resultValue.aspectRatio = aspectRatio;
+            _resultValue.bitRate = bitRate;
+            _resultValue.codec = codec;
+            _resultValue.displayAspectRatio = displayAspectRatio;
+            _resultValue.fixedGop = fixedGop;
+            _resultValue.frameRate = frameRate;
+            _resultValue.keyframesMaxDist = keyframesMaxDist;
+            _resultValue.maxFrameRate = maxFrameRate;
+            _resultValue.maxHeight = maxHeight;
+            _resultValue.maxWidth = maxWidth;
+            _resultValue.paddingPolicy = paddingPolicy;
+            _resultValue.resolution = resolution;
+            _resultValue.sizingPolicy = sizingPolicy;
+            return _resultValue;
         }
     }
 }

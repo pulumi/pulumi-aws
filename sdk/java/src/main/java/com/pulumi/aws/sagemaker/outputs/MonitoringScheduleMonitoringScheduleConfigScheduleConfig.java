@@ -46,9 +46,9 @@ public final class MonitoringScheduleMonitoringScheduleConfigScheduleConfig {
             return this;
         }
         public MonitoringScheduleMonitoringScheduleConfigScheduleConfig build() {
-            final var o = new MonitoringScheduleMonitoringScheduleConfigScheduleConfig();
-            o.scheduleExpression = scheduleExpression;
-            return o;
+            final var _resultValue = new MonitoringScheduleMonitoringScheduleConfigScheduleConfig();
+            _resultValue.scheduleExpression = scheduleExpression;
+            return _resultValue;
         }
     }
 }

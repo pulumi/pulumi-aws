@@ -58,10 +58,10 @@ public final class GetPlanStageTargetContactTargetInfo {
             return this;
         }
         public GetPlanStageTargetContactTargetInfo build() {
-            final var o = new GetPlanStageTargetContactTargetInfo();
-            o.contactId = contactId;
-            o.isEssential = isEssential;
-            return o;
+            final var _resultValue = new GetPlanStageTargetContactTargetInfo();
+            _resultValue.contactId = contactId;
+            _resultValue.isEssential = isEssential;
+            return _resultValue;
         }
     }
 }

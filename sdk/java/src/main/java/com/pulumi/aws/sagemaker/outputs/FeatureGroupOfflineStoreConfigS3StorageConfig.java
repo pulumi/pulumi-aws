@@ -86,11 +86,11 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
             return this;
         }
         public FeatureGroupOfflineStoreConfigS3StorageConfig build() {
-            final var o = new FeatureGroupOfflineStoreConfigS3StorageConfig();
-            o.kmsKeyId = kmsKeyId;
-            o.resolvedOutputS3Uri = resolvedOutputS3Uri;
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new FeatureGroupOfflineStoreConfigS3StorageConfig();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.resolvedOutputS3Uri = resolvedOutputS3Uri;
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

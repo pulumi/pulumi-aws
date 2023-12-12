@@ -50,9 +50,9 @@ public final class WebAclRuleStatementAndStatement {
             return statements(List.of(statements));
         }
         public WebAclRuleStatementAndStatement build() {
-            final var o = new WebAclRuleStatementAndStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new WebAclRuleStatementAndStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

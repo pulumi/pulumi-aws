@@ -60,11 +60,11 @@ public final class GetClusterMasterUserSecret {
             return this;
         }
         public GetClusterMasterUserSecret build() {
-            final var o = new GetClusterMasterUserSecret();
-            o.kmsKeyId = kmsKeyId;
-            o.secretArn = secretArn;
-            o.secretStatus = secretStatus;
-            return o;
+            final var _resultValue = new GetClusterMasterUserSecret();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.secretArn = secretArn;
+            _resultValue.secretStatus = secretStatus;
+            return _resultValue;
         }
     }
 }

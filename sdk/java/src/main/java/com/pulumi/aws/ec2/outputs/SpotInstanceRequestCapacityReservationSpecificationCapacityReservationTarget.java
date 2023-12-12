@@ -67,10 +67,10 @@ public final class SpotInstanceRequestCapacityReservationSpecificationCapacityRe
             return this;
         }
         public SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget build() {
-            final var o = new SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget();
-            o.capacityReservationId = capacityReservationId;
-            o.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
-            return o;
+            final var _resultValue = new SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget();
+            _resultValue.capacityReservationId = capacityReservationId;
+            _resultValue.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
+            return _resultValue;
         }
     }
 }

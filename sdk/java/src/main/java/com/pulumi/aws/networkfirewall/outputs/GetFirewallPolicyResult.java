@@ -152,15 +152,15 @@ public final class GetFirewallPolicyResult {
             return this;
         }
         public GetFirewallPolicyResult build() {
-            final var o = new GetFirewallPolicyResult();
-            o.arn = arn;
-            o.description = description;
-            o.firewallPolicies = firewallPolicies;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            o.updateToken = updateToken;
-            return o;
+            final var _resultValue = new GetFirewallPolicyResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.firewallPolicies = firewallPolicies;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.updateToken = updateToken;
+            return _resultValue;
         }
     }
 }

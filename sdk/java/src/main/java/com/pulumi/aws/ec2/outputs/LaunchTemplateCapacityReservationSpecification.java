@@ -68,10 +68,10 @@ public final class LaunchTemplateCapacityReservationSpecification {
             return this;
         }
         public LaunchTemplateCapacityReservationSpecification build() {
-            final var o = new LaunchTemplateCapacityReservationSpecification();
-            o.capacityReservationPreference = capacityReservationPreference;
-            o.capacityReservationTarget = capacityReservationTarget;
-            return o;
+            final var _resultValue = new LaunchTemplateCapacityReservationSpecification();
+            _resultValue.capacityReservationPreference = capacityReservationPreference;
+            _resultValue.capacityReservationTarget = capacityReservationTarget;
+            return _resultValue;
         }
     }
 }

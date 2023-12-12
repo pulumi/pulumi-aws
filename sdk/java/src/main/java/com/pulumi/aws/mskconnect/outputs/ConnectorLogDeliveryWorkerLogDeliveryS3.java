@@ -87,11 +87,11 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3 {
             return this;
         }
         public ConnectorLogDeliveryWorkerLogDeliveryS3 build() {
-            final var o = new ConnectorLogDeliveryWorkerLogDeliveryS3();
-            o.bucket = bucket;
-            o.enabled = enabled;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new ConnectorLogDeliveryWorkerLogDeliveryS3();
+            _resultValue.bucket = bucket;
+            _resultValue.enabled = enabled;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

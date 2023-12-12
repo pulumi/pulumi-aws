@@ -84,11 +84,11 @@ public final class GetUserPoolClientTokenValidityUnit {
             return this;
         }
         public GetUserPoolClientTokenValidityUnit build() {
-            final var o = new GetUserPoolClientTokenValidityUnit();
-            o.accessToken = accessToken;
-            o.idToken = idToken;
-            o.refreshToken = refreshToken;
-            return o;
+            final var _resultValue = new GetUserPoolClientTokenValidityUnit();
+            _resultValue.accessToken = accessToken;
+            _resultValue.idToken = idToken;
+            _resultValue.refreshToken = refreshToken;
+            return _resultValue;
         }
     }
 }

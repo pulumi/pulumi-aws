@@ -54,9 +54,9 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString 
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString();
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString();
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

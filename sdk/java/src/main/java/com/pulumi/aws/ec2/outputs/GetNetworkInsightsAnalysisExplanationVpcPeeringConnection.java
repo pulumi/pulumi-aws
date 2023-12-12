@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationVpcPeeringConnection {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationVpcPeeringConnection build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationVpcPeeringConnection();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationVpcPeeringConnection();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

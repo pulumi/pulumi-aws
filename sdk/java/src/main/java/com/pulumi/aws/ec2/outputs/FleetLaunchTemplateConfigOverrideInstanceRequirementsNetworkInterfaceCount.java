@@ -67,10 +67,10 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

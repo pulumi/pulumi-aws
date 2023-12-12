@@ -65,10 +65,10 @@ public final class UserDefinedFunctionResourceUri {
             return this;
         }
         public UserDefinedFunctionResourceUri build() {
-            final var o = new UserDefinedFunctionResourceUri();
-            o.resourceType = resourceType;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new UserDefinedFunctionResourceUri();
+            _resultValue.resourceType = resourceType;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

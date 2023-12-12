@@ -68,10 +68,10 @@ public final class PlanStageTarget {
             return this;
         }
         public PlanStageTarget build() {
-            final var o = new PlanStageTarget();
-            o.channelTargetInfo = channelTargetInfo;
-            o.contactTargetInfo = contactTargetInfo;
-            return o;
+            final var _resultValue = new PlanStageTarget();
+            _resultValue.channelTargetInfo = channelTargetInfo;
+            _resultValue.contactTargetInfo = contactTargetInfo;
+            return _resultValue;
         }
     }
 }

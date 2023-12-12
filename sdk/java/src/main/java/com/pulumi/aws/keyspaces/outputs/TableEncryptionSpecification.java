@@ -67,10 +67,10 @@ public final class TableEncryptionSpecification {
             return this;
         }
         public TableEncryptionSpecification build() {
-            final var o = new TableEncryptionSpecification();
-            o.kmsKeyIdentifier = kmsKeyIdentifier;
-            o.type = type;
-            return o;
+            final var _resultValue = new TableEncryptionSpecification();
+            _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

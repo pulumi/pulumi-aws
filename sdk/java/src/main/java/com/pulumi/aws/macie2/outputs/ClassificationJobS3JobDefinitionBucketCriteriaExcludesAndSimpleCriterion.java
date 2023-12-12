@@ -90,11 +90,11 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimp
             return values(List.of(values));
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion();
-            o.comparator = comparator;
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion();
+            _resultValue.comparator = comparator;
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

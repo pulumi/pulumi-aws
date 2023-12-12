@@ -49,10 +49,10 @@ public final class GetControlControlMappingSourceSourceKeyword {
             return this;
         }
         public GetControlControlMappingSourceSourceKeyword build() {
-            final var o = new GetControlControlMappingSourceSourceKeyword();
-            o.keywordInputType = keywordInputType;
-            o.keywordValue = keywordValue;
-            return o;
+            final var _resultValue = new GetControlControlMappingSourceSourceKeyword();
+            _resultValue.keywordInputType = keywordInputType;
+            _resultValue.keywordValue = keywordValue;
+            return _resultValue;
         }
     }
 }

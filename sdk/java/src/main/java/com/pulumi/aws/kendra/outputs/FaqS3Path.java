@@ -69,10 +69,10 @@ public final class FaqS3Path {
             return this;
         }
         public FaqS3Path build() {
-            final var o = new FaqS3Path();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new FaqS3Path();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

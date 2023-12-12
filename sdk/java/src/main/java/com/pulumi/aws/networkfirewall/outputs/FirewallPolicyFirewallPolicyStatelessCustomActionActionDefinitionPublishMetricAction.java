@@ -50,9 +50,9 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
             return dimensions(List.of(dimensions));
         }
         public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction build() {
-            final var o = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction();
-            o.dimensions = dimensions;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction();
+            _resultValue.dimensions = dimensions;
+            return _resultValue;
         }
     }
 }

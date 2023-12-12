@@ -46,9 +46,9 @@ public final class InputSecurityGroupWhitelistRule {
             return this;
         }
         public InputSecurityGroupWhitelistRule build() {
-            final var o = new InputSecurityGroupWhitelistRule();
-            o.cidr = cidr;
-            return o;
+            final var _resultValue = new InputSecurityGroupWhitelistRule();
+            _resultValue.cidr = cidr;
+            return _resultValue;
         }
     }
 }

@@ -82,11 +82,11 @@ public final class GetQueuesResult {
             return queueUrls(List.of(queueUrls));
         }
         public GetQueuesResult build() {
-            final var o = new GetQueuesResult();
-            o.id = id;
-            o.queueNamePrefix = queueNamePrefix;
-            o.queueUrls = queueUrls;
-            return o;
+            final var _resultValue = new GetQueuesResult();
+            _resultValue.id = id;
+            _resultValue.queueNamePrefix = queueNamePrefix;
+            _resultValue.queueUrls = queueUrls;
+            return _resultValue;
         }
     }
 }

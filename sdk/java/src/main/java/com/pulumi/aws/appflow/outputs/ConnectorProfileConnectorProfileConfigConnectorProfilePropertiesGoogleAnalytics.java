@@ -25,8 +25,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics();
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics();
+            return _resultValue;
         }
     }
 }

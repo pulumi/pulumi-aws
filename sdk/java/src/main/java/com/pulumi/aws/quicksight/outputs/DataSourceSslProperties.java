@@ -46,9 +46,9 @@ public final class DataSourceSslProperties {
             return this;
         }
         public DataSourceSslProperties build() {
-            final var o = new DataSourceSslProperties();
-            o.disableSsl = disableSsl;
-            return o;
+            final var _resultValue = new DataSourceSslProperties();
+            _resultValue.disableSsl = disableSsl;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings();
-            o.outputRectangle = outputRectangle;
-            o.pageNumber = pageNumber;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings();
+            _resultValue.outputRectangle = outputRectangle;
+            _resultValue.pageNumber = pageNumber;
+            return _resultValue;
         }
     }
 }

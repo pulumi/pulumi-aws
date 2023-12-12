@@ -42,9 +42,9 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubje
             return exacts(List.of(exacts));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch();
-            o.exacts = exacts;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch();
+            _resultValue.exacts = exacts;
+            return _resultValue;
         }
     }
 }

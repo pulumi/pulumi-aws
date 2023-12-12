@@ -87,11 +87,11 @@ public final class ClusterSnapshotCopy {
             return this;
         }
         public ClusterSnapshotCopy build() {
-            final var o = new ClusterSnapshotCopy();
-            o.destinationRegion = destinationRegion;
-            o.grantName = grantName;
-            o.retentionPeriod = retentionPeriod;
-            return o;
+            final var _resultValue = new ClusterSnapshotCopy();
+            _resultValue.destinationRegion = destinationRegion;
+            _resultValue.grantName = grantName;
+            _resultValue.retentionPeriod = retentionPeriod;
+            return _resultValue;
         }
     }
 }

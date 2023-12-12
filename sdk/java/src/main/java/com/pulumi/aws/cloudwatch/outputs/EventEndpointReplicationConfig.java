@@ -48,9 +48,9 @@ public final class EventEndpointReplicationConfig {
             return this;
         }
         public EventEndpointReplicationConfig build() {
-            final var o = new EventEndpointReplicationConfig();
-            o.state = state;
-            return o;
+            final var _resultValue = new EventEndpointReplicationConfig();
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class ClusterServerSideEncryption {
             return this;
         }
         public ClusterServerSideEncryption build() {
-            final var o = new ClusterServerSideEncryption();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ClusterServerSideEncryption();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

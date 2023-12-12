@@ -46,9 +46,9 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace 
             return this;
         }
         public WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace();
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace();
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

@@ -77,11 +77,11 @@ public final class OpenZfsVolumeUserAndGroupQuota {
             return this;
         }
         public OpenZfsVolumeUserAndGroupQuota build() {
-            final var o = new OpenZfsVolumeUserAndGroupQuota();
-            o.id = id;
-            o.storageCapacityQuotaGib = storageCapacityQuotaGib;
-            o.type = type;
-            return o;
+            final var _resultValue = new OpenZfsVolumeUserAndGroupQuota();
+            _resultValue.id = id;
+            _resultValue.storageCapacityQuotaGib = storageCapacityQuotaGib;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -169,16 +169,16 @@ public final class GetQuickConnectResult {
             return this;
         }
         public GetQuickConnectResult build() {
-            final var o = new GetQuickConnectResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.quickConnectConfigs = quickConnectConfigs;
-            o.quickConnectId = quickConnectId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetQuickConnectResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.quickConnectConfigs = quickConnectConfigs;
+            _resultValue.quickConnectId = quickConnectId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

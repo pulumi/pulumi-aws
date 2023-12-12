@@ -71,10 +71,10 @@ public final class ContinuousDeploymentPolicyStagingDistributionDnsNames {
             return this;
         }
         public ContinuousDeploymentPolicyStagingDistributionDnsNames build() {
-            final var o = new ContinuousDeploymentPolicyStagingDistributionDnsNames();
-            o.items = items;
-            o.quantity = quantity;
-            return o;
+            final var _resultValue = new ContinuousDeploymentPolicyStagingDistributionDnsNames();
+            _resultValue.items = items;
+            _resultValue.quantity = quantity;
+            return _resultValue;
         }
     }
 }

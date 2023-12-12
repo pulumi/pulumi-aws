@@ -91,11 +91,11 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfig 
             return this;
         }
         public LoggingConfigurationLoggingConfigurationLogDestinationConfig build() {
-            final var o = new LoggingConfigurationLoggingConfigurationLogDestinationConfig();
-            o.logDestination = logDestination;
-            o.logDestinationType = logDestinationType;
-            o.logType = logType;
-            return o;
+            final var _resultValue = new LoggingConfigurationLoggingConfigurationLogDestinationConfig();
+            _resultValue.logDestination = logDestination;
+            _resultValue.logDestinationType = logDestinationType;
+            _resultValue.logType = logType;
+            return _resultValue;
         }
     }
 }

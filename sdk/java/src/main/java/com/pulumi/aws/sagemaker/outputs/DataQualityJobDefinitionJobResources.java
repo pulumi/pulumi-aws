@@ -46,9 +46,9 @@ public final class DataQualityJobDefinitionJobResources {
             return this;
         }
         public DataQualityJobDefinitionJobResources build() {
-            final var o = new DataQualityJobDefinitionJobResources();
-            o.clusterConfig = clusterConfig;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionJobResources();
+            _resultValue.clusterConfig = clusterConfig;
+            return _resultValue;
         }
     }
 }

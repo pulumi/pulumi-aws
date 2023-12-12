@@ -72,10 +72,10 @@ public final class WorkspaceNetworkAccessControl {
             return vpceIds(List.of(vpceIds));
         }
         public WorkspaceNetworkAccessControl build() {
-            final var o = new WorkspaceNetworkAccessControl();
-            o.prefixListIds = prefixListIds;
-            o.vpceIds = vpceIds;
-            return o;
+            final var _resultValue = new WorkspaceNetworkAccessControl();
+            _resultValue.prefixListIds = prefixListIds;
+            _resultValue.vpceIds = vpceIds;
+            return _resultValue;
         }
     }
 }

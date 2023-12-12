@@ -128,13 +128,13 @@ public final class PipeTargetParametersEventbridgeEventBusParameters {
             return this;
         }
         public PipeTargetParametersEventbridgeEventBusParameters build() {
-            final var o = new PipeTargetParametersEventbridgeEventBusParameters();
-            o.detailType = detailType;
-            o.endpointId = endpointId;
-            o.resources = resources;
-            o.source = source;
-            o.time = time;
-            return o;
+            final var _resultValue = new PipeTargetParametersEventbridgeEventBusParameters();
+            _resultValue.detailType = detailType;
+            _resultValue.endpointId = endpointId;
+            _resultValue.resources = resources;
+            _resultValue.source = source;
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

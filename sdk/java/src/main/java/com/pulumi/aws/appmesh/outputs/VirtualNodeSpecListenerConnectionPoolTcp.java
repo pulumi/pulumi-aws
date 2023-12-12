@@ -46,9 +46,9 @@ public final class VirtualNodeSpecListenerConnectionPoolTcp {
             return this;
         }
         public VirtualNodeSpecListenerConnectionPoolTcp build() {
-            final var o = new VirtualNodeSpecListenerConnectionPoolTcp();
-            o.maxConnections = maxConnections;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerConnectionPoolTcp();
+            _resultValue.maxConnections = maxConnections;
+            return _resultValue;
         }
     }
 }

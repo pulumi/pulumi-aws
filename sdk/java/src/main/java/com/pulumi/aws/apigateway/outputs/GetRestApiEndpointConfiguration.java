@@ -56,10 +56,10 @@ public final class GetRestApiEndpointConfiguration {
             return vpcEndpointIds(List.of(vpcEndpointIds));
         }
         public GetRestApiEndpointConfiguration build() {
-            final var o = new GetRestApiEndpointConfiguration();
-            o.types = types;
-            o.vpcEndpointIds = vpcEndpointIds;
-            return o;
+            final var _resultValue = new GetRestApiEndpointConfiguration();
+            _resultValue.types = types;
+            _resultValue.vpcEndpointIds = vpcEndpointIds;
+            return _resultValue;
         }
     }
 }

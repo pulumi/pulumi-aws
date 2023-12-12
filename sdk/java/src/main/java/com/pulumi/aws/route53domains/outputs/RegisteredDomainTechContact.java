@@ -296,22 +296,22 @@ public final class RegisteredDomainTechContact {
             return this;
         }
         public RegisteredDomainTechContact build() {
-            final var o = new RegisteredDomainTechContact();
-            o.addressLine1 = addressLine1;
-            o.addressLine2 = addressLine2;
-            o.city = city;
-            o.contactType = contactType;
-            o.countryCode = countryCode;
-            o.email = email;
-            o.extraParams = extraParams;
-            o.fax = fax;
-            o.firstName = firstName;
-            o.lastName = lastName;
-            o.organizationName = organizationName;
-            o.phoneNumber = phoneNumber;
-            o.state = state;
-            o.zipCode = zipCode;
-            return o;
+            final var _resultValue = new RegisteredDomainTechContact();
+            _resultValue.addressLine1 = addressLine1;
+            _resultValue.addressLine2 = addressLine2;
+            _resultValue.city = city;
+            _resultValue.contactType = contactType;
+            _resultValue.countryCode = countryCode;
+            _resultValue.email = email;
+            _resultValue.extraParams = extraParams;
+            _resultValue.fax = fax;
+            _resultValue.firstName = firstName;
+            _resultValue.lastName = lastName;
+            _resultValue.organizationName = organizationName;
+            _resultValue.phoneNumber = phoneNumber;
+            _resultValue.state = state;
+            _resultValue.zipCode = zipCode;
+            return _resultValue;
         }
     }
 }

@@ -99,11 +99,11 @@ public final class FleetNetwork {
             return this;
         }
         public FleetNetwork build() {
-            final var o = new FleetNetwork();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new FleetNetwork();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

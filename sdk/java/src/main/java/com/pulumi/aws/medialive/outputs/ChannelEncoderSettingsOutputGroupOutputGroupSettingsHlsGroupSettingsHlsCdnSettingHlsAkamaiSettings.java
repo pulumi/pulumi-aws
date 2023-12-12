@@ -131,15 +131,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings();
-            o.connectionRetryInterval = connectionRetryInterval;
-            o.filecacheDuration = filecacheDuration;
-            o.httpTransferMode = httpTransferMode;
-            o.numRetries = numRetries;
-            o.restartDelay = restartDelay;
-            o.salt = salt;
-            o.token = token;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings();
+            _resultValue.connectionRetryInterval = connectionRetryInterval;
+            _resultValue.filecacheDuration = filecacheDuration;
+            _resultValue.httpTransferMode = httpTransferMode;
+            _resultValue.numRetries = numRetries;
+            _resultValue.restartDelay = restartDelay;
+            _resultValue.salt = salt;
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileL
             return this;
         }
         public WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation build() {
-            final var o = new WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation();
-            o.fileSystemId = fileSystemId;
-            o.path = path;
-            return o;
+            final var _resultValue = new WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation();
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

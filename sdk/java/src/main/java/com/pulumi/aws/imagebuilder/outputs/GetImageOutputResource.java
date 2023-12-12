@@ -73,10 +73,10 @@ public final class GetImageOutputResource {
             return containers(List.of(containers));
         }
         public GetImageOutputResource build() {
-            final var o = new GetImageOutputResource();
-            o.amis = amis;
-            o.containers = containers;
-            return o;
+            final var _resultValue = new GetImageOutputResource();
+            _resultValue.amis = amis;
+            _resultValue.containers = containers;
+            return _resultValue;
         }
     }
 }

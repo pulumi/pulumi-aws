@@ -113,10 +113,10 @@ public final class UserHomeDirectoryMapping {
             return this;
         }
         public UserHomeDirectoryMapping build() {
-            final var o = new UserHomeDirectoryMapping();
-            o.entry = entry;
-            o.target = target;
-            return o;
+            final var _resultValue = new UserHomeDirectoryMapping();
+            _resultValue.entry = entry;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

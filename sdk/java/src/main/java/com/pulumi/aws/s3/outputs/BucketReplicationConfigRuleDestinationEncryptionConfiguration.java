@@ -46,9 +46,9 @@ public final class BucketReplicationConfigRuleDestinationEncryptionConfiguration
             return this;
         }
         public BucketReplicationConfigRuleDestinationEncryptionConfiguration build() {
-            final var o = new BucketReplicationConfigRuleDestinationEncryptionConfiguration();
-            o.replicaKmsKeyId = replicaKmsKeyId;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleDestinationEncryptionConfiguration();
+            _resultValue.replicaKmsKeyId = replicaKmsKeyId;
+            return _resultValue;
         }
     }
 }

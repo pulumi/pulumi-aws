@@ -217,17 +217,17 @@ public final class GetSlotTypeResult {
             return this;
         }
         public GetSlotTypeResult build() {
-            final var o = new GetSlotTypeResult();
-            o.checksum = checksum;
-            o.createdDate = createdDate;
-            o.description = description;
-            o.enumerationValues = enumerationValues;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.name = name;
-            o.valueSelectionStrategy = valueSelectionStrategy;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetSlotTypeResult();
+            _resultValue.checksum = checksum;
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.enumerationValues = enumerationValues;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.name = name;
+            _resultValue.valueSelectionStrategy = valueSelectionStrategy;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

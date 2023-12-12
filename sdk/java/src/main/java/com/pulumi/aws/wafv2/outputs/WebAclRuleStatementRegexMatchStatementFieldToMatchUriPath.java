@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath {
         }
 
         public WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath build() {
-            final var o = new WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath();
+            return _resultValue;
         }
     }
 }

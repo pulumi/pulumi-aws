@@ -191,16 +191,16 @@ public final class ListenerDefaultAction {
             return this;
         }
         public ListenerDefaultAction build() {
-            final var o = new ListenerDefaultAction();
-            o.authenticateCognito = authenticateCognito;
-            o.authenticateOidc = authenticateOidc;
-            o.fixedResponse = fixedResponse;
-            o.forward = forward;
-            o.order = order;
-            o.redirect = redirect;
-            o.targetGroupArn = targetGroupArn;
-            o.type = type;
-            return o;
+            final var _resultValue = new ListenerDefaultAction();
+            _resultValue.authenticateCognito = authenticateCognito;
+            _resultValue.authenticateOidc = authenticateOidc;
+            _resultValue.fixedResponse = fixedResponse;
+            _resultValue.forward = forward;
+            _resultValue.order = order;
+            _resultValue.redirect = redirect;
+            _resultValue.targetGroupArn = targetGroupArn;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

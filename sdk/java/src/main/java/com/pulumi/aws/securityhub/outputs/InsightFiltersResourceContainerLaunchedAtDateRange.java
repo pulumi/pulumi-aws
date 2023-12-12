@@ -66,10 +66,10 @@ public final class InsightFiltersResourceContainerLaunchedAtDateRange {
             return this;
         }
         public InsightFiltersResourceContainerLaunchedAtDateRange build() {
-            final var o = new InsightFiltersResourceContainerLaunchedAtDateRange();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceContainerLaunchedAtDateRange();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

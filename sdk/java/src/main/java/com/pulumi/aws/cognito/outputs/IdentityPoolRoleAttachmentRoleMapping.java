@@ -110,12 +110,12 @@ public final class IdentityPoolRoleAttachmentRoleMapping {
             return this;
         }
         public IdentityPoolRoleAttachmentRoleMapping build() {
-            final var o = new IdentityPoolRoleAttachmentRoleMapping();
-            o.ambiguousRoleResolution = ambiguousRoleResolution;
-            o.identityProvider = identityProvider;
-            o.mappingRules = mappingRules;
-            o.type = type;
-            return o;
+            final var _resultValue = new IdentityPoolRoleAttachmentRoleMapping();
+            _resultValue.ambiguousRoleResolution = ambiguousRoleResolution;
+            _resultValue.identityProvider = identityProvider;
+            _resultValue.mappingRules = mappingRules;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

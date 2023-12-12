@@ -67,10 +67,10 @@ public final class SharedDirectoryTarget {
             return this;
         }
         public SharedDirectoryTarget build() {
-            final var o = new SharedDirectoryTarget();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new SharedDirectoryTarget();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -222,18 +222,18 @@ public final class MethodSettingsSettings {
             return this;
         }
         public MethodSettingsSettings build() {
-            final var o = new MethodSettingsSettings();
-            o.cacheDataEncrypted = cacheDataEncrypted;
-            o.cacheTtlInSeconds = cacheTtlInSeconds;
-            o.cachingEnabled = cachingEnabled;
-            o.dataTraceEnabled = dataTraceEnabled;
-            o.loggingLevel = loggingLevel;
-            o.metricsEnabled = metricsEnabled;
-            o.requireAuthorizationForCacheControl = requireAuthorizationForCacheControl;
-            o.throttlingBurstLimit = throttlingBurstLimit;
-            o.throttlingRateLimit = throttlingRateLimit;
-            o.unauthorizedCacheControlHeaderStrategy = unauthorizedCacheControlHeaderStrategy;
-            return o;
+            final var _resultValue = new MethodSettingsSettings();
+            _resultValue.cacheDataEncrypted = cacheDataEncrypted;
+            _resultValue.cacheTtlInSeconds = cacheTtlInSeconds;
+            _resultValue.cachingEnabled = cachingEnabled;
+            _resultValue.dataTraceEnabled = dataTraceEnabled;
+            _resultValue.loggingLevel = loggingLevel;
+            _resultValue.metricsEnabled = metricsEnabled;
+            _resultValue.requireAuthorizationForCacheControl = requireAuthorizationForCacheControl;
+            _resultValue.throttlingBurstLimit = throttlingBurstLimit;
+            _resultValue.throttlingRateLimit = throttlingRateLimit;
+            _resultValue.unauthorizedCacheControlHeaderStrategy = unauthorizedCacheControlHeaderStrategy;
+            return _resultValue;
         }
     }
 }

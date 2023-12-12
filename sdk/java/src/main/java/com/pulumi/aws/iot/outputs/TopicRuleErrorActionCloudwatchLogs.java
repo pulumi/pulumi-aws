@@ -65,10 +65,10 @@ public final class TopicRuleErrorActionCloudwatchLogs {
             return this;
         }
         public TopicRuleErrorActionCloudwatchLogs build() {
-            final var o = new TopicRuleErrorActionCloudwatchLogs();
-            o.logGroupName = logGroupName;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionCloudwatchLogs();
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

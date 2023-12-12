@@ -46,9 +46,9 @@ public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkCo
             return this;
         }
         public MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration();
-            o.insightsTarget = insightsTarget;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration();
+            _resultValue.insightsTarget = insightsTarget;
+            return _resultValue;
         }
     }
 }

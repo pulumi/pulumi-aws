@@ -72,10 +72,10 @@ public final class WorkspaceVpcConfiguration {
             return subnetIds(List.of(subnetIds));
         }
         public WorkspaceVpcConfiguration build() {
-            final var o = new WorkspaceVpcConfiguration();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new WorkspaceVpcConfiguration();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

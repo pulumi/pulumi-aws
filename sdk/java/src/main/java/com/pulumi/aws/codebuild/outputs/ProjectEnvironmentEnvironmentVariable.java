@@ -86,11 +86,11 @@ public final class ProjectEnvironmentEnvironmentVariable {
             return this;
         }
         public ProjectEnvironmentEnvironmentVariable build() {
-            final var o = new ProjectEnvironmentEnvironmentVariable();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new ProjectEnvironmentEnvironmentVariable();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

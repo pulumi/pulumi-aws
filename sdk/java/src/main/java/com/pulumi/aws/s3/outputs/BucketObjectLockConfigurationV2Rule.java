@@ -46,9 +46,9 @@ public final class BucketObjectLockConfigurationV2Rule {
             return this;
         }
         public BucketObjectLockConfigurationV2Rule build() {
-            final var o = new BucketObjectLockConfigurationV2Rule();
-            o.defaultRetention = defaultRetention;
-            return o;
+            final var _resultValue = new BucketObjectLockConfigurationV2Rule();
+            _resultValue.defaultRetention = defaultRetention;
+            return _resultValue;
         }
     }
 }

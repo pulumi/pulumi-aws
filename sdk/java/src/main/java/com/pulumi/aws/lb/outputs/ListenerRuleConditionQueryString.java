@@ -67,10 +67,10 @@ public final class ListenerRuleConditionQueryString {
             return this;
         }
         public ListenerRuleConditionQueryString build() {
-            final var o = new ListenerRuleConditionQueryString();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new ListenerRuleConditionQueryString();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetBudgetAutoAdjustDataHistoricalOption {
             return this;
         }
         public GetBudgetAutoAdjustDataHistoricalOption build() {
-            final var o = new GetBudgetAutoAdjustDataHistoricalOption();
-            o.budgetAdjustmentPeriod = budgetAdjustmentPeriod;
-            o.lookbackAvailablePeriods = lookbackAvailablePeriods;
-            return o;
+            final var _resultValue = new GetBudgetAutoAdjustDataHistoricalOption();
+            _resultValue.budgetAdjustmentPeriod = budgetAdjustmentPeriod;
+            _resultValue.lookbackAvailablePeriods = lookbackAvailablePeriods;
+            return _resultValue;
         }
     }
 }

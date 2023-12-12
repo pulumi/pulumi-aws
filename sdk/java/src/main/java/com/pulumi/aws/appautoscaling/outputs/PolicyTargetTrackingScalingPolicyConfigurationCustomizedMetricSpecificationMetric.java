@@ -126,13 +126,13 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
             return this;
         }
         public PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric build() {
-            final var o = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric();
-            o.expression = expression;
-            o.id = id;
-            o.label = label;
-            o.metricStat = metricStat;
-            o.returnData = returnData;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric();
+            _resultValue.expression = expression;
+            _resultValue.id = id;
+            _resultValue.label = label;
+            _resultValue.metricStat = metricStat;
+            _resultValue.returnData = returnData;
+            return _resultValue;
         }
     }
 }

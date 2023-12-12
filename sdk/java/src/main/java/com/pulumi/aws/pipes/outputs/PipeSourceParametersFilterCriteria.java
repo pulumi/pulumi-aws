@@ -51,9 +51,9 @@ public final class PipeSourceParametersFilterCriteria {
             return filters(List.of(filters));
         }
         public PipeSourceParametersFilterCriteria build() {
-            final var o = new PipeSourceParametersFilterCriteria();
-            o.filters = filters;
-            return o;
+            final var _resultValue = new PipeSourceParametersFilterCriteria();
+            _resultValue.filters = filters;
+            return _resultValue;
         }
     }
 }

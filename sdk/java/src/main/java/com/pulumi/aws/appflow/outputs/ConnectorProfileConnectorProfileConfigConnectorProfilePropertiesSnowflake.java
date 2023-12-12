@@ -162,15 +162,15 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake();
-            o.accountName = accountName;
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.privateLinkServiceName = privateLinkServiceName;
-            o.region = region;
-            o.stage = stage;
-            o.warehouse = warehouse;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake();
+            _resultValue.accountName = accountName;
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.privateLinkServiceName = privateLinkServiceName;
+            _resultValue.region = region;
+            _resultValue.stage = stage;
+            _resultValue.warehouse = warehouse;
+            return _resultValue;
         }
     }
 }

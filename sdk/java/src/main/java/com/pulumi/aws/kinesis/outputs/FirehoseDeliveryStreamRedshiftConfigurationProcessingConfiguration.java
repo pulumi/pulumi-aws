@@ -72,10 +72,10 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigur
             return processors(List.of(processors));
         }
         public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration build() {
-            final var o = new FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration();
-            o.enabled = enabled;
-            o.processors = processors;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.processors = processors;
+            return _resultValue;
         }
     }
 }

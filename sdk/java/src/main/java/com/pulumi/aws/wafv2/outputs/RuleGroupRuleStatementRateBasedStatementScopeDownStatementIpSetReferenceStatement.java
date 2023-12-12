@@ -68,10 +68,10 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpS
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement();
-            o.arn = arn;
-            o.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement();
+            _resultValue.arn = arn;
+            _resultValue.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
+            return _resultValue;
         }
     }
 }

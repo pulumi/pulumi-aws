@@ -65,10 +65,10 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
             return this;
         }
         public ServiceSourceConfigurationCodeRepositorySourceCodeVersion build() {
-            final var o = new ServiceSourceConfigurationCodeRepositorySourceCodeVersion();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new ServiceSourceConfigurationCodeRepositorySourceCodeVersion();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

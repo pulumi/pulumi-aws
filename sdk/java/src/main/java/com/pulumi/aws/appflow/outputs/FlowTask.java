@@ -133,13 +133,13 @@ public final class FlowTask {
             return this;
         }
         public FlowTask build() {
-            final var o = new FlowTask();
-            o.connectorOperators = connectorOperators;
-            o.destinationField = destinationField;
-            o.sourceFields = sourceFields;
-            o.taskProperties = taskProperties;
-            o.taskType = taskType;
-            return o;
+            final var _resultValue = new FlowTask();
+            _resultValue.connectorOperators = connectorOperators;
+            _resultValue.destinationField = destinationField;
+            _resultValue.sourceFields = sourceFields;
+            _resultValue.taskProperties = taskProperties;
+            _resultValue.taskType = taskType;
+            return _resultValue;
         }
     }
 }

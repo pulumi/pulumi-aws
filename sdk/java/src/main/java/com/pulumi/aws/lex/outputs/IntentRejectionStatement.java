@@ -80,10 +80,10 @@ public final class IntentRejectionStatement {
             return this;
         }
         public IntentRejectionStatement build() {
-            final var o = new IntentRejectionStatement();
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new IntentRejectionStatement();
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

@@ -117,12 +117,12 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
             return userIds(List.of(userIds));
         }
         public DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission build() {
-            final var o = new DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission();
-            o.organizationArns = organizationArns;
-            o.organizationalUnitArns = organizationalUnitArns;
-            o.userGroups = userGroups;
-            o.userIds = userIds;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission();
+            _resultValue.organizationArns = organizationArns;
+            _resultValue.organizationalUnitArns = organizationalUnitArns;
+            _resultValue.userGroups = userGroups;
+            _resultValue.userIds = userIds;
+            return _resultValue;
         }
     }
 }

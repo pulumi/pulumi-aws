@@ -66,10 +66,10 @@ public final class GetResponseHeadersPolicyServerTimingHeadersConfig {
             return this;
         }
         public GetResponseHeadersPolicyServerTimingHeadersConfig build() {
-            final var o = new GetResponseHeadersPolicyServerTimingHeadersConfig();
-            o.enabled = enabled;
-            o.samplingRate = samplingRate;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicyServerTimingHeadersConfig();
+            _resultValue.enabled = enabled;
+            _resultValue.samplingRate = samplingRate;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class ApplicationInitialCapacityInitialCapacityConfig {
             return this;
         }
         public ApplicationInitialCapacityInitialCapacityConfig build() {
-            final var o = new ApplicationInitialCapacityInitialCapacityConfig();
-            o.workerConfiguration = workerConfiguration;
-            o.workerCount = workerCount;
-            return o;
+            final var _resultValue = new ApplicationInitialCapacityInitialCapacityConfig();
+            _resultValue.workerConfiguration = workerConfiguration;
+            _resultValue.workerCount = workerCount;
+            return _resultValue;
         }
     }
 }

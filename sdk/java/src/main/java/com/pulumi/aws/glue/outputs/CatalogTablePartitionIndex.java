@@ -82,11 +82,11 @@ public final class CatalogTablePartitionIndex {
             return keys(List.of(keys));
         }
         public CatalogTablePartitionIndex build() {
-            final var o = new CatalogTablePartitionIndex();
-            o.indexName = indexName;
-            o.indexStatus = indexStatus;
-            o.keys = keys;
-            return o;
+            final var _resultValue = new CatalogTablePartitionIndex();
+            _resultValue.indexName = indexName;
+            _resultValue.indexStatus = indexStatus;
+            _resultValue.keys = keys;
+            return _resultValue;
         }
     }
 }

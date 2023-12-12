@@ -68,10 +68,10 @@ public final class BucketV2ReplicationConfigurationRuleDestinationReplicationTim
             return this;
         }
         public BucketV2ReplicationConfigurationRuleDestinationReplicationTime build() {
-            final var o = new BucketV2ReplicationConfigurationRuleDestinationReplicationTime();
-            o.minutes = minutes;
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketV2ReplicationConfigurationRuleDestinationReplicationTime();
+            _resultValue.minutes = minutes;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

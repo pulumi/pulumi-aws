@@ -56,10 +56,10 @@ public final class ModelVpcConfig {
             return subnets(List.of(subnets));
         }
         public ModelVpcConfig build() {
-            final var o = new ModelVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new ModelVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

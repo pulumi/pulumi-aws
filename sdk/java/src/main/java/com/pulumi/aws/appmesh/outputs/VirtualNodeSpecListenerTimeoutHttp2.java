@@ -68,10 +68,10 @@ public final class VirtualNodeSpecListenerTimeoutHttp2 {
             return this;
         }
         public VirtualNodeSpecListenerTimeoutHttp2 build() {
-            final var o = new VirtualNodeSpecListenerTimeoutHttp2();
-            o.idle = idle;
-            o.perRequest = perRequest;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTimeoutHttp2();
+            _resultValue.idle = idle;
+            _resultValue.perRequest = perRequest;
+            return _resultValue;
         }
     }
 }

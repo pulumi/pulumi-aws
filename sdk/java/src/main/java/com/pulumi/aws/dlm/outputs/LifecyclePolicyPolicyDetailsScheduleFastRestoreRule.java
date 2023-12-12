@@ -110,12 +110,12 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleFastRestoreRule build() {
-            final var o = new LifecyclePolicyPolicyDetailsScheduleFastRestoreRule();
-            o.availabilityZones = availabilityZones;
-            o.count = count;
-            o.interval = interval;
-            o.intervalUnit = intervalUnit;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsScheduleFastRestoreRule();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            _resultValue.intervalUnit = intervalUnit;
+            return _resultValue;
         }
     }
 }

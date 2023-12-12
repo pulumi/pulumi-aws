@@ -46,9 +46,9 @@ public final class ConnectorKafkaCluster {
             return this;
         }
         public ConnectorKafkaCluster build() {
-            final var o = new ConnectorKafkaCluster();
-            o.apacheKafkaCluster = apacheKafkaCluster;
-            return o;
+            final var _resultValue = new ConnectorKafkaCluster();
+            _resultValue.apacheKafkaCluster = apacheKafkaCluster;
+            return _resultValue;
         }
     }
 }

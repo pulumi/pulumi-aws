@@ -114,13 +114,13 @@ public final class GetConnectorResult {
             return this;
         }
         public GetConnectorResult build() {
-            final var o = new GetConnectorResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetConnectorResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

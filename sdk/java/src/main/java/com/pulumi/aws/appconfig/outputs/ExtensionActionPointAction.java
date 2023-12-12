@@ -105,12 +105,12 @@ public final class ExtensionActionPointAction {
             return this;
         }
         public ExtensionActionPointAction build() {
-            final var o = new ExtensionActionPointAction();
-            o.description = description;
-            o.name = name;
-            o.roleArn = roleArn;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new ExtensionActionPointAction();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.roleArn = roleArn;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

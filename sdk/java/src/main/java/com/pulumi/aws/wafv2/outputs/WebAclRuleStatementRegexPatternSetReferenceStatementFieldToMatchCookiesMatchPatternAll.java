@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
         }
 
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll();
+            return _resultValue;
         }
     }
 }

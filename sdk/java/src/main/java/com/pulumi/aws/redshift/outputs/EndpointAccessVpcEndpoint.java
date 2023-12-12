@@ -91,11 +91,11 @@ public final class EndpointAccessVpcEndpoint {
             return this;
         }
         public EndpointAccessVpcEndpoint build() {
-            final var o = new EndpointAccessVpcEndpoint();
-            o.networkInterfaces = networkInterfaces;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new EndpointAccessVpcEndpoint();
+            _resultValue.networkInterfaces = networkInterfaces;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

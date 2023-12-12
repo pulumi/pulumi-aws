@@ -65,10 +65,10 @@ public final class GetImagePipelineSchedule {
             return this;
         }
         public GetImagePipelineSchedule build() {
-            final var o = new GetImagePipelineSchedule();
-            o.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
-            o.scheduleExpression = scheduleExpression;
-            return o;
+            final var _resultValue = new GetImagePipelineSchedule();
+            _resultValue.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
+            _resultValue.scheduleExpression = scheduleExpression;
+            return _resultValue;
         }
     }
 }

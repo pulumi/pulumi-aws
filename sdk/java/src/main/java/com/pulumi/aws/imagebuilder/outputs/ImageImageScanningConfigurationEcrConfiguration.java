@@ -71,10 +71,10 @@ public final class ImageImageScanningConfigurationEcrConfiguration {
             return this;
         }
         public ImageImageScanningConfigurationEcrConfiguration build() {
-            final var o = new ImageImageScanningConfigurationEcrConfiguration();
-            o.containerTags = containerTags;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new ImageImageScanningConfigurationEcrConfiguration();
+            _resultValue.containerTags = containerTags;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

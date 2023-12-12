@@ -49,10 +49,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSou
             return this;
         }
         public GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange build() {
-            final var o = new GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

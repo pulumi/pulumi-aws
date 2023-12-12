@@ -106,12 +106,12 @@ public final class LocationFsxOntapFileSystemProtocolSmb {
             return this;
         }
         public LocationFsxOntapFileSystemProtocolSmb build() {
-            final var o = new LocationFsxOntapFileSystemProtocolSmb();
-            o.domain = domain;
-            o.mountOptions = mountOptions;
-            o.password = password;
-            o.user = user;
-            return o;
+            final var _resultValue = new LocationFsxOntapFileSystemProtocolSmb();
+            _resultValue.domain = domain;
+            _resultValue.mountOptions = mountOptions;
+            _resultValue.password = password;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

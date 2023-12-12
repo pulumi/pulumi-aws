@@ -203,17 +203,17 @@ public final class GetResponseHeadersPolicyResult {
             return serverTimingHeadersConfigs(List.of(serverTimingHeadersConfigs));
         }
         public GetResponseHeadersPolicyResult build() {
-            final var o = new GetResponseHeadersPolicyResult();
-            o.comment = comment;
-            o.corsConfigs = corsConfigs;
-            o.customHeadersConfigs = customHeadersConfigs;
-            o.etag = etag;
-            o.id = id;
-            o.name = name;
-            o.removeHeadersConfigs = removeHeadersConfigs;
-            o.securityHeadersConfigs = securityHeadersConfigs;
-            o.serverTimingHeadersConfigs = serverTimingHeadersConfigs;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicyResult();
+            _resultValue.comment = comment;
+            _resultValue.corsConfigs = corsConfigs;
+            _resultValue.customHeadersConfigs = customHeadersConfigs;
+            _resultValue.etag = etag;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.removeHeadersConfigs = removeHeadersConfigs;
+            _resultValue.securityHeadersConfigs = securityHeadersConfigs;
+            _resultValue.serverTimingHeadersConfigs = serverTimingHeadersConfigs;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class BucketReplicationConfigRuleDestinationMetrics {
             return this;
         }
         public BucketReplicationConfigRuleDestinationMetrics build() {
-            final var o = new BucketReplicationConfigRuleDestinationMetrics();
-            o.eventThreshold = eventThreshold;
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleDestinationMetrics();
+            _resultValue.eventThreshold = eventThreshold;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

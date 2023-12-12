@@ -46,9 +46,9 @@ public final class GatewayRouteSpecGrpcRouteActionTargetVirtualService {
             return this;
         }
         public GatewayRouteSpecGrpcRouteActionTargetVirtualService build() {
-            final var o = new GatewayRouteSpecGrpcRouteActionTargetVirtualService();
-            o.virtualServiceName = virtualServiceName;
-            return o;
+            final var _resultValue = new GatewayRouteSpecGrpcRouteActionTargetVirtualService();
+            _resultValue.virtualServiceName = virtualServiceName;
+            return _resultValue;
         }
     }
 }

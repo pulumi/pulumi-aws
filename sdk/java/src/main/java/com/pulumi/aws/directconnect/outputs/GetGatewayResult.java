@@ -95,12 +95,12 @@ public final class GetGatewayResult {
             return this;
         }
         public GetGatewayResult build() {
-            final var o = new GetGatewayResult();
-            o.amazonSideAsn = amazonSideAsn;
-            o.id = id;
-            o.name = name;
-            o.ownerAccountId = ownerAccountId;
-            return o;
+            final var _resultValue = new GetGatewayResult();
+            _resultValue.amazonSideAsn = amazonSideAsn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.ownerAccountId = ownerAccountId;
+            return _resultValue;
         }
     }
 }

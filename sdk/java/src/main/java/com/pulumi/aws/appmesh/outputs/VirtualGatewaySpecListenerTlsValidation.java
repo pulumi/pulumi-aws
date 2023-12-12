@@ -68,10 +68,10 @@ public final class VirtualGatewaySpecListenerTlsValidation {
             return this;
         }
         public VirtualGatewaySpecListenerTlsValidation build() {
-            final var o = new VirtualGatewaySpecListenerTlsValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trust = trust;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerTlsValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trust = trust;
+            return _resultValue;
         }
     }
 }

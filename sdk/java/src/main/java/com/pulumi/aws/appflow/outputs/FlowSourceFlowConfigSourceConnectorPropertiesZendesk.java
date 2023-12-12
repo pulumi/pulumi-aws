@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesZendesk {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesZendesk build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesZendesk();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesZendesk();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

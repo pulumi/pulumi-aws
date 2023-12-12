@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespa
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace();
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace();
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

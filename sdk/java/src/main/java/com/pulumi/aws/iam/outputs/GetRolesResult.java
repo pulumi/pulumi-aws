@@ -115,13 +115,13 @@ public final class GetRolesResult {
             return this;
         }
         public GetRolesResult build() {
-            final var o = new GetRolesResult();
-            o.arns = arns;
-            o.id = id;
-            o.nameRegex = nameRegex;
-            o.names = names;
-            o.pathPrefix = pathPrefix;
-            return o;
+            final var _resultValue = new GetRolesResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.nameRegex = nameRegex;
+            _resultValue.names = names;
+            _resultValue.pathPrefix = pathPrefix;
+            return _resultValue;
         }
     }
 }

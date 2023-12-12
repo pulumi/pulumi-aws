@@ -65,10 +65,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
             return this;
         }
         public GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount build() {
-            final var o = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

@@ -51,10 +51,10 @@ public final class NetworkInsightsAnalysisForwardPathComponentAclRulePortRange {
             return this;
         }
         public NetworkInsightsAnalysisForwardPathComponentAclRulePortRange build() {
-            final var o = new NetworkInsightsAnalysisForwardPathComponentAclRulePortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisForwardPathComponentAclRulePortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

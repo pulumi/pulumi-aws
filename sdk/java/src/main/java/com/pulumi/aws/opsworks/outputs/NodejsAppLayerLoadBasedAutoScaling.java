@@ -64,11 +64,11 @@ public final class NodejsAppLayerLoadBasedAutoScaling {
             return this;
         }
         public NodejsAppLayerLoadBasedAutoScaling build() {
-            final var o = new NodejsAppLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new NodejsAppLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

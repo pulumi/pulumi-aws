@@ -99,13 +99,13 @@ public final class GetRouteSpec {
             return tcpRoutes(List.of(tcpRoutes));
         }
         public GetRouteSpec build() {
-            final var o = new GetRouteSpec();
-            o.grpcRoutes = grpcRoutes;
-            o.http2Routes = http2Routes;
-            o.httpRoutes = httpRoutes;
-            o.priority = priority;
-            o.tcpRoutes = tcpRoutes;
-            return o;
+            final var _resultValue = new GetRouteSpec();
+            _resultValue.grpcRoutes = grpcRoutes;
+            _resultValue.http2Routes = http2Routes;
+            _resultValue.httpRoutes = httpRoutes;
+            _resultValue.priority = priority;
+            _resultValue.tcpRoutes = tcpRoutes;
+            return _resultValue;
         }
     }
 }

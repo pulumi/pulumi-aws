@@ -91,11 +91,11 @@ public final class GetInstancesResult {
             return identityStoreIds(List.of(identityStoreIds));
         }
         public GetInstancesResult build() {
-            final var o = new GetInstancesResult();
-            o.arns = arns;
-            o.id = id;
-            o.identityStoreIds = identityStoreIds;
-            return o;
+            final var _resultValue = new GetInstancesResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.identityStoreIds = identityStoreIds;
+            return _resultValue;
         }
     }
 }

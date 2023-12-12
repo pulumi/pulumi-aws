@@ -50,9 +50,9 @@ public final class WebAclRuleStatementNotStatement {
             return statements(List.of(statements));
         }
         public WebAclRuleStatementNotStatement build() {
-            final var o = new WebAclRuleStatementNotStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new WebAclRuleStatementNotStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

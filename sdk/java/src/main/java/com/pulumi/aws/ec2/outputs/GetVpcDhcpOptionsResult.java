@@ -244,19 +244,19 @@ public final class GetVpcDhcpOptionsResult {
             return this;
         }
         public GetVpcDhcpOptionsResult build() {
-            final var o = new GetVpcDhcpOptionsResult();
-            o.arn = arn;
-            o.dhcpOptionsId = dhcpOptionsId;
-            o.domainName = domainName;
-            o.domainNameServers = domainNameServers;
-            o.filters = filters;
-            o.id = id;
-            o.netbiosNameServers = netbiosNameServers;
-            o.netbiosNodeType = netbiosNodeType;
-            o.ntpServers = ntpServers;
-            o.ownerId = ownerId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetVpcDhcpOptionsResult();
+            _resultValue.arn = arn;
+            _resultValue.dhcpOptionsId = dhcpOptionsId;
+            _resultValue.domainName = domainName;
+            _resultValue.domainNameServers = domainNameServers;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.netbiosNameServers = netbiosNameServers;
+            _resultValue.netbiosNodeType = netbiosNodeType;
+            _resultValue.ntpServers = ntpServers;
+            _resultValue.ownerId = ownerId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

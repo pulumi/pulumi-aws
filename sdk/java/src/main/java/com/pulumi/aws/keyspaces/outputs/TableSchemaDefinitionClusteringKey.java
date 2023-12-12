@@ -65,10 +65,10 @@ public final class TableSchemaDefinitionClusteringKey {
             return this;
         }
         public TableSchemaDefinitionClusteringKey build() {
-            final var o = new TableSchemaDefinitionClusteringKey();
-            o.name = name;
-            o.orderBy = orderBy;
-            return o;
+            final var _resultValue = new TableSchemaDefinitionClusteringKey();
+            _resultValue.name = name;
+            _resultValue.orderBy = orderBy;
+            return _resultValue;
         }
     }
 }

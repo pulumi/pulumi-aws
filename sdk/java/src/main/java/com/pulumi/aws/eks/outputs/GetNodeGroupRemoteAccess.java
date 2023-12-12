@@ -69,10 +69,10 @@ public final class GetNodeGroupRemoteAccess {
             return sourceSecurityGroupIds(List.of(sourceSecurityGroupIds));
         }
         public GetNodeGroupRemoteAccess build() {
-            final var o = new GetNodeGroupRemoteAccess();
-            o.ec2SshKey = ec2SshKey;
-            o.sourceSecurityGroupIds = sourceSecurityGroupIds;
-            return o;
+            final var _resultValue = new GetNodeGroupRemoteAccess();
+            _resultValue.ec2SshKey = ec2SshKey;
+            _resultValue.sourceSecurityGroupIds = sourceSecurityGroupIds;
+            return _resultValue;
         }
     }
 }

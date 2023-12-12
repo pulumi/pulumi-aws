@@ -49,10 +49,10 @@ public final class GetDevEnvironmentIde {
             return this;
         }
         public GetDevEnvironmentIde build() {
-            final var o = new GetDevEnvironmentIde();
-            o.name = name;
-            o.runtime = runtime;
-            return o;
+            final var _resultValue = new GetDevEnvironmentIde();
+            _resultValue.name = name;
+            _resultValue.runtime = runtime;
+            return _resultValue;
         }
     }
 }

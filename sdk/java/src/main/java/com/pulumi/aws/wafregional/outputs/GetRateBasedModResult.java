@@ -57,10 +57,10 @@ public final class GetRateBasedModResult {
             return this;
         }
         public GetRateBasedModResult build() {
-            final var o = new GetRateBasedModResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetRateBasedModResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

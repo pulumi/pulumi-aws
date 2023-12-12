@@ -77,10 +77,10 @@ public final class ServiceOrderedPlacementStrategy {
             return this;
         }
         public ServiceOrderedPlacementStrategy build() {
-            final var o = new ServiceOrderedPlacementStrategy();
-            o.field = field;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceOrderedPlacementStrategy();
+            _resultValue.field = field;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

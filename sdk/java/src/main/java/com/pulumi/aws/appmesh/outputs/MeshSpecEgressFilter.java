@@ -50,9 +50,9 @@ public final class MeshSpecEgressFilter {
             return this;
         }
         public MeshSpecEgressFilter build() {
-            final var o = new MeshSpecEgressFilter();
-            o.type = type;
-            return o;
+            final var _resultValue = new MeshSpecEgressFilter();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

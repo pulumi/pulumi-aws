@@ -48,9 +48,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCap
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings();
-            o.nameModifier = nameModifier;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings();
+            _resultValue.nameModifier = nameModifier;
+            return _resultValue;
         }
     }
 }

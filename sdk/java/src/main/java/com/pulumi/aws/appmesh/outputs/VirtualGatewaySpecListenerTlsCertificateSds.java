@@ -46,9 +46,9 @@ public final class VirtualGatewaySpecListenerTlsCertificateSds {
             return this;
         }
         public VirtualGatewaySpecListenerTlsCertificateSds build() {
-            final var o = new VirtualGatewaySpecListenerTlsCertificateSds();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerTlsCertificateSds();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

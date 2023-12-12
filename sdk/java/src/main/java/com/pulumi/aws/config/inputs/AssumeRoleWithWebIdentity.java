@@ -110,15 +110,15 @@ public final class AssumeRoleWithWebIdentity {
             return this;
         }
         public AssumeRoleWithWebIdentity build() {
-            final var o = new AssumeRoleWithWebIdentity();
-            o.duration = duration;
-            o.policy = policy;
-            o.policyArns = policyArns;
-            o.roleArn = roleArn;
-            o.sessionName = sessionName;
-            o.webIdentityToken = webIdentityToken;
-            o.webIdentityTokenFile = webIdentityTokenFile;
-            return o;
+            final var _resultValue = new AssumeRoleWithWebIdentity();
+            _resultValue.duration = duration;
+            _resultValue.policy = policy;
+            _resultValue.policyArns = policyArns;
+            _resultValue.roleArn = roleArn;
+            _resultValue.sessionName = sessionName;
+            _resultValue.webIdentityToken = webIdentityToken;
+            _resultValue.webIdentityTokenFile = webIdentityTokenFile;
+            return _resultValue;
         }
     }
 }

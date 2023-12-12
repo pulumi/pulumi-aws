@@ -67,10 +67,10 @@ public final class LaunchTemplateInstanceRequirementsAcceleratorCount {
             return this;
         }
         public LaunchTemplateInstanceRequirementsAcceleratorCount build() {
-            final var o = new LaunchTemplateInstanceRequirementsAcceleratorCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new LaunchTemplateInstanceRequirementsAcceleratorCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

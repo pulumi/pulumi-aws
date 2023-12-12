@@ -42,9 +42,9 @@ public final class GetRouteSpecHttp2RouteAction {
             return weightedTargets(List.of(weightedTargets));
         }
         public GetRouteSpecHttp2RouteAction build() {
-            final var o = new GetRouteSpecHttp2RouteAction();
-            o.weightedTargets = weightedTargets;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteAction();
+            _resultValue.weightedTargets = weightedTargets;
+            return _resultValue;
         }
     }
 }

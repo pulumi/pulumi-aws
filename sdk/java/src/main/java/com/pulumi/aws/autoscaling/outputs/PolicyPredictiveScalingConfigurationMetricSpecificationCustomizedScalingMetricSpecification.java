@@ -50,9 +50,9 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
             return metricDataQueries(List.of(metricDataQueries));
         }
         public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification build() {
-            final var o = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification();
-            o.metricDataQueries = metricDataQueries;
-            return o;
+            final var _resultValue = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification();
+            _resultValue.metricDataQueries = metricDataQueries;
+            return _resultValue;
         }
     }
 }

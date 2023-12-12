@@ -64,11 +64,11 @@ public final class GetConnectionPhysicalConnectionRequirement {
             return this;
         }
         public GetConnectionPhysicalConnectionRequirement build() {
-            final var o = new GetConnectionPhysicalConnectionRequirement();
-            o.availabilityZone = availabilityZone;
-            o.securityGroupIdLists = securityGroupIdLists;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetConnectionPhysicalConnectionRequirement();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.securityGroupIdLists = securityGroupIdLists;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

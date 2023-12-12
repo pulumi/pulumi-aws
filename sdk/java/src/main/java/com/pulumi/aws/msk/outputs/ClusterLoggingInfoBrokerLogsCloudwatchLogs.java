@@ -68,10 +68,10 @@ public final class ClusterLoggingInfoBrokerLogsCloudwatchLogs {
             return this;
         }
         public ClusterLoggingInfoBrokerLogsCloudwatchLogs build() {
-            final var o = new ClusterLoggingInfoBrokerLogsCloudwatchLogs();
-            o.enabled = enabled;
-            o.logGroup = logGroup;
-            return o;
+            final var _resultValue = new ClusterLoggingInfoBrokerLogsCloudwatchLogs();
+            _resultValue.enabled = enabled;
+            _resultValue.logGroup = logGroup;
+            return _resultValue;
         }
     }
 }

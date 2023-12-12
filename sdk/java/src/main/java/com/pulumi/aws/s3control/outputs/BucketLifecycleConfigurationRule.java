@@ -127,13 +127,13 @@ public final class BucketLifecycleConfigurationRule {
             return this;
         }
         public BucketLifecycleConfigurationRule build() {
-            final var o = new BucketLifecycleConfigurationRule();
-            o.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
-            o.expiration = expiration;
-            o.filter = filter;
-            o.id = id;
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationRule();
+            _resultValue.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
+            _resultValue.expiration = expiration;
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

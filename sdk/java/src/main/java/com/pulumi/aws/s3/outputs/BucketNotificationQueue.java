@@ -128,13 +128,13 @@ public final class BucketNotificationQueue {
             return this;
         }
         public BucketNotificationQueue build() {
-            final var o = new BucketNotificationQueue();
-            o.events = events;
-            o.filterPrefix = filterPrefix;
-            o.filterSuffix = filterSuffix;
-            o.id = id;
-            o.queueArn = queueArn;
-            return o;
+            final var _resultValue = new BucketNotificationQueue();
+            _resultValue.events = events;
+            _resultValue.filterPrefix = filterPrefix;
+            _resultValue.filterSuffix = filterSuffix;
+            _resultValue.id = id;
+            _resultValue.queueArn = queueArn;
+            return _resultValue;
         }
     }
 }

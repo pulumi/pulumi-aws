@@ -67,10 +67,10 @@ public final class RemediationConfigurationExecutionControlsSsmControls {
             return this;
         }
         public RemediationConfigurationExecutionControlsSsmControls build() {
-            final var o = new RemediationConfigurationExecutionControlsSsmControls();
-            o.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
-            o.errorPercentage = errorPercentage;
-            return o;
+            final var _resultValue = new RemediationConfigurationExecutionControlsSsmControls();
+            _resultValue.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
+            _resultValue.errorPercentage = errorPercentage;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class KxEnvironmentCustomDnsConfiguration {
             return this;
         }
         public KxEnvironmentCustomDnsConfiguration build() {
-            final var o = new KxEnvironmentCustomDnsConfiguration();
-            o.customDnsServerIp = customDnsServerIp;
-            o.customDnsServerName = customDnsServerName;
-            return o;
+            final var _resultValue = new KxEnvironmentCustomDnsConfiguration();
+            _resultValue.customDnsServerIp = customDnsServerIp;
+            _resultValue.customDnsServerName = customDnsServerName;
+            return _resultValue;
         }
     }
 }

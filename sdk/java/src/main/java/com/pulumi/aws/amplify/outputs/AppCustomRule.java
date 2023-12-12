@@ -105,12 +105,12 @@ public final class AppCustomRule {
             return this;
         }
         public AppCustomRule build() {
-            final var o = new AppCustomRule();
-            o.condition = condition;
-            o.source = source;
-            o.status = status;
-            o.target = target;
-            return o;
+            final var _resultValue = new AppCustomRule();
+            _resultValue.condition = condition;
+            _resultValue.source = source;
+            _resultValue.status = status;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

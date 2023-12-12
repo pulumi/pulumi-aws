@@ -70,10 +70,10 @@ public final class RegisteredDomainNameServer {
             return this;
         }
         public RegisteredDomainNameServer build() {
-            final var o = new RegisteredDomainNameServer();
-            o.glueIps = glueIps;
-            o.name = name;
-            return o;
+            final var _resultValue = new RegisteredDomainNameServer();
+            _resultValue.glueIps = glueIps;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

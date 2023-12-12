@@ -46,9 +46,9 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
             return this;
         }
         public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration();
-            o.ruleName = ruleName;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration();
+            _resultValue.ruleName = ruleName;
+            return _resultValue;
         }
     }
 }

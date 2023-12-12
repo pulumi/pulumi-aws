@@ -127,13 +127,13 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOrigin {
             return this;
         }
         public CachePolicyParametersInCacheKeyAndForwardedToOrigin build() {
-            final var o = new CachePolicyParametersInCacheKeyAndForwardedToOrigin();
-            o.cookiesConfig = cookiesConfig;
-            o.enableAcceptEncodingBrotli = enableAcceptEncodingBrotli;
-            o.enableAcceptEncodingGzip = enableAcceptEncodingGzip;
-            o.headersConfig = headersConfig;
-            o.queryStringsConfig = queryStringsConfig;
-            return o;
+            final var _resultValue = new CachePolicyParametersInCacheKeyAndForwardedToOrigin();
+            _resultValue.cookiesConfig = cookiesConfig;
+            _resultValue.enableAcceptEncodingBrotli = enableAcceptEncodingBrotli;
+            _resultValue.enableAcceptEncodingGzip = enableAcceptEncodingGzip;
+            _resultValue.headersConfig = headersConfig;
+            _resultValue.queryStringsConfig = queryStringsConfig;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class ApplicationApplicationConfigurationEnvironmentProperties {
             return propertyGroups(List.of(propertyGroups));
         }
         public ApplicationApplicationConfigurationEnvironmentProperties build() {
-            final var o = new ApplicationApplicationConfigurationEnvironmentProperties();
-            o.propertyGroups = propertyGroups;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationEnvironmentProperties();
+            _resultValue.propertyGroups = propertyGroups;
+            return _resultValue;
         }
     }
 }

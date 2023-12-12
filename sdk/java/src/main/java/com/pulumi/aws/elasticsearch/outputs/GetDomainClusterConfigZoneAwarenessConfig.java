@@ -46,9 +46,9 @@ public final class GetDomainClusterConfigZoneAwarenessConfig {
             return this;
         }
         public GetDomainClusterConfigZoneAwarenessConfig build() {
-            final var o = new GetDomainClusterConfigZoneAwarenessConfig();
-            o.availabilityZoneCount = availabilityZoneCount;
-            return o;
+            final var _resultValue = new GetDomainClusterConfigZoneAwarenessConfig();
+            _resultValue.availabilityZoneCount = availabilityZoneCount;
+            return _resultValue;
         }
     }
 }

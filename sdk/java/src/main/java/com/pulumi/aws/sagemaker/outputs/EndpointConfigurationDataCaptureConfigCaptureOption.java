@@ -46,9 +46,9 @@ public final class EndpointConfigurationDataCaptureConfigCaptureOption {
             return this;
         }
         public EndpointConfigurationDataCaptureConfigCaptureOption build() {
-            final var o = new EndpointConfigurationDataCaptureConfigCaptureOption();
-            o.captureMode = captureMode;
-            return o;
+            final var _resultValue = new EndpointConfigurationDataCaptureConfigCaptureOption();
+            _resultValue.captureMode = captureMode;
+            return _resultValue;
         }
     }
 }

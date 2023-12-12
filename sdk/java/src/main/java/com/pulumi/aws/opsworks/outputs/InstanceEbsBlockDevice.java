@@ -97,14 +97,14 @@ public final class InstanceEbsBlockDevice {
             return this;
         }
         public InstanceEbsBlockDevice build() {
-            final var o = new InstanceEbsBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.deviceName = deviceName;
-            o.iops = iops;
-            o.snapshotId = snapshotId;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new InstanceEbsBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.deviceName = deviceName;
+            _resultValue.iops = iops;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

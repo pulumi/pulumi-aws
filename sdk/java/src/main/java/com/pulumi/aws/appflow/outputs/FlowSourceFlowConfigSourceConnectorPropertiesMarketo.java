@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesMarketo {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesMarketo build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesMarketo();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesMarketo();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

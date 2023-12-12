@@ -87,11 +87,11 @@ public final class ScheduleTargetEcsParametersCapacityProviderStrategy {
             return this;
         }
         public ScheduleTargetEcsParametersCapacityProviderStrategy build() {
-            final var o = new ScheduleTargetEcsParametersCapacityProviderStrategy();
-            o.base = base;
-            o.capacityProvider = capacityProvider;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new ScheduleTargetEcsParametersCapacityProviderStrategy();
+            _resultValue.base = base;
+            _resultValue.capacityProvider = capacityProvider;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

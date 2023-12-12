@@ -68,10 +68,10 @@ public final class DataSourceHttpConfig {
             return this;
         }
         public DataSourceHttpConfig build() {
-            final var o = new DataSourceHttpConfig();
-            o.authorizationConfig = authorizationConfig;
-            o.endpoint = endpoint;
-            return o;
+            final var _resultValue = new DataSourceHttpConfig();
+            _resultValue.authorizationConfig = authorizationConfig;
+            _resultValue.endpoint = endpoint;
+            return _resultValue;
         }
     }
 }

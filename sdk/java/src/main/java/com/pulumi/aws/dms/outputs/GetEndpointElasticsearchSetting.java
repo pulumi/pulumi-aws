@@ -72,12 +72,12 @@ public final class GetEndpointElasticsearchSetting {
             return this;
         }
         public GetEndpointElasticsearchSetting build() {
-            final var o = new GetEndpointElasticsearchSetting();
-            o.endpointUri = endpointUri;
-            o.errorRetryDuration = errorRetryDuration;
-            o.fullLoadErrorPercentage = fullLoadErrorPercentage;
-            o.serviceAccessRoleArn = serviceAccessRoleArn;
-            return o;
+            final var _resultValue = new GetEndpointElasticsearchSetting();
+            _resultValue.endpointUri = endpointUri;
+            _resultValue.errorRetryDuration = errorRetryDuration;
+            _resultValue.fullLoadErrorPercentage = fullLoadErrorPercentage;
+            _resultValue.serviceAccessRoleArn = serviceAccessRoleArn;
+            return _resultValue;
         }
     }
 }

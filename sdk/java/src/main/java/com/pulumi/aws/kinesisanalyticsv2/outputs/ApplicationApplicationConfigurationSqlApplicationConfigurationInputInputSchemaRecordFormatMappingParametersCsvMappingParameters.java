@@ -65,10 +65,10 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters();
-            o.recordColumnDelimiter = recordColumnDelimiter;
-            o.recordRowDelimiter = recordRowDelimiter;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters();
+            _resultValue.recordColumnDelimiter = recordColumnDelimiter;
+            _resultValue.recordRowDelimiter = recordRowDelimiter;
+            return _resultValue;
         }
     }
 }

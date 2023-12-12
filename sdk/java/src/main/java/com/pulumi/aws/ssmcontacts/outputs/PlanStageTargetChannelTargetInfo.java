@@ -68,10 +68,10 @@ public final class PlanStageTargetChannelTargetInfo {
             return this;
         }
         public PlanStageTargetChannelTargetInfo build() {
-            final var o = new PlanStageTargetChannelTargetInfo();
-            o.contactChannelId = contactChannelId;
-            o.retryIntervalInMinutes = retryIntervalInMinutes;
-            return o;
+            final var _resultValue = new PlanStageTargetChannelTargetInfo();
+            _resultValue.contactChannelId = contactChannelId;
+            _resultValue.retryIntervalInMinutes = retryIntervalInMinutes;
+            return _resultValue;
         }
     }
 }

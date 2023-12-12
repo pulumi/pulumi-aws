@@ -144,14 +144,14 @@ public final class ReceiptRuleBounceAction {
             return this;
         }
         public ReceiptRuleBounceAction build() {
-            final var o = new ReceiptRuleBounceAction();
-            o.message = message;
-            o.position = position;
-            o.sender = sender;
-            o.smtpReplyCode = smtpReplyCode;
-            o.statusCode = statusCode;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ReceiptRuleBounceAction();
+            _resultValue.message = message;
+            _resultValue.position = position;
+            _resultValue.sender = sender;
+            _resultValue.smtpReplyCode = smtpReplyCode;
+            _resultValue.statusCode = statusCode;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

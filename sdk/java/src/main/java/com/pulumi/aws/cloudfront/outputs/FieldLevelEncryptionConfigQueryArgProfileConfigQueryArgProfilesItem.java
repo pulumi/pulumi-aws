@@ -65,10 +65,10 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
             return this;
         }
         public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem build() {
-            final var o = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem();
-            o.profileId = profileId;
-            o.queryArg = queryArg;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem();
+            _resultValue.profileId = profileId;
+            _resultValue.queryArg = queryArg;
+            return _resultValue;
         }
     }
 }

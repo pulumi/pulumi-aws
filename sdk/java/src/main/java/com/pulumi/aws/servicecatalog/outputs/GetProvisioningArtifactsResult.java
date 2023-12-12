@@ -94,12 +94,12 @@ public final class GetProvisioningArtifactsResult {
             return provisioningArtifactDetails(List.of(provisioningArtifactDetails));
         }
         public GetProvisioningArtifactsResult build() {
-            final var o = new GetProvisioningArtifactsResult();
-            o.acceptLanguage = acceptLanguage;
-            o.id = id;
-            o.productId = productId;
-            o.provisioningArtifactDetails = provisioningArtifactDetails;
-            return o;
+            final var _resultValue = new GetProvisioningArtifactsResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.id = id;
+            _resultValue.productId = productId;
+            _resultValue.provisioningArtifactDetails = provisioningArtifactDetails;
+            return _resultValue;
         }
     }
 }

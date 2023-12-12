@@ -173,15 +173,15 @@ public final class RouteSpecHttpRouteMatch {
             return this;
         }
         public RouteSpecHttpRouteMatch build() {
-            final var o = new RouteSpecHttpRouteMatch();
-            o.headers = headers;
-            o.method = method;
-            o.path = path;
-            o.port = port;
-            o.prefix = prefix;
-            o.queryParameters = queryParameters;
-            o.scheme = scheme;
-            return o;
+            final var _resultValue = new RouteSpecHttpRouteMatch();
+            _resultValue.headers = headers;
+            _resultValue.method = method;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.prefix = prefix;
+            _resultValue.queryParameters = queryParameters;
+            _resultValue.scheme = scheme;
+            return _resultValue;
         }
     }
 }

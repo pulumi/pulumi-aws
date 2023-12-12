@@ -66,10 +66,10 @@ public final class RuleRetentionPeriod {
             return this;
         }
         public RuleRetentionPeriod build() {
-            final var o = new RuleRetentionPeriod();
-            o.retentionPeriodUnit = retentionPeriodUnit;
-            o.retentionPeriodValue = retentionPeriodValue;
-            return o;
+            final var _resultValue = new RuleRetentionPeriod();
+            _resultValue.retentionPeriodUnit = retentionPeriodUnit;
+            _resultValue.retentionPeriodValue = retentionPeriodValue;
+            return _resultValue;
         }
     }
 }

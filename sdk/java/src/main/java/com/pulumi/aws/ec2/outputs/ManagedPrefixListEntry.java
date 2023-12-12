@@ -67,10 +67,10 @@ public final class ManagedPrefixListEntry {
             return this;
         }
         public ManagedPrefixListEntry build() {
-            final var o = new ManagedPrefixListEntry();
-            o.cidr = cidr;
-            o.description = description;
-            return o;
+            final var _resultValue = new ManagedPrefixListEntry();
+            _resultValue.cidr = cidr;
+            _resultValue.description = description;
+            return _resultValue;
         }
     }
 }

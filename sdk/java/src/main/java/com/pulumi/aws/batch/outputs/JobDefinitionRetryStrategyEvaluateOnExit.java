@@ -105,12 +105,12 @@ public final class JobDefinitionRetryStrategyEvaluateOnExit {
             return this;
         }
         public JobDefinitionRetryStrategyEvaluateOnExit build() {
-            final var o = new JobDefinitionRetryStrategyEvaluateOnExit();
-            o.action = action;
-            o.onExitCode = onExitCode;
-            o.onReason = onReason;
-            o.onStatusReason = onStatusReason;
-            return o;
+            final var _resultValue = new JobDefinitionRetryStrategyEvaluateOnExit();
+            _resultValue.action = action;
+            _resultValue.onExitCode = onExitCode;
+            _resultValue.onReason = onReason;
+            _resultValue.onStatusReason = onStatusReason;
+            return _resultValue;
         }
     }
 }

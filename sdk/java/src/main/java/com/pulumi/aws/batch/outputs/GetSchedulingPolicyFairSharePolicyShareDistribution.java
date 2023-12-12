@@ -66,10 +66,10 @@ public final class GetSchedulingPolicyFairSharePolicyShareDistribution {
             return this;
         }
         public GetSchedulingPolicyFairSharePolicyShareDistribution build() {
-            final var o = new GetSchedulingPolicyFairSharePolicyShareDistribution();
-            o.shareIdentifier = shareIdentifier;
-            o.weightFactor = weightFactor;
-            return o;
+            final var _resultValue = new GetSchedulingPolicyFairSharePolicyShareDistribution();
+            _resultValue.shareIdentifier = shareIdentifier;
+            _resultValue.weightFactor = weightFactor;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class GetSerialConsoleAccessResult {
             return this;
         }
         public GetSerialConsoleAccessResult build() {
-            final var o = new GetSerialConsoleAccessResult();
-            o.enabled = enabled;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSerialConsoleAccessResult();
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

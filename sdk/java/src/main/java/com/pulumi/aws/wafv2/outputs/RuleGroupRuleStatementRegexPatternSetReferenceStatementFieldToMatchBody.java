@@ -48,9 +48,9 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             return this;
         }
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

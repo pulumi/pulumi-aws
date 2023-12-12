@@ -69,10 +69,10 @@ public final class StackAccessEndpoint {
             return this;
         }
         public StackAccessEndpoint build() {
-            final var o = new StackAccessEndpoint();
-            o.endpointType = endpointType;
-            o.vpceId = vpceId;
-            return o;
+            final var _resultValue = new StackAccessEndpoint();
+            _resultValue.endpointType = endpointType;
+            _resultValue.vpceId = vpceId;
+            return _resultValue;
         }
     }
 }

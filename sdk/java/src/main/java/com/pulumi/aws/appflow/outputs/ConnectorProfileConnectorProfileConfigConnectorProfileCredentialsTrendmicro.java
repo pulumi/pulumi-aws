@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro();
-            o.apiSecretKey = apiSecretKey;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro();
+            _resultValue.apiSecretKey = apiSecretKey;
+            return _resultValue;
         }
     }
 }

@@ -64,10 +64,10 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatch
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

@@ -277,21 +277,21 @@ public final class GetOntapStorageVirtualMachineResult {
             return this;
         }
         public GetOntapStorageVirtualMachineResult build() {
-            final var o = new GetOntapStorageVirtualMachineResult();
-            o.activeDirectoryConfigurations = activeDirectoryConfigurations;
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.endpoints = endpoints;
-            o.fileSystemId = fileSystemId;
-            o.filters = filters;
-            o.id = id;
-            o.lifecycleStatus = lifecycleStatus;
-            o.lifecycleTransitionReasons = lifecycleTransitionReasons;
-            o.name = name;
-            o.subtype = subtype;
-            o.tags = tags;
-            o.uuid = uuid;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineResult();
+            _resultValue.activeDirectoryConfigurations = activeDirectoryConfigurations;
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.endpoints = endpoints;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.lifecycleStatus = lifecycleStatus;
+            _resultValue.lifecycleTransitionReasons = lifecycleTransitionReasons;
+            _resultValue.name = name;
+            _resultValue.subtype = subtype;
+            _resultValue.tags = tags;
+            _resultValue.uuid = uuid;
+            return _resultValue;
         }
     }
 }

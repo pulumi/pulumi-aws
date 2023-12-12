@@ -130,14 +130,14 @@ public final class GetRegexPatternSetResult {
             return this;
         }
         public GetRegexPatternSetResult build() {
-            final var o = new GetRegexPatternSetResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.regularExpressions = regularExpressions;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new GetRegexPatternSetResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.regularExpressions = regularExpressions;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

@@ -177,16 +177,16 @@ public final class GetInstancesResult {
             return publicIps(List.of(publicIps));
         }
         public GetInstancesResult build() {
-            final var o = new GetInstancesResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.instanceStateNames = instanceStateNames;
-            o.instanceTags = instanceTags;
-            o.ipv6Addresses = ipv6Addresses;
-            o.privateIps = privateIps;
-            o.publicIps = publicIps;
-            return o;
+            final var _resultValue = new GetInstancesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.instanceStateNames = instanceStateNames;
+            _resultValue.instanceTags = instanceTags;
+            _resultValue.ipv6Addresses = ipv6Addresses;
+            _resultValue.privateIps = privateIps;
+            _resultValue.publicIps = publicIps;
+            return _resultValue;
         }
     }
 }

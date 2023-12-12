@@ -67,10 +67,10 @@ public final class WorkflowOnExceptionStepDeleteStepDetails {
             return this;
         }
         public WorkflowOnExceptionStepDeleteStepDetails build() {
-            final var o = new WorkflowOnExceptionStepDeleteStepDetails();
-            o.name = name;
-            o.sourceFileLocation = sourceFileLocation;
-            return o;
+            final var _resultValue = new WorkflowOnExceptionStepDeleteStepDetails();
+            _resultValue.name = name;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            return _resultValue;
         }
     }
 }

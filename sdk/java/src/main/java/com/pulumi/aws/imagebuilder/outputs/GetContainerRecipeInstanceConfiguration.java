@@ -70,10 +70,10 @@ public final class GetContainerRecipeInstanceConfiguration {
             return this;
         }
         public GetContainerRecipeInstanceConfiguration build() {
-            final var o = new GetContainerRecipeInstanceConfiguration();
-            o.blockDeviceMappings = blockDeviceMappings;
-            o.image = image;
-            return o;
+            final var _resultValue = new GetContainerRecipeInstanceConfiguration();
+            _resultValue.blockDeviceMappings = blockDeviceMappings;
+            _resultValue.image = image;
+            return _resultValue;
         }
     }
 }

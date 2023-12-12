@@ -84,12 +84,12 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTl {
             return validations(List.of(validations));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTl build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTl();
-            o.certificates = certificates;
-            o.enforce = enforce;
-            o.ports = ports;
-            o.validations = validations;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTl();
+            _resultValue.certificates = certificates;
+            _resultValue.enforce = enforce;
+            _resultValue.ports = ports;
+            _resultValue.validations = validations;
+            return _resultValue;
         }
     }
 }

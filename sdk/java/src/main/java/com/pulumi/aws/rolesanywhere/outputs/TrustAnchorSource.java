@@ -66,10 +66,10 @@ public final class TrustAnchorSource {
             return this;
         }
         public TrustAnchorSource build() {
-            final var o = new TrustAnchorSource();
-            o.sourceData = sourceData;
-            o.sourceType = sourceType;
-            return o;
+            final var _resultValue = new TrustAnchorSource();
+            _resultValue.sourceData = sourceData;
+            _resultValue.sourceType = sourceType;
+            return _resultValue;
         }
     }
 }

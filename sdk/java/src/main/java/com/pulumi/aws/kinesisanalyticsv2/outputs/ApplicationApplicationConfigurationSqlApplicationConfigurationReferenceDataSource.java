@@ -99,12 +99,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource();
-            o.referenceId = referenceId;
-            o.referenceSchema = referenceSchema;
-            o.s3ReferenceDataSource = s3ReferenceDataSource;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource();
+            _resultValue.referenceId = referenceId;
+            _resultValue.referenceSchema = referenceSchema;
+            _resultValue.s3ReferenceDataSource = s3ReferenceDataSource;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

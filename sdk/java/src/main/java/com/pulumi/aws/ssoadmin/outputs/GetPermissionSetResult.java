@@ -167,17 +167,17 @@ public final class GetPermissionSetResult {
             return this;
         }
         public GetPermissionSetResult build() {
-            final var o = new GetPermissionSetResult();
-            o.arn = arn;
-            o.createdDate = createdDate;
-            o.description = description;
-            o.id = id;
-            o.instanceArn = instanceArn;
-            o.name = name;
-            o.relayState = relayState;
-            o.sessionDuration = sessionDuration;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetPermissionSetResult();
+            _resultValue.arn = arn;
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceArn = instanceArn;
+            _resultValue.name = name;
+            _resultValue.relayState = relayState;
+            _resultValue.sessionDuration = sessionDuration;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

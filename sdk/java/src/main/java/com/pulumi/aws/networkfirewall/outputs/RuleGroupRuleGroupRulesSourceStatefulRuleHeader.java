@@ -141,14 +141,14 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleHeader {
             return this;
         }
         public RuleGroupRuleGroupRulesSourceStatefulRuleHeader build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatefulRuleHeader();
-            o.destination = destination;
-            o.destinationPort = destinationPort;
-            o.direction = direction;
-            o.protocol = protocol;
-            o.source = source;
-            o.sourcePort = sourcePort;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatefulRuleHeader();
+            _resultValue.destination = destination;
+            _resultValue.destinationPort = destinationPort;
+            _resultValue.direction = direction;
+            _resultValue.protocol = protocol;
+            _resultValue.source = source;
+            _resultValue.sourcePort = sourcePort;
+            return _resultValue;
         }
     }
 }

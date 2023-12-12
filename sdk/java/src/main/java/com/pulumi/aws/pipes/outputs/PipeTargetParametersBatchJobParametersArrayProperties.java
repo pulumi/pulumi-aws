@@ -48,9 +48,9 @@ public final class PipeTargetParametersBatchJobParametersArrayProperties {
             return this;
         }
         public PipeTargetParametersBatchJobParametersArrayProperties build() {
-            final var o = new PipeTargetParametersBatchJobParametersArrayProperties();
-            o.size = size;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParametersArrayProperties();
+            _resultValue.size = size;
+            return _resultValue;
         }
     }
 }

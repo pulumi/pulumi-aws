@@ -153,14 +153,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatement build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatement();
-            o.managedRuleGroupConfigs = managedRuleGroupConfigs;
-            o.name = name;
-            o.ruleActionOverrides = ruleActionOverrides;
-            o.scopeDownStatement = scopeDownStatement;
-            o.vendorName = vendorName;
-            o.version = version;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatement();
+            _resultValue.managedRuleGroupConfigs = managedRuleGroupConfigs;
+            _resultValue.name = name;
+            _resultValue.ruleActionOverrides = ruleActionOverrides;
+            _resultValue.scopeDownStatement = scopeDownStatement;
+            _resultValue.vendorName = vendorName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

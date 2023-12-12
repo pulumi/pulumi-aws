@@ -161,15 +161,15 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.arn = arn;
-            o.id = id;
-            o.path = path;
-            o.permissionsBoundary = permissionsBoundary;
-            o.tags = tags;
-            o.userId = userId;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.path = path;
+            _resultValue.permissionsBoundary = permissionsBoundary;
+            _resultValue.tags = tags;
+            _resultValue.userId = userId;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

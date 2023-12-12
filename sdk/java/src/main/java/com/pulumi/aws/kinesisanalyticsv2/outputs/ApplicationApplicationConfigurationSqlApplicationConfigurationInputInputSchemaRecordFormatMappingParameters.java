@@ -68,10 +68,10 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters();
-            o.csvMappingParameters = csvMappingParameters;
-            o.jsonMappingParameters = jsonMappingParameters;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters();
+            _resultValue.csvMappingParameters = csvMappingParameters;
+            _resultValue.jsonMappingParameters = jsonMappingParameters;
+            return _resultValue;
         }
     }
 }

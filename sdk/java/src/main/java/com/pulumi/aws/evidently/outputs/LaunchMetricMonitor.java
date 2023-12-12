@@ -46,9 +46,9 @@ public final class LaunchMetricMonitor {
             return this;
         }
         public LaunchMetricMonitor build() {
-            final var o = new LaunchMetricMonitor();
-            o.metricDefinition = metricDefinition;
-            return o;
+            final var _resultValue = new LaunchMetricMonitor();
+            _resultValue.metricDefinition = metricDefinition;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class TestGridProjectVpcConfig {
             return this;
         }
         public TestGridProjectVpcConfig build() {
-            final var o = new TestGridProjectVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new TestGridProjectVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

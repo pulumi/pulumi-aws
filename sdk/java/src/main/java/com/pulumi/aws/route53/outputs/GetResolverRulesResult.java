@@ -126,15 +126,15 @@ public final class GetResolverRulesResult {
             return this;
         }
         public GetResolverRulesResult build() {
-            final var o = new GetResolverRulesResult();
-            o.id = id;
-            o.nameRegex = nameRegex;
-            o.ownerId = ownerId;
-            o.resolverEndpointId = resolverEndpointId;
-            o.resolverRuleIds = resolverRuleIds;
-            o.ruleType = ruleType;
-            o.shareStatus = shareStatus;
-            return o;
+            final var _resultValue = new GetResolverRulesResult();
+            _resultValue.id = id;
+            _resultValue.nameRegex = nameRegex;
+            _resultValue.ownerId = ownerId;
+            _resultValue.resolverEndpointId = resolverEndpointId;
+            _resultValue.resolverRuleIds = resolverRuleIds;
+            _resultValue.ruleType = ruleType;
+            _resultValue.shareStatus = shareStatus;
+            return _resultValue;
         }
     }
 }

@@ -111,12 +111,12 @@ public final class TopicRuleDestinationVpcConfiguration {
             return this;
         }
         public TopicRuleDestinationVpcConfiguration build() {
-            final var o = new TopicRuleDestinationVpcConfiguration();
-            o.roleArn = roleArn;
-            o.securityGroups = securityGroups;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new TopicRuleDestinationVpcConfiguration();
+            _resultValue.roleArn = roleArn;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

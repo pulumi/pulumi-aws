@@ -205,18 +205,18 @@ public final class GetOpenZfsSnapshotResult {
             return this;
         }
         public GetOpenZfsSnapshotResult build() {
-            final var o = new GetOpenZfsSnapshotResult();
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.filters = filters;
-            o.id = id;
-            o.mostRecent = mostRecent;
-            o.name = name;
-            o.snapshotId = snapshotId;
-            o.snapshotIds = snapshotIds;
-            o.tags = tags;
-            o.volumeId = volumeId;
-            return o;
+            final var _resultValue = new GetOpenZfsSnapshotResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.name = name;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.snapshotIds = snapshotIds;
+            _resultValue.tags = tags;
+            _resultValue.volumeId = volumeId;
+            return _resultValue;
         }
     }
 }

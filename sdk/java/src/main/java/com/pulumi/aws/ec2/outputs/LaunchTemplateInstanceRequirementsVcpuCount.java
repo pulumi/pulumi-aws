@@ -67,10 +67,10 @@ public final class LaunchTemplateInstanceRequirementsVcpuCount {
             return this;
         }
         public LaunchTemplateInstanceRequirementsVcpuCount build() {
-            final var o = new LaunchTemplateInstanceRequirementsVcpuCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new LaunchTemplateInstanceRequirementsVcpuCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

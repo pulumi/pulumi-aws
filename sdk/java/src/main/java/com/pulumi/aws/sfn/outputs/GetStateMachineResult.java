@@ -182,17 +182,17 @@ public final class GetStateMachineResult {
             return this;
         }
         public GetStateMachineResult build() {
-            final var o = new GetStateMachineResult();
-            o.arn = arn;
-            o.creationDate = creationDate;
-            o.definition = definition;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.revisionId = revisionId;
-            o.roleArn = roleArn;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetStateMachineResult();
+            _resultValue.arn = arn;
+            _resultValue.creationDate = creationDate;
+            _resultValue.definition = definition;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.revisionId = revisionId;
+            _resultValue.roleArn = roleArn;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

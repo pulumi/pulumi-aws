@@ -67,10 +67,10 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings();
-            o.postFilterSharpening = postFilterSharpening;
-            o.strength = strength;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings();
+            _resultValue.postFilterSharpening = postFilterSharpening;
+            _resultValue.strength = strength;
+            return _resultValue;
         }
     }
 }

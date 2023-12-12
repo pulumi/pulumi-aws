@@ -46,9 +46,9 @@ public final class DataSetRefreshProperties {
             return this;
         }
         public DataSetRefreshProperties build() {
-            final var o = new DataSetRefreshProperties();
-            o.refreshConfiguration = refreshConfiguration;
-            return o;
+            final var _resultValue = new DataSetRefreshProperties();
+            _resultValue.refreshConfiguration = refreshConfiguration;
+            return _resultValue;
         }
     }
 }

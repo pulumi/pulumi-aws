@@ -127,13 +127,13 @@ public final class JobTemplateJobTemplateData {
             return this;
         }
         public JobTemplateJobTemplateData build() {
-            final var o = new JobTemplateJobTemplateData();
-            o.configurationOverrides = configurationOverrides;
-            o.executionRoleArn = executionRoleArn;
-            o.jobDriver = jobDriver;
-            o.jobTags = jobTags;
-            o.releaseLabel = releaseLabel;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateData();
+            _resultValue.configurationOverrides = configurationOverrides;
+            _resultValue.executionRoleArn = executionRoleArn;
+            _resultValue.jobDriver = jobDriver;
+            _resultValue.jobTags = jobTags;
+            _resultValue.releaseLabel = releaseLabel;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
             return this;
         }
         public FirewallPolicyFirewallPolicyStatefulEngineOptions build() {
-            final var o = new FirewallPolicyFirewallPolicyStatefulEngineOptions();
-            o.ruleOrder = ruleOrder;
-            o.streamExceptionPolicy = streamExceptionPolicy;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatefulEngineOptions();
+            _resultValue.ruleOrder = ruleOrder;
+            _resultValue.streamExceptionPolicy = streamExceptionPolicy;
+            return _resultValue;
         }
     }
 }

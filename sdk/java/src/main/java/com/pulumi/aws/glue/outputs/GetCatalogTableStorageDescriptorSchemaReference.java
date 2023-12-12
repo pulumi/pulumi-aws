@@ -90,11 +90,11 @@ public final class GetCatalogTableStorageDescriptorSchemaReference {
             return this;
         }
         public GetCatalogTableStorageDescriptorSchemaReference build() {
-            final var o = new GetCatalogTableStorageDescriptorSchemaReference();
-            o.schemaIds = schemaIds;
-            o.schemaVersionId = schemaVersionId;
-            o.schemaVersionNumber = schemaVersionNumber;
-            return o;
+            final var _resultValue = new GetCatalogTableStorageDescriptorSchemaReference();
+            _resultValue.schemaIds = schemaIds;
+            _resultValue.schemaVersionId = schemaVersionId;
+            _resultValue.schemaVersionNumber = schemaVersionNumber;
+            return _resultValue;
         }
     }
 }

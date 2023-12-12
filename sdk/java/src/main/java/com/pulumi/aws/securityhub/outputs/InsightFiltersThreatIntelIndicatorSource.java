@@ -65,10 +65,10 @@ public final class InsightFiltersThreatIntelIndicatorSource {
             return this;
         }
         public InsightFiltersThreatIntelIndicatorSource build() {
-            final var o = new InsightFiltersThreatIntelIndicatorSource();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersThreatIntelIndicatorSource();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

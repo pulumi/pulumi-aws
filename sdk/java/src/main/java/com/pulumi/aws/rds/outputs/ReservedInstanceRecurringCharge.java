@@ -52,10 +52,10 @@ public final class ReservedInstanceRecurringCharge {
             return this;
         }
         public ReservedInstanceRecurringCharge build() {
-            final var o = new ReservedInstanceRecurringCharge();
-            o.recurringChargeAmount = recurringChargeAmount;
-            o.recurringChargeFrequency = recurringChargeFrequency;
-            return o;
+            final var _resultValue = new ReservedInstanceRecurringCharge();
+            _resultValue.recurringChargeAmount = recurringChargeAmount;
+            _resultValue.recurringChargeFrequency = recurringChargeFrequency;
+            return _resultValue;
         }
     }
 }

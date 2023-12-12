@@ -46,9 +46,9 @@ public final class TemplateSourceEntitySourceTemplate {
             return this;
         }
         public TemplateSourceEntitySourceTemplate build() {
-            final var o = new TemplateSourceEntitySourceTemplate();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new TemplateSourceEntitySourceTemplate();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

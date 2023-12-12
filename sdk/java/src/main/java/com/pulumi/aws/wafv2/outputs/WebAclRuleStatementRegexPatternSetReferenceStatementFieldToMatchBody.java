@@ -48,9 +48,9 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
             return this;
         }
         public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

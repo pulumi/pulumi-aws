@@ -226,19 +226,19 @@ public final class ChannelEncoderSettingsAudioDescription {
             return this;
         }
         public ChannelEncoderSettingsAudioDescription build() {
-            final var o = new ChannelEncoderSettingsAudioDescription();
-            o.audioNormalizationSettings = audioNormalizationSettings;
-            o.audioSelectorName = audioSelectorName;
-            o.audioType = audioType;
-            o.audioTypeControl = audioTypeControl;
-            o.audioWatermarkSettings = audioWatermarkSettings;
-            o.codecSettings = codecSettings;
-            o.languageCode = languageCode;
-            o.languageCodeControl = languageCodeControl;
-            o.name = name;
-            o.remixSettings = remixSettings;
-            o.streamName = streamName;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescription();
+            _resultValue.audioNormalizationSettings = audioNormalizationSettings;
+            _resultValue.audioSelectorName = audioSelectorName;
+            _resultValue.audioType = audioType;
+            _resultValue.audioTypeControl = audioTypeControl;
+            _resultValue.audioWatermarkSettings = audioWatermarkSettings;
+            _resultValue.codecSettings = codecSettings;
+            _resultValue.languageCode = languageCode;
+            _resultValue.languageCodeControl = languageCodeControl;
+            _resultValue.name = name;
+            _resultValue.remixSettings = remixSettings;
+            _resultValue.streamName = streamName;
+            return _resultValue;
         }
     }
 }

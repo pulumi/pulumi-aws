@@ -65,10 +65,10 @@ public final class TargetGroupTargetFailover {
             return this;
         }
         public TargetGroupTargetFailover build() {
-            final var o = new TargetGroupTargetFailover();
-            o.onDeregistration = onDeregistration;
-            o.onUnhealthy = onUnhealthy;
-            return o;
+            final var _resultValue = new TargetGroupTargetFailover();
+            _resultValue.onDeregistration = onDeregistration;
+            _resultValue.onUnhealthy = onUnhealthy;
+            return _resultValue;
         }
     }
 }

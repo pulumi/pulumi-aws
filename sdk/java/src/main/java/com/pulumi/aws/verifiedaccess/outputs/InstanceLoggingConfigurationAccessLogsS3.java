@@ -106,12 +106,12 @@ public final class InstanceLoggingConfigurationAccessLogsS3 {
             return this;
         }
         public InstanceLoggingConfigurationAccessLogsS3 build() {
-            final var o = new InstanceLoggingConfigurationAccessLogsS3();
-            o.bucketName = bucketName;
-            o.bucketOwner = bucketOwner;
-            o.enabled = enabled;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new InstanceLoggingConfigurationAccessLogsS3();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketOwner = bucketOwner;
+            _resultValue.enabled = enabled;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

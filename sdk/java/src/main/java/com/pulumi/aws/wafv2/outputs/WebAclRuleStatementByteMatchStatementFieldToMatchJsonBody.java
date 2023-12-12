@@ -106,12 +106,12 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody {
             return this;
         }
         public WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody();
-            o.invalidFallbackBehavior = invalidFallbackBehavior;
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody();
+            _resultValue.invalidFallbackBehavior = invalidFallbackBehavior;
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

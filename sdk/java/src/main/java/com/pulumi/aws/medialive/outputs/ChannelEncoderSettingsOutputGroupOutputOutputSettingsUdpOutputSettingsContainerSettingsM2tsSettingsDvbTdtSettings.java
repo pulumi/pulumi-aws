@@ -40,9 +40,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings();
-            o.repInterval = repInterval;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings();
+            _resultValue.repInterval = repInterval;
+            return _resultValue;
         }
     }
 }

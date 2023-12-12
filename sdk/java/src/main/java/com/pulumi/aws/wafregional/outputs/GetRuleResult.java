@@ -57,10 +57,10 @@ public final class GetRuleResult {
             return this;
         }
         public GetRuleResult build() {
-            final var o = new GetRuleResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetRuleResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

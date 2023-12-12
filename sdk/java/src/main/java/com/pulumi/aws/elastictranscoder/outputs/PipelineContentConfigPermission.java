@@ -90,11 +90,11 @@ public final class PipelineContentConfigPermission {
             return this;
         }
         public PipelineContentConfigPermission build() {
-            final var o = new PipelineContentConfigPermission();
-            o.accesses = accesses;
-            o.grantee = grantee;
-            o.granteeType = granteeType;
-            return o;
+            final var _resultValue = new PipelineContentConfigPermission();
+            _resultValue.accesses = accesses;
+            _resultValue.grantee = grantee;
+            _resultValue.granteeType = granteeType;
+            return _resultValue;
         }
     }
 }

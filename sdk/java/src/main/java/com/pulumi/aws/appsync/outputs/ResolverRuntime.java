@@ -65,10 +65,10 @@ public final class ResolverRuntime {
             return this;
         }
         public ResolverRuntime build() {
-            final var o = new ResolverRuntime();
-            o.name = name;
-            o.runtimeVersion = runtimeVersion;
-            return o;
+            final var _resultValue = new ResolverRuntime();
+            _resultValue.name = name;
+            _resultValue.runtimeVersion = runtimeVersion;
+            return _resultValue;
         }
     }
 }

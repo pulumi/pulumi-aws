@@ -108,12 +108,12 @@ public final class ClusterRestoreToPointInTime {
             return this;
         }
         public ClusterRestoreToPointInTime build() {
-            final var o = new ClusterRestoreToPointInTime();
-            o.restoreToTime = restoreToTime;
-            o.restoreType = restoreType;
-            o.sourceClusterIdentifier = sourceClusterIdentifier;
-            o.useLatestRestorableTime = useLatestRestorableTime;
-            return o;
+            final var _resultValue = new ClusterRestoreToPointInTime();
+            _resultValue.restoreToTime = restoreToTime;
+            _resultValue.restoreType = restoreType;
+            _resultValue.sourceClusterIdentifier = sourceClusterIdentifier;
+            _resultValue.useLatestRestorableTime = useLatestRestorableTime;
+            return _resultValue;
         }
     }
 }

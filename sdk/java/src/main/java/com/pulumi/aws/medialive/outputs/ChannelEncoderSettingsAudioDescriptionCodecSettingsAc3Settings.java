@@ -164,15 +164,15 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings();
-            o.bitrate = bitrate;
-            o.bitstreamMode = bitstreamMode;
-            o.codingMode = codingMode;
-            o.dialnorm = dialnorm;
-            o.drcProfile = drcProfile;
-            o.lfeFilter = lfeFilter;
-            o.metadataControl = metadataControl;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings();
+            _resultValue.bitrate = bitrate;
+            _resultValue.bitstreamMode = bitstreamMode;
+            _resultValue.codingMode = codingMode;
+            _resultValue.dialnorm = dialnorm;
+            _resultValue.drcProfile = drcProfile;
+            _resultValue.lfeFilter = lfeFilter;
+            _resultValue.metadataControl = metadataControl;
+            return _resultValue;
         }
     }
 }

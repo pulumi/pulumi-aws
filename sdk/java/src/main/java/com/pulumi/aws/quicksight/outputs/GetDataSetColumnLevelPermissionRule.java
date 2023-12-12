@@ -56,10 +56,10 @@ public final class GetDataSetColumnLevelPermissionRule {
             return principals(List.of(principals));
         }
         public GetDataSetColumnLevelPermissionRule build() {
-            final var o = new GetDataSetColumnLevelPermissionRule();
-            o.columnNames = columnNames;
-            o.principals = principals;
-            return o;
+            final var _resultValue = new GetDataSetColumnLevelPermissionRule();
+            _resultValue.columnNames = columnNames;
+            _resultValue.principals = principals;
+            return _resultValue;
         }
     }
 }

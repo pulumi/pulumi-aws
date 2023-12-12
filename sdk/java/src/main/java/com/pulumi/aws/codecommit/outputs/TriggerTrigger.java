@@ -131,13 +131,13 @@ public final class TriggerTrigger {
             return this;
         }
         public TriggerTrigger build() {
-            final var o = new TriggerTrigger();
-            o.branches = branches;
-            o.customData = customData;
-            o.destinationArn = destinationArn;
-            o.events = events;
-            o.name = name;
-            return o;
+            final var _resultValue = new TriggerTrigger();
+            _resultValue.branches = branches;
+            _resultValue.customData = customData;
+            _resultValue.destinationArn = destinationArn;
+            _resultValue.events = events;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

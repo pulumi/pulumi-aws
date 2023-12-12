@@ -73,10 +73,10 @@ public final class StorageLensConfigurationStorageLensConfigurationInclude {
             return regions(List.of(regions));
         }
         public StorageLensConfigurationStorageLensConfigurationInclude build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationInclude();
-            o.buckets = buckets;
-            o.regions = regions;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationInclude();
+            _resultValue.buckets = buckets;
+            _resultValue.regions = regions;
+            return _resultValue;
         }
     }
 }

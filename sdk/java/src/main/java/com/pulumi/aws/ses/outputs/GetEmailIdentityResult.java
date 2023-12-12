@@ -84,11 +84,11 @@ public final class GetEmailIdentityResult {
             return this;
         }
         public GetEmailIdentityResult build() {
-            final var o = new GetEmailIdentityResult();
-            o.arn = arn;
-            o.email = email;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetEmailIdentityResult();
+            _resultValue.arn = arn;
+            _resultValue.email = email;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

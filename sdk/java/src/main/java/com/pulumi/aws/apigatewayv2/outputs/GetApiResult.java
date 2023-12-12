@@ -300,22 +300,22 @@ public final class GetApiResult {
             return this;
         }
         public GetApiResult build() {
-            final var o = new GetApiResult();
-            o.apiEndpoint = apiEndpoint;
-            o.apiId = apiId;
-            o.apiKeySelectionExpression = apiKeySelectionExpression;
-            o.arn = arn;
-            o.corsConfigurations = corsConfigurations;
-            o.description = description;
-            o.disableExecuteApiEndpoint = disableExecuteApiEndpoint;
-            o.executionArn = executionArn;
-            o.id = id;
-            o.name = name;
-            o.protocolType = protocolType;
-            o.routeSelectionExpression = routeSelectionExpression;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetApiResult();
+            _resultValue.apiEndpoint = apiEndpoint;
+            _resultValue.apiId = apiId;
+            _resultValue.apiKeySelectionExpression = apiKeySelectionExpression;
+            _resultValue.arn = arn;
+            _resultValue.corsConfigurations = corsConfigurations;
+            _resultValue.description = description;
+            _resultValue.disableExecuteApiEndpoint = disableExecuteApiEndpoint;
+            _resultValue.executionArn = executionArn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.protocolType = protocolType;
+            _resultValue.routeSelectionExpression = routeSelectionExpression;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

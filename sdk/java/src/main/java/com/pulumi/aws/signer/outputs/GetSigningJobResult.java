@@ -355,25 +355,25 @@ public final class GetSigningJobResult {
             return this;
         }
         public GetSigningJobResult build() {
-            final var o = new GetSigningJobResult();
-            o.completedAt = completedAt;
-            o.createdAt = createdAt;
-            o.id = id;
-            o.jobId = jobId;
-            o.jobInvoker = jobInvoker;
-            o.jobOwner = jobOwner;
-            o.platformDisplayName = platformDisplayName;
-            o.platformId = platformId;
-            o.profileName = profileName;
-            o.profileVersion = profileVersion;
-            o.requestedBy = requestedBy;
-            o.revocationRecords = revocationRecords;
-            o.signatureExpiresAt = signatureExpiresAt;
-            o.signedObjects = signedObjects;
-            o.sources = sources;
-            o.status = status;
-            o.statusReason = statusReason;
-            return o;
+            final var _resultValue = new GetSigningJobResult();
+            _resultValue.completedAt = completedAt;
+            _resultValue.createdAt = createdAt;
+            _resultValue.id = id;
+            _resultValue.jobId = jobId;
+            _resultValue.jobInvoker = jobInvoker;
+            _resultValue.jobOwner = jobOwner;
+            _resultValue.platformDisplayName = platformDisplayName;
+            _resultValue.platformId = platformId;
+            _resultValue.profileName = profileName;
+            _resultValue.profileVersion = profileVersion;
+            _resultValue.requestedBy = requestedBy;
+            _resultValue.revocationRecords = revocationRecords;
+            _resultValue.signatureExpiresAt = signatureExpiresAt;
+            _resultValue.signedObjects = signedObjects;
+            _resultValue.sources = sources;
+            _resultValue.status = status;
+            _resultValue.statusReason = statusReason;
+            return _resultValue;
         }
     }
 }

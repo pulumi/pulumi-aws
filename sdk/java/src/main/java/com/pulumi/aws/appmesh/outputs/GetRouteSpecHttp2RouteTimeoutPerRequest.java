@@ -50,10 +50,10 @@ public final class GetRouteSpecHttp2RouteTimeoutPerRequest {
             return this;
         }
         public GetRouteSpecHttp2RouteTimeoutPerRequest build() {
-            final var o = new GetRouteSpecHttp2RouteTimeoutPerRequest();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteTimeoutPerRequest();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

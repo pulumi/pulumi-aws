@@ -67,10 +67,10 @@ public final class ExperimentTemplateStopCondition {
             return this;
         }
         public ExperimentTemplateStopCondition build() {
-            final var o = new ExperimentTemplateStopCondition();
-            o.source = source;
-            o.value = value;
-            return o;
+            final var _resultValue = new ExperimentTemplateStopCondition();
+            _resultValue.source = source;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

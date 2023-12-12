@@ -38,9 +38,9 @@ public final class GetClusterServiceConnectDefault {
             return this;
         }
         public GetClusterServiceConnectDefault build() {
-            final var o = new GetClusterServiceConnectDefault();
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new GetClusterServiceConnectDefault();
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

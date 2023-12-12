@@ -242,19 +242,19 @@ public final class DomainClusterConfig {
             return this;
         }
         public DomainClusterConfig build() {
-            final var o = new DomainClusterConfig();
-            o.coldStorageOptions = coldStorageOptions;
-            o.dedicatedMasterCount = dedicatedMasterCount;
-            o.dedicatedMasterEnabled = dedicatedMasterEnabled;
-            o.dedicatedMasterType = dedicatedMasterType;
-            o.instanceCount = instanceCount;
-            o.instanceType = instanceType;
-            o.warmCount = warmCount;
-            o.warmEnabled = warmEnabled;
-            o.warmType = warmType;
-            o.zoneAwarenessConfig = zoneAwarenessConfig;
-            o.zoneAwarenessEnabled = zoneAwarenessEnabled;
-            return o;
+            final var _resultValue = new DomainClusterConfig();
+            _resultValue.coldStorageOptions = coldStorageOptions;
+            _resultValue.dedicatedMasterCount = dedicatedMasterCount;
+            _resultValue.dedicatedMasterEnabled = dedicatedMasterEnabled;
+            _resultValue.dedicatedMasterType = dedicatedMasterType;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.instanceType = instanceType;
+            _resultValue.warmCount = warmCount;
+            _resultValue.warmEnabled = warmEnabled;
+            _resultValue.warmType = warmType;
+            _resultValue.zoneAwarenessConfig = zoneAwarenessConfig;
+            _resultValue.zoneAwarenessEnabled = zoneAwarenessEnabled;
+            return _resultValue;
         }
     }
 }

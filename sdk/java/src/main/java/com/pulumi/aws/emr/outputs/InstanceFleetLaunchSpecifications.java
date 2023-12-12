@@ -74,10 +74,10 @@ public final class InstanceFleetLaunchSpecifications {
             return spotSpecifications(List.of(spotSpecifications));
         }
         public InstanceFleetLaunchSpecifications build() {
-            final var o = new InstanceFleetLaunchSpecifications();
-            o.onDemandSpecifications = onDemandSpecifications;
-            o.spotSpecifications = spotSpecifications;
-            return o;
+            final var _resultValue = new InstanceFleetLaunchSpecifications();
+            _resultValue.onDemandSpecifications = onDemandSpecifications;
+            _resultValue.spotSpecifications = spotSpecifications;
+            return _resultValue;
         }
     }
 }

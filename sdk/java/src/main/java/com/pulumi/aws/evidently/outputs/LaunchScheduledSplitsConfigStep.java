@@ -92,11 +92,11 @@ public final class LaunchScheduledSplitsConfigStep {
             return this;
         }
         public LaunchScheduledSplitsConfigStep build() {
-            final var o = new LaunchScheduledSplitsConfigStep();
-            o.groupWeights = groupWeights;
-            o.segmentOverrides = segmentOverrides;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new LaunchScheduledSplitsConfigStep();
+            _resultValue.groupWeights = groupWeights;
+            _resultValue.segmentOverrides = segmentOverrides;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

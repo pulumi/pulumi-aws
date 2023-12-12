@@ -67,10 +67,10 @@ public final class TaskIncludes {
             return this;
         }
         public TaskIncludes build() {
-            final var o = new TaskIncludes();
-            o.filterType = filterType;
-            o.value = value;
-            return o;
+            final var _resultValue = new TaskIncludes();
+            _resultValue.filterType = filterType;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

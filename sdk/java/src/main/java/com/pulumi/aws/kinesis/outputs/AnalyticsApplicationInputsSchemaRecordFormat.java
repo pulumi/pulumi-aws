@@ -70,10 +70,10 @@ public final class AnalyticsApplicationInputsSchemaRecordFormat {
             return this;
         }
         public AnalyticsApplicationInputsSchemaRecordFormat build() {
-            final var o = new AnalyticsApplicationInputsSchemaRecordFormat();
-            o.mappingParameters = mappingParameters;
-            o.recordFormatType = recordFormatType;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsSchemaRecordFormat();
+            _resultValue.mappingParameters = mappingParameters;
+            _resultValue.recordFormatType = recordFormatType;
+            return _resultValue;
         }
     }
 }

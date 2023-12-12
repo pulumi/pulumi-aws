@@ -125,13 +125,13 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesVeeva build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesVeeva();
-            o.documentType = documentType;
-            o.includeAllVersions = includeAllVersions;
-            o.includeRenditions = includeRenditions;
-            o.includeSourceFiles = includeSourceFiles;
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesVeeva();
+            _resultValue.documentType = documentType;
+            _resultValue.includeAllVersions = includeAllVersions;
+            _resultValue.includeRenditions = includeRenditions;
+            _resultValue.includeSourceFiles = includeSourceFiles;
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

@@ -89,11 +89,11 @@ public final class BotClarificationPromptMessage {
             return this;
         }
         public BotClarificationPromptMessage build() {
-            final var o = new BotClarificationPromptMessage();
-            o.content = content;
-            o.contentType = contentType;
-            o.groupNumber = groupNumber;
-            return o;
+            final var _resultValue = new BotClarificationPromptMessage();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.groupNumber = groupNumber;
+            return _resultValue;
         }
     }
 }

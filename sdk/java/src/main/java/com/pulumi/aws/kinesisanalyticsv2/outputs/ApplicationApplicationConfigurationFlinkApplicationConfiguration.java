@@ -88,11 +88,11 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
             return this;
         }
         public ApplicationApplicationConfigurationFlinkApplicationConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationFlinkApplicationConfiguration();
-            o.checkpointConfiguration = checkpointConfiguration;
-            o.monitoringConfiguration = monitoringConfiguration;
-            o.parallelismConfiguration = parallelismConfiguration;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationFlinkApplicationConfiguration();
+            _resultValue.checkpointConfiguration = checkpointConfiguration;
+            _resultValue.monitoringConfiguration = monitoringConfiguration;
+            _resultValue.parallelismConfiguration = parallelismConfiguration;
+            return _resultValue;
         }
     }
 }

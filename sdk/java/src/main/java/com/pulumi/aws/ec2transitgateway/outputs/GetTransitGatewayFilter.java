@@ -69,10 +69,10 @@ public final class GetTransitGatewayFilter {
             return values(List.of(values));
         }
         public GetTransitGatewayFilter build() {
-            final var o = new GetTransitGatewayFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetTransitGatewayFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

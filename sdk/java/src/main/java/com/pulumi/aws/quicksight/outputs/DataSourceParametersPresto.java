@@ -85,11 +85,11 @@ public final class DataSourceParametersPresto {
             return this;
         }
         public DataSourceParametersPresto build() {
-            final var o = new DataSourceParametersPresto();
-            o.catalog = catalog;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersPresto();
+            _resultValue.catalog = catalog;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class InsightFiltersProcessPid {
             return this;
         }
         public InsightFiltersProcessPid build() {
-            final var o = new InsightFiltersProcessPid();
-            o.eq = eq;
-            o.gte = gte;
-            o.lte = lte;
-            return o;
+            final var _resultValue = new InsightFiltersProcessPid();
+            _resultValue.eq = eq;
+            _resultValue.gte = gte;
+            _resultValue.lte = lte;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class NfsLocationMountOptions {
             return this;
         }
         public NfsLocationMountOptions build() {
-            final var o = new NfsLocationMountOptions();
-            o.version = version;
-            return o;
+            final var _resultValue = new NfsLocationMountOptions();
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

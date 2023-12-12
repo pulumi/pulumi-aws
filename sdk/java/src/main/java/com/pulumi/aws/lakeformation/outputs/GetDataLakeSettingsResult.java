@@ -236,18 +236,18 @@ public final class GetDataLakeSettingsResult {
             return trustedResourceOwners(List.of(trustedResourceOwners));
         }
         public GetDataLakeSettingsResult build() {
-            final var o = new GetDataLakeSettingsResult();
-            o.admins = admins;
-            o.allowExternalDataFiltering = allowExternalDataFiltering;
-            o.authorizedSessionTagValueLists = authorizedSessionTagValueLists;
-            o.catalogId = catalogId;
-            o.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
-            o.createTableDefaultPermissions = createTableDefaultPermissions;
-            o.externalDataFilteringAllowLists = externalDataFilteringAllowLists;
-            o.id = id;
-            o.readOnlyAdmins = readOnlyAdmins;
-            o.trustedResourceOwners = trustedResourceOwners;
-            return o;
+            final var _resultValue = new GetDataLakeSettingsResult();
+            _resultValue.admins = admins;
+            _resultValue.allowExternalDataFiltering = allowExternalDataFiltering;
+            _resultValue.authorizedSessionTagValueLists = authorizedSessionTagValueLists;
+            _resultValue.catalogId = catalogId;
+            _resultValue.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
+            _resultValue.createTableDefaultPermissions = createTableDefaultPermissions;
+            _resultValue.externalDataFilteringAllowLists = externalDataFilteringAllowLists;
+            _resultValue.id = id;
+            _resultValue.readOnlyAdmins = readOnlyAdmins;
+            _resultValue.trustedResourceOwners = trustedResourceOwners;
+            return _resultValue;
         }
     }
 }

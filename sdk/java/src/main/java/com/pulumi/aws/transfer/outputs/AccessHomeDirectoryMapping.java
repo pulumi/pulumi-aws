@@ -65,10 +65,10 @@ public final class AccessHomeDirectoryMapping {
             return this;
         }
         public AccessHomeDirectoryMapping build() {
-            final var o = new AccessHomeDirectoryMapping();
-            o.entry = entry;
-            o.target = target;
-            return o;
+            final var _resultValue = new AccessHomeDirectoryMapping();
+            _resultValue.entry = entry;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

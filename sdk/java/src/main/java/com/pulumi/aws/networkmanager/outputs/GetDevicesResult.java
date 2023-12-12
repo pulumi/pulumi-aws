@@ -105,13 +105,13 @@ public final class GetDevicesResult {
             return this;
         }
         public GetDevicesResult build() {
-            final var o = new GetDevicesResult();
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.ids = ids;
-            o.siteId = siteId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDevicesResult();
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.siteId = siteId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

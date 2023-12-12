@@ -91,11 +91,11 @@ public final class DeploymentGroupAlarmConfiguration {
             return this;
         }
         public DeploymentGroupAlarmConfiguration build() {
-            final var o = new DeploymentGroupAlarmConfiguration();
-            o.alarms = alarms;
-            o.enabled = enabled;
-            o.ignorePollAlarmFailure = ignorePollAlarmFailure;
-            return o;
+            final var _resultValue = new DeploymentGroupAlarmConfiguration();
+            _resultValue.alarms = alarms;
+            _resultValue.enabled = enabled;
+            _resultValue.ignorePollAlarmFailure = ignorePollAlarmFailure;
+            return _resultValue;
         }
     }
 }

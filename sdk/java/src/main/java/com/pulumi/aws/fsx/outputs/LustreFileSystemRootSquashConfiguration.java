@@ -71,10 +71,10 @@ public final class LustreFileSystemRootSquashConfiguration {
             return this;
         }
         public LustreFileSystemRootSquashConfiguration build() {
-            final var o = new LustreFileSystemRootSquashConfiguration();
-            o.noSquashNids = noSquashNids;
-            o.rootSquash = rootSquash;
-            return o;
+            final var _resultValue = new LustreFileSystemRootSquashConfiguration();
+            _resultValue.noSquashNids = noSquashNids;
+            _resultValue.rootSquash = rootSquash;
+            return _resultValue;
         }
     }
 }

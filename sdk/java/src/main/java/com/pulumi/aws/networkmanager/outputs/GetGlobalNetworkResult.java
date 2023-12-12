@@ -115,13 +115,13 @@ public final class GetGlobalNetworkResult {
             return this;
         }
         public GetGlobalNetworkResult build() {
-            final var o = new GetGlobalNetworkResult();
-            o.arn = arn;
-            o.description = description;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetGlobalNetworkResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

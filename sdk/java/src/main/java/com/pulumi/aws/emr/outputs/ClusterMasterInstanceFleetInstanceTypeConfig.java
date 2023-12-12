@@ -154,14 +154,14 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfig {
             return this;
         }
         public ClusterMasterInstanceFleetInstanceTypeConfig build() {
-            final var o = new ClusterMasterInstanceFleetInstanceTypeConfig();
-            o.bidPrice = bidPrice;
-            o.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
-            o.configurations = configurations;
-            o.ebsConfigs = ebsConfigs;
-            o.instanceType = instanceType;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceFleetInstanceTypeConfig();
+            _resultValue.bidPrice = bidPrice;
+            _resultValue.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
+            _resultValue.configurations = configurations;
+            _resultValue.ebsConfigs = ebsConfigs;
+            _resultValue.instanceType = instanceType;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

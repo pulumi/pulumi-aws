@@ -65,10 +65,10 @@ public final class ConformancePackInputParameter {
             return this;
         }
         public ConformancePackInputParameter build() {
-            final var o = new ConformancePackInputParameter();
-            o.parameterName = parameterName;
-            o.parameterValue = parameterValue;
-            return o;
+            final var _resultValue = new ConformancePackInputParameter();
+            _resultValue.parameterName = parameterName;
+            _resultValue.parameterValue = parameterValue;
+            return _resultValue;
         }
     }
 }

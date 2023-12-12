@@ -50,9 +50,9 @@ public final class ReplicationConfigurationReplicationConfiguration {
             return rules(List.of(rules));
         }
         public ReplicationConfigurationReplicationConfiguration build() {
-            final var o = new ReplicationConfigurationReplicationConfiguration();
-            o.rules = rules;
-            return o;
+            final var _resultValue = new ReplicationConfigurationReplicationConfiguration();
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

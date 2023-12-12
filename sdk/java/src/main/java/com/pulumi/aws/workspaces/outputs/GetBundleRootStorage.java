@@ -46,9 +46,9 @@ public final class GetBundleRootStorage {
             return this;
         }
         public GetBundleRootStorage build() {
-            final var o = new GetBundleRootStorage();
-            o.capacity = capacity;
-            return o;
+            final var _resultValue = new GetBundleRootStorage();
+            _resultValue.capacity = capacity;
+            return _resultValue;
         }
     }
 }

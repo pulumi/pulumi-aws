@@ -48,9 +48,9 @@ public final class ClusterAutoTerminationPolicy {
             return this;
         }
         public ClusterAutoTerminationPolicy build() {
-            final var o = new ClusterAutoTerminationPolicy();
-            o.idleTimeout = idleTimeout;
-            return o;
+            final var _resultValue = new ClusterAutoTerminationPolicy();
+            _resultValue.idleTimeout = idleTimeout;
+            return _resultValue;
         }
     }
 }

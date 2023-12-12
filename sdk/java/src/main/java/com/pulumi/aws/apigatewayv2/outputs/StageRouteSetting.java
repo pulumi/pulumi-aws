@@ -150,14 +150,14 @@ public final class StageRouteSetting {
             return this;
         }
         public StageRouteSetting build() {
-            final var o = new StageRouteSetting();
-            o.dataTraceEnabled = dataTraceEnabled;
-            o.detailedMetricsEnabled = detailedMetricsEnabled;
-            o.loggingLevel = loggingLevel;
-            o.routeKey = routeKey;
-            o.throttlingBurstLimit = throttlingBurstLimit;
-            o.throttlingRateLimit = throttlingRateLimit;
-            return o;
+            final var _resultValue = new StageRouteSetting();
+            _resultValue.dataTraceEnabled = dataTraceEnabled;
+            _resultValue.detailedMetricsEnabled = detailedMetricsEnabled;
+            _resultValue.loggingLevel = loggingLevel;
+            _resultValue.routeKey = routeKey;
+            _resultValue.throttlingBurstLimit = throttlingBurstLimit;
+            _resultValue.throttlingRateLimit = throttlingRateLimit;
+            return _resultValue;
         }
     }
 }

@@ -88,11 +88,11 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActions {
             return this;
         }
         public RiskConfigurationAccountTakeoverRiskConfigurationActions build() {
-            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationActions();
-            o.highAction = highAction;
-            o.lowAction = lowAction;
-            o.mediumAction = mediumAction;
-            return o;
+            final var _resultValue = new RiskConfigurationAccountTakeoverRiskConfigurationActions();
+            _resultValue.highAction = highAction;
+            _resultValue.lowAction = lowAction;
+            _resultValue.mediumAction = mediumAction;
+            return _resultValue;
         }
     }
 }

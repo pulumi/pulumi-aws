@@ -147,14 +147,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
             return this;
         }
         public WindowsFileSystemSelfManagedActiveDirectory build() {
-            final var o = new WindowsFileSystemSelfManagedActiveDirectory();
-            o.dnsIps = dnsIps;
-            o.domainName = domainName;
-            o.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
-            o.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new WindowsFileSystemSelfManagedActiveDirectory();
+            _resultValue.dnsIps = dnsIps;
+            _resultValue.domainName = domainName;
+            _resultValue.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
+            _resultValue.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

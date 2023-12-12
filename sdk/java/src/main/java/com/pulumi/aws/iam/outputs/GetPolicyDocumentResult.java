@@ -133,15 +133,15 @@ public final class GetPolicyDocumentResult {
             return this;
         }
         public GetPolicyDocumentResult build() {
-            final var o = new GetPolicyDocumentResult();
-            o.id = id;
-            o.json = json;
-            o.overridePolicyDocuments = overridePolicyDocuments;
-            o.policyId = policyId;
-            o.sourcePolicyDocuments = sourcePolicyDocuments;
-            o.statements = statements;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetPolicyDocumentResult();
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.overridePolicyDocuments = overridePolicyDocuments;
+            _resultValue.policyId = policyId;
+            _resultValue.sourcePolicyDocuments = sourcePolicyDocuments;
+            _resultValue.statements = statements;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

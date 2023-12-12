@@ -72,11 +72,11 @@ public final class GetVirtualGatewaySpecListenerConnectionPool {
             return https(List.of(https));
         }
         public GetVirtualGatewaySpecListenerConnectionPool build() {
-            final var o = new GetVirtualGatewaySpecListenerConnectionPool();
-            o.grpcs = grpcs;
-            o.http2s = http2s;
-            o.https = https;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerConnectionPool();
+            _resultValue.grpcs = grpcs;
+            _resultValue.http2s = http2s;
+            _resultValue.https = https;
+            return _resultValue;
         }
     }
 }

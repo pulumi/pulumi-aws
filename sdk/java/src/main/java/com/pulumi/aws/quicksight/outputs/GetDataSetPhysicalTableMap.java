@@ -84,12 +84,12 @@ public final class GetDataSetPhysicalTableMap {
             return s3Sources(List.of(s3Sources));
         }
         public GetDataSetPhysicalTableMap build() {
-            final var o = new GetDataSetPhysicalTableMap();
-            o.customSqls = customSqls;
-            o.physicalTableMapId = physicalTableMapId;
-            o.relationalTables = relationalTables;
-            o.s3Sources = s3Sources;
-            return o;
+            final var _resultValue = new GetDataSetPhysicalTableMap();
+            _resultValue.customSqls = customSqls;
+            _resultValue.physicalTableMapId = physicalTableMapId;
+            _resultValue.relationalTables = relationalTables;
+            _resultValue.s3Sources = s3Sources;
+            return _resultValue;
         }
     }
 }

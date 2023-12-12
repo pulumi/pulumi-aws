@@ -105,12 +105,12 @@ public final class AppProductionBranch {
             return this;
         }
         public AppProductionBranch build() {
-            final var o = new AppProductionBranch();
-            o.branchName = branchName;
-            o.lastDeployTime = lastDeployTime;
-            o.status = status;
-            o.thumbnailUrl = thumbnailUrl;
-            return o;
+            final var _resultValue = new AppProductionBranch();
+            _resultValue.branchName = branchName;
+            _resultValue.lastDeployTime = lastDeployTime;
+            _resultValue.status = status;
+            _resultValue.thumbnailUrl = thumbnailUrl;
+            return _resultValue;
         }
     }
 }

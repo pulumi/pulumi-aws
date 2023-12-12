@@ -68,10 +68,10 @@ public final class ClusterClusterEndpoint {
             return this;
         }
         public ClusterClusterEndpoint build() {
-            final var o = new ClusterClusterEndpoint();
-            o.address = address;
-            o.port = port;
-            return o;
+            final var _resultValue = new ClusterClusterEndpoint();
+            _resultValue.address = address;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

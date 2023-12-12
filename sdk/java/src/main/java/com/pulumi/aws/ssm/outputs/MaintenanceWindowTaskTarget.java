@@ -61,10 +61,10 @@ public final class MaintenanceWindowTaskTarget {
             return values(List.of(values));
         }
         public MaintenanceWindowTaskTarget build() {
-            final var o = new MaintenanceWindowTaskTarget();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTarget();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

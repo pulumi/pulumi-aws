@@ -53,10 +53,10 @@ public final class GetElasticIpFilter {
             return values(List.of(values));
         }
         public GetElasticIpFilter build() {
-            final var o = new GetElasticIpFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetElasticIpFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class VirtualGatewaySpecLogging {
             return this;
         }
         public VirtualGatewaySpecLogging build() {
-            final var o = new VirtualGatewaySpecLogging();
-            o.accessLog = accessLog;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecLogging();
+            _resultValue.accessLog = accessLog;
+            return _resultValue;
         }
     }
 }

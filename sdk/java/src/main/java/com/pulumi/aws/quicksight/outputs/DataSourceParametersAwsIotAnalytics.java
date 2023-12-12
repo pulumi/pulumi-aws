@@ -46,9 +46,9 @@ public final class DataSourceParametersAwsIotAnalytics {
             return this;
         }
         public DataSourceParametersAwsIotAnalytics build() {
-            final var o = new DataSourceParametersAwsIotAnalytics();
-            o.dataSetName = dataSetName;
-            return o;
+            final var _resultValue = new DataSourceParametersAwsIotAnalytics();
+            _resultValue.dataSetName = dataSetName;
+            return _resultValue;
         }
     }
 }

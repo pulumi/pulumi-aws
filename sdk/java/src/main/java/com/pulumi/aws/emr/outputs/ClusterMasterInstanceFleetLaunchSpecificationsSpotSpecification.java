@@ -106,12 +106,12 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificati
             return this;
         }
         public ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification build() {
-            final var o = new ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification();
-            o.allocationStrategy = allocationStrategy;
-            o.blockDurationMinutes = blockDurationMinutes;
-            o.timeoutAction = timeoutAction;
-            o.timeoutDurationMinutes = timeoutDurationMinutes;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification();
+            _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.blockDurationMinutes = blockDurationMinutes;
+            _resultValue.timeoutAction = timeoutAction;
+            _resultValue.timeoutDurationMinutes = timeoutDurationMinutes;
+            return _resultValue;
         }
     }
 }

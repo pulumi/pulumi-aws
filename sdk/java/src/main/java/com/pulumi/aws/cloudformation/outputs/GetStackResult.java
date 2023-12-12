@@ -257,20 +257,20 @@ public final class GetStackResult {
             return this;
         }
         public GetStackResult build() {
-            final var o = new GetStackResult();
-            o.capabilities = capabilities;
-            o.description = description;
-            o.disableRollback = disableRollback;
-            o.iamRoleArn = iamRoleArn;
-            o.id = id;
-            o.name = name;
-            o.notificationArns = notificationArns;
-            o.outputs = outputs;
-            o.parameters = parameters;
-            o.tags = tags;
-            o.templateBody = templateBody;
-            o.timeoutInMinutes = timeoutInMinutes;
-            return o;
+            final var _resultValue = new GetStackResult();
+            _resultValue.capabilities = capabilities;
+            _resultValue.description = description;
+            _resultValue.disableRollback = disableRollback;
+            _resultValue.iamRoleArn = iamRoleArn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.notificationArns = notificationArns;
+            _resultValue.outputs = outputs;
+            _resultValue.parameters = parameters;
+            _resultValue.tags = tags;
+            _resultValue.templateBody = templateBody;
+            _resultValue.timeoutInMinutes = timeoutInMinutes;
+            return _resultValue;
         }
     }
 }

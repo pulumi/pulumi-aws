@@ -38,9 +38,9 @@ public final class GetVirtualNodeSpecListenerTlValidationTrustSd {
             return this;
         }
         public GetVirtualNodeSpecListenerTlValidationTrustSd build() {
-            final var o = new GetVirtualNodeSpecListenerTlValidationTrustSd();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTlValidationTrustSd();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

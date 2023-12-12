@@ -129,14 +129,14 @@ public final class GetSelectionResult {
             return this;
         }
         public GetSelectionResult build() {
-            final var o = new GetSelectionResult();
-            o.iamRoleArn = iamRoleArn;
-            o.id = id;
-            o.name = name;
-            o.planId = planId;
-            o.resources = resources;
-            o.selectionId = selectionId;
-            return o;
+            final var _resultValue = new GetSelectionResult();
+            _resultValue.iamRoleArn = iamRoleArn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.planId = planId;
+            _resultValue.resources = resources;
+            _resultValue.selectionId = selectionId;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class TriggerEventBatchingCondition {
             return this;
         }
         public TriggerEventBatchingCondition build() {
-            final var o = new TriggerEventBatchingCondition();
-            o.batchSize = batchSize;
-            o.batchWindow = batchWindow;
-            return o;
+            final var _resultValue = new TriggerEventBatchingCondition();
+            _resultValue.batchSize = batchSize;
+            _resultValue.batchWindow = batchWindow;
+            return _resultValue;
         }
     }
 }

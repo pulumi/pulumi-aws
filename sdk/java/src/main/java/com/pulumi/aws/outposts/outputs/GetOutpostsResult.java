@@ -135,15 +135,15 @@ public final class GetOutpostsResult {
             return this;
         }
         public GetOutpostsResult build() {
-            final var o = new GetOutpostsResult();
-            o.arns = arns;
-            o.availabilityZone = availabilityZone;
-            o.availabilityZoneId = availabilityZoneId;
-            o.id = id;
-            o.ids = ids;
-            o.ownerId = ownerId;
-            o.siteId = siteId;
-            return o;
+            final var _resultValue = new GetOutpostsResult();
+            _resultValue.arns = arns;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.availabilityZoneId = availabilityZoneId;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.ownerId = ownerId;
+            _resultValue.siteId = siteId;
+            return _resultValue;
         }
     }
 }

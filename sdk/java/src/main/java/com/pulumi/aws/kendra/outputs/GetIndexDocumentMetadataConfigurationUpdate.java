@@ -112,12 +112,12 @@ public final class GetIndexDocumentMetadataConfigurationUpdate {
             return this;
         }
         public GetIndexDocumentMetadataConfigurationUpdate build() {
-            final var o = new GetIndexDocumentMetadataConfigurationUpdate();
-            o.name = name;
-            o.relevances = relevances;
-            o.searches = searches;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetIndexDocumentMetadataConfigurationUpdate();
+            _resultValue.name = name;
+            _resultValue.relevances = relevances;
+            _resultValue.searches = searches;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

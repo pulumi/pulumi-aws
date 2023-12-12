@@ -136,13 +136,13 @@ public final class CrawlerCatalogTarget {
             return tables(List.of(tables));
         }
         public CrawlerCatalogTarget build() {
-            final var o = new CrawlerCatalogTarget();
-            o.connectionName = connectionName;
-            o.databaseName = databaseName;
-            o.dlqEventQueueArn = dlqEventQueueArn;
-            o.eventQueueArn = eventQueueArn;
-            o.tables = tables;
-            return o;
+            final var _resultValue = new CrawlerCatalogTarget();
+            _resultValue.connectionName = connectionName;
+            _resultValue.databaseName = databaseName;
+            _resultValue.dlqEventQueueArn = dlqEventQueueArn;
+            _resultValue.eventQueueArn = eventQueueArn;
+            _resultValue.tables = tables;
+            return _resultValue;
         }
     }
 }

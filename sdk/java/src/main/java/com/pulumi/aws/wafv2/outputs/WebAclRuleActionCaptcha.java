@@ -48,9 +48,9 @@ public final class WebAclRuleActionCaptcha {
             return this;
         }
         public WebAclRuleActionCaptcha build() {
-            final var o = new WebAclRuleActionCaptcha();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new WebAclRuleActionCaptcha();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

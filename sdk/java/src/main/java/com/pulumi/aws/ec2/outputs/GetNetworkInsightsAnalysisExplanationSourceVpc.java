@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationSourceVpc {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationSourceVpc build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationSourceVpc();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationSourceVpc();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

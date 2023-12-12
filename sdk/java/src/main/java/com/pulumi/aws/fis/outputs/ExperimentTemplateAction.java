@@ -152,14 +152,14 @@ public final class ExperimentTemplateAction {
             return this;
         }
         public ExperimentTemplateAction build() {
-            final var o = new ExperimentTemplateAction();
-            o.actionId = actionId;
-            o.description = description;
-            o.name = name;
-            o.parameters = parameters;
-            o.startAfters = startAfters;
-            o.target = target;
-            return o;
+            final var _resultValue = new ExperimentTemplateAction();
+            _resultValue.actionId = actionId;
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.startAfters = startAfters;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

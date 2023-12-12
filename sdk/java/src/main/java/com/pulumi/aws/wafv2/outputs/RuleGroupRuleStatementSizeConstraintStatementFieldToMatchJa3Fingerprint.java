@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3F
             return this;
         }
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint();
-            o.fallbackBehavior = fallbackBehavior;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            return _resultValue;
         }
     }
 }

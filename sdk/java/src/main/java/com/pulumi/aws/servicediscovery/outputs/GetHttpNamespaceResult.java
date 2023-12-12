@@ -134,14 +134,14 @@ public final class GetHttpNamespaceResult {
             return this;
         }
         public GetHttpNamespaceResult build() {
-            final var o = new GetHttpNamespaceResult();
-            o.arn = arn;
-            o.description = description;
-            o.httpName = httpName;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetHttpNamespaceResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.httpName = httpName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

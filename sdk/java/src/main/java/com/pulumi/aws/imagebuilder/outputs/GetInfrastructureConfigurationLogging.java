@@ -50,9 +50,9 @@ public final class GetInfrastructureConfigurationLogging {
             return s3Logs(List.of(s3Logs));
         }
         public GetInfrastructureConfigurationLogging build() {
-            final var o = new GetInfrastructureConfigurationLogging();
-            o.s3Logs = s3Logs;
-            return o;
+            final var _resultValue = new GetInfrastructureConfigurationLogging();
+            _resultValue.s3Logs = s3Logs;
+            return _resultValue;
         }
     }
 }

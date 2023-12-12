@@ -152,14 +152,14 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
             return supportedEngineVersions(List.of(supportedEngineVersions));
         }
         public GetInstanceTypeOfferingsBrokerInstanceOption build() {
-            final var o = new GetInstanceTypeOfferingsBrokerInstanceOption();
-            o.availabilityZones = availabilityZones;
-            o.engineType = engineType;
-            o.hostInstanceType = hostInstanceType;
-            o.storageType = storageType;
-            o.supportedDeploymentModes = supportedDeploymentModes;
-            o.supportedEngineVersions = supportedEngineVersions;
-            return o;
+            final var _resultValue = new GetInstanceTypeOfferingsBrokerInstanceOption();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.engineType = engineType;
+            _resultValue.hostInstanceType = hostInstanceType;
+            _resultValue.storageType = storageType;
+            _resultValue.supportedDeploymentModes = supportedDeploymentModes;
+            _resultValue.supportedEngineVersions = supportedEngineVersions;
+            return _resultValue;
         }
     }
 }

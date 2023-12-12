@@ -68,10 +68,10 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
             return this;
         }
         public WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation build() {
-            final var o = new WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation();
-            o.efsFileLocation = efsFileLocation;
-            o.s3FileLocation = s3FileLocation;
-            return o;
+            final var _resultValue = new WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation();
+            _resultValue.efsFileLocation = efsFileLocation;
+            _resultValue.s3FileLocation = s3FileLocation;
+            return _resultValue;
         }
     }
 }

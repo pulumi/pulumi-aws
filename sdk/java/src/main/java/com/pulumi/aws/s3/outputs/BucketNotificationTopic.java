@@ -128,13 +128,13 @@ public final class BucketNotificationTopic {
             return this;
         }
         public BucketNotificationTopic build() {
-            final var o = new BucketNotificationTopic();
-            o.events = events;
-            o.filterPrefix = filterPrefix;
-            o.filterSuffix = filterSuffix;
-            o.id = id;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new BucketNotificationTopic();
+            _resultValue.events = events;
+            _resultValue.filterPrefix = filterPrefix;
+            _resultValue.filterSuffix = filterSuffix;
+            _resultValue.id = id;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

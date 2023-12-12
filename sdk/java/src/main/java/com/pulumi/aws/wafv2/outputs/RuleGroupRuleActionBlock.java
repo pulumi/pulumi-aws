@@ -48,9 +48,9 @@ public final class RuleGroupRuleActionBlock {
             return this;
         }
         public RuleGroupRuleActionBlock build() {
-            final var o = new RuleGroupRuleActionBlock();
-            o.customResponse = customResponse;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionBlock();
+            _resultValue.customResponse = customResponse;
+            return _resultValue;
         }
     }
 }

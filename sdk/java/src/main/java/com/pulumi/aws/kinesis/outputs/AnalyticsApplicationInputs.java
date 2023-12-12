@@ -215,17 +215,17 @@ public final class AnalyticsApplicationInputs {
             return streamNames(List.of(streamNames));
         }
         public AnalyticsApplicationInputs build() {
-            final var o = new AnalyticsApplicationInputs();
-            o.id = id;
-            o.kinesisFirehose = kinesisFirehose;
-            o.kinesisStream = kinesisStream;
-            o.namePrefix = namePrefix;
-            o.parallelism = parallelism;
-            o.processingConfiguration = processingConfiguration;
-            o.schema = schema;
-            o.startingPositionConfigurations = startingPositionConfigurations;
-            o.streamNames = streamNames;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputs();
+            _resultValue.id = id;
+            _resultValue.kinesisFirehose = kinesisFirehose;
+            _resultValue.kinesisStream = kinesisStream;
+            _resultValue.namePrefix = namePrefix;
+            _resultValue.parallelism = parallelism;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.schema = schema;
+            _resultValue.startingPositionConfigurations = startingPositionConfigurations;
+            _resultValue.streamNames = streamNames;
+            return _resultValue;
         }
     }
 }

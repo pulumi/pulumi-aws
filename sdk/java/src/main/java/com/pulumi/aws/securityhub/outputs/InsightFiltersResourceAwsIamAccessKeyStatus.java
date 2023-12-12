@@ -65,10 +65,10 @@ public final class InsightFiltersResourceAwsIamAccessKeyStatus {
             return this;
         }
         public InsightFiltersResourceAwsIamAccessKeyStatus build() {
-            final var o = new InsightFiltersResourceAwsIamAccessKeyStatus();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsIamAccessKeyStatus();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

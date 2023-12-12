@@ -72,10 +72,10 @@ public final class DistributionTrustedSigner {
             return items(List.of(items));
         }
         public DistributionTrustedSigner build() {
-            final var o = new DistributionTrustedSigner();
-            o.enabled = enabled;
-            o.items = items;
-            return o;
+            final var _resultValue = new DistributionTrustedSigner();
+            _resultValue.enabled = enabled;
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

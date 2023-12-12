@@ -54,10 +54,10 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTag {
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformTagColumnOperationTag build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformTagColumnOperationTag();
-            o.columnDescriptions = columnDescriptions;
-            o.columnGeographicRole = columnGeographicRole;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformTagColumnOperationTag();
+            _resultValue.columnDescriptions = columnDescriptions;
+            _resultValue.columnGeographicRole = columnGeographicRole;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode();
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode();
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

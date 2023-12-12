@@ -104,12 +104,12 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcCon
             return this;
         }
         public FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig build() {
-            final var o = new FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig();
-            o.roleArn = roleArn;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig();
+            _resultValue.roleArn = roleArn;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

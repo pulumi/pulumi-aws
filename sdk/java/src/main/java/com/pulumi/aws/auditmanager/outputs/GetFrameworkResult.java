@@ -122,16 +122,16 @@ public final class GetFrameworkResult {
             return this;
         }
         public GetFrameworkResult build() {
-            final var o = new GetFrameworkResult();
-            o.arn = arn;
-            o.complianceType = complianceType;
-            o.controlSets = controlSets;
-            o.description = description;
-            o.frameworkType = frameworkType;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetFrameworkResult();
+            _resultValue.arn = arn;
+            _resultValue.complianceType = complianceType;
+            _resultValue.controlSets = controlSets;
+            _resultValue.description = description;
+            _resultValue.frameworkType = frameworkType;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

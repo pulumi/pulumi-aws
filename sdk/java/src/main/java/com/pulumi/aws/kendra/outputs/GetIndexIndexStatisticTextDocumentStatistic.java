@@ -65,10 +65,10 @@ public final class GetIndexIndexStatisticTextDocumentStatistic {
             return this;
         }
         public GetIndexIndexStatisticTextDocumentStatistic build() {
-            final var o = new GetIndexIndexStatisticTextDocumentStatistic();
-            o.indexedTextBytes = indexedTextBytes;
-            o.indexedTextDocumentsCount = indexedTextDocumentsCount;
-            return o;
+            final var _resultValue = new GetIndexIndexStatisticTextDocumentStatistic();
+            _resultValue.indexedTextBytes = indexedTextBytes;
+            _resultValue.indexedTextDocumentsCount = indexedTextDocumentsCount;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class WorkforceCognitoConfig {
             return this;
         }
         public WorkforceCognitoConfig build() {
-            final var o = new WorkforceCognitoConfig();
-            o.clientId = clientId;
-            o.userPool = userPool;
-            return o;
+            final var _resultValue = new WorkforceCognitoConfig();
+            _resultValue.clientId = clientId;
+            _resultValue.userPool = userPool;
+            return _resultValue;
         }
     }
 }

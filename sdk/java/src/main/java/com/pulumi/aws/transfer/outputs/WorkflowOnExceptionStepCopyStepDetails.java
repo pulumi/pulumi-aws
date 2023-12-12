@@ -106,12 +106,12 @@ public final class WorkflowOnExceptionStepCopyStepDetails {
             return this;
         }
         public WorkflowOnExceptionStepCopyStepDetails build() {
-            final var o = new WorkflowOnExceptionStepCopyStepDetails();
-            o.destinationFileLocation = destinationFileLocation;
-            o.name = name;
-            o.overwriteExisting = overwriteExisting;
-            o.sourceFileLocation = sourceFileLocation;
-            return o;
+            final var _resultValue = new WorkflowOnExceptionStepCopyStepDetails();
+            _resultValue.destinationFileLocation = destinationFileLocation;
+            _resultValue.name = name;
+            _resultValue.overwriteExisting = overwriteExisting;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class JobDefinitionTimeout {
             return this;
         }
         public JobDefinitionTimeout build() {
-            final var o = new JobDefinitionTimeout();
-            o.attemptDurationSeconds = attemptDurationSeconds;
-            return o;
+            final var _resultValue = new JobDefinitionTimeout();
+            _resultValue.attemptDurationSeconds = attemptDurationSeconds;
+            return _resultValue;
         }
     }
 }

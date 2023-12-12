@@ -50,9 +50,9 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperation {
             return columns(List.of(columns));
         }
         public DataSetLogicalTableMapDataTransformCreateColumnsOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformCreateColumnsOperation();
-            o.columns = columns;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformCreateColumnsOperation();
+            _resultValue.columns = columns;
+            return _resultValue;
         }
     }
 }

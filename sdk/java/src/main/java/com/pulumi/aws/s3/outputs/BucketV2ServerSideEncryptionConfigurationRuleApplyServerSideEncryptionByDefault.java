@@ -67,10 +67,10 @@ public final class BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideE
             return this;
         }
         public BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault build() {
-            final var o = new BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault();
-            o.kmsMasterKeyId = kmsMasterKeyId;
-            o.sseAlgorithm = sseAlgorithm;
-            return o;
+            final var _resultValue = new BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault();
+            _resultValue.kmsMasterKeyId = kmsMasterKeyId;
+            _resultValue.sseAlgorithm = sseAlgorithm;
+            return _resultValue;
         }
     }
 }

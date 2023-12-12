@@ -48,9 +48,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings();
-            o.cannedAcl = cannedAcl;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings();
+            _resultValue.cannedAcl = cannedAcl;
+            return _resultValue;
         }
     }
 }

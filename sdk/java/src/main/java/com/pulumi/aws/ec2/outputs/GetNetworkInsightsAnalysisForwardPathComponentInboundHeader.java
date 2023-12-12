@@ -97,13 +97,13 @@ public final class GetNetworkInsightsAnalysisForwardPathComponentInboundHeader {
             return sourcePortRanges(List.of(sourcePortRanges));
         }
         public GetNetworkInsightsAnalysisForwardPathComponentInboundHeader build() {
-            final var o = new GetNetworkInsightsAnalysisForwardPathComponentInboundHeader();
-            o.destinationAddresses = destinationAddresses;
-            o.destinationPortRanges = destinationPortRanges;
-            o.protocol = protocol;
-            o.sourceAddresses = sourceAddresses;
-            o.sourcePortRanges = sourcePortRanges;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisForwardPathComponentInboundHeader();
+            _resultValue.destinationAddresses = destinationAddresses;
+            _resultValue.destinationPortRanges = destinationPortRanges;
+            _resultValue.protocol = protocol;
+            _resultValue.sourceAddresses = sourceAddresses;
+            _resultValue.sourcePortRanges = sourcePortRanges;
+            return _resultValue;
         }
     }
 }

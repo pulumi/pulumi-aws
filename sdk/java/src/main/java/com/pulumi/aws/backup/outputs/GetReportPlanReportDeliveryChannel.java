@@ -88,11 +88,11 @@ public final class GetReportPlanReportDeliveryChannel {
             return this;
         }
         public GetReportPlanReportDeliveryChannel build() {
-            final var o = new GetReportPlanReportDeliveryChannel();
-            o.formats = formats;
-            o.s3BucketName = s3BucketName;
-            o.s3KeyPrefix = s3KeyPrefix;
-            return o;
+            final var _resultValue = new GetReportPlanReportDeliveryChannel();
+            _resultValue.formats = formats;
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            return _resultValue;
         }
     }
 }

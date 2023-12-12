@@ -69,10 +69,10 @@ public final class GetPermissionsLfTagPolicyExpression {
             return values(List.of(values));
         }
         public GetPermissionsLfTagPolicyExpression build() {
-            final var o = new GetPermissionsLfTagPolicyExpression();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetPermissionsLfTagPolicyExpression();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

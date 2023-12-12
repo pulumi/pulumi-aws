@@ -95,11 +95,11 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettings {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }
         public DomainDefaultSpaceSettingsJupyterServerAppSettings build() {
-            final var o = new DomainDefaultSpaceSettingsJupyterServerAppSettings();
-            o.codeRepositories = codeRepositories;
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.lifecycleConfigArns = lifecycleConfigArns;
-            return o;
+            final var _resultValue = new DomainDefaultSpaceSettingsJupyterServerAppSettings();
+            _resultValue.codeRepositories = codeRepositories;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.lifecycleConfigArns = lifecycleConfigArns;
+            return _resultValue;
         }
     }
 }

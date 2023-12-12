@@ -84,11 +84,11 @@ public final class GetCatalogTablePartitionKey {
             return this;
         }
         public GetCatalogTablePartitionKey build() {
-            final var o = new GetCatalogTablePartitionKey();
-            o.comment = comment;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetCatalogTablePartitionKey();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

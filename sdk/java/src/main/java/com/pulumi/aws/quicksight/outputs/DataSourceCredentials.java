@@ -70,10 +70,10 @@ public final class DataSourceCredentials {
             return this;
         }
         public DataSourceCredentials build() {
-            final var o = new DataSourceCredentials();
-            o.copySourceArn = copySourceArn;
-            o.credentialPair = credentialPair;
-            return o;
+            final var _resultValue = new DataSourceCredentials();
+            _resultValue.copySourceArn = copySourceArn;
+            _resultValue.credentialPair = credentialPair;
+            return _resultValue;
         }
     }
 }

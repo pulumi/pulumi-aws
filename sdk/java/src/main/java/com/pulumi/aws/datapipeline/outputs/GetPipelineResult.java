@@ -115,13 +115,13 @@ public final class GetPipelineResult {
             return this;
         }
         public GetPipelineResult build() {
-            final var o = new GetPipelineResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.pipelineId = pipelineId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetPipelineResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.pipelineId = pipelineId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -38,9 +38,9 @@ public final class GetVirtualGatewaySpecListenerConnectionPoolHttp2 {
             return this;
         }
         public GetVirtualGatewaySpecListenerConnectionPoolHttp2 build() {
-            final var o = new GetVirtualGatewaySpecListenerConnectionPoolHttp2();
-            o.maxRequests = maxRequests;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerConnectionPoolHttp2();
+            _resultValue.maxRequests = maxRequests;
+            return _resultValue;
         }
     }
 }

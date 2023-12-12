@@ -84,11 +84,11 @@ public final class GetUserHierarchyStructureHierarchyStructureLevelOne {
             return this;
         }
         public GetUserHierarchyStructureHierarchyStructureLevelOne build() {
-            final var o = new GetUserHierarchyStructureHierarchyStructureLevelOne();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetUserHierarchyStructureHierarchyStructureLevelOne();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

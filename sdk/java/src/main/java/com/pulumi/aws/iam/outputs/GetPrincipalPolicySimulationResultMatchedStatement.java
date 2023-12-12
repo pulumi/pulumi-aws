@@ -49,10 +49,10 @@ public final class GetPrincipalPolicySimulationResultMatchedStatement {
             return this;
         }
         public GetPrincipalPolicySimulationResultMatchedStatement build() {
-            final var o = new GetPrincipalPolicySimulationResultMatchedStatement();
-            o.sourcePolicyId = sourcePolicyId;
-            o.sourcePolicyType = sourcePolicyType;
-            return o;
+            final var _resultValue = new GetPrincipalPolicySimulationResultMatchedStatement();
+            _resultValue.sourcePolicyId = sourcePolicyId;
+            _resultValue.sourcePolicyType = sourcePolicyType;
+            return _resultValue;
         }
     }
 }

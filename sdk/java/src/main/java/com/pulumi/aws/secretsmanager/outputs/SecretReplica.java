@@ -124,13 +124,13 @@ public final class SecretReplica {
             return this;
         }
         public SecretReplica build() {
-            final var o = new SecretReplica();
-            o.kmsKeyId = kmsKeyId;
-            o.lastAccessedDate = lastAccessedDate;
-            o.region = region;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            return o;
+            final var _resultValue = new SecretReplica();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.lastAccessedDate = lastAccessedDate;
+            _resultValue.region = region;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            return _resultValue;
         }
     }
 }

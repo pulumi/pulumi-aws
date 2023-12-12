@@ -86,11 +86,11 @@ public final class SafetyRuleRuleConfig {
             return this;
         }
         public SafetyRuleRuleConfig build() {
-            final var o = new SafetyRuleRuleConfig();
-            o.inverted = inverted;
-            o.threshold = threshold;
-            o.type = type;
-            return o;
+            final var _resultValue = new SafetyRuleRuleConfig();
+            _resultValue.inverted = inverted;
+            _resultValue.threshold = threshold;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

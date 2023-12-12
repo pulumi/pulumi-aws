@@ -50,10 +50,10 @@ public final class GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
             return this;
         }
         public GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout build() {
-            final var o = new GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

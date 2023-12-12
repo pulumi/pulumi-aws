@@ -69,10 +69,10 @@ public final class GetSubnetFilter {
             return values(List.of(values));
         }
         public GetSubnetFilter build() {
-            final var o = new GetSubnetFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetSubnetFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

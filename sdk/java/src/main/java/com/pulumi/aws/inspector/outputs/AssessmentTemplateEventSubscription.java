@@ -65,10 +65,10 @@ public final class AssessmentTemplateEventSubscription {
             return this;
         }
         public AssessmentTemplateEventSubscription build() {
-            final var o = new AssessmentTemplateEventSubscription();
-            o.event = event;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new AssessmentTemplateEventSubscription();
+            _resultValue.event = event;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

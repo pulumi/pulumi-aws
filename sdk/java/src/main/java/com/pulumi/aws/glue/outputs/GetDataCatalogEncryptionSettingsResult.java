@@ -81,11 +81,11 @@ public final class GetDataCatalogEncryptionSettingsResult {
             return this;
         }
         public GetDataCatalogEncryptionSettingsResult build() {
-            final var o = new GetDataCatalogEncryptionSettingsResult();
-            o.catalogId = catalogId;
-            o.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetDataCatalogEncryptionSettingsResult();
+            _resultValue.catalogId = catalogId;
+            _resultValue.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

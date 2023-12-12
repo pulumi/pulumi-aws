@@ -129,13 +129,13 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfig {
             return sessionPinningFilters(List.of(sessionPinningFilters));
         }
         public ProxyDefaultTargetGroupConnectionPoolConfig build() {
-            final var o = new ProxyDefaultTargetGroupConnectionPoolConfig();
-            o.connectionBorrowTimeout = connectionBorrowTimeout;
-            o.initQuery = initQuery;
-            o.maxConnectionsPercent = maxConnectionsPercent;
-            o.maxIdleConnectionsPercent = maxIdleConnectionsPercent;
-            o.sessionPinningFilters = sessionPinningFilters;
-            return o;
+            final var _resultValue = new ProxyDefaultTargetGroupConnectionPoolConfig();
+            _resultValue.connectionBorrowTimeout = connectionBorrowTimeout;
+            _resultValue.initQuery = initQuery;
+            _resultValue.maxConnectionsPercent = maxConnectionsPercent;
+            _resultValue.maxIdleConnectionsPercent = maxIdleConnectionsPercent;
+            _resultValue.sessionPinningFilters = sessionPinningFilters;
+            return _resultValue;
         }
     }
 }

@@ -42,9 +42,9 @@ public final class GetVirtualNodeSpecLoggingAccessLog {
             return files(List.of(files));
         }
         public GetVirtualNodeSpecLoggingAccessLog build() {
-            final var o = new GetVirtualNodeSpecLoggingAccessLog();
-            o.files = files;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecLoggingAccessLog();
+            _resultValue.files = files;
+            return _resultValue;
         }
     }
 }

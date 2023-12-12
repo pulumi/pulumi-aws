@@ -69,10 +69,10 @@ public final class FolderPermission {
             return this;
         }
         public FolderPermission build() {
-            final var o = new FolderPermission();
-            o.actions = actions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new FolderPermission();
+            _resultValue.actions = actions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

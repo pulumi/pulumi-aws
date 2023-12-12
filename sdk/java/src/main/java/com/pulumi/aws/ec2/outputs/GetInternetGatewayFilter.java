@@ -73,10 +73,10 @@ public final class GetInternetGatewayFilter {
             return values(List.of(values));
         }
         public GetInternetGatewayFilter build() {
-            final var o = new GetInternetGatewayFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetInternetGatewayFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

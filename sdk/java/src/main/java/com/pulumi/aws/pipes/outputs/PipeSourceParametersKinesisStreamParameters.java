@@ -202,17 +202,17 @@ public final class PipeSourceParametersKinesisStreamParameters {
             return this;
         }
         public PipeSourceParametersKinesisStreamParameters build() {
-            final var o = new PipeSourceParametersKinesisStreamParameters();
-            o.batchSize = batchSize;
-            o.deadLetterConfig = deadLetterConfig;
-            o.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
-            o.maximumRecordAgeInSeconds = maximumRecordAgeInSeconds;
-            o.maximumRetryAttempts = maximumRetryAttempts;
-            o.onPartialBatchItemFailure = onPartialBatchItemFailure;
-            o.parallelizationFactor = parallelizationFactor;
-            o.startingPosition = startingPosition;
-            o.startingPositionTimestamp = startingPositionTimestamp;
-            return o;
+            final var _resultValue = new PipeSourceParametersKinesisStreamParameters();
+            _resultValue.batchSize = batchSize;
+            _resultValue.deadLetterConfig = deadLetterConfig;
+            _resultValue.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
+            _resultValue.maximumRecordAgeInSeconds = maximumRecordAgeInSeconds;
+            _resultValue.maximumRetryAttempts = maximumRetryAttempts;
+            _resultValue.onPartialBatchItemFailure = onPartialBatchItemFailure;
+            _resultValue.parallelizationFactor = parallelizationFactor;
+            _resultValue.startingPosition = startingPosition;
+            _resultValue.startingPositionTimestamp = startingPositionTimestamp;
+            return _resultValue;
         }
     }
 }

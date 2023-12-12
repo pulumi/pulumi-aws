@@ -80,11 +80,11 @@ public final class GetStateMachineVersionsResult {
             return statemachineVersions(List.of(statemachineVersions));
         }
         public GetStateMachineVersionsResult build() {
-            final var o = new GetStateMachineVersionsResult();
-            o.id = id;
-            o.statemachineArn = statemachineArn;
-            o.statemachineVersions = statemachineVersions;
-            return o;
+            final var _resultValue = new GetStateMachineVersionsResult();
+            _resultValue.id = id;
+            _resultValue.statemachineArn = statemachineArn;
+            _resultValue.statemachineVersions = statemachineVersions;
+            return _resultValue;
         }
     }
 }

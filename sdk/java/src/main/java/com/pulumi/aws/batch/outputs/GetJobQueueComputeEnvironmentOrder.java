@@ -50,10 +50,10 @@ public final class GetJobQueueComputeEnvironmentOrder {
             return this;
         }
         public GetJobQueueComputeEnvironmentOrder build() {
-            final var o = new GetJobQueueComputeEnvironmentOrder();
-            o.computeEnvironment = computeEnvironment;
-            o.order = order;
-            return o;
+            final var _resultValue = new GetJobQueueComputeEnvironmentOrder();
+            _resultValue.computeEnvironment = computeEnvironment;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

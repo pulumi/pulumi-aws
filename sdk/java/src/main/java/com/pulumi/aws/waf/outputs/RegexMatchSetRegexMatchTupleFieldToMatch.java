@@ -75,10 +75,10 @@ public final class RegexMatchSetRegexMatchTupleFieldToMatch {
             return this;
         }
         public RegexMatchSetRegexMatchTupleFieldToMatch build() {
-            final var o = new RegexMatchSetRegexMatchTupleFieldToMatch();
-            o.data = data;
-            o.type = type;
-            return o;
+            final var _resultValue = new RegexMatchSetRegexMatchTupleFieldToMatch();
+            _resultValue.data = data;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

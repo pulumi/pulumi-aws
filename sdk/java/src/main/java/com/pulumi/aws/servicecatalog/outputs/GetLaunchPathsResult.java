@@ -94,12 +94,12 @@ public final class GetLaunchPathsResult {
             return summaries(List.of(summaries));
         }
         public GetLaunchPathsResult build() {
-            final var o = new GetLaunchPathsResult();
-            o.acceptLanguage = acceptLanguage;
-            o.id = id;
-            o.productId = productId;
-            o.summaries = summaries;
-            return o;
+            final var _resultValue = new GetLaunchPathsResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.id = id;
+            _resultValue.productId = productId;
+            _resultValue.summaries = summaries;
+            return _resultValue;
         }
     }
 }

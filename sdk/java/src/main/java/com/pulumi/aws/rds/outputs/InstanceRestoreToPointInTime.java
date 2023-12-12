@@ -125,13 +125,13 @@ public final class InstanceRestoreToPointInTime {
             return this;
         }
         public InstanceRestoreToPointInTime build() {
-            final var o = new InstanceRestoreToPointInTime();
-            o.restoreTime = restoreTime;
-            o.sourceDbInstanceAutomatedBackupsArn = sourceDbInstanceAutomatedBackupsArn;
-            o.sourceDbInstanceIdentifier = sourceDbInstanceIdentifier;
-            o.sourceDbiResourceId = sourceDbiResourceId;
-            o.useLatestRestorableTime = useLatestRestorableTime;
-            return o;
+            final var _resultValue = new InstanceRestoreToPointInTime();
+            _resultValue.restoreTime = restoreTime;
+            _resultValue.sourceDbInstanceAutomatedBackupsArn = sourceDbInstanceAutomatedBackupsArn;
+            _resultValue.sourceDbInstanceIdentifier = sourceDbInstanceIdentifier;
+            _resultValue.sourceDbiResourceId = sourceDbiResourceId;
+            _resultValue.useLatestRestorableTime = useLatestRestorableTime;
+            return _resultValue;
         }
     }
 }

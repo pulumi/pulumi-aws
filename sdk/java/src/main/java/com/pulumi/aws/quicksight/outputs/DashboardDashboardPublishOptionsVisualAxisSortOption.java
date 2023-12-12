@@ -48,9 +48,9 @@ public final class DashboardDashboardPublishOptionsVisualAxisSortOption {
             return this;
         }
         public DashboardDashboardPublishOptionsVisualAxisSortOption build() {
-            final var o = new DashboardDashboardPublishOptionsVisualAxisSortOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsVisualAxisSortOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

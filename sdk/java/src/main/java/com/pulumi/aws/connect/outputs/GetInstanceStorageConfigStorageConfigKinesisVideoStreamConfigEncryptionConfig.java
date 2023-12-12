@@ -65,10 +65,10 @@ public final class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig
             return this;
         }
         public GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig build() {
-            final var o = new GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig();
-            o.encryptionType = encryptionType;
-            o.keyId = keyId;
-            return o;
+            final var _resultValue = new GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig();
+            _resultValue.encryptionType = encryptionType;
+            _resultValue.keyId = keyId;
+            return _resultValue;
         }
     }
 }

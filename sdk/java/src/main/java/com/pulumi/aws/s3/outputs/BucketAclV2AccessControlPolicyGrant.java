@@ -68,10 +68,10 @@ public final class BucketAclV2AccessControlPolicyGrant {
             return this;
         }
         public BucketAclV2AccessControlPolicyGrant build() {
-            final var o = new BucketAclV2AccessControlPolicyGrant();
-            o.grantee = grantee;
-            o.permission = permission;
-            return o;
+            final var _resultValue = new BucketAclV2AccessControlPolicyGrant();
+            _resultValue.grantee = grantee;
+            _resultValue.permission = permission;
+            return _resultValue;
         }
     }
 }

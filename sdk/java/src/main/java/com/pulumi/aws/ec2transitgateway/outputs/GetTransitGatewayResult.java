@@ -334,24 +334,24 @@ public final class GetTransitGatewayResult {
             return this;
         }
         public GetTransitGatewayResult build() {
-            final var o = new GetTransitGatewayResult();
-            o.amazonSideAsn = amazonSideAsn;
-            o.arn = arn;
-            o.associationDefaultRouteTableId = associationDefaultRouteTableId;
-            o.autoAcceptSharedAttachments = autoAcceptSharedAttachments;
-            o.defaultRouteTableAssociation = defaultRouteTableAssociation;
-            o.defaultRouteTablePropagation = defaultRouteTablePropagation;
-            o.description = description;
-            o.dnsSupport = dnsSupport;
-            o.filters = filters;
-            o.id = id;
-            o.multicastSupport = multicastSupport;
-            o.ownerId = ownerId;
-            o.propagationDefaultRouteTableId = propagationDefaultRouteTableId;
-            o.tags = tags;
-            o.transitGatewayCidrBlocks = transitGatewayCidrBlocks;
-            o.vpnEcmpSupport = vpnEcmpSupport;
-            return o;
+            final var _resultValue = new GetTransitGatewayResult();
+            _resultValue.amazonSideAsn = amazonSideAsn;
+            _resultValue.arn = arn;
+            _resultValue.associationDefaultRouteTableId = associationDefaultRouteTableId;
+            _resultValue.autoAcceptSharedAttachments = autoAcceptSharedAttachments;
+            _resultValue.defaultRouteTableAssociation = defaultRouteTableAssociation;
+            _resultValue.defaultRouteTablePropagation = defaultRouteTablePropagation;
+            _resultValue.description = description;
+            _resultValue.dnsSupport = dnsSupport;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.multicastSupport = multicastSupport;
+            _resultValue.ownerId = ownerId;
+            _resultValue.propagationDefaultRouteTableId = propagationDefaultRouteTableId;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayCidrBlocks = transitGatewayCidrBlocks;
+            _resultValue.vpnEcmpSupport = vpnEcmpSupport;
+            return _resultValue;
         }
     }
 }

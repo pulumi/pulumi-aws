@@ -80,12 +80,12 @@ public final class GetDataSetLogicalTableMap {
             return sources(List.of(sources));
         }
         public GetDataSetLogicalTableMap build() {
-            final var o = new GetDataSetLogicalTableMap();
-            o.alias = alias;
-            o.dataTransforms = dataTransforms;
-            o.logicalTableMapId = logicalTableMapId;
-            o.sources = sources;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMap();
+            _resultValue.alias = alias;
+            _resultValue.dataTransforms = dataTransforms;
+            _resultValue.logicalTableMapId = logicalTableMapId;
+            _resultValue.sources = sources;
+            return _resultValue;
         }
     }
 }

@@ -128,13 +128,13 @@ public final class FleetOnDemandOptions {
             return this;
         }
         public FleetOnDemandOptions build() {
-            final var o = new FleetOnDemandOptions();
-            o.allocationStrategy = allocationStrategy;
-            o.maxTotalPrice = maxTotalPrice;
-            o.minTargetCapacity = minTargetCapacity;
-            o.singleAvailabilityZone = singleAvailabilityZone;
-            o.singleInstanceType = singleInstanceType;
-            return o;
+            final var _resultValue = new FleetOnDemandOptions();
+            _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.maxTotalPrice = maxTotalPrice;
+            _resultValue.minTargetCapacity = minTargetCapacity;
+            _resultValue.singleAvailabilityZone = singleAvailabilityZone;
+            _resultValue.singleInstanceType = singleInstanceType;
+            return _resultValue;
         }
     }
 }

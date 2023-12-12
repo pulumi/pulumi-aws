@@ -211,17 +211,17 @@ public final class DomainDefaultUserSettings {
             return this;
         }
         public DomainDefaultUserSettings build() {
-            final var o = new DomainDefaultUserSettings();
-            o.canvasAppSettings = canvasAppSettings;
-            o.executionRole = executionRole;
-            o.jupyterServerAppSettings = jupyterServerAppSettings;
-            o.kernelGatewayAppSettings = kernelGatewayAppSettings;
-            o.rSessionAppSettings = rSessionAppSettings;
-            o.rStudioServerProAppSettings = rStudioServerProAppSettings;
-            o.securityGroups = securityGroups;
-            o.sharingSettings = sharingSettings;
-            o.tensorBoardAppSettings = tensorBoardAppSettings;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettings();
+            _resultValue.canvasAppSettings = canvasAppSettings;
+            _resultValue.executionRole = executionRole;
+            _resultValue.jupyterServerAppSettings = jupyterServerAppSettings;
+            _resultValue.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            _resultValue.rSessionAppSettings = rSessionAppSettings;
+            _resultValue.rStudioServerProAppSettings = rStudioServerProAppSettings;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.sharingSettings = sharingSettings;
+            _resultValue.tensorBoardAppSettings = tensorBoardAppSettings;
+            return _resultValue;
         }
     }
 }

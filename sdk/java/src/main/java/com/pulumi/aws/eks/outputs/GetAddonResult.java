@@ -196,18 +196,18 @@ public final class GetAddonResult {
             return this;
         }
         public GetAddonResult build() {
-            final var o = new GetAddonResult();
-            o.addonName = addonName;
-            o.addonVersion = addonVersion;
-            o.arn = arn;
-            o.clusterName = clusterName;
-            o.configurationValues = configurationValues;
-            o.createdAt = createdAt;
-            o.id = id;
-            o.modifiedAt = modifiedAt;
-            o.serviceAccountRoleArn = serviceAccountRoleArn;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetAddonResult();
+            _resultValue.addonName = addonName;
+            _resultValue.addonVersion = addonVersion;
+            _resultValue.arn = arn;
+            _resultValue.clusterName = clusterName;
+            _resultValue.configurationValues = configurationValues;
+            _resultValue.createdAt = createdAt;
+            _resultValue.id = id;
+            _resultValue.modifiedAt = modifiedAt;
+            _resultValue.serviceAccountRoleArn = serviceAccountRoleArn;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

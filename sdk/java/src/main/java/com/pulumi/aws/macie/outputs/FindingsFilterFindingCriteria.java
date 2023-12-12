@@ -51,9 +51,9 @@ public final class FindingsFilterFindingCriteria {
             return criterions(List.of(criterions));
         }
         public FindingsFilterFindingCriteria build() {
-            final var o = new FindingsFilterFindingCriteria();
-            o.criterions = criterions;
-            return o;
+            final var _resultValue = new FindingsFilterFindingCriteria();
+            _resultValue.criterions = criterions;
+            return _resultValue;
         }
     }
 }

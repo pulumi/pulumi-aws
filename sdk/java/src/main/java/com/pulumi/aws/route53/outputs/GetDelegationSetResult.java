@@ -75,12 +75,12 @@ public final class GetDelegationSetResult {
             return nameServers(List.of(nameServers));
         }
         public GetDelegationSetResult build() {
-            final var o = new GetDelegationSetResult();
-            o.arn = arn;
-            o.callerReference = callerReference;
-            o.id = id;
-            o.nameServers = nameServers;
-            return o;
+            final var _resultValue = new GetDelegationSetResult();
+            _resultValue.arn = arn;
+            _resultValue.callerReference = callerReference;
+            _resultValue.id = id;
+            _resultValue.nameServers = nameServers;
+            return _resultValue;
         }
     }
 }

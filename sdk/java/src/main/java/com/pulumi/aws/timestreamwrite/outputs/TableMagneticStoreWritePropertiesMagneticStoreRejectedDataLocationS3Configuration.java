@@ -105,12 +105,12 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
             return this;
         }
         public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration build() {
-            final var o = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration();
-            o.bucketName = bucketName;
-            o.encryptionOption = encryptionOption;
-            o.kmsKeyId = kmsKeyId;
-            o.objectKeyPrefix = objectKeyPrefix;
-            return o;
+            final var _resultValue = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration();
+            _resultValue.bucketName = bucketName;
+            _resultValue.encryptionOption = encryptionOption;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.objectKeyPrefix = objectKeyPrefix;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class DistributionCustomErrorResponse {
             return this;
         }
         public DistributionCustomErrorResponse build() {
-            final var o = new DistributionCustomErrorResponse();
-            o.errorCachingMinTtl = errorCachingMinTtl;
-            o.errorCode = errorCode;
-            o.responseCode = responseCode;
-            o.responsePagePath = responsePagePath;
-            return o;
+            final var _resultValue = new DistributionCustomErrorResponse();
+            _resultValue.errorCachingMinTtl = errorCachingMinTtl;
+            _resultValue.errorCode = errorCode;
+            _resultValue.responseCode = responseCode;
+            _resultValue.responsePagePath = responsePagePath;
+            return _resultValue;
         }
     }
 }

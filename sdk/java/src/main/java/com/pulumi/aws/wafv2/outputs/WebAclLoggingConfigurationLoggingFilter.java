@@ -70,10 +70,10 @@ public final class WebAclLoggingConfigurationLoggingFilter {
             return filters(List.of(filters));
         }
         public WebAclLoggingConfigurationLoggingFilter build() {
-            final var o = new WebAclLoggingConfigurationLoggingFilter();
-            o.defaultBehavior = defaultBehavior;
-            o.filters = filters;
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationLoggingFilter();
+            _resultValue.defaultBehavior = defaultBehavior;
+            _resultValue.filters = filters;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class OutboundConnectionConnectionPropertiesCrossClusterSearch {
             return this;
         }
         public OutboundConnectionConnectionPropertiesCrossClusterSearch build() {
-            final var o = new OutboundConnectionConnectionPropertiesCrossClusterSearch();
-            o.skipUnavailable = skipUnavailable;
-            return o;
+            final var _resultValue = new OutboundConnectionConnectionPropertiesCrossClusterSearch();
+            _resultValue.skipUnavailable = skipUnavailable;
+            return _resultValue;
         }
     }
 }

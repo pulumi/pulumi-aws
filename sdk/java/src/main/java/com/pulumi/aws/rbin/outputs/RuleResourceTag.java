@@ -71,10 +71,10 @@ public final class RuleResourceTag {
             return this;
         }
         public RuleResourceTag build() {
-            final var o = new RuleResourceTag();
-            o.resourceTagKey = resourceTagKey;
-            o.resourceTagValue = resourceTagValue;
-            return o;
+            final var _resultValue = new RuleResourceTag();
+            _resultValue.resourceTagKey = resourceTagKey;
+            _resultValue.resourceTagValue = resourceTagValue;
+            return _resultValue;
         }
     }
 }

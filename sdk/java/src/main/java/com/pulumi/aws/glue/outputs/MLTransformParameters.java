@@ -66,10 +66,10 @@ public final class MLTransformParameters {
             return this;
         }
         public MLTransformParameters build() {
-            final var o = new MLTransformParameters();
-            o.findMatchesParameters = findMatchesParameters;
-            o.transformType = transformType;
-            return o;
+            final var _resultValue = new MLTransformParameters();
+            _resultValue.findMatchesParameters = findMatchesParameters;
+            _resultValue.transformType = transformType;
+            return _resultValue;
         }
     }
 }

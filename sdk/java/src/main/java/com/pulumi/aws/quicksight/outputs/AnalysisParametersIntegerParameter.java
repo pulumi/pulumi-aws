@@ -66,10 +66,10 @@ public final class AnalysisParametersIntegerParameter {
             return values(List.of(values));
         }
         public AnalysisParametersIntegerParameter build() {
-            final var o = new AnalysisParametersIntegerParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new AnalysisParametersIntegerParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

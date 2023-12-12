@@ -70,10 +70,10 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperation {
             return tags(List.of(tags));
         }
         public DataSetLogicalTableMapDataTransformTagColumnOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformTagColumnOperation();
-            o.columnName = columnName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformTagColumnOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

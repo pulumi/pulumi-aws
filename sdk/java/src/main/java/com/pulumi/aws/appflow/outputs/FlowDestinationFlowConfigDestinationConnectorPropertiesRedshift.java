@@ -106,12 +106,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift();
-            o.bucketPrefix = bucketPrefix;
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.intermediateBucketName = intermediateBucketName;
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift();
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.intermediateBucketName = intermediateBucketName;
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

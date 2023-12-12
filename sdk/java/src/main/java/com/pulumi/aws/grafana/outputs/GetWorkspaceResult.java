@@ -424,29 +424,29 @@ public final class GetWorkspaceResult {
             return this;
         }
         public GetWorkspaceResult build() {
-            final var o = new GetWorkspaceResult();
-            o.accountAccessType = accountAccessType;
-            o.arn = arn;
-            o.authenticationProviders = authenticationProviders;
-            o.createdDate = createdDate;
-            o.dataSources = dataSources;
-            o.description = description;
-            o.endpoint = endpoint;
-            o.grafanaVersion = grafanaVersion;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.name = name;
-            o.notificationDestinations = notificationDestinations;
-            o.organizationRoleName = organizationRoleName;
-            o.organizationalUnits = organizationalUnits;
-            o.permissionType = permissionType;
-            o.roleArn = roleArn;
-            o.samlConfigurationStatus = samlConfigurationStatus;
-            o.stackSetName = stackSetName;
-            o.status = status;
-            o.tags = tags;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetWorkspaceResult();
+            _resultValue.accountAccessType = accountAccessType;
+            _resultValue.arn = arn;
+            _resultValue.authenticationProviders = authenticationProviders;
+            _resultValue.createdDate = createdDate;
+            _resultValue.dataSources = dataSources;
+            _resultValue.description = description;
+            _resultValue.endpoint = endpoint;
+            _resultValue.grafanaVersion = grafanaVersion;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.name = name;
+            _resultValue.notificationDestinations = notificationDestinations;
+            _resultValue.organizationRoleName = organizationRoleName;
+            _resultValue.organizationalUnits = organizationalUnits;
+            _resultValue.permissionType = permissionType;
+            _resultValue.roleArn = roleArn;
+            _resultValue.samlConfigurationStatus = samlConfigurationStatus;
+            _resultValue.stackSetName = stackSetName;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

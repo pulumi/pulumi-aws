@@ -196,17 +196,17 @@ public final class GetPlaceIndexResult {
             return this;
         }
         public GetPlaceIndexResult build() {
-            final var o = new GetPlaceIndexResult();
-            o.createTime = createTime;
-            o.dataSource = dataSource;
-            o.dataSourceConfigurations = dataSourceConfigurations;
-            o.description = description;
-            o.id = id;
-            o.indexArn = indexArn;
-            o.indexName = indexName;
-            o.tags = tags;
-            o.updateTime = updateTime;
-            return o;
+            final var _resultValue = new GetPlaceIndexResult();
+            _resultValue.createTime = createTime;
+            _resultValue.dataSource = dataSource;
+            _resultValue.dataSourceConfigurations = dataSourceConfigurations;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.indexArn = indexArn;
+            _resultValue.indexName = indexName;
+            _resultValue.tags = tags;
+            _resultValue.updateTime = updateTime;
+            return _resultValue;
         }
     }
 }

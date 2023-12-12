@@ -66,10 +66,10 @@ public final class GetImagePipelineImageTestsConfiguration {
             return this;
         }
         public GetImagePipelineImageTestsConfiguration build() {
-            final var o = new GetImagePipelineImageTestsConfiguration();
-            o.imageTestsEnabled = imageTestsEnabled;
-            o.timeoutMinutes = timeoutMinutes;
-            return o;
+            final var _resultValue = new GetImagePipelineImageTestsConfiguration();
+            _resultValue.imageTestsEnabled = imageTestsEnabled;
+            _resultValue.timeoutMinutes = timeoutMinutes;
+            return _resultValue;
         }
     }
 }

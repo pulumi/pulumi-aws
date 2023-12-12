@@ -87,11 +87,11 @@ public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
             return this;
         }
         public DistributionOrderedCacheBehaviorLambdaFunctionAssociation build() {
-            final var o = new DistributionOrderedCacheBehaviorLambdaFunctionAssociation();
-            o.eventType = eventType;
-            o.includeBody = includeBody;
-            o.lambdaArn = lambdaArn;
-            return o;
+            final var _resultValue = new DistributionOrderedCacheBehaviorLambdaFunctionAssociation();
+            _resultValue.eventType = eventType;
+            _resultValue.includeBody = includeBody;
+            _resultValue.lambdaArn = lambdaArn;
+            return _resultValue;
         }
     }
 }

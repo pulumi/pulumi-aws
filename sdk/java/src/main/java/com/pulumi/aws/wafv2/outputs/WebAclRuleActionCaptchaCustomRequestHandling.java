@@ -50,9 +50,9 @@ public final class WebAclRuleActionCaptchaCustomRequestHandling {
             return insertHeaders(List.of(insertHeaders));
         }
         public WebAclRuleActionCaptchaCustomRequestHandling build() {
-            final var o = new WebAclRuleActionCaptchaCustomRequestHandling();
-            o.insertHeaders = insertHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleActionCaptchaCustomRequestHandling();
+            _resultValue.insertHeaders = insertHeaders;
+            return _resultValue;
         }
     }
 }

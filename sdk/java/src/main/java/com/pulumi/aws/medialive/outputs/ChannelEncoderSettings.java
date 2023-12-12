@@ -221,17 +221,17 @@ public final class ChannelEncoderSettings {
             return videoDescriptions(List.of(videoDescriptions));
         }
         public ChannelEncoderSettings build() {
-            final var o = new ChannelEncoderSettings();
-            o.audioDescriptions = audioDescriptions;
-            o.availBlanking = availBlanking;
-            o.captionDescriptions = captionDescriptions;
-            o.globalConfiguration = globalConfiguration;
-            o.motionGraphicsConfiguration = motionGraphicsConfiguration;
-            o.nielsenConfiguration = nielsenConfiguration;
-            o.outputGroups = outputGroups;
-            o.timecodeConfig = timecodeConfig;
-            o.videoDescriptions = videoDescriptions;
-            return o;
+            final var _resultValue = new ChannelEncoderSettings();
+            _resultValue.audioDescriptions = audioDescriptions;
+            _resultValue.availBlanking = availBlanking;
+            _resultValue.captionDescriptions = captionDescriptions;
+            _resultValue.globalConfiguration = globalConfiguration;
+            _resultValue.motionGraphicsConfiguration = motionGraphicsConfiguration;
+            _resultValue.nielsenConfiguration = nielsenConfiguration;
+            _resultValue.outputGroups = outputGroups;
+            _resultValue.timecodeConfig = timecodeConfig;
+            _resultValue.videoDescriptions = videoDescriptions;
+            return _resultValue;
         }
     }
 }

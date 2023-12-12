@@ -48,9 +48,9 @@ public final class DashboardDashboardPublishOptionsVisualMenuOption {
             return this;
         }
         public DashboardDashboardPublishOptionsVisualMenuOption build() {
-            final var o = new DashboardDashboardPublishOptionsVisualMenuOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsVisualMenuOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

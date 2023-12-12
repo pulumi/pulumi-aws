@@ -65,10 +65,10 @@ public final class GetBudgetCostFilter {
             return values(List.of(values));
         }
         public GetBudgetCostFilter build() {
-            final var o = new GetBudgetCostFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetBudgetCostFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -185,17 +185,17 @@ public final class GetCertificateResult {
             return this;
         }
         public GetCertificateResult build() {
-            final var o = new GetCertificateResult();
-            o.arn = arn;
-            o.certificateType = certificateType;
-            o.customerOverride = customerOverride;
-            o.customerOverrideValidTill = customerOverrideValidTill;
-            o.id = id;
-            o.latestValidTill = latestValidTill;
-            o.thumbprint = thumbprint;
-            o.validFrom = validFrom;
-            o.validTill = validTill;
-            return o;
+            final var _resultValue = new GetCertificateResult();
+            _resultValue.arn = arn;
+            _resultValue.certificateType = certificateType;
+            _resultValue.customerOverride = customerOverride;
+            _resultValue.customerOverrideValidTill = customerOverrideValidTill;
+            _resultValue.id = id;
+            _resultValue.latestValidTill = latestValidTill;
+            _resultValue.thumbprint = thumbprint;
+            _resultValue.validFrom = validFrom;
+            _resultValue.validTill = validTill;
+            return _resultValue;
         }
     }
 }

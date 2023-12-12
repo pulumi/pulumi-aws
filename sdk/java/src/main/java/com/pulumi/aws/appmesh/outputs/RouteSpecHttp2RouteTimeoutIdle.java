@@ -66,10 +66,10 @@ public final class RouteSpecHttp2RouteTimeoutIdle {
             return this;
         }
         public RouteSpecHttp2RouteTimeoutIdle build() {
-            final var o = new RouteSpecHttp2RouteTimeoutIdle();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new RouteSpecHttp2RouteTimeoutIdle();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

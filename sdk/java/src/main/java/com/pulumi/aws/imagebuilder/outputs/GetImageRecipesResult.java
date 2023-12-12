@@ -119,13 +119,13 @@ public final class GetImageRecipesResult {
             return this;
         }
         public GetImageRecipesResult build() {
-            final var o = new GetImageRecipesResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.names = names;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new GetImageRecipesResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

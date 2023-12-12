@@ -181,16 +181,16 @@ public final class PresetThumbnails {
             return this;
         }
         public PresetThumbnails build() {
-            final var o = new PresetThumbnails();
-            o.aspectRatio = aspectRatio;
-            o.format = format;
-            o.interval = interval;
-            o.maxHeight = maxHeight;
-            o.maxWidth = maxWidth;
-            o.paddingPolicy = paddingPolicy;
-            o.resolution = resolution;
-            o.sizingPolicy = sizingPolicy;
-            return o;
+            final var _resultValue = new PresetThumbnails();
+            _resultValue.aspectRatio = aspectRatio;
+            _resultValue.format = format;
+            _resultValue.interval = interval;
+            _resultValue.maxHeight = maxHeight;
+            _resultValue.maxWidth = maxWidth;
+            _resultValue.paddingPolicy = paddingPolicy;
+            _resultValue.resolution = resolution;
+            _resultValue.sizingPolicy = sizingPolicy;
+            return _resultValue;
         }
     }
 }

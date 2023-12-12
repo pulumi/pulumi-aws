@@ -54,10 +54,10 @@ public final class GetGatewayRouteSpecHttpRouteActionTarget {
             return virtualServices(List.of(virtualServices));
         }
         public GetGatewayRouteSpecHttpRouteActionTarget build() {
-            final var o = new GetGatewayRouteSpecHttpRouteActionTarget();
-            o.port = port;
-            o.virtualServices = virtualServices;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttpRouteActionTarget();
+            _resultValue.port = port;
+            _resultValue.virtualServices = virtualServices;
+            return _resultValue;
         }
     }
 }

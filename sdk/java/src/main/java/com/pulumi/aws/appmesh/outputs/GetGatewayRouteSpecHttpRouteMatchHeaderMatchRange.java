@@ -49,10 +49,10 @@ public final class GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange {
             return this;
         }
         public GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange build() {
-            final var o = new GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttpRouteMatchHeaderMatchRange();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

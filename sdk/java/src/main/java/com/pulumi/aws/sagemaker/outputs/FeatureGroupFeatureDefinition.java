@@ -67,10 +67,10 @@ public final class FeatureGroupFeatureDefinition {
             return this;
         }
         public FeatureGroupFeatureDefinition build() {
-            final var o = new FeatureGroupFeatureDefinition();
-            o.featureName = featureName;
-            o.featureType = featureType;
-            return o;
+            final var _resultValue = new FeatureGroupFeatureDefinition();
+            _resultValue.featureName = featureName;
+            _resultValue.featureType = featureType;
+            return _resultValue;
         }
     }
 }

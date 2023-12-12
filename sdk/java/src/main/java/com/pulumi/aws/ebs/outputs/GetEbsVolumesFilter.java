@@ -141,10 +141,10 @@ public final class GetEbsVolumesFilter {
             return values(List.of(values));
         }
         public GetEbsVolumesFilter build() {
-            final var o = new GetEbsVolumesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetEbsVolumesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

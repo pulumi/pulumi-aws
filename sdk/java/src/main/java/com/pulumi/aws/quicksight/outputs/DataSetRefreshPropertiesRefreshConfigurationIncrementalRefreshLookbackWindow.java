@@ -85,11 +85,11 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
             return this;
         }
         public DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow build() {
-            final var o = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow();
-            o.columnName = columnName;
-            o.size = size;
-            o.sizeUnit = sizeUnit;
-            return o;
+            final var _resultValue = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow();
+            _resultValue.columnName = columnName;
+            _resultValue.size = size;
+            _resultValue.sizeUnit = sizeUnit;
+            return _resultValue;
         }
     }
 }

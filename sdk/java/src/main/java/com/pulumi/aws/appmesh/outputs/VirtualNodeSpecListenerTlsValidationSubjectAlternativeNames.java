@@ -46,9 +46,9 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
             return this;
         }
         public VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames build() {
-            final var o = new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames();
-            o.match = match;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames();
+            _resultValue.match = match;
+            return _resultValue;
         }
     }
 }

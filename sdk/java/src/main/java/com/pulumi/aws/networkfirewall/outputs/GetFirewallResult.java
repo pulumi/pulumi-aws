@@ -309,22 +309,22 @@ public final class GetFirewallResult {
             return this;
         }
         public GetFirewallResult build() {
-            final var o = new GetFirewallResult();
-            o.arn = arn;
-            o.deleteProtection = deleteProtection;
-            o.description = description;
-            o.encryptionConfigurations = encryptionConfigurations;
-            o.firewallPolicyArn = firewallPolicyArn;
-            o.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
-            o.firewallStatuses = firewallStatuses;
-            o.id = id;
-            o.name = name;
-            o.subnetChangeProtection = subnetChangeProtection;
-            o.subnetMappings = subnetMappings;
-            o.tags = tags;
-            o.updateToken = updateToken;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetFirewallResult();
+            _resultValue.arn = arn;
+            _resultValue.deleteProtection = deleteProtection;
+            _resultValue.description = description;
+            _resultValue.encryptionConfigurations = encryptionConfigurations;
+            _resultValue.firewallPolicyArn = firewallPolicyArn;
+            _resultValue.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
+            _resultValue.firewallStatuses = firewallStatuses;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.subnetChangeProtection = subnetChangeProtection;
+            _resultValue.subnetMappings = subnetMappings;
+            _resultValue.tags = tags;
+            _resultValue.updateToken = updateToken;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentAttachedTo {
             return this;
         }
         public GetNetworkInsightsAnalysisReturnPathComponentAttachedTo build() {
-            final var o = new GetNetworkInsightsAnalysisReturnPathComponentAttachedTo();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisReturnPathComponentAttachedTo();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

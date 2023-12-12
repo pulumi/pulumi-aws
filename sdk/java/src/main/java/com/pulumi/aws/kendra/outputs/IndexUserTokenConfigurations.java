@@ -68,10 +68,10 @@ public final class IndexUserTokenConfigurations {
             return this;
         }
         public IndexUserTokenConfigurations build() {
-            final var o = new IndexUserTokenConfigurations();
-            o.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
-            o.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
-            return o;
+            final var _resultValue = new IndexUserTokenConfigurations();
+            _resultValue.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
+            _resultValue.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
+            return _resultValue;
         }
     }
 }

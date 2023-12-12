@@ -202,18 +202,18 @@ public final class GetConnectionResult {
             return this;
         }
         public GetConnectionResult build() {
-            final var o = new GetConnectionResult();
-            o.arn = arn;
-            o.connectedDeviceId = connectedDeviceId;
-            o.connectedLinkId = connectedLinkId;
-            o.connectionId = connectionId;
-            o.description = description;
-            o.deviceId = deviceId;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.linkId = linkId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetConnectionResult();
+            _resultValue.arn = arn;
+            _resultValue.connectedDeviceId = connectedDeviceId;
+            _resultValue.connectedLinkId = connectedLinkId;
+            _resultValue.connectionId = connectionId;
+            _resultValue.description = description;
+            _resultValue.deviceId = deviceId;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.linkId = linkId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -80,11 +80,11 @@ public final class GetCatalogTablePartitionIndex {
             return keys(List.of(keys));
         }
         public GetCatalogTablePartitionIndex build() {
-            final var o = new GetCatalogTablePartitionIndex();
-            o.indexName = indexName;
-            o.indexStatus = indexStatus;
-            o.keys = keys;
-            return o;
+            final var _resultValue = new GetCatalogTablePartitionIndex();
+            _resultValue.indexName = indexName;
+            _resultValue.indexStatus = indexStatus;
+            _resultValue.keys = keys;
+            return _resultValue;
         }
     }
 }

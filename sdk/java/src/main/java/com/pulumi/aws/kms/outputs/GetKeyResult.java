@@ -463,31 +463,31 @@ public final class GetKeyResult {
             return xksKeyConfigurations(List.of(xksKeyConfigurations));
         }
         public GetKeyResult build() {
-            final var o = new GetKeyResult();
-            o.arn = arn;
-            o.awsAccountId = awsAccountId;
-            o.cloudHsmClusterId = cloudHsmClusterId;
-            o.creationDate = creationDate;
-            o.customKeyStoreId = customKeyStoreId;
-            o.customerMasterKeySpec = customerMasterKeySpec;
-            o.deletionDate = deletionDate;
-            o.description = description;
-            o.enabled = enabled;
-            o.expirationModel = expirationModel;
-            o.grantTokens = grantTokens;
-            o.id = id;
-            o.keyId = keyId;
-            o.keyManager = keyManager;
-            o.keySpec = keySpec;
-            o.keyState = keyState;
-            o.keyUsage = keyUsage;
-            o.multiRegion = multiRegion;
-            o.multiRegionConfigurations = multiRegionConfigurations;
-            o.origin = origin;
-            o.pendingDeletionWindowInDays = pendingDeletionWindowInDays;
-            o.validTo = validTo;
-            o.xksKeyConfigurations = xksKeyConfigurations;
-            return o;
+            final var _resultValue = new GetKeyResult();
+            _resultValue.arn = arn;
+            _resultValue.awsAccountId = awsAccountId;
+            _resultValue.cloudHsmClusterId = cloudHsmClusterId;
+            _resultValue.creationDate = creationDate;
+            _resultValue.customKeyStoreId = customKeyStoreId;
+            _resultValue.customerMasterKeySpec = customerMasterKeySpec;
+            _resultValue.deletionDate = deletionDate;
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.expirationModel = expirationModel;
+            _resultValue.grantTokens = grantTokens;
+            _resultValue.id = id;
+            _resultValue.keyId = keyId;
+            _resultValue.keyManager = keyManager;
+            _resultValue.keySpec = keySpec;
+            _resultValue.keyState = keyState;
+            _resultValue.keyUsage = keyUsage;
+            _resultValue.multiRegion = multiRegion;
+            _resultValue.multiRegionConfigurations = multiRegionConfigurations;
+            _resultValue.origin = origin;
+            _resultValue.pendingDeletionWindowInDays = pendingDeletionWindowInDays;
+            _resultValue.validTo = validTo;
+            _resultValue.xksKeyConfigurations = xksKeyConfigurations;
+            return _resultValue;
         }
     }
 }

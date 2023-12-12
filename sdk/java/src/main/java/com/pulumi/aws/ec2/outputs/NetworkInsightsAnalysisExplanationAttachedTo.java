@@ -78,11 +78,11 @@ public final class NetworkInsightsAnalysisExplanationAttachedTo {
             return this;
         }
         public NetworkInsightsAnalysisExplanationAttachedTo build() {
-            final var o = new NetworkInsightsAnalysisExplanationAttachedTo();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationAttachedTo();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

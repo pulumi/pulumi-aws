@@ -73,10 +73,10 @@ public final class TrafficSourceAttachmentTrafficSource {
             return this;
         }
         public TrafficSourceAttachmentTrafficSource build() {
-            final var o = new TrafficSourceAttachmentTrafficSource();
-            o.identifier = identifier;
-            o.type = type;
-            return o;
+            final var _resultValue = new TrafficSourceAttachmentTrafficSource();
+            _resultValue.identifier = identifier;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

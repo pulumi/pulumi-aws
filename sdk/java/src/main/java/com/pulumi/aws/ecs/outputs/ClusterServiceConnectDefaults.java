@@ -46,9 +46,9 @@ public final class ClusterServiceConnectDefaults {
             return this;
         }
         public ClusterServiceConnectDefaults build() {
-            final var o = new ClusterServiceConnectDefaults();
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new ClusterServiceConnectDefaults();
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class GetAccessPointRootDirectoryCreationInfo {
             return this;
         }
         public GetAccessPointRootDirectoryCreationInfo build() {
-            final var o = new GetAccessPointRootDirectoryCreationInfo();
-            o.ownerGid = ownerGid;
-            o.ownerUid = ownerUid;
-            o.permissions = permissions;
-            return o;
+            final var _resultValue = new GetAccessPointRootDirectoryCreationInfo();
+            _resultValue.ownerGid = ownerGid;
+            _resultValue.ownerUid = ownerUid;
+            _resultValue.permissions = permissions;
+            return _resultValue;
         }
     }
 }

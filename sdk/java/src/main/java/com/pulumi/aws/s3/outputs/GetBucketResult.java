@@ -190,17 +190,17 @@ public final class GetBucketResult {
             return this;
         }
         public GetBucketResult build() {
-            final var o = new GetBucketResult();
-            o.arn = arn;
-            o.bucket = bucket;
-            o.bucketDomainName = bucketDomainName;
-            o.bucketRegionalDomainName = bucketRegionalDomainName;
-            o.hostedZoneId = hostedZoneId;
-            o.id = id;
-            o.region = region;
-            o.websiteDomain = websiteDomain;
-            o.websiteEndpoint = websiteEndpoint;
-            return o;
+            final var _resultValue = new GetBucketResult();
+            _resultValue.arn = arn;
+            _resultValue.bucket = bucket;
+            _resultValue.bucketDomainName = bucketDomainName;
+            _resultValue.bucketRegionalDomainName = bucketRegionalDomainName;
+            _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.id = id;
+            _resultValue.region = region;
+            _resultValue.websiteDomain = websiteDomain;
+            _resultValue.websiteEndpoint = websiteEndpoint;
+            return _resultValue;
         }
     }
 }

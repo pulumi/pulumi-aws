@@ -262,20 +262,20 @@ public final class EndpointConfigurationShadowProductionVariant {
             return this;
         }
         public EndpointConfigurationShadowProductionVariant build() {
-            final var o = new EndpointConfigurationShadowProductionVariant();
-            o.acceleratorType = acceleratorType;
-            o.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
-            o.coreDumpConfig = coreDumpConfig;
-            o.enableSsmAccess = enableSsmAccess;
-            o.initialInstanceCount = initialInstanceCount;
-            o.initialVariantWeight = initialVariantWeight;
-            o.instanceType = instanceType;
-            o.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
-            o.modelName = modelName;
-            o.serverlessConfig = serverlessConfig;
-            o.variantName = variantName;
-            o.volumeSizeInGb = volumeSizeInGb;
-            return o;
+            final var _resultValue = new EndpointConfigurationShadowProductionVariant();
+            _resultValue.acceleratorType = acceleratorType;
+            _resultValue.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
+            _resultValue.coreDumpConfig = coreDumpConfig;
+            _resultValue.enableSsmAccess = enableSsmAccess;
+            _resultValue.initialInstanceCount = initialInstanceCount;
+            _resultValue.initialVariantWeight = initialVariantWeight;
+            _resultValue.instanceType = instanceType;
+            _resultValue.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
+            _resultValue.modelName = modelName;
+            _resultValue.serverlessConfig = serverlessConfig;
+            _resultValue.variantName = variantName;
+            _resultValue.volumeSizeInGb = volumeSizeInGb;
+            return _resultValue;
         }
     }
 }

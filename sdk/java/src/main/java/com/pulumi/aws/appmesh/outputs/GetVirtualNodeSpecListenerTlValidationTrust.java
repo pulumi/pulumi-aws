@@ -57,10 +57,10 @@ public final class GetVirtualNodeSpecListenerTlValidationTrust {
             return sds(List.of(sds));
         }
         public GetVirtualNodeSpecListenerTlValidationTrust build() {
-            final var o = new GetVirtualNodeSpecListenerTlValidationTrust();
-            o.files = files;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTlValidationTrust();
+            _resultValue.files = files;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

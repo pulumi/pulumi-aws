@@ -49,10 +49,10 @@ public final class GetGatewayRouteSpecHttpRouteActionRewritePrefix {
             return this;
         }
         public GetGatewayRouteSpecHttpRouteActionRewritePrefix build() {
-            final var o = new GetGatewayRouteSpecHttpRouteActionRewritePrefix();
-            o.defaultPrefix = defaultPrefix;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttpRouteActionRewritePrefix();
+            _resultValue.defaultPrefix = defaultPrefix;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

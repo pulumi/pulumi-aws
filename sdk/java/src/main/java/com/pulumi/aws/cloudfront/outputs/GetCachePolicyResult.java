@@ -171,16 +171,16 @@ public final class GetCachePolicyResult {
             return parametersInCacheKeyAndForwardedToOrigins(List.of(parametersInCacheKeyAndForwardedToOrigins));
         }
         public GetCachePolicyResult build() {
-            final var o = new GetCachePolicyResult();
-            o.comment = comment;
-            o.defaultTtl = defaultTtl;
-            o.etag = etag;
-            o.id = id;
-            o.maxTtl = maxTtl;
-            o.minTtl = minTtl;
-            o.name = name;
-            o.parametersInCacheKeyAndForwardedToOrigins = parametersInCacheKeyAndForwardedToOrigins;
-            return o;
+            final var _resultValue = new GetCachePolicyResult();
+            _resultValue.comment = comment;
+            _resultValue.defaultTtl = defaultTtl;
+            _resultValue.etag = etag;
+            _resultValue.id = id;
+            _resultValue.maxTtl = maxTtl;
+            _resultValue.minTtl = minTtl;
+            _resultValue.name = name;
+            _resultValue.parametersInCacheKeyAndForwardedToOrigins = parametersInCacheKeyAndForwardedToOrigins;
+            return _resultValue;
         }
     }
 }

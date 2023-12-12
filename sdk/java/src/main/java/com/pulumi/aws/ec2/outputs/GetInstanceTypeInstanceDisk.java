@@ -61,11 +61,11 @@ public final class GetInstanceTypeInstanceDisk {
             return this;
         }
         public GetInstanceTypeInstanceDisk build() {
-            final var o = new GetInstanceTypeInstanceDisk();
-            o.count = count;
-            o.size = size;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetInstanceTypeInstanceDisk();
+            _resultValue.count = count;
+            _resultValue.size = size;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

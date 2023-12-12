@@ -73,10 +73,10 @@ public final class GetRouteTableAssociationsFilter {
             return values(List.of(values));
         }
         public GetRouteTableAssociationsFilter build() {
-            final var o = new GetRouteTableAssociationsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetRouteTableAssociationsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

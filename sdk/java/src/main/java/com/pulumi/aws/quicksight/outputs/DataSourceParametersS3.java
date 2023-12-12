@@ -46,9 +46,9 @@ public final class DataSourceParametersS3 {
             return this;
         }
         public DataSourceParametersS3 build() {
-            final var o = new DataSourceParametersS3();
-            o.manifestFileLocation = manifestFileLocation;
-            return o;
+            final var _resultValue = new DataSourceParametersS3();
+            _resultValue.manifestFileLocation = manifestFileLocation;
+            return _resultValue;
         }
     }
 }

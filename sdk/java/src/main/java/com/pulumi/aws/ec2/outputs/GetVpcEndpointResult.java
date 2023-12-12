@@ -401,29 +401,29 @@ public final class GetVpcEndpointResult {
             return this;
         }
         public GetVpcEndpointResult build() {
-            final var o = new GetVpcEndpointResult();
-            o.arn = arn;
-            o.cidrBlocks = cidrBlocks;
-            o.dnsEntries = dnsEntries;
-            o.dnsOptions = dnsOptions;
-            o.filters = filters;
-            o.id = id;
-            o.ipAddressType = ipAddressType;
-            o.networkInterfaceIds = networkInterfaceIds;
-            o.ownerId = ownerId;
-            o.policy = policy;
-            o.prefixListId = prefixListId;
-            o.privateDnsEnabled = privateDnsEnabled;
-            o.requesterManaged = requesterManaged;
-            o.routeTableIds = routeTableIds;
-            o.securityGroupIds = securityGroupIds;
-            o.serviceName = serviceName;
-            o.state = state;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.vpcEndpointType = vpcEndpointType;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetVpcEndpointResult();
+            _resultValue.arn = arn;
+            _resultValue.cidrBlocks = cidrBlocks;
+            _resultValue.dnsEntries = dnsEntries;
+            _resultValue.dnsOptions = dnsOptions;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.networkInterfaceIds = networkInterfaceIds;
+            _resultValue.ownerId = ownerId;
+            _resultValue.policy = policy;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.privateDnsEnabled = privateDnsEnabled;
+            _resultValue.requesterManaged = requesterManaged;
+            _resultValue.routeTableIds = routeTableIds;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.serviceName = serviceName;
+            _resultValue.state = state;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.vpcEndpointType = vpcEndpointType;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

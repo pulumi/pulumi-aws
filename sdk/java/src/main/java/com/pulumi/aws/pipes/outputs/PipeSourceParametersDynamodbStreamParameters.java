@@ -183,16 +183,16 @@ public final class PipeSourceParametersDynamodbStreamParameters {
             return this;
         }
         public PipeSourceParametersDynamodbStreamParameters build() {
-            final var o = new PipeSourceParametersDynamodbStreamParameters();
-            o.batchSize = batchSize;
-            o.deadLetterConfig = deadLetterConfig;
-            o.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
-            o.maximumRecordAgeInSeconds = maximumRecordAgeInSeconds;
-            o.maximumRetryAttempts = maximumRetryAttempts;
-            o.onPartialBatchItemFailure = onPartialBatchItemFailure;
-            o.parallelizationFactor = parallelizationFactor;
-            o.startingPosition = startingPosition;
-            return o;
+            final var _resultValue = new PipeSourceParametersDynamodbStreamParameters();
+            _resultValue.batchSize = batchSize;
+            _resultValue.deadLetterConfig = deadLetterConfig;
+            _resultValue.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
+            _resultValue.maximumRecordAgeInSeconds = maximumRecordAgeInSeconds;
+            _resultValue.maximumRetryAttempts = maximumRetryAttempts;
+            _resultValue.onPartialBatchItemFailure = onPartialBatchItemFailure;
+            _resultValue.parallelizationFactor = parallelizationFactor;
+            _resultValue.startingPosition = startingPosition;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class UserPoolUserPoolAddOns {
             return this;
         }
         public UserPoolUserPoolAddOns build() {
-            final var o = new UserPoolUserPoolAddOns();
-            o.advancedSecurityMode = advancedSecurityMode;
-            return o;
+            final var _resultValue = new UserPoolUserPoolAddOns();
+            _resultValue.advancedSecurityMode = advancedSecurityMode;
+            return _resultValue;
         }
     }
 }

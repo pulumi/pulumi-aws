@@ -178,15 +178,15 @@ public final class ExperimentTemplateTarget {
             return this;
         }
         public ExperimentTemplateTarget build() {
-            final var o = new ExperimentTemplateTarget();
-            o.filters = filters;
-            o.name = name;
-            o.parameters = parameters;
-            o.resourceArns = resourceArns;
-            o.resourceTags = resourceTags;
-            o.resourceType = resourceType;
-            o.selectionMode = selectionMode;
-            return o;
+            final var _resultValue = new ExperimentTemplateTarget();
+            _resultValue.filters = filters;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.resourceArns = resourceArns;
+            _resultValue.resourceTags = resourceTags;
+            _resultValue.resourceType = resourceType;
+            _resultValue.selectionMode = selectionMode;
+            return _resultValue;
         }
     }
 }

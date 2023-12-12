@@ -91,11 +91,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return successValues(List.of(successValues));
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson();
-            o.failureValues = failureValues;
-            o.identifier = identifier;
-            o.successValues = successValues;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson();
+            _resultValue.failureValues = failureValues;
+            _resultValue.identifier = identifier;
+            _resultValue.successValues = successValues;
+            return _resultValue;
         }
     }
 }

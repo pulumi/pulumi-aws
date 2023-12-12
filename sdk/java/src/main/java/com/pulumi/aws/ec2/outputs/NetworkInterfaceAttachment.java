@@ -79,11 +79,11 @@ public final class NetworkInterfaceAttachment {
             return this;
         }
         public NetworkInterfaceAttachment build() {
-            final var o = new NetworkInterfaceAttachment();
-            o.attachmentId = attachmentId;
-            o.deviceIndex = deviceIndex;
-            o.instance = instance;
-            return o;
+            final var _resultValue = new NetworkInterfaceAttachment();
+            _resultValue.attachmentId = attachmentId;
+            _resultValue.deviceIndex = deviceIndex;
+            _resultValue.instance = instance;
+            return _resultValue;
         }
     }
 }

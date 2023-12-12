@@ -106,12 +106,12 @@ public final class DataQualityJobDefinitionJobResourcesClusterConfig {
             return this;
         }
         public DataQualityJobDefinitionJobResourcesClusterConfig build() {
-            final var o = new DataQualityJobDefinitionJobResourcesClusterConfig();
-            o.instanceCount = instanceCount;
-            o.instanceType = instanceType;
-            o.volumeKmsKeyId = volumeKmsKeyId;
-            o.volumeSizeInGb = volumeSizeInGb;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionJobResourcesClusterConfig();
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.instanceType = instanceType;
+            _resultValue.volumeKmsKeyId = volumeKmsKeyId;
+            _resultValue.volumeSizeInGb = volumeSizeInGb;
+            return _resultValue;
         }
     }
 }

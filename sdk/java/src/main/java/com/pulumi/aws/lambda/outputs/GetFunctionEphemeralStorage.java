@@ -38,9 +38,9 @@ public final class GetFunctionEphemeralStorage {
             return this;
         }
         public GetFunctionEphemeralStorage build() {
-            final var o = new GetFunctionEphemeralStorage();
-            o.size = size;
-            return o;
+            final var _resultValue = new GetFunctionEphemeralStorage();
+            _resultValue.size = size;
+            return _resultValue;
         }
     }
 }

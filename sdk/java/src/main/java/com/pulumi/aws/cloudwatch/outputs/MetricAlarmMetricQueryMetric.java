@@ -155,14 +155,14 @@ public final class MetricAlarmMetricQueryMetric {
             return this;
         }
         public MetricAlarmMetricQueryMetric build() {
-            final var o = new MetricAlarmMetricQueryMetric();
-            o.dimensions = dimensions;
-            o.metricName = metricName;
-            o.namespace = namespace;
-            o.period = period;
-            o.stat = stat;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new MetricAlarmMetricQueryMetric();
+            _resultValue.dimensions = dimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.namespace = namespace;
+            _resultValue.period = period;
+            _resultValue.stat = stat;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

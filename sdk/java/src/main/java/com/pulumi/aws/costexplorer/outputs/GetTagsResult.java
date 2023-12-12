@@ -132,15 +132,15 @@ public final class GetTagsResult {
             return this;
         }
         public GetTagsResult build() {
-            final var o = new GetTagsResult();
-            o.filter = filter;
-            o.id = id;
-            o.searchString = searchString;
-            o.sortBies = sortBies;
-            o.tagKey = tagKey;
-            o.tags = tags;
-            o.timePeriod = timePeriod;
-            return o;
+            final var _resultValue = new GetTagsResult();
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.searchString = searchString;
+            _resultValue.sortBies = sortBies;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tags = tags;
+            _resultValue.timePeriod = timePeriod;
+            return _resultValue;
         }
     }
 }

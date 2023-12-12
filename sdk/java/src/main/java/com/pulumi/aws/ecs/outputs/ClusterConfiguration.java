@@ -48,9 +48,9 @@ public final class ClusterConfiguration {
             return this;
         }
         public ClusterConfiguration build() {
-            final var o = new ClusterConfiguration();
-            o.executeCommandConfiguration = executeCommandConfiguration;
-            return o;
+            final var _resultValue = new ClusterConfiguration();
+            _resultValue.executeCommandConfiguration = executeCommandConfiguration;
+            return _resultValue;
         }
     }
 }

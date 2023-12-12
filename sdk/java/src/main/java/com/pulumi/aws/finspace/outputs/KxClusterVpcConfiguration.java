@@ -104,12 +104,12 @@ public final class KxClusterVpcConfiguration {
             return this;
         }
         public KxClusterVpcConfiguration build() {
-            final var o = new KxClusterVpcConfiguration();
-            o.ipAddressType = ipAddressType;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new KxClusterVpcConfiguration();
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

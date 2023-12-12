@@ -93,11 +93,11 @@ public final class FrameworkControlScope {
             return this;
         }
         public FrameworkControlScope build() {
-            final var o = new FrameworkControlScope();
-            o.complianceResourceIds = complianceResourceIds;
-            o.complianceResourceTypes = complianceResourceTypes;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new FrameworkControlScope();
+            _resultValue.complianceResourceIds = complianceResourceIds;
+            _resultValue.complianceResourceTypes = complianceResourceTypes;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

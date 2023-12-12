@@ -85,11 +85,11 @@ public final class GetLicenseGrantsResult {
             return this;
         }
         public GetLicenseGrantsResult build() {
-            final var o = new GetLicenseGrantsResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetLicenseGrantsResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -78,11 +78,11 @@ public final class NetworkInsightsAnalysisExplanationVpnConnection {
             return this;
         }
         public NetworkInsightsAnalysisExplanationVpnConnection build() {
-            final var o = new NetworkInsightsAnalysisExplanationVpnConnection();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationVpnConnection();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

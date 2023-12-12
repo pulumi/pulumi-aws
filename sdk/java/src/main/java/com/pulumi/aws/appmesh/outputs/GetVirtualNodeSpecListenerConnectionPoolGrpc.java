@@ -38,9 +38,9 @@ public final class GetVirtualNodeSpecListenerConnectionPoolGrpc {
             return this;
         }
         public GetVirtualNodeSpecListenerConnectionPoolGrpc build() {
-            final var o = new GetVirtualNodeSpecListenerConnectionPoolGrpc();
-            o.maxRequests = maxRequests;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerConnectionPoolGrpc();
+            _resultValue.maxRequests = maxRequests;
+            return _resultValue;
         }
     }
 }

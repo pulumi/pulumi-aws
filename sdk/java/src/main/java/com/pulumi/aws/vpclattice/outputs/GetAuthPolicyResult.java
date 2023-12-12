@@ -97,12 +97,12 @@ public final class GetAuthPolicyResult {
             return this;
         }
         public GetAuthPolicyResult build() {
-            final var o = new GetAuthPolicyResult();
-            o.id = id;
-            o.policy = policy;
-            o.resourceIdentifier = resourceIdentifier;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetAuthPolicyResult();
+            _resultValue.id = id;
+            _resultValue.policy = policy;
+            _resultValue.resourceIdentifier = resourceIdentifier;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

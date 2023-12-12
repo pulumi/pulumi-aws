@@ -86,11 +86,11 @@ public final class DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
             return this;
         }
         public DataSetLogicalTableMapDataTransformCastColumnTypeOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformCastColumnTypeOperation();
-            o.columnName = columnName;
-            o.format = format;
-            o.newColumnType = newColumnType;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformCastColumnTypeOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.format = format;
+            _resultValue.newColumnType = newColumnType;
+            return _resultValue;
         }
     }
 }

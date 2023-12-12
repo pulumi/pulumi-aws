@@ -46,9 +46,9 @@ public final class ConnectorLogDelivery {
             return this;
         }
         public ConnectorLogDelivery build() {
-            final var o = new ConnectorLogDelivery();
-            o.workerLogDelivery = workerLogDelivery;
-            return o;
+            final var _resultValue = new ConnectorLogDelivery();
+            _resultValue.workerLogDelivery = workerLogDelivery;
+            return _resultValue;
         }
     }
 }

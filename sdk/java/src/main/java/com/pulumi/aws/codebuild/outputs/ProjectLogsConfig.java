@@ -68,10 +68,10 @@ public final class ProjectLogsConfig {
             return this;
         }
         public ProjectLogsConfig build() {
-            final var o = new ProjectLogsConfig();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.s3Logs = s3Logs;
-            return o;
+            final var _resultValue = new ProjectLogsConfig();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.s3Logs = s3Logs;
+            return _resultValue;
         }
     }
 }

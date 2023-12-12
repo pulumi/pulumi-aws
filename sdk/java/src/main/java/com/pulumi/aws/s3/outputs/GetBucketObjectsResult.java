@@ -206,19 +206,19 @@ public final class GetBucketObjectsResult {
             return this;
         }
         public GetBucketObjectsResult build() {
-            final var o = new GetBucketObjectsResult();
-            o.bucket = bucket;
-            o.commonPrefixes = commonPrefixes;
-            o.delimiter = delimiter;
-            o.encodingType = encodingType;
-            o.fetchOwner = fetchOwner;
-            o.id = id;
-            o.keys = keys;
-            o.maxKeys = maxKeys;
-            o.owners = owners;
-            o.prefix = prefix;
-            o.startAfter = startAfter;
-            return o;
+            final var _resultValue = new GetBucketObjectsResult();
+            _resultValue.bucket = bucket;
+            _resultValue.commonPrefixes = commonPrefixes;
+            _resultValue.delimiter = delimiter;
+            _resultValue.encodingType = encodingType;
+            _resultValue.fetchOwner = fetchOwner;
+            _resultValue.id = id;
+            _resultValue.keys = keys;
+            _resultValue.maxKeys = maxKeys;
+            _resultValue.owners = owners;
+            _resultValue.prefix = prefix;
+            _resultValue.startAfter = startAfter;
+            return _resultValue;
         }
     }
 }

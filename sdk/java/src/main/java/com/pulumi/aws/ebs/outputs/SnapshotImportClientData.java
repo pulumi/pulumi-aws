@@ -106,12 +106,12 @@ public final class SnapshotImportClientData {
             return this;
         }
         public SnapshotImportClientData build() {
-            final var o = new SnapshotImportClientData();
-            o.comment = comment;
-            o.uploadEnd = uploadEnd;
-            o.uploadSize = uploadSize;
-            o.uploadStart = uploadStart;
-            return o;
+            final var _resultValue = new SnapshotImportClientData();
+            _resultValue.comment = comment;
+            _resultValue.uploadEnd = uploadEnd;
+            _resultValue.uploadSize = uploadSize;
+            _resultValue.uploadStart = uploadStart;
+            return _resultValue;
         }
     }
 }

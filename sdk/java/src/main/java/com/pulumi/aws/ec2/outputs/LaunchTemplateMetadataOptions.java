@@ -129,13 +129,13 @@ public final class LaunchTemplateMetadataOptions {
             return this;
         }
         public LaunchTemplateMetadataOptions build() {
-            final var o = new LaunchTemplateMetadataOptions();
-            o.httpEndpoint = httpEndpoint;
-            o.httpProtocolIpv6 = httpProtocolIpv6;
-            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
-            o.httpTokens = httpTokens;
-            o.instanceMetadataTags = instanceMetadataTags;
-            return o;
+            final var _resultValue = new LaunchTemplateMetadataOptions();
+            _resultValue.httpEndpoint = httpEndpoint;
+            _resultValue.httpProtocolIpv6 = httpProtocolIpv6;
+            _resultValue.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            _resultValue.httpTokens = httpTokens;
+            _resultValue.instanceMetadataTags = instanceMetadataTags;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva();
-            o.instanceUrl = instanceUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva();
+            _resultValue.instanceUrl = instanceUrl;
+            return _resultValue;
         }
     }
 }

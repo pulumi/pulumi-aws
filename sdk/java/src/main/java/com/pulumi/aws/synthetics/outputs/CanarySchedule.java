@@ -68,10 +68,10 @@ public final class CanarySchedule {
             return this;
         }
         public CanarySchedule build() {
-            final var o = new CanarySchedule();
-            o.durationInSeconds = durationInSeconds;
-            o.expression = expression;
-            return o;
+            final var _resultValue = new CanarySchedule();
+            _resultValue.durationInSeconds = durationInSeconds;
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

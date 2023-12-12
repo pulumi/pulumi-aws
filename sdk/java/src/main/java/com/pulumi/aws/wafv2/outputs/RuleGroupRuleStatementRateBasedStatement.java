@@ -132,13 +132,13 @@ public final class RuleGroupRuleStatementRateBasedStatement {
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatement build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatement();
-            o.aggregateKeyType = aggregateKeyType;
-            o.customKeys = customKeys;
-            o.forwardedIpConfig = forwardedIpConfig;
-            o.limit = limit;
-            o.scopeDownStatement = scopeDownStatement;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatement();
+            _resultValue.aggregateKeyType = aggregateKeyType;
+            _resultValue.customKeys = customKeys;
+            _resultValue.forwardedIpConfig = forwardedIpConfig;
+            _resultValue.limit = limit;
+            _resultValue.scopeDownStatement = scopeDownStatement;
+            return _resultValue;
         }
     }
 }

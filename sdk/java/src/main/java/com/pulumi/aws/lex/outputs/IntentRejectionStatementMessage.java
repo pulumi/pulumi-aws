@@ -89,11 +89,11 @@ public final class IntentRejectionStatementMessage {
             return this;
         }
         public IntentRejectionStatementMessage build() {
-            final var o = new IntentRejectionStatementMessage();
-            o.content = content;
-            o.contentType = contentType;
-            o.groupNumber = groupNumber;
-            return o;
+            final var _resultValue = new IntentRejectionStatementMessage();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.groupNumber = groupNumber;
+            return _resultValue;
         }
     }
 }

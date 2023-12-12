@@ -125,13 +125,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics();
-            o.accessToken = accessToken;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthRequest = oauthRequest;
-            o.refreshToken = refreshToken;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics();
+            _resultValue.accessToken = accessToken;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthRequest = oauthRequest;
+            _resultValue.refreshToken = refreshToken;
+            return _resultValue;
         }
     }
 }

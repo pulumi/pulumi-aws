@@ -69,10 +69,10 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfig
             return this;
         }
         public FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter build() {
-            final var o = new FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter();
-            o.parameterName = parameterName;
-            o.parameterValue = parameterValue;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter();
+            _resultValue.parameterName = parameterName;
+            _resultValue.parameterValue = parameterValue;
+            return _resultValue;
         }
     }
 }

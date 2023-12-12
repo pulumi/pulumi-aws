@@ -62,11 +62,11 @@ public final class V2modelsBotLocaleTimeouts {
             return this;
         }
         public V2modelsBotLocaleTimeouts build() {
-            final var o = new V2modelsBotLocaleTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new V2modelsBotLocaleTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

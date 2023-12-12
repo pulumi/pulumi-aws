@@ -116,12 +116,12 @@ public final class RuleGroupRuleStatementSizeConstraintStatement {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementSizeConstraintStatement build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatement();
-            o.comparisonOperator = comparisonOperator;
-            o.fieldToMatch = fieldToMatch;
-            o.size = size;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatement();
+            _resultValue.comparisonOperator = comparisonOperator;
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.size = size;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

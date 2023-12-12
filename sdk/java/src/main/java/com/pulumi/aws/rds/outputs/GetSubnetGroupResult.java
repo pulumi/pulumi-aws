@@ -178,16 +178,16 @@ public final class GetSubnetGroupResult {
             return this;
         }
         public GetSubnetGroupResult build() {
-            final var o = new GetSubnetGroupResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.status = status;
-            o.subnetIds = subnetIds;
-            o.supportedNetworkTypes = supportedNetworkTypes;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetSubnetGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.supportedNetworkTypes = supportedNetworkTypes;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

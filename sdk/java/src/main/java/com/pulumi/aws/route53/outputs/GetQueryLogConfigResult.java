@@ -142,17 +142,17 @@ public final class GetQueryLogConfigResult {
             return this;
         }
         public GetQueryLogConfigResult build() {
-            final var o = new GetQueryLogConfigResult();
-            o.arn = arn;
-            o.destinationArn = destinationArn;
-            o.filters = filters;
-            o.id = id;
-            o.name = name;
-            o.ownerId = ownerId;
-            o.resolverQueryLogConfigId = resolverQueryLogConfigId;
-            o.shareStatus = shareStatus;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetQueryLogConfigResult();
+            _resultValue.arn = arn;
+            _resultValue.destinationArn = destinationArn;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.ownerId = ownerId;
+            _resultValue.resolverQueryLogConfigId = resolverQueryLogConfigId;
+            _resultValue.shareStatus = shareStatus;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

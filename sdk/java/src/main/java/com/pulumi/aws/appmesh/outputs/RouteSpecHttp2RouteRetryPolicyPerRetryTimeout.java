@@ -66,10 +66,10 @@ public final class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
             return this;
         }
         public RouteSpecHttp2RouteRetryPolicyPerRetryTimeout build() {
-            final var o = new RouteSpecHttp2RouteRetryPolicyPerRetryTimeout();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new RouteSpecHttp2RouteRetryPolicyPerRetryTimeout();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

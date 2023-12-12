@@ -50,10 +50,10 @@ public final class GetAliasRoutingConfiguration {
             return this;
         }
         public GetAliasRoutingConfiguration build() {
-            final var o = new GetAliasRoutingConfiguration();
-            o.stateMachineVersionArn = stateMachineVersionArn;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new GetAliasRoutingConfiguration();
+            _resultValue.stateMachineVersionArn = stateMachineVersionArn;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

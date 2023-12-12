@@ -68,10 +68,10 @@ public final class ClusterShardNodeEndpoint {
             return this;
         }
         public ClusterShardNodeEndpoint build() {
-            final var o = new ClusterShardNodeEndpoint();
-            o.address = address;
-            o.port = port;
-            return o;
+            final var _resultValue = new ClusterShardNodeEndpoint();
+            _resultValue.address = address;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

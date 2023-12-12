@@ -66,10 +66,10 @@ public final class RouteSpecGrpcRouteTimeoutPerRequest {
             return this;
         }
         public RouteSpecGrpcRouteTimeoutPerRequest build() {
-            final var o = new RouteSpecGrpcRouteTimeoutPerRequest();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new RouteSpecGrpcRouteTimeoutPerRequest();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

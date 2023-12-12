@@ -65,10 +65,10 @@ public final class WorkgroupConfigParameter {
             return this;
         }
         public WorkgroupConfigParameter build() {
-            final var o = new WorkgroupConfigParameter();
-            o.parameterKey = parameterKey;
-            o.parameterValue = parameterValue;
-            return o;
+            final var _resultValue = new WorkgroupConfigParameter();
+            _resultValue.parameterKey = parameterKey;
+            _resultValue.parameterValue = parameterValue;
+            return _resultValue;
         }
     }
 }

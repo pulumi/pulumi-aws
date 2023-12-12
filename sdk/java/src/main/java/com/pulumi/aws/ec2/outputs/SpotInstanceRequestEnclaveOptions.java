@@ -52,9 +52,9 @@ public final class SpotInstanceRequestEnclaveOptions {
             return this;
         }
         public SpotInstanceRequestEnclaveOptions build() {
-            final var o = new SpotInstanceRequestEnclaveOptions();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new SpotInstanceRequestEnclaveOptions();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

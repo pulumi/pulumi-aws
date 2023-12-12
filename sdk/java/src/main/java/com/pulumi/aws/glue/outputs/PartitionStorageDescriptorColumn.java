@@ -86,11 +86,11 @@ public final class PartitionStorageDescriptorColumn {
             return this;
         }
         public PartitionStorageDescriptorColumn build() {
-            final var o = new PartitionStorageDescriptorColumn();
-            o.comment = comment;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new PartitionStorageDescriptorColumn();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

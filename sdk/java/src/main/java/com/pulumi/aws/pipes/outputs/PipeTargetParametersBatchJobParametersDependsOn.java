@@ -67,10 +67,10 @@ public final class PipeTargetParametersBatchJobParametersDependsOn {
             return this;
         }
         public PipeTargetParametersBatchJobParametersDependsOn build() {
-            final var o = new PipeTargetParametersBatchJobParametersDependsOn();
-            o.jobId = jobId;
-            o.type = type;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParametersDependsOn();
+            _resultValue.jobId = jobId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

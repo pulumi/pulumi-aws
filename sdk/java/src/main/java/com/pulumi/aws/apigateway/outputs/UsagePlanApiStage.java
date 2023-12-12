@@ -90,11 +90,11 @@ public final class UsagePlanApiStage {
             return throttles(List.of(throttles));
         }
         public UsagePlanApiStage build() {
-            final var o = new UsagePlanApiStage();
-            o.apiId = apiId;
-            o.stage = stage;
-            o.throttles = throttles;
-            return o;
+            final var _resultValue = new UsagePlanApiStage();
+            _resultValue.apiId = apiId;
+            _resultValue.stage = stage;
+            _resultValue.throttles = throttles;
+            return _resultValue;
         }
     }
 }

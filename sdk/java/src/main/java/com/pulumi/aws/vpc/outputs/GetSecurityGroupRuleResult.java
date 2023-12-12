@@ -297,23 +297,23 @@ public final class GetSecurityGroupRuleResult {
             return this;
         }
         public GetSecurityGroupRuleResult build() {
-            final var o = new GetSecurityGroupRuleResult();
-            o.arn = arn;
-            o.cidrIpv4 = cidrIpv4;
-            o.cidrIpv6 = cidrIpv6;
-            o.description = description;
-            o.filters = filters;
-            o.fromPort = fromPort;
-            o.id = id;
-            o.ipProtocol = ipProtocol;
-            o.isEgress = isEgress;
-            o.prefixListId = prefixListId;
-            o.referencedSecurityGroupId = referencedSecurityGroupId;
-            o.securityGroupId = securityGroupId;
-            o.securityGroupRuleId = securityGroupRuleId;
-            o.tags = tags;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new GetSecurityGroupRuleResult();
+            _resultValue.arn = arn;
+            _resultValue.cidrIpv4 = cidrIpv4;
+            _resultValue.cidrIpv6 = cidrIpv6;
+            _resultValue.description = description;
+            _resultValue.filters = filters;
+            _resultValue.fromPort = fromPort;
+            _resultValue.id = id;
+            _resultValue.ipProtocol = ipProtocol;
+            _resultValue.isEgress = isEgress;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.referencedSecurityGroupId = referencedSecurityGroupId;
+            _resultValue.securityGroupId = securityGroupId;
+            _resultValue.securityGroupRuleId = securityGroupRuleId;
+            _resultValue.tags = tags;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

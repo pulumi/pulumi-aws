@@ -76,11 +76,11 @@ public final class GetClusterAuthResult {
             return this;
         }
         public GetClusterAuthResult build() {
-            final var o = new GetClusterAuthResult();
-            o.id = id;
-            o.name = name;
-            o.token = token;
-            return o;
+            final var _resultValue = new GetClusterAuthResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

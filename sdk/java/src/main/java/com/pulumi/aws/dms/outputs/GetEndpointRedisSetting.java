@@ -105,15 +105,15 @@ public final class GetEndpointRedisSetting {
             return this;
         }
         public GetEndpointRedisSetting build() {
-            final var o = new GetEndpointRedisSetting();
-            o.authPassword = authPassword;
-            o.authType = authType;
-            o.authUserName = authUserName;
-            o.port = port;
-            o.serverName = serverName;
-            o.sslCaCertificateArn = sslCaCertificateArn;
-            o.sslSecurityProtocol = sslSecurityProtocol;
-            return o;
+            final var _resultValue = new GetEndpointRedisSetting();
+            _resultValue.authPassword = authPassword;
+            _resultValue.authType = authType;
+            _resultValue.authUserName = authUserName;
+            _resultValue.port = port;
+            _resultValue.serverName = serverName;
+            _resultValue.sslCaCertificateArn = sslCaCertificateArn;
+            _resultValue.sslSecurityProtocol = sslSecurityProtocol;
+            return _resultValue;
         }
     }
 }

@@ -293,22 +293,22 @@ public final class GetRouteTableRoute {
             return this;
         }
         public GetRouteTableRoute build() {
-            final var o = new GetRouteTableRoute();
-            o.carrierGatewayId = carrierGatewayId;
-            o.cidrBlock = cidrBlock;
-            o.coreNetworkArn = coreNetworkArn;
-            o.destinationPrefixListId = destinationPrefixListId;
-            o.egressOnlyGatewayId = egressOnlyGatewayId;
-            o.gatewayId = gatewayId;
-            o.instanceId = instanceId;
-            o.ipv6CidrBlock = ipv6CidrBlock;
-            o.localGatewayId = localGatewayId;
-            o.natGatewayId = natGatewayId;
-            o.networkInterfaceId = networkInterfaceId;
-            o.transitGatewayId = transitGatewayId;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcPeeringConnectionId = vpcPeeringConnectionId;
-            return o;
+            final var _resultValue = new GetRouteTableRoute();
+            _resultValue.carrierGatewayId = carrierGatewayId;
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.coreNetworkArn = coreNetworkArn;
+            _resultValue.destinationPrefixListId = destinationPrefixListId;
+            _resultValue.egressOnlyGatewayId = egressOnlyGatewayId;
+            _resultValue.gatewayId = gatewayId;
+            _resultValue.instanceId = instanceId;
+            _resultValue.ipv6CidrBlock = ipv6CidrBlock;
+            _resultValue.localGatewayId = localGatewayId;
+            _resultValue.natGatewayId = natGatewayId;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcPeeringConnectionId = vpcPeeringConnectionId;
+            return _resultValue;
         }
     }
 }

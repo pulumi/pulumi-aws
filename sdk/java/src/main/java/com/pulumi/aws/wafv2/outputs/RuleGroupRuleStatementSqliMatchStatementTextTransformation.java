@@ -66,10 +66,10 @@ public final class RuleGroupRuleStatementSqliMatchStatementTextTransformation {
             return this;
         }
         public RuleGroupRuleStatementSqliMatchStatementTextTransformation build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

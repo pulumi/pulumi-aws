@@ -144,14 +144,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce();
-            o.accessToken = accessToken;
-            o.clientCredentialsArn = clientCredentialsArn;
-            o.jwtToken = jwtToken;
-            o.oauth2GrantType = oauth2GrantType;
-            o.oauthRequest = oauthRequest;
-            o.refreshToken = refreshToken;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce();
+            _resultValue.accessToken = accessToken;
+            _resultValue.clientCredentialsArn = clientCredentialsArn;
+            _resultValue.jwtToken = jwtToken;
+            _resultValue.oauth2GrantType = oauth2GrantType;
+            _resultValue.oauthRequest = oauthRequest;
+            _resultValue.refreshToken = refreshToken;
+            return _resultValue;
         }
     }
 }

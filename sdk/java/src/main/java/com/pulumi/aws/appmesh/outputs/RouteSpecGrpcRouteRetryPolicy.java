@@ -139,13 +139,13 @@ public final class RouteSpecGrpcRouteRetryPolicy {
             return tcpRetryEvents(List.of(tcpRetryEvents));
         }
         public RouteSpecGrpcRouteRetryPolicy build() {
-            final var o = new RouteSpecGrpcRouteRetryPolicy();
-            o.grpcRetryEvents = grpcRetryEvents;
-            o.httpRetryEvents = httpRetryEvents;
-            o.maxRetries = maxRetries;
-            o.perRetryTimeout = perRetryTimeout;
-            o.tcpRetryEvents = tcpRetryEvents;
-            return o;
+            final var _resultValue = new RouteSpecGrpcRouteRetryPolicy();
+            _resultValue.grpcRetryEvents = grpcRetryEvents;
+            _resultValue.httpRetryEvents = httpRetryEvents;
+            _resultValue.maxRetries = maxRetries;
+            _resultValue.perRetryTimeout = perRetryTimeout;
+            _resultValue.tcpRetryEvents = tcpRetryEvents;
+            return _resultValue;
         }
     }
 }

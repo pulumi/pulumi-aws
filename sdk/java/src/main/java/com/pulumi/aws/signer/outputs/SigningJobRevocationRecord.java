@@ -62,11 +62,11 @@ public final class SigningJobRevocationRecord {
             return this;
         }
         public SigningJobRevocationRecord build() {
-            final var o = new SigningJobRevocationRecord();
-            o.reason = reason;
-            o.revokedAt = revokedAt;
-            o.revokedBy = revokedBy;
-            return o;
+            final var _resultValue = new SigningJobRevocationRecord();
+            _resultValue.reason = reason;
+            _resultValue.revokedAt = revokedAt;
+            _resultValue.revokedBy = revokedBy;
+            return _resultValue;
         }
     }
 }

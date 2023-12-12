@@ -46,9 +46,9 @@ public final class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorag
             return this;
         }
         public PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage build() {
-            final var o = new PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage();
-            o.sizeInGib = sizeInGib;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage();
+            _resultValue.sizeInGib = sizeInGib;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class DataSourceParametersS3ManifestFileLocation {
             return this;
         }
         public DataSourceParametersS3ManifestFileLocation build() {
-            final var o = new DataSourceParametersS3ManifestFileLocation();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new DataSourceParametersS3ManifestFileLocation();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

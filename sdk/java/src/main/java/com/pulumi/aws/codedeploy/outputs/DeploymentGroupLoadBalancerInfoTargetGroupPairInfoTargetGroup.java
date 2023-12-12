@@ -46,9 +46,9 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup
             return this;
         }
         public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup build() {
-            final var o = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup();
-            o.name = name;
-            return o;
+            final var _resultValue = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

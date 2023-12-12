@@ -48,9 +48,9 @@ public final class GatewayGatewayNetworkInterface {
             return this;
         }
         public GatewayGatewayNetworkInterface build() {
-            final var o = new GatewayGatewayNetworkInterface();
-            o.ipv4Address = ipv4Address;
-            return o;
+            final var _resultValue = new GatewayGatewayNetworkInterface();
+            _resultValue.ipv4Address = ipv4Address;
+            return _resultValue;
         }
     }
 }

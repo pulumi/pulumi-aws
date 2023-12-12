@@ -135,14 +135,14 @@ public final class GetEventSourceResult {
             return this;
         }
         public GetEventSourceResult build() {
-            final var o = new GetEventSourceResult();
-            o.arn = arn;
-            o.createdBy = createdBy;
-            o.id = id;
-            o.name = name;
-            o.namePrefix = namePrefix;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetEventSourceResult();
+            _resultValue.arn = arn;
+            _resultValue.createdBy = createdBy;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.namePrefix = namePrefix;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

@@ -125,13 +125,13 @@ public final class DirectoryWorkspaceCreationProperties {
             return this;
         }
         public DirectoryWorkspaceCreationProperties build() {
-            final var o = new DirectoryWorkspaceCreationProperties();
-            o.customSecurityGroupId = customSecurityGroupId;
-            o.defaultOu = defaultOu;
-            o.enableInternetAccess = enableInternetAccess;
-            o.enableMaintenanceMode = enableMaintenanceMode;
-            o.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
-            return o;
+            final var _resultValue = new DirectoryWorkspaceCreationProperties();
+            _resultValue.customSecurityGroupId = customSecurityGroupId;
+            _resultValue.defaultOu = defaultOu;
+            _resultValue.enableInternetAccess = enableInternetAccess;
+            _resultValue.enableMaintenanceMode = enableMaintenanceMode;
+            _resultValue.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
+            return _resultValue;
         }
     }
 }

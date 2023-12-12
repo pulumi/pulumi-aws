@@ -148,14 +148,14 @@ public final class DistributionOriginCustomOriginConfig {
             return originSslProtocols(List.of(originSslProtocols));
         }
         public DistributionOriginCustomOriginConfig build() {
-            final var o = new DistributionOriginCustomOriginConfig();
-            o.httpPort = httpPort;
-            o.httpsPort = httpsPort;
-            o.originKeepaliveTimeout = originKeepaliveTimeout;
-            o.originProtocolPolicy = originProtocolPolicy;
-            o.originReadTimeout = originReadTimeout;
-            o.originSslProtocols = originSslProtocols;
-            return o;
+            final var _resultValue = new DistributionOriginCustomOriginConfig();
+            _resultValue.httpPort = httpPort;
+            _resultValue.httpsPort = httpsPort;
+            _resultValue.originKeepaliveTimeout = originKeepaliveTimeout;
+            _resultValue.originProtocolPolicy = originProtocolPolicy;
+            _resultValue.originReadTimeout = originReadTimeout;
+            _resultValue.originSslProtocols = originSslProtocols;
+            return _resultValue;
         }
     }
 }

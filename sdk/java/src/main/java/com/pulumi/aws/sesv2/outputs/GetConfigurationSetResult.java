@@ -227,18 +227,18 @@ public final class GetConfigurationSetResult {
             return vdmOptions(List.of(vdmOptions));
         }
         public GetConfigurationSetResult build() {
-            final var o = new GetConfigurationSetResult();
-            o.arn = arn;
-            o.configurationSetName = configurationSetName;
-            o.deliveryOptions = deliveryOptions;
-            o.id = id;
-            o.reputationOptions = reputationOptions;
-            o.sendingOptions = sendingOptions;
-            o.suppressionOptions = suppressionOptions;
-            o.tags = tags;
-            o.trackingOptions = trackingOptions;
-            o.vdmOptions = vdmOptions;
-            return o;
+            final var _resultValue = new GetConfigurationSetResult();
+            _resultValue.arn = arn;
+            _resultValue.configurationSetName = configurationSetName;
+            _resultValue.deliveryOptions = deliveryOptions;
+            _resultValue.id = id;
+            _resultValue.reputationOptions = reputationOptions;
+            _resultValue.sendingOptions = sendingOptions;
+            _resultValue.suppressionOptions = suppressionOptions;
+            _resultValue.tags = tags;
+            _resultValue.trackingOptions = trackingOptions;
+            _resultValue.vdmOptions = vdmOptions;
+            return _resultValue;
         }
     }
 }

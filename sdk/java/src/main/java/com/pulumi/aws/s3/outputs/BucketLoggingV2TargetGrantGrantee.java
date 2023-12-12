@@ -116,13 +116,13 @@ public final class BucketLoggingV2TargetGrantGrantee {
             return this;
         }
         public BucketLoggingV2TargetGrantGrantee build() {
-            final var o = new BucketLoggingV2TargetGrantGrantee();
-            o.displayName = displayName;
-            o.emailAddress = emailAddress;
-            o.id = id;
-            o.type = type;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new BucketLoggingV2TargetGrantGrantee();
+            _resultValue.displayName = displayName;
+            _resultValue.emailAddress = emailAddress;
+            _resultValue.id = id;
+            _resultValue.type = type;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class GetReleaseLabelsFilters {
             return this;
         }
         public GetReleaseLabelsFilters build() {
-            final var o = new GetReleaseLabelsFilters();
-            o.application = application;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new GetReleaseLabelsFilters();
+            _resultValue.application = application;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

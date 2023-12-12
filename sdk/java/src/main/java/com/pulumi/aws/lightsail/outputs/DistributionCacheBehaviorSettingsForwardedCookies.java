@@ -71,10 +71,10 @@ public final class DistributionCacheBehaviorSettingsForwardedCookies {
             return this;
         }
         public DistributionCacheBehaviorSettingsForwardedCookies build() {
-            final var o = new DistributionCacheBehaviorSettingsForwardedCookies();
-            o.cookiesAllowLists = cookiesAllowLists;
-            o.option = option;
-            return o;
+            final var _resultValue = new DistributionCacheBehaviorSettingsForwardedCookies();
+            _resultValue.cookiesAllowLists = cookiesAllowLists;
+            _resultValue.option = option;
+            return _resultValue;
         }
     }
 }

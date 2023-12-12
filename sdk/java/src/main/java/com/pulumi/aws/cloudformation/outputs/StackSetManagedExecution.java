@@ -48,9 +48,9 @@ public final class StackSetManagedExecution {
             return this;
         }
         public StackSetManagedExecution build() {
-            final var o = new StackSetManagedExecution();
-            o.active = active;
-            return o;
+            final var _resultValue = new StackSetManagedExecution();
+            _resultValue.active = active;
+            return _resultValue;
         }
     }
 }

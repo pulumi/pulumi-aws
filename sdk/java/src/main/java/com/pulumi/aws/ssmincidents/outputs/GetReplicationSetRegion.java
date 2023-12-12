@@ -105,12 +105,12 @@ public final class GetReplicationSetRegion {
             return this;
         }
         public GetReplicationSetRegion build() {
-            final var o = new GetReplicationSetRegion();
-            o.kmsKeyArn = kmsKeyArn;
-            o.name = name;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            return o;
+            final var _resultValue = new GetReplicationSetRegion();
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            return _resultValue;
         }
     }
 }

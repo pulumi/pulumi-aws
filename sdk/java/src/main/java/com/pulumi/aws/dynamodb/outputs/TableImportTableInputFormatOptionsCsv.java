@@ -71,10 +71,10 @@ public final class TableImportTableInputFormatOptionsCsv {
             return headerLists(List.of(headerLists));
         }
         public TableImportTableInputFormatOptionsCsv build() {
-            final var o = new TableImportTableInputFormatOptionsCsv();
-            o.delimiter = delimiter;
-            o.headerLists = headerLists;
-            return o;
+            final var _resultValue = new TableImportTableInputFormatOptionsCsv();
+            _resultValue.delimiter = delimiter;
+            _resultValue.headerLists = headerLists;
+            return _resultValue;
         }
     }
 }

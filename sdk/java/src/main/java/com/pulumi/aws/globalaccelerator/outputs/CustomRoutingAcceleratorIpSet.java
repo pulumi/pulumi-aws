@@ -71,10 +71,10 @@ public final class CustomRoutingAcceleratorIpSet {
             return this;
         }
         public CustomRoutingAcceleratorIpSet build() {
-            final var o = new CustomRoutingAcceleratorIpSet();
-            o.ipAddresses = ipAddresses;
-            o.ipFamily = ipFamily;
-            return o;
+            final var _resultValue = new CustomRoutingAcceleratorIpSet();
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.ipFamily = ipFamily;
+            return _resultValue;
         }
     }
 }

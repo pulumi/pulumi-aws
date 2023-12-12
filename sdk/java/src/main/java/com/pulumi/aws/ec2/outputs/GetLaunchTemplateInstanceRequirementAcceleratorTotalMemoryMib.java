@@ -49,10 +49,10 @@ public final class GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib
             return this;
         }
         public GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib build() {
-            final var o = new GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

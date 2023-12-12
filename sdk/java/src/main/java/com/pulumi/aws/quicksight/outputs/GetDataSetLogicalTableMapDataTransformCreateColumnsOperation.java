@@ -42,9 +42,9 @@ public final class GetDataSetLogicalTableMapDataTransformCreateColumnsOperation 
             return columns(List.of(columns));
         }
         public GetDataSetLogicalTableMapDataTransformCreateColumnsOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformCreateColumnsOperation();
-            o.columns = columns;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformCreateColumnsOperation();
+            _resultValue.columns = columns;
+            return _resultValue;
         }
     }
 }

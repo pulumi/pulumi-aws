@@ -50,9 +50,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSub
             return exacts(List.of(exacts));
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch();
-            o.exacts = exacts;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch();
+            _resultValue.exacts = exacts;
+            return _resultValue;
         }
     }
 }

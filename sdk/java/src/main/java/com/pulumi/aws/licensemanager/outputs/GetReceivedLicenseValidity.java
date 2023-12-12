@@ -65,10 +65,10 @@ public final class GetReceivedLicenseValidity {
             return this;
         }
         public GetReceivedLicenseValidity build() {
-            final var o = new GetReceivedLicenseValidity();
-            o.begin = begin;
-            o.end = end;
-            return o;
+            final var _resultValue = new GetReceivedLicenseValidity();
+            _resultValue.begin = begin;
+            _resultValue.end = end;
+            return _resultValue;
         }
     }
 }

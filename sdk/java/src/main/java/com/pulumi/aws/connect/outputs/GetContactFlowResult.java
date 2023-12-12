@@ -177,17 +177,17 @@ public final class GetContactFlowResult {
             return this;
         }
         public GetContactFlowResult build() {
-            final var o = new GetContactFlowResult();
-            o.arn = arn;
-            o.contactFlowId = contactFlowId;
-            o.content = content;
-            o.description = description;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetContactFlowResult();
+            _resultValue.arn = arn;
+            _resultValue.contactFlowId = contactFlowId;
+            _resultValue.content = content;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

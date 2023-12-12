@@ -66,10 +66,10 @@ public final class LocationHdfsNameNode {
             return this;
         }
         public LocationHdfsNameNode build() {
-            final var o = new LocationHdfsNameNode();
-            o.hostname = hostname;
-            o.port = port;
-            return o;
+            final var _resultValue = new LocationHdfsNameNode();
+            _resultValue.hostname = hostname;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

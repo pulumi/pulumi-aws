@@ -87,11 +87,11 @@ public final class UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {
             return this;
         }
         public UserProfileUserSettingsKernelGatewayAppSettingsCustomImage build() {
-            final var o = new UserProfileUserSettingsKernelGatewayAppSettingsCustomImage();
-            o.appImageConfigName = appImageConfigName;
-            o.imageName = imageName;
-            o.imageVersionNumber = imageVersionNumber;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsKernelGatewayAppSettingsCustomImage();
+            _resultValue.appImageConfigName = appImageConfigName;
+            _resultValue.imageName = imageName;
+            _resultValue.imageVersionNumber = imageVersionNumber;
+            return _resultValue;
         }
     }
 }

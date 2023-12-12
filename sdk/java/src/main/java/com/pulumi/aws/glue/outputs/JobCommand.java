@@ -105,12 +105,12 @@ public final class JobCommand {
             return this;
         }
         public JobCommand build() {
-            final var o = new JobCommand();
-            o.name = name;
-            o.pythonVersion = pythonVersion;
-            o.runtime = runtime;
-            o.scriptLocation = scriptLocation;
-            return o;
+            final var _resultValue = new JobCommand();
+            _resultValue.name = name;
+            _resultValue.pythonVersion = pythonVersion;
+            _resultValue.runtime = runtime;
+            _resultValue.scriptLocation = scriptLocation;
+            return _resultValue;
         }
     }
 }

@@ -122,16 +122,16 @@ public final class GetVpnGatewayResult {
             return this;
         }
         public GetVpnGatewayResult build() {
-            final var o = new GetVpnGatewayResult();
-            o.amazonSideAsn = amazonSideAsn;
-            o.arn = arn;
-            o.attachedVpcId = attachedVpcId;
-            o.availabilityZone = availabilityZone;
-            o.filters = filters;
-            o.id = id;
-            o.state = state;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetVpnGatewayResult();
+            _resultValue.amazonSideAsn = amazonSideAsn;
+            _resultValue.arn = arn;
+            _resultValue.attachedVpcId = attachedVpcId;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

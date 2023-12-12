@@ -46,9 +46,9 @@ public final class InsightFiltersResourceAwsEc2InstanceIpv6Address {
             return this;
         }
         public InsightFiltersResourceAwsEc2InstanceIpv6Address build() {
-            final var o = new InsightFiltersResourceAwsEc2InstanceIpv6Address();
-            o.cidr = cidr;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsEc2InstanceIpv6Address();
+            _resultValue.cidr = cidr;
+            return _resultValue;
         }
     }
 }

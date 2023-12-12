@@ -155,15 +155,15 @@ public final class ReplicatorReplicationInfoList {
             return topicReplications(List.of(topicReplications));
         }
         public ReplicatorReplicationInfoList build() {
-            final var o = new ReplicatorReplicationInfoList();
-            o.consumerGroupReplications = consumerGroupReplications;
-            o.sourceKafkaClusterAlias = sourceKafkaClusterAlias;
-            o.sourceKafkaClusterArn = sourceKafkaClusterArn;
-            o.targetCompressionType = targetCompressionType;
-            o.targetKafkaClusterAlias = targetKafkaClusterAlias;
-            o.targetKafkaClusterArn = targetKafkaClusterArn;
-            o.topicReplications = topicReplications;
-            return o;
+            final var _resultValue = new ReplicatorReplicationInfoList();
+            _resultValue.consumerGroupReplications = consumerGroupReplications;
+            _resultValue.sourceKafkaClusterAlias = sourceKafkaClusterAlias;
+            _resultValue.sourceKafkaClusterArn = sourceKafkaClusterArn;
+            _resultValue.targetCompressionType = targetCompressionType;
+            _resultValue.targetKafkaClusterAlias = targetKafkaClusterAlias;
+            _resultValue.targetKafkaClusterArn = targetKafkaClusterArn;
+            _resultValue.topicReplications = topicReplications;
+            return _resultValue;
         }
     }
 }

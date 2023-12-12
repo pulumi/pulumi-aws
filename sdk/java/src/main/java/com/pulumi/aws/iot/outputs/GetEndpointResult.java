@@ -88,11 +88,11 @@ public final class GetEndpointResult {
             return this;
         }
         public GetEndpointResult build() {
-            final var o = new GetEndpointResult();
-            o.endpointAddress = endpointAddress;
-            o.endpointType = endpointType;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetEndpointResult();
+            _resultValue.endpointAddress = endpointAddress;
+            _resultValue.endpointType = endpointType;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

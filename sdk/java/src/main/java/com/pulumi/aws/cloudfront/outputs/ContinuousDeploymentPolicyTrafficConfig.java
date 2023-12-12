@@ -88,11 +88,11 @@ public final class ContinuousDeploymentPolicyTrafficConfig {
             return this;
         }
         public ContinuousDeploymentPolicyTrafficConfig build() {
-            final var o = new ContinuousDeploymentPolicyTrafficConfig();
-            o.singleHeaderConfig = singleHeaderConfig;
-            o.singleWeightConfig = singleWeightConfig;
-            o.type = type;
-            return o;
+            final var _resultValue = new ContinuousDeploymentPolicyTrafficConfig();
+            _resultValue.singleHeaderConfig = singleHeaderConfig;
+            _resultValue.singleWeightConfig = singleWeightConfig;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

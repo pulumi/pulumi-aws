@@ -46,9 +46,9 @@ public final class ViewFilters {
             return this;
         }
         public ViewFilters build() {
-            final var o = new ViewFilters();
-            o.filterString = filterString;
-            return o;
+            final var _resultValue = new ViewFilters();
+            _resultValue.filterString = filterString;
+            return _resultValue;
         }
     }
 }

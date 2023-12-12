@@ -182,16 +182,16 @@ public final class LaunchTemplatePlacement {
             return this;
         }
         public LaunchTemplatePlacement build() {
-            final var o = new LaunchTemplatePlacement();
-            o.affinity = affinity;
-            o.availabilityZone = availabilityZone;
-            o.groupName = groupName;
-            o.hostId = hostId;
-            o.hostResourceGroupArn = hostResourceGroupArn;
-            o.partitionNumber = partitionNumber;
-            o.spreadDomain = spreadDomain;
-            o.tenancy = tenancy;
-            return o;
+            final var _resultValue = new LaunchTemplatePlacement();
+            _resultValue.affinity = affinity;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.groupName = groupName;
+            _resultValue.hostId = hostId;
+            _resultValue.hostResourceGroupArn = hostResourceGroupArn;
+            _resultValue.partitionNumber = partitionNumber;
+            _resultValue.spreadDomain = spreadDomain;
+            _resultValue.tenancy = tenancy;
+            return _resultValue;
         }
     }
 }

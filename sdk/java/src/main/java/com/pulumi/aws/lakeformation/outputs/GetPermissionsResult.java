@@ -199,20 +199,20 @@ public final class GetPermissionsResult {
             return this;
         }
         public GetPermissionsResult build() {
-            final var o = new GetPermissionsResult();
-            o.catalogId = catalogId;
-            o.catalogResource = catalogResource;
-            o.dataLocation = dataLocation;
-            o.database = database;
-            o.id = id;
-            o.lfTag = lfTag;
-            o.lfTagPolicy = lfTagPolicy;
-            o.permissions = permissions;
-            o.permissionsWithGrantOptions = permissionsWithGrantOptions;
-            o.principal = principal;
-            o.table = table;
-            o.tableWithColumns = tableWithColumns;
-            return o;
+            final var _resultValue = new GetPermissionsResult();
+            _resultValue.catalogId = catalogId;
+            _resultValue.catalogResource = catalogResource;
+            _resultValue.dataLocation = dataLocation;
+            _resultValue.database = database;
+            _resultValue.id = id;
+            _resultValue.lfTag = lfTag;
+            _resultValue.lfTagPolicy = lfTagPolicy;
+            _resultValue.permissions = permissions;
+            _resultValue.permissionsWithGrantOptions = permissionsWithGrantOptions;
+            _resultValue.principal = principal;
+            _resultValue.table = table;
+            _resultValue.tableWithColumns = tableWithColumns;
+            return _resultValue;
         }
     }
 }

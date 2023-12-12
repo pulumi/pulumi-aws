@@ -91,11 +91,11 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
             return this;
         }
         public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration();
-            o.keywords = keywords;
-            o.negate = negate;
-            o.ruleName = ruleName;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration();
+            _resultValue.keywords = keywords;
+            _resultValue.negate = negate;
+            _resultValue.ruleName = ruleName;
+            return _resultValue;
         }
     }
 }

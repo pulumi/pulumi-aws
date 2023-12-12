@@ -64,10 +64,10 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatc
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

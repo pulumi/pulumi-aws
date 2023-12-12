@@ -98,11 +98,11 @@ public final class EventTargetEcsTargetNetworkConfiguration {
             return subnets(List.of(subnets));
         }
         public EventTargetEcsTargetNetworkConfiguration build() {
-            final var o = new EventTargetEcsTargetNetworkConfiguration();
-            o.assignPublicIp = assignPublicIp;
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new EventTargetEcsTargetNetworkConfiguration();
+            _resultValue.assignPublicIp = assignPublicIp;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

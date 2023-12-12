@@ -66,10 +66,10 @@ public final class VoiceConnectorGroupConnector {
             return this;
         }
         public VoiceConnectorGroupConnector build() {
-            final var o = new VoiceConnectorGroupConnector();
-            o.priority = priority;
-            o.voiceConnectorId = voiceConnectorId;
-            return o;
+            final var _resultValue = new VoiceConnectorGroupConnector();
+            _resultValue.priority = priority;
+            _resultValue.voiceConnectorId = voiceConnectorId;
+            return _resultValue;
         }
     }
 }

@@ -251,23 +251,23 @@ public final class NetworkInsightsAnalysisReturnPathComponent {
             return vpcs(List.of(vpcs));
         }
         public NetworkInsightsAnalysisReturnPathComponent build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponent();
-            o.aclRules = aclRules;
-            o.additionalDetails = additionalDetails;
-            o.attachedTos = attachedTos;
-            o.components = components;
-            o.destinationVpcs = destinationVpcs;
-            o.inboundHeaders = inboundHeaders;
-            o.outboundHeaders = outboundHeaders;
-            o.routeTableRoutes = routeTableRoutes;
-            o.securityGroupRules = securityGroupRules;
-            o.sequenceNumber = sequenceNumber;
-            o.sourceVpcs = sourceVpcs;
-            o.subnets = subnets;
-            o.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
-            o.transitGateways = transitGateways;
-            o.vpcs = vpcs;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponent();
+            _resultValue.aclRules = aclRules;
+            _resultValue.additionalDetails = additionalDetails;
+            _resultValue.attachedTos = attachedTos;
+            _resultValue.components = components;
+            _resultValue.destinationVpcs = destinationVpcs;
+            _resultValue.inboundHeaders = inboundHeaders;
+            _resultValue.outboundHeaders = outboundHeaders;
+            _resultValue.routeTableRoutes = routeTableRoutes;
+            _resultValue.securityGroupRules = securityGroupRules;
+            _resultValue.sequenceNumber = sequenceNumber;
+            _resultValue.sourceVpcs = sourceVpcs;
+            _resultValue.subnets = subnets;
+            _resultValue.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
+            _resultValue.transitGateways = transitGateways;
+            _resultValue.vpcs = vpcs;
+            return _resultValue;
         }
     }
 }

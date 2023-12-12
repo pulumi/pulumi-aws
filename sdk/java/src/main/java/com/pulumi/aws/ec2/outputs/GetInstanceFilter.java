@@ -53,10 +53,10 @@ public final class GetInstanceFilter {
             return values(List.of(values));
         }
         public GetInstanceFilter build() {
-            final var o = new GetInstanceFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetInstanceFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

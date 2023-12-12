@@ -60,11 +60,11 @@ public final class GetWindowsFileSystemAuditLogConfiguration {
             return this;
         }
         public GetWindowsFileSystemAuditLogConfiguration build() {
-            final var o = new GetWindowsFileSystemAuditLogConfiguration();
-            o.auditLogDestination = auditLogDestination;
-            o.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
-            o.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
-            return o;
+            final var _resultValue = new GetWindowsFileSystemAuditLogConfiguration();
+            _resultValue.auditLogDestination = auditLogDestination;
+            _resultValue.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
+            _resultValue.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
+            return _resultValue;
         }
     }
 }

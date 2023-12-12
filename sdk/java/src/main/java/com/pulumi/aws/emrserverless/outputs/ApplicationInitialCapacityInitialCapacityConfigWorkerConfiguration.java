@@ -86,11 +86,11 @@ public final class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigur
             return this;
         }
         public ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration build() {
-            final var o = new ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration();
-            o.cpu = cpu;
-            o.disk = disk;
-            o.memory = memory;
-            return o;
+            final var _resultValue = new ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration();
+            _resultValue.cpu = cpu;
+            _resultValue.disk = disk;
+            _resultValue.memory = memory;
+            return _resultValue;
         }
     }
 }

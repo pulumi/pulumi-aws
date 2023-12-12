@@ -136,15 +136,15 @@ public final class GetCustomKeyStoreResult {
             return this;
         }
         public GetCustomKeyStoreResult build() {
-            final var o = new GetCustomKeyStoreResult();
-            o.cloudHsmClusterId = cloudHsmClusterId;
-            o.connectionState = connectionState;
-            o.creationDate = creationDate;
-            o.customKeyStoreId = customKeyStoreId;
-            o.customKeyStoreName = customKeyStoreName;
-            o.id = id;
-            o.trustAnchorCertificate = trustAnchorCertificate;
-            return o;
+            final var _resultValue = new GetCustomKeyStoreResult();
+            _resultValue.cloudHsmClusterId = cloudHsmClusterId;
+            _resultValue.connectionState = connectionState;
+            _resultValue.creationDate = creationDate;
+            _resultValue.customKeyStoreId = customKeyStoreId;
+            _resultValue.customKeyStoreName = customKeyStoreName;
+            _resultValue.id = id;
+            _resultValue.trustAnchorCertificate = trustAnchorCertificate;
+            return _resultValue;
         }
     }
 }

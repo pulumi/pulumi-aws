@@ -65,10 +65,10 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig {
             return this;
         }
         public ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig build() {
-            final var o = new ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig();
-            o.header = header;
-            o.value = value;
-            return o;
+            final var _resultValue = new ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig();
+            _resultValue.header = header;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

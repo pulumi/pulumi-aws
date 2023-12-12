@@ -228,18 +228,18 @@ public final class DistributionOrigin {
             return this;
         }
         public DistributionOrigin build() {
-            final var o = new DistributionOrigin();
-            o.connectionAttempts = connectionAttempts;
-            o.connectionTimeout = connectionTimeout;
-            o.customHeaders = customHeaders;
-            o.customOriginConfig = customOriginConfig;
-            o.domainName = domainName;
-            o.originAccessControlId = originAccessControlId;
-            o.originId = originId;
-            o.originPath = originPath;
-            o.originShield = originShield;
-            o.s3OriginConfig = s3OriginConfig;
-            return o;
+            final var _resultValue = new DistributionOrigin();
+            _resultValue.connectionAttempts = connectionAttempts;
+            _resultValue.connectionTimeout = connectionTimeout;
+            _resultValue.customHeaders = customHeaders;
+            _resultValue.customOriginConfig = customOriginConfig;
+            _resultValue.domainName = domainName;
+            _resultValue.originAccessControlId = originAccessControlId;
+            _resultValue.originId = originId;
+            _resultValue.originPath = originPath;
+            _resultValue.originShield = originShield;
+            _resultValue.s3OriginConfig = s3OriginConfig;
+            return _resultValue;
         }
     }
 }

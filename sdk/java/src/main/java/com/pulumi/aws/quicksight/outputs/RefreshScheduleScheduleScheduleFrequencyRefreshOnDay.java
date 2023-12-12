@@ -67,10 +67,10 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
             return this;
         }
         public RefreshScheduleScheduleScheduleFrequencyRefreshOnDay build() {
-            final var o = new RefreshScheduleScheduleScheduleFrequencyRefreshOnDay();
-            o.dayOfMonth = dayOfMonth;
-            o.dayOfWeek = dayOfWeek;
-            return o;
+            final var _resultValue = new RefreshScheduleScheduleScheduleFrequencyRefreshOnDay();
+            _resultValue.dayOfMonth = dayOfMonth;
+            _resultValue.dayOfWeek = dayOfWeek;
+            return _resultValue;
         }
     }
 }

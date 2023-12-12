@@ -172,16 +172,16 @@ public final class GetWorkspaceResult {
             return this;
         }
         public GetWorkspaceResult build() {
-            final var o = new GetWorkspaceResult();
-            o.alias = alias;
-            o.arn = arn;
-            o.createdDate = createdDate;
-            o.id = id;
-            o.prometheusEndpoint = prometheusEndpoint;
-            o.status = status;
-            o.tags = tags;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetWorkspaceResult();
+            _resultValue.alias = alias;
+            _resultValue.arn = arn;
+            _resultValue.createdDate = createdDate;
+            _resultValue.id = id;
+            _resultValue.prometheusEndpoint = prometheusEndpoint;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

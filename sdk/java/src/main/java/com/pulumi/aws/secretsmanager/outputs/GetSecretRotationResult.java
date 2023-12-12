@@ -120,13 +120,13 @@ public final class GetSecretRotationResult {
             return this;
         }
         public GetSecretRotationResult build() {
-            final var o = new GetSecretRotationResult();
-            o.id = id;
-            o.rotationEnabled = rotationEnabled;
-            o.rotationLambdaArn = rotationLambdaArn;
-            o.rotationRules = rotationRules;
-            o.secretId = secretId;
-            return o;
+            final var _resultValue = new GetSecretRotationResult();
+            _resultValue.id = id;
+            _resultValue.rotationEnabled = rotationEnabled;
+            _resultValue.rotationLambdaArn = rotationLambdaArn;
+            _resultValue.rotationRules = rotationRules;
+            _resultValue.secretId = secretId;
+            return _resultValue;
         }
     }
 }

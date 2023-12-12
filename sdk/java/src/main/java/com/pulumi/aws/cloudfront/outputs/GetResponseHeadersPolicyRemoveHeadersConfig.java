@@ -42,9 +42,9 @@ public final class GetResponseHeadersPolicyRemoveHeadersConfig {
             return items(List.of(items));
         }
         public GetResponseHeadersPolicyRemoveHeadersConfig build() {
-            final var o = new GetResponseHeadersPolicyRemoveHeadersConfig();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicyRemoveHeadersConfig();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

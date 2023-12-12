@@ -50,9 +50,9 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
             return exacts(List.of(exacts));
         }
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch build() {
-            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch();
-            o.exacts = exacts;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch();
+            _resultValue.exacts = exacts;
+            return _resultValue;
         }
     }
 }

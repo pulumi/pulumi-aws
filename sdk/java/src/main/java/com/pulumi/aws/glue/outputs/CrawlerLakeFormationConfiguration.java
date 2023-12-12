@@ -68,10 +68,10 @@ public final class CrawlerLakeFormationConfiguration {
             return this;
         }
         public CrawlerLakeFormationConfiguration build() {
-            final var o = new CrawlerLakeFormationConfiguration();
-            o.accountId = accountId;
-            o.useLakeFormationCredentials = useLakeFormationCredentials;
-            return o;
+            final var _resultValue = new CrawlerLakeFormationConfiguration();
+            _resultValue.accountId = accountId;
+            _resultValue.useLakeFormationCredentials = useLakeFormationCredentials;
+            return _resultValue;
         }
     }
 }

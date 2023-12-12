@@ -53,10 +53,10 @@ public final class GetAcceleratorIpSet {
             return this;
         }
         public GetAcceleratorIpSet build() {
-            final var o = new GetAcceleratorIpSet();
-            o.ipAddresses = ipAddresses;
-            o.ipFamily = ipFamily;
-            return o;
+            final var _resultValue = new GetAcceleratorIpSet();
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.ipFamily = ipFamily;
+            return _resultValue;
         }
     }
 }

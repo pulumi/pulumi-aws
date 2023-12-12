@@ -61,11 +61,11 @@ public final class GetIdentityPoolCognitoIdentityProvider {
             return this;
         }
         public GetIdentityPoolCognitoIdentityProvider build() {
-            final var o = new GetIdentityPoolCognitoIdentityProvider();
-            o.clientId = clientId;
-            o.providerName = providerName;
-            o.serverSideTokenCheck = serverSideTokenCheck;
-            return o;
+            final var _resultValue = new GetIdentityPoolCognitoIdentityProvider();
+            _resultValue.clientId = clientId;
+            _resultValue.providerName = providerName;
+            _resultValue.serverSideTokenCheck = serverSideTokenCheck;
+            return _resultValue;
         }
     }
 }

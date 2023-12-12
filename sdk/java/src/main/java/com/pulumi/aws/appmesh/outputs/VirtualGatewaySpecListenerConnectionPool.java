@@ -88,11 +88,11 @@ public final class VirtualGatewaySpecListenerConnectionPool {
             return this;
         }
         public VirtualGatewaySpecListenerConnectionPool build() {
-            final var o = new VirtualGatewaySpecListenerConnectionPool();
-            o.grpc = grpc;
-            o.http = http;
-            o.http2 = http2;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerConnectionPool();
+            _resultValue.grpc = grpc;
+            _resultValue.http = http;
+            _resultValue.http2 = http2;
+            return _resultValue;
         }
     }
 }

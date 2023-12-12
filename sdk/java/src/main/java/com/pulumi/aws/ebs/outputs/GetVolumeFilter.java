@@ -53,10 +53,10 @@ public final class GetVolumeFilter {
             return values(List.of(values));
         }
         public GetVolumeFilter build() {
-            final var o = new GetVolumeFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVolumeFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

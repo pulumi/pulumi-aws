@@ -67,10 +67,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey();
-            o.apiKey = apiKey;
-            o.apiSecretKey = apiSecretKey;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey();
+            _resultValue.apiKey = apiKey;
+            _resultValue.apiSecretKey = apiSecretKey;
+            return _resultValue;
         }
     }
 }

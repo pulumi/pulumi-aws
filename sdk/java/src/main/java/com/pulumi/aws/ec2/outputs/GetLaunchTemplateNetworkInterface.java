@@ -256,27 +256,27 @@ public final class GetLaunchTemplateNetworkInterface {
             return this;
         }
         public GetLaunchTemplateNetworkInterface build() {
-            final var o = new GetLaunchTemplateNetworkInterface();
-            o.associateCarrierIpAddress = associateCarrierIpAddress;
-            o.associatePublicIpAddress = associatePublicIpAddress;
-            o.deleteOnTermination = deleteOnTermination;
-            o.description = description;
-            o.deviceIndex = deviceIndex;
-            o.interfaceType = interfaceType;
-            o.ipv4AddressCount = ipv4AddressCount;
-            o.ipv4Addresses = ipv4Addresses;
-            o.ipv4PrefixCount = ipv4PrefixCount;
-            o.ipv4Prefixes = ipv4Prefixes;
-            o.ipv6AddressCount = ipv6AddressCount;
-            o.ipv6Addresses = ipv6Addresses;
-            o.ipv6PrefixCount = ipv6PrefixCount;
-            o.ipv6Prefixes = ipv6Prefixes;
-            o.networkCardIndex = networkCardIndex;
-            o.networkInterfaceId = networkInterfaceId;
-            o.privateIpAddress = privateIpAddress;
-            o.securityGroups = securityGroups;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetLaunchTemplateNetworkInterface();
+            _resultValue.associateCarrierIpAddress = associateCarrierIpAddress;
+            _resultValue.associatePublicIpAddress = associatePublicIpAddress;
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.description = description;
+            _resultValue.deviceIndex = deviceIndex;
+            _resultValue.interfaceType = interfaceType;
+            _resultValue.ipv4AddressCount = ipv4AddressCount;
+            _resultValue.ipv4Addresses = ipv4Addresses;
+            _resultValue.ipv4PrefixCount = ipv4PrefixCount;
+            _resultValue.ipv4Prefixes = ipv4Prefixes;
+            _resultValue.ipv6AddressCount = ipv6AddressCount;
+            _resultValue.ipv6Addresses = ipv6Addresses;
+            _resultValue.ipv6PrefixCount = ipv6PrefixCount;
+            _resultValue.ipv6Prefixes = ipv6Prefixes;
+            _resultValue.networkCardIndex = networkCardIndex;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

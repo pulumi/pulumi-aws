@@ -86,11 +86,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage();
-            o.passwordParam = passwordParam;
-            o.uri = uri;
-            o.username = username;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage();
+            _resultValue.passwordParam = passwordParam;
+            _resultValue.uri = uri;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

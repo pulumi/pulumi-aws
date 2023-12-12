@@ -67,10 +67,10 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
             return this;
         }
         public SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption build() {
-            final var o = new SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption();
-            o.jobBookmarksEncryptionMode = jobBookmarksEncryptionMode;
-            o.kmsKeyArn = kmsKeyArn;
-            return o;
+            final var _resultValue = new SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption();
+            _resultValue.jobBookmarksEncryptionMode = jobBookmarksEncryptionMode;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            return _resultValue;
         }
     }
 }

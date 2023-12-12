@@ -68,10 +68,10 @@ public final class EndpointClientLoginBannerOptions {
             return this;
         }
         public EndpointClientLoginBannerOptions build() {
-            final var o = new EndpointClientLoginBannerOptions();
-            o.bannerText = bannerText;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new EndpointClientLoginBannerOptions();
+            _resultValue.bannerText = bannerText;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

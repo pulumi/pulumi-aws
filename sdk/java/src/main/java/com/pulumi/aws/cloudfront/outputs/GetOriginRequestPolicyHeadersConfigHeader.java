@@ -42,9 +42,9 @@ public final class GetOriginRequestPolicyHeadersConfigHeader {
             return items(List.of(items));
         }
         public GetOriginRequestPolicyHeadersConfigHeader build() {
-            final var o = new GetOriginRequestPolicyHeadersConfigHeader();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyHeadersConfigHeader();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

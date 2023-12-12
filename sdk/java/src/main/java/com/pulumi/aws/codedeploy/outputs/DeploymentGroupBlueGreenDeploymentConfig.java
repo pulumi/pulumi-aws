@@ -92,11 +92,11 @@ public final class DeploymentGroupBlueGreenDeploymentConfig {
             return this;
         }
         public DeploymentGroupBlueGreenDeploymentConfig build() {
-            final var o = new DeploymentGroupBlueGreenDeploymentConfig();
-            o.deploymentReadyOption = deploymentReadyOption;
-            o.greenFleetProvisioningOption = greenFleetProvisioningOption;
-            o.terminateBlueInstancesOnDeploymentSuccess = terminateBlueInstancesOnDeploymentSuccess;
-            return o;
+            final var _resultValue = new DeploymentGroupBlueGreenDeploymentConfig();
+            _resultValue.deploymentReadyOption = deploymentReadyOption;
+            _resultValue.greenFleetProvisioningOption = greenFleetProvisioningOption;
+            _resultValue.terminateBlueInstancesOnDeploymentSuccess = terminateBlueInstancesOnDeploymentSuccess;
+            return _resultValue;
         }
     }
 }

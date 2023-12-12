@@ -142,14 +142,14 @@ public final class GetRoutingProfileQueueConfig {
             return this;
         }
         public GetRoutingProfileQueueConfig build() {
-            final var o = new GetRoutingProfileQueueConfig();
-            o.channel = channel;
-            o.delay = delay;
-            o.priority = priority;
-            o.queueArn = queueArn;
-            o.queueId = queueId;
-            o.queueName = queueName;
-            return o;
+            final var _resultValue = new GetRoutingProfileQueueConfig();
+            _resultValue.channel = channel;
+            _resultValue.delay = delay;
+            _resultValue.priority = priority;
+            _resultValue.queueArn = queueArn;
+            _resultValue.queueId = queueId;
+            _resultValue.queueName = queueName;
+            return _resultValue;
         }
     }
 }

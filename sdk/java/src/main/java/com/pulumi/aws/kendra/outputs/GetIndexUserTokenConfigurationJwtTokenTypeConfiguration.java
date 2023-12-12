@@ -160,15 +160,15 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
             return this;
         }
         public GetIndexUserTokenConfigurationJwtTokenTypeConfiguration build() {
-            final var o = new GetIndexUserTokenConfigurationJwtTokenTypeConfiguration();
-            o.claimRegex = claimRegex;
-            o.groupAttributeField = groupAttributeField;
-            o.issuer = issuer;
-            o.keyLocation = keyLocation;
-            o.secretsManagerArn = secretsManagerArn;
-            o.url = url;
-            o.userNameAttributeField = userNameAttributeField;
-            return o;
+            final var _resultValue = new GetIndexUserTokenConfigurationJwtTokenTypeConfiguration();
+            _resultValue.claimRegex = claimRegex;
+            _resultValue.groupAttributeField = groupAttributeField;
+            _resultValue.issuer = issuer;
+            _resultValue.keyLocation = keyLocation;
+            _resultValue.secretsManagerArn = secretsManagerArn;
+            _resultValue.url = url;
+            _resultValue.userNameAttributeField = userNameAttributeField;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class BucketReplicationConfigRuleDestinationAccessControlTranslatio
             return this;
         }
         public BucketReplicationConfigRuleDestinationAccessControlTranslation build() {
-            final var o = new BucketReplicationConfigRuleDestinationAccessControlTranslation();
-            o.owner = owner;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleDestinationAccessControlTranslation();
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
             return this;
         }
         public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition build() {
-            final var o = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition();
-            o.publishMetricAction = publishMetricAction;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition();
+            _resultValue.publishMetricAction = publishMetricAction;
+            return _resultValue;
         }
     }
 }

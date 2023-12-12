@@ -87,11 +87,11 @@ public final class TaskSetCapacityProviderStrategy {
             return this;
         }
         public TaskSetCapacityProviderStrategy build() {
-            final var o = new TaskSetCapacityProviderStrategy();
-            o.base = base;
-            o.capacityProvider = capacityProvider;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new TaskSetCapacityProviderStrategy();
+            _resultValue.base = base;
+            _resultValue.capacityProvider = capacityProvider;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

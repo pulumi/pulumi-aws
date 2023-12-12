@@ -78,12 +78,12 @@ public final class EndpointLoadBalancerOptions {
             return subnetIds(List.of(subnetIds));
         }
         public EndpointLoadBalancerOptions build() {
-            final var o = new EndpointLoadBalancerOptions();
-            o.loadBalancerArn = loadBalancerArn;
-            o.port = port;
-            o.protocol = protocol;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new EndpointLoadBalancerOptions();
+            _resultValue.loadBalancerArn = loadBalancerArn;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

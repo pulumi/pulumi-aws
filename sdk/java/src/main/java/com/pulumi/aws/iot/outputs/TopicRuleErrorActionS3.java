@@ -105,12 +105,12 @@ public final class TopicRuleErrorActionS3 {
             return this;
         }
         public TopicRuleErrorActionS3 build() {
-            final var o = new TopicRuleErrorActionS3();
-            o.bucketName = bucketName;
-            o.cannedAcl = cannedAcl;
-            o.key = key;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionS3();
+            _resultValue.bucketName = bucketName;
+            _resultValue.cannedAcl = cannedAcl;
+            _resultValue.key = key;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

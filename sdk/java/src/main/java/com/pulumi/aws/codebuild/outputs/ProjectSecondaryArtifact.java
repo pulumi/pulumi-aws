@@ -220,18 +220,18 @@ public final class ProjectSecondaryArtifact {
             return this;
         }
         public ProjectSecondaryArtifact build() {
-            final var o = new ProjectSecondaryArtifact();
-            o.artifactIdentifier = artifactIdentifier;
-            o.bucketOwnerAccess = bucketOwnerAccess;
-            o.encryptionDisabled = encryptionDisabled;
-            o.location = location;
-            o.name = name;
-            o.namespaceType = namespaceType;
-            o.overrideArtifactName = overrideArtifactName;
-            o.packaging = packaging;
-            o.path = path;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProjectSecondaryArtifact();
+            _resultValue.artifactIdentifier = artifactIdentifier;
+            _resultValue.bucketOwnerAccess = bucketOwnerAccess;
+            _resultValue.encryptionDisabled = encryptionDisabled;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.namespaceType = namespaceType;
+            _resultValue.overrideArtifactName = overrideArtifactName;
+            _resultValue.packaging = packaging;
+            _resultValue.path = path;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

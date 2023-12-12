@@ -69,10 +69,10 @@ public final class BudgetActionDefinitionScpActionDefinition {
             return targetIds(List.of(targetIds));
         }
         public BudgetActionDefinitionScpActionDefinition build() {
-            final var o = new BudgetActionDefinitionScpActionDefinition();
-            o.policyId = policyId;
-            o.targetIds = targetIds;
-            return o;
+            final var _resultValue = new BudgetActionDefinitionScpActionDefinition();
+            _resultValue.policyId = policyId;
+            _resultValue.targetIds = targetIds;
+            return _resultValue;
         }
     }
 }

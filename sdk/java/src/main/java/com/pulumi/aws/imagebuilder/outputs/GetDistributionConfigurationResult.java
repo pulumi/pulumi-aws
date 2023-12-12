@@ -177,16 +177,16 @@ public final class GetDistributionConfigurationResult {
             return this;
         }
         public GetDistributionConfigurationResult build() {
-            final var o = new GetDistributionConfigurationResult();
-            o.arn = arn;
-            o.dateCreated = dateCreated;
-            o.dateUpdated = dateUpdated;
-            o.description = description;
-            o.distributions = distributions;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDistributionConfigurationResult();
+            _resultValue.arn = arn;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.dateUpdated = dateUpdated;
+            _resultValue.description = description;
+            _resultValue.distributions = distributions;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

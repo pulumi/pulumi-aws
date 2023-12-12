@@ -66,10 +66,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy build() {
-            final var o = new GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy();
-            o.override = override;
-            o.referrerPolicy = referrerPolicy;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy();
+            _resultValue.override = override;
+            _resultValue.referrerPolicy = referrerPolicy;
+            return _resultValue;
         }
     }
 }

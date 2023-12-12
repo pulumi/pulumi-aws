@@ -82,13 +82,13 @@ public final class GetEndpointAuthenticationOption {
             return this;
         }
         public GetEndpointAuthenticationOption build() {
-            final var o = new GetEndpointAuthenticationOption();
-            o.activeDirectoryId = activeDirectoryId;
-            o.rootCertificateChainArn = rootCertificateChainArn;
-            o.samlProviderArn = samlProviderArn;
-            o.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetEndpointAuthenticationOption();
+            _resultValue.activeDirectoryId = activeDirectoryId;
+            _resultValue.rootCertificateChainArn = rootCertificateChainArn;
+            _resultValue.samlProviderArn = samlProviderArn;
+            _resultValue.selfServiceSamlProviderArn = selfServiceSamlProviderArn;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

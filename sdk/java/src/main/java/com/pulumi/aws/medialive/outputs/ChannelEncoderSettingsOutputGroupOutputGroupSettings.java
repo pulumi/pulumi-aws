@@ -152,16 +152,16 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettings {
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettings();
-            o.archiveGroupSettings = archiveGroupSettings;
-            o.frameCaptureGroupSettings = frameCaptureGroupSettings;
-            o.hlsGroupSettings = hlsGroupSettings;
-            o.mediaPackageGroupSettings = mediaPackageGroupSettings;
-            o.msSmoothGroupSettings = msSmoothGroupSettings;
-            o.multiplexGroupSettings = multiplexGroupSettings;
-            o.rtmpGroupSettings = rtmpGroupSettings;
-            o.udpGroupSettings = udpGroupSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettings();
+            _resultValue.archiveGroupSettings = archiveGroupSettings;
+            _resultValue.frameCaptureGroupSettings = frameCaptureGroupSettings;
+            _resultValue.hlsGroupSettings = hlsGroupSettings;
+            _resultValue.mediaPackageGroupSettings = mediaPackageGroupSettings;
+            _resultValue.msSmoothGroupSettings = msSmoothGroupSettings;
+            _resultValue.multiplexGroupSettings = multiplexGroupSettings;
+            _resultValue.rtmpGroupSettings = rtmpGroupSettings;
+            _resultValue.udpGroupSettings = udpGroupSettings;
+            return _resultValue;
         }
     }
 }

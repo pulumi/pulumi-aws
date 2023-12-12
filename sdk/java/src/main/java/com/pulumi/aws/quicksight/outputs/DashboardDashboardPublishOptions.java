@@ -228,18 +228,18 @@ public final class DashboardDashboardPublishOptions {
             return this;
         }
         public DashboardDashboardPublishOptions build() {
-            final var o = new DashboardDashboardPublishOptions();
-            o.adHocFilteringOption = adHocFilteringOption;
-            o.dataPointDrillUpDownOption = dataPointDrillUpDownOption;
-            o.dataPointMenuLabelOption = dataPointMenuLabelOption;
-            o.dataPointTooltipOption = dataPointTooltipOption;
-            o.exportToCsvOption = exportToCsvOption;
-            o.exportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
-            o.sheetControlsOption = sheetControlsOption;
-            o.sheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
-            o.visualAxisSortOption = visualAxisSortOption;
-            o.visualMenuOption = visualMenuOption;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptions();
+            _resultValue.adHocFilteringOption = adHocFilteringOption;
+            _resultValue.dataPointDrillUpDownOption = dataPointDrillUpDownOption;
+            _resultValue.dataPointMenuLabelOption = dataPointMenuLabelOption;
+            _resultValue.dataPointTooltipOption = dataPointTooltipOption;
+            _resultValue.exportToCsvOption = exportToCsvOption;
+            _resultValue.exportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
+            _resultValue.sheetControlsOption = sheetControlsOption;
+            _resultValue.sheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
+            _resultValue.visualAxisSortOption = visualAxisSortOption;
+            _resultValue.visualMenuOption = visualMenuOption;
+            return _resultValue;
         }
     }
 }

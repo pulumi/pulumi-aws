@@ -147,14 +147,14 @@ public final class GetResponsePlanActionSsmAutomation {
             return this;
         }
         public GetResponsePlanActionSsmAutomation build() {
-            final var o = new GetResponsePlanActionSsmAutomation();
-            o.documentName = documentName;
-            o.documentVersion = documentVersion;
-            o.dynamicParameters = dynamicParameters;
-            o.parameters = parameters;
-            o.roleArn = roleArn;
-            o.targetAccount = targetAccount;
-            return o;
+            final var _resultValue = new GetResponsePlanActionSsmAutomation();
+            _resultValue.documentName = documentName;
+            _resultValue.documentVersion = documentVersion;
+            _resultValue.dynamicParameters = dynamicParameters;
+            _resultValue.parameters = parameters;
+            _resultValue.roleArn = roleArn;
+            _resultValue.targetAccount = targetAccount;
+            return _resultValue;
         }
     }
 }

@@ -108,12 +108,12 @@ public final class RouteSpecHttp2Route {
             return this;
         }
         public RouteSpecHttp2Route build() {
-            final var o = new RouteSpecHttp2Route();
-            o.action = action;
-            o.match = match;
-            o.retryPolicy = retryPolicy;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new RouteSpecHttp2Route();
+            _resultValue.action = action;
+            _resultValue.match = match;
+            _resultValue.retryPolicy = retryPolicy;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

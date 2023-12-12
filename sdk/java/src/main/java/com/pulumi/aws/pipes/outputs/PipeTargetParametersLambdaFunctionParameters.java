@@ -46,9 +46,9 @@ public final class PipeTargetParametersLambdaFunctionParameters {
             return this;
         }
         public PipeTargetParametersLambdaFunctionParameters build() {
-            final var o = new PipeTargetParametersLambdaFunctionParameters();
-            o.invocationType = invocationType;
-            return o;
+            final var _resultValue = new PipeTargetParametersLambdaFunctionParameters();
+            _resultValue.invocationType = invocationType;
+            return _resultValue;
         }
     }
 }

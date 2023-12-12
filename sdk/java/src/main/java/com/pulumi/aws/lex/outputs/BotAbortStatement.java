@@ -80,10 +80,10 @@ public final class BotAbortStatement {
             return this;
         }
         public BotAbortStatement build() {
-            final var o = new BotAbortStatement();
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new BotAbortStatement();
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

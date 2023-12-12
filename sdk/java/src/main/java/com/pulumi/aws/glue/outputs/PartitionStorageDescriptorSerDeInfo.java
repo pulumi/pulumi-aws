@@ -87,11 +87,11 @@ public final class PartitionStorageDescriptorSerDeInfo {
             return this;
         }
         public PartitionStorageDescriptorSerDeInfo build() {
-            final var o = new PartitionStorageDescriptorSerDeInfo();
-            o.name = name;
-            o.parameters = parameters;
-            o.serializationLibrary = serializationLibrary;
-            return o;
+            final var _resultValue = new PartitionStorageDescriptorSerDeInfo();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.serializationLibrary = serializationLibrary;
+            return _resultValue;
         }
     }
 }

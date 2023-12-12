@@ -128,13 +128,13 @@ public final class ContainerServiceDeploymentVersionContainer {
             return this;
         }
         public ContainerServiceDeploymentVersionContainer build() {
-            final var o = new ContainerServiceDeploymentVersionContainer();
-            o.commands = commands;
-            o.containerName = containerName;
-            o.environment = environment;
-            o.image = image;
-            o.ports = ports;
-            return o;
+            final var _resultValue = new ContainerServiceDeploymentVersionContainer();
+            _resultValue.commands = commands;
+            _resultValue.containerName = containerName;
+            _resultValue.environment = environment;
+            _resultValue.image = image;
+            _resultValue.ports = ports;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class AssessmentAssessmentReportsDestination {
             return this;
         }
         public AssessmentAssessmentReportsDestination build() {
-            final var o = new AssessmentAssessmentReportsDestination();
-            o.destination = destination;
-            o.destinationType = destinationType;
-            return o;
+            final var _resultValue = new AssessmentAssessmentReportsDestination();
+            _resultValue.destination = destination;
+            _resultValue.destinationType = destinationType;
+            return _resultValue;
         }
     }
 }

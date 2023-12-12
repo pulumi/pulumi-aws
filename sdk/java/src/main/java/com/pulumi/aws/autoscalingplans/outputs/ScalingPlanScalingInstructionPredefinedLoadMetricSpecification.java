@@ -67,10 +67,10 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
             return this;
         }
         public ScalingPlanScalingInstructionPredefinedLoadMetricSpecification build() {
-            final var o = new ScalingPlanScalingInstructionPredefinedLoadMetricSpecification();
-            o.predefinedLoadMetricType = predefinedLoadMetricType;
-            o.resourceLabel = resourceLabel;
-            return o;
+            final var _resultValue = new ScalingPlanScalingInstructionPredefinedLoadMetricSpecification();
+            _resultValue.predefinedLoadMetricType = predefinedLoadMetricType;
+            _resultValue.resourceLabel = resourceLabel;
+            return _resultValue;
         }
     }
 }

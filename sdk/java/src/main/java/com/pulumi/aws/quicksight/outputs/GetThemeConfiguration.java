@@ -119,12 +119,12 @@ public final class GetThemeConfiguration {
             return uiColorPalettes(List.of(uiColorPalettes));
         }
         public GetThemeConfiguration build() {
-            final var o = new GetThemeConfiguration();
-            o.dataColorPalettes = dataColorPalettes;
-            o.sheets = sheets;
-            o.typographies = typographies;
-            o.uiColorPalettes = uiColorPalettes;
-            return o;
+            final var _resultValue = new GetThemeConfiguration();
+            _resultValue.dataColorPalettes = dataColorPalettes;
+            _resultValue.sheets = sheets;
+            _resultValue.typographies = typographies;
+            _resultValue.uiColorPalettes = uiColorPalettes;
+            return _resultValue;
         }
     }
 }

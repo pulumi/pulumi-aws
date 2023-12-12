@@ -66,10 +66,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride();
-            o.actionToUse = actionToUse;
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride();
+            _resultValue.actionToUse = actionToUse;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

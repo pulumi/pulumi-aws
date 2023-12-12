@@ -54,10 +54,10 @@ public final class GetOriginRequestPolicyHeadersConfig {
             return headers(List.of(headers));
         }
         public GetOriginRequestPolicyHeadersConfig build() {
-            final var o = new GetOriginRequestPolicyHeadersConfig();
-            o.headerBehavior = headerBehavior;
-            o.headers = headers;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyHeadersConfig();
+            _resultValue.headerBehavior = headerBehavior;
+            _resultValue.headers = headers;
+            return _resultValue;
         }
     }
 }

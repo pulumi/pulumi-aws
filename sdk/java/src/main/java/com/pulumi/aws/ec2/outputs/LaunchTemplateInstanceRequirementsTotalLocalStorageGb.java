@@ -67,10 +67,10 @@ public final class LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
             return this;
         }
         public LaunchTemplateInstanceRequirementsTotalLocalStorageGb build() {
-            final var o = new LaunchTemplateInstanceRequirementsTotalLocalStorageGb();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new LaunchTemplateInstanceRequirementsTotalLocalStorageGb();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class AssessmentScopeAwsService {
             return this;
         }
         public AssessmentScopeAwsService build() {
-            final var o = new AssessmentScopeAwsService();
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new AssessmentScopeAwsService();
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

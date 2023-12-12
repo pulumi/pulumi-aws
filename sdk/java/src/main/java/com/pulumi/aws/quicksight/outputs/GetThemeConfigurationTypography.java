@@ -50,9 +50,9 @@ public final class GetThemeConfigurationTypography {
             return fontFamilies(List.of(fontFamilies));
         }
         public GetThemeConfigurationTypography build() {
-            final var o = new GetThemeConfigurationTypography();
-            o.fontFamilies = fontFamilies;
-            return o;
+            final var _resultValue = new GetThemeConfigurationTypography();
+            _resultValue.fontFamilies = fontFamilies;
+            return _resultValue;
         }
     }
 }

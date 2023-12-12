@@ -76,10 +76,10 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementSqliMatchStatement build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

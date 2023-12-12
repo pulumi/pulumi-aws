@@ -85,11 +85,11 @@ public final class SdkvoiceSipRuleTargetApplication {
             return this;
         }
         public SdkvoiceSipRuleTargetApplication build() {
-            final var o = new SdkvoiceSipRuleTargetApplication();
-            o.awsRegion = awsRegion;
-            o.priority = priority;
-            o.sipMediaApplicationId = sipMediaApplicationId;
-            return o;
+            final var _resultValue = new SdkvoiceSipRuleTargetApplication();
+            _resultValue.awsRegion = awsRegion;
+            _resultValue.priority = priority;
+            _resultValue.sipMediaApplicationId = sipMediaApplicationId;
+            return _resultValue;
         }
     }
 }

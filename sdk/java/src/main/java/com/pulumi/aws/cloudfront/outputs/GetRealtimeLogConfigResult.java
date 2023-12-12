@@ -142,14 +142,14 @@ public final class GetRealtimeLogConfigResult {
             return this;
         }
         public GetRealtimeLogConfigResult build() {
-            final var o = new GetRealtimeLogConfigResult();
-            o.arn = arn;
-            o.endpoints = endpoints;
-            o.fields = fields;
-            o.id = id;
-            o.name = name;
-            o.samplingRate = samplingRate;
-            return o;
+            final var _resultValue = new GetRealtimeLogConfigResult();
+            _resultValue.arn = arn;
+            _resultValue.endpoints = endpoints;
+            _resultValue.fields = fields;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.samplingRate = samplingRate;
+            return _resultValue;
         }
     }
 }

@@ -198,16 +198,16 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
             return resourceRequirements(List.of(resourceRequirements));
         }
         public PipeTargetParametersEcsTaskParametersOverridesContainerOverride build() {
-            final var o = new PipeTargetParametersEcsTaskParametersOverridesContainerOverride();
-            o.commands = commands;
-            o.cpu = cpu;
-            o.environmentFiles = environmentFiles;
-            o.environments = environments;
-            o.memory = memory;
-            o.memoryReservation = memoryReservation;
-            o.name = name;
-            o.resourceRequirements = resourceRequirements;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersOverridesContainerOverride();
+            _resultValue.commands = commands;
+            _resultValue.cpu = cpu;
+            _resultValue.environmentFiles = environmentFiles;
+            _resultValue.environments = environments;
+            _resultValue.memory = memory;
+            _resultValue.memoryReservation = memoryReservation;
+            _resultValue.name = name;
+            _resultValue.resourceRequirements = resourceRequirements;
+            return _resultValue;
         }
     }
 }

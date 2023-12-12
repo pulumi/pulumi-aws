@@ -119,13 +119,13 @@ public final class GetInstancesResult {
             return this;
         }
         public GetInstancesResult build() {
-            final var o = new GetInstancesResult();
-            o.filters = filters;
-            o.id = id;
-            o.instanceArns = instanceArns;
-            o.instanceIdentifiers = instanceIdentifiers;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetInstancesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceArns = instanceArns;
+            _resultValue.instanceIdentifiers = instanceIdentifiers;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

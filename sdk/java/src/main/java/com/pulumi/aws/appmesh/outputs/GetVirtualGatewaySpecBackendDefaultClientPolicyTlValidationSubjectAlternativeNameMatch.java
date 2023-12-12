@@ -42,9 +42,9 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSu
             return exacts(List.of(exacts));
         }
         public GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch build() {
-            final var o = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch();
-            o.exacts = exacts;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch();
+            _resultValue.exacts = exacts;
+            return _resultValue;
         }
     }
 }

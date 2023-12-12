@@ -68,11 +68,11 @@ public final class GetTrackerAssociationResult {
             return this;
         }
         public GetTrackerAssociationResult build() {
-            final var o = new GetTrackerAssociationResult();
-            o.consumerArn = consumerArn;
-            o.id = id;
-            o.trackerName = trackerName;
-            return o;
+            final var _resultValue = new GetTrackerAssociationResult();
+            _resultValue.consumerArn = consumerArn;
+            _resultValue.id = id;
+            _resultValue.trackerName = trackerName;
+            return _resultValue;
         }
     }
 }

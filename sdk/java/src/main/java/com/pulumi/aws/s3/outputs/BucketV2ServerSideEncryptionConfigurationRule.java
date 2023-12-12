@@ -72,10 +72,10 @@ public final class BucketV2ServerSideEncryptionConfigurationRule {
             return this;
         }
         public BucketV2ServerSideEncryptionConfigurationRule build() {
-            final var o = new BucketV2ServerSideEncryptionConfigurationRule();
-            o.applyServerSideEncryptionByDefaults = applyServerSideEncryptionByDefaults;
-            o.bucketKeyEnabled = bucketKeyEnabled;
-            return o;
+            final var _resultValue = new BucketV2ServerSideEncryptionConfigurationRule();
+            _resultValue.applyServerSideEncryptionByDefaults = applyServerSideEncryptionByDefaults;
+            _resultValue.bucketKeyEnabled = bucketKeyEnabled;
+            return _resultValue;
         }
     }
 }

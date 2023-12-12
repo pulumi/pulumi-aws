@@ -58,10 +58,10 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting();
-            o.checkDigitString = checkDigitString;
-            o.sid = sid;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting();
+            _resultValue.checkDigitString = checkDigitString;
+            _resultValue.sid = sid;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class CertificateAuthorityCertificateAuthorityConfiguration {
             return this;
         }
         public CertificateAuthorityCertificateAuthorityConfiguration build() {
-            final var o = new CertificateAuthorityCertificateAuthorityConfiguration();
-            o.keyAlgorithm = keyAlgorithm;
-            o.signingAlgorithm = signingAlgorithm;
-            o.subject = subject;
-            return o;
+            final var _resultValue = new CertificateAuthorityCertificateAuthorityConfiguration();
+            _resultValue.keyAlgorithm = keyAlgorithm;
+            _resultValue.signingAlgorithm = signingAlgorithm;
+            _resultValue.subject = subject;
+            return _resultValue;
         }
     }
 }

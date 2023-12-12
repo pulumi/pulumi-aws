@@ -48,9 +48,9 @@ public final class DataSourceParametersAthena {
             return this;
         }
         public DataSourceParametersAthena build() {
-            final var o = new DataSourceParametersAthena();
-            o.workGroup = workGroup;
-            return o;
+            final var _resultValue = new DataSourceParametersAthena();
+            _resultValue.workGroup = workGroup;
+            return _resultValue;
         }
     }
 }

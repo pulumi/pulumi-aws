@@ -185,16 +185,16 @@ public final class DistributionCacheBehaviorSettings {
             return this;
         }
         public DistributionCacheBehaviorSettings build() {
-            final var o = new DistributionCacheBehaviorSettings();
-            o.allowedHttpMethods = allowedHttpMethods;
-            o.cachedHttpMethods = cachedHttpMethods;
-            o.defaultTtl = defaultTtl;
-            o.forwardedCookies = forwardedCookies;
-            o.forwardedHeaders = forwardedHeaders;
-            o.forwardedQueryStrings = forwardedQueryStrings;
-            o.maximumTtl = maximumTtl;
-            o.minimumTtl = minimumTtl;
-            return o;
+            final var _resultValue = new DistributionCacheBehaviorSettings();
+            _resultValue.allowedHttpMethods = allowedHttpMethods;
+            _resultValue.cachedHttpMethods = cachedHttpMethods;
+            _resultValue.defaultTtl = defaultTtl;
+            _resultValue.forwardedCookies = forwardedCookies;
+            _resultValue.forwardedHeaders = forwardedHeaders;
+            _resultValue.forwardedQueryStrings = forwardedQueryStrings;
+            _resultValue.maximumTtl = maximumTtl;
+            _resultValue.minimumTtl = minimumTtl;
+            return _resultValue;
         }
     }
 }

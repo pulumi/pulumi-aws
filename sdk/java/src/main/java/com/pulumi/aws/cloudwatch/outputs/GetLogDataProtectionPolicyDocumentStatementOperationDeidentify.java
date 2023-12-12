@@ -46,9 +46,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationDeidentif
             return this;
         }
         public GetLogDataProtectionPolicyDocumentStatementOperationDeidentify build() {
-            final var o = new GetLogDataProtectionPolicyDocumentStatementOperationDeidentify();
-            o.maskConfig = maskConfig;
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentStatementOperationDeidentify();
+            _resultValue.maskConfig = maskConfig;
+            return _resultValue;
         }
     }
 }

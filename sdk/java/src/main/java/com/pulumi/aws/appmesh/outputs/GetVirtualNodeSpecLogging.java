@@ -42,9 +42,9 @@ public final class GetVirtualNodeSpecLogging {
             return accessLogs(List.of(accessLogs));
         }
         public GetVirtualNodeSpecLogging build() {
-            final var o = new GetVirtualNodeSpecLogging();
-            o.accessLogs = accessLogs;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecLogging();
+            _resultValue.accessLogs = accessLogs;
+            return _resultValue;
         }
     }
 }

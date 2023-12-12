@@ -48,9 +48,9 @@ public final class MeshSpec {
             return this;
         }
         public MeshSpec build() {
-            final var o = new MeshSpec();
-            o.egressFilter = egressFilter;
-            return o;
+            final var _resultValue = new MeshSpec();
+            _resultValue.egressFilter = egressFilter;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class VirtualNodeSpecListenerTimeoutTcp {
             return this;
         }
         public VirtualNodeSpecListenerTimeoutTcp build() {
-            final var o = new VirtualNodeSpecListenerTimeoutTcp();
-            o.idle = idle;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTimeoutTcp();
+            _resultValue.idle = idle;
+            return _resultValue;
         }
     }
 }

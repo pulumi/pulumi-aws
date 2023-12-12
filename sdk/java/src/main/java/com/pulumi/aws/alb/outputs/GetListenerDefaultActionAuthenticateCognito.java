@@ -117,16 +117,16 @@ public final class GetListenerDefaultActionAuthenticateCognito {
             return this;
         }
         public GetListenerDefaultActionAuthenticateCognito build() {
-            final var o = new GetListenerDefaultActionAuthenticateCognito();
-            o.authenticationRequestExtraParams = authenticationRequestExtraParams;
-            o.onUnauthenticatedRequest = onUnauthenticatedRequest;
-            o.scope = scope;
-            o.sessionCookieName = sessionCookieName;
-            o.sessionTimeout = sessionTimeout;
-            o.userPoolArn = userPoolArn;
-            o.userPoolClientId = userPoolClientId;
-            o.userPoolDomain = userPoolDomain;
-            return o;
+            final var _resultValue = new GetListenerDefaultActionAuthenticateCognito();
+            _resultValue.authenticationRequestExtraParams = authenticationRequestExtraParams;
+            _resultValue.onUnauthenticatedRequest = onUnauthenticatedRequest;
+            _resultValue.scope = scope;
+            _resultValue.sessionCookieName = sessionCookieName;
+            _resultValue.sessionTimeout = sessionTimeout;
+            _resultValue.userPoolArn = userPoolArn;
+            _resultValue.userPoolClientId = userPoolClientId;
+            _resultValue.userPoolDomain = userPoolDomain;
+            return _resultValue;
         }
     }
 }

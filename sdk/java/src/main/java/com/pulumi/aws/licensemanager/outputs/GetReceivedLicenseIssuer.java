@@ -84,11 +84,11 @@ public final class GetReceivedLicenseIssuer {
             return this;
         }
         public GetReceivedLicenseIssuer build() {
-            final var o = new GetReceivedLicenseIssuer();
-            o.keyFingerprint = keyFingerprint;
-            o.name = name;
-            o.signKey = signKey;
-            return o;
+            final var _resultValue = new GetReceivedLicenseIssuer();
+            _resultValue.keyFingerprint = keyFingerprint;
+            _resultValue.name = name;
+            _resultValue.signKey = signKey;
+            return _resultValue;
         }
     }
 }

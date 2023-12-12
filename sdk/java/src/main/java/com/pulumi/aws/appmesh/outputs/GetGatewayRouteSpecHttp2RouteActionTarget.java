@@ -54,10 +54,10 @@ public final class GetGatewayRouteSpecHttp2RouteActionTarget {
             return virtualServices(List.of(virtualServices));
         }
         public GetGatewayRouteSpecHttp2RouteActionTarget build() {
-            final var o = new GetGatewayRouteSpecHttp2RouteActionTarget();
-            o.port = port;
-            o.virtualServices = virtualServices;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttp2RouteActionTarget();
+            _resultValue.port = port;
+            _resultValue.virtualServices = virtualServices;
+            return _resultValue;
         }
     }
 }

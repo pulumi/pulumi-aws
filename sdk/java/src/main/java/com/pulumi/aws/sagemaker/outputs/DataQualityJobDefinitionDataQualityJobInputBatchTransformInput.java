@@ -125,13 +125,13 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobInputBatchTransformInput build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInput();
-            o.dataCapturedDestinationS3Uri = dataCapturedDestinationS3Uri;
-            o.datasetFormat = datasetFormat;
-            o.localPath = localPath;
-            o.s3DataDistributionType = s3DataDistributionType;
-            o.s3InputMode = s3InputMode;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInput();
+            _resultValue.dataCapturedDestinationS3Uri = dataCapturedDestinationS3Uri;
+            _resultValue.datasetFormat = datasetFormat;
+            _resultValue.localPath = localPath;
+            _resultValue.s3DataDistributionType = s3DataDistributionType;
+            _resultValue.s3InputMode = s3InputMode;
+            return _resultValue;
         }
     }
 }

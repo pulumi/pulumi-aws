@@ -46,9 +46,9 @@ public final class PipeSourceParametersFilterCriteriaFilter {
             return this;
         }
         public PipeSourceParametersFilterCriteriaFilter build() {
-            final var o = new PipeSourceParametersFilterCriteriaFilter();
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new PipeSourceParametersFilterCriteriaFilter();
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

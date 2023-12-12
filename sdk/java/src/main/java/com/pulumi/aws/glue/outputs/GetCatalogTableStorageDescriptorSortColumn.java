@@ -66,10 +66,10 @@ public final class GetCatalogTableStorageDescriptorSortColumn {
             return this;
         }
         public GetCatalogTableStorageDescriptorSortColumn build() {
-            final var o = new GetCatalogTableStorageDescriptorSortColumn();
-            o.column = column;
-            o.sortOrder = sortOrder;
-            return o;
+            final var _resultValue = new GetCatalogTableStorageDescriptorSortColumn();
+            _resultValue.column = column;
+            _resultValue.sortOrder = sortOrder;
+            return _resultValue;
         }
     }
 }

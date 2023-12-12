@@ -42,9 +42,9 @@ public final class GetMeshSpec {
             return egressFilters(List.of(egressFilters));
         }
         public GetMeshSpec build() {
-            final var o = new GetMeshSpec();
-            o.egressFilters = egressFilters;
-            return o;
+            final var _resultValue = new GetMeshSpec();
+            _resultValue.egressFilters = egressFilters;
+            return _resultValue;
         }
     }
 }

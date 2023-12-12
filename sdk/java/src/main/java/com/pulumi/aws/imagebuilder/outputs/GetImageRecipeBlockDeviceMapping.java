@@ -108,12 +108,12 @@ public final class GetImageRecipeBlockDeviceMapping {
             return this;
         }
         public GetImageRecipeBlockDeviceMapping build() {
-            final var o = new GetImageRecipeBlockDeviceMapping();
-            o.deviceName = deviceName;
-            o.ebs = ebs;
-            o.noDevice = noDevice;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new GetImageRecipeBlockDeviceMapping();
+            _resultValue.deviceName = deviceName;
+            _resultValue.ebs = ebs;
+            _resultValue.noDevice = noDevice;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

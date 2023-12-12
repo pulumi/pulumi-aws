@@ -297,23 +297,23 @@ public final class GetDevEnvironmentResult {
             return this;
         }
         public GetDevEnvironmentResult build() {
-            final var o = new GetDevEnvironmentResult();
-            o.alias = alias;
-            o.creatorId = creatorId;
-            o.envId = envId;
-            o.id = id;
-            o.ides = ides;
-            o.inactivityTimeoutMinutes = inactivityTimeoutMinutes;
-            o.instanceType = instanceType;
-            o.lastUpdatedTime = lastUpdatedTime;
-            o.persistentStorages = persistentStorages;
-            o.projectName = projectName;
-            o.repositories = repositories;
-            o.spaceName = spaceName;
-            o.status = status;
-            o.statusReason = statusReason;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDevEnvironmentResult();
+            _resultValue.alias = alias;
+            _resultValue.creatorId = creatorId;
+            _resultValue.envId = envId;
+            _resultValue.id = id;
+            _resultValue.ides = ides;
+            _resultValue.inactivityTimeoutMinutes = inactivityTimeoutMinutes;
+            _resultValue.instanceType = instanceType;
+            _resultValue.lastUpdatedTime = lastUpdatedTime;
+            _resultValue.persistentStorages = persistentStorages;
+            _resultValue.projectName = projectName;
+            _resultValue.repositories = repositories;
+            _resultValue.spaceName = spaceName;
+            _resultValue.status = status;
+            _resultValue.statusReason = statusReason;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -125,13 +125,13 @@ public final class ManagedScalingPolicyComputeLimit {
             return this;
         }
         public ManagedScalingPolicyComputeLimit build() {
-            final var o = new ManagedScalingPolicyComputeLimit();
-            o.maximumCapacityUnits = maximumCapacityUnits;
-            o.maximumCoreCapacityUnits = maximumCoreCapacityUnits;
-            o.maximumOndemandCapacityUnits = maximumOndemandCapacityUnits;
-            o.minimumCapacityUnits = minimumCapacityUnits;
-            o.unitType = unitType;
-            return o;
+            final var _resultValue = new ManagedScalingPolicyComputeLimit();
+            _resultValue.maximumCapacityUnits = maximumCapacityUnits;
+            _resultValue.maximumCoreCapacityUnits = maximumCoreCapacityUnits;
+            _resultValue.maximumOndemandCapacityUnits = maximumOndemandCapacityUnits;
+            _resultValue.minimumCapacityUnits = minimumCapacityUnits;
+            _resultValue.unitType = unitType;
+            return _resultValue;
         }
     }
 }

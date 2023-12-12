@@ -71,10 +71,10 @@ public final class PermissionsDatabase {
             return this;
         }
         public PermissionsDatabase build() {
-            final var o = new PermissionsDatabase();
-            o.catalogId = catalogId;
-            o.name = name;
-            return o;
+            final var _resultValue = new PermissionsDatabase();
+            _resultValue.catalogId = catalogId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

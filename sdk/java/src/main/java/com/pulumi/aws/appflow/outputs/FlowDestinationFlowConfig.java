@@ -106,12 +106,12 @@ public final class FlowDestinationFlowConfig {
             return this;
         }
         public FlowDestinationFlowConfig build() {
-            final var o = new FlowDestinationFlowConfig();
-            o.apiVersion = apiVersion;
-            o.connectorProfileName = connectorProfileName;
-            o.connectorType = connectorType;
-            o.destinationConnectorProperties = destinationConnectorProperties;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfig();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.connectorProfileName = connectorProfileName;
+            _resultValue.connectorType = connectorType;
+            _resultValue.destinationConnectorProperties = destinationConnectorProperties;
+            return _resultValue;
         }
     }
 }

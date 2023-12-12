@@ -66,10 +66,10 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBat
             return this;
         }
         public EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize build() {
-            final var o = new EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -82,11 +82,11 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
             return this;
         }
         public GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation build() {
-            final var o = new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation();
-            o.asn = asn;
-            o.insideCidrBlocks = insideCidrBlocks;
-            o.location = location;
-            return o;
+            final var _resultValue = new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation();
+            _resultValue.asn = asn;
+            _resultValue.insideCidrBlocks = insideCidrBlocks;
+            _resultValue.location = location;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class DomainSnapshotOptions {
             return this;
         }
         public DomainSnapshotOptions build() {
-            final var o = new DomainSnapshotOptions();
-            o.automatedSnapshotStartHour = automatedSnapshotStartHour;
-            return o;
+            final var _resultValue = new DomainSnapshotOptions();
+            _resultValue.automatedSnapshotStartHour = automatedSnapshotStartHour;
+            return _resultValue;
         }
     }
 }

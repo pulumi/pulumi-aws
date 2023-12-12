@@ -153,15 +153,15 @@ public final class GetConnectionResult {
             return this;
         }
         public GetConnectionResult build() {
-            final var o = new GetConnectionResult();
-            o.arn = arn;
-            o.connectionStatus = connectionStatus;
-            o.hostArn = hostArn;
-            o.id = id;
-            o.name = name;
-            o.providerType = providerType;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetConnectionResult();
+            _resultValue.arn = arn;
+            _resultValue.connectionStatus = connectionStatus;
+            _resultValue.hostArn = hostArn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.providerType = providerType;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

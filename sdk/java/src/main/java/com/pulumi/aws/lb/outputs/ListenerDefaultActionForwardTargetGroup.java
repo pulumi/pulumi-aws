@@ -72,10 +72,10 @@ public final class ListenerDefaultActionForwardTargetGroup {
             return this;
         }
         public ListenerDefaultActionForwardTargetGroup build() {
-            final var o = new ListenerDefaultActionForwardTargetGroup();
-            o.arn = arn;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new ListenerDefaultActionForwardTargetGroup();
+            _resultValue.arn = arn;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

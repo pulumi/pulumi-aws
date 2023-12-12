@@ -106,12 +106,12 @@ public final class GraphQLApiOpenidConnectConfig {
             return this;
         }
         public GraphQLApiOpenidConnectConfig build() {
-            final var o = new GraphQLApiOpenidConnectConfig();
-            o.authTtl = authTtl;
-            o.clientId = clientId;
-            o.iatTtl = iatTtl;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new GraphQLApiOpenidConnectConfig();
+            _resultValue.authTtl = authTtl;
+            _resultValue.clientId = clientId;
+            _resultValue.iatTtl = iatTtl;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

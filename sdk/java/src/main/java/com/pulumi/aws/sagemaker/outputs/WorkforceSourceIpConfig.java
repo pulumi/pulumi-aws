@@ -50,9 +50,9 @@ public final class WorkforceSourceIpConfig {
             return cidrs(List.of(cidrs));
         }
         public WorkforceSourceIpConfig build() {
-            final var o = new WorkforceSourceIpConfig();
-            o.cidrs = cidrs;
-            return o;
+            final var _resultValue = new WorkforceSourceIpConfig();
+            _resultValue.cidrs = cidrs;
+            return _resultValue;
         }
     }
 }

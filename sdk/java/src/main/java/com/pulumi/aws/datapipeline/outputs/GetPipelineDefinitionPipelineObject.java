@@ -90,11 +90,11 @@ public final class GetPipelineDefinitionPipelineObject {
             return this;
         }
         public GetPipelineDefinitionPipelineObject build() {
-            final var o = new GetPipelineDefinitionPipelineObject();
-            o.fields = fields;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetPipelineDefinitionPipelineObject();
+            _resultValue.fields = fields;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

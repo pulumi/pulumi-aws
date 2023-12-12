@@ -65,10 +65,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

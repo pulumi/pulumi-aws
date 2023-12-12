@@ -50,10 +50,10 @@ public final class GetTableTtl {
             return this;
         }
         public GetTableTtl build() {
-            final var o = new GetTableTtl();
-            o.attributeName = attributeName;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetTableTtl();
+            _resultValue.attributeName = attributeName;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

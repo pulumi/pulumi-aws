@@ -125,13 +125,13 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
             return this;
         }
         public ClusterConfigurationExecuteCommandConfigurationLogConfiguration build() {
-            final var o = new ClusterConfigurationExecuteCommandConfigurationLogConfiguration();
-            o.cloudWatchEncryptionEnabled = cloudWatchEncryptionEnabled;
-            o.cloudWatchLogGroupName = cloudWatchLogGroupName;
-            o.s3BucketEncryptionEnabled = s3BucketEncryptionEnabled;
-            o.s3BucketName = s3BucketName;
-            o.s3KeyPrefix = s3KeyPrefix;
-            return o;
+            final var _resultValue = new ClusterConfigurationExecuteCommandConfigurationLogConfiguration();
+            _resultValue.cloudWatchEncryptionEnabled = cloudWatchEncryptionEnabled;
+            _resultValue.cloudWatchLogGroupName = cloudWatchLogGroupName;
+            _resultValue.s3BucketEncryptionEnabled = s3BucketEncryptionEnabled;
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            return _resultValue;
         }
     }
 }

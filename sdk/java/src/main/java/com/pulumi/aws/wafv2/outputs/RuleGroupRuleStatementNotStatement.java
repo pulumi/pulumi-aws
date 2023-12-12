@@ -50,9 +50,9 @@ public final class RuleGroupRuleStatementNotStatement {
             return statements(List.of(statements));
         }
         public RuleGroupRuleStatementNotStatement build() {
-            final var o = new RuleGroupRuleStatementNotStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementNotStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

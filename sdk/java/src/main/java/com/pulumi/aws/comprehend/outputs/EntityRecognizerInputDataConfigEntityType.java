@@ -48,9 +48,9 @@ public final class EntityRecognizerInputDataConfigEntityType {
             return this;
         }
         public EntityRecognizerInputDataConfigEntityType build() {
-            final var o = new EntityRecognizerInputDataConfigEntityType();
-            o.type = type;
-            return o;
+            final var _resultValue = new EntityRecognizerInputDataConfigEntityType();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

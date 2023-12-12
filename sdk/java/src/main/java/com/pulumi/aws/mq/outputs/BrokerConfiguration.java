@@ -68,10 +68,10 @@ public final class BrokerConfiguration {
             return this;
         }
         public BrokerConfiguration build() {
-            final var o = new BrokerConfiguration();
-            o.id = id;
-            o.revision = revision;
-            return o;
+            final var _resultValue = new BrokerConfiguration();
+            _resultValue.id = id;
+            _resultValue.revision = revision;
+            return _resultValue;
         }
     }
 }

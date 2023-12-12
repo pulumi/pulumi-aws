@@ -89,11 +89,11 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies {
             return this;
         }
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies();
-            o.matchPatterns = matchPatterns;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies();
+            _resultValue.matchPatterns = matchPatterns;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

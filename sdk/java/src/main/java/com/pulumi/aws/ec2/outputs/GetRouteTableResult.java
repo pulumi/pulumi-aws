@@ -227,19 +227,19 @@ public final class GetRouteTableResult {
             return this;
         }
         public GetRouteTableResult build() {
-            final var o = new GetRouteTableResult();
-            o.arn = arn;
-            o.associations = associations;
-            o.filters = filters;
-            o.gatewayId = gatewayId;
-            o.id = id;
-            o.ownerId = ownerId;
-            o.routeTableId = routeTableId;
-            o.routes = routes;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetRouteTableResult();
+            _resultValue.arn = arn;
+            _resultValue.associations = associations;
+            _resultValue.filters = filters;
+            _resultValue.gatewayId = gatewayId;
+            _resultValue.id = id;
+            _resultValue.ownerId = ownerId;
+            _resultValue.routeTableId = routeTableId;
+            _resultValue.routes = routes;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

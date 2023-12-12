@@ -68,10 +68,10 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings();
-            o.captureInterval = captureInterval;
-            o.captureIntervalUnits = captureIntervalUnits;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings();
+            _resultValue.captureInterval = captureInterval;
+            _resultValue.captureIntervalUnits = captureIntervalUnits;
+            return _resultValue;
         }
     }
 }

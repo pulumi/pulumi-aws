@@ -87,11 +87,11 @@ public final class InstancePrivateDnsNameOptions {
             return this;
         }
         public InstancePrivateDnsNameOptions build() {
-            final var o = new InstancePrivateDnsNameOptions();
-            o.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
-            o.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
-            o.hostnameType = hostnameType;
-            return o;
+            final var _resultValue = new InstancePrivateDnsNameOptions();
+            _resultValue.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
+            _resultValue.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
+            _resultValue.hostnameType = hostnameType;
+            return _resultValue;
         }
     }
 }

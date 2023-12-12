@@ -156,14 +156,14 @@ public final class CrawlerS3Target {
             return this;
         }
         public CrawlerS3Target build() {
-            final var o = new CrawlerS3Target();
-            o.connectionName = connectionName;
-            o.dlqEventQueueArn = dlqEventQueueArn;
-            o.eventQueueArn = eventQueueArn;
-            o.exclusions = exclusions;
-            o.path = path;
-            o.sampleSize = sampleSize;
-            return o;
+            final var _resultValue = new CrawlerS3Target();
+            _resultValue.connectionName = connectionName;
+            _resultValue.dlqEventQueueArn = dlqEventQueueArn;
+            _resultValue.eventQueueArn = eventQueueArn;
+            _resultValue.exclusions = exclusions;
+            _resultValue.path = path;
+            _resultValue.sampleSize = sampleSize;
+            return _resultValue;
         }
     }
 }

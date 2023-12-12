@@ -110,12 +110,12 @@ public final class ProjectServiceCatalogProvisioningDetails {
             return provisioningParameters(List.of(provisioningParameters));
         }
         public ProjectServiceCatalogProvisioningDetails build() {
-            final var o = new ProjectServiceCatalogProvisioningDetails();
-            o.pathId = pathId;
-            o.productId = productId;
-            o.provisioningArtifactId = provisioningArtifactId;
-            o.provisioningParameters = provisioningParameters;
-            return o;
+            final var _resultValue = new ProjectServiceCatalogProvisioningDetails();
+            _resultValue.pathId = pathId;
+            _resultValue.productId = productId;
+            _resultValue.provisioningArtifactId = provisioningArtifactId;
+            _resultValue.provisioningParameters = provisioningParameters;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerpri
             return this;
         }
         public WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint build() {
-            final var o = new WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint();
-            o.fallbackBehavior = fallbackBehavior;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            return _resultValue;
         }
     }
 }

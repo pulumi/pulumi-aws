@@ -98,13 +98,13 @@ public final class GetLocalDiskResult {
             return this;
         }
         public GetLocalDiskResult build() {
-            final var o = new GetLocalDiskResult();
-            o.diskId = diskId;
-            o.diskNode = diskNode;
-            o.diskPath = diskPath;
-            o.gatewayArn = gatewayArn;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetLocalDiskResult();
+            _resultValue.diskId = diskId;
+            _resultValue.diskNode = diskNode;
+            _resultValue.diskPath = diskPath;
+            _resultValue.gatewayArn = gatewayArn;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

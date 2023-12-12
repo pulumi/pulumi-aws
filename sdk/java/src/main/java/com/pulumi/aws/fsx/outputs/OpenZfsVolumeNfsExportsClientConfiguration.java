@@ -69,10 +69,10 @@ public final class OpenZfsVolumeNfsExportsClientConfiguration {
             return options(List.of(options));
         }
         public OpenZfsVolumeNfsExportsClientConfiguration build() {
-            final var o = new OpenZfsVolumeNfsExportsClientConfiguration();
-            o.clients = clients;
-            o.options = options;
-            return o;
+            final var _resultValue = new OpenZfsVolumeNfsExportsClientConfiguration();
+            _resultValue.clients = clients;
+            _resultValue.options = options;
+            return _resultValue;
         }
     }
 }

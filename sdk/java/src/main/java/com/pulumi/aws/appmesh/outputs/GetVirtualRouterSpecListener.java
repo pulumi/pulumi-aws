@@ -42,9 +42,9 @@ public final class GetVirtualRouterSpecListener {
             return portMappings(List.of(portMappings));
         }
         public GetVirtualRouterSpecListener build() {
-            final var o = new GetVirtualRouterSpecListener();
-            o.portMappings = portMappings;
-            return o;
+            final var _resultValue = new GetVirtualRouterSpecListener();
+            _resultValue.portMappings = portMappings;
+            return _resultValue;
         }
     }
 }

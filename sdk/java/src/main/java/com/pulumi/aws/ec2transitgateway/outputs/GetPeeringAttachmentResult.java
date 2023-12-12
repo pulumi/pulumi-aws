@@ -143,15 +143,15 @@ public final class GetPeeringAttachmentResult {
             return this;
         }
         public GetPeeringAttachmentResult build() {
-            final var o = new GetPeeringAttachmentResult();
-            o.filters = filters;
-            o.id = id;
-            o.peerAccountId = peerAccountId;
-            o.peerRegion = peerRegion;
-            o.peerTransitGatewayId = peerTransitGatewayId;
-            o.tags = tags;
-            o.transitGatewayId = transitGatewayId;
-            return o;
+            final var _resultValue = new GetPeeringAttachmentResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.peerAccountId = peerAccountId;
+            _resultValue.peerRegion = peerRegion;
+            _resultValue.peerTransitGatewayId = peerTransitGatewayId;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            return _resultValue;
         }
     }
 }

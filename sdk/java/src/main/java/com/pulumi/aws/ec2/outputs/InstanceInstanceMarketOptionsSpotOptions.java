@@ -105,12 +105,12 @@ public final class InstanceInstanceMarketOptionsSpotOptions {
             return this;
         }
         public InstanceInstanceMarketOptionsSpotOptions build() {
-            final var o = new InstanceInstanceMarketOptionsSpotOptions();
-            o.instanceInterruptionBehavior = instanceInterruptionBehavior;
-            o.maxPrice = maxPrice;
-            o.spotInstanceType = spotInstanceType;
-            o.validUntil = validUntil;
-            return o;
+            final var _resultValue = new InstanceInstanceMarketOptionsSpotOptions();
+            _resultValue.instanceInterruptionBehavior = instanceInterruptionBehavior;
+            _resultValue.maxPrice = maxPrice;
+            _resultValue.spotInstanceType = spotInstanceType;
+            _resultValue.validUntil = validUntil;
+            return _resultValue;
         }
     }
 }

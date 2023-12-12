@@ -68,10 +68,10 @@ public final class FeatureGroupOnlineStoreConfigTtlDuration {
             return this;
         }
         public FeatureGroupOnlineStoreConfigTtlDuration build() {
-            final var o = new FeatureGroupOnlineStoreConfigTtlDuration();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new FeatureGroupOnlineStoreConfigTtlDuration();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

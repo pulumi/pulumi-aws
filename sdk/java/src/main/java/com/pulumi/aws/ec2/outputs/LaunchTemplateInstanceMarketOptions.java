@@ -68,10 +68,10 @@ public final class LaunchTemplateInstanceMarketOptions {
             return this;
         }
         public LaunchTemplateInstanceMarketOptions build() {
-            final var o = new LaunchTemplateInstanceMarketOptions();
-            o.marketType = marketType;
-            o.spotOptions = spotOptions;
-            return o;
+            final var _resultValue = new LaunchTemplateInstanceMarketOptions();
+            _resultValue.marketType = marketType;
+            _resultValue.spotOptions = spotOptions;
+            return _resultValue;
         }
     }
 }

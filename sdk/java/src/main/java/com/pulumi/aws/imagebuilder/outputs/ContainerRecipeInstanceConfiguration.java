@@ -72,10 +72,10 @@ public final class ContainerRecipeInstanceConfiguration {
             return this;
         }
         public ContainerRecipeInstanceConfiguration build() {
-            final var o = new ContainerRecipeInstanceConfiguration();
-            o.blockDeviceMappings = blockDeviceMappings;
-            o.image = image;
-            return o;
+            final var _resultValue = new ContainerRecipeInstanceConfiguration();
+            _resultValue.blockDeviceMappings = blockDeviceMappings;
+            _resultValue.image = image;
+            return _resultValue;
         }
     }
 }

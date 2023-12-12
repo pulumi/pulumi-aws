@@ -110,12 +110,12 @@ public final class ServiceQuotaUsageMetric {
             return this;
         }
         public ServiceQuotaUsageMetric build() {
-            final var o = new ServiceQuotaUsageMetric();
-            o.metricDimensions = metricDimensions;
-            o.metricName = metricName;
-            o.metricNamespace = metricNamespace;
-            o.metricStatisticRecommendation = metricStatisticRecommendation;
-            return o;
+            final var _resultValue = new ServiceQuotaUsageMetric();
+            _resultValue.metricDimensions = metricDimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.metricNamespace = metricNamespace;
+            _resultValue.metricStatisticRecommendation = metricStatisticRecommendation;
+            return _resultValue;
         }
     }
 }

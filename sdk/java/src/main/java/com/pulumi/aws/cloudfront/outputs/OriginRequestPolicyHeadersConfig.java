@@ -52,10 +52,10 @@ public final class OriginRequestPolicyHeadersConfig {
             return this;
         }
         public OriginRequestPolicyHeadersConfig build() {
-            final var o = new OriginRequestPolicyHeadersConfig();
-            o.headerBehavior = headerBehavior;
-            o.headers = headers;
-            return o;
+            final var _resultValue = new OriginRequestPolicyHeadersConfig();
+            _resultValue.headerBehavior = headerBehavior;
+            _resultValue.headers = headers;
+            return _resultValue;
         }
     }
 }

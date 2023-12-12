@@ -56,10 +56,10 @@ public final class MemcachedLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public MemcachedLayerCloudwatchConfiguration build() {
-            final var o = new MemcachedLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new MemcachedLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

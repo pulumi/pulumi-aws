@@ -124,13 +124,13 @@ public final class LaunchMetricMonitorMetricDefinition {
             return this;
         }
         public LaunchMetricMonitorMetricDefinition build() {
-            final var o = new LaunchMetricMonitorMetricDefinition();
-            o.entityIdKey = entityIdKey;
-            o.eventPattern = eventPattern;
-            o.name = name;
-            o.unitLabel = unitLabel;
-            o.valueKey = valueKey;
-            return o;
+            final var _resultValue = new LaunchMetricMonitorMetricDefinition();
+            _resultValue.entityIdKey = entityIdKey;
+            _resultValue.eventPattern = eventPattern;
+            _resultValue.name = name;
+            _resultValue.unitLabel = unitLabel;
+            _resultValue.valueKey = valueKey;
+            return _resultValue;
         }
     }
 }

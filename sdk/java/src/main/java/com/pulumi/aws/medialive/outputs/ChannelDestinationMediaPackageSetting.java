@@ -46,9 +46,9 @@ public final class ChannelDestinationMediaPackageSetting {
             return this;
         }
         public ChannelDestinationMediaPackageSetting build() {
-            final var o = new ChannelDestinationMediaPackageSetting();
-            o.channelId = channelId;
-            return o;
+            final var _resultValue = new ChannelDestinationMediaPackageSetting();
+            _resultValue.channelId = channelId;
+            return _resultValue;
         }
     }
 }

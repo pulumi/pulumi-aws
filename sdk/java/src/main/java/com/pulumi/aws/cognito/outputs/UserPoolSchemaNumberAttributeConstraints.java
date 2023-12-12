@@ -67,10 +67,10 @@ public final class UserPoolSchemaNumberAttributeConstraints {
             return this;
         }
         public UserPoolSchemaNumberAttributeConstraints build() {
-            final var o = new UserPoolSchemaNumberAttributeConstraints();
-            o.maxValue = maxValue;
-            o.minValue = minValue;
-            return o;
+            final var _resultValue = new UserPoolSchemaNumberAttributeConstraints();
+            _resultValue.maxValue = maxValue;
+            _resultValue.minValue = minValue;
+            return _resultValue;
         }
     }
 }

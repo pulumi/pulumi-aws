@@ -86,11 +86,11 @@ public final class CustomPluginLocationS3 {
             return this;
         }
         public CustomPluginLocationS3 build() {
-            final var o = new CustomPluginLocationS3();
-            o.bucketArn = bucketArn;
-            o.fileKey = fileKey;
-            o.objectVersion = objectVersion;
-            return o;
+            final var _resultValue = new CustomPluginLocationS3();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.fileKey = fileKey;
+            _resultValue.objectVersion = objectVersion;
+            return _resultValue;
         }
     }
 }

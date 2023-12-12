@@ -86,11 +86,11 @@ public final class AliasRoutingStrategy {
             return this;
         }
         public AliasRoutingStrategy build() {
-            final var o = new AliasRoutingStrategy();
-            o.fleetId = fleetId;
-            o.message = message;
-            o.type = type;
-            return o;
+            final var _resultValue = new AliasRoutingStrategy();
+            _resultValue.fleetId = fleetId;
+            _resultValue.message = message;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

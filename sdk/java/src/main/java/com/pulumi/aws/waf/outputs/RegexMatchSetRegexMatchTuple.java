@@ -91,11 +91,11 @@ public final class RegexMatchSetRegexMatchTuple {
             return this;
         }
         public RegexMatchSetRegexMatchTuple build() {
-            final var o = new RegexMatchSetRegexMatchTuple();
-            o.fieldToMatch = fieldToMatch;
-            o.regexPatternSetId = regexPatternSetId;
-            o.textTransformation = textTransformation;
-            return o;
+            final var _resultValue = new RegexMatchSetRegexMatchTuple();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.regexPatternSetId = regexPatternSetId;
+            _resultValue.textTransformation = textTransformation;
+            return _resultValue;
         }
     }
 }

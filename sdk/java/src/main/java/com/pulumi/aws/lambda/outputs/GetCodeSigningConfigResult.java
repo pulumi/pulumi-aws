@@ -161,15 +161,15 @@ public final class GetCodeSigningConfigResult {
             return policies(List.of(policies));
         }
         public GetCodeSigningConfigResult build() {
-            final var o = new GetCodeSigningConfigResult();
-            o.allowedPublishers = allowedPublishers;
-            o.arn = arn;
-            o.configId = configId;
-            o.description = description;
-            o.id = id;
-            o.lastModified = lastModified;
-            o.policies = policies;
-            return o;
+            final var _resultValue = new GetCodeSigningConfigResult();
+            _resultValue.allowedPublishers = allowedPublishers;
+            _resultValue.arn = arn;
+            _resultValue.configId = configId;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.lastModified = lastModified;
+            _resultValue.policies = policies;
+            return _resultValue;
         }
     }
 }

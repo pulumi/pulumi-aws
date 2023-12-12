@@ -227,19 +227,19 @@ public final class GetQueueResult {
             return this;
         }
         public GetQueueResult build() {
-            final var o = new GetQueueResult();
-            o.arn = arn;
-            o.description = description;
-            o.hoursOfOperationId = hoursOfOperationId;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.maxContacts = maxContacts;
-            o.name = name;
-            o.outboundCallerConfigs = outboundCallerConfigs;
-            o.queueId = queueId;
-            o.status = status;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetQueueResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.hoursOfOperationId = hoursOfOperationId;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.maxContacts = maxContacts;
+            _resultValue.name = name;
+            _resultValue.outboundCallerConfigs = outboundCallerConfigs;
+            _resultValue.queueId = queueId;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

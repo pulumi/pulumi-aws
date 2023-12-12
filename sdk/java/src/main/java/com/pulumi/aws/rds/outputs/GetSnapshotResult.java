@@ -443,33 +443,33 @@ public final class GetSnapshotResult {
             return this;
         }
         public GetSnapshotResult build() {
-            final var o = new GetSnapshotResult();
-            o.allocatedStorage = allocatedStorage;
-            o.availabilityZone = availabilityZone;
-            o.dbInstanceIdentifier = dbInstanceIdentifier;
-            o.dbSnapshotArn = dbSnapshotArn;
-            o.dbSnapshotIdentifier = dbSnapshotIdentifier;
-            o.encrypted = encrypted;
-            o.engine = engine;
-            o.engineVersion = engineVersion;
-            o.id = id;
-            o.includePublic = includePublic;
-            o.includeShared = includeShared;
-            o.iops = iops;
-            o.kmsKeyId = kmsKeyId;
-            o.licenseModel = licenseModel;
-            o.mostRecent = mostRecent;
-            o.optionGroupName = optionGroupName;
-            o.port = port;
-            o.snapshotCreateTime = snapshotCreateTime;
-            o.snapshotType = snapshotType;
-            o.sourceDbSnapshotIdentifier = sourceDbSnapshotIdentifier;
-            o.sourceRegion = sourceRegion;
-            o.status = status;
-            o.storageType = storageType;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetSnapshotResult();
+            _resultValue.allocatedStorage = allocatedStorage;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.dbInstanceIdentifier = dbInstanceIdentifier;
+            _resultValue.dbSnapshotArn = dbSnapshotArn;
+            _resultValue.dbSnapshotIdentifier = dbSnapshotIdentifier;
+            _resultValue.encrypted = encrypted;
+            _resultValue.engine = engine;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.id = id;
+            _resultValue.includePublic = includePublic;
+            _resultValue.includeShared = includeShared;
+            _resultValue.iops = iops;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.licenseModel = licenseModel;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.optionGroupName = optionGroupName;
+            _resultValue.port = port;
+            _resultValue.snapshotCreateTime = snapshotCreateTime;
+            _resultValue.snapshotType = snapshotType;
+            _resultValue.sourceDbSnapshotIdentifier = sourceDbSnapshotIdentifier;
+            _resultValue.sourceRegion = sourceRegion;
+            _resultValue.status = status;
+            _resultValue.storageType = storageType;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

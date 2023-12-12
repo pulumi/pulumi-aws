@@ -48,9 +48,9 @@ public final class DataQualityJobDefinitionStoppingCondition {
             return this;
         }
         public DataQualityJobDefinitionStoppingCondition build() {
-            final var o = new DataQualityJobDefinitionStoppingCondition();
-            o.maxRuntimeInSeconds = maxRuntimeInSeconds;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionStoppingCondition();
+            _resultValue.maxRuntimeInSeconds = maxRuntimeInSeconds;
+            return _resultValue;
         }
     }
 }

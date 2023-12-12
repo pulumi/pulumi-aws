@@ -278,23 +278,23 @@ public final class GetNatGatewayResult {
             return this;
         }
         public GetNatGatewayResult build() {
-            final var o = new GetNatGatewayResult();
-            o.allocationId = allocationId;
-            o.associationId = associationId;
-            o.connectivityType = connectivityType;
-            o.filters = filters;
-            o.id = id;
-            o.networkInterfaceId = networkInterfaceId;
-            o.privateIp = privateIp;
-            o.publicIp = publicIp;
-            o.secondaryAllocationIds = secondaryAllocationIds;
-            o.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
-            o.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
-            o.state = state;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetNatGatewayResult();
+            _resultValue.allocationId = allocationId;
+            _resultValue.associationId = associationId;
+            _resultValue.connectivityType = connectivityType;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.privateIp = privateIp;
+            _resultValue.publicIp = publicIp;
+            _resultValue.secondaryAllocationIds = secondaryAllocationIds;
+            _resultValue.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
+            _resultValue.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
+            _resultValue.state = state;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

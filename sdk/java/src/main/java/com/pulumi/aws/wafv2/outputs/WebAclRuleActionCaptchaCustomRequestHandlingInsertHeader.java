@@ -65,10 +65,10 @@ public final class WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader {
             return this;
         }
         public WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader build() {
-            final var o = new WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

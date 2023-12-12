@@ -86,11 +86,11 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountIn
             return this;
         }
         public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd build() {
-            final var o = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd();
-            o.cents = cents;
-            o.dollars = dollars;
-            o.tenthFractionsOfACent = tenthFractionsOfACent;
-            return o;
+            final var _resultValue = new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd();
+            _resultValue.cents = cents;
+            _resultValue.dollars = dollars;
+            _resultValue.tenthFractionsOfACent = tenthFractionsOfACent;
+            return _resultValue;
         }
     }
 }

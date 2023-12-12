@@ -69,10 +69,10 @@ public final class GetAttachmentFilter {
             return values(List.of(values));
         }
         public GetAttachmentFilter build() {
-            final var o = new GetAttachmentFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetAttachmentFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

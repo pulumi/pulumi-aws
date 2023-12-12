@@ -108,12 +108,12 @@ public final class EventConnectionAuthParameters {
             return this;
         }
         public EventConnectionAuthParameters build() {
-            final var o = new EventConnectionAuthParameters();
-            o.apiKey = apiKey;
-            o.basic = basic;
-            o.invocationHttpParameters = invocationHttpParameters;
-            o.oauth = oauth;
-            return o;
+            final var _resultValue = new EventConnectionAuthParameters();
+            _resultValue.apiKey = apiKey;
+            _resultValue.basic = basic;
+            _resultValue.invocationHttpParameters = invocationHttpParameters;
+            _resultValue.oauth = oauth;
+            return _resultValue;
         }
     }
 }

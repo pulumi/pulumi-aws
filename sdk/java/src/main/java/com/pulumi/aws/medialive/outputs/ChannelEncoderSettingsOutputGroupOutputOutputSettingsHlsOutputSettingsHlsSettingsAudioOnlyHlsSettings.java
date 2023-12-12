@@ -74,12 +74,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings();
-            o.audioGroupId = audioGroupId;
-            o.audioOnlyImage = audioOnlyImage;
-            o.audioTrackType = audioTrackType;
-            o.segmentType = segmentType;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings();
+            _resultValue.audioGroupId = audioGroupId;
+            _resultValue.audioOnlyImage = audioOnlyImage;
+            _resultValue.audioTrackType = audioTrackType;
+            _resultValue.segmentType = segmentType;
+            return _resultValue;
         }
     }
 }

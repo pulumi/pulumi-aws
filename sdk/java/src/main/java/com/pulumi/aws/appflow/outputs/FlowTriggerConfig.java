@@ -68,10 +68,10 @@ public final class FlowTriggerConfig {
             return this;
         }
         public FlowTriggerConfig build() {
-            final var o = new FlowTriggerConfig();
-            o.triggerProperties = triggerProperties;
-            o.triggerType = triggerType;
-            return o;
+            final var _resultValue = new FlowTriggerConfig();
+            _resultValue.triggerProperties = triggerProperties;
+            _resultValue.triggerType = triggerType;
+            return _resultValue;
         }
     }
 }

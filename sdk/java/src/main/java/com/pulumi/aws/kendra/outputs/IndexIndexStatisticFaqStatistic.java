@@ -48,9 +48,9 @@ public final class IndexIndexStatisticFaqStatistic {
             return this;
         }
         public IndexIndexStatisticFaqStatistic build() {
-            final var o = new IndexIndexStatisticFaqStatistic();
-            o.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
-            return o;
+            final var _resultValue = new IndexIndexStatisticFaqStatistic();
+            _resultValue.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
+            return _resultValue;
         }
     }
 }

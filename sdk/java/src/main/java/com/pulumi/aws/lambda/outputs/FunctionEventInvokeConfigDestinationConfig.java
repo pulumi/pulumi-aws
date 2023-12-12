@@ -68,10 +68,10 @@ public final class FunctionEventInvokeConfigDestinationConfig {
             return this;
         }
         public FunctionEventInvokeConfigDestinationConfig build() {
-            final var o = new FunctionEventInvokeConfigDestinationConfig();
-            o.onFailure = onFailure;
-            o.onSuccess = onSuccess;
-            return o;
+            final var _resultValue = new FunctionEventInvokeConfigDestinationConfig();
+            _resultValue.onFailure = onFailure;
+            _resultValue.onSuccess = onSuccess;
+            return _resultValue;
         }
     }
 }

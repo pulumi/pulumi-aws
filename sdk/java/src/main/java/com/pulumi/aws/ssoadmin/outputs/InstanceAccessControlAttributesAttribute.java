@@ -70,10 +70,10 @@ public final class InstanceAccessControlAttributesAttribute {
             return values(List.of(values));
         }
         public InstanceAccessControlAttributesAttribute build() {
-            final var o = new InstanceAccessControlAttributesAttribute();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new InstanceAccessControlAttributesAttribute();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

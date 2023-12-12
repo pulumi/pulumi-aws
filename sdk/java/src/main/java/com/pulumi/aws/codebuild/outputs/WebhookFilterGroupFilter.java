@@ -87,11 +87,11 @@ public final class WebhookFilterGroupFilter {
             return this;
         }
         public WebhookFilterGroupFilter build() {
-            final var o = new WebhookFilterGroupFilter();
-            o.excludeMatchedPattern = excludeMatchedPattern;
-            o.pattern = pattern;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebhookFilterGroupFilter();
+            _resultValue.excludeMatchedPattern = excludeMatchedPattern;
+            _resultValue.pattern = pattern;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

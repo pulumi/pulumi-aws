@@ -132,13 +132,13 @@ public final class UserHierarchyStructureHierarchyStructure {
             return this;
         }
         public UserHierarchyStructureHierarchyStructure build() {
-            final var o = new UserHierarchyStructureHierarchyStructure();
-            o.levelFive = levelFive;
-            o.levelFour = levelFour;
-            o.levelOne = levelOne;
-            o.levelThree = levelThree;
-            o.levelTwo = levelTwo;
-            return o;
+            final var _resultValue = new UserHierarchyStructureHierarchyStructure();
+            _resultValue.levelFive = levelFive;
+            _resultValue.levelFour = levelFour;
+            _resultValue.levelOne = levelOne;
+            _resultValue.levelThree = levelThree;
+            _resultValue.levelTwo = levelTwo;
+            return _resultValue;
         }
     }
 }

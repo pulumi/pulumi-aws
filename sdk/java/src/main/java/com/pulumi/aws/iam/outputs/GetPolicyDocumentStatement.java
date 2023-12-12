@@ -225,17 +225,17 @@ public final class GetPolicyDocumentStatement {
             return this;
         }
         public GetPolicyDocumentStatement build() {
-            final var o = new GetPolicyDocumentStatement();
-            o.actions = actions;
-            o.conditions = conditions;
-            o.effect = effect;
-            o.notActions = notActions;
-            o.notPrincipals = notPrincipals;
-            o.notResources = notResources;
-            o.principals = principals;
-            o.resources = resources;
-            o.sid = sid;
-            return o;
+            final var _resultValue = new GetPolicyDocumentStatement();
+            _resultValue.actions = actions;
+            _resultValue.conditions = conditions;
+            _resultValue.effect = effect;
+            _resultValue.notActions = notActions;
+            _resultValue.notPrincipals = notPrincipals;
+            _resultValue.notResources = notResources;
+            _resultValue.principals = principals;
+            _resultValue.resources = resources;
+            _resultValue.sid = sid;
+            return _resultValue;
         }
     }
 }

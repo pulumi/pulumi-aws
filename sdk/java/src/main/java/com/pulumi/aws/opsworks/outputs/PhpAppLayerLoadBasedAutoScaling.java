@@ -64,11 +64,11 @@ public final class PhpAppLayerLoadBasedAutoScaling {
             return this;
         }
         public PhpAppLayerLoadBasedAutoScaling build() {
-            final var o = new PhpAppLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new PhpAppLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

@@ -154,14 +154,14 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfig {
             return this;
         }
         public ClusterCoreInstanceFleetInstanceTypeConfig build() {
-            final var o = new ClusterCoreInstanceFleetInstanceTypeConfig();
-            o.bidPrice = bidPrice;
-            o.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
-            o.configurations = configurations;
-            o.ebsConfigs = ebsConfigs;
-            o.instanceType = instanceType;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new ClusterCoreInstanceFleetInstanceTypeConfig();
+            _resultValue.bidPrice = bidPrice;
+            _resultValue.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
+            _resultValue.configurations = configurations;
+            _resultValue.ebsConfigs = ebsConfigs;
+            _resultValue.instanceType = instanceType;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

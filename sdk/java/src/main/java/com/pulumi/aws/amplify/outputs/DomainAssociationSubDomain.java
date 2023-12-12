@@ -106,12 +106,12 @@ public final class DomainAssociationSubDomain {
             return this;
         }
         public DomainAssociationSubDomain build() {
-            final var o = new DomainAssociationSubDomain();
-            o.branchName = branchName;
-            o.dnsRecord = dnsRecord;
-            o.prefix = prefix;
-            o.verified = verified;
-            return o;
+            final var _resultValue = new DomainAssociationSubDomain();
+            _resultValue.branchName = branchName;
+            _resultValue.dnsRecord = dnsRecord;
+            _resultValue.prefix = prefix;
+            _resultValue.verified = verified;
+            return _resultValue;
         }
     }
 }

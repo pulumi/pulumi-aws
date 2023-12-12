@@ -151,15 +151,15 @@ public final class GetAliasResult {
             return this;
         }
         public GetAliasResult build() {
-            final var o = new GetAliasResult();
-            o.arn = arn;
-            o.creationDate = creationDate;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.routingConfigurations = routingConfigurations;
-            o.statemachineArn = statemachineArn;
-            return o;
+            final var _resultValue = new GetAliasResult();
+            _resultValue.arn = arn;
+            _resultValue.creationDate = creationDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.routingConfigurations = routingConfigurations;
+            _resultValue.statemachineArn = statemachineArn;
+            return _resultValue;
         }
     }
 }

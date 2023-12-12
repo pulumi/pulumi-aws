@@ -76,10 +76,10 @@ public final class RuleGroupRuleStatementXssMatchStatement {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementXssMatchStatement build() {
-            final var o = new RuleGroupRuleStatementXssMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementXssMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

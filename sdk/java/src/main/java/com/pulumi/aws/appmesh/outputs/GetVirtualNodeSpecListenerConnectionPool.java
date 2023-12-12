@@ -87,12 +87,12 @@ public final class GetVirtualNodeSpecListenerConnectionPool {
             return tcps(List.of(tcps));
         }
         public GetVirtualNodeSpecListenerConnectionPool build() {
-            final var o = new GetVirtualNodeSpecListenerConnectionPool();
-            o.grpcs = grpcs;
-            o.http2s = http2s;
-            o.https = https;
-            o.tcps = tcps;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerConnectionPool();
+            _resultValue.grpcs = grpcs;
+            _resultValue.http2s = http2s;
+            _resultValue.https = https;
+            _resultValue.tcps = tcps;
+            return _resultValue;
         }
     }
 }

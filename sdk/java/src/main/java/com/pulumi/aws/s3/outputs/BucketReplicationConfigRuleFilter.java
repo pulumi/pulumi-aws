@@ -88,11 +88,11 @@ public final class BucketReplicationConfigRuleFilter {
             return this;
         }
         public BucketReplicationConfigRuleFilter build() {
-            final var o = new BucketReplicationConfigRuleFilter();
-            o.and = and;
-            o.prefix = prefix;
-            o.tag = tag;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleFilter();
+            _resultValue.and = and;
+            _resultValue.prefix = prefix;
+            _resultValue.tag = tag;
+            return _resultValue;
         }
     }
 }

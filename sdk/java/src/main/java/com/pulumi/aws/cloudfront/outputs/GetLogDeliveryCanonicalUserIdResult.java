@@ -59,10 +59,10 @@ public final class GetLogDeliveryCanonicalUserIdResult {
             return this;
         }
         public GetLogDeliveryCanonicalUserIdResult build() {
-            final var o = new GetLogDeliveryCanonicalUserIdResult();
-            o.id = id;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetLogDeliveryCanonicalUserIdResult();
+            _resultValue.id = id;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

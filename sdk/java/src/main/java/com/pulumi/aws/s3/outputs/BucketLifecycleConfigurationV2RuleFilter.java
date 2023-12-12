@@ -126,13 +126,13 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
             return this;
         }
         public BucketLifecycleConfigurationV2RuleFilter build() {
-            final var o = new BucketLifecycleConfigurationV2RuleFilter();
-            o.and = and;
-            o.objectSizeGreaterThan = objectSizeGreaterThan;
-            o.objectSizeLessThan = objectSizeLessThan;
-            o.prefix = prefix;
-            o.tag = tag;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2RuleFilter();
+            _resultValue.and = and;
+            _resultValue.objectSizeGreaterThan = objectSizeGreaterThan;
+            _resultValue.objectSizeLessThan = objectSizeLessThan;
+            _resultValue.prefix = prefix;
+            _resultValue.tag = tag;
+            return _resultValue;
         }
     }
 }

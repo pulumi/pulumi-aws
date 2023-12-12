@@ -78,11 +78,11 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCook
             return includedCookies(List.of(includedCookies));
         }
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern();
-            o.all = all;
-            o.excludedCookies = excludedCookies;
-            o.includedCookies = includedCookies;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedCookies = excludedCookies;
+            _resultValue.includedCookies = includedCookies;
+            return _resultValue;
         }
     }
 }

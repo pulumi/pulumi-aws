@@ -38,9 +38,9 @@ public final class GetContactChannelDeliveryAddress {
             return this;
         }
         public GetContactChannelDeliveryAddress build() {
-            final var o = new GetContactChannelDeliveryAddress();
-            o.simpleAddress = simpleAddress;
-            return o;
+            final var _resultValue = new GetContactChannelDeliveryAddress();
+            _resultValue.simpleAddress = simpleAddress;
+            return _resultValue;
         }
     }
 }

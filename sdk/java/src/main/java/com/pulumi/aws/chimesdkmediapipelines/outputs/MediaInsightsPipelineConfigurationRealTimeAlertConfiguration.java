@@ -72,10 +72,10 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration 
             return rules(List.of(rules));
         }
         public MediaInsightsPipelineConfigurationRealTimeAlertConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationRealTimeAlertConfiguration();
-            o.disabled = disabled;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationRealTimeAlertConfiguration();
+            _resultValue.disabled = disabled;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

@@ -120,14 +120,14 @@ public final class GetAuthorizationTokenResult {
             return this;
         }
         public GetAuthorizationTokenResult build() {
-            final var o = new GetAuthorizationTokenResult();
-            o.authorizationToken = authorizationToken;
-            o.domain = domain;
-            o.domainOwner = domainOwner;
-            o.durationSeconds = durationSeconds;
-            o.expiration = expiration;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetAuthorizationTokenResult();
+            _resultValue.authorizationToken = authorizationToken;
+            _resultValue.domain = domain;
+            _resultValue.domainOwner = domainOwner;
+            _resultValue.durationSeconds = durationSeconds;
+            _resultValue.expiration = expiration;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

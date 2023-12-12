@@ -38,9 +38,9 @@ public final class GetRouteSpecTcpRouteMatch {
             return this;
         }
         public GetRouteSpecTcpRouteMatch build() {
-            final var o = new GetRouteSpecTcpRouteMatch();
-            o.port = port;
-            return o;
+            final var _resultValue = new GetRouteSpecTcpRouteMatch();
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

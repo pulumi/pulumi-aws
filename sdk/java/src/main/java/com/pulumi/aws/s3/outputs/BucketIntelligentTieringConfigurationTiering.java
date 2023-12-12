@@ -66,10 +66,10 @@ public final class BucketIntelligentTieringConfigurationTiering {
             return this;
         }
         public BucketIntelligentTieringConfigurationTiering build() {
-            final var o = new BucketIntelligentTieringConfigurationTiering();
-            o.accessTier = accessTier;
-            o.days = days;
-            return o;
+            final var _resultValue = new BucketIntelligentTieringConfigurationTiering();
+            _resultValue.accessTier = accessTier;
+            _resultValue.days = days;
+            return _resultValue;
         }
     }
 }

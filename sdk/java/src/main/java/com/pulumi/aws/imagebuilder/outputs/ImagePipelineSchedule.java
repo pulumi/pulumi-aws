@@ -90,11 +90,11 @@ public final class ImagePipelineSchedule {
             return this;
         }
         public ImagePipelineSchedule build() {
-            final var o = new ImagePipelineSchedule();
-            o.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
-            o.scheduleExpression = scheduleExpression;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new ImagePipelineSchedule();
+            _resultValue.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
+            _resultValue.scheduleExpression = scheduleExpression;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

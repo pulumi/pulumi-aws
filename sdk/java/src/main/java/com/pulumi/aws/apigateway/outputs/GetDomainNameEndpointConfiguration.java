@@ -50,9 +50,9 @@ public final class GetDomainNameEndpointConfiguration {
             return types(List.of(types));
         }
         public GetDomainNameEndpointConfiguration build() {
-            final var o = new GetDomainNameEndpointConfiguration();
-            o.types = types;
-            return o;
+            final var _resultValue = new GetDomainNameEndpointConfiguration();
+            _resultValue.types = types;
+            return _resultValue;
         }
     }
 }

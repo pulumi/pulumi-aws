@@ -46,9 +46,9 @@ public final class GetDomainClusterConfigColdStorageOption {
             return this;
         }
         public GetDomainClusterConfigColdStorageOption build() {
-            final var o = new GetDomainClusterConfigColdStorageOption();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetDomainClusterConfigColdStorageOption();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

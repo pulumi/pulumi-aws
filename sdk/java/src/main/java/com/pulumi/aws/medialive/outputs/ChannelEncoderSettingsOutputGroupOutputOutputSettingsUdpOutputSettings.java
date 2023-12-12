@@ -100,12 +100,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings();
-            o.bufferMsec = bufferMsec;
-            o.containerSettings = containerSettings;
-            o.destination = destination;
-            o.fecOutputSettings = fecOutputSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings();
+            _resultValue.bufferMsec = bufferMsec;
+            _resultValue.containerSettings = containerSettings;
+            _resultValue.destination = destination;
+            _resultValue.fecOutputSettings = fecOutputSettings;
+            return _resultValue;
         }
     }
 }

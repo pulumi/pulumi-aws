@@ -67,10 +67,10 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings();
-            o.maxCll = maxCll;
-            o.maxFall = maxFall;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings();
+            _resultValue.maxCll = maxCll;
+            _resultValue.maxFall = maxFall;
+            return _resultValue;
         }
     }
 }

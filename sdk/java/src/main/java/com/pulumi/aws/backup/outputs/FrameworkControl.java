@@ -92,11 +92,11 @@ public final class FrameworkControl {
             return this;
         }
         public FrameworkControl build() {
-            final var o = new FrameworkControl();
-            o.inputParameters = inputParameters;
-            o.name = name;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new FrameworkControl();
+            _resultValue.inputParameters = inputParameters;
+            _resultValue.name = name;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

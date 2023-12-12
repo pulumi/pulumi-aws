@@ -71,10 +71,10 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigur
             return this;
         }
         public FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor build() {
-            final var o = new FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor();
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor();
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

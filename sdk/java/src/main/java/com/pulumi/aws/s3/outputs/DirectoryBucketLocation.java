@@ -67,10 +67,10 @@ public final class DirectoryBucketLocation {
             return this;
         }
         public DirectoryBucketLocation build() {
-            final var o = new DirectoryBucketLocation();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DirectoryBucketLocation();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -112,12 +112,12 @@ public final class RuleGroupRuleGroupRulesSource {
             return this;
         }
         public RuleGroupRuleGroupRulesSource build() {
-            final var o = new RuleGroupRuleGroupRulesSource();
-            o.rulesSourceList = rulesSourceList;
-            o.rulesString = rulesString;
-            o.statefulRules = statefulRules;
-            o.statelessRulesAndCustomActions = statelessRulesAndCustomActions;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSource();
+            _resultValue.rulesSourceList = rulesSourceList;
+            _resultValue.rulesString = rulesString;
+            _resultValue.statefulRules = statefulRules;
+            _resultValue.statelessRulesAndCustomActions = statelessRulesAndCustomActions;
+            return _resultValue;
         }
     }
 }

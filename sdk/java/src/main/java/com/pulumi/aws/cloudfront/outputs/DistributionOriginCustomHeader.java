@@ -49,10 +49,10 @@ public final class DistributionOriginCustomHeader {
             return this;
         }
         public DistributionOriginCustomHeader build() {
-            final var o = new DistributionOriginCustomHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new DistributionOriginCustomHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

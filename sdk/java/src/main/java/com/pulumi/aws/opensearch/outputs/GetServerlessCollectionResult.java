@@ -221,19 +221,19 @@ public final class GetServerlessCollectionResult {
             return this;
         }
         public GetServerlessCollectionResult build() {
-            final var o = new GetServerlessCollectionResult();
-            o.arn = arn;
-            o.collectionEndpoint = collectionEndpoint;
-            o.createdDate = createdDate;
-            o.dashboardEndpoint = dashboardEndpoint;
-            o.description = description;
-            o.id = id;
-            o.kmsKeyArn = kmsKeyArn;
-            o.lastModifiedDate = lastModifiedDate;
-            o.name = name;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetServerlessCollectionResult();
+            _resultValue.arn = arn;
+            _resultValue.collectionEndpoint = collectionEndpoint;
+            _resultValue.createdDate = createdDate;
+            _resultValue.dashboardEndpoint = dashboardEndpoint;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.lastModifiedDate = lastModifiedDate;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

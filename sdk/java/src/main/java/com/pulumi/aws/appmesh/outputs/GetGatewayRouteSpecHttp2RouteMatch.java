@@ -111,14 +111,14 @@ public final class GetGatewayRouteSpecHttp2RouteMatch {
             return queryParameters(List.of(queryParameters));
         }
         public GetGatewayRouteSpecHttp2RouteMatch build() {
-            final var o = new GetGatewayRouteSpecHttp2RouteMatch();
-            o.headers = headers;
-            o.hostnames = hostnames;
-            o.paths = paths;
-            o.port = port;
-            o.prefix = prefix;
-            o.queryParameters = queryParameters;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttp2RouteMatch();
+            _resultValue.headers = headers;
+            _resultValue.hostnames = hostnames;
+            _resultValue.paths = paths;
+            _resultValue.port = port;
+            _resultValue.prefix = prefix;
+            _resultValue.queryParameters = queryParameters;
+            return _resultValue;
         }
     }
 }

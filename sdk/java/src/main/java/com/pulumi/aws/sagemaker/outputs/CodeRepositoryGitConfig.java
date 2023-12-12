@@ -86,11 +86,11 @@ public final class CodeRepositoryGitConfig {
             return this;
         }
         public CodeRepositoryGitConfig build() {
-            final var o = new CodeRepositoryGitConfig();
-            o.branch = branch;
-            o.repositoryUrl = repositoryUrl;
-            o.secretArn = secretArn;
-            return o;
+            final var _resultValue = new CodeRepositoryGitConfig();
+            _resultValue.branch = branch;
+            _resultValue.repositoryUrl = repositoryUrl;
+            _resultValue.secretArn = secretArn;
+            return _resultValue;
         }
     }
 }

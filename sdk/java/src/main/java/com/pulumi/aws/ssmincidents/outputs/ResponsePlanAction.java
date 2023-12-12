@@ -51,9 +51,9 @@ public final class ResponsePlanAction {
             return ssmAutomations(List.of(ssmAutomations));
         }
         public ResponsePlanAction build() {
-            final var o = new ResponsePlanAction();
-            o.ssmAutomations = ssmAutomations;
-            return o;
+            final var _resultValue = new ResponsePlanAction();
+            _resultValue.ssmAutomations = ssmAutomations;
+            return _resultValue;
         }
     }
 }

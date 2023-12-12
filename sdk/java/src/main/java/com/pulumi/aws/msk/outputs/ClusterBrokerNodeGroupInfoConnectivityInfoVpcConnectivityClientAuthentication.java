@@ -68,10 +68,10 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
             return this;
         }
         public ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication build() {
-            final var o = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication();
-            o.sasl = sasl;
-            o.tls = tls;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication();
+            _resultValue.sasl = sasl;
+            _resultValue.tls = tls;
+            return _resultValue;
         }
     }
 }

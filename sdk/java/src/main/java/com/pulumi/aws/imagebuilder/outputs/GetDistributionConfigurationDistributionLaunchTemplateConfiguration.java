@@ -85,11 +85,11 @@ public final class GetDistributionConfigurationDistributionLaunchTemplateConfigu
             return this;
         }
         public GetDistributionConfigurationDistributionLaunchTemplateConfiguration build() {
-            final var o = new GetDistributionConfigurationDistributionLaunchTemplateConfiguration();
-            o.accountId = accountId;
-            o.default_ = default_;
-            o.launchTemplateId = launchTemplateId;
-            return o;
+            final var _resultValue = new GetDistributionConfigurationDistributionLaunchTemplateConfiguration();
+            _resultValue.accountId = accountId;
+            _resultValue.default_ = default_;
+            _resultValue.launchTemplateId = launchTemplateId;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetInternetGatewayAttachment {
             return this;
         }
         public GetInternetGatewayAttachment build() {
-            final var o = new GetInternetGatewayAttachment();
-            o.state = state;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetInternetGatewayAttachment();
+            _resultValue.state = state;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

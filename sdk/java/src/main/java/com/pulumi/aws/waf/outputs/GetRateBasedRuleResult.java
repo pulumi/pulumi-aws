@@ -57,10 +57,10 @@ public final class GetRateBasedRuleResult {
             return this;
         }
         public GetRateBasedRuleResult build() {
-            final var o = new GetRateBasedRuleResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetRateBasedRuleResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

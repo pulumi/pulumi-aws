@@ -69,10 +69,10 @@ public final class GetVpcAttachmentsFilter {
             return values(List.of(values));
         }
         public GetVpcAttachmentsFilter build() {
-            final var o = new GetVpcAttachmentsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpcAttachmentsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

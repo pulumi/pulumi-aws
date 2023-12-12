@@ -40,9 +40,9 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings 
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings();
-            o.nielsenWatermarksSettings = nielsenWatermarksSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings();
+            _resultValue.nielsenWatermarksSettings = nielsenWatermarksSettings;
+            return _resultValue;
         }
     }
 }

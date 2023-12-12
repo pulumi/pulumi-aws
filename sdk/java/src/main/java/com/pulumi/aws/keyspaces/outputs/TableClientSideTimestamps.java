@@ -46,9 +46,9 @@ public final class TableClientSideTimestamps {
             return this;
         }
         public TableClientSideTimestamps build() {
-            final var o = new TableClientSideTimestamps();
-            o.status = status;
-            return o;
+            final var _resultValue = new TableClientSideTimestamps();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

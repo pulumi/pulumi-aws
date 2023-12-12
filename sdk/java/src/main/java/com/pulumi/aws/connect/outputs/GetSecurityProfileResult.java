@@ -179,17 +179,17 @@ public final class GetSecurityProfileResult {
             return this;
         }
         public GetSecurityProfileResult build() {
-            final var o = new GetSecurityProfileResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.instanceId = instanceId;
-            o.name = name;
-            o.organizationResourceId = organizationResourceId;
-            o.permissions = permissions;
-            o.securityProfileId = securityProfileId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSecurityProfileResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.name = name;
+            _resultValue.organizationResourceId = organizationResourceId;
+            _resultValue.permissions = permissions;
+            _resultValue.securityProfileId = securityProfileId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

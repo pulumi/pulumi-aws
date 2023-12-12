@@ -68,10 +68,10 @@ public final class UsagePlanThrottleSettings {
             return this;
         }
         public UsagePlanThrottleSettings build() {
-            final var o = new UsagePlanThrottleSettings();
-            o.burstLimit = burstLimit;
-            o.rateLimit = rateLimit;
-            return o;
+            final var _resultValue = new UsagePlanThrottleSettings();
+            _resultValue.burstLimit = burstLimit;
+            _resultValue.rateLimit = rateLimit;
+            return _resultValue;
         }
     }
 }

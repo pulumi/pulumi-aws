@@ -105,12 +105,12 @@ public final class NfsFileShareNfsFileShareDefaults {
             return this;
         }
         public NfsFileShareNfsFileShareDefaults build() {
-            final var o = new NfsFileShareNfsFileShareDefaults();
-            o.directoryMode = directoryMode;
-            o.fileMode = fileMode;
-            o.groupId = groupId;
-            o.ownerId = ownerId;
-            return o;
+            final var _resultValue = new NfsFileShareNfsFileShareDefaults();
+            _resultValue.directoryMode = directoryMode;
+            _resultValue.fileMode = fileMode;
+            _resultValue.groupId = groupId;
+            _resultValue.ownerId = ownerId;
+            return _resultValue;
         }
     }
 }

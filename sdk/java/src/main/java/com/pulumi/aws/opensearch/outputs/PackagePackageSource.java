@@ -65,10 +65,10 @@ public final class PackagePackageSource {
             return this;
         }
         public PackagePackageSource build() {
-            final var o = new PackagePackageSource();
-            o.s3BucketName = s3BucketName;
-            o.s3Key = s3Key;
-            return o;
+            final var _resultValue = new PackagePackageSource();
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3Key = s3Key;
+            return _resultValue;
         }
     }
 }

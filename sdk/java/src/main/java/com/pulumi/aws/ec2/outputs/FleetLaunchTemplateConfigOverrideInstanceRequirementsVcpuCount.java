@@ -67,10 +67,10 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCoun
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

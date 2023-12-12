@@ -62,11 +62,11 @@ public final class VpcConnectionTimeouts {
             return this;
         }
         public VpcConnectionTimeouts build() {
-            final var o = new VpcConnectionTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new VpcConnectionTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

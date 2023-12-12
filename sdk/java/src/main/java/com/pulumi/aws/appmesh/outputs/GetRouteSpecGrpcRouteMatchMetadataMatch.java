@@ -87,13 +87,13 @@ public final class GetRouteSpecGrpcRouteMatchMetadataMatch {
             return this;
         }
         public GetRouteSpecGrpcRouteMatchMetadataMatch build() {
-            final var o = new GetRouteSpecGrpcRouteMatchMetadataMatch();
-            o.exact = exact;
-            o.prefix = prefix;
-            o.ranges = ranges;
-            o.regex = regex;
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new GetRouteSpecGrpcRouteMatchMetadataMatch();
+            _resultValue.exact = exact;
+            _resultValue.prefix = prefix;
+            _resultValue.ranges = ranges;
+            _resultValue.regex = regex;
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

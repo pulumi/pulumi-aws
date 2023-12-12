@@ -386,28 +386,28 @@ public final class GetSnapshotResult {
             return this;
         }
         public GetSnapshotResult build() {
-            final var o = new GetSnapshotResult();
-            o.arn = arn;
-            o.dataEncryptionKeyId = dataEncryptionKeyId;
-            o.description = description;
-            o.encrypted = encrypted;
-            o.filters = filters;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.mostRecent = mostRecent;
-            o.outpostArn = outpostArn;
-            o.ownerAlias = ownerAlias;
-            o.ownerId = ownerId;
-            o.owners = owners;
-            o.restorableByUserIds = restorableByUserIds;
-            o.snapshotId = snapshotId;
-            o.snapshotIds = snapshotIds;
-            o.state = state;
-            o.storageTier = storageTier;
-            o.tags = tags;
-            o.volumeId = volumeId;
-            o.volumeSize = volumeSize;
-            return o;
+            final var _resultValue = new GetSnapshotResult();
+            _resultValue.arn = arn;
+            _resultValue.dataEncryptionKeyId = dataEncryptionKeyId;
+            _resultValue.description = description;
+            _resultValue.encrypted = encrypted;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.ownerAlias = ownerAlias;
+            _resultValue.ownerId = ownerId;
+            _resultValue.owners = owners;
+            _resultValue.restorableByUserIds = restorableByUserIds;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.snapshotIds = snapshotIds;
+            _resultValue.state = state;
+            _resultValue.storageTier = storageTier;
+            _resultValue.tags = tags;
+            _resultValue.volumeId = volumeId;
+            _resultValue.volumeSize = volumeSize;
+            return _resultValue;
         }
     }
 }

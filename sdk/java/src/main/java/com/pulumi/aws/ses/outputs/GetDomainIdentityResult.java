@@ -103,12 +103,12 @@ public final class GetDomainIdentityResult {
             return this;
         }
         public GetDomainIdentityResult build() {
-            final var o = new GetDomainIdentityResult();
-            o.arn = arn;
-            o.domain = domain;
-            o.id = id;
-            o.verificationToken = verificationToken;
-            return o;
+            final var _resultValue = new GetDomainIdentityResult();
+            _resultValue.arn = arn;
+            _resultValue.domain = domain;
+            _resultValue.id = id;
+            _resultValue.verificationToken = verificationToken;
+            return _resultValue;
         }
     }
 }

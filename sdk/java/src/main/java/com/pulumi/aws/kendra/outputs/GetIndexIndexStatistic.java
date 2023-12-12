@@ -73,10 +73,10 @@ public final class GetIndexIndexStatistic {
             return textDocumentStatistics(List.of(textDocumentStatistics));
         }
         public GetIndexIndexStatistic build() {
-            final var o = new GetIndexIndexStatistic();
-            o.faqStatistics = faqStatistics;
-            o.textDocumentStatistics = textDocumentStatistics;
-            return o;
+            final var _resultValue = new GetIndexIndexStatistic();
+            _resultValue.faqStatistics = faqStatistics;
+            _resultValue.textDocumentStatistics = textDocumentStatistics;
+            return _resultValue;
         }
     }
 }

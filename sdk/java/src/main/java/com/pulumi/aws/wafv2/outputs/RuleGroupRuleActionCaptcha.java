@@ -48,9 +48,9 @@ public final class RuleGroupRuleActionCaptcha {
             return this;
         }
         public RuleGroupRuleActionCaptcha build() {
-            final var o = new RuleGroupRuleActionCaptcha();
-            o.customRequestHandling = customRequestHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionCaptcha();
+            _resultValue.customRequestHandling = customRequestHandling;
+            return _resultValue;
         }
     }
 }

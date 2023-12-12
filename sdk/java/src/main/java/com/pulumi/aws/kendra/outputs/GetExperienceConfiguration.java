@@ -73,10 +73,10 @@ public final class GetExperienceConfiguration {
             return userIdentityConfigurations(List.of(userIdentityConfigurations));
         }
         public GetExperienceConfiguration build() {
-            final var o = new GetExperienceConfiguration();
-            o.contentSourceConfigurations = contentSourceConfigurations;
-            o.userIdentityConfigurations = userIdentityConfigurations;
-            return o;
+            final var _resultValue = new GetExperienceConfiguration();
+            _resultValue.contentSourceConfigurations = contentSourceConfigurations;
+            _resultValue.userIdentityConfigurations = userIdentityConfigurations;
+            return _resultValue;
         }
     }
 }

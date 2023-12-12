@@ -146,14 +146,14 @@ public final class OntapVolumeSnaplockConfiguration {
             return this;
         }
         public OntapVolumeSnaplockConfiguration build() {
-            final var o = new OntapVolumeSnaplockConfiguration();
-            o.auditLogVolume = auditLogVolume;
-            o.autocommitPeriod = autocommitPeriod;
-            o.privilegedDelete = privilegedDelete;
-            o.retentionPeriod = retentionPeriod;
-            o.snaplockType = snaplockType;
-            o.volumeAppendModeEnabled = volumeAppendModeEnabled;
-            return o;
+            final var _resultValue = new OntapVolumeSnaplockConfiguration();
+            _resultValue.auditLogVolume = auditLogVolume;
+            _resultValue.autocommitPeriod = autocommitPeriod;
+            _resultValue.privilegedDelete = privilegedDelete;
+            _resultValue.retentionPeriod = retentionPeriod;
+            _resultValue.snaplockType = snaplockType;
+            _resultValue.volumeAppendModeEnabled = volumeAppendModeEnabled;
+            return _resultValue;
         }
     }
 }

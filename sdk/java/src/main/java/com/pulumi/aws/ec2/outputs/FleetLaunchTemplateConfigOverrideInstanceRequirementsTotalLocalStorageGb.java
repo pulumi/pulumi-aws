@@ -67,10 +67,10 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

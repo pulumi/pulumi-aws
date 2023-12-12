@@ -65,10 +65,10 @@ public final class InsightFiltersResourceContainerImageName {
             return this;
         }
         public InsightFiltersResourceContainerImageName build() {
-            final var o = new InsightFiltersResourceContainerImageName();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceContainerImageName();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

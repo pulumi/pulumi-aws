@@ -65,10 +65,10 @@ public final class GetInfrastructureConfigurationLoggingS3Log {
             return this;
         }
         public GetInfrastructureConfigurationLoggingS3Log build() {
-            final var o = new GetInfrastructureConfigurationLoggingS3Log();
-            o.s3BucketName = s3BucketName;
-            o.s3KeyPrefix = s3KeyPrefix;
-            return o;
+            final var _resultValue = new GetInfrastructureConfigurationLoggingS3Log();
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            return _resultValue;
         }
     }
 }

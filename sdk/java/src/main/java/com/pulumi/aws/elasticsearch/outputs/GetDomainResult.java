@@ -499,31 +499,31 @@ public final class GetDomainResult {
             return vpcOptions(List.of(vpcOptions));
         }
         public GetDomainResult build() {
-            final var o = new GetDomainResult();
-            o.accessPolicies = accessPolicies;
-            o.advancedOptions = advancedOptions;
-            o.advancedSecurityOptions = advancedSecurityOptions;
-            o.arn = arn;
-            o.autoTuneOptions = autoTuneOptions;
-            o.clusterConfigs = clusterConfigs;
-            o.cognitoOptions = cognitoOptions;
-            o.created = created;
-            o.deleted = deleted;
-            o.domainId = domainId;
-            o.domainName = domainName;
-            o.ebsOptions = ebsOptions;
-            o.elasticsearchVersion = elasticsearchVersion;
-            o.encryptionAtRests = encryptionAtRests;
-            o.endpoint = endpoint;
-            o.id = id;
-            o.kibanaEndpoint = kibanaEndpoint;
-            o.logPublishingOptions = logPublishingOptions;
-            o.nodeToNodeEncryptions = nodeToNodeEncryptions;
-            o.processing = processing;
-            o.snapshotOptions = snapshotOptions;
-            o.tags = tags;
-            o.vpcOptions = vpcOptions;
-            return o;
+            final var _resultValue = new GetDomainResult();
+            _resultValue.accessPolicies = accessPolicies;
+            _resultValue.advancedOptions = advancedOptions;
+            _resultValue.advancedSecurityOptions = advancedSecurityOptions;
+            _resultValue.arn = arn;
+            _resultValue.autoTuneOptions = autoTuneOptions;
+            _resultValue.clusterConfigs = clusterConfigs;
+            _resultValue.cognitoOptions = cognitoOptions;
+            _resultValue.created = created;
+            _resultValue.deleted = deleted;
+            _resultValue.domainId = domainId;
+            _resultValue.domainName = domainName;
+            _resultValue.ebsOptions = ebsOptions;
+            _resultValue.elasticsearchVersion = elasticsearchVersion;
+            _resultValue.encryptionAtRests = encryptionAtRests;
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.kibanaEndpoint = kibanaEndpoint;
+            _resultValue.logPublishingOptions = logPublishingOptions;
+            _resultValue.nodeToNodeEncryptions = nodeToNodeEncryptions;
+            _resultValue.processing = processing;
+            _resultValue.snapshotOptions = snapshotOptions;
+            _resultValue.tags = tags;
+            _resultValue.vpcOptions = vpcOptions;
+            return _resultValue;
         }
     }
 }

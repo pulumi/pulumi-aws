@@ -68,10 +68,10 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfig {
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobOutputConfig build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobOutputConfig();
-            o.kmsKeyId = kmsKeyId;
-            o.monitoringOutputs = monitoringOutputs;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobOutputConfig();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.monitoringOutputs = monitoringOutputs;
+            return _resultValue;
         }
     }
 }

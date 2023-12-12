@@ -48,9 +48,9 @@ public final class WebAclDefaultActionBlock {
             return this;
         }
         public WebAclDefaultActionBlock build() {
-            final var o = new WebAclDefaultActionBlock();
-            o.customResponse = customResponse;
-            return o;
+            final var _resultValue = new WebAclDefaultActionBlock();
+            _resultValue.customResponse = customResponse;
+            return _resultValue;
         }
     }
 }

@@ -88,11 +88,11 @@ public final class CrawlerDynamodbTarget {
             return this;
         }
         public CrawlerDynamodbTarget build() {
-            final var o = new CrawlerDynamodbTarget();
-            o.path = path;
-            o.scanAll = scanAll;
-            o.scanRate = scanRate;
-            return o;
+            final var _resultValue = new CrawlerDynamodbTarget();
+            _resultValue.path = path;
+            _resultValue.scanAll = scanAll;
+            _resultValue.scanRate = scanRate;
+            return _resultValue;
         }
     }
 }

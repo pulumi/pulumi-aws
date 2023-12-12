@@ -103,12 +103,12 @@ public final class TopicRuleErrorActionCloudwatchAlarm {
             return this;
         }
         public TopicRuleErrorActionCloudwatchAlarm build() {
-            final var o = new TopicRuleErrorActionCloudwatchAlarm();
-            o.alarmName = alarmName;
-            o.roleArn = roleArn;
-            o.stateReason = stateReason;
-            o.stateValue = stateValue;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionCloudwatchAlarm();
+            _resultValue.alarmName = alarmName;
+            _resultValue.roleArn = roleArn;
+            _resultValue.stateReason = stateReason;
+            _resultValue.stateValue = stateValue;
+            return _resultValue;
         }
     }
 }

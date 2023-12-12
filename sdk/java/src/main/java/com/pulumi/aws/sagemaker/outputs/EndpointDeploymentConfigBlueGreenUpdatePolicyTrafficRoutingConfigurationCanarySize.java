@@ -66,10 +66,10 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
             return this;
         }
         public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize build() {
-            final var o = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

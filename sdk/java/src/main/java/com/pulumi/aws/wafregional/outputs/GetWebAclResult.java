@@ -57,10 +57,10 @@ public final class GetWebAclResult {
             return this;
         }
         public GetWebAclResult build() {
-            final var o = new GetWebAclResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetWebAclResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GetFirewallSubnetMapping {
             return this;
         }
         public GetFirewallSubnetMapping build() {
-            final var o = new GetFirewallSubnetMapping();
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetFirewallSubnetMapping();
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

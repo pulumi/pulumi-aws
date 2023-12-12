@@ -64,10 +64,10 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyM
             return includedPaths(List.of(includedPaths));
         }
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

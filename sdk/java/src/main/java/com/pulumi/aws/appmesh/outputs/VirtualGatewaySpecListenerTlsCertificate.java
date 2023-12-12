@@ -88,11 +88,11 @@ public final class VirtualGatewaySpecListenerTlsCertificate {
             return this;
         }
         public VirtualGatewaySpecListenerTlsCertificate build() {
-            final var o = new VirtualGatewaySpecListenerTlsCertificate();
-            o.acm = acm;
-            o.file = file;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerTlsCertificate();
+            _resultValue.acm = acm;
+            _resultValue.file = file;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

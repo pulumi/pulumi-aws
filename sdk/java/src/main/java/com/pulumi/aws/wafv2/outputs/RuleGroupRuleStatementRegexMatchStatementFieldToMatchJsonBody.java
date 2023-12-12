@@ -106,12 +106,12 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody
             return this;
         }
         public RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody();
-            o.invalidFallbackBehavior = invalidFallbackBehavior;
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody();
+            _resultValue.invalidFallbackBehavior = invalidFallbackBehavior;
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

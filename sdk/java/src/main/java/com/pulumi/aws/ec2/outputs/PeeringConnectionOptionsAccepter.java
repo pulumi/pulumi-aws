@@ -48,9 +48,9 @@ public final class PeeringConnectionOptionsAccepter {
             return this;
         }
         public PeeringConnectionOptionsAccepter build() {
-            final var o = new PeeringConnectionOptionsAccepter();
-            o.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-            return o;
+            final var _resultValue = new PeeringConnectionOptionsAccepter();
+            _resultValue.allowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
+            return _resultValue;
         }
     }
 }

@@ -90,11 +90,11 @@ public final class AssociationOutputLocation {
             return this;
         }
         public AssociationOutputLocation build() {
-            final var o = new AssociationOutputLocation();
-            o.s3BucketName = s3BucketName;
-            o.s3KeyPrefix = s3KeyPrefix;
-            o.s3Region = s3Region;
-            return o;
+            final var _resultValue = new AssociationOutputLocation();
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            _resultValue.s3Region = s3Region;
+            return _resultValue;
         }
     }
 }

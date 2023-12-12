@@ -102,12 +102,12 @@ public final class ResourceSetResource {
             return this;
         }
         public ResourceSetResource build() {
-            final var o = new ResourceSetResource();
-            o.componentId = componentId;
-            o.dnsTargetResource = dnsTargetResource;
-            o.readinessScopes = readinessScopes;
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new ResourceSetResource();
+            _resultValue.componentId = componentId;
+            _resultValue.dnsTargetResource = dnsTargetResource;
+            _resultValue.readinessScopes = readinessScopes;
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

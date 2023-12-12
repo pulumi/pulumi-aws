@@ -70,10 +70,10 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReference {
             return this;
         }
         public RuleGroupRuleGroupReferenceSetsIpSetReference build() {
-            final var o = new RuleGroupRuleGroupReferenceSetsIpSetReference();
-            o.ipSetReferences = ipSetReferences;
-            o.key = key;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupReferenceSetsIpSetReference();
+            _resultValue.ipSetReferences = ipSetReferences;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

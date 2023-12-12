@@ -124,13 +124,13 @@ public final class ServiceActionDefinition {
             return this;
         }
         public ServiceActionDefinition build() {
-            final var o = new ServiceActionDefinition();
-            o.assumeRole = assumeRole;
-            o.name = name;
-            o.parameters = parameters;
-            o.type = type;
-            o.version = version;
-            return o;
+            final var _resultValue = new ServiceActionDefinition();
+            _resultValue.assumeRole = assumeRole;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

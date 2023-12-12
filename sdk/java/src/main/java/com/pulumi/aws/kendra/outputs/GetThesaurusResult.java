@@ -322,24 +322,24 @@ public final class GetThesaurusResult {
             return this;
         }
         public GetThesaurusResult build() {
-            final var o = new GetThesaurusResult();
-            o.arn = arn;
-            o.createdAt = createdAt;
-            o.description = description;
-            o.errorMessage = errorMessage;
-            o.fileSizeBytes = fileSizeBytes;
-            o.id = id;
-            o.indexId = indexId;
-            o.name = name;
-            o.roleArn = roleArn;
-            o.sourceS3Paths = sourceS3Paths;
-            o.status = status;
-            o.synonymRuleCount = synonymRuleCount;
-            o.tags = tags;
-            o.termCount = termCount;
-            o.thesaurusId = thesaurusId;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetThesaurusResult();
+            _resultValue.arn = arn;
+            _resultValue.createdAt = createdAt;
+            _resultValue.description = description;
+            _resultValue.errorMessage = errorMessage;
+            _resultValue.fileSizeBytes = fileSizeBytes;
+            _resultValue.id = id;
+            _resultValue.indexId = indexId;
+            _resultValue.name = name;
+            _resultValue.roleArn = roleArn;
+            _resultValue.sourceS3Paths = sourceS3Paths;
+            _resultValue.status = status;
+            _resultValue.synonymRuleCount = synonymRuleCount;
+            _resultValue.tags = tags;
+            _resultValue.termCount = termCount;
+            _resultValue.thesaurusId = thesaurusId;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

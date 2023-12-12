@@ -165,15 +165,15 @@ public final class DomainSamlOptionsSamlOptions {
             return this;
         }
         public DomainSamlOptionsSamlOptions build() {
-            final var o = new DomainSamlOptionsSamlOptions();
-            o.enabled = enabled;
-            o.idp = idp;
-            o.masterBackendRole = masterBackendRole;
-            o.masterUserName = masterUserName;
-            o.rolesKey = rolesKey;
-            o.sessionTimeoutMinutes = sessionTimeoutMinutes;
-            o.subjectKey = subjectKey;
-            return o;
+            final var _resultValue = new DomainSamlOptionsSamlOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.idp = idp;
+            _resultValue.masterBackendRole = masterBackendRole;
+            _resultValue.masterUserName = masterUserName;
+            _resultValue.rolesKey = rolesKey;
+            _resultValue.sessionTimeoutMinutes = sessionTimeoutMinutes;
+            _resultValue.subjectKey = subjectKey;
+            return _resultValue;
         }
     }
 }

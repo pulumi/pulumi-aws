@@ -100,14 +100,14 @@ public final class GetNetworkInsightsAnalysisExplanationAclRule {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationAclRule build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationAclRule();
-            o.cidr = cidr;
-            o.egress = egress;
-            o.portRanges = portRanges;
-            o.protocol = protocol;
-            o.ruleAction = ruleAction;
-            o.ruleNumber = ruleNumber;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationAclRule();
+            _resultValue.cidr = cidr;
+            _resultValue.egress = egress;
+            _resultValue.portRanges = portRanges;
+            _resultValue.protocol = protocol;
+            _resultValue.ruleAction = ruleAction;
+            _resultValue.ruleNumber = ruleNumber;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceS
             return this;
         }
         public UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec build() {
-            final var o = new UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec();
-            o.instanceType = instanceType;
-            o.lifecycleConfigArn = lifecycleConfigArn;
-            o.sagemakerImageArn = sagemakerImageArn;
-            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec();
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycleConfigArn = lifecycleConfigArn;
+            _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return _resultValue;
         }
     }
 }

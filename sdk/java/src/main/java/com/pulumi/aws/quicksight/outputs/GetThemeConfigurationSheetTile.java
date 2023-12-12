@@ -50,9 +50,9 @@ public final class GetThemeConfigurationSheetTile {
             return borders(List.of(borders));
         }
         public GetThemeConfigurationSheetTile build() {
-            final var o = new GetThemeConfigurationSheetTile();
-            o.borders = borders;
-            return o;
+            final var _resultValue = new GetThemeConfigurationSheetTile();
+            _resultValue.borders = borders;
+            return _resultValue;
         }
     }
 }

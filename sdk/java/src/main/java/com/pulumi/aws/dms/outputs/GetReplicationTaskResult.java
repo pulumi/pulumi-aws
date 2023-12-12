@@ -279,22 +279,22 @@ public final class GetReplicationTaskResult {
             return this;
         }
         public GetReplicationTaskResult build() {
-            final var o = new GetReplicationTaskResult();
-            o.cdcStartPosition = cdcStartPosition;
-            o.cdcStartTime = cdcStartTime;
-            o.id = id;
-            o.migrationType = migrationType;
-            o.replicationInstanceArn = replicationInstanceArn;
-            o.replicationTaskArn = replicationTaskArn;
-            o.replicationTaskId = replicationTaskId;
-            o.replicationTaskSettings = replicationTaskSettings;
-            o.sourceEndpointArn = sourceEndpointArn;
-            o.startReplicationTask = startReplicationTask;
-            o.status = status;
-            o.tableMappings = tableMappings;
-            o.tags = tags;
-            o.targetEndpointArn = targetEndpointArn;
-            return o;
+            final var _resultValue = new GetReplicationTaskResult();
+            _resultValue.cdcStartPosition = cdcStartPosition;
+            _resultValue.cdcStartTime = cdcStartTime;
+            _resultValue.id = id;
+            _resultValue.migrationType = migrationType;
+            _resultValue.replicationInstanceArn = replicationInstanceArn;
+            _resultValue.replicationTaskArn = replicationTaskArn;
+            _resultValue.replicationTaskId = replicationTaskId;
+            _resultValue.replicationTaskSettings = replicationTaskSettings;
+            _resultValue.sourceEndpointArn = sourceEndpointArn;
+            _resultValue.startReplicationTask = startReplicationTask;
+            _resultValue.status = status;
+            _resultValue.tableMappings = tableMappings;
+            _resultValue.tags = tags;
+            _resultValue.targetEndpointArn = targetEndpointArn;
+            return _resultValue;
         }
     }
 }

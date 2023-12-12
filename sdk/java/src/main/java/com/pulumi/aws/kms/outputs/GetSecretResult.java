@@ -62,10 +62,10 @@ public final class GetSecretResult {
             return secrets(List.of(secrets));
         }
         public GetSecretResult build() {
-            final var o = new GetSecretResult();
-            o.id = id;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetSecretResult();
+            _resultValue.id = id;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

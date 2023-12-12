@@ -73,10 +73,10 @@ public final class InputVpc {
             return subnetIds(List.of(subnetIds));
         }
         public InputVpc build() {
-            final var o = new InputVpc();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new InputVpc();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

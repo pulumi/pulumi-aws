@@ -94,11 +94,11 @@ public final class PermissionsLfTag {
             return values(List.of(values));
         }
         public PermissionsLfTag build() {
-            final var o = new PermissionsLfTag();
-            o.catalogId = catalogId;
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new PermissionsLfTag();
+            _resultValue.catalogId = catalogId;
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -216,18 +216,18 @@ public final class GetNamespaceResult {
             return this;
         }
         public GetNamespaceResult build() {
-            final var o = new GetNamespaceResult();
-            o.adminUsername = adminUsername;
-            o.arn = arn;
-            o.dbName = dbName;
-            o.defaultIamRoleArn = defaultIamRoleArn;
-            o.iamRoles = iamRoles;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.logExports = logExports;
-            o.namespaceId = namespaceId;
-            o.namespaceName = namespaceName;
-            return o;
+            final var _resultValue = new GetNamespaceResult();
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.arn = arn;
+            _resultValue.dbName = dbName;
+            _resultValue.defaultIamRoleArn = defaultIamRoleArn;
+            _resultValue.iamRoles = iamRoles;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.logExports = logExports;
+            _resultValue.namespaceId = namespaceId;
+            _resultValue.namespaceName = namespaceName;
+            return _resultValue;
         }
     }
 }

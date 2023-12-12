@@ -332,23 +332,23 @@ public final class PipeTargetParametersEcsTaskParameters {
             return this;
         }
         public PipeTargetParametersEcsTaskParameters build() {
-            final var o = new PipeTargetParametersEcsTaskParameters();
-            o.capacityProviderStrategies = capacityProviderStrategies;
-            o.enableEcsManagedTags = enableEcsManagedTags;
-            o.enableExecuteCommand = enableExecuteCommand;
-            o.group = group;
-            o.launchType = launchType;
-            o.networkConfiguration = networkConfiguration;
-            o.overrides = overrides;
-            o.placementConstraints = placementConstraints;
-            o.placementStrategies = placementStrategies;
-            o.platformVersion = platformVersion;
-            o.propagateTags = propagateTags;
-            o.referenceId = referenceId;
-            o.tags = tags;
-            o.taskCount = taskCount;
-            o.taskDefinitionArn = taskDefinitionArn;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParameters();
+            _resultValue.capacityProviderStrategies = capacityProviderStrategies;
+            _resultValue.enableEcsManagedTags = enableEcsManagedTags;
+            _resultValue.enableExecuteCommand = enableExecuteCommand;
+            _resultValue.group = group;
+            _resultValue.launchType = launchType;
+            _resultValue.networkConfiguration = networkConfiguration;
+            _resultValue.overrides = overrides;
+            _resultValue.placementConstraints = placementConstraints;
+            _resultValue.placementStrategies = placementStrategies;
+            _resultValue.platformVersion = platformVersion;
+            _resultValue.propagateTags = propagateTags;
+            _resultValue.referenceId = referenceId;
+            _resultValue.tags = tags;
+            _resultValue.taskCount = taskCount;
+            _resultValue.taskDefinitionArn = taskDefinitionArn;
+            return _resultValue;
         }
     }
 }

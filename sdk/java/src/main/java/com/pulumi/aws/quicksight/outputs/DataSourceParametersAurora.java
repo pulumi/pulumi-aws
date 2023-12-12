@@ -85,11 +85,11 @@ public final class DataSourceParametersAurora {
             return this;
         }
         public DataSourceParametersAurora build() {
-            final var o = new DataSourceParametersAurora();
-            o.database = database;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersAurora();
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

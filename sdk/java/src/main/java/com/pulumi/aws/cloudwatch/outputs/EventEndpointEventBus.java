@@ -46,9 +46,9 @@ public final class EventEndpointEventBus {
             return this;
         }
         public EventEndpointEventBus build() {
-            final var o = new EventEndpointEventBus();
-            o.eventBusArn = eventBusArn;
-            return o;
+            final var _resultValue = new EventEndpointEventBus();
+            _resultValue.eventBusArn = eventBusArn;
+            return _resultValue;
         }
     }
 }

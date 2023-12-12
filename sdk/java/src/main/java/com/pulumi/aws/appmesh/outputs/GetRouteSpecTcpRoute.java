@@ -72,11 +72,11 @@ public final class GetRouteSpecTcpRoute {
             return timeouts(List.of(timeouts));
         }
         public GetRouteSpecTcpRoute build() {
-            final var o = new GetRouteSpecTcpRoute();
-            o.actions = actions;
-            o.matches = matches;
-            o.timeouts = timeouts;
-            return o;
+            final var _resultValue = new GetRouteSpecTcpRoute();
+            _resultValue.actions = actions;
+            _resultValue.matches = matches;
+            _resultValue.timeouts = timeouts;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetDetectorFeatureAdditionalConfiguration {
             return this;
         }
         public GetDetectorFeatureAdditionalConfiguration build() {
-            final var o = new GetDetectorFeatureAdditionalConfiguration();
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetDetectorFeatureAdditionalConfiguration();
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -107,13 +107,13 @@ public final class GetApplicationResult {
             return this;
         }
         public GetApplicationResult build() {
-            final var o = new GetApplicationResult();
-            o.appversionLifecycle = appversionLifecycle;
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetApplicationResult();
+            _resultValue.appversionLifecycle = appversionLifecycle;
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

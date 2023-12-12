@@ -65,10 +65,10 @@ public final class InsightFiltersResourceAwsEc2InstanceVpcId {
             return this;
         }
         public InsightFiltersResourceAwsEc2InstanceVpcId build() {
-            final var o = new InsightFiltersResourceAwsEc2InstanceVpcId();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsEc2InstanceVpcId();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

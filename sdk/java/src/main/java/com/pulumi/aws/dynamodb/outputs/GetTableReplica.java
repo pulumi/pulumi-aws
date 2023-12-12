@@ -49,10 +49,10 @@ public final class GetTableReplica {
             return this;
         }
         public GetTableReplica build() {
-            final var o = new GetTableReplica();
-            o.kmsKeyArn = kmsKeyArn;
-            o.regionName = regionName;
-            return o;
+            final var _resultValue = new GetTableReplica();
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.regionName = regionName;
+            return _resultValue;
         }
     }
 }

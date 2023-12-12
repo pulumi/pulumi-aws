@@ -51,9 +51,9 @@ public final class ChannelHlsIngest {
             return ingestEndpoints(List.of(ingestEndpoints));
         }
         public ChannelHlsIngest build() {
-            final var o = new ChannelHlsIngest();
-            o.ingestEndpoints = ingestEndpoints;
-            return o;
+            final var _resultValue = new ChannelHlsIngest();
+            _resultValue.ingestEndpoints = ingestEndpoints;
+            return _resultValue;
         }
     }
 }

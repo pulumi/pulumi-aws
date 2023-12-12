@@ -106,12 +106,12 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody {
             return this;
         }
         public WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody build() {
-            final var o = new WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody();
-            o.invalidFallbackBehavior = invalidFallbackBehavior;
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody();
+            _resultValue.invalidFallbackBehavior = invalidFallbackBehavior;
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

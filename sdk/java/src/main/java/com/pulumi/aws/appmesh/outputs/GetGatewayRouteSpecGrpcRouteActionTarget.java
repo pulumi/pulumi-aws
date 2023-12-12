@@ -54,10 +54,10 @@ public final class GetGatewayRouteSpecGrpcRouteActionTarget {
             return virtualServices(List.of(virtualServices));
         }
         public GetGatewayRouteSpecGrpcRouteActionTarget build() {
-            final var o = new GetGatewayRouteSpecGrpcRouteActionTarget();
-            o.port = port;
-            o.virtualServices = virtualServices;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecGrpcRouteActionTarget();
+            _resultValue.port = port;
+            _resultValue.virtualServices = virtualServices;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class GetVpcDhcpOptionsFilter {
             return values(List.of(values));
         }
         public GetVpcDhcpOptionsFilter build() {
-            final var o = new GetVpcDhcpOptionsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpcDhcpOptionsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

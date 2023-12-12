@@ -50,10 +50,10 @@ public final class GetEndpointClientConnectOption {
             return this;
         }
         public GetEndpointClientConnectOption build() {
-            final var o = new GetEndpointClientConnectOption();
-            o.enabled = enabled;
-            o.lambdaFunctionArn = lambdaFunctionArn;
-            return o;
+            final var _resultValue = new GetEndpointClientConnectOption();
+            _resultValue.enabled = enabled;
+            _resultValue.lambdaFunctionArn = lambdaFunctionArn;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo();
-            o.accessToken = accessToken;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthRequest = oauthRequest;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo();
+            _resultValue.accessToken = accessToken;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthRequest = oauthRequest;
+            return _resultValue;
         }
     }
 }

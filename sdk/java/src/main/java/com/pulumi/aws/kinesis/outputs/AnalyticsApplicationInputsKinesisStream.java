@@ -65,10 +65,10 @@ public final class AnalyticsApplicationInputsKinesisStream {
             return this;
         }
         public AnalyticsApplicationInputsKinesisStream build() {
-            final var o = new AnalyticsApplicationInputsKinesisStream();
-            o.resourceArn = resourceArn;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsKinesisStream();
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

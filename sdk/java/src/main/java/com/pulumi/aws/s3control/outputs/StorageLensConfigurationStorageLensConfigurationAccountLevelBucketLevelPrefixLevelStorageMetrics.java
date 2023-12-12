@@ -68,10 +68,10 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics();
-            o.enabled = enabled;
-            o.selectionCriteria = selectionCriteria;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics();
+            _resultValue.enabled = enabled;
+            _resultValue.selectionCriteria = selectionCriteria;
+            return _resultValue;
         }
     }
 }

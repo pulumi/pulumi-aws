@@ -68,10 +68,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce();
-            o.instanceUrl = instanceUrl;
-            o.isSandboxEnvironment = isSandboxEnvironment;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce();
+            _resultValue.instanceUrl = instanceUrl;
+            _resultValue.isSandboxEnvironment = isSandboxEnvironment;
+            return _resultValue;
         }
     }
 }

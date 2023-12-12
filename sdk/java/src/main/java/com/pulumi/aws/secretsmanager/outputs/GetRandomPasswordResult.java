@@ -157,18 +157,18 @@ public final class GetRandomPasswordResult {
             return this;
         }
         public GetRandomPasswordResult build() {
-            final var o = new GetRandomPasswordResult();
-            o.excludeCharacters = excludeCharacters;
-            o.excludeLowercase = excludeLowercase;
-            o.excludeNumbers = excludeNumbers;
-            o.excludePunctuation = excludePunctuation;
-            o.excludeUppercase = excludeUppercase;
-            o.id = id;
-            o.includeSpace = includeSpace;
-            o.passwordLength = passwordLength;
-            o.randomPassword = randomPassword;
-            o.requireEachIncludedType = requireEachIncludedType;
-            return o;
+            final var _resultValue = new GetRandomPasswordResult();
+            _resultValue.excludeCharacters = excludeCharacters;
+            _resultValue.excludeLowercase = excludeLowercase;
+            _resultValue.excludeNumbers = excludeNumbers;
+            _resultValue.excludePunctuation = excludePunctuation;
+            _resultValue.excludeUppercase = excludeUppercase;
+            _resultValue.id = id;
+            _resultValue.includeSpace = includeSpace;
+            _resultValue.passwordLength = passwordLength;
+            _resultValue.randomPassword = randomPassword;
+            _resultValue.requireEachIncludedType = requireEachIncludedType;
+            return _resultValue;
         }
     }
 }

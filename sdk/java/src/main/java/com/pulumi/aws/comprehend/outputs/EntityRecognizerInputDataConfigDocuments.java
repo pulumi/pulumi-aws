@@ -80,11 +80,11 @@ public final class EntityRecognizerInputDataConfigDocuments {
             return this;
         }
         public EntityRecognizerInputDataConfigDocuments build() {
-            final var o = new EntityRecognizerInputDataConfigDocuments();
-            o.inputFormat = inputFormat;
-            o.s3Uri = s3Uri;
-            o.testS3Uri = testS3Uri;
-            return o;
+            final var _resultValue = new EntityRecognizerInputDataConfigDocuments();
+            _resultValue.inputFormat = inputFormat;
+            _resultValue.s3Uri = s3Uri;
+            _resultValue.testS3Uri = testS3Uri;
+            return _resultValue;
         }
     }
 }

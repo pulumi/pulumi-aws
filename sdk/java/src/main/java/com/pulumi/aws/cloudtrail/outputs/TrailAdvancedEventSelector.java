@@ -72,10 +72,10 @@ public final class TrailAdvancedEventSelector {
             return this;
         }
         public TrailAdvancedEventSelector build() {
-            final var o = new TrailAdvancedEventSelector();
-            o.fieldSelectors = fieldSelectors;
-            o.name = name;
-            return o;
+            final var _resultValue = new TrailAdvancedEventSelector();
+            _resultValue.fieldSelectors = fieldSelectors;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

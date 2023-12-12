@@ -68,10 +68,10 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocation {
             return this;
         }
         public WorkflowStepDecryptStepDetailsDestinationFileLocation build() {
-            final var o = new WorkflowStepDecryptStepDetailsDestinationFileLocation();
-            o.efsFileLocation = efsFileLocation;
-            o.s3FileLocation = s3FileLocation;
-            return o;
+            final var _resultValue = new WorkflowStepDecryptStepDetailsDestinationFileLocation();
+            _resultValue.efsFileLocation = efsFileLocation;
+            _resultValue.s3FileLocation = s3FileLocation;
+            return _resultValue;
         }
     }
 }

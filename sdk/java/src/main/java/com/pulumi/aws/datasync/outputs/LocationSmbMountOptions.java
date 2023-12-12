@@ -48,9 +48,9 @@ public final class LocationSmbMountOptions {
             return this;
         }
         public LocationSmbMountOptions build() {
-            final var o = new LocationSmbMountOptions();
-            o.version = version;
-            return o;
+            final var _resultValue = new LocationSmbMountOptions();
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

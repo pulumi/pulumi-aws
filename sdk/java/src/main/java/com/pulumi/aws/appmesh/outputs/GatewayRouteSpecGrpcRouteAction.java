@@ -46,9 +46,9 @@ public final class GatewayRouteSpecGrpcRouteAction {
             return this;
         }
         public GatewayRouteSpecGrpcRouteAction build() {
-            final var o = new GatewayRouteSpecGrpcRouteAction();
-            o.target = target;
-            return o;
+            final var _resultValue = new GatewayRouteSpecGrpcRouteAction();
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

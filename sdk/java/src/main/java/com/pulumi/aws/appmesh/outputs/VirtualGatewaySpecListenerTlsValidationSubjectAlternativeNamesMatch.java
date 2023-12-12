@@ -50,9 +50,9 @@ public final class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeName
             return exacts(List.of(exacts));
         }
         public VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch build() {
-            final var o = new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch();
-            o.exacts = exacts;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch();
+            _resultValue.exacts = exacts;
+            return _resultValue;
         }
     }
 }

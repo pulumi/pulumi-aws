@@ -64,11 +64,11 @@ public final class GetDataSetFieldFolder {
             return this;
         }
         public GetDataSetFieldFolder build() {
-            final var o = new GetDataSetFieldFolder();
-            o.columns = columns;
-            o.description = description;
-            o.fieldFoldersId = fieldFoldersId;
-            return o;
+            final var _resultValue = new GetDataSetFieldFolder();
+            _resultValue.columns = columns;
+            _resultValue.description = description;
+            _resultValue.fieldFoldersId = fieldFoldersId;
+            return _resultValue;
         }
     }
 }

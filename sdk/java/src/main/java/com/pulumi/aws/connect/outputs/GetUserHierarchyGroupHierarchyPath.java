@@ -142,13 +142,13 @@ public final class GetUserHierarchyGroupHierarchyPath {
             return levelTwos(List.of(levelTwos));
         }
         public GetUserHierarchyGroupHierarchyPath build() {
-            final var o = new GetUserHierarchyGroupHierarchyPath();
-            o.levelFives = levelFives;
-            o.levelFours = levelFours;
-            o.levelOnes = levelOnes;
-            o.levelThrees = levelThrees;
-            o.levelTwos = levelTwos;
-            return o;
+            final var _resultValue = new GetUserHierarchyGroupHierarchyPath();
+            _resultValue.levelFives = levelFives;
+            _resultValue.levelFours = levelFours;
+            _resultValue.levelOnes = levelOnes;
+            _resultValue.levelThrees = levelThrees;
+            _resultValue.levelTwos = levelTwos;
+            return _resultValue;
         }
     }
 }

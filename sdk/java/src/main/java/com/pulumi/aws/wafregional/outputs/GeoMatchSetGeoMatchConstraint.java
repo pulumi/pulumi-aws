@@ -69,10 +69,10 @@ public final class GeoMatchSetGeoMatchConstraint {
             return this;
         }
         public GeoMatchSetGeoMatchConstraint build() {
-            final var o = new GeoMatchSetGeoMatchConstraint();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GeoMatchSetGeoMatchConstraint();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

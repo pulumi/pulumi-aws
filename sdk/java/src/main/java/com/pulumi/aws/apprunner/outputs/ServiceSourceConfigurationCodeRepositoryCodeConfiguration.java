@@ -68,10 +68,10 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
             return this;
         }
         public ServiceSourceConfigurationCodeRepositoryCodeConfiguration build() {
-            final var o = new ServiceSourceConfigurationCodeRepositoryCodeConfiguration();
-            o.codeConfigurationValues = codeConfigurationValues;
-            o.configurationSource = configurationSource;
-            return o;
+            final var _resultValue = new ServiceSourceConfigurationCodeRepositoryCodeConfiguration();
+            _resultValue.codeConfigurationValues = codeConfigurationValues;
+            _resultValue.configurationSource = configurationSource;
+            return _resultValue;
         }
     }
 }

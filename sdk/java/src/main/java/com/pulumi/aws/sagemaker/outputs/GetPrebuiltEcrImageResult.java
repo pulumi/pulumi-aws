@@ -130,15 +130,15 @@ public final class GetPrebuiltEcrImageResult {
             return this;
         }
         public GetPrebuiltEcrImageResult build() {
-            final var o = new GetPrebuiltEcrImageResult();
-            o.dnsSuffix = dnsSuffix;
-            o.id = id;
-            o.imageTag = imageTag;
-            o.region = region;
-            o.registryId = registryId;
-            o.registryPath = registryPath;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new GetPrebuiltEcrImageResult();
+            _resultValue.dnsSuffix = dnsSuffix;
+            _resultValue.id = id;
+            _resultValue.imageTag = imageTag;
+            _resultValue.region = region;
+            _resultValue.registryId = registryId;
+            _resultValue.registryPath = registryPath;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

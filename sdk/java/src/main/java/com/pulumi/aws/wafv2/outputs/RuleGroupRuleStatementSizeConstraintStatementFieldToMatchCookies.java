@@ -89,11 +89,11 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCook
             return this;
         }
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies();
-            o.matchPatterns = matchPatterns;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies();
+            _resultValue.matchPatterns = matchPatterns;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

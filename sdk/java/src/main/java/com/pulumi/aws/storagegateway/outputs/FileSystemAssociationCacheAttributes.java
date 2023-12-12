@@ -52,9 +52,9 @@ public final class FileSystemAssociationCacheAttributes {
             return this;
         }
         public FileSystemAssociationCacheAttributes build() {
-            final var o = new FileSystemAssociationCacheAttributes();
-            o.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
-            return o;
+            final var _resultValue = new FileSystemAssociationCacheAttributes();
+            _resultValue.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
+            return _resultValue;
         }
     }
 }

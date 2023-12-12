@@ -106,12 +106,12 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig {
             return this;
         }
         public ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig build() {
-            final var o = new ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig();
-            o.iops = iops;
-            o.size = size;
-            o.type = type;
-            o.volumesPerInstance = volumesPerInstance;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig();
+            _resultValue.iops = iops;
+            _resultValue.size = size;
+            _resultValue.type = type;
+            _resultValue.volumesPerInstance = volumesPerInstance;
+            return _resultValue;
         }
     }
 }

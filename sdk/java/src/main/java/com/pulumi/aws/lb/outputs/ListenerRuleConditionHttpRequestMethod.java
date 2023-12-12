@@ -50,9 +50,9 @@ public final class ListenerRuleConditionHttpRequestMethod {
             return values(List.of(values));
         }
         public ListenerRuleConditionHttpRequestMethod build() {
-            final var o = new ListenerRuleConditionHttpRequestMethod();
-            o.values = values;
-            return o;
+            final var _resultValue = new ListenerRuleConditionHttpRequestMethod();
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

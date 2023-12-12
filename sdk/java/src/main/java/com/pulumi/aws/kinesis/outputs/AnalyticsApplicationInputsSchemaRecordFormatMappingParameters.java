@@ -72,10 +72,10 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
             return this;
         }
         public AnalyticsApplicationInputsSchemaRecordFormatMappingParameters build() {
-            final var o = new AnalyticsApplicationInputsSchemaRecordFormatMappingParameters();
-            o.csv = csv;
-            o.json = json;
-            return o;
+            final var _resultValue = new AnalyticsApplicationInputsSchemaRecordFormatMappingParameters();
+            _resultValue.csv = csv;
+            _resultValue.json = json;
+            return _resultValue;
         }
     }
 }

@@ -154,14 +154,14 @@ public final class GetSecretsSecret {
             return this;
         }
         public GetSecretsSecret build() {
-            final var o = new GetSecretsSecret();
-            o.context = context;
-            o.encryptionAlgorithm = encryptionAlgorithm;
-            o.grantTokens = grantTokens;
-            o.keyId = keyId;
-            o.name = name;
-            o.payload = payload;
-            return o;
+            final var _resultValue = new GetSecretsSecret();
+            _resultValue.context = context;
+            _resultValue.encryptionAlgorithm = encryptionAlgorithm;
+            _resultValue.grantTokens = grantTokens;
+            _resultValue.keyId = keyId;
+            _resultValue.name = name;
+            _resultValue.payload = payload;
+            return _resultValue;
         }
     }
 }

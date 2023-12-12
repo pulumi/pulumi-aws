@@ -65,10 +65,10 @@ public final class BudgetActionSubscriber {
             return this;
         }
         public BudgetActionSubscriber build() {
-            final var o = new BudgetActionSubscriber();
-            o.address = address;
-            o.subscriptionType = subscriptionType;
-            return o;
+            final var _resultValue = new BudgetActionSubscriber();
+            _resultValue.address = address;
+            _resultValue.subscriptionType = subscriptionType;
+            return _resultValue;
         }
     }
 }

@@ -111,12 +111,12 @@ public final class ClusterShard {
             return this;
         }
         public ClusterShard build() {
-            final var o = new ClusterShard();
-            o.name = name;
-            o.nodes = nodes;
-            o.numNodes = numNodes;
-            o.slots = slots;
-            return o;
+            final var _resultValue = new ClusterShard();
+            _resultValue.name = name;
+            _resultValue.nodes = nodes;
+            _resultValue.numNodes = numNodes;
+            _resultValue.slots = slots;
+            return _resultValue;
         }
     }
 }

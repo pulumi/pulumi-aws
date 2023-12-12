@@ -46,9 +46,9 @@ public final class DataSourceParametersAmazonElasticsearch {
             return this;
         }
         public DataSourceParametersAmazonElasticsearch build() {
-            final var o = new DataSourceParametersAmazonElasticsearch();
-            o.domain = domain;
-            return o;
+            final var _resultValue = new DataSourceParametersAmazonElasticsearch();
+            _resultValue.domain = domain;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class RuleEvaluationMode {
             return this;
         }
         public RuleEvaluationMode build() {
-            final var o = new RuleEvaluationMode();
-            o.mode = mode;
-            return o;
+            final var _resultValue = new RuleEvaluationMode();
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

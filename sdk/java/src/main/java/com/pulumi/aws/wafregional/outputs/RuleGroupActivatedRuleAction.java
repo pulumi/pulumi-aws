@@ -46,9 +46,9 @@ public final class RuleGroupActivatedRuleAction {
             return this;
         }
         public RuleGroupActivatedRuleAction build() {
-            final var o = new RuleGroupActivatedRuleAction();
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupActivatedRuleAction();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

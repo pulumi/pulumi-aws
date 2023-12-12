@@ -46,9 +46,9 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
             return this;
         }
         public DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh build() {
-            final var o = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh();
-            o.lookbackWindow = lookbackWindow;
-            return o;
+            final var _resultValue = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh();
+            _resultValue.lookbackWindow = lookbackWindow;
+            return _resultValue;
         }
     }
 }

@@ -300,22 +300,22 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
             return this;
         }
         public FirehoseDeliveryStreamElasticsearchConfiguration build() {
-            final var o = new FirehoseDeliveryStreamElasticsearchConfiguration();
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.clusterEndpoint = clusterEndpoint;
-            o.domainArn = domainArn;
-            o.indexName = indexName;
-            o.indexRotationPeriod = indexRotationPeriod;
-            o.processingConfiguration = processingConfiguration;
-            o.retryDuration = retryDuration;
-            o.roleArn = roleArn;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            o.typeName = typeName;
-            o.vpcConfig = vpcConfig;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamElasticsearchConfiguration();
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.clusterEndpoint = clusterEndpoint;
+            _resultValue.domainArn = domainArn;
+            _resultValue.indexName = indexName;
+            _resultValue.indexRotationPeriod = indexRotationPeriod;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.typeName = typeName;
+            _resultValue.vpcConfig = vpcConfig;
+            return _resultValue;
         }
     }
 }

@@ -265,21 +265,21 @@ public final class GetAttachmentResult {
             return this;
         }
         public GetAttachmentResult build() {
-            final var o = new GetAttachmentResult();
-            o.arn = arn;
-            o.associationState = associationState;
-            o.associationTransitGatewayRouteTableId = associationTransitGatewayRouteTableId;
-            o.filters = filters;
-            o.id = id;
-            o.resourceId = resourceId;
-            o.resourceOwnerId = resourceOwnerId;
-            o.resourceType = resourceType;
-            o.state = state;
-            o.tags = tags;
-            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
-            o.transitGatewayId = transitGatewayId;
-            o.transitGatewayOwnerId = transitGatewayOwnerId;
-            return o;
+            final var _resultValue = new GetAttachmentResult();
+            _resultValue.arn = arn;
+            _resultValue.associationState = associationState;
+            _resultValue.associationTransitGatewayRouteTableId = associationTransitGatewayRouteTableId;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.resourceId = resourceId;
+            _resultValue.resourceOwnerId = resourceOwnerId;
+            _resultValue.resourceType = resourceType;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.transitGatewayOwnerId = transitGatewayOwnerId;
+            return _resultValue;
         }
     }
 }

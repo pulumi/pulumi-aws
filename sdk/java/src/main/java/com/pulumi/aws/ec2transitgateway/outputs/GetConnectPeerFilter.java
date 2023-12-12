@@ -69,10 +69,10 @@ public final class GetConnectPeerFilter {
             return values(List.of(values));
         }
         public GetConnectPeerFilter build() {
-            final var o = new GetConnectPeerFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetConnectPeerFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

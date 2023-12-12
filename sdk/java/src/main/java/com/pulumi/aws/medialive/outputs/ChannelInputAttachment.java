@@ -107,12 +107,12 @@ public final class ChannelInputAttachment {
             return this;
         }
         public ChannelInputAttachment build() {
-            final var o = new ChannelInputAttachment();
-            o.automaticInputFailoverSettings = automaticInputFailoverSettings;
-            o.inputAttachmentName = inputAttachmentName;
-            o.inputId = inputId;
-            o.inputSettings = inputSettings;
-            return o;
+            final var _resultValue = new ChannelInputAttachment();
+            _resultValue.automaticInputFailoverSettings = automaticInputFailoverSettings;
+            _resultValue.inputAttachmentName = inputAttachmentName;
+            _resultValue.inputId = inputId;
+            _resultValue.inputSettings = inputSettings;
+            return _resultValue;
         }
     }
 }

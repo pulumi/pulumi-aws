@@ -154,15 +154,15 @@ public final class GetAuthorizationTokenResult {
             return this;
         }
         public GetAuthorizationTokenResult build() {
-            final var o = new GetAuthorizationTokenResult();
-            o.authorizationToken = authorizationToken;
-            o.expiresAt = expiresAt;
-            o.id = id;
-            o.password = password;
-            o.proxyEndpoint = proxyEndpoint;
-            o.registryId = registryId;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new GetAuthorizationTokenResult();
+            _resultValue.authorizationToken = authorizationToken;
+            _resultValue.expiresAt = expiresAt;
+            _resultValue.id = id;
+            _resultValue.password = password;
+            _resultValue.proxyEndpoint = proxyEndpoint;
+            _resultValue.registryId = registryId;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

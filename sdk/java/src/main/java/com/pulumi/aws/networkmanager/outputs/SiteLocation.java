@@ -86,11 +86,11 @@ public final class SiteLocation {
             return this;
         }
         public SiteLocation build() {
-            final var o = new SiteLocation();
-            o.address = address;
-            o.latitude = latitude;
-            o.longitude = longitude;
-            return o;
+            final var _resultValue = new SiteLocation();
+            _resultValue.address = address;
+            _resultValue.latitude = latitude;
+            _resultValue.longitude = longitude;
+            return _resultValue;
         }
     }
 }

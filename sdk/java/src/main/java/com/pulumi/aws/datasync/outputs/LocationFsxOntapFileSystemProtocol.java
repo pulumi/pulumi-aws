@@ -68,10 +68,10 @@ public final class LocationFsxOntapFileSystemProtocol {
             return this;
         }
         public LocationFsxOntapFileSystemProtocol build() {
-            final var o = new LocationFsxOntapFileSystemProtocol();
-            o.nfs = nfs;
-            o.smb = smb;
-            return o;
+            final var _resultValue = new LocationFsxOntapFileSystemProtocol();
+            _resultValue.nfs = nfs;
+            _resultValue.smb = smb;
+            return _resultValue;
         }
     }
 }

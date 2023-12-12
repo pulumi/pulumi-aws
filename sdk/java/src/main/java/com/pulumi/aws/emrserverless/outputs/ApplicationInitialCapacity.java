@@ -68,10 +68,10 @@ public final class ApplicationInitialCapacity {
             return this;
         }
         public ApplicationInitialCapacity build() {
-            final var o = new ApplicationInitialCapacity();
-            o.initialCapacityConfig = initialCapacityConfig;
-            o.initialCapacityType = initialCapacityType;
-            return o;
+            final var _resultValue = new ApplicationInitialCapacity();
+            _resultValue.initialCapacityConfig = initialCapacityConfig;
+            _resultValue.initialCapacityType = initialCapacityType;
+            return _resultValue;
         }
     }
 }

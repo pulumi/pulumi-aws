@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQue
             return this;
         }
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

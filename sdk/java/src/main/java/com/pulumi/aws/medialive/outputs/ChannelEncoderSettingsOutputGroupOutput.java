@@ -132,13 +132,13 @@ public final class ChannelEncoderSettingsOutputGroupOutput {
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutput build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutput();
-            o.audioDescriptionNames = audioDescriptionNames;
-            o.captionDescriptionNames = captionDescriptionNames;
-            o.outputName = outputName;
-            o.outputSettings = outputSettings;
-            o.videoDescriptionName = videoDescriptionName;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutput();
+            _resultValue.audioDescriptionNames = audioDescriptionNames;
+            _resultValue.captionDescriptionNames = captionDescriptionNames;
+            _resultValue.outputName = outputName;
+            _resultValue.outputSettings = outputSettings;
+            _resultValue.videoDescriptionName = videoDescriptionName;
+            return _resultValue;
         }
     }
 }

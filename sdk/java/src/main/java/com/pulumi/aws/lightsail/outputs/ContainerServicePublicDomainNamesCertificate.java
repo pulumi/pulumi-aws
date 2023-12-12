@@ -53,10 +53,10 @@ public final class ContainerServicePublicDomainNamesCertificate {
             return domainNames(List.of(domainNames));
         }
         public ContainerServicePublicDomainNamesCertificate build() {
-            final var o = new ContainerServicePublicDomainNamesCertificate();
-            o.certificateName = certificateName;
-            o.domainNames = domainNames;
-            return o;
+            final var _resultValue = new ContainerServicePublicDomainNamesCertificate();
+            _resultValue.certificateName = certificateName;
+            _resultValue.domainNames = domainNames;
+            return _resultValue;
         }
     }
 }

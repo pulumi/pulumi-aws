@@ -75,10 +75,10 @@ public final class XssMatchSetXssMatchTupleFieldToMatch {
             return this;
         }
         public XssMatchSetXssMatchTupleFieldToMatch build() {
-            final var o = new XssMatchSetXssMatchTupleFieldToMatch();
-            o.data = data;
-            o.type = type;
-            return o;
+            final var _resultValue = new XssMatchSetXssMatchTupleFieldToMatch();
+            _resultValue.data = data;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

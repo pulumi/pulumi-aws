@@ -312,22 +312,22 @@ public final class ScalingPlanScalingInstruction {
             return targetTrackingConfigurations(List.of(targetTrackingConfigurations));
         }
         public ScalingPlanScalingInstruction build() {
-            final var o = new ScalingPlanScalingInstruction();
-            o.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
-            o.disableDynamicScaling = disableDynamicScaling;
-            o.maxCapacity = maxCapacity;
-            o.minCapacity = minCapacity;
-            o.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
-            o.predictiveScalingMaxCapacityBehavior = predictiveScalingMaxCapacityBehavior;
-            o.predictiveScalingMaxCapacityBuffer = predictiveScalingMaxCapacityBuffer;
-            o.predictiveScalingMode = predictiveScalingMode;
-            o.resourceId = resourceId;
-            o.scalableDimension = scalableDimension;
-            o.scalingPolicyUpdateBehavior = scalingPolicyUpdateBehavior;
-            o.scheduledActionBufferTime = scheduledActionBufferTime;
-            o.serviceNamespace = serviceNamespace;
-            o.targetTrackingConfigurations = targetTrackingConfigurations;
-            return o;
+            final var _resultValue = new ScalingPlanScalingInstruction();
+            _resultValue.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
+            _resultValue.disableDynamicScaling = disableDynamicScaling;
+            _resultValue.maxCapacity = maxCapacity;
+            _resultValue.minCapacity = minCapacity;
+            _resultValue.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
+            _resultValue.predictiveScalingMaxCapacityBehavior = predictiveScalingMaxCapacityBehavior;
+            _resultValue.predictiveScalingMaxCapacityBuffer = predictiveScalingMaxCapacityBuffer;
+            _resultValue.predictiveScalingMode = predictiveScalingMode;
+            _resultValue.resourceId = resourceId;
+            _resultValue.scalableDimension = scalableDimension;
+            _resultValue.scalingPolicyUpdateBehavior = scalingPolicyUpdateBehavior;
+            _resultValue.scheduledActionBufferTime = scheduledActionBufferTime;
+            _resultValue.serviceNamespace = serviceNamespace;
+            _resultValue.targetTrackingConfigurations = targetTrackingConfigurations;
+            return _resultValue;
         }
     }
 }

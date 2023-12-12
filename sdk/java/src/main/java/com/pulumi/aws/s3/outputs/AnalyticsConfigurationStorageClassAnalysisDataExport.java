@@ -68,10 +68,10 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExport {
             return this;
         }
         public AnalyticsConfigurationStorageClassAnalysisDataExport build() {
-            final var o = new AnalyticsConfigurationStorageClassAnalysisDataExport();
-            o.destination = destination;
-            o.outputSchemaVersion = outputSchemaVersion;
-            return o;
+            final var _resultValue = new AnalyticsConfigurationStorageClassAnalysisDataExport();
+            _resultValue.destination = destination;
+            _resultValue.outputSchemaVersion = outputSchemaVersion;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody {
             return this;
         }
         public WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody();
-            o.invalidFallbackBehavior = invalidFallbackBehavior;
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody();
+            _resultValue.invalidFallbackBehavior = invalidFallbackBehavior;
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

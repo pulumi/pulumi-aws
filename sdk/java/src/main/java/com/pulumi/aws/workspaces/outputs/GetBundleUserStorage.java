@@ -46,9 +46,9 @@ public final class GetBundleUserStorage {
             return this;
         }
         public GetBundleUserStorage build() {
-            final var o = new GetBundleUserStorage();
-            o.capacity = capacity;
-            return o;
+            final var _resultValue = new GetBundleUserStorage();
+            _resultValue.capacity = capacity;
+            return _resultValue;
         }
     }
 }

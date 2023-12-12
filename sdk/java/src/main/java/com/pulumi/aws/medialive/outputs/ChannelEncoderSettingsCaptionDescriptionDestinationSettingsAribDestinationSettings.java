@@ -25,8 +25,8 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings build() {
-            final var o = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings();
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings();
+            return _resultValue;
         }
     }
 }

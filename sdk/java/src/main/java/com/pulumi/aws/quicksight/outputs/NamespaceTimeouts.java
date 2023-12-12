@@ -51,10 +51,10 @@ public final class NamespaceTimeouts {
             return this;
         }
         public NamespaceTimeouts build() {
-            final var o = new NamespaceTimeouts();
-            o.create = create;
-            o.delete = delete;
-            return o;
+            final var _resultValue = new NamespaceTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            return _resultValue;
         }
     }
 }

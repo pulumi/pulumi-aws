@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSlack {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesSlack build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesSlack();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesSlack();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

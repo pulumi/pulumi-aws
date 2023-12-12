@@ -166,14 +166,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
             return tcpFlags(List.of(tcpFlags));
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes();
-            o.destinationPorts = destinationPorts;
-            o.destinations = destinations;
-            o.protocols = protocols;
-            o.sourcePorts = sourcePorts;
-            o.sources = sources;
-            o.tcpFlags = tcpFlags;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes();
+            _resultValue.destinationPorts = destinationPorts;
+            _resultValue.destinations = destinations;
+            _resultValue.protocols = protocols;
+            _resultValue.sourcePorts = sourcePorts;
+            _resultValue.sources = sources;
+            _resultValue.tcpFlags = tcpFlags;
+            return _resultValue;
         }
     }
 }

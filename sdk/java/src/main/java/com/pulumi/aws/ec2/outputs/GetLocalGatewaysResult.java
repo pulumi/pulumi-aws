@@ -97,12 +97,12 @@ public final class GetLocalGatewaysResult {
             return this;
         }
         public GetLocalGatewaysResult build() {
-            final var o = new GetLocalGatewaysResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLocalGatewaysResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

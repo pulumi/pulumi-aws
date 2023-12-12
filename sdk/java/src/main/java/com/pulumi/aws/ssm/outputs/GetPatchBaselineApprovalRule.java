@@ -129,13 +129,13 @@ public final class GetPatchBaselineApprovalRule {
             return patchFilters(List.of(patchFilters));
         }
         public GetPatchBaselineApprovalRule build() {
-            final var o = new GetPatchBaselineApprovalRule();
-            o.approveAfterDays = approveAfterDays;
-            o.approveUntilDate = approveUntilDate;
-            o.complianceLevel = complianceLevel;
-            o.enableNonSecurity = enableNonSecurity;
-            o.patchFilters = patchFilters;
-            return o;
+            final var _resultValue = new GetPatchBaselineApprovalRule();
+            _resultValue.approveAfterDays = approveAfterDays;
+            _resultValue.approveUntilDate = approveUntilDate;
+            _resultValue.complianceLevel = complianceLevel;
+            _resultValue.enableNonSecurity = enableNonSecurity;
+            _resultValue.patchFilters = patchFilters;
+            return _resultValue;
         }
     }
 }

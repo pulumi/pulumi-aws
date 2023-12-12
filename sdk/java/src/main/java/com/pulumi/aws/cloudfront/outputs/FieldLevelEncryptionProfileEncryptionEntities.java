@@ -43,9 +43,9 @@ public final class FieldLevelEncryptionProfileEncryptionEntities {
             return items(List.of(items));
         }
         public FieldLevelEncryptionProfileEncryptionEntities build() {
-            final var o = new FieldLevelEncryptionProfileEncryptionEntities();
-            o.items = items;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionProfileEncryptionEntities();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

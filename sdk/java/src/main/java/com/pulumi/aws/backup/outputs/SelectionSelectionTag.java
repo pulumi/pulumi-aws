@@ -84,11 +84,11 @@ public final class SelectionSelectionTag {
             return this;
         }
         public SelectionSelectionTag build() {
-            final var o = new SelectionSelectionTag();
-            o.key = key;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new SelectionSelectionTag();
+            _resultValue.key = key;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

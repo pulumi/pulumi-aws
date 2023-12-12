@@ -49,10 +49,10 @@ public final class GetBrokerLogs {
             return this;
         }
         public GetBrokerLogs build() {
-            final var o = new GetBrokerLogs();
-            o.audit = audit;
-            o.general = general;
-            return o;
+            final var _resultValue = new GetBrokerLogs();
+            _resultValue.audit = audit;
+            _resultValue.general = general;
+            return _resultValue;
         }
     }
 }

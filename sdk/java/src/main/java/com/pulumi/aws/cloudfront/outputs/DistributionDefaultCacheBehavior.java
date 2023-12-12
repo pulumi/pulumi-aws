@@ -414,27 +414,27 @@ public final class DistributionDefaultCacheBehavior {
             return this;
         }
         public DistributionDefaultCacheBehavior build() {
-            final var o = new DistributionDefaultCacheBehavior();
-            o.allowedMethods = allowedMethods;
-            o.cachePolicyId = cachePolicyId;
-            o.cachedMethods = cachedMethods;
-            o.compress = compress;
-            o.defaultTtl = defaultTtl;
-            o.fieldLevelEncryptionId = fieldLevelEncryptionId;
-            o.forwardedValues = forwardedValues;
-            o.functionAssociations = functionAssociations;
-            o.lambdaFunctionAssociations = lambdaFunctionAssociations;
-            o.maxTtl = maxTtl;
-            o.minTtl = minTtl;
-            o.originRequestPolicyId = originRequestPolicyId;
-            o.realtimeLogConfigArn = realtimeLogConfigArn;
-            o.responseHeadersPolicyId = responseHeadersPolicyId;
-            o.smoothStreaming = smoothStreaming;
-            o.targetOriginId = targetOriginId;
-            o.trustedKeyGroups = trustedKeyGroups;
-            o.trustedSigners = trustedSigners;
-            o.viewerProtocolPolicy = viewerProtocolPolicy;
-            return o;
+            final var _resultValue = new DistributionDefaultCacheBehavior();
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.cachePolicyId = cachePolicyId;
+            _resultValue.cachedMethods = cachedMethods;
+            _resultValue.compress = compress;
+            _resultValue.defaultTtl = defaultTtl;
+            _resultValue.fieldLevelEncryptionId = fieldLevelEncryptionId;
+            _resultValue.forwardedValues = forwardedValues;
+            _resultValue.functionAssociations = functionAssociations;
+            _resultValue.lambdaFunctionAssociations = lambdaFunctionAssociations;
+            _resultValue.maxTtl = maxTtl;
+            _resultValue.minTtl = minTtl;
+            _resultValue.originRequestPolicyId = originRequestPolicyId;
+            _resultValue.realtimeLogConfigArn = realtimeLogConfigArn;
+            _resultValue.responseHeadersPolicyId = responseHeadersPolicyId;
+            _resultValue.smoothStreaming = smoothStreaming;
+            _resultValue.targetOriginId = targetOriginId;
+            _resultValue.trustedKeyGroups = trustedKeyGroups;
+            _resultValue.trustedSigners = trustedSigners;
+            _resultValue.viewerProtocolPolicy = viewerProtocolPolicy;
+            return _resultValue;
         }
     }
 }

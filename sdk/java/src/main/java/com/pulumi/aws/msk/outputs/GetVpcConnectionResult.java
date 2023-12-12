@@ -179,16 +179,16 @@ public final class GetVpcConnectionResult {
             return this;
         }
         public GetVpcConnectionResult build() {
-            final var o = new GetVpcConnectionResult();
-            o.arn = arn;
-            o.authentication = authentication;
-            o.clientSubnets = clientSubnets;
-            o.id = id;
-            o.securityGroups = securityGroups;
-            o.tags = tags;
-            o.targetClusterArn = targetClusterArn;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetVpcConnectionResult();
+            _resultValue.arn = arn;
+            _resultValue.authentication = authentication;
+            _resultValue.clientSubnets = clientSubnets;
+            _resultValue.id = id;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.tags = tags;
+            _resultValue.targetClusterArn = targetClusterArn;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

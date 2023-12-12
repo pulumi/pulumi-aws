@@ -107,12 +107,12 @@ public final class SpotInstanceRequestNetworkInterface {
             return this;
         }
         public SpotInstanceRequestNetworkInterface build() {
-            final var o = new SpotInstanceRequestNetworkInterface();
-            o.deleteOnTermination = deleteOnTermination;
-            o.deviceIndex = deviceIndex;
-            o.networkCardIndex = networkCardIndex;
-            o.networkInterfaceId = networkInterfaceId;
-            return o;
+            final var _resultValue = new SpotInstanceRequestNetworkInterface();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.deviceIndex = deviceIndex;
+            _resultValue.networkCardIndex = networkCardIndex;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            return _resultValue;
         }
     }
 }

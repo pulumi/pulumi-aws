@@ -89,11 +89,11 @@ public final class ServiceSourceConfigurationImageRepository {
             return this;
         }
         public ServiceSourceConfigurationImageRepository build() {
-            final var o = new ServiceSourceConfigurationImageRepository();
-            o.imageConfiguration = imageConfiguration;
-            o.imageIdentifier = imageIdentifier;
-            o.imageRepositoryType = imageRepositoryType;
-            return o;
+            final var _resultValue = new ServiceSourceConfigurationImageRepository();
+            _resultValue.imageConfiguration = imageConfiguration;
+            _resultValue.imageIdentifier = imageIdentifier;
+            _resultValue.imageRepositoryType = imageRepositoryType;
+            return _resultValue;
         }
     }
 }

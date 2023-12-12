@@ -71,10 +71,10 @@ public final class AuthorizerJwtConfiguration {
             return this;
         }
         public AuthorizerJwtConfiguration build() {
-            final var o = new AuthorizerJwtConfiguration();
-            o.audiences = audiences;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new AuthorizerJwtConfiguration();
+            _resultValue.audiences = audiences;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

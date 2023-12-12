@@ -90,11 +90,11 @@ public final class PipelineThumbnailConfigPermission {
             return this;
         }
         public PipelineThumbnailConfigPermission build() {
-            final var o = new PipelineThumbnailConfigPermission();
-            o.accesses = accesses;
-            o.grantee = grantee;
-            o.granteeType = granteeType;
-            return o;
+            final var _resultValue = new PipelineThumbnailConfigPermission();
+            _resultValue.accesses = accesses;
+            _resultValue.grantee = grantee;
+            _resultValue.granteeType = granteeType;
+            return _resultValue;
         }
     }
 }

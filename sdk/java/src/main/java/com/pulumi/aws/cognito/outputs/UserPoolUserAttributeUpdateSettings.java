@@ -50,9 +50,9 @@ public final class UserPoolUserAttributeUpdateSettings {
             return attributesRequireVerificationBeforeUpdates(List.of(attributesRequireVerificationBeforeUpdates));
         }
         public UserPoolUserAttributeUpdateSettings build() {
-            final var o = new UserPoolUserAttributeUpdateSettings();
-            o.attributesRequireVerificationBeforeUpdates = attributesRequireVerificationBeforeUpdates;
-            return o;
+            final var _resultValue = new UserPoolUserAttributeUpdateSettings();
+            _resultValue.attributesRequireVerificationBeforeUpdates = attributesRequireVerificationBeforeUpdates;
+            return _resultValue;
         }
     }
 }

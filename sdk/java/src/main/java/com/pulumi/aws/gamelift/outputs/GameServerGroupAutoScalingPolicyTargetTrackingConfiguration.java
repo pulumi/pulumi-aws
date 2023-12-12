@@ -46,9 +46,9 @@ public final class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
             return this;
         }
         public GameServerGroupAutoScalingPolicyTargetTrackingConfiguration build() {
-            final var o = new GameServerGroupAutoScalingPolicyTargetTrackingConfiguration();
-            o.targetValue = targetValue;
-            return o;
+            final var _resultValue = new GameServerGroupAutoScalingPolicyTargetTrackingConfiguration();
+            _resultValue.targetValue = targetValue;
+            return _resultValue;
         }
     }
 }

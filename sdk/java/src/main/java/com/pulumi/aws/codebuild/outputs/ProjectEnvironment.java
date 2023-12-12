@@ -188,16 +188,16 @@ public final class ProjectEnvironment {
             return this;
         }
         public ProjectEnvironment build() {
-            final var o = new ProjectEnvironment();
-            o.certificate = certificate;
-            o.computeType = computeType;
-            o.environmentVariables = environmentVariables;
-            o.image = image;
-            o.imagePullCredentialsType = imagePullCredentialsType;
-            o.privilegedMode = privilegedMode;
-            o.registryCredential = registryCredential;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProjectEnvironment();
+            _resultValue.certificate = certificate;
+            _resultValue.computeType = computeType;
+            _resultValue.environmentVariables = environmentVariables;
+            _resultValue.image = image;
+            _resultValue.imagePullCredentialsType = imagePullCredentialsType;
+            _resultValue.privilegedMode = privilegedMode;
+            _resultValue.registryCredential = registryCredential;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

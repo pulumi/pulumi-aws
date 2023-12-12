@@ -67,10 +67,10 @@ public final class ClusterClusterEndpoint {
             return this;
         }
         public ClusterClusterEndpoint build() {
-            final var o = new ClusterClusterEndpoint();
-            o.endpoint = endpoint;
-            o.region = region;
-            return o;
+            final var _resultValue = new ClusterClusterEndpoint();
+            _resultValue.endpoint = endpoint;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

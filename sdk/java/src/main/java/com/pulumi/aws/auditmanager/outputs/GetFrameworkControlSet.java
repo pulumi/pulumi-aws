@@ -74,11 +74,11 @@ public final class GetFrameworkControlSet {
             return this;
         }
         public GetFrameworkControlSet build() {
-            final var o = new GetFrameworkControlSet();
-            o.controls = controls;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetFrameworkControlSet();
+            _resultValue.controls = controls;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

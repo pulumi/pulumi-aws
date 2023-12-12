@@ -88,11 +88,11 @@ public final class UsagePlanApiStageThrottle {
             return this;
         }
         public UsagePlanApiStageThrottle build() {
-            final var o = new UsagePlanApiStageThrottle();
-            o.burstLimit = burstLimit;
-            o.path = path;
-            o.rateLimit = rateLimit;
-            return o;
+            final var _resultValue = new UsagePlanApiStageThrottle();
+            _resultValue.burstLimit = burstLimit;
+            _resultValue.path = path;
+            _resultValue.rateLimit = rateLimit;
+            return _resultValue;
         }
     }
 }

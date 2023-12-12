@@ -131,13 +131,13 @@ public final class LoadBalancerListener {
             return this;
         }
         public LoadBalancerListener build() {
-            final var o = new LoadBalancerListener();
-            o.instancePort = instancePort;
-            o.instanceProtocol = instanceProtocol;
-            o.lbPort = lbPort;
-            o.lbProtocol = lbProtocol;
-            o.sslCertificateId = sslCertificateId;
-            return o;
+            final var _resultValue = new LoadBalancerListener();
+            _resultValue.instancePort = instancePort;
+            _resultValue.instanceProtocol = instanceProtocol;
+            _resultValue.lbPort = lbPort;
+            _resultValue.lbProtocol = lbProtocol;
+            _resultValue.sslCertificateId = sslCertificateId;
+            return _resultValue;
         }
     }
 }

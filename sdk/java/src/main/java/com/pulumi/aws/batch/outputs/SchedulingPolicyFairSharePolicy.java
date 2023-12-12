@@ -83,11 +83,11 @@ public final class SchedulingPolicyFairSharePolicy {
             return shareDistributions(List.of(shareDistributions));
         }
         public SchedulingPolicyFairSharePolicy build() {
-            final var o = new SchedulingPolicyFairSharePolicy();
-            o.computeReservation = computeReservation;
-            o.shareDecaySeconds = shareDecaySeconds;
-            o.shareDistributions = shareDistributions;
-            return o;
+            final var _resultValue = new SchedulingPolicyFairSharePolicy();
+            _resultValue.computeReservation = computeReservation;
+            _resultValue.shareDecaySeconds = shareDecaySeconds;
+            _resultValue.shareDistributions = shareDistributions;
+            return _resultValue;
         }
     }
 }

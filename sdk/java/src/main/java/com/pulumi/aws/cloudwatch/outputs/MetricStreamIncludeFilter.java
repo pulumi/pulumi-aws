@@ -70,10 +70,10 @@ public final class MetricStreamIncludeFilter {
             return this;
         }
         public MetricStreamIncludeFilter build() {
-            final var o = new MetricStreamIncludeFilter();
-            o.metricNames = metricNames;
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new MetricStreamIncludeFilter();
+            _resultValue.metricNames = metricNames;
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

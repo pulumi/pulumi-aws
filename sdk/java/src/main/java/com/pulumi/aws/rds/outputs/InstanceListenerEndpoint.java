@@ -87,11 +87,11 @@ public final class InstanceListenerEndpoint {
             return this;
         }
         public InstanceListenerEndpoint build() {
-            final var o = new InstanceListenerEndpoint();
-            o.address = address;
-            o.hostedZoneId = hostedZoneId;
-            o.port = port;
-            return o;
+            final var _resultValue = new InstanceListenerEndpoint();
+            _resultValue.address = address;
+            _resultValue.hostedZoneId = hostedZoneId;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

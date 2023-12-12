@@ -92,11 +92,11 @@ public final class WebAclDefaultActionBlockCustomResponse {
             return responseHeaders(List.of(responseHeaders));
         }
         public WebAclDefaultActionBlockCustomResponse build() {
-            final var o = new WebAclDefaultActionBlockCustomResponse();
-            o.customResponseBodyKey = customResponseBodyKey;
-            o.responseCode = responseCode;
-            o.responseHeaders = responseHeaders;
-            return o;
+            final var _resultValue = new WebAclDefaultActionBlockCustomResponse();
+            _resultValue.customResponseBodyKey = customResponseBodyKey;
+            _resultValue.responseCode = responseCode;
+            _resultValue.responseHeaders = responseHeaders;
+            return _resultValue;
         }
     }
 }

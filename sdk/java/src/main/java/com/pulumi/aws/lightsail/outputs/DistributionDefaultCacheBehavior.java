@@ -46,9 +46,9 @@ public final class DistributionDefaultCacheBehavior {
             return this;
         }
         public DistributionDefaultCacheBehavior build() {
-            final var o = new DistributionDefaultCacheBehavior();
-            o.behavior = behavior;
-            return o;
+            final var _resultValue = new DistributionDefaultCacheBehavior();
+            _resultValue.behavior = behavior;
+            return _resultValue;
         }
     }
 }

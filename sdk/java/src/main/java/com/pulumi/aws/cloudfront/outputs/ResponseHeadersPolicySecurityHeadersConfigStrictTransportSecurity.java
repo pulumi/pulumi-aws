@@ -106,12 +106,12 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
             return this;
         }
         public ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity build() {
-            final var o = new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity();
-            o.accessControlMaxAgeSec = accessControlMaxAgeSec;
-            o.includeSubdomains = includeSubdomains;
-            o.override = override;
-            o.preload = preload;
-            return o;
+            final var _resultValue = new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity();
+            _resultValue.accessControlMaxAgeSec = accessControlMaxAgeSec;
+            _resultValue.includeSubdomains = includeSubdomains;
+            _resultValue.override = override;
+            _resultValue.preload = preload;
+            return _resultValue;
         }
     }
 }

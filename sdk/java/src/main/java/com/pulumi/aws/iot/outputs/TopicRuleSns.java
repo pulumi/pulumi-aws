@@ -86,11 +86,11 @@ public final class TopicRuleSns {
             return this;
         }
         public TopicRuleSns build() {
-            final var o = new TopicRuleSns();
-            o.messageFormat = messageFormat;
-            o.roleArn = roleArn;
-            o.targetArn = targetArn;
-            return o;
+            final var _resultValue = new TopicRuleSns();
+            _resultValue.messageFormat = messageFormat;
+            _resultValue.roleArn = roleArn;
+            _resultValue.targetArn = targetArn;
+            return _resultValue;
         }
     }
 }

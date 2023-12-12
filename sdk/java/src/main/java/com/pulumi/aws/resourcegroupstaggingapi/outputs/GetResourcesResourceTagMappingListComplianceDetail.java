@@ -80,11 +80,11 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
             return nonCompliantKeys(List.of(nonCompliantKeys));
         }
         public GetResourcesResourceTagMappingListComplianceDetail build() {
-            final var o = new GetResourcesResourceTagMappingListComplianceDetail();
-            o.complianceStatus = complianceStatus;
-            o.keysWithNoncompliantValues = keysWithNoncompliantValues;
-            o.nonCompliantKeys = nonCompliantKeys;
-            return o;
+            final var _resultValue = new GetResourcesResourceTagMappingListComplianceDetail();
+            _resultValue.complianceStatus = complianceStatus;
+            _resultValue.keysWithNoncompliantValues = keysWithNoncompliantValues;
+            _resultValue.nonCompliantKeys = nonCompliantKeys;
+            return _resultValue;
         }
     }
 }

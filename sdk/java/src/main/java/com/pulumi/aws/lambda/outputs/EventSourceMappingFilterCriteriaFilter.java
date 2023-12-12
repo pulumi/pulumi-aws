@@ -48,9 +48,9 @@ public final class EventSourceMappingFilterCriteriaFilter {
             return this;
         }
         public EventSourceMappingFilterCriteriaFilter build() {
-            final var o = new EventSourceMappingFilterCriteriaFilter();
-            o.pattern = pattern;
-            return o;
+            final var _resultValue = new EventSourceMappingFilterCriteriaFilter();
+            _resultValue.pattern = pattern;
+            return _resultValue;
         }
     }
 }

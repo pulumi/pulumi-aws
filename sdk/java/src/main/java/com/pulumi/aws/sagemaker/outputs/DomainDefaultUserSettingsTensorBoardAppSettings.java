@@ -48,9 +48,9 @@ public final class DomainDefaultUserSettingsTensorBoardAppSettings {
             return this;
         }
         public DomainDefaultUserSettingsTensorBoardAppSettings build() {
-            final var o = new DomainDefaultUserSettingsTensorBoardAppSettings();
-            o.defaultResourceSpec = defaultResourceSpec;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsTensorBoardAppSettings();
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            return _resultValue;
         }
     }
 }

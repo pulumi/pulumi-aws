@@ -80,12 +80,12 @@ public final class GetVirtualNodeSpecListenerOutlierDetection {
             return this;
         }
         public GetVirtualNodeSpecListenerOutlierDetection build() {
-            final var o = new GetVirtualNodeSpecListenerOutlierDetection();
-            o.baseEjectionDurations = baseEjectionDurations;
-            o.intervals = intervals;
-            o.maxEjectionPercent = maxEjectionPercent;
-            o.maxServerErrors = maxServerErrors;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerOutlierDetection();
+            _resultValue.baseEjectionDurations = baseEjectionDurations;
+            _resultValue.intervals = intervals;
+            _resultValue.maxEjectionPercent = maxEjectionPercent;
+            _resultValue.maxServerErrors = maxServerErrors;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class IndexUserGroupResolutionConfiguration {
             return this;
         }
         public IndexUserGroupResolutionConfiguration build() {
-            final var o = new IndexUserGroupResolutionConfiguration();
-            o.userGroupResolutionMode = userGroupResolutionMode;
-            return o;
+            final var _resultValue = new IndexUserGroupResolutionConfiguration();
+            _resultValue.userGroupResolutionMode = userGroupResolutionMode;
+            return _resultValue;
         }
     }
 }

@@ -57,10 +57,10 @@ public final class GetGatewayRouteSpecHttpRouteAction {
             return targets(List.of(targets));
         }
         public GetGatewayRouteSpecHttpRouteAction build() {
-            final var o = new GetGatewayRouteSpecHttpRouteAction();
-            o.rewrites = rewrites;
-            o.targets = targets;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttpRouteAction();
+            _resultValue.rewrites = rewrites;
+            _resultValue.targets = targets;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfig
             return this;
         }
         public DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration build() {
-            final var o = new DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration();
-            o.s3Prefix = s3Prefix;
-            return o;
+            final var _resultValue = new DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration();
+            _resultValue.s3Prefix = s3Prefix;
+            return _resultValue;
         }
     }
 }

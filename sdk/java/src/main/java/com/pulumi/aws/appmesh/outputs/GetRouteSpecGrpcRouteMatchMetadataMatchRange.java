@@ -49,10 +49,10 @@ public final class GetRouteSpecGrpcRouteMatchMetadataMatchRange {
             return this;
         }
         public GetRouteSpecGrpcRouteMatchMetadataMatchRange build() {
-            final var o = new GetRouteSpecGrpcRouteMatchMetadataMatchRange();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new GetRouteSpecGrpcRouteMatchMetadataMatchRange();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

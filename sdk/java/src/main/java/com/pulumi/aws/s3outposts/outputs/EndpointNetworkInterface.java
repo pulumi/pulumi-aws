@@ -48,9 +48,9 @@ public final class EndpointNetworkInterface {
             return this;
         }
         public EndpointNetworkInterface build() {
-            final var o = new EndpointNetworkInterface();
-            o.networkInterfaceId = networkInterfaceId;
-            return o;
+            final var _resultValue = new EndpointNetworkInterface();
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            return _resultValue;
         }
     }
 }

@@ -71,10 +71,10 @@ public final class GetNetworkInterfacesFilter {
             return values(List.of(values));
         }
         public GetNetworkInterfacesFilter build() {
-            final var o = new GetNetworkInterfacesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetNetworkInterfacesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

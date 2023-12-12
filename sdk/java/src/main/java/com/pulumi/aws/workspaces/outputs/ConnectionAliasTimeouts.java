@@ -62,11 +62,11 @@ public final class ConnectionAliasTimeouts {
             return this;
         }
         public ConnectionAliasTimeouts build() {
-            final var o = new ConnectionAliasTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new ConnectionAliasTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

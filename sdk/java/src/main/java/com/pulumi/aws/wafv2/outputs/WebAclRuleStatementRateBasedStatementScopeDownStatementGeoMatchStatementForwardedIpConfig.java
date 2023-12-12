@@ -65,10 +65,10 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMat
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            return _resultValue;
         }
     }
 }

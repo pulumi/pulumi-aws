@@ -67,10 +67,10 @@ public final class BucketWebsiteConfigurationV2RoutingRuleCondition {
             return this;
         }
         public BucketWebsiteConfigurationV2RoutingRuleCondition build() {
-            final var o = new BucketWebsiteConfigurationV2RoutingRuleCondition();
-            o.httpErrorCodeReturnedEquals = httpErrorCodeReturnedEquals;
-            o.keyPrefixEquals = keyPrefixEquals;
-            return o;
+            final var _resultValue = new BucketWebsiteConfigurationV2RoutingRuleCondition();
+            _resultValue.httpErrorCodeReturnedEquals = httpErrorCodeReturnedEquals;
+            _resultValue.keyPrefixEquals = keyPrefixEquals;
+            return _resultValue;
         }
     }
 }

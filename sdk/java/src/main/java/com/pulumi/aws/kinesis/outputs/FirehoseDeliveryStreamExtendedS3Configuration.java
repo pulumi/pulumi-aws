@@ -303,22 +303,22 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3Configuration build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3Configuration();
-            o.bucketArn = bucketArn;
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.compressionFormat = compressionFormat;
-            o.dataFormatConversionConfiguration = dataFormatConversionConfiguration;
-            o.dynamicPartitioningConfiguration = dynamicPartitioningConfiguration;
-            o.errorOutputPrefix = errorOutputPrefix;
-            o.kmsKeyArn = kmsKeyArn;
-            o.prefix = prefix;
-            o.processingConfiguration = processingConfiguration;
-            o.roleArn = roleArn;
-            o.s3BackupConfiguration = s3BackupConfiguration;
-            o.s3BackupMode = s3BackupMode;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3Configuration();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.compressionFormat = compressionFormat;
+            _resultValue.dataFormatConversionConfiguration = dataFormatConversionConfiguration;
+            _resultValue.dynamicPartitioningConfiguration = dynamicPartitioningConfiguration;
+            _resultValue.errorOutputPrefix = errorOutputPrefix;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.prefix = prefix;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3BackupConfiguration = s3BackupConfiguration;
+            _resultValue.s3BackupMode = s3BackupMode;
+            return _resultValue;
         }
     }
 }

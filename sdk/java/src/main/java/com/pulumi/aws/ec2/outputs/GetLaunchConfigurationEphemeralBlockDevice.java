@@ -65,10 +65,10 @@ public final class GetLaunchConfigurationEphemeralBlockDevice {
             return this;
         }
         public GetLaunchConfigurationEphemeralBlockDevice build() {
-            final var o = new GetLaunchConfigurationEphemeralBlockDevice();
-            o.deviceName = deviceName;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new GetLaunchConfigurationEphemeralBlockDevice();
+            _resultValue.deviceName = deviceName;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRule {
             return this;
         }
         public DataSetRowLevelPermissionTagConfigurationTagRule build() {
-            final var o = new DataSetRowLevelPermissionTagConfigurationTagRule();
-            o.columnName = columnName;
-            o.matchAllValue = matchAllValue;
-            o.tagKey = tagKey;
-            o.tagMultiValueDelimiter = tagMultiValueDelimiter;
-            return o;
+            final var _resultValue = new DataSetRowLevelPermissionTagConfigurationTagRule();
+            _resultValue.columnName = columnName;
+            _resultValue.matchAllValue = matchAllValue;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagMultiValueDelimiter = tagMultiValueDelimiter;
+            return _resultValue;
         }
     }
 }

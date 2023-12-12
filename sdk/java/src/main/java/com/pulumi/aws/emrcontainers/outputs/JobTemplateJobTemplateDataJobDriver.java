@@ -68,10 +68,10 @@ public final class JobTemplateJobTemplateDataJobDriver {
             return this;
         }
         public JobTemplateJobTemplateDataJobDriver build() {
-            final var o = new JobTemplateJobTemplateDataJobDriver();
-            o.sparkSqlJobDriver = sparkSqlJobDriver;
-            o.sparkSubmitJobDriver = sparkSubmitJobDriver;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateDataJobDriver();
+            _resultValue.sparkSqlJobDriver = sparkSqlJobDriver;
+            _resultValue.sparkSubmitJobDriver = sparkSubmitJobDriver;
+            return _resultValue;
         }
     }
 }

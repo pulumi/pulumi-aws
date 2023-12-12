@@ -347,24 +347,24 @@ public final class GetDirectoryResult {
             return this;
         }
         public GetDirectoryResult build() {
-            final var o = new GetDirectoryResult();
-            o.alias = alias;
-            o.customerUserName = customerUserName;
-            o.directoryId = directoryId;
-            o.directoryName = directoryName;
-            o.directoryType = directoryType;
-            o.dnsIpAddresses = dnsIpAddresses;
-            o.iamRoleId = iamRoleId;
-            o.id = id;
-            o.ipGroupIds = ipGroupIds;
-            o.registrationCode = registrationCode;
-            o.selfServicePermissions = selfServicePermissions;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.workspaceAccessProperties = workspaceAccessProperties;
-            o.workspaceCreationProperties = workspaceCreationProperties;
-            o.workspaceSecurityGroupId = workspaceSecurityGroupId;
-            return o;
+            final var _resultValue = new GetDirectoryResult();
+            _resultValue.alias = alias;
+            _resultValue.customerUserName = customerUserName;
+            _resultValue.directoryId = directoryId;
+            _resultValue.directoryName = directoryName;
+            _resultValue.directoryType = directoryType;
+            _resultValue.dnsIpAddresses = dnsIpAddresses;
+            _resultValue.iamRoleId = iamRoleId;
+            _resultValue.id = id;
+            _resultValue.ipGroupIds = ipGroupIds;
+            _resultValue.registrationCode = registrationCode;
+            _resultValue.selfServicePermissions = selfServicePermissions;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.workspaceAccessProperties = workspaceAccessProperties;
+            _resultValue.workspaceCreationProperties = workspaceCreationProperties;
+            _resultValue.workspaceSecurityGroupId = workspaceSecurityGroupId;
+            return _resultValue;
         }
     }
 }

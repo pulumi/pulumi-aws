@@ -63,11 +63,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings();
-            o.networkId = networkId;
-            o.networkName = networkName;
-            o.repInterval = repInterval;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings();
+            _resultValue.networkId = networkId;
+            _resultValue.networkName = networkName;
+            _resultValue.repInterval = repInterval;
+            return _resultValue;
         }
     }
 }

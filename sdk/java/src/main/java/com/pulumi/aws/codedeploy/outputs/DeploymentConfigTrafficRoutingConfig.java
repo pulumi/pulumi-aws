@@ -88,11 +88,11 @@ public final class DeploymentConfigTrafficRoutingConfig {
             return this;
         }
         public DeploymentConfigTrafficRoutingConfig build() {
-            final var o = new DeploymentConfigTrafficRoutingConfig();
-            o.timeBasedCanary = timeBasedCanary;
-            o.timeBasedLinear = timeBasedLinear;
-            o.type = type;
-            return o;
+            final var _resultValue = new DeploymentConfigTrafficRoutingConfig();
+            _resultValue.timeBasedCanary = timeBasedCanary;
+            _resultValue.timeBasedLinear = timeBasedLinear;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

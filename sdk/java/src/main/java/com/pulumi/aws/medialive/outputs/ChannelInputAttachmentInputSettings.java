@@ -226,19 +226,19 @@ public final class ChannelInputAttachmentInputSettings {
             return this;
         }
         public ChannelInputAttachmentInputSettings build() {
-            final var o = new ChannelInputAttachmentInputSettings();
-            o.audioSelectors = audioSelectors;
-            o.captionSelectors = captionSelectors;
-            o.deblockFilter = deblockFilter;
-            o.denoiseFilter = denoiseFilter;
-            o.filterStrength = filterStrength;
-            o.inputFilter = inputFilter;
-            o.networkInputSettings = networkInputSettings;
-            o.scte35Pid = scte35Pid;
-            o.smpte2038DataPreference = smpte2038DataPreference;
-            o.sourceEndBehavior = sourceEndBehavior;
-            o.videoSelector = videoSelector;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettings();
+            _resultValue.audioSelectors = audioSelectors;
+            _resultValue.captionSelectors = captionSelectors;
+            _resultValue.deblockFilter = deblockFilter;
+            _resultValue.denoiseFilter = denoiseFilter;
+            _resultValue.filterStrength = filterStrength;
+            _resultValue.inputFilter = inputFilter;
+            _resultValue.networkInputSettings = networkInputSettings;
+            _resultValue.scte35Pid = scte35Pid;
+            _resultValue.smpte2038DataPreference = smpte2038DataPreference;
+            _resultValue.sourceEndBehavior = sourceEndBehavior;
+            _resultValue.videoSelector = videoSelector;
+            return _resultValue;
         }
     }
 }

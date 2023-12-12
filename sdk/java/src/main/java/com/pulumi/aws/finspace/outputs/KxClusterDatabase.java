@@ -91,11 +91,11 @@ public final class KxClusterDatabase {
             return this;
         }
         public KxClusterDatabase build() {
-            final var o = new KxClusterDatabase();
-            o.cacheConfigurations = cacheConfigurations;
-            o.changesetId = changesetId;
-            o.databaseName = databaseName;
-            return o;
+            final var _resultValue = new KxClusterDatabase();
+            _resultValue.cacheConfigurations = cacheConfigurations;
+            _resultValue.changesetId = changesetId;
+            _resultValue.databaseName = databaseName;
+            return _resultValue;
         }
     }
 }

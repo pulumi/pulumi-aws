@@ -80,11 +80,11 @@ public final class GetPoliciesResult {
             return ids(List.of(ids));
         }
         public GetPoliciesResult build() {
-            final var o = new GetPoliciesResult();
-            o.filter = filter;
-            o.id = id;
-            o.ids = ids;
-            return o;
+            final var _resultValue = new GetPoliciesResult();
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            return _resultValue;
         }
     }
 }

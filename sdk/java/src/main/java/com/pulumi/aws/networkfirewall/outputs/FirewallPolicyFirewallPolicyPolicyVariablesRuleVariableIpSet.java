@@ -50,9 +50,9 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet 
             return definitions(List.of(definitions));
         }
         public FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet build() {
-            final var o = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet();
-            o.definitions = definitions;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet();
+            _resultValue.definitions = definitions;
+            return _resultValue;
         }
     }
 }

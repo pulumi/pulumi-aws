@@ -211,17 +211,17 @@ public final class UserProfileUserSettings {
             return this;
         }
         public UserProfileUserSettings build() {
-            final var o = new UserProfileUserSettings();
-            o.canvasAppSettings = canvasAppSettings;
-            o.executionRole = executionRole;
-            o.jupyterServerAppSettings = jupyterServerAppSettings;
-            o.kernelGatewayAppSettings = kernelGatewayAppSettings;
-            o.rSessionAppSettings = rSessionAppSettings;
-            o.rStudioServerProAppSettings = rStudioServerProAppSettings;
-            o.securityGroups = securityGroups;
-            o.sharingSettings = sharingSettings;
-            o.tensorBoardAppSettings = tensorBoardAppSettings;
-            return o;
+            final var _resultValue = new UserProfileUserSettings();
+            _resultValue.canvasAppSettings = canvasAppSettings;
+            _resultValue.executionRole = executionRole;
+            _resultValue.jupyterServerAppSettings = jupyterServerAppSettings;
+            _resultValue.kernelGatewayAppSettings = kernelGatewayAppSettings;
+            _resultValue.rSessionAppSettings = rSessionAppSettings;
+            _resultValue.rStudioServerProAppSettings = rStudioServerProAppSettings;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.sharingSettings = sharingSettings;
+            _resultValue.tensorBoardAppSettings = tensorBoardAppSettings;
+            return _resultValue;
         }
     }
 }

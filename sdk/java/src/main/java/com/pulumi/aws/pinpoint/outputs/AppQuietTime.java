@@ -67,10 +67,10 @@ public final class AppQuietTime {
             return this;
         }
         public AppQuietTime build() {
-            final var o = new AppQuietTime();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new AppQuietTime();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

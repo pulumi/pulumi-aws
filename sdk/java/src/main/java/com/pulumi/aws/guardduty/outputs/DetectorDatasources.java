@@ -98,11 +98,11 @@ public final class DetectorDatasources {
             return this;
         }
         public DetectorDatasources build() {
-            final var o = new DetectorDatasources();
-            o.kubernetes = kubernetes;
-            o.malwareProtection = malwareProtection;
-            o.s3Logs = s3Logs;
-            return o;
+            final var _resultValue = new DetectorDatasources();
+            _resultValue.kubernetes = kubernetes;
+            _resultValue.malwareProtection = malwareProtection;
+            _resultValue.s3Logs = s3Logs;
+            return _resultValue;
         }
     }
 }

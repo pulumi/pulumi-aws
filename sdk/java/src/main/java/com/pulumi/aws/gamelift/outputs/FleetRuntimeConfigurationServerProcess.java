@@ -87,11 +87,11 @@ public final class FleetRuntimeConfigurationServerProcess {
             return this;
         }
         public FleetRuntimeConfigurationServerProcess build() {
-            final var o = new FleetRuntimeConfigurationServerProcess();
-            o.concurrentExecutions = concurrentExecutions;
-            o.launchPath = launchPath;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new FleetRuntimeConfigurationServerProcess();
+            _resultValue.concurrentExecutions = concurrentExecutions;
+            _resultValue.launchPath = launchPath;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

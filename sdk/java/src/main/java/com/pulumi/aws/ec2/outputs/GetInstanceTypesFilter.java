@@ -69,10 +69,10 @@ public final class GetInstanceTypesFilter {
             return values(List.of(values));
         }
         public GetInstanceTypesFilter build() {
-            final var o = new GetInstanceTypesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetInstanceTypesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

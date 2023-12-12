@@ -68,10 +68,10 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfig {
             return this;
         }
         public FieldLevelEncryptionConfigQueryArgProfileConfig build() {
-            final var o = new FieldLevelEncryptionConfigQueryArgProfileConfig();
-            o.forwardWhenQueryArgProfileIsUnknown = forwardWhenQueryArgProfileIsUnknown;
-            o.queryArgProfiles = queryArgProfiles;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionConfigQueryArgProfileConfig();
+            _resultValue.forwardWhenQueryArgProfileIsUnknown = forwardWhenQueryArgProfileIsUnknown;
+            _resultValue.queryArgProfiles = queryArgProfiles;
+            return _resultValue;
         }
     }
 }

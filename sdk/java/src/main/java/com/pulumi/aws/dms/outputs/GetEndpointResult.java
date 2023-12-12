@@ -341,33 +341,33 @@ public final class GetEndpointResult {
             return this;
         }
         public GetEndpointResult build() {
-            final var o = new GetEndpointResult();
-            o.certificateArn = certificateArn;
-            o.databaseName = databaseName;
-            o.elasticsearchSettings = elasticsearchSettings;
-            o.endpointArn = endpointArn;
-            o.endpointId = endpointId;
-            o.endpointType = endpointType;
-            o.engineName = engineName;
-            o.extraConnectionAttributes = extraConnectionAttributes;
-            o.id = id;
-            o.kafkaSettings = kafkaSettings;
-            o.kinesisSettings = kinesisSettings;
-            o.kmsKeyArn = kmsKeyArn;
-            o.mongodbSettings = mongodbSettings;
-            o.password = password;
-            o.port = port;
-            o.redisSettings = redisSettings;
-            o.redshiftSettings = redshiftSettings;
-            o.s3Settings = s3Settings;
-            o.secretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
-            o.secretsManagerArn = secretsManagerArn;
-            o.serverName = serverName;
-            o.serviceAccessRole = serviceAccessRole;
-            o.sslMode = sslMode;
-            o.tags = tags;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetEndpointResult();
+            _resultValue.certificateArn = certificateArn;
+            _resultValue.databaseName = databaseName;
+            _resultValue.elasticsearchSettings = elasticsearchSettings;
+            _resultValue.endpointArn = endpointArn;
+            _resultValue.endpointId = endpointId;
+            _resultValue.endpointType = endpointType;
+            _resultValue.engineName = engineName;
+            _resultValue.extraConnectionAttributes = extraConnectionAttributes;
+            _resultValue.id = id;
+            _resultValue.kafkaSettings = kafkaSettings;
+            _resultValue.kinesisSettings = kinesisSettings;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.mongodbSettings = mongodbSettings;
+            _resultValue.password = password;
+            _resultValue.port = port;
+            _resultValue.redisSettings = redisSettings;
+            _resultValue.redshiftSettings = redshiftSettings;
+            _resultValue.s3Settings = s3Settings;
+            _resultValue.secretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
+            _resultValue.secretsManagerArn = secretsManagerArn;
+            _resultValue.serverName = serverName;
+            _resultValue.serviceAccessRole = serviceAccessRole;
+            _resultValue.sslMode = sslMode;
+            _resultValue.tags = tags;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

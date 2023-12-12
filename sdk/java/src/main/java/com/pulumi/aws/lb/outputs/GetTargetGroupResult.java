@@ -260,28 +260,28 @@ public final class GetTargetGroupResult {
             return this;
         }
         public GetTargetGroupResult build() {
-            final var o = new GetTargetGroupResult();
-            o.arn = arn;
-            o.arnSuffix = arnSuffix;
-            o.connectionTermination = connectionTermination;
-            o.deregistrationDelay = deregistrationDelay;
-            o.healthCheck = healthCheck;
-            o.id = id;
-            o.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
-            o.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
-            o.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
-            o.name = name;
-            o.port = port;
-            o.preserveClientIp = preserveClientIp;
-            o.protocol = protocol;
-            o.protocolVersion = protocolVersion;
-            o.proxyProtocolV2 = proxyProtocolV2;
-            o.slowStart = slowStart;
-            o.stickiness = stickiness;
-            o.tags = tags;
-            o.targetType = targetType;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetTargetGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.arnSuffix = arnSuffix;
+            _resultValue.connectionTermination = connectionTermination;
+            _resultValue.deregistrationDelay = deregistrationDelay;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.id = id;
+            _resultValue.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
+            _resultValue.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            _resultValue.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
+            _resultValue.name = name;
+            _resultValue.port = port;
+            _resultValue.preserveClientIp = preserveClientIp;
+            _resultValue.protocol = protocol;
+            _resultValue.protocolVersion = protocolVersion;
+            _resultValue.proxyProtocolV2 = proxyProtocolV2;
+            _resultValue.slowStart = slowStart;
+            _resultValue.stickiness = stickiness;
+            _resultValue.tags = tags;
+            _resultValue.targetType = targetType;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

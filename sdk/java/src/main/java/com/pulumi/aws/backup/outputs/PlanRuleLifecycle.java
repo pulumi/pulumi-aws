@@ -67,10 +67,10 @@ public final class PlanRuleLifecycle {
             return this;
         }
         public PlanRuleLifecycle build() {
-            final var o = new PlanRuleLifecycle();
-            o.coldStorageAfter = coldStorageAfter;
-            o.deleteAfter = deleteAfter;
-            return o;
+            final var _resultValue = new PlanRuleLifecycle();
+            _resultValue.coldStorageAfter = coldStorageAfter;
+            _resultValue.deleteAfter = deleteAfter;
+            return _resultValue;
         }
     }
 }

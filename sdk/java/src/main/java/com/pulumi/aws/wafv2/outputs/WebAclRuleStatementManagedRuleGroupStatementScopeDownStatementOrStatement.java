@@ -50,9 +50,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return statements(List.of(statements));
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

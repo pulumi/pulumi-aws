@@ -85,11 +85,11 @@ public final class VirtualClusterContainerProvider {
             return this;
         }
         public VirtualClusterContainerProvider build() {
-            final var o = new VirtualClusterContainerProvider();
-            o.id = id;
-            o.info = info;
-            o.type = type;
-            return o;
+            final var _resultValue = new VirtualClusterContainerProvider();
+            _resultValue.id = id;
+            _resultValue.info = info;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

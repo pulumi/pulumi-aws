@@ -114,12 +114,12 @@ public final class BudgetActionDefinitionIamActionDefinition {
             return users(List.of(users));
         }
         public BudgetActionDefinitionIamActionDefinition build() {
-            final var o = new BudgetActionDefinitionIamActionDefinition();
-            o.groups = groups;
-            o.policyArn = policyArn;
-            o.roles = roles;
-            o.users = users;
-            return o;
+            final var _resultValue = new BudgetActionDefinitionIamActionDefinition();
+            _resultValue.groups = groups;
+            _resultValue.policyArn = policyArn;
+            _resultValue.roles = roles;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

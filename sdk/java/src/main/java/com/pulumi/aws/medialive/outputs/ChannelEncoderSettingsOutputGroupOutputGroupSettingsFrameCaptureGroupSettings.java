@@ -60,10 +60,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings();
-            o.destination = destination;
-            o.frameCaptureCdnSettings = frameCaptureCdnSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings();
+            _resultValue.destination = destination;
+            _resultValue.frameCaptureCdnSettings = frameCaptureCdnSettings;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class ListenerRuleConditionPathPattern {
             return values(List.of(values));
         }
         public ListenerRuleConditionPathPattern build() {
-            final var o = new ListenerRuleConditionPathPattern();
-            o.values = values;
-            return o;
+            final var _resultValue = new ListenerRuleConditionPathPattern();
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

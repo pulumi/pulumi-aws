@@ -208,17 +208,17 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
             return this;
         }
         public WebAclRuleStatementRateBasedStatementCustomKey build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKey();
-            o.cookie = cookie;
-            o.forwardedIp = forwardedIp;
-            o.header = header;
-            o.httpMethod = httpMethod;
-            o.ip = ip;
-            o.labelNamespace = labelNamespace;
-            o.queryArgument = queryArgument;
-            o.queryString = queryString;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKey();
+            _resultValue.cookie = cookie;
+            _resultValue.forwardedIp = forwardedIp;
+            _resultValue.header = header;
+            _resultValue.httpMethod = httpMethod;
+            _resultValue.ip = ip;
+            _resultValue.labelNamespace = labelNamespace;
+            _resultValue.queryArgument = queryArgument;
+            _resultValue.queryString = queryString;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

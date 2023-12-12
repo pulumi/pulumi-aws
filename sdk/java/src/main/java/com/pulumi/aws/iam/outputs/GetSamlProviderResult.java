@@ -153,15 +153,15 @@ public final class GetSamlProviderResult {
             return this;
         }
         public GetSamlProviderResult build() {
-            final var o = new GetSamlProviderResult();
-            o.arn = arn;
-            o.createDate = createDate;
-            o.id = id;
-            o.name = name;
-            o.samlMetadataDocument = samlMetadataDocument;
-            o.tags = tags;
-            o.validUntil = validUntil;
-            return o;
+            final var _resultValue = new GetSamlProviderResult();
+            _resultValue.arn = arn;
+            _resultValue.createDate = createDate;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.samlMetadataDocument = samlMetadataDocument;
+            _resultValue.tags = tags;
+            _resultValue.validUntil = validUntil;
+            return _resultValue;
         }
     }
 }

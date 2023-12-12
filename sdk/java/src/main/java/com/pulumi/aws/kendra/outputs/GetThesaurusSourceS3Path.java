@@ -65,10 +65,10 @@ public final class GetThesaurusSourceS3Path {
             return this;
         }
         public GetThesaurusSourceS3Path build() {
-            final var o = new GetThesaurusSourceS3Path();
-            o.bucket = bucket;
-            o.key = key;
-            return o;
+            final var _resultValue = new GetThesaurusSourceS3Path();
+            _resultValue.bucket = bucket;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

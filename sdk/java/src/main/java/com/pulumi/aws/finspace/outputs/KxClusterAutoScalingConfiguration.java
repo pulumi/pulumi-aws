@@ -143,14 +143,14 @@ public final class KxClusterAutoScalingConfiguration {
             return this;
         }
         public KxClusterAutoScalingConfiguration build() {
-            final var o = new KxClusterAutoScalingConfiguration();
-            o.autoScalingMetric = autoScalingMetric;
-            o.maxNodeCount = maxNodeCount;
-            o.metricTarget = metricTarget;
-            o.minNodeCount = minNodeCount;
-            o.scaleInCooldownSeconds = scaleInCooldownSeconds;
-            o.scaleOutCooldownSeconds = scaleOutCooldownSeconds;
-            return o;
+            final var _resultValue = new KxClusterAutoScalingConfiguration();
+            _resultValue.autoScalingMetric = autoScalingMetric;
+            _resultValue.maxNodeCount = maxNodeCount;
+            _resultValue.metricTarget = metricTarget;
+            _resultValue.minNodeCount = minNodeCount;
+            _resultValue.scaleInCooldownSeconds = scaleInCooldownSeconds;
+            _resultValue.scaleOutCooldownSeconds = scaleOutCooldownSeconds;
+            return _resultValue;
         }
     }
 }

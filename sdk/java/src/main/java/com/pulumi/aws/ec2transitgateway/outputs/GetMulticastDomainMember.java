@@ -65,10 +65,10 @@ public final class GetMulticastDomainMember {
             return this;
         }
         public GetMulticastDomainMember build() {
-            final var o = new GetMulticastDomainMember();
-            o.groupIpAddress = groupIpAddress;
-            o.networkInterfaceId = networkInterfaceId;
-            return o;
+            final var _resultValue = new GetMulticastDomainMember();
+            _resultValue.groupIpAddress = groupIpAddress;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            return _resultValue;
         }
     }
 }

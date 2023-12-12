@@ -50,9 +50,9 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
             return statements(List.of(statements));
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

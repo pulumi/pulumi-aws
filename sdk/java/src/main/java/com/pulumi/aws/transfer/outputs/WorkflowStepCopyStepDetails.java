@@ -106,12 +106,12 @@ public final class WorkflowStepCopyStepDetails {
             return this;
         }
         public WorkflowStepCopyStepDetails build() {
-            final var o = new WorkflowStepCopyStepDetails();
-            o.destinationFileLocation = destinationFileLocation;
-            o.name = name;
-            o.overwriteExisting = overwriteExisting;
-            o.sourceFileLocation = sourceFileLocation;
-            return o;
+            final var _resultValue = new WorkflowStepCopyStepDetails();
+            _resultValue.destinationFileLocation = destinationFileLocation;
+            _resultValue.name = name;
+            _resultValue.overwriteExisting = overwriteExisting;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            return _resultValue;
         }
     }
 }

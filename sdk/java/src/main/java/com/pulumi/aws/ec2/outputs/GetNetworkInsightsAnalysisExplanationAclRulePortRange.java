@@ -49,10 +49,10 @@ public final class GetNetworkInsightsAnalysisExplanationAclRulePortRange {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationAclRulePortRange build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationAclRulePortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationAclRulePortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

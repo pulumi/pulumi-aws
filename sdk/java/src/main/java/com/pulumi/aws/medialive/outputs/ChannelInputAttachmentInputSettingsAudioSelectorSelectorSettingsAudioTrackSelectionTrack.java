@@ -46,9 +46,9 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack();
-            o.track = track;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack();
+            _resultValue.track = track;
+            return _resultValue;
         }
     }
 }

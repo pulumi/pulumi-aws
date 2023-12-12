@@ -93,14 +93,14 @@ public final class GetEndpointMongodbSetting {
             return this;
         }
         public GetEndpointMongodbSetting build() {
-            final var o = new GetEndpointMongodbSetting();
-            o.authMechanism = authMechanism;
-            o.authSource = authSource;
-            o.authType = authType;
-            o.docsToInvestigate = docsToInvestigate;
-            o.extractDocId = extractDocId;
-            o.nestingLevel = nestingLevel;
-            return o;
+            final var _resultValue = new GetEndpointMongodbSetting();
+            _resultValue.authMechanism = authMechanism;
+            _resultValue.authSource = authSource;
+            _resultValue.authType = authType;
+            _resultValue.docsToInvestigate = docsToInvestigate;
+            _resultValue.extractDocId = extractDocId;
+            _resultValue.nestingLevel = nestingLevel;
+            return _resultValue;
         }
     }
 }

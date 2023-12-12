@@ -46,9 +46,9 @@ public final class WorkspaceLoggingConfiguration {
             return this;
         }
         public WorkspaceLoggingConfiguration build() {
-            final var o = new WorkspaceLoggingConfiguration();
-            o.logGroupArn = logGroupArn;
-            return o;
+            final var _resultValue = new WorkspaceLoggingConfiguration();
+            _resultValue.logGroupArn = logGroupArn;
+            return _resultValue;
         }
     }
 }

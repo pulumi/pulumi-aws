@@ -85,11 +85,11 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
             return this;
         }
         public FirehoseDeliveryStreamMskSourceConfiguration build() {
-            final var o = new FirehoseDeliveryStreamMskSourceConfiguration();
-            o.authenticationConfiguration = authenticationConfiguration;
-            o.mskClusterArn = mskClusterArn;
-            o.topicName = topicName;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamMskSourceConfiguration();
+            _resultValue.authenticationConfiguration = authenticationConfiguration;
+            _resultValue.mskClusterArn = mskClusterArn;
+            _resultValue.topicName = topicName;
+            return _resultValue;
         }
     }
 }

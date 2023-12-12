@@ -86,11 +86,11 @@ public final class InsightFiltersNetworkDestinationPort {
             return this;
         }
         public InsightFiltersNetworkDestinationPort build() {
-            final var o = new InsightFiltersNetworkDestinationPort();
-            o.eq = eq;
-            o.gte = gte;
-            o.lte = lte;
-            return o;
+            final var _resultValue = new InsightFiltersNetworkDestinationPort();
+            _resultValue.eq = eq;
+            _resultValue.gte = gte;
+            _resultValue.lte = lte;
+            return _resultValue;
         }
     }
 }

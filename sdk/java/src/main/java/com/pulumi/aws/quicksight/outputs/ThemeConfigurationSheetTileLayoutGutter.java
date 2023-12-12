@@ -48,9 +48,9 @@ public final class ThemeConfigurationSheetTileLayoutGutter {
             return this;
         }
         public ThemeConfigurationSheetTileLayoutGutter build() {
-            final var o = new ThemeConfigurationSheetTileLayoutGutter();
-            o.show = show;
-            return o;
+            final var _resultValue = new ThemeConfigurationSheetTileLayoutGutter();
+            _resultValue.show = show;
+            return _resultValue;
         }
     }
 }

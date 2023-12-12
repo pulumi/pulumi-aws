@@ -65,10 +65,10 @@ public final class GetGroupFilter {
             return this;
         }
         public GetGroupFilter build() {
-            final var o = new GetGroupFilter();
-            o.attributePath = attributePath;
-            o.attributeValue = attributeValue;
-            return o;
+            final var _resultValue = new GetGroupFilter();
+            _resultValue.attributePath = attributePath;
+            _resultValue.attributeValue = attributeValue;
+            return _resultValue;
         }
     }
 }

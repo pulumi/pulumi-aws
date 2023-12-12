@@ -68,10 +68,10 @@ public final class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration {
             return this;
         }
         public ClusterMasterInstanceFleetInstanceTypeConfigConfiguration build() {
-            final var o = new ClusterMasterInstanceFleetInstanceTypeConfigConfiguration();
-            o.classification = classification;
-            o.properties = properties;
-            return o;
+            final var _resultValue = new ClusterMasterInstanceFleetInstanceTypeConfigConfiguration();
+            _resultValue.classification = classification;
+            _resultValue.properties = properties;
+            return _resultValue;
         }
     }
 }

@@ -74,10 +74,10 @@ public final class AssessmentScope {
             return awsServices(List.of(awsServices));
         }
         public AssessmentScope build() {
-            final var o = new AssessmentScope();
-            o.awsAccounts = awsAccounts;
-            o.awsServices = awsServices;
-            return o;
+            final var _resultValue = new AssessmentScope();
+            _resultValue.awsAccounts = awsAccounts;
+            _resultValue.awsServices = awsServices;
+            return _resultValue;
         }
     }
 }

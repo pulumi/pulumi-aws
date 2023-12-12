@@ -46,9 +46,9 @@ public final class GetThemeConfigurationSheetTileLayoutMargin {
             return this;
         }
         public GetThemeConfigurationSheetTileLayoutMargin build() {
-            final var o = new GetThemeConfigurationSheetTileLayoutMargin();
-            o.show = show;
-            return o;
+            final var _resultValue = new GetThemeConfigurationSheetTileLayoutMargin();
+            _resultValue.show = show;
+            return _resultValue;
         }
     }
 }

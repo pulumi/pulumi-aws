@@ -105,12 +105,12 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourc
             return this;
         }
         public UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec build() {
-            final var o = new UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec();
-            o.instanceType = instanceType;
-            o.lifecycleConfigArn = lifecycleConfigArn;
-            o.sagemakerImageArn = sagemakerImageArn;
-            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec();
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycleConfigArn = lifecycleConfigArn;
+            _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return _resultValue;
         }
     }
 }

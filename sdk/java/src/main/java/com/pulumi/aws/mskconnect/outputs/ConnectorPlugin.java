@@ -46,9 +46,9 @@ public final class ConnectorPlugin {
             return this;
         }
         public ConnectorPlugin build() {
-            final var o = new ConnectorPlugin();
-            o.customPlugin = customPlugin;
-            return o;
+            final var _resultValue = new ConnectorPlugin();
+            _resultValue.customPlugin = customPlugin;
+            return _resultValue;
         }
     }
 }

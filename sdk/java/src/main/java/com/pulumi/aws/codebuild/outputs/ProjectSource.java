@@ -185,16 +185,16 @@ public final class ProjectSource {
             return this;
         }
         public ProjectSource build() {
-            final var o = new ProjectSource();
-            o.buildStatusConfig = buildStatusConfig;
-            o.buildspec = buildspec;
-            o.gitCloneDepth = gitCloneDepth;
-            o.gitSubmodulesConfig = gitSubmodulesConfig;
-            o.insecureSsl = insecureSsl;
-            o.location = location;
-            o.reportBuildStatus = reportBuildStatus;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProjectSource();
+            _resultValue.buildStatusConfig = buildStatusConfig;
+            _resultValue.buildspec = buildspec;
+            _resultValue.gitCloneDepth = gitCloneDepth;
+            _resultValue.gitSubmodulesConfig = gitSubmodulesConfig;
+            _resultValue.insecureSsl = insecureSsl;
+            _resultValue.location = location;
+            _resultValue.reportBuildStatus = reportBuildStatus;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -90,11 +90,11 @@ public final class ResourceLfTagsLfTag {
             return this;
         }
         public ResourceLfTagsLfTag build() {
-            final var o = new ResourceLfTagsLfTag();
-            o.catalogId = catalogId;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new ResourceLfTagsLfTag();
+            _resultValue.catalogId = catalogId;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

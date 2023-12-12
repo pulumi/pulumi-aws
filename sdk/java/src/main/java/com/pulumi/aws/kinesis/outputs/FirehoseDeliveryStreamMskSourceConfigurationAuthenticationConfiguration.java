@@ -65,10 +65,10 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationCon
             return this;
         }
         public FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration build() {
-            final var o = new FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration();
-            o.connectivity = connectivity;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration();
+            _resultValue.connectivity = connectivity;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

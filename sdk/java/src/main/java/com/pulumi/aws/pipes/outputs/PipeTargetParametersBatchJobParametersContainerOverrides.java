@@ -117,12 +117,12 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
             return resourceRequirements(List.of(resourceRequirements));
         }
         public PipeTargetParametersBatchJobParametersContainerOverrides build() {
-            final var o = new PipeTargetParametersBatchJobParametersContainerOverrides();
-            o.commands = commands;
-            o.environments = environments;
-            o.instanceType = instanceType;
-            o.resourceRequirements = resourceRequirements;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParametersContainerOverrides();
+            _resultValue.commands = commands;
+            _resultValue.environments = environments;
+            _resultValue.instanceType = instanceType;
+            _resultValue.resourceRequirements = resourceRequirements;
+            return _resultValue;
         }
     }
 }

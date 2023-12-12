@@ -48,9 +48,9 @@ public final class WorkteamNotificationConfiguration {
             return this;
         }
         public WorkteamNotificationConfiguration build() {
-            final var o = new WorkteamNotificationConfiguration();
-            o.notificationTopicArn = notificationTopicArn;
-            return o;
+            final var _resultValue = new WorkteamNotificationConfiguration();
+            _resultValue.notificationTopicArn = notificationTopicArn;
+            return _resultValue;
         }
     }
 }

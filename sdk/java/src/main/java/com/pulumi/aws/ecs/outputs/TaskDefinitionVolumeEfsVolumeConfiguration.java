@@ -126,13 +126,13 @@ public final class TaskDefinitionVolumeEfsVolumeConfiguration {
             return this;
         }
         public TaskDefinitionVolumeEfsVolumeConfiguration build() {
-            final var o = new TaskDefinitionVolumeEfsVolumeConfiguration();
-            o.authorizationConfig = authorizationConfig;
-            o.fileSystemId = fileSystemId;
-            o.rootDirectory = rootDirectory;
-            o.transitEncryption = transitEncryption;
-            o.transitEncryptionPort = transitEncryptionPort;
-            return o;
+            final var _resultValue = new TaskDefinitionVolumeEfsVolumeConfiguration();
+            _resultValue.authorizationConfig = authorizationConfig;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.rootDirectory = rootDirectory;
+            _resultValue.transitEncryption = transitEncryption;
+            _resultValue.transitEncryptionPort = transitEncryptionPort;
+            return _resultValue;
         }
     }
 }

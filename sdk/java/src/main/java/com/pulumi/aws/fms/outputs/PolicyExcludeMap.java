@@ -77,10 +77,10 @@ public final class PolicyExcludeMap {
             return orgunits(List.of(orgunits));
         }
         public PolicyExcludeMap build() {
-            final var o = new PolicyExcludeMap();
-            o.accounts = accounts;
-            o.orgunits = orgunits;
-            return o;
+            final var _resultValue = new PolicyExcludeMap();
+            _resultValue.accounts = accounts;
+            _resultValue.orgunits = orgunits;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ConfigurationSetEventDestinationEventDestinationSnsDestinatio
             return this;
         }
         public ConfigurationSetEventDestinationEventDestinationSnsDestination build() {
-            final var o = new ConfigurationSetEventDestinationEventDestinationSnsDestination();
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestinationSnsDestination();
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

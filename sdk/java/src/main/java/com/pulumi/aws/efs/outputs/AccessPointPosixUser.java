@@ -89,11 +89,11 @@ public final class AccessPointPosixUser {
             return this;
         }
         public AccessPointPosixUser build() {
-            final var o = new AccessPointPosixUser();
-            o.gid = gid;
-            o.secondaryGids = secondaryGids;
-            o.uid = uid;
-            return o;
+            final var _resultValue = new AccessPointPosixUser();
+            _resultValue.gid = gid;
+            _resultValue.secondaryGids = secondaryGids;
+            _resultValue.uid = uid;
+            return _resultValue;
         }
     }
 }

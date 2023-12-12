@@ -67,10 +67,10 @@ public final class IpGroupRule {
             return this;
         }
         public IpGroupRule build() {
-            final var o = new IpGroupRule();
-            o.description = description;
-            o.source = source;
-            return o;
+            final var _resultValue = new IpGroupRule();
+            _resultValue.description = description;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

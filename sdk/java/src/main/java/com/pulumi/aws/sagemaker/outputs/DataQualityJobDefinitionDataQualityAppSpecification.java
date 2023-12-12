@@ -106,12 +106,12 @@ public final class DataQualityJobDefinitionDataQualityAppSpecification {
             return this;
         }
         public DataQualityJobDefinitionDataQualityAppSpecification build() {
-            final var o = new DataQualityJobDefinitionDataQualityAppSpecification();
-            o.environment = environment;
-            o.imageUri = imageUri;
-            o.postAnalyticsProcessorSourceUri = postAnalyticsProcessorSourceUri;
-            o.recordPreprocessorSourceUri = recordPreprocessorSourceUri;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityAppSpecification();
+            _resultValue.environment = environment;
+            _resultValue.imageUri = imageUri;
+            _resultValue.postAnalyticsProcessorSourceUri = postAnalyticsProcessorSourceUri;
+            _resultValue.recordPreprocessorSourceUri = recordPreprocessorSourceUri;
+            return _resultValue;
         }
     }
 }

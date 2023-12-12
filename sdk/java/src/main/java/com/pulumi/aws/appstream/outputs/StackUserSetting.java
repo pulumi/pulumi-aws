@@ -69,10 +69,10 @@ public final class StackUserSetting {
             return this;
         }
         public StackUserSetting build() {
-            final var o = new StackUserSetting();
-            o.action = action;
-            o.permission = permission;
-            return o;
+            final var _resultValue = new StackUserSetting();
+            _resultValue.action = action;
+            _resultValue.permission = permission;
+            return _resultValue;
         }
     }
 }

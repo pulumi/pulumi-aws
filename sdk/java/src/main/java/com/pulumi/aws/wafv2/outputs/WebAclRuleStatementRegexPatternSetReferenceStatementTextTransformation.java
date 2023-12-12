@@ -66,10 +66,10 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementTextTrans
             return this;
         }
         public WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation build() {
-            final var o = new WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

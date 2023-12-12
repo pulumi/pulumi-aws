@@ -167,15 +167,15 @@ public final class TableGlobalSecondaryIndex {
             return this;
         }
         public TableGlobalSecondaryIndex build() {
-            final var o = new TableGlobalSecondaryIndex();
-            o.hashKey = hashKey;
-            o.name = name;
-            o.nonKeyAttributes = nonKeyAttributes;
-            o.projectionType = projectionType;
-            o.rangeKey = rangeKey;
-            o.readCapacity = readCapacity;
-            o.writeCapacity = writeCapacity;
-            return o;
+            final var _resultValue = new TableGlobalSecondaryIndex();
+            _resultValue.hashKey = hashKey;
+            _resultValue.name = name;
+            _resultValue.nonKeyAttributes = nonKeyAttributes;
+            _resultValue.projectionType = projectionType;
+            _resultValue.rangeKey = rangeKey;
+            _resultValue.readCapacity = readCapacity;
+            _resultValue.writeCapacity = writeCapacity;
+            return _resultValue;
         }
     }
 }

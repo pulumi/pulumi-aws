@@ -74,11 +74,11 @@ public final class GetSupportedInstanceTypesResult {
             return supportedInstanceTypes(List.of(supportedInstanceTypes));
         }
         public GetSupportedInstanceTypesResult build() {
-            final var o = new GetSupportedInstanceTypesResult();
-            o.id = id;
-            o.releaseLabel = releaseLabel;
-            o.supportedInstanceTypes = supportedInstanceTypes;
-            return o;
+            final var _resultValue = new GetSupportedInstanceTypesResult();
+            _resultValue.id = id;
+            _resultValue.releaseLabel = releaseLabel;
+            _resultValue.supportedInstanceTypes = supportedInstanceTypes;
+            return _resultValue;
         }
     }
 }

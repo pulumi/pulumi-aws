@@ -68,10 +68,10 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesEventB
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge();
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge();
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

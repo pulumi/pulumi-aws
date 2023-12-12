@@ -97,11 +97,11 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
             return queryStrings(List.of(queryStrings));
         }
         public EventConnectionAuthParametersOauthOauthHttpParameters build() {
-            final var o = new EventConnectionAuthParametersOauthOauthHttpParameters();
-            o.bodies = bodies;
-            o.headers = headers;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersOauthOauthHttpParameters();
+            _resultValue.bodies = bodies;
+            _resultValue.headers = headers;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

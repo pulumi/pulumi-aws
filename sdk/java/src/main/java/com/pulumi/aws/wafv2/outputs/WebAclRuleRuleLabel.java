@@ -46,9 +46,9 @@ public final class WebAclRuleRuleLabel {
             return this;
         }
         public WebAclRuleRuleLabel build() {
-            final var o = new WebAclRuleRuleLabel();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleRuleLabel();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

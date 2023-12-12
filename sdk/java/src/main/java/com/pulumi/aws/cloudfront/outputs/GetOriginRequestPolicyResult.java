@@ -159,15 +159,15 @@ public final class GetOriginRequestPolicyResult {
             return queryStringsConfigs(List.of(queryStringsConfigs));
         }
         public GetOriginRequestPolicyResult build() {
-            final var o = new GetOriginRequestPolicyResult();
-            o.comment = comment;
-            o.cookiesConfigs = cookiesConfigs;
-            o.etag = etag;
-            o.headersConfigs = headersConfigs;
-            o.id = id;
-            o.name = name;
-            o.queryStringsConfigs = queryStringsConfigs;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyResult();
+            _resultValue.comment = comment;
+            _resultValue.cookiesConfigs = cookiesConfigs;
+            _resultValue.etag = etag;
+            _resultValue.headersConfigs = headersConfigs;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.queryStringsConfigs = queryStringsConfigs;
+            return _resultValue;
         }
     }
 }

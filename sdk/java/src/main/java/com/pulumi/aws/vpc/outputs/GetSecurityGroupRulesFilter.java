@@ -73,10 +73,10 @@ public final class GetSecurityGroupRulesFilter {
             return values(List.of(values));
         }
         public GetSecurityGroupRulesFilter build() {
-            final var o = new GetSecurityGroupRulesFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetSecurityGroupRulesFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

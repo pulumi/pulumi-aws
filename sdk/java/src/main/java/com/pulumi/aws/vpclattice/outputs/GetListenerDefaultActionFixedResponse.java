@@ -38,9 +38,9 @@ public final class GetListenerDefaultActionFixedResponse {
             return this;
         }
         public GetListenerDefaultActionFixedResponse build() {
-            final var o = new GetListenerDefaultActionFixedResponse();
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new GetListenerDefaultActionFixedResponse();
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

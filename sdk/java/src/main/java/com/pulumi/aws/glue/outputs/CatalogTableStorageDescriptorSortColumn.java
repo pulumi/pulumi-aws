@@ -66,10 +66,10 @@ public final class CatalogTableStorageDescriptorSortColumn {
             return this;
         }
         public CatalogTableStorageDescriptorSortColumn build() {
-            final var o = new CatalogTableStorageDescriptorSortColumn();
-            o.column = column;
-            o.sortOrder = sortOrder;
-            return o;
+            final var _resultValue = new CatalogTableStorageDescriptorSortColumn();
+            _resultValue.column = column;
+            _resultValue.sortOrder = sortOrder;
+            return _resultValue;
         }
     }
 }

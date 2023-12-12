@@ -166,15 +166,15 @@ public final class GetDirectoryRadiusSetting {
             return this;
         }
         public GetDirectoryRadiusSetting build() {
-            final var o = new GetDirectoryRadiusSetting();
-            o.authenticationProtocol = authenticationProtocol;
-            o.displayLabel = displayLabel;
-            o.radiusPort = radiusPort;
-            o.radiusRetries = radiusRetries;
-            o.radiusServers = radiusServers;
-            o.radiusTimeout = radiusTimeout;
-            o.useSameUsername = useSameUsername;
-            return o;
+            final var _resultValue = new GetDirectoryRadiusSetting();
+            _resultValue.authenticationProtocol = authenticationProtocol;
+            _resultValue.displayLabel = displayLabel;
+            _resultValue.radiusPort = radiusPort;
+            _resultValue.radiusRetries = radiusRetries;
+            _resultValue.radiusServers = radiusServers;
+            _resultValue.radiusTimeout = radiusTimeout;
+            _resultValue.useSameUsername = useSameUsername;
+            return _resultValue;
         }
     }
 }

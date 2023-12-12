@@ -72,10 +72,10 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
             return processors(List.of(processors));
         }
         public FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration build() {
-            final var o = new FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration();
-            o.enabled = enabled;
-            o.processors = processors;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.processors = processors;
+            return _resultValue;
         }
     }
 }

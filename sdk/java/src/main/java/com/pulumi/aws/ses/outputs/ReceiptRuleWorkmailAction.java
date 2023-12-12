@@ -87,11 +87,11 @@ public final class ReceiptRuleWorkmailAction {
             return this;
         }
         public ReceiptRuleWorkmailAction build() {
-            final var o = new ReceiptRuleWorkmailAction();
-            o.organizationArn = organizationArn;
-            o.position = position;
-            o.topicArn = topicArn;
-            return o;
+            final var _resultValue = new ReceiptRuleWorkmailAction();
+            _resultValue.organizationArn = organizationArn;
+            _resultValue.position = position;
+            _resultValue.topicArn = topicArn;
+            return _resultValue;
         }
     }
 }

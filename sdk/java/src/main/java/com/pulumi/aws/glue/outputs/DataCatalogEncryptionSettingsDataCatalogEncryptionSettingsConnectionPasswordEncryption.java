@@ -68,10 +68,10 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsCon
             return this;
         }
         public DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption build() {
-            final var o = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption();
-            o.awsKmsKeyId = awsKmsKeyId;
-            o.returnConnectionPasswordEncrypted = returnConnectionPasswordEncrypted;
-            return o;
+            final var _resultValue = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption();
+            _resultValue.awsKmsKeyId = awsKmsKeyId;
+            _resultValue.returnConnectionPasswordEncrypted = returnConnectionPasswordEncrypted;
+            return _resultValue;
         }
     }
 }

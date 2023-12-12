@@ -171,15 +171,15 @@ public final class PipeTargetParametersBatchJobParameters {
             return this;
         }
         public PipeTargetParametersBatchJobParameters build() {
-            final var o = new PipeTargetParametersBatchJobParameters();
-            o.arrayProperties = arrayProperties;
-            o.containerOverrides = containerOverrides;
-            o.dependsOns = dependsOns;
-            o.jobDefinition = jobDefinition;
-            o.jobName = jobName;
-            o.parameters = parameters;
-            o.retryStrategy = retryStrategy;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParameters();
+            _resultValue.arrayProperties = arrayProperties;
+            _resultValue.containerOverrides = containerOverrides;
+            _resultValue.dependsOns = dependsOns;
+            _resultValue.jobDefinition = jobDefinition;
+            _resultValue.jobName = jobName;
+            _resultValue.parameters = parameters;
+            _resultValue.retryStrategy = retryStrategy;
+            return _resultValue;
         }
     }
 }

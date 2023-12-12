@@ -65,10 +65,10 @@ public final class ExperimentTemplateTargetResourceTag {
             return this;
         }
         public ExperimentTemplateTargetResourceTag build() {
-            final var o = new ExperimentTemplateTargetResourceTag();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new ExperimentTemplateTargetResourceTag();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

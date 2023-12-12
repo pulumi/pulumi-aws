@@ -65,10 +65,10 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementLabelM
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement();
-            o.key = key;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement();
+            _resultValue.key = key;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

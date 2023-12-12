@@ -72,10 +72,10 @@ public final class EnvironmentNetworkConfiguration {
             return subnetIds(List.of(subnetIds));
         }
         public EnvironmentNetworkConfiguration build() {
-            final var o = new EnvironmentNetworkConfiguration();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new EnvironmentNetworkConfiguration();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

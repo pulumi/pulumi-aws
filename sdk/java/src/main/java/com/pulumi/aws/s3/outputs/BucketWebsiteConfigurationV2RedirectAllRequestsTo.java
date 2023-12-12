@@ -67,10 +67,10 @@ public final class BucketWebsiteConfigurationV2RedirectAllRequestsTo {
             return this;
         }
         public BucketWebsiteConfigurationV2RedirectAllRequestsTo build() {
-            final var o = new BucketWebsiteConfigurationV2RedirectAllRequestsTo();
-            o.hostName = hostName;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new BucketWebsiteConfigurationV2RedirectAllRequestsTo();
+            _resultValue.hostName = hostName;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

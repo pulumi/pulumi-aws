@@ -54,10 +54,10 @@ public final class GetLaunchTemplateInstanceMarketOption {
             return spotOptions(List.of(spotOptions));
         }
         public GetLaunchTemplateInstanceMarketOption build() {
-            final var o = new GetLaunchTemplateInstanceMarketOption();
-            o.marketType = marketType;
-            o.spotOptions = spotOptions;
-            return o;
+            final var _resultValue = new GetLaunchTemplateInstanceMarketOption();
+            _resultValue.marketType = marketType;
+            _resultValue.spotOptions = spotOptions;
+            return _resultValue;
         }
     }
 }

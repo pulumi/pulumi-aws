@@ -68,10 +68,10 @@ public final class KxClusterSavedownStorageConfiguration {
             return this;
         }
         public KxClusterSavedownStorageConfiguration build() {
-            final var o = new KxClusterSavedownStorageConfiguration();
-            o.size = size;
-            o.type = type;
-            return o;
+            final var _resultValue = new KxClusterSavedownStorageConfiguration();
+            _resultValue.size = size;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

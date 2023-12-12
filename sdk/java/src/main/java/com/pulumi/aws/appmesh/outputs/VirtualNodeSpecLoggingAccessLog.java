@@ -48,9 +48,9 @@ public final class VirtualNodeSpecLoggingAccessLog {
             return this;
         }
         public VirtualNodeSpecLoggingAccessLog build() {
-            final var o = new VirtualNodeSpecLoggingAccessLog();
-            o.file = file;
-            return o;
+            final var _resultValue = new VirtualNodeSpecLoggingAccessLog();
+            _resultValue.file = file;
+            return _resultValue;
         }
     }
 }

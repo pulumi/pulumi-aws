@@ -68,10 +68,10 @@ public final class ExperienceConfiguration {
             return this;
         }
         public ExperienceConfiguration build() {
-            final var o = new ExperienceConfiguration();
-            o.contentSourceConfiguration = contentSourceConfiguration;
-            o.userIdentityConfiguration = userIdentityConfiguration;
-            return o;
+            final var _resultValue = new ExperienceConfiguration();
+            _resultValue.contentSourceConfiguration = contentSourceConfiguration;
+            _resultValue.userIdentityConfiguration = userIdentityConfiguration;
+            return _resultValue;
         }
     }
 }

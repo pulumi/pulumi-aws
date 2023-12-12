@@ -219,18 +219,18 @@ public final class PresetVideoWatermark {
             return this;
         }
         public PresetVideoWatermark build() {
-            final var o = new PresetVideoWatermark();
-            o.horizontalAlign = horizontalAlign;
-            o.horizontalOffset = horizontalOffset;
-            o.id = id;
-            o.maxHeight = maxHeight;
-            o.maxWidth = maxWidth;
-            o.opacity = opacity;
-            o.sizingPolicy = sizingPolicy;
-            o.target = target;
-            o.verticalAlign = verticalAlign;
-            o.verticalOffset = verticalOffset;
-            return o;
+            final var _resultValue = new PresetVideoWatermark();
+            _resultValue.horizontalAlign = horizontalAlign;
+            _resultValue.horizontalOffset = horizontalOffset;
+            _resultValue.id = id;
+            _resultValue.maxHeight = maxHeight;
+            _resultValue.maxWidth = maxWidth;
+            _resultValue.opacity = opacity;
+            _resultValue.sizingPolicy = sizingPolicy;
+            _resultValue.target = target;
+            _resultValue.verticalAlign = verticalAlign;
+            _resultValue.verticalOffset = verticalOffset;
+            return _resultValue;
         }
     }
 }

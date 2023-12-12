@@ -108,12 +108,12 @@ public final class GatewayRouteSpec {
             return this;
         }
         public GatewayRouteSpec build() {
-            final var o = new GatewayRouteSpec();
-            o.grpcRoute = grpcRoute;
-            o.http2Route = http2Route;
-            o.httpRoute = httpRoute;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new GatewayRouteSpec();
+            _resultValue.grpcRoute = grpcRoute;
+            _resultValue.http2Route = http2Route;
+            _resultValue.httpRoute = httpRoute;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

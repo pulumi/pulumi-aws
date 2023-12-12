@@ -106,12 +106,12 @@ public final class GatewayMaintenanceStartTime {
             return this;
         }
         public GatewayMaintenanceStartTime build() {
-            final var o = new GatewayMaintenanceStartTime();
-            o.dayOfMonth = dayOfMonth;
-            o.dayOfWeek = dayOfWeek;
-            o.hourOfDay = hourOfDay;
-            o.minuteOfHour = minuteOfHour;
-            return o;
+            final var _resultValue = new GatewayMaintenanceStartTime();
+            _resultValue.dayOfMonth = dayOfMonth;
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.hourOfDay = hourOfDay;
+            _resultValue.minuteOfHour = minuteOfHour;
+            return _resultValue;
         }
     }
 }

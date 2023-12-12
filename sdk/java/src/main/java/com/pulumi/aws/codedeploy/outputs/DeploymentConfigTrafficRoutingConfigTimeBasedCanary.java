@@ -67,10 +67,10 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
             return this;
         }
         public DeploymentConfigTrafficRoutingConfigTimeBasedCanary build() {
-            final var o = new DeploymentConfigTrafficRoutingConfigTimeBasedCanary();
-            o.interval = interval;
-            o.percentage = percentage;
-            return o;
+            final var _resultValue = new DeploymentConfigTrafficRoutingConfigTimeBasedCanary();
+            _resultValue.interval = interval;
+            _resultValue.percentage = percentage;
+            return _resultValue;
         }
     }
 }

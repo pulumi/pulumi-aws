@@ -38,9 +38,9 @@ public final class SigningProfileSigningMaterial {
             return this;
         }
         public SigningProfileSigningMaterial build() {
-            final var o = new SigningProfileSigningMaterial();
-            o.certificateArn = certificateArn;
-            return o;
+            final var _resultValue = new SigningProfileSigningMaterial();
+            _resultValue.certificateArn = certificateArn;
+            return _resultValue;
         }
     }
 }

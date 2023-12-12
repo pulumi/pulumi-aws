@@ -86,11 +86,11 @@ public final class TableSchemaCompositePartitionKey {
             return this;
         }
         public TableSchemaCompositePartitionKey build() {
-            final var o = new TableSchemaCompositePartitionKey();
-            o.enforcementInRecord = enforcementInRecord;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new TableSchemaCompositePartitionKey();
+            _resultValue.enforcementInRecord = enforcementInRecord;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

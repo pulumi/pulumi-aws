@@ -46,9 +46,9 @@ public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSin
             return this;
         }
         public MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration build() {
-            final var o = new MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration();
-            o.insightsTarget = insightsTarget;
-            return o;
+            final var _resultValue = new MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration();
+            _resultValue.insightsTarget = insightsTarget;
+            return _resultValue;
         }
     }
 }

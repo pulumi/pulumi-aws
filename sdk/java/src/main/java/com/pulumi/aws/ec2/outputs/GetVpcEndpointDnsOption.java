@@ -66,10 +66,10 @@ public final class GetVpcEndpointDnsOption {
             return this;
         }
         public GetVpcEndpointDnsOption build() {
-            final var o = new GetVpcEndpointDnsOption();
-            o.dnsRecordIpType = dnsRecordIpType;
-            o.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
-            return o;
+            final var _resultValue = new GetVpcEndpointDnsOption();
+            _resultValue.dnsRecordIpType = dnsRecordIpType;
+            _resultValue.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
+            return _resultValue;
         }
     }
 }

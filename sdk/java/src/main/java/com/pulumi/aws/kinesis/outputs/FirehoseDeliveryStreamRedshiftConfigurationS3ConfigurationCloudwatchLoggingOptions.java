@@ -87,11 +87,11 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationClo
             return this;
         }
         public FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions build() {
-            final var o = new FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions();
-            o.enabled = enabled;
-            o.logGroupName = logGroupName;
-            o.logStreamName = logStreamName;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.logGroupName = logGroupName;
+            _resultValue.logStreamName = logStreamName;
+            return _resultValue;
         }
     }
 }

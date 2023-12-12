@@ -77,11 +77,11 @@ public final class GetResourceTagsResult {
             return this;
         }
         public GetResourceTagsResult build() {
-            final var o = new GetResourceTagsResult();
-            o.id = id;
-            o.resourceId = resourceId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResourceTagsResult();
+            _resultValue.id = id;
+            _resultValue.resourceId = resourceId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

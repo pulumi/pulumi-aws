@@ -165,16 +165,16 @@ public final class GetIpRangesResult {
             return this;
         }
         public GetIpRangesResult build() {
-            final var o = new GetIpRangesResult();
-            o.cidrBlocks = cidrBlocks;
-            o.createDate = createDate;
-            o.id = id;
-            o.ipv6CidrBlocks = ipv6CidrBlocks;
-            o.regions = regions;
-            o.services = services;
-            o.syncToken = syncToken;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetIpRangesResult();
+            _resultValue.cidrBlocks = cidrBlocks;
+            _resultValue.createDate = createDate;
+            _resultValue.id = id;
+            _resultValue.ipv6CidrBlocks = ipv6CidrBlocks;
+            _resultValue.regions = regions;
+            _resultValue.services = services;
+            _resultValue.syncToken = syncToken;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

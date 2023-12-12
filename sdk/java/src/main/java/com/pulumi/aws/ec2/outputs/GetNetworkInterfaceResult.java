@@ -407,28 +407,28 @@ public final class GetNetworkInterfaceResult {
             return this;
         }
         public GetNetworkInterfaceResult build() {
-            final var o = new GetNetworkInterfaceResult();
-            o.arn = arn;
-            o.associations = associations;
-            o.attachments = attachments;
-            o.availabilityZone = availabilityZone;
-            o.description = description;
-            o.filters = filters;
-            o.id = id;
-            o.interfaceType = interfaceType;
-            o.ipv6Addresses = ipv6Addresses;
-            o.macAddress = macAddress;
-            o.outpostArn = outpostArn;
-            o.ownerId = ownerId;
-            o.privateDnsName = privateDnsName;
-            o.privateIp = privateIp;
-            o.privateIps = privateIps;
-            o.requesterId = requesterId;
-            o.securityGroups = securityGroups;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetNetworkInterfaceResult();
+            _resultValue.arn = arn;
+            _resultValue.associations = associations;
+            _resultValue.attachments = attachments;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.description = description;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.interfaceType = interfaceType;
+            _resultValue.ipv6Addresses = ipv6Addresses;
+            _resultValue.macAddress = macAddress;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.ownerId = ownerId;
+            _resultValue.privateDnsName = privateDnsName;
+            _resultValue.privateIp = privateIp;
+            _resultValue.privateIps = privateIps;
+            _resultValue.requesterId = requesterId;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

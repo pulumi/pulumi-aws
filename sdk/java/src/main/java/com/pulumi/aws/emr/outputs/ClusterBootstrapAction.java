@@ -89,11 +89,11 @@ public final class ClusterBootstrapAction {
             return this;
         }
         public ClusterBootstrapAction build() {
-            final var o = new ClusterBootstrapAction();
-            o.args = args;
-            o.name = name;
-            o.path = path;
-            return o;
+            final var _resultValue = new ClusterBootstrapAction();
+            _resultValue.args = args;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class GetDomainAutoTuneOptionMaintenanceScheduleDuration {
             return this;
         }
         public GetDomainAutoTuneOptionMaintenanceScheduleDuration build() {
-            final var o = new GetDomainAutoTuneOptionMaintenanceScheduleDuration();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetDomainAutoTuneOptionMaintenanceScheduleDuration();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

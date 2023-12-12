@@ -83,11 +83,11 @@ public final class GetDirectoryBucketsResult {
             return this;
         }
         public GetDirectoryBucketsResult build() {
-            final var o = new GetDirectoryBucketsResult();
-            o.arns = arns;
-            o.buckets = buckets;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetDirectoryBucketsResult();
+            _resultValue.arns = arns;
+            _resultValue.buckets = buckets;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

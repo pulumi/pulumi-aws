@@ -303,23 +303,23 @@ public final class GetQuerySuggestionsBlockListResult {
             return this;
         }
         public GetQuerySuggestionsBlockListResult build() {
-            final var o = new GetQuerySuggestionsBlockListResult();
-            o.arn = arn;
-            o.createdAt = createdAt;
-            o.description = description;
-            o.errorMessage = errorMessage;
-            o.fileSizeBytes = fileSizeBytes;
-            o.id = id;
-            o.indexId = indexId;
-            o.itemCount = itemCount;
-            o.name = name;
-            o.querySuggestionsBlockListId = querySuggestionsBlockListId;
-            o.roleArn = roleArn;
-            o.sourceS3Paths = sourceS3Paths;
-            o.status = status;
-            o.tags = tags;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new GetQuerySuggestionsBlockListResult();
+            _resultValue.arn = arn;
+            _resultValue.createdAt = createdAt;
+            _resultValue.description = description;
+            _resultValue.errorMessage = errorMessage;
+            _resultValue.fileSizeBytes = fileSizeBytes;
+            _resultValue.id = id;
+            _resultValue.indexId = indexId;
+            _resultValue.itemCount = itemCount;
+            _resultValue.name = name;
+            _resultValue.querySuggestionsBlockListId = querySuggestionsBlockListId;
+            _resultValue.roleArn = roleArn;
+            _resultValue.sourceS3Paths = sourceS3Paths;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

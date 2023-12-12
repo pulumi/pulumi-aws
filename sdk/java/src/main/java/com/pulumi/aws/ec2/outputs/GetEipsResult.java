@@ -119,13 +119,13 @@ public final class GetEipsResult {
             return this;
         }
         public GetEipsResult build() {
-            final var o = new GetEipsResult();
-            o.allocationIds = allocationIds;
-            o.filters = filters;
-            o.id = id;
-            o.publicIps = publicIps;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetEipsResult();
+            _resultValue.allocationIds = allocationIds;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.publicIps = publicIps;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

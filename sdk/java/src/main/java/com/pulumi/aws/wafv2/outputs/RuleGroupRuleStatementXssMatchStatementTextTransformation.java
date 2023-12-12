@@ -66,10 +66,10 @@ public final class RuleGroupRuleStatementXssMatchStatementTextTransformation {
             return this;
         }
         public RuleGroupRuleStatementXssMatchStatementTextTransformation build() {
-            final var o = new RuleGroupRuleStatementXssMatchStatementTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementXssMatchStatementTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

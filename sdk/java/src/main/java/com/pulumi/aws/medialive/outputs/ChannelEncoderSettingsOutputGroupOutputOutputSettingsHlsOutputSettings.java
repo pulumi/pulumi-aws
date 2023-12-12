@@ -82,12 +82,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings();
-            o.h265PackagingType = h265PackagingType;
-            o.hlsSettings = hlsSettings;
-            o.nameModifier = nameModifier;
-            o.segmentModifier = segmentModifier;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings();
+            _resultValue.h265PackagingType = h265PackagingType;
+            _resultValue.hlsSettings = hlsSettings;
+            _resultValue.nameModifier = nameModifier;
+            _resultValue.segmentModifier = segmentModifier;
+            return _resultValue;
         }
     }
 }

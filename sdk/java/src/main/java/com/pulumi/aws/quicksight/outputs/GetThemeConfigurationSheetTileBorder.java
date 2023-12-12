@@ -46,9 +46,9 @@ public final class GetThemeConfigurationSheetTileBorder {
             return this;
         }
         public GetThemeConfigurationSheetTileBorder build() {
-            final var o = new GetThemeConfigurationSheetTileBorder();
-            o.show = show;
-            return o;
+            final var _resultValue = new GetThemeConfigurationSheetTileBorder();
+            _resultValue.show = show;
+            return _resultValue;
         }
     }
 }

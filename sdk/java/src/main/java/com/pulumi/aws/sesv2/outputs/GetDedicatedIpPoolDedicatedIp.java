@@ -85,11 +85,11 @@ public final class GetDedicatedIpPoolDedicatedIp {
             return this;
         }
         public GetDedicatedIpPoolDedicatedIp build() {
-            final var o = new GetDedicatedIpPoolDedicatedIp();
-            o.ip = ip;
-            o.warmupPercentage = warmupPercentage;
-            o.warmupStatus = warmupStatus;
-            return o;
+            final var _resultValue = new GetDedicatedIpPoolDedicatedIp();
+            _resultValue.ip = ip;
+            _resultValue.warmupPercentage = warmupPercentage;
+            _resultValue.warmupStatus = warmupStatus;
+            return _resultValue;
         }
     }
 }

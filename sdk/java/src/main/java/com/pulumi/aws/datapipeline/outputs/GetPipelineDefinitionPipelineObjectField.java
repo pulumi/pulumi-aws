@@ -84,11 +84,11 @@ public final class GetPipelineDefinitionPipelineObjectField {
             return this;
         }
         public GetPipelineDefinitionPipelineObjectField build() {
-            final var o = new GetPipelineDefinitionPipelineObjectField();
-            o.key = key;
-            o.refValue = refValue;
-            o.stringValue = stringValue;
-            return o;
+            final var _resultValue = new GetPipelineDefinitionPipelineObjectField();
+            _resultValue.key = key;
+            _resultValue.refValue = refValue;
+            _resultValue.stringValue = stringValue;
+            return _resultValue;
         }
     }
 }

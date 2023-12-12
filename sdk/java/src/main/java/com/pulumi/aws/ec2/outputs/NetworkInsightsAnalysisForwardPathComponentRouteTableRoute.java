@@ -139,18 +139,18 @@ public final class NetworkInsightsAnalysisForwardPathComponentRouteTableRoute {
             return this;
         }
         public NetworkInsightsAnalysisForwardPathComponentRouteTableRoute build() {
-            final var o = new NetworkInsightsAnalysisForwardPathComponentRouteTableRoute();
-            o.destinationCidr = destinationCidr;
-            o.destinationPrefixListId = destinationPrefixListId;
-            o.egressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
-            o.gatewayId = gatewayId;
-            o.instanceId = instanceId;
-            o.natGatewayId = natGatewayId;
-            o.networkInterfaceId = networkInterfaceId;
-            o.origin = origin;
-            o.transitGatewayId = transitGatewayId;
-            o.vpcPeeringConnectionId = vpcPeeringConnectionId;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisForwardPathComponentRouteTableRoute();
+            _resultValue.destinationCidr = destinationCidr;
+            _resultValue.destinationPrefixListId = destinationPrefixListId;
+            _resultValue.egressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
+            _resultValue.gatewayId = gatewayId;
+            _resultValue.instanceId = instanceId;
+            _resultValue.natGatewayId = natGatewayId;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.origin = origin;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.vpcPeeringConnectionId = vpcPeeringConnectionId;
+            return _resultValue;
         }
     }
 }

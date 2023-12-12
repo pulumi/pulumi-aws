@@ -89,12 +89,12 @@ public final class DocumentParameter {
             return this;
         }
         public DocumentParameter build() {
-            final var o = new DocumentParameter();
-            o.defaultValue = defaultValue;
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DocumentParameter();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

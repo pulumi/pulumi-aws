@@ -48,9 +48,9 @@ public final class DashboardDashboardPublishOptionsAdHocFilteringOption {
             return this;
         }
         public DashboardDashboardPublishOptionsAdHocFilteringOption build() {
-            final var o = new DashboardDashboardPublishOptionsAdHocFilteringOption();
-            o.availabilityStatus = availabilityStatus;
-            return o;
+            final var _resultValue = new DashboardDashboardPublishOptionsAdHocFilteringOption();
+            _resultValue.availabilityStatus = availabilityStatus;
+            return _resultValue;
         }
     }
 }

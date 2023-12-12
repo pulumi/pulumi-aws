@@ -86,11 +86,11 @@ public final class TableImportTableS3BucketSource {
             return this;
         }
         public TableImportTableS3BucketSource build() {
-            final var o = new TableImportTableS3BucketSource();
-            o.bucket = bucket;
-            o.bucketOwner = bucketOwner;
-            o.keyPrefix = keyPrefix;
-            return o;
+            final var _resultValue = new TableImportTableS3BucketSource();
+            _resultValue.bucket = bucket;
+            _resultValue.bucketOwner = bucketOwner;
+            _resultValue.keyPrefix = keyPrefix;
+            return _resultValue;
         }
     }
 }

@@ -127,15 +127,15 @@ public final class GetSecurityGroupResult {
             return this;
         }
         public GetSecurityGroupResult build() {
-            final var o = new GetSecurityGroupResult();
-            o.arn = arn;
-            o.description = description;
-            o.filters = filters;
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetSecurityGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

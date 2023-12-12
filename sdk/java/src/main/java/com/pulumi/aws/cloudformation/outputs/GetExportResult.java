@@ -95,12 +95,12 @@ public final class GetExportResult {
             return this;
         }
         public GetExportResult build() {
-            final var o = new GetExportResult();
-            o.exportingStackId = exportingStackId;
-            o.id = id;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetExportResult();
+            _resultValue.exportingStackId = exportingStackId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

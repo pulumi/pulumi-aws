@@ -74,10 +74,10 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyHeader build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyHeader();
-            o.name = name;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyHeader();
+            _resultValue.name = name;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

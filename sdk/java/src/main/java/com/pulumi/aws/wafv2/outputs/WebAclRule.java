@@ -192,16 +192,16 @@ public final class WebAclRule {
             return this;
         }
         public WebAclRule build() {
-            final var o = new WebAclRule();
-            o.action = action;
-            o.captchaConfig = captchaConfig;
-            o.name = name;
-            o.overrideAction = overrideAction;
-            o.priority = priority;
-            o.ruleLabels = ruleLabels;
-            o.statement = statement;
-            o.visibilityConfig = visibilityConfig;
-            return o;
+            final var _resultValue = new WebAclRule();
+            _resultValue.action = action;
+            _resultValue.captchaConfig = captchaConfig;
+            _resultValue.name = name;
+            _resultValue.overrideAction = overrideAction;
+            _resultValue.priority = priority;
+            _resultValue.ruleLabels = ruleLabels;
+            _resultValue.statement = statement;
+            _resultValue.visibilityConfig = visibilityConfig;
+            return _resultValue;
         }
     }
 }

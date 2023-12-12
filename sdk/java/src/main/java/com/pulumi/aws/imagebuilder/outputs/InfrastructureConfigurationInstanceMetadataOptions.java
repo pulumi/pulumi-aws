@@ -68,10 +68,10 @@ public final class InfrastructureConfigurationInstanceMetadataOptions {
             return this;
         }
         public InfrastructureConfigurationInstanceMetadataOptions build() {
-            final var o = new InfrastructureConfigurationInstanceMetadataOptions();
-            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
-            o.httpTokens = httpTokens;
-            return o;
+            final var _resultValue = new InfrastructureConfigurationInstanceMetadataOptions();
+            _resultValue.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            _resultValue.httpTokens = httpTokens;
+            return _resultValue;
         }
     }
 }

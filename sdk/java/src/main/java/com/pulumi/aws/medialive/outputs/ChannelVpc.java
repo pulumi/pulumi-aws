@@ -123,13 +123,13 @@ public final class ChannelVpc {
             return subnetIds(List.of(subnetIds));
         }
         public ChannelVpc build() {
-            final var o = new ChannelVpc();
-            o.availabilityZones = availabilityZones;
-            o.networkInterfaceIds = networkInterfaceIds;
-            o.publicAddressAllocationIds = publicAddressAllocationIds;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ChannelVpc();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.networkInterfaceIds = networkInterfaceIds;
+            _resultValue.publicAddressAllocationIds = publicAddressAllocationIds;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

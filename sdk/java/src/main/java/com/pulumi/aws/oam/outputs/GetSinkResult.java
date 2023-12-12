@@ -134,14 +134,14 @@ public final class GetSinkResult {
             return this;
         }
         public GetSinkResult build() {
-            final var o = new GetSinkResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.sinkId = sinkId;
-            o.sinkIdentifier = sinkIdentifier;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSinkResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.sinkId = sinkId;
+            _resultValue.sinkIdentifier = sinkIdentifier;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -208,19 +208,19 @@ public final class FileCacheDataRepositoryAssociation {
             return this;
         }
         public FileCacheDataRepositoryAssociation build() {
-            final var o = new FileCacheDataRepositoryAssociation();
-            o.associationId = associationId;
-            o.dataRepositoryPath = dataRepositoryPath;
-            o.dataRepositorySubdirectories = dataRepositorySubdirectories;
-            o.fileCacheId = fileCacheId;
-            o.fileCachePath = fileCachePath;
-            o.fileSystemId = fileSystemId;
-            o.fileSystemPath = fileSystemPath;
-            o.importedFileChunkSize = importedFileChunkSize;
-            o.nfs = nfs;
-            o.resourceArn = resourceArn;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new FileCacheDataRepositoryAssociation();
+            _resultValue.associationId = associationId;
+            _resultValue.dataRepositoryPath = dataRepositoryPath;
+            _resultValue.dataRepositorySubdirectories = dataRepositorySubdirectories;
+            _resultValue.fileCacheId = fileCacheId;
+            _resultValue.fileCachePath = fileCachePath;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.fileSystemPath = fileSystemPath;
+            _resultValue.importedFileChunkSize = importedFileChunkSize;
+            _resultValue.nfs = nfs;
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

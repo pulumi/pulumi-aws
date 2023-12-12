@@ -38,9 +38,9 @@ public final class GetPlaceIndexDataSourceConfiguration {
             return this;
         }
         public GetPlaceIndexDataSourceConfiguration build() {
-            final var o = new GetPlaceIndexDataSourceConfiguration();
-            o.intendedUse = intendedUse;
-            return o;
+            final var _resultValue = new GetPlaceIndexDataSourceConfiguration();
+            _resultValue.intendedUse = intendedUse;
+            return _resultValue;
         }
     }
 }

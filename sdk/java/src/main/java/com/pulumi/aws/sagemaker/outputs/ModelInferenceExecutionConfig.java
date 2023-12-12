@@ -46,9 +46,9 @@ public final class ModelInferenceExecutionConfig {
             return this;
         }
         public ModelInferenceExecutionConfig build() {
-            final var o = new ModelInferenceExecutionConfig();
-            o.mode = mode;
-            return o;
+            final var _resultValue = new ModelInferenceExecutionConfig();
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class DataSourceParametersPostgresql {
             return this;
         }
         public DataSourceParametersPostgresql build() {
-            final var o = new DataSourceParametersPostgresql();
-            o.database = database;
-            o.host = host;
-            o.port = port;
-            return o;
+            final var _resultValue = new DataSourceParametersPostgresql();
+            _resultValue.database = database;
+            _resultValue.host = host;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

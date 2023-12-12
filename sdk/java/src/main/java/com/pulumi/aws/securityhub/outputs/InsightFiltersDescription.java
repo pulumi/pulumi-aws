@@ -65,10 +65,10 @@ public final class InsightFiltersDescription {
             return this;
         }
         public InsightFiltersDescription build() {
-            final var o = new InsightFiltersDescription();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersDescription();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

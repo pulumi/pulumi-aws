@@ -69,10 +69,10 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperation {
             return tagNames(List.of(tagNames));
         }
         public DataSetLogicalTableMapDataTransformUntagColumnOperation build() {
-            final var o = new DataSetLogicalTableMapDataTransformUntagColumnOperation();
-            o.columnName = columnName;
-            o.tagNames = tagNames;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransformUntagColumnOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.tagNames = tagNames;
+            return _resultValue;
         }
     }
 }

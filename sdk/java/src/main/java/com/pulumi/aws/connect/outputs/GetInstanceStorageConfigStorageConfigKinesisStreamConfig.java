@@ -46,9 +46,9 @@ public final class GetInstanceStorageConfigStorageConfigKinesisStreamConfig {
             return this;
         }
         public GetInstanceStorageConfigStorageConfigKinesisStreamConfig build() {
-            final var o = new GetInstanceStorageConfigStorageConfigKinesisStreamConfig();
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new GetInstanceStorageConfigStorageConfigKinesisStreamConfig();
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

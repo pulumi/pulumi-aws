@@ -86,11 +86,11 @@ public final class ApplicationMaximumCapacity {
             return this;
         }
         public ApplicationMaximumCapacity build() {
-            final var o = new ApplicationMaximumCapacity();
-            o.cpu = cpu;
-            o.disk = disk;
-            o.memory = memory;
-            return o;
+            final var _resultValue = new ApplicationMaximumCapacity();
+            _resultValue.cpu = cpu;
+            _resultValue.disk = disk;
+            _resultValue.memory = memory;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class TopicRuleErrorActionLambda {
             return this;
         }
         public TopicRuleErrorActionLambda build() {
-            final var o = new TopicRuleErrorActionLambda();
-            o.functionArn = functionArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionLambda();
+            _resultValue.functionArn = functionArn;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityP
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy build() {
-            final var o = new GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy();
-            o.contentSecurityPolicy = contentSecurityPolicy;
-            o.override = override;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy();
+            _resultValue.contentSecurityPolicy = contentSecurityPolicy;
+            _resultValue.override = override;
+            return _resultValue;
         }
     }
 }

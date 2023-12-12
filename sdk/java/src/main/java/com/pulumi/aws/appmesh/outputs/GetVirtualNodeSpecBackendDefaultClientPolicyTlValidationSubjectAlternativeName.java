@@ -42,9 +42,9 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubje
             return matches(List.of(matches));
         }
         public GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName build() {
-            final var o = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName();
-            o.matches = matches;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName();
+            _resultValue.matches = matches;
+            return _resultValue;
         }
     }
 }

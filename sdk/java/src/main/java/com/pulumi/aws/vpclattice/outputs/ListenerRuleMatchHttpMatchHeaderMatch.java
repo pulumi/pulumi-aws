@@ -88,11 +88,11 @@ public final class ListenerRuleMatchHttpMatchHeaderMatch {
             return this;
         }
         public ListenerRuleMatchHttpMatchHeaderMatch build() {
-            final var o = new ListenerRuleMatchHttpMatchHeaderMatch();
-            o.caseSensitive = caseSensitive;
-            o.match = match;
-            o.name = name;
-            return o;
+            final var _resultValue = new ListenerRuleMatchHttpMatchHeaderMatch();
+            _resultValue.caseSensitive = caseSensitive;
+            _resultValue.match = match;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

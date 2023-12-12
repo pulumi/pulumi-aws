@@ -106,13 +106,13 @@ public final class GetResolverFirewallRulesResult {
             return this;
         }
         public GetResolverFirewallRulesResult build() {
-            final var o = new GetResolverFirewallRulesResult();
-            o.action = action;
-            o.firewallRuleGroupId = firewallRuleGroupId;
-            o.firewallRules = firewallRules;
-            o.id = id;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new GetResolverFirewallRulesResult();
+            _resultValue.action = action;
+            _resultValue.firewallRuleGroupId = firewallRuleGroupId;
+            _resultValue.firewallRules = firewallRules;
+            _resultValue.id = id;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

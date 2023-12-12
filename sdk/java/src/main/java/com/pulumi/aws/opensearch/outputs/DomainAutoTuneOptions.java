@@ -91,11 +91,11 @@ public final class DomainAutoTuneOptions {
             return this;
         }
         public DomainAutoTuneOptions build() {
-            final var o = new DomainAutoTuneOptions();
-            o.desiredState = desiredState;
-            o.maintenanceSchedules = maintenanceSchedules;
-            o.rollbackOnDisable = rollbackOnDisable;
-            return o;
+            final var _resultValue = new DomainAutoTuneOptions();
+            _resultValue.desiredState = desiredState;
+            _resultValue.maintenanceSchedules = maintenanceSchedules;
+            _resultValue.rollbackOnDisable = rollbackOnDisable;
+            return _resultValue;
         }
     }
 }

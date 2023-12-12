@@ -91,11 +91,11 @@ public final class SpotInstanceRequestCpuOptions {
             return this;
         }
         public SpotInstanceRequestCpuOptions build() {
-            final var o = new SpotInstanceRequestCpuOptions();
-            o.amdSevSnp = amdSevSnp;
-            o.coreCount = coreCount;
-            o.threadsPerCore = threadsPerCore;
-            return o;
+            final var _resultValue = new SpotInstanceRequestCpuOptions();
+            _resultValue.amdSevSnp = amdSevSnp;
+            _resultValue.coreCount = coreCount;
+            _resultValue.threadsPerCore = threadsPerCore;
+            return _resultValue;
         }
     }
 }

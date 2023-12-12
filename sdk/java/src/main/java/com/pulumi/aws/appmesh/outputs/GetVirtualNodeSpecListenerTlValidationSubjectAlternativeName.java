@@ -42,9 +42,9 @@ public final class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName 
             return matches(List.of(matches));
         }
         public GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName build() {
-            final var o = new GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName();
-            o.matches = matches;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerTlValidationSubjectAlternativeName();
+            _resultValue.matches = matches;
+            return _resultValue;
         }
     }
 }

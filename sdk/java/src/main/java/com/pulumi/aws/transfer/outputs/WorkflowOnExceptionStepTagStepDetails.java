@@ -91,11 +91,11 @@ public final class WorkflowOnExceptionStepTagStepDetails {
             return tags(List.of(tags));
         }
         public WorkflowOnExceptionStepTagStepDetails build() {
-            final var o = new WorkflowOnExceptionStepTagStepDetails();
-            o.name = name;
-            o.sourceFileLocation = sourceFileLocation;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new WorkflowOnExceptionStepTagStepDetails();
+            _resultValue.name = name;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -142,16 +142,16 @@ public final class GetTrafficPolicyDocumentResult {
             return this;
         }
         public GetTrafficPolicyDocumentResult build() {
-            final var o = new GetTrafficPolicyDocumentResult();
-            o.endpoints = endpoints;
-            o.id = id;
-            o.json = json;
-            o.recordType = recordType;
-            o.rules = rules;
-            o.startEndpoint = startEndpoint;
-            o.startRule = startRule;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentResult();
+            _resultValue.endpoints = endpoints;
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.recordType = recordType;
+            _resultValue.rules = rules;
+            _resultValue.startEndpoint = startEndpoint;
+            _resultValue.startRule = startRule;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

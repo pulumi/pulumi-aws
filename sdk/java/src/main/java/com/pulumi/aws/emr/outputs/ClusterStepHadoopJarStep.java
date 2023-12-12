@@ -110,12 +110,12 @@ public final class ClusterStepHadoopJarStep {
             return this;
         }
         public ClusterStepHadoopJarStep build() {
-            final var o = new ClusterStepHadoopJarStep();
-            o.args = args;
-            o.jar = jar;
-            o.mainClass = mainClass;
-            o.properties = properties;
-            return o;
+            final var _resultValue = new ClusterStepHadoopJarStep();
+            _resultValue.args = args;
+            _resultValue.jar = jar;
+            _resultValue.mainClass = mainClass;
+            _resultValue.properties = properties;
+            return _resultValue;
         }
     }
 }

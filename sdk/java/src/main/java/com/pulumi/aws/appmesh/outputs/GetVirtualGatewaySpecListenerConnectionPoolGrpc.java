@@ -38,9 +38,9 @@ public final class GetVirtualGatewaySpecListenerConnectionPoolGrpc {
             return this;
         }
         public GetVirtualGatewaySpecListenerConnectionPoolGrpc build() {
-            final var o = new GetVirtualGatewaySpecListenerConnectionPoolGrpc();
-            o.maxRequests = maxRequests;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerConnectionPoolGrpc();
+            _resultValue.maxRequests = maxRequests;
+            return _resultValue;
         }
     }
 }

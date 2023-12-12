@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQue
             return this;
         }
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class InsightFiltersProcessLaunchedAtDateRange {
             return this;
         }
         public InsightFiltersProcessLaunchedAtDateRange build() {
-            final var o = new InsightFiltersProcessLaunchedAtDateRange();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersProcessLaunchedAtDateRange();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

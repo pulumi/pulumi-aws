@@ -105,12 +105,12 @@ public final class MultiplexMultiplexSettings {
             return this;
         }
         public MultiplexMultiplexSettings build() {
-            final var o = new MultiplexMultiplexSettings();
-            o.maximumVideoBufferDelayMilliseconds = maximumVideoBufferDelayMilliseconds;
-            o.transportStreamBitrate = transportStreamBitrate;
-            o.transportStreamId = transportStreamId;
-            o.transportStreamReservedBitrate = transportStreamReservedBitrate;
-            return o;
+            final var _resultValue = new MultiplexMultiplexSettings();
+            _resultValue.maximumVideoBufferDelayMilliseconds = maximumVideoBufferDelayMilliseconds;
+            _resultValue.transportStreamBitrate = transportStreamBitrate;
+            _resultValue.transportStreamId = transportStreamId;
+            _resultValue.transportStreamReservedBitrate = transportStreamReservedBitrate;
+            return _resultValue;
         }
     }
 }

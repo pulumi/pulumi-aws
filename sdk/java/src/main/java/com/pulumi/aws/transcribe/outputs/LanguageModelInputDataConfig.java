@@ -90,11 +90,11 @@ public final class LanguageModelInputDataConfig {
             return this;
         }
         public LanguageModelInputDataConfig build() {
-            final var o = new LanguageModelInputDataConfig();
-            o.dataAccessRoleArn = dataAccessRoleArn;
-            o.s3Uri = s3Uri;
-            o.tuningDataS3Uri = tuningDataS3Uri;
-            return o;
+            final var _resultValue = new LanguageModelInputDataConfig();
+            _resultValue.dataAccessRoleArn = dataAccessRoleArn;
+            _resultValue.s3Uri = s3Uri;
+            _resultValue.tuningDataS3Uri = tuningDataS3Uri;
+            return _resultValue;
         }
     }
 }

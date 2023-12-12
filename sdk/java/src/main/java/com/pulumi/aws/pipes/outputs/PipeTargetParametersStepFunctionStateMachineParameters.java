@@ -46,9 +46,9 @@ public final class PipeTargetParametersStepFunctionStateMachineParameters {
             return this;
         }
         public PipeTargetParametersStepFunctionStateMachineParameters build() {
-            final var o = new PipeTargetParametersStepFunctionStateMachineParameters();
-            o.invocationType = invocationType;
-            return o;
+            final var _resultValue = new PipeTargetParametersStepFunctionStateMachineParameters();
+            _resultValue.invocationType = invocationType;
+            return _resultValue;
         }
     }
 }

@@ -254,20 +254,20 @@ public final class GetRoleResult {
             return this;
         }
         public GetRoleResult build() {
-            final var o = new GetRoleResult();
-            o.arn = arn;
-            o.assumeRolePolicy = assumeRolePolicy;
-            o.createDate = createDate;
-            o.description = description;
-            o.id = id;
-            o.maxSessionDuration = maxSessionDuration;
-            o.name = name;
-            o.path = path;
-            o.permissionsBoundary = permissionsBoundary;
-            o.roleLastUseds = roleLastUseds;
-            o.tags = tags;
-            o.uniqueId = uniqueId;
-            return o;
+            final var _resultValue = new GetRoleResult();
+            _resultValue.arn = arn;
+            _resultValue.assumeRolePolicy = assumeRolePolicy;
+            _resultValue.createDate = createDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.maxSessionDuration = maxSessionDuration;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.permissionsBoundary = permissionsBoundary;
+            _resultValue.roleLastUseds = roleLastUseds;
+            _resultValue.tags = tags;
+            _resultValue.uniqueId = uniqueId;
+            return _resultValue;
         }
     }
 }

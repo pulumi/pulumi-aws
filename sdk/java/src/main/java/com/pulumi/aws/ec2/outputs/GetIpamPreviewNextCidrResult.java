@@ -105,13 +105,13 @@ public final class GetIpamPreviewNextCidrResult {
             return this;
         }
         public GetIpamPreviewNextCidrResult build() {
-            final var o = new GetIpamPreviewNextCidrResult();
-            o.cidr = cidr;
-            o.disallowedCidrs = disallowedCidrs;
-            o.id = id;
-            o.ipamPoolId = ipamPoolId;
-            o.netmaskLength = netmaskLength;
-            return o;
+            final var _resultValue = new GetIpamPreviewNextCidrResult();
+            _resultValue.cidr = cidr;
+            _resultValue.disallowedCidrs = disallowedCidrs;
+            _resultValue.id = id;
+            _resultValue.ipamPoolId = ipamPoolId;
+            _resultValue.netmaskLength = netmaskLength;
+            return _resultValue;
         }
     }
 }

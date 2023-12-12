@@ -68,10 +68,10 @@ public final class VirtualNodeSpecServiceDiscovery {
             return this;
         }
         public VirtualNodeSpecServiceDiscovery build() {
-            final var o = new VirtualNodeSpecServiceDiscovery();
-            o.awsCloudMap = awsCloudMap;
-            o.dns = dns;
-            return o;
+            final var _resultValue = new VirtualNodeSpecServiceDiscovery();
+            _resultValue.awsCloudMap = awsCloudMap;
+            _resultValue.dns = dns;
+            return _resultValue;
         }
     }
 }

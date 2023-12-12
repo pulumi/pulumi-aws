@@ -50,9 +50,9 @@ public final class StackStreamingExperienceSettings {
             return this;
         }
         public StackStreamingExperienceSettings build() {
-            final var o = new StackStreamingExperienceSettings();
-            o.preferredProtocol = preferredProtocol;
-            return o;
+            final var _resultValue = new StackStreamingExperienceSettings();
+            _resultValue.preferredProtocol = preferredProtocol;
+            return _resultValue;
         }
     }
 }

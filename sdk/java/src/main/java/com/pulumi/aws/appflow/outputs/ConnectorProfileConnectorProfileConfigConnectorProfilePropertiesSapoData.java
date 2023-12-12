@@ -164,15 +164,15 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData();
-            o.applicationHostUrl = applicationHostUrl;
-            o.applicationServicePath = applicationServicePath;
-            o.clientNumber = clientNumber;
-            o.logonLanguage = logonLanguage;
-            o.oauthProperties = oauthProperties;
-            o.portNumber = portNumber;
-            o.privateLinkServiceName = privateLinkServiceName;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData();
+            _resultValue.applicationHostUrl = applicationHostUrl;
+            _resultValue.applicationServicePath = applicationServicePath;
+            _resultValue.clientNumber = clientNumber;
+            _resultValue.logonLanguage = logonLanguage;
+            _resultValue.oauthProperties = oauthProperties;
+            _resultValue.portNumber = portNumber;
+            _resultValue.privateLinkServiceName = privateLinkServiceName;
+            return _resultValue;
         }
     }
 }

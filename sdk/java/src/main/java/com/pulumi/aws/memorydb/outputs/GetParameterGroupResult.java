@@ -166,15 +166,15 @@ public final class GetParameterGroupResult {
             return this;
         }
         public GetParameterGroupResult build() {
-            final var o = new GetParameterGroupResult();
-            o.arn = arn;
-            o.description = description;
-            o.family = family;
-            o.id = id;
-            o.name = name;
-            o.parameters = parameters;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetParameterGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.family = family;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

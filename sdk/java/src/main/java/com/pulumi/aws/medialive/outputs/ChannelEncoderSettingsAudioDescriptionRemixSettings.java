@@ -67,11 +67,11 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettings {
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionRemixSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionRemixSettings();
-            o.channelMappings = channelMappings;
-            o.channelsIn = channelsIn;
-            o.channelsOut = channelsOut;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionRemixSettings();
+            _resultValue.channelMappings = channelMappings;
+            _resultValue.channelsIn = channelsIn;
+            _resultValue.channelsOut = channelsOut;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHea
             return this;
         }
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

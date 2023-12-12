@@ -187,16 +187,16 @@ public final class GroupInstanceRefreshPreferences {
             return this;
         }
         public GroupInstanceRefreshPreferences build() {
-            final var o = new GroupInstanceRefreshPreferences();
-            o.autoRollback = autoRollback;
-            o.checkpointDelay = checkpointDelay;
-            o.checkpointPercentages = checkpointPercentages;
-            o.instanceWarmup = instanceWarmup;
-            o.minHealthyPercentage = minHealthyPercentage;
-            o.scaleInProtectedInstances = scaleInProtectedInstances;
-            o.skipMatching = skipMatching;
-            o.standbyInstances = standbyInstances;
-            return o;
+            final var _resultValue = new GroupInstanceRefreshPreferences();
+            _resultValue.autoRollback = autoRollback;
+            _resultValue.checkpointDelay = checkpointDelay;
+            _resultValue.checkpointPercentages = checkpointPercentages;
+            _resultValue.instanceWarmup = instanceWarmup;
+            _resultValue.minHealthyPercentage = minHealthyPercentage;
+            _resultValue.scaleInProtectedInstances = scaleInProtectedInstances;
+            _resultValue.skipMatching = skipMatching;
+            _resultValue.standbyInstances = standbyInstances;
+            return _resultValue;
         }
     }
 }

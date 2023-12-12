@@ -95,11 +95,11 @@ public final class GroupTag {
             return this;
         }
         public GroupTag build() {
-            final var o = new GroupTag();
-            o.key = key;
-            o.propagateAtLaunch = propagateAtLaunch;
-            o.value = value;
-            return o;
+            final var _resultValue = new GroupTag();
+            _resultValue.key = key;
+            _resultValue.propagateAtLaunch = propagateAtLaunch;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

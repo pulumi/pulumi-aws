@@ -65,10 +65,10 @@ public final class InsightFiltersResourceAwsS3BucketOwnerId {
             return this;
         }
         public InsightFiltersResourceAwsS3BucketOwnerId build() {
-            final var o = new InsightFiltersResourceAwsS3BucketOwnerId();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsS3BucketOwnerId();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

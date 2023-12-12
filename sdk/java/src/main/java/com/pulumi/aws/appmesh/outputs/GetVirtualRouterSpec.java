@@ -42,9 +42,9 @@ public final class GetVirtualRouterSpec {
             return listeners(List.of(listeners));
         }
         public GetVirtualRouterSpec build() {
-            final var o = new GetVirtualRouterSpec();
-            o.listeners = listeners;
-            return o;
+            final var _resultValue = new GetVirtualRouterSpec();
+            _resultValue.listeners = listeners;
+            return _resultValue;
         }
     }
 }

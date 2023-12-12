@@ -65,10 +65,10 @@ public final class RuleGroupRuleActionBlockCustomResponseResponseHeader {
             return this;
         }
         public RuleGroupRuleActionBlockCustomResponseResponseHeader build() {
-            final var o = new RuleGroupRuleActionBlockCustomResponseResponseHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new RuleGroupRuleActionBlockCustomResponseResponseHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

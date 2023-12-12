@@ -106,12 +106,12 @@ public final class RefreshScheduleScheduleScheduleFrequency {
             return this;
         }
         public RefreshScheduleScheduleScheduleFrequency build() {
-            final var o = new RefreshScheduleScheduleScheduleFrequency();
-            o.interval = interval;
-            o.refreshOnDay = refreshOnDay;
-            o.timeOfTheDay = timeOfTheDay;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new RefreshScheduleScheduleScheduleFrequency();
+            _resultValue.interval = interval;
+            _resultValue.refreshOnDay = refreshOnDay;
+            _resultValue.timeOfTheDay = timeOfTheDay;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

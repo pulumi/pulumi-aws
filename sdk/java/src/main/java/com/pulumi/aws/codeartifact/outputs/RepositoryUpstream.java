@@ -46,9 +46,9 @@ public final class RepositoryUpstream {
             return this;
         }
         public RepositoryUpstream build() {
-            final var o = new RepositoryUpstream();
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new RepositoryUpstream();
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

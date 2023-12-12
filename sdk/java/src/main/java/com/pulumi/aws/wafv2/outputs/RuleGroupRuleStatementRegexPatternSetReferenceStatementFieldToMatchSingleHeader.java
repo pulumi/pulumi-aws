@@ -46,9 +46,9 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             return this;
         }
         public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

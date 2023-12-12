@@ -89,11 +89,11 @@ public final class IntentFollowUpPromptPromptMessage {
             return this;
         }
         public IntentFollowUpPromptPromptMessage build() {
-            final var o = new IntentFollowUpPromptPromptMessage();
-            o.content = content;
-            o.contentType = contentType;
-            o.groupNumber = groupNumber;
-            return o;
+            final var _resultValue = new IntentFollowUpPromptPromptMessage();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.groupNumber = groupNumber;
+            return _resultValue;
         }
     }
 }

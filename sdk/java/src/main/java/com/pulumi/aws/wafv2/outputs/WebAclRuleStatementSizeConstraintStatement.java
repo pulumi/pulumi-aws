@@ -112,12 +112,12 @@ public final class WebAclRuleStatementSizeConstraintStatement {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementSizeConstraintStatement build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatement();
-            o.comparisonOperator = comparisonOperator;
-            o.fieldToMatch = fieldToMatch;
-            o.size = size;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatement();
+            _resultValue.comparisonOperator = comparisonOperator;
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.size = size;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

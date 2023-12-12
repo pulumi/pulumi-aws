@@ -48,9 +48,9 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings build() {
-            final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings();
-            o.temporalFilterSettings = temporalFilterSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings();
+            _resultValue.temporalFilterSettings = temporalFilterSettings;
+            return _resultValue;
         }
     }
 }

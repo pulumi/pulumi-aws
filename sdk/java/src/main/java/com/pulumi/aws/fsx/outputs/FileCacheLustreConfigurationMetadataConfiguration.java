@@ -46,9 +46,9 @@ public final class FileCacheLustreConfigurationMetadataConfiguration {
             return this;
         }
         public FileCacheLustreConfigurationMetadataConfiguration build() {
-            final var o = new FileCacheLustreConfigurationMetadataConfiguration();
-            o.storageCapacity = storageCapacity;
-            return o;
+            final var _resultValue = new FileCacheLustreConfigurationMetadataConfiguration();
+            _resultValue.storageCapacity = storageCapacity;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class ListenerRuleActionFixedResponse {
             return this;
         }
         public ListenerRuleActionFixedResponse build() {
-            final var o = new ListenerRuleActionFixedResponse();
-            o.contentType = contentType;
-            o.messageBody = messageBody;
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new ListenerRuleActionFixedResponse();
+            _resultValue.contentType = contentType;
+            _resultValue.messageBody = messageBody;
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

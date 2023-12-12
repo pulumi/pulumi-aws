@@ -86,11 +86,11 @@ public final class HoursOfOperationConfig {
             return this;
         }
         public HoursOfOperationConfig build() {
-            final var o = new HoursOfOperationConfig();
-            o.day = day;
-            o.endTime = endTime;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new HoursOfOperationConfig();
+            _resultValue.day = day;
+            _resultValue.endTime = endTime;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

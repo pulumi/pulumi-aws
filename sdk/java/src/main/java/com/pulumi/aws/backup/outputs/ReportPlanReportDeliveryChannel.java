@@ -90,11 +90,11 @@ public final class ReportPlanReportDeliveryChannel {
             return this;
         }
         public ReportPlanReportDeliveryChannel build() {
-            final var o = new ReportPlanReportDeliveryChannel();
-            o.formats = formats;
-            o.s3BucketName = s3BucketName;
-            o.s3KeyPrefix = s3KeyPrefix;
-            return o;
+            final var _resultValue = new ReportPlanReportDeliveryChannel();
+            _resultValue.formats = formats;
+            _resultValue.s3BucketName = s3BucketName;
+            _resultValue.s3KeyPrefix = s3KeyPrefix;
+            return _resultValue;
         }
     }
 }

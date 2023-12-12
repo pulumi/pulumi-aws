@@ -200,17 +200,17 @@ public final class GetKeyResult {
             return this;
         }
         public GetKeyResult build() {
-            final var o = new GetKeyResult();
-            o.createdDate = createdDate;
-            o.customerId = customerId;
-            o.description = description;
-            o.enabled = enabled;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.name = name;
-            o.tags = tags;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetKeyResult();
+            _resultValue.createdDate = createdDate;
+            _resultValue.customerId = customerId;
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

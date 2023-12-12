@@ -46,9 +46,9 @@ public final class AccessPointVpcConfiguration {
             return this;
         }
         public AccessPointVpcConfiguration build() {
-            final var o = new AccessPointVpcConfiguration();
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new AccessPointVpcConfiguration();
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

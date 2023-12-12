@@ -51,10 +51,10 @@ public final class ChannelInputAttachmentInputSettingsVideoSelector {
             return this;
         }
         public ChannelInputAttachmentInputSettingsVideoSelector build() {
-            final var o = new ChannelInputAttachmentInputSettingsVideoSelector();
-            o.colorSpace = colorSpace;
-            o.colorSpaceUsage = colorSpaceUsage;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsVideoSelector();
+            _resultValue.colorSpace = colorSpace;
+            _resultValue.colorSpaceUsage = colorSpaceUsage;
+            return _resultValue;
         }
     }
 }

@@ -81,11 +81,11 @@ public final class GetOrganizationalUnitsResult {
             return this;
         }
         public GetOrganizationalUnitsResult build() {
-            final var o = new GetOrganizationalUnitsResult();
-            o.children = children;
-            o.id = id;
-            o.parentId = parentId;
-            return o;
+            final var _resultValue = new GetOrganizationalUnitsResult();
+            _resultValue.children = children;
+            _resultValue.id = id;
+            _resultValue.parentId = parentId;
+            return _resultValue;
         }
     }
 }

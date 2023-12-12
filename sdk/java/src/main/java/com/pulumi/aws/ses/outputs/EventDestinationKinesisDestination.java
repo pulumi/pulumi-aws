@@ -65,10 +65,10 @@ public final class EventDestinationKinesisDestination {
             return this;
         }
         public EventDestinationKinesisDestination build() {
-            final var o = new EventDestinationKinesisDestination();
-            o.roleArn = roleArn;
-            o.streamArn = streamArn;
-            return o;
+            final var _resultValue = new EventDestinationKinesisDestination();
+            _resultValue.roleArn = roleArn;
+            _resultValue.streamArn = streamArn;
+            return _resultValue;
         }
     }
 }

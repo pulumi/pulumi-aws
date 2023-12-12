@@ -69,10 +69,10 @@ public final class GetVpcIpamPoolFilter {
             return values(List.of(values));
         }
         public GetVpcIpamPoolFilter build() {
-            final var o = new GetVpcIpamPoolFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetVpcIpamPoolFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

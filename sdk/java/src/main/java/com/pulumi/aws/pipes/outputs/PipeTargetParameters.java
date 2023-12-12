@@ -268,20 +268,20 @@ public final class PipeTargetParameters {
             return this;
         }
         public PipeTargetParameters build() {
-            final var o = new PipeTargetParameters();
-            o.batchJobParameters = batchJobParameters;
-            o.cloudwatchLogsParameters = cloudwatchLogsParameters;
-            o.ecsTaskParameters = ecsTaskParameters;
-            o.eventbridgeEventBusParameters = eventbridgeEventBusParameters;
-            o.httpParameters = httpParameters;
-            o.inputTemplate = inputTemplate;
-            o.kinesisStreamParameters = kinesisStreamParameters;
-            o.lambdaFunctionParameters = lambdaFunctionParameters;
-            o.redshiftDataParameters = redshiftDataParameters;
-            o.sagemakerPipelineParameters = sagemakerPipelineParameters;
-            o.sqsQueueParameters = sqsQueueParameters;
-            o.stepFunctionStateMachineParameters = stepFunctionStateMachineParameters;
-            return o;
+            final var _resultValue = new PipeTargetParameters();
+            _resultValue.batchJobParameters = batchJobParameters;
+            _resultValue.cloudwatchLogsParameters = cloudwatchLogsParameters;
+            _resultValue.ecsTaskParameters = ecsTaskParameters;
+            _resultValue.eventbridgeEventBusParameters = eventbridgeEventBusParameters;
+            _resultValue.httpParameters = httpParameters;
+            _resultValue.inputTemplate = inputTemplate;
+            _resultValue.kinesisStreamParameters = kinesisStreamParameters;
+            _resultValue.lambdaFunctionParameters = lambdaFunctionParameters;
+            _resultValue.redshiftDataParameters = redshiftDataParameters;
+            _resultValue.sagemakerPipelineParameters = sagemakerPipelineParameters;
+            _resultValue.sqsQueueParameters = sqsQueueParameters;
+            _resultValue.stepFunctionStateMachineParameters = stepFunctionStateMachineParameters;
+            return _resultValue;
         }
     }
 }

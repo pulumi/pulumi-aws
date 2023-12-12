@@ -46,9 +46,9 @@ public final class RepositoryAssociationRepositoryCodecommit {
             return this;
         }
         public RepositoryAssociationRepositoryCodecommit build() {
-            final var o = new RepositoryAssociationRepositoryCodecommit();
-            o.name = name;
-            return o;
+            final var _resultValue = new RepositoryAssociationRepositoryCodecommit();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

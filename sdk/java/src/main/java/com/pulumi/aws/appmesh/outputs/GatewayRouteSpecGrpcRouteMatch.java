@@ -68,10 +68,10 @@ public final class GatewayRouteSpecGrpcRouteMatch {
             return this;
         }
         public GatewayRouteSpecGrpcRouteMatch build() {
-            final var o = new GatewayRouteSpecGrpcRouteMatch();
-            o.port = port;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new GatewayRouteSpecGrpcRouteMatch();
+            _resultValue.port = port;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

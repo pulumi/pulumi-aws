@@ -136,14 +136,14 @@ public final class GetAccountPublicAccessBlockResult {
             return this;
         }
         public GetAccountPublicAccessBlockResult build() {
-            final var o = new GetAccountPublicAccessBlockResult();
-            o.accountId = accountId;
-            o.blockPublicAcls = blockPublicAcls;
-            o.blockPublicPolicy = blockPublicPolicy;
-            o.id = id;
-            o.ignorePublicAcls = ignorePublicAcls;
-            o.restrictPublicBuckets = restrictPublicBuckets;
-            return o;
+            final var _resultValue = new GetAccountPublicAccessBlockResult();
+            _resultValue.accountId = accountId;
+            _resultValue.blockPublicAcls = blockPublicAcls;
+            _resultValue.blockPublicPolicy = blockPublicPolicy;
+            _resultValue.id = id;
+            _resultValue.ignorePublicAcls = ignorePublicAcls;
+            _resultValue.restrictPublicBuckets = restrictPublicBuckets;
+            return _resultValue;
         }
     }
 }

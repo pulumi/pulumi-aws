@@ -65,10 +65,10 @@ public final class GetLaunchPathsSummaryConstraintSummary {
             return this;
         }
         public GetLaunchPathsSummaryConstraintSummary build() {
-            final var o = new GetLaunchPathsSummaryConstraintSummary();
-            o.description = description;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetLaunchPathsSummaryConstraintSummary();
+            _resultValue.description = description;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -54,9 +54,9 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath();
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath();
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

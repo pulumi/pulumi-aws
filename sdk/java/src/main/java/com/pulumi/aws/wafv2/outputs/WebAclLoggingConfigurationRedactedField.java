@@ -108,12 +108,12 @@ public final class WebAclLoggingConfigurationRedactedField {
             return this;
         }
         public WebAclLoggingConfigurationRedactedField build() {
-            final var o = new WebAclLoggingConfigurationRedactedField();
-            o.method = method;
-            o.queryString = queryString;
-            o.singleHeader = singleHeader;
-            o.uriPath = uriPath;
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationRedactedField();
+            _resultValue.method = method;
+            _resultValue.queryString = queryString;
+            _resultValue.singleHeader = singleHeader;
+            _resultValue.uriPath = uriPath;
+            return _resultValue;
         }
     }
 }

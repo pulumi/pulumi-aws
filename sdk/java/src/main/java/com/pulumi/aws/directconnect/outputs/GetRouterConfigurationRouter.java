@@ -181,14 +181,14 @@ public final class GetRouterConfigurationRouter {
             return this;
         }
         public GetRouterConfigurationRouter build() {
-            final var o = new GetRouterConfigurationRouter();
-            o.platform = platform;
-            o.routerTypeIdentifier = routerTypeIdentifier;
-            o.software = software;
-            o.vendor = vendor;
-            o.xsltTemplateName = xsltTemplateName;
-            o.xsltTemplateNameForMacSec = xsltTemplateNameForMacSec;
-            return o;
+            final var _resultValue = new GetRouterConfigurationRouter();
+            _resultValue.platform = platform;
+            _resultValue.routerTypeIdentifier = routerTypeIdentifier;
+            _resultValue.software = software;
+            _resultValue.vendor = vendor;
+            _resultValue.xsltTemplateName = xsltTemplateName;
+            _resultValue.xsltTemplateNameForMacSec = xsltTemplateNameForMacSec;
+            return _resultValue;
         }
     }
 }

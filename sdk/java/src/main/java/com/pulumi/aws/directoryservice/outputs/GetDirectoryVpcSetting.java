@@ -83,11 +83,11 @@ public final class GetDirectoryVpcSetting {
             return this;
         }
         public GetDirectoryVpcSetting build() {
-            final var o = new GetDirectoryVpcSetting();
-            o.availabilityZones = availabilityZones;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetDirectoryVpcSetting();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

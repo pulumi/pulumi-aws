@@ -164,15 +164,15 @@ public final class GetClusterResult {
             return this;
         }
         public GetClusterResult build() {
-            final var o = new GetClusterResult();
-            o.clusterCertificates = clusterCertificates;
-            o.clusterId = clusterId;
-            o.clusterState = clusterState;
-            o.id = id;
-            o.securityGroupId = securityGroupId;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetClusterResult();
+            _resultValue.clusterCertificates = clusterCertificates;
+            _resultValue.clusterId = clusterId;
+            _resultValue.clusterState = clusterState;
+            _resultValue.id = id;
+            _resultValue.securityGroupId = securityGroupId;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

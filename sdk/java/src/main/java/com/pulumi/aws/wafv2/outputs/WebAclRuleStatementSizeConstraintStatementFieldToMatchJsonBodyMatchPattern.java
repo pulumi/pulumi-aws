@@ -64,10 +64,10 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBod
             return includedPaths(List.of(includedPaths));
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern();
-            o.all = all;
-            o.includedPaths = includedPaths;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern();
+            _resultValue.all = all;
+            _resultValue.includedPaths = includedPaths;
+            return _resultValue;
         }
     }
 }

@@ -388,26 +388,26 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileProperties build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileProperties();
-            o.amplitude = amplitude;
-            o.customConnector = customConnector;
-            o.datadog = datadog;
-            o.dynatrace = dynatrace;
-            o.googleAnalytics = googleAnalytics;
-            o.honeycode = honeycode;
-            o.inforNexus = inforNexus;
-            o.marketo = marketo;
-            o.redshift = redshift;
-            o.salesforce = salesforce;
-            o.sapoData = sapoData;
-            o.serviceNow = serviceNow;
-            o.singular = singular;
-            o.slack = slack;
-            o.snowflake = snowflake;
-            o.trendmicro = trendmicro;
-            o.veeva = veeva;
-            o.zendesk = zendesk;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileProperties();
+            _resultValue.amplitude = amplitude;
+            _resultValue.customConnector = customConnector;
+            _resultValue.datadog = datadog;
+            _resultValue.dynatrace = dynatrace;
+            _resultValue.googleAnalytics = googleAnalytics;
+            _resultValue.honeycode = honeycode;
+            _resultValue.inforNexus = inforNexus;
+            _resultValue.marketo = marketo;
+            _resultValue.redshift = redshift;
+            _resultValue.salesforce = salesforce;
+            _resultValue.sapoData = sapoData;
+            _resultValue.serviceNow = serviceNow;
+            _resultValue.singular = singular;
+            _resultValue.slack = slack;
+            _resultValue.snowflake = snowflake;
+            _resultValue.trendmicro = trendmicro;
+            _resultValue.veeva = veeva;
+            _resultValue.zendesk = zendesk;
+            return _resultValue;
         }
     }
 }

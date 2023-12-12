@@ -89,11 +89,11 @@ public final class WebAclLoggingConfigurationLoggingFilterFilter {
             return this;
         }
         public WebAclLoggingConfigurationLoggingFilterFilter build() {
-            final var o = new WebAclLoggingConfigurationLoggingFilterFilter();
-            o.behavior = behavior;
-            o.conditions = conditions;
-            o.requirement = requirement;
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationLoggingFilterFilter();
+            _resultValue.behavior = behavior;
+            _resultValue.conditions = conditions;
+            _resultValue.requirement = requirement;
+            return _resultValue;
         }
     }
 }

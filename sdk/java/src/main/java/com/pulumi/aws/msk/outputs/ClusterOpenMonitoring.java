@@ -46,9 +46,9 @@ public final class ClusterOpenMonitoring {
             return this;
         }
         public ClusterOpenMonitoring build() {
-            final var o = new ClusterOpenMonitoring();
-            o.prometheus = prometheus;
-            return o;
+            final var _resultValue = new ClusterOpenMonitoring();
+            _resultValue.prometheus = prometheus;
+            return _resultValue;
         }
     }
 }

@@ -144,14 +144,14 @@ public final class ProductProvisioningArtifactParameters {
             return this;
         }
         public ProductProvisioningArtifactParameters build() {
-            final var o = new ProductProvisioningArtifactParameters();
-            o.description = description;
-            o.disableTemplateValidation = disableTemplateValidation;
-            o.name = name;
-            o.templatePhysicalId = templatePhysicalId;
-            o.templateUrl = templateUrl;
-            o.type = type;
-            return o;
+            final var _resultValue = new ProductProvisioningArtifactParameters();
+            _resultValue.description = description;
+            _resultValue.disableTemplateValidation = disableTemplateValidation;
+            _resultValue.name = name;
+            _resultValue.templatePhysicalId = templatePhysicalId;
+            _resultValue.templateUrl = templateUrl;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

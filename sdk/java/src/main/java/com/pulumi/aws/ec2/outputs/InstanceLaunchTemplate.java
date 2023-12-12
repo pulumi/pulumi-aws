@@ -86,11 +86,11 @@ public final class InstanceLaunchTemplate {
             return this;
         }
         public InstanceLaunchTemplate build() {
-            final var o = new InstanceLaunchTemplate();
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new InstanceLaunchTemplate();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -223,17 +223,17 @@ public final class SecurityGroupIngress {
             return this;
         }
         public SecurityGroupIngress build() {
-            final var o = new SecurityGroupIngress();
-            o.cidrBlocks = cidrBlocks;
-            o.description = description;
-            o.fromPort = fromPort;
-            o.ipv6CidrBlocks = ipv6CidrBlocks;
-            o.prefixListIds = prefixListIds;
-            o.protocol = protocol;
-            o.securityGroups = securityGroups;
-            o.self = self;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new SecurityGroupIngress();
+            _resultValue.cidrBlocks = cidrBlocks;
+            _resultValue.description = description;
+            _resultValue.fromPort = fromPort;
+            _resultValue.ipv6CidrBlocks = ipv6CidrBlocks;
+            _resultValue.prefixListIds = prefixListIds;
+            _resultValue.protocol = protocol;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.self = self;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

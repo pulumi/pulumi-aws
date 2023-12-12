@@ -85,11 +85,11 @@ public final class GetUserEmail {
             return this;
         }
         public GetUserEmail build() {
-            final var o = new GetUserEmail();
-            o.primary = primary;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetUserEmail();
+            _resultValue.primary = primary;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

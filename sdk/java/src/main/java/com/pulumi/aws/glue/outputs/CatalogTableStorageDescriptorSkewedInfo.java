@@ -93,11 +93,11 @@ public final class CatalogTableStorageDescriptorSkewedInfo {
             return skewedColumnValues(List.of(skewedColumnValues));
         }
         public CatalogTableStorageDescriptorSkewedInfo build() {
-            final var o = new CatalogTableStorageDescriptorSkewedInfo();
-            o.skewedColumnNames = skewedColumnNames;
-            o.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
-            o.skewedColumnValues = skewedColumnValues;
-            return o;
+            final var _resultValue = new CatalogTableStorageDescriptorSkewedInfo();
+            _resultValue.skewedColumnNames = skewedColumnNames;
+            _resultValue.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
+            _resultValue.skewedColumnValues = skewedColumnValues;
+            return _resultValue;
         }
     }
 }

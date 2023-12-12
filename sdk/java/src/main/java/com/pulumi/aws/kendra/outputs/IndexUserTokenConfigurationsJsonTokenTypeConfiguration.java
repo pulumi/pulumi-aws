@@ -65,10 +65,10 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfiguration {
             return this;
         }
         public IndexUserTokenConfigurationsJsonTokenTypeConfiguration build() {
-            final var o = new IndexUserTokenConfigurationsJsonTokenTypeConfiguration();
-            o.groupAttributeField = groupAttributeField;
-            o.userNameAttributeField = userNameAttributeField;
-            return o;
+            final var _resultValue = new IndexUserTokenConfigurationsJsonTokenTypeConfiguration();
+            _resultValue.groupAttributeField = groupAttributeField;
+            _resultValue.userNameAttributeField = userNameAttributeField;
+            return _resultValue;
         }
     }
 }

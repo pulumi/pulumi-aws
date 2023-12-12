@@ -90,11 +90,11 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
             return this;
         }
         public PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric build() {
-            final var o = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric();
-            o.dimensions = dimensions;
-            o.metricName = metricName;
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric();
+            _resultValue.dimensions = dimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class BucketReplicationConfigurationRuleFilter {
             return this;
         }
         public BucketReplicationConfigurationRuleFilter build() {
-            final var o = new BucketReplicationConfigurationRuleFilter();
-            o.prefix = prefix;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new BucketReplicationConfigurationRuleFilter();
+            _resultValue.prefix = prefix;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

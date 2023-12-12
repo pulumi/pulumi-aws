@@ -46,9 +46,9 @@ public final class SigningJobSource {
             return this;
         }
         public SigningJobSource build() {
-            final var o = new SigningJobSource();
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new SigningJobSource();
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

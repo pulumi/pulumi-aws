@@ -108,12 +108,12 @@ public final class FeatureGroupOnlineStoreConfig {
             return this;
         }
         public FeatureGroupOnlineStoreConfig build() {
-            final var o = new FeatureGroupOnlineStoreConfig();
-            o.enableOnlineStore = enableOnlineStore;
-            o.securityConfig = securityConfig;
-            o.storageType = storageType;
-            o.ttlDuration = ttlDuration;
-            return o;
+            final var _resultValue = new FeatureGroupOnlineStoreConfig();
+            _resultValue.enableOnlineStore = enableOnlineStore;
+            _resultValue.securityConfig = securityConfig;
+            _resultValue.storageType = storageType;
+            _resultValue.ttlDuration = ttlDuration;
+            return _resultValue;
         }
     }
 }

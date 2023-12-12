@@ -67,10 +67,10 @@ public final class IndexingConfigurationThingIndexingConfigurationManagedField {
             return this;
         }
         public IndexingConfigurationThingIndexingConfigurationManagedField build() {
-            final var o = new IndexingConfigurationThingIndexingConfigurationManagedField();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new IndexingConfigurationThingIndexingConfigurationManagedField();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

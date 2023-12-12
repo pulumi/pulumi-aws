@@ -48,9 +48,9 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
             return this;
         }
         public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation build() {
-            final var o = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation();
-            o.s3Configuration = s3Configuration;
-            return o;
+            final var _resultValue = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation();
+            _resultValue.s3Configuration = s3Configuration;
+            return _resultValue;
         }
     }
 }

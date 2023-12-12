@@ -76,11 +76,11 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings();
-            o.cbetCheckDigitString = cbetCheckDigitString;
-            o.cbetStepaside = cbetStepaside;
-            o.csid = csid;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings();
+            _resultValue.cbetCheckDigitString = cbetCheckDigitString;
+            _resultValue.cbetStepaside = cbetStepaside;
+            _resultValue.csid = csid;
+            return _resultValue;
         }
     }
 }

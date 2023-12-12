@@ -124,13 +124,13 @@ public final class DirectorySelfServicePermissions {
             return this;
         }
         public DirectorySelfServicePermissions build() {
-            final var o = new DirectorySelfServicePermissions();
-            o.changeComputeType = changeComputeType;
-            o.increaseVolumeSize = increaseVolumeSize;
-            o.rebuildWorkspace = rebuildWorkspace;
-            o.restartWorkspace = restartWorkspace;
-            o.switchRunningMode = switchRunningMode;
-            return o;
+            final var _resultValue = new DirectorySelfServicePermissions();
+            _resultValue.changeComputeType = changeComputeType;
+            _resultValue.increaseVolumeSize = increaseVolumeSize;
+            _resultValue.rebuildWorkspace = rebuildWorkspace;
+            _resultValue.restartWorkspace = restartWorkspace;
+            _resultValue.switchRunningMode = switchRunningMode;
+            return _resultValue;
         }
     }
 }

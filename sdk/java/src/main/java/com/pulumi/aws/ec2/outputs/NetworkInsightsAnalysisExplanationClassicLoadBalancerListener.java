@@ -51,10 +51,10 @@ public final class NetworkInsightsAnalysisExplanationClassicLoadBalancerListener
             return this;
         }
         public NetworkInsightsAnalysisExplanationClassicLoadBalancerListener build() {
-            final var o = new NetworkInsightsAnalysisExplanationClassicLoadBalancerListener();
-            o.instancePort = instancePort;
-            o.loadBalancerPort = loadBalancerPort;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationClassicLoadBalancerListener();
+            _resultValue.instancePort = instancePort;
+            _resultValue.loadBalancerPort = loadBalancerPort;
+            return _resultValue;
         }
     }
 }

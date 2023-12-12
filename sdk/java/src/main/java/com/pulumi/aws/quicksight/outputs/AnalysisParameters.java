@@ -120,12 +120,12 @@ public final class AnalysisParameters {
             return stringParameters(List.of(stringParameters));
         }
         public AnalysisParameters build() {
-            final var o = new AnalysisParameters();
-            o.dateTimeParameters = dateTimeParameters;
-            o.decimalParameters = decimalParameters;
-            o.integerParameters = integerParameters;
-            o.stringParameters = stringParameters;
-            return o;
+            final var _resultValue = new AnalysisParameters();
+            _resultValue.dateTimeParameters = dateTimeParameters;
+            _resultValue.decimalParameters = decimalParameters;
+            _resultValue.integerParameters = integerParameters;
+            _resultValue.stringParameters = stringParameters;
+            return _resultValue;
         }
     }
 }

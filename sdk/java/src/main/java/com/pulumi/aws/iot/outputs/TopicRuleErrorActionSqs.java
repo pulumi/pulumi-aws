@@ -85,11 +85,11 @@ public final class TopicRuleErrorActionSqs {
             return this;
         }
         public TopicRuleErrorActionSqs build() {
-            final var o = new TopicRuleErrorActionSqs();
-            o.queueUrl = queueUrl;
-            o.roleArn = roleArn;
-            o.useBase64 = useBase64;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionSqs();
+            _resultValue.queueUrl = queueUrl;
+            _resultValue.roleArn = roleArn;
+            _resultValue.useBase64 = useBase64;
+            return _resultValue;
         }
     }
 }

@@ -104,12 +104,12 @@ public final class GetFirewallFirewallStatus {
             return syncStates(List.of(syncStates));
         }
         public GetFirewallFirewallStatus build() {
-            final var o = new GetFirewallFirewallStatus();
-            o.capacityUsageSummaries = capacityUsageSummaries;
-            o.configurationSyncStateSummary = configurationSyncStateSummary;
-            o.status = status;
-            o.syncStates = syncStates;
-            return o;
+            final var _resultValue = new GetFirewallFirewallStatus();
+            _resultValue.capacityUsageSummaries = capacityUsageSummaries;
+            _resultValue.configurationSyncStateSummary = configurationSyncStateSummary;
+            _resultValue.status = status;
+            _resultValue.syncStates = syncStates;
+            return _resultValue;
         }
     }
 }

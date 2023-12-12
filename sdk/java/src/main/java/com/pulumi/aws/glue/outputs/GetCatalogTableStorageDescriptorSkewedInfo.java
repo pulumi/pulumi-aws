@@ -92,11 +92,11 @@ public final class GetCatalogTableStorageDescriptorSkewedInfo {
             return skewedColumnValues(List.of(skewedColumnValues));
         }
         public GetCatalogTableStorageDescriptorSkewedInfo build() {
-            final var o = new GetCatalogTableStorageDescriptorSkewedInfo();
-            o.skewedColumnNames = skewedColumnNames;
-            o.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
-            o.skewedColumnValues = skewedColumnValues;
-            return o;
+            final var _resultValue = new GetCatalogTableStorageDescriptorSkewedInfo();
+            _resultValue.skewedColumnNames = skewedColumnNames;
+            _resultValue.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
+            _resultValue.skewedColumnValues = skewedColumnValues;
+            return _resultValue;
         }
     }
 }

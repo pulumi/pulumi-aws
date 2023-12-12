@@ -87,11 +87,11 @@ public final class TableCapacitySpecification {
             return this;
         }
         public TableCapacitySpecification build() {
-            final var o = new TableCapacitySpecification();
-            o.readCapacityUnits = readCapacityUnits;
-            o.throughputMode = throughputMode;
-            o.writeCapacityUnits = writeCapacityUnits;
-            return o;
+            final var _resultValue = new TableCapacitySpecification();
+            _resultValue.readCapacityUnits = readCapacityUnits;
+            _resultValue.throughputMode = throughputMode;
+            _resultValue.writeCapacityUnits = writeCapacityUnits;
+            return _resultValue;
         }
     }
 }

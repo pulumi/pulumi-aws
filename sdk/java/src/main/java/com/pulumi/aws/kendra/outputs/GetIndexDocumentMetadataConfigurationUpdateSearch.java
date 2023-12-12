@@ -103,12 +103,12 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
             return this;
         }
         public GetIndexDocumentMetadataConfigurationUpdateSearch build() {
-            final var o = new GetIndexDocumentMetadataConfigurationUpdateSearch();
-            o.displayable = displayable;
-            o.facetable = facetable;
-            o.searchable = searchable;
-            o.sortable = sortable;
-            return o;
+            final var _resultValue = new GetIndexDocumentMetadataConfigurationUpdateSearch();
+            _resultValue.displayable = displayable;
+            _resultValue.facetable = facetable;
+            _resultValue.searchable = searchable;
+            _resultValue.sortable = sortable;
+            return _resultValue;
         }
     }
 }

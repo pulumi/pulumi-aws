@@ -65,10 +65,10 @@ public final class ParameterGroupParameter {
             return this;
         }
         public ParameterGroupParameter build() {
-            final var o = new ParameterGroupParameter();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new ParameterGroupParameter();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrls {
             return this;
         }
         public DataSourceConfigurationWebCrawlerConfigurationUrls build() {
-            final var o = new DataSourceConfigurationWebCrawlerConfigurationUrls();
-            o.seedUrlConfiguration = seedUrlConfiguration;
-            o.siteMapsConfiguration = siteMapsConfiguration;
-            return o;
+            final var _resultValue = new DataSourceConfigurationWebCrawlerConfigurationUrls();
+            _resultValue.seedUrlConfiguration = seedUrlConfiguration;
+            _resultValue.siteMapsConfiguration = siteMapsConfiguration;
+            return _resultValue;
         }
     }
 }

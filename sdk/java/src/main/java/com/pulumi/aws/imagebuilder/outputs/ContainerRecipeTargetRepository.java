@@ -65,10 +65,10 @@ public final class ContainerRecipeTargetRepository {
             return this;
         }
         public ContainerRecipeTargetRepository build() {
-            final var o = new ContainerRecipeTargetRepository();
-            o.repositoryName = repositoryName;
-            o.service = service;
-            return o;
+            final var _resultValue = new ContainerRecipeTargetRepository();
+            _resultValue.repositoryName = repositoryName;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

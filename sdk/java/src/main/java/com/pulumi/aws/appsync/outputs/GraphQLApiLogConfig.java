@@ -87,11 +87,11 @@ public final class GraphQLApiLogConfig {
             return this;
         }
         public GraphQLApiLogConfig build() {
-            final var o = new GraphQLApiLogConfig();
-            o.cloudwatchLogsRoleArn = cloudwatchLogsRoleArn;
-            o.excludeVerboseContent = excludeVerboseContent;
-            o.fieldLogLevel = fieldLogLevel;
-            return o;
+            final var _resultValue = new GraphQLApiLogConfig();
+            _resultValue.cloudwatchLogsRoleArn = cloudwatchLogsRoleArn;
+            _resultValue.excludeVerboseContent = excludeVerboseContent;
+            _resultValue.fieldLogLevel = fieldLogLevel;
+            return _resultValue;
         }
     }
 }

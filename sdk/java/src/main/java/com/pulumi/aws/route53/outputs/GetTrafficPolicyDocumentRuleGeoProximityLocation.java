@@ -182,16 +182,16 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation {
             return this;
         }
         public GetTrafficPolicyDocumentRuleGeoProximityLocation build() {
-            final var o = new GetTrafficPolicyDocumentRuleGeoProximityLocation();
-            o.bias = bias;
-            o.endpointReference = endpointReference;
-            o.evaluateTargetHealth = evaluateTargetHealth;
-            o.healthCheck = healthCheck;
-            o.latitude = latitude;
-            o.longitude = longitude;
-            o.region = region;
-            o.ruleReference = ruleReference;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentRuleGeoProximityLocation();
+            _resultValue.bias = bias;
+            _resultValue.endpointReference = endpointReference;
+            _resultValue.evaluateTargetHealth = evaluateTargetHealth;
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.latitude = latitude;
+            _resultValue.longitude = longitude;
+            _resultValue.region = region;
+            _resultValue.ruleReference = ruleReference;
+            return _resultValue;
         }
     }
 }

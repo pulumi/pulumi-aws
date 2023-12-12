@@ -38,9 +38,9 @@ public final class GetLaunchTemplateEnclaveOption {
             return this;
         }
         public GetLaunchTemplateEnclaveOption build() {
-            final var o = new GetLaunchTemplateEnclaveOption();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetLaunchTemplateEnclaveOption();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

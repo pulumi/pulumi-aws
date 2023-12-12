@@ -147,14 +147,14 @@ public final class UserName {
             return this;
         }
         public UserName build() {
-            final var o = new UserName();
-            o.familyName = familyName;
-            o.formatted = formatted;
-            o.givenName = givenName;
-            o.honorificPrefix = honorificPrefix;
-            o.honorificSuffix = honorificSuffix;
-            o.middleName = middleName;
-            return o;
+            final var _resultValue = new UserName();
+            _resultValue.familyName = familyName;
+            _resultValue.formatted = formatted;
+            _resultValue.givenName = givenName;
+            _resultValue.honorificPrefix = honorificPrefix;
+            _resultValue.honorificSuffix = honorificSuffix;
+            _resultValue.middleName = middleName;
+            return _resultValue;
         }
     }
 }

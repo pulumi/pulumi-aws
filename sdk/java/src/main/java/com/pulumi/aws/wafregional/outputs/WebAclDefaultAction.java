@@ -46,9 +46,9 @@ public final class WebAclDefaultAction {
             return this;
         }
         public WebAclDefaultAction build() {
-            final var o = new WebAclDefaultAction();
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclDefaultAction();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

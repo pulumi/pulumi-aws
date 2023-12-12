@@ -65,10 +65,10 @@ public final class RuleGroupRuleStatementRateBasedStatementForwardedIpConfig {
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementForwardedIpConfig build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            return _resultValue;
         }
     }
 }

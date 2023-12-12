@@ -73,10 +73,10 @@ public final class GetRouteTablePropagationsFilter {
             return values(List.of(values));
         }
         public GetRouteTablePropagationsFilter build() {
-            final var o = new GetRouteTablePropagationsFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetRouteTablePropagationsFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

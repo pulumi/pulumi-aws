@@ -256,20 +256,20 @@ public final class GetRestApiResult {
             return this;
         }
         public GetRestApiResult build() {
-            final var o = new GetRestApiResult();
-            o.apiKeySource = apiKeySource;
-            o.arn = arn;
-            o.binaryMediaTypes = binaryMediaTypes;
-            o.description = description;
-            o.endpointConfigurations = endpointConfigurations;
-            o.executionArn = executionArn;
-            o.id = id;
-            o.minimumCompressionSize = minimumCompressionSize;
-            o.name = name;
-            o.policy = policy;
-            o.rootResourceId = rootResourceId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetRestApiResult();
+            _resultValue.apiKeySource = apiKeySource;
+            _resultValue.arn = arn;
+            _resultValue.binaryMediaTypes = binaryMediaTypes;
+            _resultValue.description = description;
+            _resultValue.endpointConfigurations = endpointConfigurations;
+            _resultValue.executionArn = executionArn;
+            _resultValue.id = id;
+            _resultValue.minimumCompressionSize = minimumCompressionSize;
+            _resultValue.name = name;
+            _resultValue.policy = policy;
+            _resultValue.rootResourceId = rootResourceId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

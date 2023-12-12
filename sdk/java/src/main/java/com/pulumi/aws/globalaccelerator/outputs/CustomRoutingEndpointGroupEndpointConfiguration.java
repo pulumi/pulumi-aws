@@ -48,9 +48,9 @@ public final class CustomRoutingEndpointGroupEndpointConfiguration {
             return this;
         }
         public CustomRoutingEndpointGroupEndpointConfiguration build() {
-            final var o = new CustomRoutingEndpointGroupEndpointConfiguration();
-            o.endpointId = endpointId;
-            return o;
+            final var _resultValue = new CustomRoutingEndpointGroupEndpointConfiguration();
+            _resultValue.endpointId = endpointId;
+            return _resultValue;
         }
     }
 }

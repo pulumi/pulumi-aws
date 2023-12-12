@@ -166,16 +166,16 @@ public final class GetPortfolioResult {
             return this;
         }
         public GetPortfolioResult build() {
-            final var o = new GetPortfolioResult();
-            o.acceptLanguage = acceptLanguage;
-            o.arn = arn;
-            o.createdTime = createdTime;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.providerName = providerName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetPortfolioResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.arn = arn;
+            _resultValue.createdTime = createdTime;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.providerName = providerName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

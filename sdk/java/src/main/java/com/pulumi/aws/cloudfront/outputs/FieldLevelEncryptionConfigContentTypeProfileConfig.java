@@ -66,10 +66,10 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfig {
             return this;
         }
         public FieldLevelEncryptionConfigContentTypeProfileConfig build() {
-            final var o = new FieldLevelEncryptionConfigContentTypeProfileConfig();
-            o.contentTypeProfiles = contentTypeProfiles;
-            o.forwardWhenContentTypeIsUnknown = forwardWhenContentTypeIsUnknown;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionConfigContentTypeProfileConfig();
+            _resultValue.contentTypeProfiles = contentTypeProfiles;
+            _resultValue.forwardWhenContentTypeIsUnknown = forwardWhenContentTypeIsUnknown;
+            return _resultValue;
         }
     }
 }

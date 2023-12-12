@@ -65,10 +65,10 @@ public final class GetGroupTrafficSource {
             return this;
         }
         public GetGroupTrafficSource build() {
-            final var o = new GetGroupTrafficSource();
-            o.identifier = identifier;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetGroupTrafficSource();
+            _resultValue.identifier = identifier;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

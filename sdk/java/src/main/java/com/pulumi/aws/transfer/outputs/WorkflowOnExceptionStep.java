@@ -148,14 +148,14 @@ public final class WorkflowOnExceptionStep {
             return this;
         }
         public WorkflowOnExceptionStep build() {
-            final var o = new WorkflowOnExceptionStep();
-            o.copyStepDetails = copyStepDetails;
-            o.customStepDetails = customStepDetails;
-            o.decryptStepDetails = decryptStepDetails;
-            o.deleteStepDetails = deleteStepDetails;
-            o.tagStepDetails = tagStepDetails;
-            o.type = type;
-            return o;
+            final var _resultValue = new WorkflowOnExceptionStep();
+            _resultValue.copyStepDetails = copyStepDetails;
+            _resultValue.customStepDetails = customStepDetails;
+            _resultValue.decryptStepDetails = decryptStepDetails;
+            _resultValue.deleteStepDetails = deleteStepDetails;
+            _resultValue.tagStepDetails = tagStepDetails;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -107,12 +107,12 @@ public final class BucketLifecycleConfigurationV2RuleFilterAnd {
             return this;
         }
         public BucketLifecycleConfigurationV2RuleFilterAnd build() {
-            final var o = new BucketLifecycleConfigurationV2RuleFilterAnd();
-            o.objectSizeGreaterThan = objectSizeGreaterThan;
-            o.objectSizeLessThan = objectSizeLessThan;
-            o.prefix = prefix;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new BucketLifecycleConfigurationV2RuleFilterAnd();
+            _resultValue.objectSizeGreaterThan = objectSizeGreaterThan;
+            _resultValue.objectSizeLessThan = objectSizeLessThan;
+            _resultValue.prefix = prefix;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

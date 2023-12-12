@@ -90,11 +90,11 @@ public final class ClusterKubernetesNetworkConfig {
             return this;
         }
         public ClusterKubernetesNetworkConfig build() {
-            final var o = new ClusterKubernetesNetworkConfig();
-            o.ipFamily = ipFamily;
-            o.serviceIpv4Cidr = serviceIpv4Cidr;
-            o.serviceIpv6Cidr = serviceIpv6Cidr;
-            return o;
+            final var _resultValue = new ClusterKubernetesNetworkConfig();
+            _resultValue.ipFamily = ipFamily;
+            _resultValue.serviceIpv4Cidr = serviceIpv4Cidr;
+            _resultValue.serviceIpv6Cidr = serviceIpv6Cidr;
+            return _resultValue;
         }
     }
 }

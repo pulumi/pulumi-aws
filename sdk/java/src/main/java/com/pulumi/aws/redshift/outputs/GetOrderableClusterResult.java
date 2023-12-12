@@ -117,14 +117,14 @@ public final class GetOrderableClusterResult {
             return preferredNodeTypes(List.of(preferredNodeTypes));
         }
         public GetOrderableClusterResult build() {
-            final var o = new GetOrderableClusterResult();
-            o.availabilityZones = availabilityZones;
-            o.clusterType = clusterType;
-            o.clusterVersion = clusterVersion;
-            o.id = id;
-            o.nodeType = nodeType;
-            o.preferredNodeTypes = preferredNodeTypes;
-            return o;
+            final var _resultValue = new GetOrderableClusterResult();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.clusterType = clusterType;
+            _resultValue.clusterVersion = clusterVersion;
+            _resultValue.id = id;
+            _resultValue.nodeType = nodeType;
+            _resultValue.preferredNodeTypes = preferredNodeTypes;
+            return _resultValue;
         }
     }
 }

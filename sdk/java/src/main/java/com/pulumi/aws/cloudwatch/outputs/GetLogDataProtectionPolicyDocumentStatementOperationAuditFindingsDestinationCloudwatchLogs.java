@@ -46,9 +46,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
             return this;
         }
         public GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs build() {
-            final var o = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs();
-            o.logGroup = logGroup;
-            return o;
+            final var _resultValue = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs();
+            _resultValue.logGroup = logGroup;
+            return _resultValue;
         }
     }
 }

@@ -137,14 +137,14 @@ public final class GetPortfolioConstraintsDetail {
             return this;
         }
         public GetPortfolioConstraintsDetail build() {
-            final var o = new GetPortfolioConstraintsDetail();
-            o.constraintId = constraintId;
-            o.description = description;
-            o.owner = owner;
-            o.portfolioId = portfolioId;
-            o.productId = productId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetPortfolioConstraintsDetail();
+            _resultValue.constraintId = constraintId;
+            _resultValue.description = description;
+            _resultValue.owner = owner;
+            _resultValue.portfolioId = portfolioId;
+            _resultValue.productId = productId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

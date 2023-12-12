@@ -67,10 +67,10 @@ public final class GetTagsSortBy {
             return this;
         }
         public GetTagsSortBy build() {
-            final var o = new GetTagsSortBy();
-            o.key = key;
-            o.sortOrder = sortOrder;
-            return o;
+            final var _resultValue = new GetTagsSortBy();
+            _resultValue.key = key;
+            _resultValue.sortOrder = sortOrder;
+            return _resultValue;
         }
     }
 }

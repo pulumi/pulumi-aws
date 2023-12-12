@@ -72,10 +72,10 @@ public final class DataQualityJobDefinitionNetworkConfigVpcConfig {
             return subnets(List.of(subnets));
         }
         public DataQualityJobDefinitionNetworkConfigVpcConfig build() {
-            final var o = new DataQualityJobDefinitionNetworkConfigVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionNetworkConfigVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

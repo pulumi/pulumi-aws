@@ -126,13 +126,13 @@ public final class DomainEbsOptions {
             return this;
         }
         public DomainEbsOptions build() {
-            final var o = new DomainEbsOptions();
-            o.ebsEnabled = ebsEnabled;
-            o.iops = iops;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new DomainEbsOptions();
+            _resultValue.ebsEnabled = ebsEnabled;
+            _resultValue.iops = iops;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

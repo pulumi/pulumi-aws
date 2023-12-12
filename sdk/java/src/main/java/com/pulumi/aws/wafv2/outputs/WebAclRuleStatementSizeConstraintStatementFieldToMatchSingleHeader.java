@@ -46,9 +46,9 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleH
             return this;
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -42,9 +42,9 @@ public final class GetBudgetCalculatedSpend {
             return actualSpends(List.of(actualSpends));
         }
         public GetBudgetCalculatedSpend build() {
-            final var o = new GetBudgetCalculatedSpend();
-            o.actualSpends = actualSpends;
-            return o;
+            final var _resultValue = new GetBudgetCalculatedSpend();
+            _resultValue.actualSpends = actualSpends;
+            return _resultValue;
         }
     }
 }

@@ -25,8 +25,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular();
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular();
+            return _resultValue;
         }
     }
 }

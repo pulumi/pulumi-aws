@@ -65,10 +65,10 @@ public final class TableRetentionProperties {
             return this;
         }
         public TableRetentionProperties build() {
-            final var o = new TableRetentionProperties();
-            o.magneticStoreRetentionPeriodInDays = magneticStoreRetentionPeriodInDays;
-            o.memoryStoreRetentionPeriodInHours = memoryStoreRetentionPeriodInHours;
-            return o;
+            final var _resultValue = new TableRetentionProperties();
+            _resultValue.magneticStoreRetentionPeriodInDays = magneticStoreRetentionPeriodInDays;
+            _resultValue.memoryStoreRetentionPeriodInHours = memoryStoreRetentionPeriodInHours;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class InsightFiltersFindingProviderFieldsRelatedFindingsId {
             return this;
         }
         public InsightFiltersFindingProviderFieldsRelatedFindingsId build() {
-            final var o = new InsightFiltersFindingProviderFieldsRelatedFindingsId();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersFindingProviderFieldsRelatedFindingsId();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

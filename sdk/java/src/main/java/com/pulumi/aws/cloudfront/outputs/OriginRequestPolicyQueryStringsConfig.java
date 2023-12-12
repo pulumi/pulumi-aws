@@ -52,10 +52,10 @@ public final class OriginRequestPolicyQueryStringsConfig {
             return this;
         }
         public OriginRequestPolicyQueryStringsConfig build() {
-            final var o = new OriginRequestPolicyQueryStringsConfig();
-            o.queryStringBehavior = queryStringBehavior;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new OriginRequestPolicyQueryStringsConfig();
+            _resultValue.queryStringBehavior = queryStringBehavior;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

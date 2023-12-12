@@ -270,20 +270,20 @@ public final class PipelineStageAction {
             return this;
         }
         public PipelineStageAction build() {
-            final var o = new PipelineStageAction();
-            o.category = category;
-            o.configuration = configuration;
-            o.inputArtifacts = inputArtifacts;
-            o.name = name;
-            o.namespace = namespace;
-            o.outputArtifacts = outputArtifacts;
-            o.owner = owner;
-            o.provider = provider;
-            o.region = region;
-            o.roleArn = roleArn;
-            o.runOrder = runOrder;
-            o.version = version;
-            return o;
+            final var _resultValue = new PipelineStageAction();
+            _resultValue.category = category;
+            _resultValue.configuration = configuration;
+            _resultValue.inputArtifacts = inputArtifacts;
+            _resultValue.name = name;
+            _resultValue.namespace = namespace;
+            _resultValue.outputArtifacts = outputArtifacts;
+            _resultValue.owner = owner;
+            _resultValue.provider = provider;
+            _resultValue.region = region;
+            _resultValue.roleArn = roleArn;
+            _resultValue.runOrder = runOrder;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

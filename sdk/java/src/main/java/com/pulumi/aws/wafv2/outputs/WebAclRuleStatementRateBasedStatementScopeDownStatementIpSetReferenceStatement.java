@@ -68,10 +68,10 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement();
-            o.arn = arn;
-            o.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement();
+            _resultValue.arn = arn;
+            _resultValue.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
+            return _resultValue;
         }
     }
 }

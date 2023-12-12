@@ -177,16 +177,16 @@ public final class GetVirtualClusterResult {
             return this;
         }
         public GetVirtualClusterResult build() {
-            final var o = new GetVirtualClusterResult();
-            o.arn = arn;
-            o.containerProviders = containerProviders;
-            o.createdAt = createdAt;
-            o.id = id;
-            o.name = name;
-            o.state = state;
-            o.tags = tags;
-            o.virtualClusterId = virtualClusterId;
-            return o;
+            final var _resultValue = new GetVirtualClusterResult();
+            _resultValue.arn = arn;
+            _resultValue.containerProviders = containerProviders;
+            _resultValue.createdAt = createdAt;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            _resultValue.virtualClusterId = virtualClusterId;
+            return _resultValue;
         }
     }
 }

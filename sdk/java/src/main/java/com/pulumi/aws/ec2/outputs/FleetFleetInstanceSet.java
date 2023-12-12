@@ -109,12 +109,12 @@ public final class FleetFleetInstanceSet {
             return this;
         }
         public FleetFleetInstanceSet build() {
-            final var o = new FleetFleetInstanceSet();
-            o.instanceIds = instanceIds;
-            o.instanceType = instanceType;
-            o.lifecycle = lifecycle;
-            o.platform = platform;
-            return o;
+            final var _resultValue = new FleetFleetInstanceSet();
+            _resultValue.instanceIds = instanceIds;
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycle = lifecycle;
+            _resultValue.platform = platform;
+            return _resultValue;
         }
     }
 }

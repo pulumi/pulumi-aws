@@ -48,9 +48,9 @@ public final class DomainOffPeakWindowOptionsOffPeakWindow {
             return this;
         }
         public DomainOffPeakWindowOptionsOffPeakWindow build() {
-            final var o = new DomainOffPeakWindowOptionsOffPeakWindow();
-            o.windowStartTime = windowStartTime;
-            return o;
+            final var _resultValue = new DomainOffPeakWindowOptionsOffPeakWindow();
+            _resultValue.windowStartTime = windowStartTime;
+            return _resultValue;
         }
     }
 }

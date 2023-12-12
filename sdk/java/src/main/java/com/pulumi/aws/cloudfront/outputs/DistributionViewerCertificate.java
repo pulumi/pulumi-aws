@@ -125,13 +125,13 @@ public final class DistributionViewerCertificate {
             return this;
         }
         public DistributionViewerCertificate build() {
-            final var o = new DistributionViewerCertificate();
-            o.acmCertificateArn = acmCertificateArn;
-            o.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
-            o.iamCertificateId = iamCertificateId;
-            o.minimumProtocolVersion = minimumProtocolVersion;
-            o.sslSupportMethod = sslSupportMethod;
-            return o;
+            final var _resultValue = new DistributionViewerCertificate();
+            _resultValue.acmCertificateArn = acmCertificateArn;
+            _resultValue.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
+            _resultValue.iamCertificateId = iamCertificateId;
+            _resultValue.minimumProtocolVersion = minimumProtocolVersion;
+            _resultValue.sslSupportMethod = sslSupportMethod;
+            return _resultValue;
         }
     }
 }

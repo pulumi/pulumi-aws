@@ -40,9 +40,9 @@ public final class RecorderRecordingGroupRecordingStrategy {
             return this;
         }
         public RecorderRecordingGroupRecordingStrategy build() {
-            final var o = new RecorderRecordingGroupRecordingStrategy();
-            o.useOnly = useOnly;
-            return o;
+            final var _resultValue = new RecorderRecordingGroupRecordingStrategy();
+            _resultValue.useOnly = useOnly;
+            return _resultValue;
         }
     }
 }

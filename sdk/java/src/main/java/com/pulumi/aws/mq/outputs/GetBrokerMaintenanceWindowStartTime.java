@@ -60,11 +60,11 @@ public final class GetBrokerMaintenanceWindowStartTime {
             return this;
         }
         public GetBrokerMaintenanceWindowStartTime build() {
-            final var o = new GetBrokerMaintenanceWindowStartTime();
-            o.dayOfWeek = dayOfWeek;
-            o.timeOfDay = timeOfDay;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new GetBrokerMaintenanceWindowStartTime();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.timeOfDay = timeOfDay;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

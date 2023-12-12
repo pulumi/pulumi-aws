@@ -65,10 +65,10 @@ public final class DataSourceCredentialsCredentialPair {
             return this;
         }
         public DataSourceCredentialsCredentialPair build() {
-            final var o = new DataSourceCredentialsCredentialPair();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new DataSourceCredentialsCredentialPair();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

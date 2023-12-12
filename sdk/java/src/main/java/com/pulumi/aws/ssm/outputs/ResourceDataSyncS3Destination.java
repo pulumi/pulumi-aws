@@ -124,13 +124,13 @@ public final class ResourceDataSyncS3Destination {
             return this;
         }
         public ResourceDataSyncS3Destination build() {
-            final var o = new ResourceDataSyncS3Destination();
-            o.bucketName = bucketName;
-            o.kmsKeyArn = kmsKeyArn;
-            o.prefix = prefix;
-            o.region = region;
-            o.syncFormat = syncFormat;
-            return o;
+            final var _resultValue = new ResourceDataSyncS3Destination();
+            _resultValue.bucketName = bucketName;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.prefix = prefix;
+            _resultValue.region = region;
+            _resultValue.syncFormat = syncFormat;
+            return _resultValue;
         }
     }
 }

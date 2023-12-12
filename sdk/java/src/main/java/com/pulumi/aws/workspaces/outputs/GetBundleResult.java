@@ -194,16 +194,16 @@ public final class GetBundleResult {
             return userStorages(List.of(userStorages));
         }
         public GetBundleResult build() {
-            final var o = new GetBundleResult();
-            o.bundleId = bundleId;
-            o.computeTypes = computeTypes;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.owner = owner;
-            o.rootStorages = rootStorages;
-            o.userStorages = userStorages;
-            return o;
+            final var _resultValue = new GetBundleResult();
+            _resultValue.bundleId = bundleId;
+            _resultValue.computeTypes = computeTypes;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.rootStorages = rootStorages;
+            _resultValue.userStorages = userStorages;
+            return _resultValue;
         }
     }
 }

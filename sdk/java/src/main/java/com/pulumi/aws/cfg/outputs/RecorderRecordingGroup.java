@@ -137,13 +137,13 @@ public final class RecorderRecordingGroup {
             return resourceTypes(List.of(resourceTypes));
         }
         public RecorderRecordingGroup build() {
-            final var o = new RecorderRecordingGroup();
-            o.allSupported = allSupported;
-            o.exclusionByResourceTypes = exclusionByResourceTypes;
-            o.includeGlobalResourceTypes = includeGlobalResourceTypes;
-            o.recordingStrategies = recordingStrategies;
-            o.resourceTypes = resourceTypes;
-            return o;
+            final var _resultValue = new RecorderRecordingGroup();
+            _resultValue.allSupported = allSupported;
+            _resultValue.exclusionByResourceTypes = exclusionByResourceTypes;
+            _resultValue.includeGlobalResourceTypes = includeGlobalResourceTypes;
+            _resultValue.recordingStrategies = recordingStrategies;
+            _resultValue.resourceTypes = resourceTypes;
+            return _resultValue;
         }
     }
 }

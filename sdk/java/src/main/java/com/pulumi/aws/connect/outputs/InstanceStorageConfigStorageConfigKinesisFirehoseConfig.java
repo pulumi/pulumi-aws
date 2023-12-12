@@ -46,9 +46,9 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfig {
             return this;
         }
         public InstanceStorageConfigStorageConfigKinesisFirehoseConfig build() {
-            final var o = new InstanceStorageConfigStorageConfigKinesisFirehoseConfig();
-            o.firehoseArn = firehoseArn;
-            return o;
+            final var _resultValue = new InstanceStorageConfigStorageConfigKinesisFirehoseConfig();
+            _resultValue.firehoseArn = firehoseArn;
+            return _resultValue;
         }
     }
 }

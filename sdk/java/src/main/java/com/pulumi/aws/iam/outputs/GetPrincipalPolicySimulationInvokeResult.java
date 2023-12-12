@@ -210,21 +210,21 @@ public final class GetPrincipalPolicySimulationInvokeResult {
             return results(List.of(results));
         }
         public GetPrincipalPolicySimulationInvokeResult build() {
-            final var o = new GetPrincipalPolicySimulationInvokeResult();
-            o.actionNames = actionNames;
-            o.additionalPoliciesJsons = additionalPoliciesJsons;
-            o.allAllowed = allAllowed;
-            o.callerArn = callerArn;
-            o.contexts = contexts;
-            o.id = id;
-            o.permissionsBoundaryPoliciesJsons = permissionsBoundaryPoliciesJsons;
-            o.policySourceArn = policySourceArn;
-            o.resourceArns = resourceArns;
-            o.resourceHandlingOption = resourceHandlingOption;
-            o.resourceOwnerAccountId = resourceOwnerAccountId;
-            o.resourcePolicyJson = resourcePolicyJson;
-            o.results = results;
-            return o;
+            final var _resultValue = new GetPrincipalPolicySimulationInvokeResult();
+            _resultValue.actionNames = actionNames;
+            _resultValue.additionalPoliciesJsons = additionalPoliciesJsons;
+            _resultValue.allAllowed = allAllowed;
+            _resultValue.callerArn = callerArn;
+            _resultValue.contexts = contexts;
+            _resultValue.id = id;
+            _resultValue.permissionsBoundaryPoliciesJsons = permissionsBoundaryPoliciesJsons;
+            _resultValue.policySourceArn = policySourceArn;
+            _resultValue.resourceArns = resourceArns;
+            _resultValue.resourceHandlingOption = resourceHandlingOption;
+            _resultValue.resourceOwnerAccountId = resourceOwnerAccountId;
+            _resultValue.resourcePolicyJson = resourcePolicyJson;
+            _resultValue.results = results;
+            return _resultValue;
         }
     }
 }

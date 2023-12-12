@@ -68,10 +68,10 @@ public final class ApplicationApplicationConfigurationRunConfiguration {
             return this;
         }
         public ApplicationApplicationConfigurationRunConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationRunConfiguration();
-            o.applicationRestoreConfiguration = applicationRestoreConfiguration;
-            o.flinkRunConfiguration = flinkRunConfiguration;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationRunConfiguration();
+            _resultValue.applicationRestoreConfiguration = applicationRestoreConfiguration;
+            _resultValue.flinkRunConfiguration = flinkRunConfiguration;
+            return _resultValue;
         }
     }
 }

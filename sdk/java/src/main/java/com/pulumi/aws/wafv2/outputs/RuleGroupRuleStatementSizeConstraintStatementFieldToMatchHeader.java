@@ -85,11 +85,11 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHead
             return this;
         }
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader();
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader();
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

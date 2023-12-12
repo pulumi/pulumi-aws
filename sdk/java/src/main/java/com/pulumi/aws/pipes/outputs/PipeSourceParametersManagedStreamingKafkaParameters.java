@@ -145,14 +145,14 @@ public final class PipeSourceParametersManagedStreamingKafkaParameters {
             return this;
         }
         public PipeSourceParametersManagedStreamingKafkaParameters build() {
-            final var o = new PipeSourceParametersManagedStreamingKafkaParameters();
-            o.batchSize = batchSize;
-            o.consumerGroupId = consumerGroupId;
-            o.credentials = credentials;
-            o.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
-            o.startingPosition = startingPosition;
-            o.topicName = topicName;
-            return o;
+            final var _resultValue = new PipeSourceParametersManagedStreamingKafkaParameters();
+            _resultValue.batchSize = batchSize;
+            _resultValue.consumerGroupId = consumerGroupId;
+            _resultValue.credentials = credentials;
+            _resultValue.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
+            _resultValue.startingPosition = startingPosition;
+            _resultValue.topicName = topicName;
+            return _resultValue;
         }
     }
 }

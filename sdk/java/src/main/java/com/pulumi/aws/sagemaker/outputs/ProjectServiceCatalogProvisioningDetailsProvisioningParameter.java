@@ -67,10 +67,10 @@ public final class ProjectServiceCatalogProvisioningDetailsProvisioningParameter
             return this;
         }
         public ProjectServiceCatalogProvisioningDetailsProvisioningParameter build() {
-            final var o = new ProjectServiceCatalogProvisioningDetailsProvisioningParameter();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new ProjectServiceCatalogProvisioningDetailsProvisioningParameter();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -128,13 +128,13 @@ public final class EnvironmentLoggingConfiguration {
             return this;
         }
         public EnvironmentLoggingConfiguration build() {
-            final var o = new EnvironmentLoggingConfiguration();
-            o.dagProcessingLogs = dagProcessingLogs;
-            o.schedulerLogs = schedulerLogs;
-            o.taskLogs = taskLogs;
-            o.webserverLogs = webserverLogs;
-            o.workerLogs = workerLogs;
-            return o;
+            final var _resultValue = new EnvironmentLoggingConfiguration();
+            _resultValue.dagProcessingLogs = dagProcessingLogs;
+            _resultValue.schedulerLogs = schedulerLogs;
+            _resultValue.taskLogs = taskLogs;
+            _resultValue.webserverLogs = webserverLogs;
+            _resultValue.workerLogs = workerLogs;
+            return _resultValue;
         }
     }
 }

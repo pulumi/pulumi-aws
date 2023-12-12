@@ -158,16 +158,16 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.accessString = accessString;
-            o.authenticationModes = authenticationModes;
-            o.engine = engine;
-            o.id = id;
-            o.noPasswordRequired = noPasswordRequired;
-            o.passwords = passwords;
-            o.userId = userId;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.accessString = accessString;
+            _resultValue.authenticationModes = authenticationModes;
+            _resultValue.engine = engine;
+            _resultValue.id = id;
+            _resultValue.noPasswordRequired = noPasswordRequired;
+            _resultValue.passwords = passwords;
+            _resultValue.userId = userId;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

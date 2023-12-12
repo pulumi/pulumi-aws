@@ -227,19 +227,19 @@ public final class GetFunctionUrlResult {
             return this;
         }
         public GetFunctionUrlResult build() {
-            final var o = new GetFunctionUrlResult();
-            o.authorizationType = authorizationType;
-            o.cors = cors;
-            o.creationTime = creationTime;
-            o.functionArn = functionArn;
-            o.functionName = functionName;
-            o.functionUrl = functionUrl;
-            o.id = id;
-            o.invokeMode = invokeMode;
-            o.lastModifiedTime = lastModifiedTime;
-            o.qualifier = qualifier;
-            o.urlId = urlId;
-            return o;
+            final var _resultValue = new GetFunctionUrlResult();
+            _resultValue.authorizationType = authorizationType;
+            _resultValue.cors = cors;
+            _resultValue.creationTime = creationTime;
+            _resultValue.functionArn = functionArn;
+            _resultValue.functionName = functionName;
+            _resultValue.functionUrl = functionUrl;
+            _resultValue.id = id;
+            _resultValue.invokeMode = invokeMode;
+            _resultValue.lastModifiedTime = lastModifiedTime;
+            _resultValue.qualifier = qualifier;
+            _resultValue.urlId = urlId;
+            return _resultValue;
         }
     }
 }

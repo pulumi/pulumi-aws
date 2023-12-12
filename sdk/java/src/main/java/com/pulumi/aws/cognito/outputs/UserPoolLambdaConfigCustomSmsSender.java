@@ -65,10 +65,10 @@ public final class UserPoolLambdaConfigCustomSmsSender {
             return this;
         }
         public UserPoolLambdaConfigCustomSmsSender build() {
-            final var o = new UserPoolLambdaConfigCustomSmsSender();
-            o.lambdaArn = lambdaArn;
-            o.lambdaVersion = lambdaVersion;
-            return o;
+            final var _resultValue = new UserPoolLambdaConfigCustomSmsSender();
+            _resultValue.lambdaArn = lambdaArn;
+            _resultValue.lambdaVersion = lambdaVersion;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GetReceivedLicenseConsumptionConfigurationProvisionalConfigur
             return this;
         }
         public GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration build() {
-            final var o = new GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration();
-            o.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
-            return o;
+            final var _resultValue = new GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration();
+            _resultValue.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
+            return _resultValue;
         }
     }
 }

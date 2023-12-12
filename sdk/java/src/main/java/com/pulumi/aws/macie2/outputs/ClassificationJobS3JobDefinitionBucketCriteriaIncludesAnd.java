@@ -68,10 +68,10 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
             return this;
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd();
-            o.simpleCriterion = simpleCriterion;
-            o.tagCriterion = tagCriterion;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd();
+            _resultValue.simpleCriterion = simpleCriterion;
+            _resultValue.tagCriterion = tagCriterion;
+            return _resultValue;
         }
     }
 }

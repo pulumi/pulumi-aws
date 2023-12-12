@@ -102,12 +102,12 @@ public final class GetUserPoolClientsResult {
             return this;
         }
         public GetUserPoolClientsResult build() {
-            final var o = new GetUserPoolClientsResult();
-            o.clientIds = clientIds;
-            o.clientNames = clientNames;
-            o.id = id;
-            o.userPoolId = userPoolId;
-            return o;
+            final var _resultValue = new GetUserPoolClientsResult();
+            _resultValue.clientIds = clientIds;
+            _resultValue.clientNames = clientNames;
+            _resultValue.id = id;
+            _resultValue.userPoolId = userPoolId;
+            return _resultValue;
         }
     }
 }

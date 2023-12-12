@@ -102,12 +102,12 @@ public final class GetAccessPointsResult {
             return ids(List.of(ids));
         }
         public GetAccessPointsResult build() {
-            final var o = new GetAccessPointsResult();
-            o.arns = arns;
-            o.fileSystemId = fileSystemId;
-            o.id = id;
-            o.ids = ids;
-            return o;
+            final var _resultValue = new GetAccessPointsResult();
+            _resultValue.arns = arns;
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            return _resultValue;
         }
     }
 }

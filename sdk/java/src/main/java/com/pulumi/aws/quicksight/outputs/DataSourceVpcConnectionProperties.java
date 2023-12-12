@@ -46,9 +46,9 @@ public final class DataSourceVpcConnectionProperties {
             return this;
         }
         public DataSourceVpcConnectionProperties build() {
-            final var o = new DataSourceVpcConnectionProperties();
-            o.vpcConnectionArn = vpcConnectionArn;
-            return o;
+            final var _resultValue = new DataSourceVpcConnectionProperties();
+            _resultValue.vpcConnectionArn = vpcConnectionArn;
+            return _resultValue;
         }
     }
 }

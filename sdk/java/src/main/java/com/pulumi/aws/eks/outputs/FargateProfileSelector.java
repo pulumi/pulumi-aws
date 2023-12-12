@@ -71,10 +71,10 @@ public final class FargateProfileSelector {
             return this;
         }
         public FargateProfileSelector build() {
-            final var o = new FargateProfileSelector();
-            o.labels = labels;
-            o.namespace = namespace;
-            return o;
+            final var _resultValue = new FargateProfileSelector();
+            _resultValue.labels = labels;
+            _resultValue.namespace = namespace;
+            return _resultValue;
         }
     }
 }

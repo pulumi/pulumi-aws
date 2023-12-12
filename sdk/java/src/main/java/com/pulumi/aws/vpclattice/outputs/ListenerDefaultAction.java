@@ -68,10 +68,10 @@ public final class ListenerDefaultAction {
             return forwards(List.of(forwards));
         }
         public ListenerDefaultAction build() {
-            final var o = new ListenerDefaultAction();
-            o.fixedResponse = fixedResponse;
-            o.forwards = forwards;
-            return o;
+            final var _resultValue = new ListenerDefaultAction();
+            _resultValue.fixedResponse = fixedResponse;
+            _resultValue.forwards = forwards;
+            return _resultValue;
         }
     }
 }

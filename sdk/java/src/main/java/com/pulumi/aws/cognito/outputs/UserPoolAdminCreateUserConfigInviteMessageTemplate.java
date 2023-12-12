@@ -86,11 +86,11 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplate {
             return this;
         }
         public UserPoolAdminCreateUserConfigInviteMessageTemplate build() {
-            final var o = new UserPoolAdminCreateUserConfigInviteMessageTemplate();
-            o.emailMessage = emailMessage;
-            o.emailSubject = emailSubject;
-            o.smsMessage = smsMessage;
-            return o;
+            final var _resultValue = new UserPoolAdminCreateUserConfigInviteMessageTemplate();
+            _resultValue.emailMessage = emailMessage;
+            _resultValue.emailSubject = emailSubject;
+            _resultValue.smsMessage = smsMessage;
+            return _resultValue;
         }
     }
 }

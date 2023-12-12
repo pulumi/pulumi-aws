@@ -100,11 +100,11 @@ public final class IntentFollowUpPromptPrompt {
             return this;
         }
         public IntentFollowUpPromptPrompt build() {
-            final var o = new IntentFollowUpPromptPrompt();
-            o.maxAttempts = maxAttempts;
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new IntentFollowUpPromptPrompt();
+            _resultValue.maxAttempts = maxAttempts;
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

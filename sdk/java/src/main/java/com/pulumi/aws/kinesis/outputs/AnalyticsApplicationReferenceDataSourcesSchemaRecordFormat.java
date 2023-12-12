@@ -70,10 +70,10 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat();
-            o.mappingParameters = mappingParameters;
-            o.recordFormatType = recordFormatType;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat();
+            _resultValue.mappingParameters = mappingParameters;
+            _resultValue.recordFormatType = recordFormatType;
+            return _resultValue;
         }
     }
 }

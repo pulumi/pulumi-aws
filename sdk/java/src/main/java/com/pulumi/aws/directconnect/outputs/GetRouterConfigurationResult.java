@@ -130,14 +130,14 @@ public final class GetRouterConfigurationResult {
             return this;
         }
         public GetRouterConfigurationResult build() {
-            final var o = new GetRouterConfigurationResult();
-            o.customerRouterConfig = customerRouterConfig;
-            o.id = id;
-            o.routerTypeIdentifier = routerTypeIdentifier;
-            o.routers = routers;
-            o.virtualInterfaceId = virtualInterfaceId;
-            o.virtualInterfaceName = virtualInterfaceName;
-            return o;
+            final var _resultValue = new GetRouterConfigurationResult();
+            _resultValue.customerRouterConfig = customerRouterConfig;
+            _resultValue.id = id;
+            _resultValue.routerTypeIdentifier = routerTypeIdentifier;
+            _resultValue.routers = routers;
+            _resultValue.virtualInterfaceId = virtualInterfaceId;
+            _resultValue.virtualInterfaceName = virtualInterfaceName;
+            return _resultValue;
         }
     }
 }

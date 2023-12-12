@@ -68,10 +68,10 @@ public final class ClusterEncryptionInfoEncryptionInTransit {
             return this;
         }
         public ClusterEncryptionInfoEncryptionInTransit build() {
-            final var o = new ClusterEncryptionInfoEncryptionInTransit();
-            o.clientBroker = clientBroker;
-            o.inCluster = inCluster;
-            return o;
+            final var _resultValue = new ClusterEncryptionInfoEncryptionInTransit();
+            _resultValue.clientBroker = clientBroker;
+            _resultValue.inCluster = inCluster;
+            return _resultValue;
         }
     }
 }

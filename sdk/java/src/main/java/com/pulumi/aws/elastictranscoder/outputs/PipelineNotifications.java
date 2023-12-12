@@ -125,12 +125,12 @@ public final class PipelineNotifications {
             return this;
         }
         public PipelineNotifications build() {
-            final var o = new PipelineNotifications();
-            o.completed = completed;
-            o.error = error;
-            o.progressing = progressing;
-            o.warning = warning;
-            return o;
+            final var _resultValue = new PipelineNotifications();
+            _resultValue.completed = completed;
+            _resultValue.error = error;
+            _resultValue.progressing = progressing;
+            _resultValue.warning = warning;
+            return _resultValue;
         }
     }
 }

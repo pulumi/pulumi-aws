@@ -67,10 +67,10 @@ public final class SecurityConfigurationEncryptionConfigurationS3Encryption {
             return this;
         }
         public SecurityConfigurationEncryptionConfigurationS3Encryption build() {
-            final var o = new SecurityConfigurationEncryptionConfigurationS3Encryption();
-            o.kmsKeyArn = kmsKeyArn;
-            o.s3EncryptionMode = s3EncryptionMode;
-            return o;
+            final var _resultValue = new SecurityConfigurationEncryptionConfigurationS3Encryption();
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.s3EncryptionMode = s3EncryptionMode;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GetRegexPatternSetRegularExpression {
             return this;
         }
         public GetRegexPatternSetRegularExpression build() {
-            final var o = new GetRegexPatternSetRegularExpression();
-            o.regexString = regexString;
-            return o;
+            final var _resultValue = new GetRegexPatternSetRegularExpression();
+            _resultValue.regexString = regexString;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class DeviceFleetOutputConfig {
             return this;
         }
         public DeviceFleetOutputConfig build() {
-            final var o = new DeviceFleetOutputConfig();
-            o.kmsKeyId = kmsKeyId;
-            o.s3OutputLocation = s3OutputLocation;
-            return o;
+            final var _resultValue = new DeviceFleetOutputConfig();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.s3OutputLocation = s3OutputLocation;
+            return _resultValue;
         }
     }
 }

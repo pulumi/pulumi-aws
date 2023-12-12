@@ -280,21 +280,21 @@ public final class FlowDestinationFlowConfigDestinationConnectorProperties {
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorProperties build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorProperties();
-            o.customConnector = customConnector;
-            o.customerProfiles = customerProfiles;
-            o.eventBridge = eventBridge;
-            o.honeycode = honeycode;
-            o.lookoutMetrics = lookoutMetrics;
-            o.marketo = marketo;
-            o.redshift = redshift;
-            o.s3 = s3;
-            o.salesforce = salesforce;
-            o.sapoData = sapoData;
-            o.snowflake = snowflake;
-            o.upsolver = upsolver;
-            o.zendesk = zendesk;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorProperties();
+            _resultValue.customConnector = customConnector;
+            _resultValue.customerProfiles = customerProfiles;
+            _resultValue.eventBridge = eventBridge;
+            _resultValue.honeycode = honeycode;
+            _resultValue.lookoutMetrics = lookoutMetrics;
+            _resultValue.marketo = marketo;
+            _resultValue.redshift = redshift;
+            _resultValue.s3 = s3;
+            _resultValue.salesforce = salesforce;
+            _resultValue.sapoData = sapoData;
+            _resultValue.snowflake = snowflake;
+            _resultValue.upsolver = upsolver;
+            _resultValue.zendesk = zendesk;
+            return _resultValue;
         }
     }
 }

@@ -196,18 +196,18 @@ public final class GetLocalGatewayVirtualInterfaceResult {
             return this;
         }
         public GetLocalGatewayVirtualInterfaceResult build() {
-            final var o = new GetLocalGatewayVirtualInterfaceResult();
-            o.filters = filters;
-            o.id = id;
-            o.localAddress = localAddress;
-            o.localBgpAsn = localBgpAsn;
-            o.localGatewayId = localGatewayId;
-            o.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
-            o.peerAddress = peerAddress;
-            o.peerBgpAsn = peerBgpAsn;
-            o.tags = tags;
-            o.vlan = vlan;
-            return o;
+            final var _resultValue = new GetLocalGatewayVirtualInterfaceResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.localAddress = localAddress;
+            _resultValue.localBgpAsn = localBgpAsn;
+            _resultValue.localGatewayId = localGatewayId;
+            _resultValue.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
+            _resultValue.peerAddress = peerAddress;
+            _resultValue.peerBgpAsn = peerBgpAsn;
+            _resultValue.tags = tags;
+            _resultValue.vlan = vlan;
+            return _resultValue;
         }
     }
 }

@@ -88,11 +88,11 @@ public final class EndpointDeploymentConfig {
             return this;
         }
         public EndpointDeploymentConfig build() {
-            final var o = new EndpointDeploymentConfig();
-            o.autoRollbackConfiguration = autoRollbackConfiguration;
-            o.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
-            o.rollingUpdatePolicy = rollingUpdatePolicy;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfig();
+            _resultValue.autoRollbackConfiguration = autoRollbackConfiguration;
+            _resultValue.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
+            _resultValue.rollingUpdatePolicy = rollingUpdatePolicy;
+            return _resultValue;
         }
     }
 }

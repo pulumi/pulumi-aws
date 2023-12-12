@@ -68,10 +68,10 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation();
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.trust = trust;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation();
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.trust = trust;
+            return _resultValue;
         }
     }
 }

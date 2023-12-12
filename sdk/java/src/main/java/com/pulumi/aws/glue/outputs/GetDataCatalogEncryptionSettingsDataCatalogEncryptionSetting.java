@@ -73,10 +73,10 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting 
             return encryptionAtRests(List.of(encryptionAtRests));
         }
         public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting build() {
-            final var o = new GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting();
-            o.connectionPasswordEncryptions = connectionPasswordEncryptions;
-            o.encryptionAtRests = encryptionAtRests;
-            return o;
+            final var _resultValue = new GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting();
+            _resultValue.connectionPasswordEncryptions = connectionPasswordEncryptions;
+            _resultValue.encryptionAtRests = encryptionAtRests;
+            return _resultValue;
         }
     }
 }

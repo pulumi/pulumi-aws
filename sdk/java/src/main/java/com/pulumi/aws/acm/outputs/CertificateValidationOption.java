@@ -65,10 +65,10 @@ public final class CertificateValidationOption {
             return this;
         }
         public CertificateValidationOption build() {
-            final var o = new CertificateValidationOption();
-            o.domainName = domainName;
-            o.validationDomain = validationDomain;
-            return o;
+            final var _resultValue = new CertificateValidationOption();
+            _resultValue.domainName = domainName;
+            _resultValue.validationDomain = validationDomain;
+            return _resultValue;
         }
     }
 }

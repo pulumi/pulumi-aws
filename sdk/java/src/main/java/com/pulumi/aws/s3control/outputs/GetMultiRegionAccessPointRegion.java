@@ -84,11 +84,11 @@ public final class GetMultiRegionAccessPointRegion {
             return this;
         }
         public GetMultiRegionAccessPointRegion build() {
-            final var o = new GetMultiRegionAccessPointRegion();
-            o.bucket = bucket;
-            o.bucketAccountId = bucketAccountId;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetMultiRegionAccessPointRegion();
+            _resultValue.bucket = bucket;
+            _resultValue.bucketAccountId = bucketAccountId;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

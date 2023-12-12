@@ -110,12 +110,12 @@ public final class ByteMatchSetByteMatchTuple {
             return this;
         }
         public ByteMatchSetByteMatchTuple build() {
-            final var o = new ByteMatchSetByteMatchTuple();
-            o.fieldToMatch = fieldToMatch;
-            o.positionalConstraint = positionalConstraint;
-            o.targetString = targetString;
-            o.textTransformation = textTransformation;
-            return o;
+            final var _resultValue = new ByteMatchSetByteMatchTuple();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.positionalConstraint = positionalConstraint;
+            _resultValue.targetString = targetString;
+            _resultValue.textTransformation = textTransformation;
+            return _resultValue;
         }
     }
 }

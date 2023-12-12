@@ -68,10 +68,10 @@ public final class GatewayRouteSpecHttpRouteMatchQueryParameter {
             return this;
         }
         public GatewayRouteSpecHttpRouteMatchQueryParameter build() {
-            final var o = new GatewayRouteSpecHttpRouteMatchQueryParameter();
-            o.match = match;
-            o.name = name;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttpRouteMatchQueryParameter();
+            _resultValue.match = match;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

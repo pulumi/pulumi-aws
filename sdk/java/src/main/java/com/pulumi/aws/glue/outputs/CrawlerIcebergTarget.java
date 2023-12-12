@@ -113,12 +113,12 @@ public final class CrawlerIcebergTarget {
             return paths(List.of(paths));
         }
         public CrawlerIcebergTarget build() {
-            final var o = new CrawlerIcebergTarget();
-            o.connectionName = connectionName;
-            o.exclusions = exclusions;
-            o.maximumTraversalDepth = maximumTraversalDepth;
-            o.paths = paths;
-            return o;
+            final var _resultValue = new CrawlerIcebergTarget();
+            _resultValue.connectionName = connectionName;
+            _resultValue.exclusions = exclusions;
+            _resultValue.maximumTraversalDepth = maximumTraversalDepth;
+            _resultValue.paths = paths;
+            return _resultValue;
         }
     }
 }

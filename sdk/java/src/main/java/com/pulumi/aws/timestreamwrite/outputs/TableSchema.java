@@ -48,9 +48,9 @@ public final class TableSchema {
             return this;
         }
         public TableSchema build() {
-            final var o = new TableSchema();
-            o.compositePartitionKey = compositePartitionKey;
-            return o;
+            final var _resultValue = new TableSchema();
+            _resultValue.compositePartitionKey = compositePartitionKey;
+            return _resultValue;
         }
     }
 }

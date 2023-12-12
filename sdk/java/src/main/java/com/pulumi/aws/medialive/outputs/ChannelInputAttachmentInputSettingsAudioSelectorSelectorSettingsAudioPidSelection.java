@@ -46,9 +46,9 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection();
-            o.pid = pid;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection();
+            _resultValue.pid = pid;
+            return _resultValue;
         }
     }
 }

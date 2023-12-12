@@ -65,10 +65,10 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
             return this;
         }
         public PipeTargetParametersSagemakerPipelineParametersPipelineParameter build() {
-            final var o = new PipeTargetParametersSagemakerPipelineParametersPipelineParameter();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new PipeTargetParametersSagemakerPipelineParametersPipelineParameter();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

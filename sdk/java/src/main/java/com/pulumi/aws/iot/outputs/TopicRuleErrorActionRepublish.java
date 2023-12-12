@@ -91,11 +91,11 @@ public final class TopicRuleErrorActionRepublish {
             return this;
         }
         public TopicRuleErrorActionRepublish build() {
-            final var o = new TopicRuleErrorActionRepublish();
-            o.qos = qos;
-            o.roleArn = roleArn;
-            o.topic = topic;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionRepublish();
+            _resultValue.qos = qos;
+            _resultValue.roleArn = roleArn;
+            _resultValue.topic = topic;
+            return _resultValue;
         }
     }
 }

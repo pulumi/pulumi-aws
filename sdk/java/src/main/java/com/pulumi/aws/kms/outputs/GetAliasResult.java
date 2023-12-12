@@ -114,13 +114,13 @@ public final class GetAliasResult {
             return this;
         }
         public GetAliasResult build() {
-            final var o = new GetAliasResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.targetKeyArn = targetKeyArn;
-            o.targetKeyId = targetKeyId;
-            return o;
+            final var _resultValue = new GetAliasResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.targetKeyArn = targetKeyArn;
+            _resultValue.targetKeyId = targetKeyId;
+            return _resultValue;
         }
     }
 }

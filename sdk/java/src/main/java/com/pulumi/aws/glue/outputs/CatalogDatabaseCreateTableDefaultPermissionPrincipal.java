@@ -48,9 +48,9 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipal {
             return this;
         }
         public CatalogDatabaseCreateTableDefaultPermissionPrincipal build() {
-            final var o = new CatalogDatabaseCreateTableDefaultPermissionPrincipal();
-            o.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
-            return o;
+            final var _resultValue = new CatalogDatabaseCreateTableDefaultPermissionPrincipal();
+            _resultValue.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
+            return _resultValue;
         }
     }
 }

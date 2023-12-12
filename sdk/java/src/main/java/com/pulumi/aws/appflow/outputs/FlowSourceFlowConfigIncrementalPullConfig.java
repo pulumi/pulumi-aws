@@ -48,9 +48,9 @@ public final class FlowSourceFlowConfigIncrementalPullConfig {
             return this;
         }
         public FlowSourceFlowConfigIncrementalPullConfig build() {
-            final var o = new FlowSourceFlowConfigIncrementalPullConfig();
-            o.datetimeTypeFieldName = datetimeTypeFieldName;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigIncrementalPullConfig();
+            _resultValue.datetimeTypeFieldName = datetimeTypeFieldName;
+            return _resultValue;
         }
     }
 }

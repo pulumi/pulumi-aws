@@ -106,12 +106,12 @@ public final class InstanceFleetLaunchSpecificationsSpotSpecification {
             return this;
         }
         public InstanceFleetLaunchSpecificationsSpotSpecification build() {
-            final var o = new InstanceFleetLaunchSpecificationsSpotSpecification();
-            o.allocationStrategy = allocationStrategy;
-            o.blockDurationMinutes = blockDurationMinutes;
-            o.timeoutAction = timeoutAction;
-            o.timeoutDurationMinutes = timeoutDurationMinutes;
-            return o;
+            final var _resultValue = new InstanceFleetLaunchSpecificationsSpotSpecification();
+            _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.blockDurationMinutes = blockDurationMinutes;
+            _resultValue.timeoutAction = timeoutAction;
+            _resultValue.timeoutDurationMinutes = timeoutDurationMinutes;
+            return _resultValue;
         }
     }
 }

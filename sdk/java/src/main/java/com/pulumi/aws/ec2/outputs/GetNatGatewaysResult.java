@@ -109,13 +109,13 @@ public final class GetNatGatewaysResult {
             return this;
         }
         public GetNatGatewaysResult build() {
-            final var o = new GetNatGatewaysResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetNatGatewaysResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

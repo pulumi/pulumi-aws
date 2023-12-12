@@ -90,11 +90,11 @@ public final class ConnectionPhysicalConnectionRequirements {
             return this;
         }
         public ConnectionPhysicalConnectionRequirements build() {
-            final var o = new ConnectionPhysicalConnectionRequirements();
-            o.availabilityZone = availabilityZone;
-            o.securityGroupIdLists = securityGroupIdLists;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ConnectionPhysicalConnectionRequirements();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.securityGroupIdLists = securityGroupIdLists;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class LifecyclePolicyPolicyDetailsEventSource {
             return this;
         }
         public LifecyclePolicyPolicyDetailsEventSource build() {
-            final var o = new LifecyclePolicyPolicyDetailsEventSource();
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsEventSource();
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

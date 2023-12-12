@@ -143,14 +143,14 @@ public final class GetLocationResult {
             return this;
         }
         public GetLocationResult build() {
-            final var o = new GetLocationResult();
-            o.availableMacsecPortSpeeds = availableMacsecPortSpeeds;
-            o.availablePortSpeeds = availablePortSpeeds;
-            o.availableProviders = availableProviders;
-            o.id = id;
-            o.locationCode = locationCode;
-            o.locationName = locationName;
-            return o;
+            final var _resultValue = new GetLocationResult();
+            _resultValue.availableMacsecPortSpeeds = availableMacsecPortSpeeds;
+            _resultValue.availablePortSpeeds = availablePortSpeeds;
+            _resultValue.availableProviders = availableProviders;
+            _resultValue.id = id;
+            _resultValue.locationCode = locationCode;
+            _resultValue.locationName = locationName;
+            return _resultValue;
         }
     }
 }

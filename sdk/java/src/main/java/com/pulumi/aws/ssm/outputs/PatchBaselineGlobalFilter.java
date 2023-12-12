@@ -53,10 +53,10 @@ public final class PatchBaselineGlobalFilter {
             return values(List.of(values));
         }
         public PatchBaselineGlobalFilter build() {
-            final var o = new PatchBaselineGlobalFilter();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new PatchBaselineGlobalFilter();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

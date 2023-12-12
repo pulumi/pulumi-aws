@@ -57,10 +57,10 @@ public final class GetOrganizationRootPolicyType {
             return this;
         }
         public GetOrganizationRootPolicyType build() {
-            final var o = new GetOrganizationRootPolicyType();
-            o.status = status;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetOrganizationRootPolicyType();
+            _resultValue.status = status;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

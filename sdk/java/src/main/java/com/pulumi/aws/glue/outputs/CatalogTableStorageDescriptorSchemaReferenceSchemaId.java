@@ -86,11 +86,11 @@ public final class CatalogTableStorageDescriptorSchemaReferenceSchemaId {
             return this;
         }
         public CatalogTableStorageDescriptorSchemaReferenceSchemaId build() {
-            final var o = new CatalogTableStorageDescriptorSchemaReferenceSchemaId();
-            o.registryName = registryName;
-            o.schemaArn = schemaArn;
-            o.schemaName = schemaName;
-            return o;
+            final var _resultValue = new CatalogTableStorageDescriptorSchemaReferenceSchemaId();
+            _resultValue.registryName = registryName;
+            _resultValue.schemaArn = schemaArn;
+            _resultValue.schemaName = schemaName;
+            return _resultValue;
         }
     }
 }

@@ -71,10 +71,10 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfiguration {
             return eventFilters(List.of(eventFilters));
         }
         public RiskConfigurationCompromisedCredentialsRiskConfiguration build() {
-            final var o = new RiskConfigurationCompromisedCredentialsRiskConfiguration();
-            o.actions = actions;
-            o.eventFilters = eventFilters;
-            return o;
+            final var _resultValue = new RiskConfigurationCompromisedCredentialsRiskConfiguration();
+            _resultValue.actions = actions;
+            _resultValue.eventFilters = eventFilters;
+            return _resultValue;
         }
     }
 }

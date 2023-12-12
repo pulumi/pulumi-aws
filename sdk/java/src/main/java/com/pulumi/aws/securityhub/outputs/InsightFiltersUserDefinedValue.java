@@ -84,11 +84,11 @@ public final class InsightFiltersUserDefinedValue {
             return this;
         }
         public InsightFiltersUserDefinedValue build() {
-            final var o = new InsightFiltersUserDefinedValue();
-            o.comparison = comparison;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersUserDefinedValue();
+            _resultValue.comparison = comparison;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

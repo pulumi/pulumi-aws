@@ -68,10 +68,10 @@ public final class ClusterEncryptionInfo {
             return this;
         }
         public ClusterEncryptionInfo build() {
-            final var o = new ClusterEncryptionInfo();
-            o.encryptionAtRestKmsKeyArn = encryptionAtRestKmsKeyArn;
-            o.encryptionInTransit = encryptionInTransit;
-            return o;
+            final var _resultValue = new ClusterEncryptionInfo();
+            _resultValue.encryptionAtRestKmsKeyArn = encryptionAtRestKmsKeyArn;
+            _resultValue.encryptionInTransit = encryptionInTransit;
+            return _resultValue;
         }
     }
 }

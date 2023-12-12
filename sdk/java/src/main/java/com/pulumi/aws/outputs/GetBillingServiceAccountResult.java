@@ -65,10 +65,10 @@ public final class GetBillingServiceAccountResult {
             return this;
         }
         public GetBillingServiceAccountResult build() {
-            final var o = new GetBillingServiceAccountResult();
-            o.arn = arn;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetBillingServiceAccountResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GetInstanceEnclaveOption {
             return this;
         }
         public GetInstanceEnclaveOption build() {
-            final var o = new GetInstanceEnclaveOption();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetInstanceEnclaveOption();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

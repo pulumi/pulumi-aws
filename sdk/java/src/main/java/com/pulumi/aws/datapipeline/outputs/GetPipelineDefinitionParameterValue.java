@@ -65,10 +65,10 @@ public final class GetPipelineDefinitionParameterValue {
             return this;
         }
         public GetPipelineDefinitionParameterValue build() {
-            final var o = new GetPipelineDefinitionParameterValue();
-            o.id = id;
-            o.stringValue = stringValue;
-            return o;
+            final var _resultValue = new GetPipelineDefinitionParameterValue();
+            _resultValue.id = id;
+            _resultValue.stringValue = stringValue;
+            return _resultValue;
         }
     }
 }

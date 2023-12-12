@@ -84,11 +84,11 @@ public final class GetCatalogTableTargetTable {
             return this;
         }
         public GetCatalogTableTargetTable build() {
-            final var o = new GetCatalogTableTargetTable();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetCatalogTableTargetTable();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -107,11 +107,11 @@ public final class GroupInstanceRefresh {
             return triggers(List.of(triggers));
         }
         public GroupInstanceRefresh build() {
-            final var o = new GroupInstanceRefresh();
-            o.preferences = preferences;
-            o.strategy = strategy;
-            o.triggers = triggers;
-            return o;
+            final var _resultValue = new GroupInstanceRefresh();
+            _resultValue.preferences = preferences;
+            _resultValue.strategy = strategy;
+            _resultValue.triggers = triggers;
+            return _resultValue;
         }
     }
 }

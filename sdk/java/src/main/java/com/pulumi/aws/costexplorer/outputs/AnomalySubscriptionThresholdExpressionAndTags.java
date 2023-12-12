@@ -93,11 +93,11 @@ public final class AnomalySubscriptionThresholdExpressionAndTags {
             return values(List.of(values));
         }
         public AnomalySubscriptionThresholdExpressionAndTags build() {
-            final var o = new AnomalySubscriptionThresholdExpressionAndTags();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new AnomalySubscriptionThresholdExpressionAndTags();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

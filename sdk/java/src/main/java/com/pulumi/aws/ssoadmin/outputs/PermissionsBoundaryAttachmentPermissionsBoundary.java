@@ -68,10 +68,10 @@ public final class PermissionsBoundaryAttachmentPermissionsBoundary {
             return this;
         }
         public PermissionsBoundaryAttachmentPermissionsBoundary build() {
-            final var o = new PermissionsBoundaryAttachmentPermissionsBoundary();
-            o.customerManagedPolicyReference = customerManagedPolicyReference;
-            o.managedPolicyArn = managedPolicyArn;
-            return o;
+            final var _resultValue = new PermissionsBoundaryAttachmentPermissionsBoundary();
+            _resultValue.customerManagedPolicyReference = customerManagedPolicyReference;
+            _resultValue.managedPolicyArn = managedPolicyArn;
+            return _resultValue;
         }
     }
 }

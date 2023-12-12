@@ -117,14 +117,14 @@ public final class GetServerlessAccessPolicyResult {
             return this;
         }
         public GetServerlessAccessPolicyResult build() {
-            final var o = new GetServerlessAccessPolicyResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.policy = policy;
-            o.policyVersion = policyVersion;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetServerlessAccessPolicyResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.policy = policy;
+            _resultValue.policyVersion = policyVersion;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

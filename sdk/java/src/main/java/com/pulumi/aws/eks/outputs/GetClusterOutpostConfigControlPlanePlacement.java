@@ -46,9 +46,9 @@ public final class GetClusterOutpostConfigControlPlanePlacement {
             return this;
         }
         public GetClusterOutpostConfigControlPlanePlacement build() {
-            final var o = new GetClusterOutpostConfigControlPlanePlacement();
-            o.groupName = groupName;
-            return o;
+            final var _resultValue = new GetClusterOutpostConfigControlPlanePlacement();
+            _resultValue.groupName = groupName;
+            return _resultValue;
         }
     }
 }

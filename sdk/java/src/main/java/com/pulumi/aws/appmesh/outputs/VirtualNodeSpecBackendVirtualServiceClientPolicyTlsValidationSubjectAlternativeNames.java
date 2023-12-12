@@ -46,9 +46,9 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
             return this;
         }
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames build() {
-            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames();
-            o.match = match;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames();
+            _resultValue.match = match;
+            return _resultValue;
         }
     }
 }

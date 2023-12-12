@@ -201,18 +201,18 @@ public final class GetFunctionResult {
             return this;
         }
         public GetFunctionResult build() {
-            final var o = new GetFunctionResult();
-            o.arn = arn;
-            o.code = code;
-            o.comment = comment;
-            o.etag = etag;
-            o.id = id;
-            o.lastModifiedTime = lastModifiedTime;
-            o.name = name;
-            o.runtime = runtime;
-            o.stage = stage;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetFunctionResult();
+            _resultValue.arn = arn;
+            _resultValue.code = code;
+            _resultValue.comment = comment;
+            _resultValue.etag = etag;
+            _resultValue.id = id;
+            _resultValue.lastModifiedTime = lastModifiedTime;
+            _resultValue.name = name;
+            _resultValue.runtime = runtime;
+            _resultValue.stage = stage;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

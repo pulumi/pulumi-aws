@@ -108,12 +108,12 @@ public final class PolicyTargetTrackingConfiguration {
             return this;
         }
         public PolicyTargetTrackingConfiguration build() {
-            final var o = new PolicyTargetTrackingConfiguration();
-            o.customizedMetricSpecification = customizedMetricSpecification;
-            o.disableScaleIn = disableScaleIn;
-            o.predefinedMetricSpecification = predefinedMetricSpecification;
-            o.targetValue = targetValue;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingConfiguration();
+            _resultValue.customizedMetricSpecification = customizedMetricSpecification;
+            _resultValue.disableScaleIn = disableScaleIn;
+            _resultValue.predefinedMetricSpecification = predefinedMetricSpecification;
+            _resultValue.targetValue = targetValue;
+            return _resultValue;
         }
     }
 }

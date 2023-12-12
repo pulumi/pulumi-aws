@@ -72,10 +72,10 @@ public final class DataSetRowLevelPermissionTagConfiguration {
             return tagRules(List.of(tagRules));
         }
         public DataSetRowLevelPermissionTagConfiguration build() {
-            final var o = new DataSetRowLevelPermissionTagConfiguration();
-            o.status = status;
-            o.tagRules = tagRules;
-            return o;
+            final var _resultValue = new DataSetRowLevelPermissionTagConfiguration();
+            _resultValue.status = status;
+            _resultValue.tagRules = tagRules;
+            return _resultValue;
         }
     }
 }

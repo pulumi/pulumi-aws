@@ -65,10 +65,10 @@ public final class VirtualGatewaySpecListenerTlsCertificateFile {
             return this;
         }
         public VirtualGatewaySpecListenerTlsCertificateFile build() {
-            final var o = new VirtualGatewaySpecListenerTlsCertificateFile();
-            o.certificateChain = certificateChain;
-            o.privateKey = privateKey;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerTlsCertificateFile();
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.privateKey = privateKey;
+            return _resultValue;
         }
     }
 }

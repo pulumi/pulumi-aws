@@ -180,18 +180,18 @@ public final class GetResolverRuleResult {
             return this;
         }
         public GetResolverRuleResult build() {
-            final var o = new GetResolverRuleResult();
-            o.arn = arn;
-            o.domainName = domainName;
-            o.id = id;
-            o.name = name;
-            o.ownerId = ownerId;
-            o.resolverEndpointId = resolverEndpointId;
-            o.resolverRuleId = resolverRuleId;
-            o.ruleType = ruleType;
-            o.shareStatus = shareStatus;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResolverRuleResult();
+            _resultValue.arn = arn;
+            _resultValue.domainName = domainName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.ownerId = ownerId;
+            _resultValue.resolverEndpointId = resolverEndpointId;
+            _resultValue.resolverRuleId = resolverRuleId;
+            _resultValue.ruleType = ruleType;
+            _resultValue.shareStatus = shareStatus;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

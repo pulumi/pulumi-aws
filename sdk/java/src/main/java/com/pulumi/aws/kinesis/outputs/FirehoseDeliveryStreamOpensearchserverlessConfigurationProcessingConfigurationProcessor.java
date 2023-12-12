@@ -71,10 +71,10 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
             return this;
         }
         public FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor build() {
-            final var o = new FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor();
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor();
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

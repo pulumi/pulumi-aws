@@ -125,13 +125,13 @@ public final class ResourceSetResourceDnsTargetResource {
             return this;
         }
         public ResourceSetResourceDnsTargetResource build() {
-            final var o = new ResourceSetResourceDnsTargetResource();
-            o.domainName = domainName;
-            o.hostedZoneArn = hostedZoneArn;
-            o.recordSetId = recordSetId;
-            o.recordType = recordType;
-            o.targetResource = targetResource;
-            return o;
+            final var _resultValue = new ResourceSetResourceDnsTargetResource();
+            _resultValue.domainName = domainName;
+            _resultValue.hostedZoneArn = hostedZoneArn;
+            _resultValue.recordSetId = recordSetId;
+            _resultValue.recordType = recordType;
+            _resultValue.targetResource = targetResource;
+            return _resultValue;
         }
     }
 }

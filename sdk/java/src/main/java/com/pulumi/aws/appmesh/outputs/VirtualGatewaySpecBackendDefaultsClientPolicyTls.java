@@ -112,12 +112,12 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTls {
             return this;
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTls build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTls();
-            o.certificate = certificate;
-            o.enforce = enforce;
-            o.ports = ports;
-            o.validation = validation;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTls();
+            _resultValue.certificate = certificate;
+            _resultValue.enforce = enforce;
+            _resultValue.ports = ports;
+            _resultValue.validation = validation;
+            return _resultValue;
         }
     }
 }

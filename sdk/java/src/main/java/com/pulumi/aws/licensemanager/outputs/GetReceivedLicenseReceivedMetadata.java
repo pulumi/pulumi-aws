@@ -88,11 +88,11 @@ public final class GetReceivedLicenseReceivedMetadata {
             return this;
         }
         public GetReceivedLicenseReceivedMetadata build() {
-            final var o = new GetReceivedLicenseReceivedMetadata();
-            o.allowedOperations = allowedOperations;
-            o.receivedStatus = receivedStatus;
-            o.receivedStatusReason = receivedStatusReason;
-            return o;
+            final var _resultValue = new GetReceivedLicenseReceivedMetadata();
+            _resultValue.allowedOperations = allowedOperations;
+            _resultValue.receivedStatus = receivedStatus;
+            _resultValue.receivedStatusReason = receivedStatusReason;
+            return _resultValue;
         }
     }
 }

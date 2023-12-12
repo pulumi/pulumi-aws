@@ -112,12 +112,12 @@ public final class ServiceServiceConnectConfiguration {
             return services(List.of(services));
         }
         public ServiceServiceConnectConfiguration build() {
-            final var o = new ServiceServiceConnectConfiguration();
-            o.enabled = enabled;
-            o.logConfiguration = logConfiguration;
-            o.namespace = namespace;
-            o.services = services;
-            return o;
+            final var _resultValue = new ServiceServiceConnectConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logConfiguration = logConfiguration;
+            _resultValue.namespace = namespace;
+            _resultValue.services = services;
+            return _resultValue;
         }
     }
 }

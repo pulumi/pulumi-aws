@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace();
-            o.apiToken = apiToken;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace();
+            _resultValue.apiToken = apiToken;
+            return _resultValue;
         }
     }
 }

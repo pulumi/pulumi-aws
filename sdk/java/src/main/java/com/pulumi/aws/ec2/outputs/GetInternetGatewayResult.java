@@ -139,15 +139,15 @@ public final class GetInternetGatewayResult {
             return this;
         }
         public GetInternetGatewayResult build() {
-            final var o = new GetInternetGatewayResult();
-            o.arn = arn;
-            o.attachments = attachments;
-            o.filters = filters;
-            o.id = id;
-            o.internetGatewayId = internetGatewayId;
-            o.ownerId = ownerId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetInternetGatewayResult();
+            _resultValue.arn = arn;
+            _resultValue.attachments = attachments;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.internetGatewayId = internetGatewayId;
+            _resultValue.ownerId = ownerId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

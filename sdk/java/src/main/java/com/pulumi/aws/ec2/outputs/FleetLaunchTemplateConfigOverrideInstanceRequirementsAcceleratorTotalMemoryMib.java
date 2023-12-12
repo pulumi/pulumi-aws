@@ -67,10 +67,10 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
             return this;
         }
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib build() {
-            final var o = new FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

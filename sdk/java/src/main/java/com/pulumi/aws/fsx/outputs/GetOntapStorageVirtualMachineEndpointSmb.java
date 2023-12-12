@@ -53,10 +53,10 @@ public final class GetOntapStorageVirtualMachineEndpointSmb {
             return ipAddresses(List.of(ipAddresses));
         }
         public GetOntapStorageVirtualMachineEndpointSmb build() {
-            final var o = new GetOntapStorageVirtualMachineEndpointSmb();
-            o.dnsName = dnsName;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineEndpointSmb();
+            _resultValue.dnsName = dnsName;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

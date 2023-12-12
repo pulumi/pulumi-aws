@@ -76,11 +76,11 @@ public final class GetBucketPolicyResult {
             return this;
         }
         public GetBucketPolicyResult build() {
-            final var o = new GetBucketPolicyResult();
-            o.bucket = bucket;
-            o.id = id;
-            o.policy = policy;
-            return o;
+            final var _resultValue = new GetBucketPolicyResult();
+            _resultValue.bucket = bucket;
+            _resultValue.id = id;
+            _resultValue.policy = policy;
+            return _resultValue;
         }
     }
 }

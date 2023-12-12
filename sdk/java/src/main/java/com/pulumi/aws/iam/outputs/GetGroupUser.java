@@ -103,12 +103,12 @@ public final class GetGroupUser {
             return this;
         }
         public GetGroupUser build() {
-            final var o = new GetGroupUser();
-            o.arn = arn;
-            o.path = path;
-            o.userId = userId;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new GetGroupUser();
+            _resultValue.arn = arn;
+            _resultValue.path = path;
+            _resultValue.userId = userId;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

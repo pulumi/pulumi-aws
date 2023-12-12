@@ -85,11 +85,11 @@ public final class GetVpcAttachmentsResult {
             return ids(List.of(ids));
         }
         public GetVpcAttachmentsResult build() {
-            final var o = new GetVpcAttachmentsResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            return o;
+            final var _resultValue = new GetVpcAttachmentsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            return _resultValue;
         }
     }
 }

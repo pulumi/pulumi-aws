@@ -93,11 +93,11 @@ public final class ThemeConfigurationDataColorPalette {
             return minMaxGradients(List.of(minMaxGradients));
         }
         public ThemeConfigurationDataColorPalette build() {
-            final var o = new ThemeConfigurationDataColorPalette();
-            o.colors = colors;
-            o.emptyFillColor = emptyFillColor;
-            o.minMaxGradients = minMaxGradients;
-            return o;
+            final var _resultValue = new ThemeConfigurationDataColorPalette();
+            _resultValue.colors = colors;
+            _resultValue.emptyFillColor = emptyFillColor;
+            _resultValue.minMaxGradients = minMaxGradients;
+            return _resultValue;
         }
     }
 }

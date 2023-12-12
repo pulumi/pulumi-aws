@@ -46,9 +46,9 @@ public final class FrameworkControlSetControl {
             return this;
         }
         public FrameworkControlSetControl build() {
-            final var o = new FrameworkControlSetControl();
-            o.id = id;
-            return o;
+            final var _resultValue = new FrameworkControlSetControl();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -147,14 +147,14 @@ public final class PolicyTargetTrackingScalingPolicyConfiguration {
             return this;
         }
         public PolicyTargetTrackingScalingPolicyConfiguration build() {
-            final var o = new PolicyTargetTrackingScalingPolicyConfiguration();
-            o.customizedMetricSpecification = customizedMetricSpecification;
-            o.disableScaleIn = disableScaleIn;
-            o.predefinedMetricSpecification = predefinedMetricSpecification;
-            o.scaleInCooldown = scaleInCooldown;
-            o.scaleOutCooldown = scaleOutCooldown;
-            o.targetValue = targetValue;
-            return o;
+            final var _resultValue = new PolicyTargetTrackingScalingPolicyConfiguration();
+            _resultValue.customizedMetricSpecification = customizedMetricSpecification;
+            _resultValue.disableScaleIn = disableScaleIn;
+            _resultValue.predefinedMetricSpecification = predefinedMetricSpecification;
+            _resultValue.scaleInCooldown = scaleInCooldown;
+            _resultValue.scaleOutCooldown = scaleOutCooldown;
+            _resultValue.targetValue = targetValue;
+            return _resultValue;
         }
     }
 }

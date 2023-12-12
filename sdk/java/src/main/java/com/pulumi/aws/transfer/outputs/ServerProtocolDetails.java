@@ -109,12 +109,12 @@ public final class ServerProtocolDetails {
             return this;
         }
         public ServerProtocolDetails build() {
-            final var o = new ServerProtocolDetails();
-            o.as2Transports = as2Transports;
-            o.passiveIp = passiveIp;
-            o.setStatOption = setStatOption;
-            o.tlsSessionResumptionMode = tlsSessionResumptionMode;
-            return o;
+            final var _resultValue = new ServerProtocolDetails();
+            _resultValue.as2Transports = as2Transports;
+            _resultValue.passiveIp = passiveIp;
+            _resultValue.setStatOption = setStatOption;
+            _resultValue.tlsSessionResumptionMode = tlsSessionResumptionMode;
+            return _resultValue;
         }
     }
 }

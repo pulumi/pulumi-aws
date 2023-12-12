@@ -78,10 +78,10 @@ public final class KxClusterCacheStorageConfiguration {
             return this;
         }
         public KxClusterCacheStorageConfiguration build() {
-            final var o = new KxClusterCacheStorageConfiguration();
-            o.size = size;
-            o.type = type;
-            return o;
+            final var _resultValue = new KxClusterCacheStorageConfiguration();
+            _resultValue.size = size;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

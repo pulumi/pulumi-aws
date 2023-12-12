@@ -95,12 +95,12 @@ public final class GetPullThroughCacheRuleResult {
             return this;
         }
         public GetPullThroughCacheRuleResult build() {
-            final var o = new GetPullThroughCacheRuleResult();
-            o.ecrRepositoryPrefix = ecrRepositoryPrefix;
-            o.id = id;
-            o.registryId = registryId;
-            o.upstreamRegistryUrl = upstreamRegistryUrl;
-            return o;
+            final var _resultValue = new GetPullThroughCacheRuleResult();
+            _resultValue.ecrRepositoryPrefix = ecrRepositoryPrefix;
+            _resultValue.id = id;
+            _resultValue.registryId = registryId;
+            _resultValue.upstreamRegistryUrl = upstreamRegistryUrl;
+            return _resultValue;
         }
     }
 }

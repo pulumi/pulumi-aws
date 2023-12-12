@@ -65,10 +65,10 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
             return this;
         }
         public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest build() {
-            final var o = new GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest();
-            o.catalogEncryptionMode = catalogEncryptionMode;
-            o.sseAwsKmsKeyId = sseAwsKmsKeyId;
-            return o;
+            final var _resultValue = new GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest();
+            _resultValue.catalogEncryptionMode = catalogEncryptionMode;
+            _resultValue.sseAwsKmsKeyId = sseAwsKmsKeyId;
+            return _resultValue;
         }
     }
 }

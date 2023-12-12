@@ -513,34 +513,34 @@ public final class GetWindowsFileSystemResult {
             return this;
         }
         public GetWindowsFileSystemResult build() {
-            final var o = new GetWindowsFileSystemResult();
-            o.activeDirectoryId = activeDirectoryId;
-            o.aliases = aliases;
-            o.arn = arn;
-            o.auditLogConfigurations = auditLogConfigurations;
-            o.automaticBackupRetentionDays = automaticBackupRetentionDays;
-            o.backupId = backupId;
-            o.copyTagsToBackups = copyTagsToBackups;
-            o.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
-            o.deploymentType = deploymentType;
-            o.diskIopsConfigurations = diskIopsConfigurations;
-            o.dnsName = dnsName;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.networkInterfaceIds = networkInterfaceIds;
-            o.ownerId = ownerId;
-            o.preferredFileServerIp = preferredFileServerIp;
-            o.preferredSubnetId = preferredSubnetId;
-            o.securityGroupIds = securityGroupIds;
-            o.skipFinalBackup = skipFinalBackup;
-            o.storageCapacity = storageCapacity;
-            o.storageType = storageType;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.throughputCapacity = throughputCapacity;
-            o.vpcId = vpcId;
-            o.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
-            return o;
+            final var _resultValue = new GetWindowsFileSystemResult();
+            _resultValue.activeDirectoryId = activeDirectoryId;
+            _resultValue.aliases = aliases;
+            _resultValue.arn = arn;
+            _resultValue.auditLogConfigurations = auditLogConfigurations;
+            _resultValue.automaticBackupRetentionDays = automaticBackupRetentionDays;
+            _resultValue.backupId = backupId;
+            _resultValue.copyTagsToBackups = copyTagsToBackups;
+            _resultValue.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
+            _resultValue.deploymentType = deploymentType;
+            _resultValue.diskIopsConfigurations = diskIopsConfigurations;
+            _resultValue.dnsName = dnsName;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.networkInterfaceIds = networkInterfaceIds;
+            _resultValue.ownerId = ownerId;
+            _resultValue.preferredFileServerIp = preferredFileServerIp;
+            _resultValue.preferredSubnetId = preferredSubnetId;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.skipFinalBackup = skipFinalBackup;
+            _resultValue.storageCapacity = storageCapacity;
+            _resultValue.storageType = storageType;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.throughputCapacity = throughputCapacity;
+            _resultValue.vpcId = vpcId;
+            _resultValue.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
+            return _resultValue;
         }
     }
 }

@@ -107,12 +107,12 @@ public final class TargetGroupStickiness {
             return this;
         }
         public TargetGroupStickiness build() {
-            final var o = new TargetGroupStickiness();
-            o.cookieDuration = cookieDuration;
-            o.cookieName = cookieName;
-            o.enabled = enabled;
-            o.type = type;
-            return o;
+            final var _resultValue = new TargetGroupStickiness();
+            _resultValue.cookieDuration = cookieDuration;
+            _resultValue.cookieName = cookieName;
+            _resultValue.enabled = enabled;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

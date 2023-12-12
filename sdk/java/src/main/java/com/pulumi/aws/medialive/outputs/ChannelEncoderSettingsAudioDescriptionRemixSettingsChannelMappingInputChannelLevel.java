@@ -49,10 +49,10 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMap
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel();
-            o.gain = gain;
-            o.inputChannel = inputChannel;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel();
+            _resultValue.gain = gain;
+            _resultValue.inputChannel = inputChannel;
+            return _resultValue;
         }
     }
 }

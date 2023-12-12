@@ -69,10 +69,10 @@ public final class GetSinksResult {
             return this;
         }
         public GetSinksResult build() {
-            final var o = new GetSinksResult();
-            o.arns = arns;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSinksResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

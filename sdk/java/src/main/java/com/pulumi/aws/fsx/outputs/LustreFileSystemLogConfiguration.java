@@ -67,10 +67,10 @@ public final class LustreFileSystemLogConfiguration {
             return this;
         }
         public LustreFileSystemLogConfiguration build() {
-            final var o = new LustreFileSystemLogConfiguration();
-            o.destination = destination;
-            o.level = level;
-            return o;
+            final var _resultValue = new LustreFileSystemLogConfiguration();
+            _resultValue.destination = destination;
+            _resultValue.level = level;
+            return _resultValue;
         }
     }
 }

@@ -156,15 +156,15 @@ public final class RailsAppLayerEbsVolume {
             return this;
         }
         public RailsAppLayerEbsVolume build() {
-            final var o = new RailsAppLayerEbsVolume();
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.mountPoint = mountPoint;
-            o.numberOfDisks = numberOfDisks;
-            o.raidLevel = raidLevel;
-            o.size = size;
-            o.type = type;
-            return o;
+            final var _resultValue = new RailsAppLayerEbsVolume();
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.mountPoint = mountPoint;
+            _resultValue.numberOfDisks = numberOfDisks;
+            _resultValue.raidLevel = raidLevel;
+            _resultValue.size = size;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

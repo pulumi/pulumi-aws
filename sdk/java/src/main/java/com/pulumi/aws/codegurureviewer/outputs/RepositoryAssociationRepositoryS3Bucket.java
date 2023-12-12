@@ -65,10 +65,10 @@ public final class RepositoryAssociationRepositoryS3Bucket {
             return this;
         }
         public RepositoryAssociationRepositoryS3Bucket build() {
-            final var o = new RepositoryAssociationRepositoryS3Bucket();
-            o.bucketName = bucketName;
-            o.name = name;
-            return o;
+            final var _resultValue = new RepositoryAssociationRepositoryS3Bucket();
+            _resultValue.bucketName = bucketName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

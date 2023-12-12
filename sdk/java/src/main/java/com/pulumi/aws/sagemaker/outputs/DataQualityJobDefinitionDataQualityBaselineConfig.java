@@ -68,10 +68,10 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfig {
             return this;
         }
         public DataQualityJobDefinitionDataQualityBaselineConfig build() {
-            final var o = new DataQualityJobDefinitionDataQualityBaselineConfig();
-            o.constraintsResource = constraintsResource;
-            o.statisticsResource = statisticsResource;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityBaselineConfig();
+            _resultValue.constraintsResource = constraintsResource;
+            _resultValue.statisticsResource = statisticsResource;
+            return _resultValue;
         }
     }
 }

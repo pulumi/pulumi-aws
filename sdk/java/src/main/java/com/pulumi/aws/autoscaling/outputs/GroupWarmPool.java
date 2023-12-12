@@ -107,12 +107,12 @@ public final class GroupWarmPool {
             return this;
         }
         public GroupWarmPool build() {
-            final var o = new GroupWarmPool();
-            o.instanceReusePolicy = instanceReusePolicy;
-            o.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
-            o.minSize = minSize;
-            o.poolState = poolState;
-            return o;
+            final var _resultValue = new GroupWarmPool();
+            _resultValue.instanceReusePolicy = instanceReusePolicy;
+            _resultValue.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
+            _resultValue.minSize = minSize;
+            _resultValue.poolState = poolState;
+            return _resultValue;
         }
     }
 }

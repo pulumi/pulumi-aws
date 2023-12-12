@@ -86,11 +86,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection();
-            o.passwordField = passwordField;
-            o.payloadType = payloadType;
-            o.usernameField = usernameField;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection();
+            _resultValue.passwordField = passwordField;
+            _resultValue.payloadType = payloadType;
+            _resultValue.usernameField = usernameField;
+            return _resultValue;
         }
     }
 }

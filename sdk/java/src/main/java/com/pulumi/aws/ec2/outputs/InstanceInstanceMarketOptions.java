@@ -68,10 +68,10 @@ public final class InstanceInstanceMarketOptions {
             return this;
         }
         public InstanceInstanceMarketOptions build() {
-            final var o = new InstanceInstanceMarketOptions();
-            o.marketType = marketType;
-            o.spotOptions = spotOptions;
-            return o;
+            final var _resultValue = new InstanceInstanceMarketOptions();
+            _resultValue.marketType = marketType;
+            _resultValue.spotOptions = spotOptions;
+            return _resultValue;
         }
     }
 }

@@ -117,12 +117,12 @@ public final class QuickConnectQuickConnectConfig {
             return userConfigs(List.of(userConfigs));
         }
         public QuickConnectQuickConnectConfig build() {
-            final var o = new QuickConnectQuickConnectConfig();
-            o.phoneConfigs = phoneConfigs;
-            o.queueConfigs = queueConfigs;
-            o.quickConnectType = quickConnectType;
-            o.userConfigs = userConfigs;
-            return o;
+            final var _resultValue = new QuickConnectQuickConnectConfig();
+            _resultValue.phoneConfigs = phoneConfigs;
+            _resultValue.queueConfigs = queueConfigs;
+            _resultValue.quickConnectType = quickConnectType;
+            _resultValue.userConfigs = userConfigs;
+            return _resultValue;
         }
     }
 }

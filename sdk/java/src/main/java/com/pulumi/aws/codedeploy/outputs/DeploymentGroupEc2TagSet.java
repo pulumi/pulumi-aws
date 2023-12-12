@@ -51,9 +51,9 @@ public final class DeploymentGroupEc2TagSet {
             return ec2TagFilters(List.of(ec2TagFilters));
         }
         public DeploymentGroupEc2TagSet build() {
-            final var o = new DeploymentGroupEc2TagSet();
-            o.ec2TagFilters = ec2TagFilters;
-            return o;
+            final var _resultValue = new DeploymentGroupEc2TagSet();
+            _resultValue.ec2TagFilters = ec2TagFilters;
+            return _resultValue;
         }
     }
 }

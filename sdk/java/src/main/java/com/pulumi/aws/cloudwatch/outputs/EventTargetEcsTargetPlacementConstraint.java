@@ -67,10 +67,10 @@ public final class EventTargetEcsTargetPlacementConstraint {
             return this;
         }
         public EventTargetEcsTargetPlacementConstraint build() {
-            final var o = new EventTargetEcsTargetPlacementConstraint();
-            o.expression = expression;
-            o.type = type;
-            return o;
+            final var _resultValue = new EventTargetEcsTargetPlacementConstraint();
+            _resultValue.expression = expression;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

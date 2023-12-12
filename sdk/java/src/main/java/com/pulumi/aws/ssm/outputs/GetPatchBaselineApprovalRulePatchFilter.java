@@ -69,10 +69,10 @@ public final class GetPatchBaselineApprovalRulePatchFilter {
             return values(List.of(values));
         }
         public GetPatchBaselineApprovalRulePatchFilter build() {
-            final var o = new GetPatchBaselineApprovalRulePatchFilter();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetPatchBaselineApprovalRulePatchFilter();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

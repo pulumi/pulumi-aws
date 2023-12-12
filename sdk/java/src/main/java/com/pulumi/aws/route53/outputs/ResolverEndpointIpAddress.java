@@ -78,11 +78,11 @@ public final class ResolverEndpointIpAddress {
             return this;
         }
         public ResolverEndpointIpAddress build() {
-            final var o = new ResolverEndpointIpAddress();
-            o.ip = ip;
-            o.ipId = ipId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ResolverEndpointIpAddress();
+            _resultValue.ip = ip;
+            _resultValue.ipId = ipId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

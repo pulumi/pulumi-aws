@@ -51,10 +51,10 @@ public final class FileCacheLustreConfigurationLogConfiguration {
             return this;
         }
         public FileCacheLustreConfigurationLogConfiguration build() {
-            final var o = new FileCacheLustreConfigurationLogConfiguration();
-            o.destination = destination;
-            o.level = level;
-            return o;
+            final var _resultValue = new FileCacheLustreConfigurationLogConfiguration();
+            _resultValue.destination = destination;
+            _resultValue.level = level;
+            return _resultValue;
         }
     }
 }

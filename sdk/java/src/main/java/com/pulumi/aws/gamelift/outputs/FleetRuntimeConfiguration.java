@@ -91,11 +91,11 @@ public final class FleetRuntimeConfiguration {
             return serverProcesses(List.of(serverProcesses));
         }
         public FleetRuntimeConfiguration build() {
-            final var o = new FleetRuntimeConfiguration();
-            o.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
-            o.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
-            o.serverProcesses = serverProcesses;
-            return o;
+            final var _resultValue = new FleetRuntimeConfiguration();
+            _resultValue.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
+            _resultValue.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
+            _resultValue.serverProcesses = serverProcesses;
+            return _resultValue;
         }
     }
 }

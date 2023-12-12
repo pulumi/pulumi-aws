@@ -151,14 +151,14 @@ public final class AnalyticsApplicationOutput {
             return this;
         }
         public AnalyticsApplicationOutput build() {
-            final var o = new AnalyticsApplicationOutput();
-            o.id = id;
-            o.kinesisFirehose = kinesisFirehose;
-            o.kinesisStream = kinesisStream;
-            o.lambda = lambda;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new AnalyticsApplicationOutput();
+            _resultValue.id = id;
+            _resultValue.kinesisFirehose = kinesisFirehose;
+            _resultValue.kinesisStream = kinesisStream;
+            _resultValue.lambda = lambda;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

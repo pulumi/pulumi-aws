@@ -109,12 +109,12 @@ public final class GetLaunchPathsSummary {
             return this;
         }
         public GetLaunchPathsSummary build() {
-            final var o = new GetLaunchPathsSummary();
-            o.constraintSummaries = constraintSummaries;
-            o.name = name;
-            o.pathId = pathId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLaunchPathsSummary();
+            _resultValue.constraintSummaries = constraintSummaries;
+            _resultValue.name = name;
+            _resultValue.pathId = pathId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

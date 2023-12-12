@@ -86,11 +86,11 @@ public final class InsightFiltersFindingProviderFieldsCriticality {
             return this;
         }
         public InsightFiltersFindingProviderFieldsCriticality build() {
-            final var o = new InsightFiltersFindingProviderFieldsCriticality();
-            o.eq = eq;
-            o.gte = gte;
-            o.lte = lte;
-            return o;
+            final var _resultValue = new InsightFiltersFindingProviderFieldsCriticality();
+            _resultValue.eq = eq;
+            _resultValue.gte = gte;
+            _resultValue.lte = lte;
+            return _resultValue;
         }
     }
 }

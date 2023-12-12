@@ -72,10 +72,10 @@ public final class UserProfileUserSettingsRSessionAppSettings {
             return this;
         }
         public UserProfileUserSettingsRSessionAppSettings build() {
-            final var o = new UserProfileUserSettingsRSessionAppSettings();
-            o.customImages = customImages;
-            o.defaultResourceSpec = defaultResourceSpec;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsRSessionAppSettings();
+            _resultValue.customImages = customImages;
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            return _resultValue;
         }
     }
 }

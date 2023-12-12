@@ -255,20 +255,20 @@ public final class GetReportDefinitionResult {
             return this;
         }
         public GetReportDefinitionResult build() {
-            final var o = new GetReportDefinitionResult();
-            o.additionalArtifacts = additionalArtifacts;
-            o.additionalSchemaElements = additionalSchemaElements;
-            o.compression = compression;
-            o.format = format;
-            o.id = id;
-            o.refreshClosedReports = refreshClosedReports;
-            o.reportName = reportName;
-            o.reportVersioning = reportVersioning;
-            o.s3Bucket = s3Bucket;
-            o.s3Prefix = s3Prefix;
-            o.s3Region = s3Region;
-            o.timeUnit = timeUnit;
-            return o;
+            final var _resultValue = new GetReportDefinitionResult();
+            _resultValue.additionalArtifacts = additionalArtifacts;
+            _resultValue.additionalSchemaElements = additionalSchemaElements;
+            _resultValue.compression = compression;
+            _resultValue.format = format;
+            _resultValue.id = id;
+            _resultValue.refreshClosedReports = refreshClosedReports;
+            _resultValue.reportName = reportName;
+            _resultValue.reportVersioning = reportVersioning;
+            _resultValue.s3Bucket = s3Bucket;
+            _resultValue.s3Prefix = s3Prefix;
+            _resultValue.s3Region = s3Region;
+            _resultValue.timeUnit = timeUnit;
+            return _resultValue;
         }
     }
 }

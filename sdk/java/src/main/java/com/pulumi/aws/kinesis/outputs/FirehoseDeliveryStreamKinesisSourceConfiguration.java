@@ -65,10 +65,10 @@ public final class FirehoseDeliveryStreamKinesisSourceConfiguration {
             return this;
         }
         public FirehoseDeliveryStreamKinesisSourceConfiguration build() {
-            final var o = new FirehoseDeliveryStreamKinesisSourceConfiguration();
-            o.kinesisStreamArn = kinesisStreamArn;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamKinesisSourceConfiguration();
+            _resultValue.kinesisStreamArn = kinesisStreamArn;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

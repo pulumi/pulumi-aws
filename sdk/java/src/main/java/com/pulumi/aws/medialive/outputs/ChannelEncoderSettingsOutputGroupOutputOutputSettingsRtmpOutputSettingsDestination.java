@@ -46,9 +46,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination();
-            o.destinationRefId = destinationRefId;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination();
+            _resultValue.destinationRefId = destinationRefId;
+            return _resultValue;
         }
     }
 }

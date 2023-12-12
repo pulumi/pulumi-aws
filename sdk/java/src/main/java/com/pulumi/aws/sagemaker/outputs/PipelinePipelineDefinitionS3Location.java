@@ -86,11 +86,11 @@ public final class PipelinePipelineDefinitionS3Location {
             return this;
         }
         public PipelinePipelineDefinitionS3Location build() {
-            final var o = new PipelinePipelineDefinitionS3Location();
-            o.bucket = bucket;
-            o.objectKey = objectKey;
-            o.versionId = versionId;
-            return o;
+            final var _resultValue = new PipelinePipelineDefinitionS3Location();
+            _resultValue.bucket = bucket;
+            _resultValue.objectKey = objectKey;
+            _resultValue.versionId = versionId;
+            return _resultValue;
         }
     }
 }

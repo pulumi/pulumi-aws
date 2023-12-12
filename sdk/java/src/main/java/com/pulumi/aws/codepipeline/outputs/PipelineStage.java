@@ -70,10 +70,10 @@ public final class PipelineStage {
             return this;
         }
         public PipelineStage build() {
-            final var o = new PipelineStage();
-            o.actions = actions;
-            o.name = name;
-            return o;
+            final var _resultValue = new PipelineStage();
+            _resultValue.actions = actions;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

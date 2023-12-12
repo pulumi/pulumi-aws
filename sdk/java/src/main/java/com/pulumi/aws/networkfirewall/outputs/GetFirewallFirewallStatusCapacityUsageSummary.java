@@ -50,9 +50,9 @@ public final class GetFirewallFirewallStatusCapacityUsageSummary {
             return cidrs(List.of(cidrs));
         }
         public GetFirewallFirewallStatusCapacityUsageSummary build() {
-            final var o = new GetFirewallFirewallStatusCapacityUsageSummary();
-            o.cidrs = cidrs;
-            return o;
+            final var _resultValue = new GetFirewallFirewallStatusCapacityUsageSummary();
+            _resultValue.cidrs = cidrs;
+            return _resultValue;
         }
     }
 }

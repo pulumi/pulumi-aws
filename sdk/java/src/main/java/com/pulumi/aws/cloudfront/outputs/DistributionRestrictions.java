@@ -38,9 +38,9 @@ public final class DistributionRestrictions {
             return this;
         }
         public DistributionRestrictions build() {
-            final var o = new DistributionRestrictions();
-            o.geoRestriction = geoRestriction;
-            return o;
+            final var _resultValue = new DistributionRestrictions();
+            _resultValue.geoRestriction = geoRestriction;
+            return _resultValue;
         }
     }
 }

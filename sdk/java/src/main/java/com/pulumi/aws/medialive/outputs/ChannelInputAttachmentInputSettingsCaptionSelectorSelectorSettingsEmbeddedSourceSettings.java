@@ -87,11 +87,11 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings();
-            o.convert608To708 = convert608To708;
-            o.scte20Detection = scte20Detection;
-            o.source608ChannelNumber = source608ChannelNumber;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings();
+            _resultValue.convert608To708 = convert608To708;
+            _resultValue.scte20Detection = scte20Detection;
+            _resultValue.source608ChannelNumber = source608ChannelNumber;
+            return _resultValue;
         }
     }
 }

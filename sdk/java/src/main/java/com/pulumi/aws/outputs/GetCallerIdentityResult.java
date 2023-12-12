@@ -103,12 +103,12 @@ public final class GetCallerIdentityResult {
             return this;
         }
         public GetCallerIdentityResult build() {
-            final var o = new GetCallerIdentityResult();
-            o.accountId = accountId;
-            o.arn = arn;
-            o.id = id;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new GetCallerIdentityResult();
+            _resultValue.accountId = accountId;
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

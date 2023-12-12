@@ -300,30 +300,30 @@ public final class GetTableResult {
             return this;
         }
         public GetTableResult build() {
-            final var o = new GetTableResult();
-            o.arn = arn;
-            o.attributes = attributes;
-            o.billingMode = billingMode;
-            o.deletionProtectionEnabled = deletionProtectionEnabled;
-            o.globalSecondaryIndexes = globalSecondaryIndexes;
-            o.hashKey = hashKey;
-            o.id = id;
-            o.localSecondaryIndexes = localSecondaryIndexes;
-            o.name = name;
-            o.pointInTimeRecovery = pointInTimeRecovery;
-            o.rangeKey = rangeKey;
-            o.readCapacity = readCapacity;
-            o.replicas = replicas;
-            o.serverSideEncryption = serverSideEncryption;
-            o.streamArn = streamArn;
-            o.streamEnabled = streamEnabled;
-            o.streamLabel = streamLabel;
-            o.streamViewType = streamViewType;
-            o.tableClass = tableClass;
-            o.tags = tags;
-            o.ttl = ttl;
-            o.writeCapacity = writeCapacity;
-            return o;
+            final var _resultValue = new GetTableResult();
+            _resultValue.arn = arn;
+            _resultValue.attributes = attributes;
+            _resultValue.billingMode = billingMode;
+            _resultValue.deletionProtectionEnabled = deletionProtectionEnabled;
+            _resultValue.globalSecondaryIndexes = globalSecondaryIndexes;
+            _resultValue.hashKey = hashKey;
+            _resultValue.id = id;
+            _resultValue.localSecondaryIndexes = localSecondaryIndexes;
+            _resultValue.name = name;
+            _resultValue.pointInTimeRecovery = pointInTimeRecovery;
+            _resultValue.rangeKey = rangeKey;
+            _resultValue.readCapacity = readCapacity;
+            _resultValue.replicas = replicas;
+            _resultValue.serverSideEncryption = serverSideEncryption;
+            _resultValue.streamArn = streamArn;
+            _resultValue.streamEnabled = streamEnabled;
+            _resultValue.streamLabel = streamLabel;
+            _resultValue.streamViewType = streamViewType;
+            _resultValue.tableClass = tableClass;
+            _resultValue.tags = tags;
+            _resultValue.ttl = ttl;
+            _resultValue.writeCapacity = writeCapacity;
+            return _resultValue;
         }
     }
 }

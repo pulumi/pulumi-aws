@@ -68,10 +68,10 @@ public final class ServiceServiceConnectConfigurationServiceClientAlias {
             return this;
         }
         public ServiceServiceConnectConfigurationServiceClientAlias build() {
-            final var o = new ServiceServiceConnectConfigurationServiceClientAlias();
-            o.dnsName = dnsName;
-            o.port = port;
-            return o;
+            final var _resultValue = new ServiceServiceConnectConfigurationServiceClientAlias();
+            _resultValue.dnsName = dnsName;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

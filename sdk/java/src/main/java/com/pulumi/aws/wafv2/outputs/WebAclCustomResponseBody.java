@@ -84,11 +84,11 @@ public final class WebAclCustomResponseBody {
             return this;
         }
         public WebAclCustomResponseBody build() {
-            final var o = new WebAclCustomResponseBody();
-            o.content = content;
-            o.contentType = contentType;
-            o.key = key;
-            return o;
+            final var _resultValue = new WebAclCustomResponseBody();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

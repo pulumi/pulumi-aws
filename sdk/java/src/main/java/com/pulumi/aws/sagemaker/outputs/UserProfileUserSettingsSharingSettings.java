@@ -86,11 +86,11 @@ public final class UserProfileUserSettingsSharingSettings {
             return this;
         }
         public UserProfileUserSettingsSharingSettings build() {
-            final var o = new UserProfileUserSettingsSharingSettings();
-            o.notebookOutputOption = notebookOutputOption;
-            o.s3KmsKeyId = s3KmsKeyId;
-            o.s3OutputPath = s3OutputPath;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsSharingSettings();
+            _resultValue.notebookOutputOption = notebookOutputOption;
+            _resultValue.s3KmsKeyId = s3KmsKeyId;
+            _resultValue.s3OutputPath = s3OutputPath;
+            return _resultValue;
         }
     }
 }

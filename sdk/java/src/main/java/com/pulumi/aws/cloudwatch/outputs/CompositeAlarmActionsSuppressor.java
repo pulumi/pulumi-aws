@@ -85,11 +85,11 @@ public final class CompositeAlarmActionsSuppressor {
             return this;
         }
         public CompositeAlarmActionsSuppressor build() {
-            final var o = new CompositeAlarmActionsSuppressor();
-            o.alarm = alarm;
-            o.extensionPeriod = extensionPeriod;
-            o.waitPeriod = waitPeriod;
-            return o;
+            final var _resultValue = new CompositeAlarmActionsSuppressor();
+            _resultValue.alarm = alarm;
+            _resultValue.extensionPeriod = extensionPeriod;
+            _resultValue.waitPeriod = waitPeriod;
+            return _resultValue;
         }
     }
 }

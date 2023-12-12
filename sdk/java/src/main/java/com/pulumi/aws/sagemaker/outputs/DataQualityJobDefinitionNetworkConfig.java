@@ -87,11 +87,11 @@ public final class DataQualityJobDefinitionNetworkConfig {
             return this;
         }
         public DataQualityJobDefinitionNetworkConfig build() {
-            final var o = new DataQualityJobDefinitionNetworkConfig();
-            o.enableInterContainerTrafficEncryption = enableInterContainerTrafficEncryption;
-            o.enableNetworkIsolation = enableNetworkIsolation;
-            o.vpcConfig = vpcConfig;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionNetworkConfig();
+            _resultValue.enableInterContainerTrafficEncryption = enableInterContainerTrafficEncryption;
+            _resultValue.enableNetworkIsolation = enableNetworkIsolation;
+            _resultValue.vpcConfig = vpcConfig;
+            return _resultValue;
         }
     }
 }

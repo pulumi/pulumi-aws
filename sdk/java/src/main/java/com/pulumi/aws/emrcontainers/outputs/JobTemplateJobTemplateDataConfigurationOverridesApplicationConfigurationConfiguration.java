@@ -68,10 +68,10 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesApplicationCo
             return this;
         }
         public JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration build() {
-            final var o = new JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration();
-            o.classification = classification;
-            o.properties = properties;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration();
+            _resultValue.classification = classification;
+            _resultValue.properties = properties;
+            return _resultValue;
         }
     }
 }

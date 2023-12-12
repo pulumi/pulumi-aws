@@ -152,14 +152,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
             return this;
         }
         public DomainDefaultUserSettingsCanvasAppSettings build() {
-            final var o = new DomainDefaultUserSettingsCanvasAppSettings();
-            o.directDeploySettings = directDeploySettings;
-            o.identityProviderOauthSettings = identityProviderOauthSettings;
-            o.kendraSettings = kendraSettings;
-            o.modelRegisterSettings = modelRegisterSettings;
-            o.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
-            o.workspaceSettings = workspaceSettings;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettings();
+            _resultValue.directDeploySettings = directDeploySettings;
+            _resultValue.identityProviderOauthSettings = identityProviderOauthSettings;
+            _resultValue.kendraSettings = kendraSettings;
+            _resultValue.modelRegisterSettings = modelRegisterSettings;
+            _resultValue.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
+            _resultValue.workspaceSettings = workspaceSettings;
+            return _resultValue;
         }
     }
 }

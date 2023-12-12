@@ -79,12 +79,12 @@ public final class GetResolverFirewallConfigResult {
             return this;
         }
         public GetResolverFirewallConfigResult build() {
-            final var o = new GetResolverFirewallConfigResult();
-            o.firewallFailOpen = firewallFailOpen;
-            o.id = id;
-            o.ownerId = ownerId;
-            o.resourceId = resourceId;
-            return o;
+            final var _resultValue = new GetResolverFirewallConfigResult();
+            _resultValue.firewallFailOpen = firewallFailOpen;
+            _resultValue.id = id;
+            _resultValue.ownerId = ownerId;
+            _resultValue.resourceId = resourceId;
+            return _resultValue;
         }
     }
 }

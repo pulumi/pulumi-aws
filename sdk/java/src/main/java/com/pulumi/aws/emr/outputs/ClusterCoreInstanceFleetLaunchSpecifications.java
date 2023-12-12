@@ -74,10 +74,10 @@ public final class ClusterCoreInstanceFleetLaunchSpecifications {
             return spotSpecifications(List.of(spotSpecifications));
         }
         public ClusterCoreInstanceFleetLaunchSpecifications build() {
-            final var o = new ClusterCoreInstanceFleetLaunchSpecifications();
-            o.onDemandSpecifications = onDemandSpecifications;
-            o.spotSpecifications = spotSpecifications;
-            return o;
+            final var _resultValue = new ClusterCoreInstanceFleetLaunchSpecifications();
+            _resultValue.onDemandSpecifications = onDemandSpecifications;
+            _resultValue.spotSpecifications = spotSpecifications;
+            return _resultValue;
         }
     }
 }

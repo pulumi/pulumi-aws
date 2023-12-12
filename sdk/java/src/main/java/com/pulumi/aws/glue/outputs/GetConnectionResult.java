@@ -210,18 +210,18 @@ public final class GetConnectionResult {
             return this;
         }
         public GetConnectionResult build() {
-            final var o = new GetConnectionResult();
-            o.arn = arn;
-            o.catalogId = catalogId;
-            o.connectionProperties = connectionProperties;
-            o.connectionType = connectionType;
-            o.description = description;
-            o.id = id;
-            o.matchCriterias = matchCriterias;
-            o.name = name;
-            o.physicalConnectionRequirements = physicalConnectionRequirements;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetConnectionResult();
+            _resultValue.arn = arn;
+            _resultValue.catalogId = catalogId;
+            _resultValue.connectionProperties = connectionProperties;
+            _resultValue.connectionType = connectionType;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.matchCriterias = matchCriterias;
+            _resultValue.name = name;
+            _resultValue.physicalConnectionRequirements = physicalConnectionRequirements;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

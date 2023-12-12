@@ -65,10 +65,10 @@ public final class ReplicationConfigurationReplicationConfigurationRuleDestinati
             return this;
         }
         public ReplicationConfigurationReplicationConfigurationRuleDestination build() {
-            final var o = new ReplicationConfigurationReplicationConfigurationRuleDestination();
-            o.region = region;
-            o.registryId = registryId;
-            return o;
+            final var _resultValue = new ReplicationConfigurationReplicationConfigurationRuleDestination();
+            _resultValue.region = region;
+            _resultValue.registryId = registryId;
+            return _resultValue;
         }
     }
 }

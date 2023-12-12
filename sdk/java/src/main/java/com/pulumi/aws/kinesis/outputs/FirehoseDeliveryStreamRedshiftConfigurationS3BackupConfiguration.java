@@ -204,17 +204,17 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
             return this;
         }
         public FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration build() {
-            final var o = new FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration();
-            o.bucketArn = bucketArn;
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.compressionFormat = compressionFormat;
-            o.errorOutputPrefix = errorOutputPrefix;
-            o.kmsKeyArn = kmsKeyArn;
-            o.prefix = prefix;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.compressionFormat = compressionFormat;
+            _resultValue.errorOutputPrefix = errorOutputPrefix;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.prefix = prefix;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

@@ -318,25 +318,25 @@ public final class GetCloudFormationTypeResult {
             return this;
         }
         public GetCloudFormationTypeResult build() {
-            final var o = new GetCloudFormationTypeResult();
-            o.arn = arn;
-            o.defaultVersionId = defaultVersionId;
-            o.deprecatedStatus = deprecatedStatus;
-            o.description = description;
-            o.documentationUrl = documentationUrl;
-            o.executionRoleArn = executionRoleArn;
-            o.id = id;
-            o.isDefaultVersion = isDefaultVersion;
-            o.loggingConfigs = loggingConfigs;
-            o.provisioningType = provisioningType;
-            o.schema = schema;
-            o.sourceUrl = sourceUrl;
-            o.type = type;
-            o.typeArn = typeArn;
-            o.typeName = typeName;
-            o.versionId = versionId;
-            o.visibility = visibility;
-            return o;
+            final var _resultValue = new GetCloudFormationTypeResult();
+            _resultValue.arn = arn;
+            _resultValue.defaultVersionId = defaultVersionId;
+            _resultValue.deprecatedStatus = deprecatedStatus;
+            _resultValue.description = description;
+            _resultValue.documentationUrl = documentationUrl;
+            _resultValue.executionRoleArn = executionRoleArn;
+            _resultValue.id = id;
+            _resultValue.isDefaultVersion = isDefaultVersion;
+            _resultValue.loggingConfigs = loggingConfigs;
+            _resultValue.provisioningType = provisioningType;
+            _resultValue.schema = schema;
+            _resultValue.sourceUrl = sourceUrl;
+            _resultValue.type = type;
+            _resultValue.typeArn = typeArn;
+            _resultValue.typeName = typeName;
+            _resultValue.versionId = versionId;
+            _resultValue.visibility = visibility;
+            return _resultValue;
         }
     }
 }

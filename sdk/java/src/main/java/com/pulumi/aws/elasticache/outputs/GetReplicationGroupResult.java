@@ -390,27 +390,27 @@ public final class GetReplicationGroupResult {
             return this;
         }
         public GetReplicationGroupResult build() {
-            final var o = new GetReplicationGroupResult();
-            o.arn = arn;
-            o.authTokenEnabled = authTokenEnabled;
-            o.automaticFailoverEnabled = automaticFailoverEnabled;
-            o.configurationEndpointAddress = configurationEndpointAddress;
-            o.description = description;
-            o.id = id;
-            o.logDeliveryConfigurations = logDeliveryConfigurations;
-            o.memberClusters = memberClusters;
-            o.multiAzEnabled = multiAzEnabled;
-            o.nodeType = nodeType;
-            o.numCacheClusters = numCacheClusters;
-            o.numNodeGroups = numNodeGroups;
-            o.port = port;
-            o.primaryEndpointAddress = primaryEndpointAddress;
-            o.readerEndpointAddress = readerEndpointAddress;
-            o.replicasPerNodeGroup = replicasPerNodeGroup;
-            o.replicationGroupId = replicationGroupId;
-            o.snapshotRetentionLimit = snapshotRetentionLimit;
-            o.snapshotWindow = snapshotWindow;
-            return o;
+            final var _resultValue = new GetReplicationGroupResult();
+            _resultValue.arn = arn;
+            _resultValue.authTokenEnabled = authTokenEnabled;
+            _resultValue.automaticFailoverEnabled = automaticFailoverEnabled;
+            _resultValue.configurationEndpointAddress = configurationEndpointAddress;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.logDeliveryConfigurations = logDeliveryConfigurations;
+            _resultValue.memberClusters = memberClusters;
+            _resultValue.multiAzEnabled = multiAzEnabled;
+            _resultValue.nodeType = nodeType;
+            _resultValue.numCacheClusters = numCacheClusters;
+            _resultValue.numNodeGroups = numNodeGroups;
+            _resultValue.port = port;
+            _resultValue.primaryEndpointAddress = primaryEndpointAddress;
+            _resultValue.readerEndpointAddress = readerEndpointAddress;
+            _resultValue.replicasPerNodeGroup = replicasPerNodeGroup;
+            _resultValue.replicationGroupId = replicationGroupId;
+            _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;
+            _resultValue.snapshotWindow = snapshotWindow;
+            return _resultValue;
         }
     }
 }

@@ -89,11 +89,11 @@ public final class IntentConfirmationPromptMessage {
             return this;
         }
         public IntentConfirmationPromptMessage build() {
-            final var o = new IntentConfirmationPromptMessage();
-            o.content = content;
-            o.contentType = contentType;
-            o.groupNumber = groupNumber;
-            return o;
+            final var _resultValue = new IntentConfirmationPromptMessage();
+            _resultValue.content = content;
+            _resultValue.contentType = contentType;
+            _resultValue.groupNumber = groupNumber;
+            return _resultValue;
         }
     }
 }

@@ -167,15 +167,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings();
-            o.adMarkers = adMarkers;
-            o.authenticationScheme = authenticationScheme;
-            o.cacheFullBehavior = cacheFullBehavior;
-            o.cacheLength = cacheLength;
-            o.captionData = captionData;
-            o.inputLossAction = inputLossAction;
-            o.restartDelay = restartDelay;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings();
+            _resultValue.adMarkers = adMarkers;
+            _resultValue.authenticationScheme = authenticationScheme;
+            _resultValue.cacheFullBehavior = cacheFullBehavior;
+            _resultValue.cacheLength = cacheLength;
+            _resultValue.captionData = captionData;
+            _resultValue.inputLossAction = inputLossAction;
+            _resultValue.restartDelay = restartDelay;
+            return _resultValue;
         }
     }
 }

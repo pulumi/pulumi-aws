@@ -128,13 +128,13 @@ public final class GetPipelineDefinitionResult {
             return pipelineObjects(List.of(pipelineObjects));
         }
         public GetPipelineDefinitionResult build() {
-            final var o = new GetPipelineDefinitionResult();
-            o.id = id;
-            o.parameterObjects = parameterObjects;
-            o.parameterValues = parameterValues;
-            o.pipelineId = pipelineId;
-            o.pipelineObjects = pipelineObjects;
-            return o;
+            final var _resultValue = new GetPipelineDefinitionResult();
+            _resultValue.id = id;
+            _resultValue.parameterObjects = parameterObjects;
+            _resultValue.parameterValues = parameterValues;
+            _resultValue.pipelineId = pipelineId;
+            _resultValue.pipelineObjects = pipelineObjects;
+            return _resultValue;
         }
     }
 }

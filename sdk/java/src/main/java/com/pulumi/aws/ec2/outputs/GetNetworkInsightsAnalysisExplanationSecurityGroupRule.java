@@ -98,14 +98,14 @@ public final class GetNetworkInsightsAnalysisExplanationSecurityGroupRule {
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationSecurityGroupRule build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationSecurityGroupRule();
-            o.cidr = cidr;
-            o.direction = direction;
-            o.portRanges = portRanges;
-            o.prefixListId = prefixListId;
-            o.protocol = protocol;
-            o.securityGroupId = securityGroupId;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationSecurityGroupRule();
+            _resultValue.cidr = cidr;
+            _resultValue.direction = direction;
+            _resultValue.portRanges = portRanges;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.protocol = protocol;
+            _resultValue.securityGroupId = securityGroupId;
+            return _resultValue;
         }
     }
 }

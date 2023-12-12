@@ -46,9 +46,9 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
             return this;
         }
         public WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition build() {
-            final var o = new WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition();
-            o.action = action;
-            return o;
+            final var _resultValue = new WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition();
+            _resultValue.action = action;
+            return _resultValue;
         }
     }
 }

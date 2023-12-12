@@ -144,14 +144,14 @@ public final class ServiceHealthCheckConfiguration {
             return this;
         }
         public ServiceHealthCheckConfiguration build() {
-            final var o = new ServiceHealthCheckConfiguration();
-            o.healthyThreshold = healthyThreshold;
-            o.interval = interval;
-            o.path = path;
-            o.protocol = protocol;
-            o.timeout = timeout;
-            o.unhealthyThreshold = unhealthyThreshold;
-            return o;
+            final var _resultValue = new ServiceHealthCheckConfiguration();
+            _resultValue.healthyThreshold = healthyThreshold;
+            _resultValue.interval = interval;
+            _resultValue.path = path;
+            _resultValue.protocol = protocol;
+            _resultValue.timeout = timeout;
+            _resultValue.unhealthyThreshold = unhealthyThreshold;
+            return _resultValue;
         }
     }
 }

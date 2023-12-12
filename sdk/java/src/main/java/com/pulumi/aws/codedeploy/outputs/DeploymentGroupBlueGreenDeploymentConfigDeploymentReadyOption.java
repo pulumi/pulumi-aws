@@ -68,10 +68,10 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
             return this;
         }
         public DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption build() {
-            final var o = new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption();
-            o.actionOnTimeout = actionOnTimeout;
-            o.waitTimeInMinutes = waitTimeInMinutes;
-            return o;
+            final var _resultValue = new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption();
+            _resultValue.actionOnTimeout = actionOnTimeout;
+            _resultValue.waitTimeInMinutes = waitTimeInMinutes;
+            return _resultValue;
         }
     }
 }

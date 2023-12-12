@@ -61,10 +61,10 @@ public final class GetQueryLogConfigFilter {
             return values(List.of(values));
         }
         public GetQueryLogConfigFilter build() {
-            final var o = new GetQueryLogConfigFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetQueryLogConfigFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

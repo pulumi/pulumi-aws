@@ -161,15 +161,15 @@ public final class GetVpcLinkResult {
             return this;
         }
         public GetVpcLinkResult build() {
-            final var o = new GetVpcLinkResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.vpcLinkId = vpcLinkId;
-            return o;
+            final var _resultValue = new GetVpcLinkResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.vpcLinkId = vpcLinkId;
+            return _resultValue;
         }
     }
 }

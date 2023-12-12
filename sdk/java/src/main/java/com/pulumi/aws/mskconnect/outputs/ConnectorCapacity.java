@@ -68,10 +68,10 @@ public final class ConnectorCapacity {
             return this;
         }
         public ConnectorCapacity build() {
-            final var o = new ConnectorCapacity();
-            o.autoscaling = autoscaling;
-            o.provisionedCapacity = provisionedCapacity;
-            return o;
+            final var _resultValue = new ConnectorCapacity();
+            _resultValue.autoscaling = autoscaling;
+            _resultValue.provisionedCapacity = provisionedCapacity;
+            return _resultValue;
         }
     }
 }

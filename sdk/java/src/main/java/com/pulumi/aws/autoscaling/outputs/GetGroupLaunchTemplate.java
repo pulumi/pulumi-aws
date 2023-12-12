@@ -84,11 +84,11 @@ public final class GetGroupLaunchTemplate {
             return this;
         }
         public GetGroupLaunchTemplate build() {
-            final var o = new GetGroupLaunchTemplate();
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetGroupLaunchTemplate();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

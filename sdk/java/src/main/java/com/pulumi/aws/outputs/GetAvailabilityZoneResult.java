@@ -265,22 +265,22 @@ public final class GetAvailabilityZoneResult {
             return this;
         }
         public GetAvailabilityZoneResult build() {
-            final var o = new GetAvailabilityZoneResult();
-            o.allAvailabilityZones = allAvailabilityZones;
-            o.filters = filters;
-            o.groupName = groupName;
-            o.id = id;
-            o.name = name;
-            o.nameSuffix = nameSuffix;
-            o.networkBorderGroup = networkBorderGroup;
-            o.optInStatus = optInStatus;
-            o.parentZoneId = parentZoneId;
-            o.parentZoneName = parentZoneName;
-            o.region = region;
-            o.state = state;
-            o.zoneId = zoneId;
-            o.zoneType = zoneType;
-            return o;
+            final var _resultValue = new GetAvailabilityZoneResult();
+            _resultValue.allAvailabilityZones = allAvailabilityZones;
+            _resultValue.filters = filters;
+            _resultValue.groupName = groupName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.nameSuffix = nameSuffix;
+            _resultValue.networkBorderGroup = networkBorderGroup;
+            _resultValue.optInStatus = optInStatus;
+            _resultValue.parentZoneId = parentZoneId;
+            _resultValue.parentZoneName = parentZoneName;
+            _resultValue.region = region;
+            _resultValue.state = state;
+            _resultValue.zoneId = zoneId;
+            _resultValue.zoneType = zoneType;
+            return _resultValue;
         }
     }
 }

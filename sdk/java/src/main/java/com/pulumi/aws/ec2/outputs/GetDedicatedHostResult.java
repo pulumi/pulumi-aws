@@ -315,24 +315,24 @@ public final class GetDedicatedHostResult {
             return this;
         }
         public GetDedicatedHostResult build() {
-            final var o = new GetDedicatedHostResult();
-            o.arn = arn;
-            o.assetId = assetId;
-            o.autoPlacement = autoPlacement;
-            o.availabilityZone = availabilityZone;
-            o.cores = cores;
-            o.filters = filters;
-            o.hostId = hostId;
-            o.hostRecovery = hostRecovery;
-            o.id = id;
-            o.instanceFamily = instanceFamily;
-            o.instanceType = instanceType;
-            o.outpostArn = outpostArn;
-            o.ownerId = ownerId;
-            o.sockets = sockets;
-            o.tags = tags;
-            o.totalVcpus = totalVcpus;
-            return o;
+            final var _resultValue = new GetDedicatedHostResult();
+            _resultValue.arn = arn;
+            _resultValue.assetId = assetId;
+            _resultValue.autoPlacement = autoPlacement;
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.cores = cores;
+            _resultValue.filters = filters;
+            _resultValue.hostId = hostId;
+            _resultValue.hostRecovery = hostRecovery;
+            _resultValue.id = id;
+            _resultValue.instanceFamily = instanceFamily;
+            _resultValue.instanceType = instanceType;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.ownerId = ownerId;
+            _resultValue.sockets = sockets;
+            _resultValue.tags = tags;
+            _resultValue.totalVcpus = totalVcpus;
+            return _resultValue;
         }
     }
 }

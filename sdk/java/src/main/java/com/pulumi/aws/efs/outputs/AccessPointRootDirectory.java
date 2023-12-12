@@ -68,10 +68,10 @@ public final class AccessPointRootDirectory {
             return this;
         }
         public AccessPointRootDirectory build() {
-            final var o = new AccessPointRootDirectory();
-            o.creationInfo = creationInfo;
-            o.path = path;
-            return o;
+            final var _resultValue = new AccessPointRootDirectory();
+            _resultValue.creationInfo = creationInfo;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

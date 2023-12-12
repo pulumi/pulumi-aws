@@ -66,10 +66,10 @@ public final class GameServerGroupAutoScalingPolicy {
             return this;
         }
         public GameServerGroupAutoScalingPolicy build() {
-            final var o = new GameServerGroupAutoScalingPolicy();
-            o.estimatedInstanceWarmup = estimatedInstanceWarmup;
-            o.targetTrackingConfiguration = targetTrackingConfiguration;
-            return o;
+            final var _resultValue = new GameServerGroupAutoScalingPolicy();
+            _resultValue.estimatedInstanceWarmup = estimatedInstanceWarmup;
+            _resultValue.targetTrackingConfiguration = targetTrackingConfiguration;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader {
             return this;
         }
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader();
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader();
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

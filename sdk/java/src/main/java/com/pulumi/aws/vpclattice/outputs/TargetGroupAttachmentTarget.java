@@ -68,10 +68,10 @@ public final class TargetGroupAttachmentTarget {
             return this;
         }
         public TargetGroupAttachmentTarget build() {
-            final var o = new TargetGroupAttachmentTarget();
-            o.id = id;
-            o.port = port;
-            return o;
+            final var _resultValue = new TargetGroupAttachmentTarget();
+            _resultValue.id = id;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

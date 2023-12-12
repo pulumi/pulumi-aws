@@ -68,10 +68,10 @@ public final class ModelPrimaryContainerImageConfig {
             return this;
         }
         public ModelPrimaryContainerImageConfig build() {
-            final var o = new ModelPrimaryContainerImageConfig();
-            o.repositoryAccessMode = repositoryAccessMode;
-            o.repositoryAuthConfig = repositoryAuthConfig;
-            return o;
+            final var _resultValue = new ModelPrimaryContainerImageConfig();
+            _resultValue.repositoryAccessMode = repositoryAccessMode;
+            _resultValue.repositoryAuthConfig = repositoryAuthConfig;
+            return _resultValue;
         }
     }
 }

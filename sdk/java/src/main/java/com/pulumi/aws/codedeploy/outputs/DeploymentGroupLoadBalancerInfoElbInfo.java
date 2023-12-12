@@ -48,9 +48,9 @@ public final class DeploymentGroupLoadBalancerInfoElbInfo {
             return this;
         }
         public DeploymentGroupLoadBalancerInfoElbInfo build() {
-            final var o = new DeploymentGroupLoadBalancerInfoElbInfo();
-            o.name = name;
-            return o;
+            final var _resultValue = new DeploymentGroupLoadBalancerInfoElbInfo();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

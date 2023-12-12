@@ -38,9 +38,9 @@ public final class GetLaunchTemplateMaintenanceOption {
             return this;
         }
         public GetLaunchTemplateMaintenanceOption build() {
-            final var o = new GetLaunchTemplateMaintenanceOption();
-            o.autoRecovery = autoRecovery;
-            return o;
+            final var _resultValue = new GetLaunchTemplateMaintenanceOption();
+            _resultValue.autoRecovery = autoRecovery;
+            return _resultValue;
         }
     }
 }

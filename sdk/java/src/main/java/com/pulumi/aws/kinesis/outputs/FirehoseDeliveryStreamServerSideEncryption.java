@@ -91,11 +91,11 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
             return this;
         }
         public FirehoseDeliveryStreamServerSideEncryption build() {
-            final var o = new FirehoseDeliveryStreamServerSideEncryption();
-            o.enabled = enabled;
-            o.keyArn = keyArn;
-            o.keyType = keyType;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamServerSideEncryption();
+            _resultValue.enabled = enabled;
+            _resultValue.keyArn = keyArn;
+            _resultValue.keyType = keyType;
+            return _resultValue;
         }
     }
 }

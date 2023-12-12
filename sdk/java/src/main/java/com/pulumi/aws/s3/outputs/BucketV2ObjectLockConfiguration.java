@@ -88,10 +88,10 @@ public final class BucketV2ObjectLockConfiguration {
             return rules(List.of(rules));
         }
         public BucketV2ObjectLockConfiguration build() {
-            final var o = new BucketV2ObjectLockConfiguration();
-            o.objectLockEnabled = objectLockEnabled;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new BucketV2ObjectLockConfiguration();
+            _resultValue.objectLockEnabled = objectLockEnabled;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

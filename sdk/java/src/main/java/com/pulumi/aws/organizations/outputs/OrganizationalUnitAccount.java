@@ -105,12 +105,12 @@ public final class OrganizationalUnitAccount {
             return this;
         }
         public OrganizationalUnitAccount build() {
-            final var o = new OrganizationalUnitAccount();
-            o.arn = arn;
-            o.email = email;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new OrganizationalUnitAccount();
+            _resultValue.arn = arn;
+            _resultValue.email = email;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

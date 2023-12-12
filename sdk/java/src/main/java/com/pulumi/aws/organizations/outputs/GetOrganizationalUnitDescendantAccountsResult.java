@@ -81,11 +81,11 @@ public final class GetOrganizationalUnitDescendantAccountsResult {
             return this;
         }
         public GetOrganizationalUnitDescendantAccountsResult build() {
-            final var o = new GetOrganizationalUnitDescendantAccountsResult();
-            o.accounts = accounts;
-            o.id = id;
-            o.parentId = parentId;
-            return o;
+            final var _resultValue = new GetOrganizationalUnitDescendantAccountsResult();
+            _resultValue.accounts = accounts;
+            _resultValue.id = id;
+            _resultValue.parentId = parentId;
+            return _resultValue;
         }
     }
 }

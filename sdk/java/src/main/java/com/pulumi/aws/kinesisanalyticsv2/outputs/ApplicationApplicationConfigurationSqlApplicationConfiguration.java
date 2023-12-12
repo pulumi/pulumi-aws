@@ -92,11 +92,11 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfiguration();
-            o.input = input;
-            o.outputs = outputs;
-            o.referenceDataSource = referenceDataSource;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfiguration();
+            _resultValue.input = input;
+            _resultValue.outputs = outputs;
+            _resultValue.referenceDataSource = referenceDataSource;
+            return _resultValue;
         }
     }
 }

@@ -126,13 +126,13 @@ public final class TaskTaskReportConfig {
             return this;
         }
         public TaskTaskReportConfig build() {
-            final var o = new TaskTaskReportConfig();
-            o.outputType = outputType;
-            o.reportLevel = reportLevel;
-            o.reportOverrides = reportOverrides;
-            o.s3Destination = s3Destination;
-            o.s3ObjectVersioning = s3ObjectVersioning;
-            return o;
+            final var _resultValue = new TaskTaskReportConfig();
+            _resultValue.outputType = outputType;
+            _resultValue.reportLevel = reportLevel;
+            _resultValue.reportOverrides = reportOverrides;
+            _resultValue.s3Destination = s3Destination;
+            _resultValue.s3ObjectVersioning = s3ObjectVersioning;
+            return _resultValue;
         }
     }
 }

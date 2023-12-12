@@ -42,9 +42,9 @@ public final class GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod {
             return items(List.of(items));
         }
         public GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod build() {
-            final var o = new GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

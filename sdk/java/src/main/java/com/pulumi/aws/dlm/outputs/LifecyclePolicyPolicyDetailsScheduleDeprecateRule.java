@@ -87,11 +87,11 @@ public final class LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
             return this;
         }
         public LifecyclePolicyPolicyDetailsScheduleDeprecateRule build() {
-            final var o = new LifecyclePolicyPolicyDetailsScheduleDeprecateRule();
-            o.count = count;
-            o.interval = interval;
-            o.intervalUnit = intervalUnit;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsScheduleDeprecateRule();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            _resultValue.intervalUnit = intervalUnit;
+            return _resultValue;
         }
     }
 }

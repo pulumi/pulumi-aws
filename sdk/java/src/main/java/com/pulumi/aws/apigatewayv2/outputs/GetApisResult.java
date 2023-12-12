@@ -105,13 +105,13 @@ public final class GetApisResult {
             return this;
         }
         public GetApisResult build() {
-            final var o = new GetApisResult();
-            o.id = id;
-            o.ids = ids;
-            o.name = name;
-            o.protocolType = protocolType;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetApisResult();
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.name = name;
+            _resultValue.protocolType = protocolType;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

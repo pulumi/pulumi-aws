@@ -86,11 +86,11 @@ public final class ClassifierGrokClassifier {
             return this;
         }
         public ClassifierGrokClassifier build() {
-            final var o = new ClassifierGrokClassifier();
-            o.classification = classification;
-            o.customPatterns = customPatterns;
-            o.grokPattern = grokPattern;
-            return o;
+            final var _resultValue = new ClassifierGrokClassifier();
+            _resultValue.classification = classification;
+            _resultValue.customPatterns = customPatterns;
+            _resultValue.grokPattern = grokPattern;
+            return _resultValue;
         }
     }
 }

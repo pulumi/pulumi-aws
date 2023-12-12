@@ -88,11 +88,11 @@ public final class ClusterClientAuthentication {
             return this;
         }
         public ClusterClientAuthentication build() {
-            final var o = new ClusterClientAuthentication();
-            o.sasl = sasl;
-            o.tls = tls;
-            o.unauthenticated = unauthenticated;
-            return o;
+            final var _resultValue = new ClusterClientAuthentication();
+            _resultValue.sasl = sasl;
+            _resultValue.tls = tls;
+            _resultValue.unauthenticated = unauthenticated;
+            return _resultValue;
         }
     }
 }

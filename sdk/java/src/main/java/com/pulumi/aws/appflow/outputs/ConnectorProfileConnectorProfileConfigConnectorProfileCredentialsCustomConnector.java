@@ -128,13 +128,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector();
-            o.apiKey = apiKey;
-            o.authenticationType = authenticationType;
-            o.basic = basic;
-            o.custom = custom;
-            o.oauth2 = oauth2;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector();
+            _resultValue.apiKey = apiKey;
+            _resultValue.authenticationType = authenticationType;
+            _resultValue.basic = basic;
+            _resultValue.custom = custom;
+            _resultValue.oauth2 = oauth2;
+            return _resultValue;
         }
     }
 }

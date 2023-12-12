@@ -46,9 +46,9 @@ public final class UserPoolSoftwareTokenMfaConfiguration {
             return this;
         }
         public UserPoolSoftwareTokenMfaConfiguration build() {
-            final var o = new UserPoolSoftwareTokenMfaConfiguration();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new UserPoolSoftwareTokenMfaConfiguration();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

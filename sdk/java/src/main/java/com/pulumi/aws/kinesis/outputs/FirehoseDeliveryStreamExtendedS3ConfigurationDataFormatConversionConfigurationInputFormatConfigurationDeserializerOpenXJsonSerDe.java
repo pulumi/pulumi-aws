@@ -88,11 +88,11 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe();
-            o.caseInsensitive = caseInsensitive;
-            o.columnToJsonKeyMappings = columnToJsonKeyMappings;
-            o.convertDotsInJsonKeysToUnderscores = convertDotsInJsonKeysToUnderscores;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe();
+            _resultValue.caseInsensitive = caseInsensitive;
+            _resultValue.columnToJsonKeyMappings = columnToJsonKeyMappings;
+            _resultValue.convertDotsInJsonKeysToUnderscores = convertDotsInJsonKeysToUnderscores;
+            return _resultValue;
         }
     }
 }

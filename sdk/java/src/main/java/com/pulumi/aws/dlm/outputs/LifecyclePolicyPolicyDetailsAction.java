@@ -70,10 +70,10 @@ public final class LifecyclePolicyPolicyDetailsAction {
             return this;
         }
         public LifecyclePolicyPolicyDetailsAction build() {
-            final var o = new LifecyclePolicyPolicyDetailsAction();
-            o.crossRegionCopies = crossRegionCopies;
-            o.name = name;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetailsAction();
+            _resultValue.crossRegionCopies = crossRegionCopies;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

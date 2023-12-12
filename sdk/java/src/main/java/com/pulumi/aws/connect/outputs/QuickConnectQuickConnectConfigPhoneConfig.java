@@ -46,9 +46,9 @@ public final class QuickConnectQuickConnectConfigPhoneConfig {
             return this;
         }
         public QuickConnectQuickConnectConfigPhoneConfig build() {
-            final var o = new QuickConnectQuickConnectConfigPhoneConfig();
-            o.phoneNumber = phoneNumber;
-            return o;
+            final var _resultValue = new QuickConnectQuickConnectConfigPhoneConfig();
+            _resultValue.phoneNumber = phoneNumber;
+            return _resultValue;
         }
     }
 }

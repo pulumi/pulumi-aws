@@ -105,12 +105,12 @@ public final class CustomDomainAssociationCertificateValidationRecord {
             return this;
         }
         public CustomDomainAssociationCertificateValidationRecord build() {
-            final var o = new CustomDomainAssociationCertificateValidationRecord();
-            o.name = name;
-            o.status = status;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new CustomDomainAssociationCertificateValidationRecord();
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

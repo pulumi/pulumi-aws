@@ -86,11 +86,11 @@ public final class FeatureGroupOfflineStoreConfigDataCatalogConfig {
             return this;
         }
         public FeatureGroupOfflineStoreConfigDataCatalogConfig build() {
-            final var o = new FeatureGroupOfflineStoreConfigDataCatalogConfig();
-            o.catalog = catalog;
-            o.database = database;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new FeatureGroupOfflineStoreConfigDataCatalogConfig();
+            _resultValue.catalog = catalog;
+            _resultValue.database = database;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

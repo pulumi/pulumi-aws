@@ -108,12 +108,12 @@ public final class TableLocalSecondaryIndex {
             return this;
         }
         public TableLocalSecondaryIndex build() {
-            final var o = new TableLocalSecondaryIndex();
-            o.name = name;
-            o.nonKeyAttributes = nonKeyAttributes;
-            o.projectionType = projectionType;
-            o.rangeKey = rangeKey;
-            return o;
+            final var _resultValue = new TableLocalSecondaryIndex();
+            _resultValue.name = name;
+            _resultValue.nonKeyAttributes = nonKeyAttributes;
+            _resultValue.projectionType = projectionType;
+            _resultValue.rangeKey = rangeKey;
+            return _resultValue;
         }
     }
 }

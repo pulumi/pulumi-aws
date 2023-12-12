@@ -204,17 +204,17 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Conf
             return this;
         }
         public FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration build() {
-            final var o = new FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration();
-            o.bucketArn = bucketArn;
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.compressionFormat = compressionFormat;
-            o.errorOutputPrefix = errorOutputPrefix;
-            o.kmsKeyArn = kmsKeyArn;
-            o.prefix = prefix;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.compressionFormat = compressionFormat;
+            _resultValue.errorOutputPrefix = errorOutputPrefix;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.prefix = prefix;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

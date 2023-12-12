@@ -196,18 +196,18 @@ public final class GetQuicksightUserResult {
             return this;
         }
         public GetQuicksightUserResult build() {
-            final var o = new GetQuicksightUserResult();
-            o.active = active;
-            o.arn = arn;
-            o.awsAccountId = awsAccountId;
-            o.email = email;
-            o.id = id;
-            o.identityType = identityType;
-            o.namespace = namespace;
-            o.principalId = principalId;
-            o.userName = userName;
-            o.userRole = userRole;
-            return o;
+            final var _resultValue = new GetQuicksightUserResult();
+            _resultValue.active = active;
+            _resultValue.arn = arn;
+            _resultValue.awsAccountId = awsAccountId;
+            _resultValue.email = email;
+            _resultValue.id = id;
+            _resultValue.identityType = identityType;
+            _resultValue.namespace = namespace;
+            _resultValue.principalId = principalId;
+            _resultValue.userName = userName;
+            _resultValue.userRole = userRole;
+            return _resultValue;
         }
     }
 }

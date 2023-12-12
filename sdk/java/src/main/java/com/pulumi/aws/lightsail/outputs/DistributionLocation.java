@@ -65,10 +65,10 @@ public final class DistributionLocation {
             return this;
         }
         public DistributionLocation build() {
-            final var o = new DistributionLocation();
-            o.availabilityZone = availabilityZone;
-            o.regionName = regionName;
-            return o;
+            final var _resultValue = new DistributionLocation();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.regionName = regionName;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition();
-            o.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
-            o.conditionOnValue = conditionOnValue;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition();
+            _resultValue.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
+            _resultValue.conditionOnValue = conditionOnValue;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

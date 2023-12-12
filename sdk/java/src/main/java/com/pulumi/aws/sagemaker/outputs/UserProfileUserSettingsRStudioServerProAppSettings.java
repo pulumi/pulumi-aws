@@ -67,10 +67,10 @@ public final class UserProfileUserSettingsRStudioServerProAppSettings {
             return this;
         }
         public UserProfileUserSettingsRStudioServerProAppSettings build() {
-            final var o = new UserProfileUserSettingsRStudioServerProAppSettings();
-            o.accessStatus = accessStatus;
-            o.userGroup = userGroup;
-            return o;
+            final var _resultValue = new UserProfileUserSettingsRStudioServerProAppSettings();
+            _resultValue.accessStatus = accessStatus;
+            _resultValue.userGroup = userGroup;
+            return _resultValue;
         }
     }
 }

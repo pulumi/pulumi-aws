@@ -38,9 +38,9 @@ public final class GetVirtualServiceSpecProviderVirtualRouter {
             return this;
         }
         public GetVirtualServiceSpecProviderVirtualRouter build() {
-            final var o = new GetVirtualServiceSpecProviderVirtualRouter();
-            o.virtualRouterName = virtualRouterName;
-            return o;
+            final var _resultValue = new GetVirtualServiceSpecProviderVirtualRouter();
+            _resultValue.virtualRouterName = virtualRouterName;
+            return _resultValue;
         }
     }
 }

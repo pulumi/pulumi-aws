@@ -165,14 +165,14 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
             return xssProtections(List.of(xssProtections));
         }
         public GetResponseHeadersPolicySecurityHeadersConfig build() {
-            final var o = new GetResponseHeadersPolicySecurityHeadersConfig();
-            o.contentSecurityPolicies = contentSecurityPolicies;
-            o.contentTypeOptions = contentTypeOptions;
-            o.frameOptions = frameOptions;
-            o.referrerPolicies = referrerPolicies;
-            o.strictTransportSecurities = strictTransportSecurities;
-            o.xssProtections = xssProtections;
-            return o;
+            final var _resultValue = new GetResponseHeadersPolicySecurityHeadersConfig();
+            _resultValue.contentSecurityPolicies = contentSecurityPolicies;
+            _resultValue.contentTypeOptions = contentTypeOptions;
+            _resultValue.frameOptions = frameOptions;
+            _resultValue.referrerPolicies = referrerPolicies;
+            _resultValue.strictTransportSecurities = strictTransportSecurities;
+            _resultValue.xssProtections = xssProtections;
+            return _resultValue;
         }
     }
 }

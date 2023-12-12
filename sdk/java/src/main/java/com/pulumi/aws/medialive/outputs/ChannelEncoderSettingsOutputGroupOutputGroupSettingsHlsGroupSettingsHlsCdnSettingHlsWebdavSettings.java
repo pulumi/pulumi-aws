@@ -109,13 +109,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings();
-            o.connectionRetryInterval = connectionRetryInterval;
-            o.filecacheDuration = filecacheDuration;
-            o.httpTransferMode = httpTransferMode;
-            o.numRetries = numRetries;
-            o.restartDelay = restartDelay;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings();
+            _resultValue.connectionRetryInterval = connectionRetryInterval;
+            _resultValue.filecacheDuration = filecacheDuration;
+            _resultValue.httpTransferMode = httpTransferMode;
+            _resultValue.numRetries = numRetries;
+            _resultValue.restartDelay = restartDelay;
+            return _resultValue;
         }
     }
 }

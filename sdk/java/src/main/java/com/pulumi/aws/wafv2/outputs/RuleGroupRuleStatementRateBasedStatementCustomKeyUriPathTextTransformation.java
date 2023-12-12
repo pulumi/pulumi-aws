@@ -66,10 +66,10 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextT
             return this;
         }
         public RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation build() {
-            final var o = new RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

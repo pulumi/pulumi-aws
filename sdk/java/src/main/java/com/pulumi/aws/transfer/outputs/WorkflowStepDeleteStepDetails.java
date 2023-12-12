@@ -67,10 +67,10 @@ public final class WorkflowStepDeleteStepDetails {
             return this;
         }
         public WorkflowStepDeleteStepDetails build() {
-            final var o = new WorkflowStepDeleteStepDetails();
-            o.name = name;
-            o.sourceFileLocation = sourceFileLocation;
-            return o;
+            final var _resultValue = new WorkflowStepDeleteStepDetails();
+            _resultValue.name = name;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            return _resultValue;
         }
     }
 }

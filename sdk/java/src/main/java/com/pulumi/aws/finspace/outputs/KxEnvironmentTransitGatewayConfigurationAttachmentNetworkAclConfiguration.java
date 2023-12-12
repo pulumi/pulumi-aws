@@ -146,14 +146,14 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
             return this;
         }
         public KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration build() {
-            final var o = new KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration();
-            o.cidrBlock = cidrBlock;
-            o.icmpTypeCode = icmpTypeCode;
-            o.portRange = portRange;
-            o.protocol = protocol;
-            o.ruleAction = ruleAction;
-            o.ruleNumber = ruleNumber;
-            return o;
+            final var _resultValue = new KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration();
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.icmpTypeCode = icmpTypeCode;
+            _resultValue.portRange = portRange;
+            _resultValue.protocol = protocol;
+            _resultValue.ruleAction = ruleAction;
+            _resultValue.ruleNumber = ruleNumber;
+            return _resultValue;
         }
     }
 }

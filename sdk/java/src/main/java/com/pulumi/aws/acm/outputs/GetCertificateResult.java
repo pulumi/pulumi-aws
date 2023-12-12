@@ -210,19 +210,19 @@ public final class GetCertificateResult {
             return types(List.of(types));
         }
         public GetCertificateResult build() {
-            final var o = new GetCertificateResult();
-            o.arn = arn;
-            o.certificate = certificate;
-            o.certificateChain = certificateChain;
-            o.domain = domain;
-            o.id = id;
-            o.keyTypes = keyTypes;
-            o.mostRecent = mostRecent;
-            o.status = status;
-            o.statuses = statuses;
-            o.tags = tags;
-            o.types = types;
-            return o;
+            final var _resultValue = new GetCertificateResult();
+            _resultValue.arn = arn;
+            _resultValue.certificate = certificate;
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.domain = domain;
+            _resultValue.id = id;
+            _resultValue.keyTypes = keyTypes;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.status = status;
+            _resultValue.statuses = statuses;
+            _resultValue.tags = tags;
+            _resultValue.types = types;
+            return _resultValue;
         }
     }
 }

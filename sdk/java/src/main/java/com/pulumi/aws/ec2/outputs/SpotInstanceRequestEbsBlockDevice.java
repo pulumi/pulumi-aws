@@ -237,19 +237,19 @@ public final class SpotInstanceRequestEbsBlockDevice {
             return this;
         }
         public SpotInstanceRequestEbsBlockDevice build() {
-            final var o = new SpotInstanceRequestEbsBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.deviceName = deviceName;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.kmsKeyId = kmsKeyId;
-            o.snapshotId = snapshotId;
-            o.tags = tags;
-            o.throughput = throughput;
-            o.volumeId = volumeId;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new SpotInstanceRequestEbsBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.deviceName = deviceName;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.tags = tags;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeId = volumeId;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

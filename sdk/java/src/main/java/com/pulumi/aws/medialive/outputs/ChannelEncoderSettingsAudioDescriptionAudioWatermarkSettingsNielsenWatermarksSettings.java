@@ -92,11 +92,11 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
             return nielsenNaesIiNwSettings(List.of(nielsenNaesIiNwSettings));
         }
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings build() {
-            final var o = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings();
-            o.nielsenCbetSettings = nielsenCbetSettings;
-            o.nielsenDistributionType = nielsenDistributionType;
-            o.nielsenNaesIiNwSettings = nielsenNaesIiNwSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings();
+            _resultValue.nielsenCbetSettings = nielsenCbetSettings;
+            _resultValue.nielsenDistributionType = nielsenDistributionType;
+            _resultValue.nielsenNaesIiNwSettings = nielsenNaesIiNwSettings;
+            return _resultValue;
         }
     }
 }

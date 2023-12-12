@@ -46,9 +46,9 @@ public final class AnalyticsConfigurationStorageClassAnalysis {
             return this;
         }
         public AnalyticsConfigurationStorageClassAnalysis build() {
-            final var o = new AnalyticsConfigurationStorageClassAnalysis();
-            o.dataExport = dataExport;
-            return o;
+            final var _resultValue = new AnalyticsConfigurationStorageClassAnalysis();
+            _resultValue.dataExport = dataExport;
+            return _resultValue;
         }
     }
 }

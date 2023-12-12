@@ -77,12 +77,12 @@ public final class GetSecretSecret {
             return this;
         }
         public GetSecretSecret build() {
-            final var o = new GetSecretSecret();
-            o.context = context;
-            o.grantTokens = grantTokens;
-            o.name = name;
-            o.payload = payload;
-            return o;
+            final var _resultValue = new GetSecretSecret();
+            _resultValue.context = context;
+            _resultValue.grantTokens = grantTokens;
+            _resultValue.name = name;
+            _resultValue.payload = payload;
+            return _resultValue;
         }
     }
 }

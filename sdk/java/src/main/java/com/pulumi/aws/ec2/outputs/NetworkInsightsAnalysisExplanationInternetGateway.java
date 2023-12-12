@@ -78,11 +78,11 @@ public final class NetworkInsightsAnalysisExplanationInternetGateway {
             return this;
         }
         public NetworkInsightsAnalysisExplanationInternetGateway build() {
-            final var o = new NetworkInsightsAnalysisExplanationInternetGateway();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisExplanationInternetGateway();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

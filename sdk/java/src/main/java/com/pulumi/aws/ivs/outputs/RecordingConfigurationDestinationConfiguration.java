@@ -46,9 +46,9 @@ public final class RecordingConfigurationDestinationConfiguration {
             return this;
         }
         public RecordingConfigurationDestinationConfiguration build() {
-            final var o = new RecordingConfigurationDestinationConfiguration();
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new RecordingConfigurationDestinationConfiguration();
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

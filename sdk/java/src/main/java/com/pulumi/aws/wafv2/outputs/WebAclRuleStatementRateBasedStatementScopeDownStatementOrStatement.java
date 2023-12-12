@@ -50,9 +50,9 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStat
             return statements(List.of(statements));
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

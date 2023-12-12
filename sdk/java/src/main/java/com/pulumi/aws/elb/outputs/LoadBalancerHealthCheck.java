@@ -125,13 +125,13 @@ public final class LoadBalancerHealthCheck {
             return this;
         }
         public LoadBalancerHealthCheck build() {
-            final var o = new LoadBalancerHealthCheck();
-            o.healthyThreshold = healthyThreshold;
-            o.interval = interval;
-            o.target = target;
-            o.timeout = timeout;
-            o.unhealthyThreshold = unhealthyThreshold;
-            return o;
+            final var _resultValue = new LoadBalancerHealthCheck();
+            _resultValue.healthyThreshold = healthyThreshold;
+            _resultValue.interval = interval;
+            _resultValue.target = target;
+            _resultValue.timeout = timeout;
+            _resultValue.unhealthyThreshold = unhealthyThreshold;
+            return _resultValue;
         }
     }
 }

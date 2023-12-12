@@ -59,10 +59,10 @@ public final class EntityRecognizerInputDataConfigAnnotations {
             return this;
         }
         public EntityRecognizerInputDataConfigAnnotations build() {
-            final var o = new EntityRecognizerInputDataConfigAnnotations();
-            o.s3Uri = s3Uri;
-            o.testS3Uri = testS3Uri;
-            return o;
+            final var _resultValue = new EntityRecognizerInputDataConfigAnnotations();
+            _resultValue.s3Uri = s3Uri;
+            _resultValue.testS3Uri = testS3Uri;
+            return _resultValue;
         }
     }
 }

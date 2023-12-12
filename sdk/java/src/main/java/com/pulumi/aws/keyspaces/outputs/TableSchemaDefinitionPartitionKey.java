@@ -46,9 +46,9 @@ public final class TableSchemaDefinitionPartitionKey {
             return this;
         }
         public TableSchemaDefinitionPartitionKey build() {
-            final var o = new TableSchemaDefinitionPartitionKey();
-            o.name = name;
-            return o;
+            final var _resultValue = new TableSchemaDefinitionPartitionKey();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

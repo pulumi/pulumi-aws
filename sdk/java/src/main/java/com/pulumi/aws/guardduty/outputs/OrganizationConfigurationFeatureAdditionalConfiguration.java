@@ -65,10 +65,10 @@ public final class OrganizationConfigurationFeatureAdditionalConfiguration {
             return this;
         }
         public OrganizationConfigurationFeatureAdditionalConfiguration build() {
-            final var o = new OrganizationConfigurationFeatureAdditionalConfiguration();
-            o.autoEnable = autoEnable;
-            o.name = name;
-            return o;
+            final var _resultValue = new OrganizationConfigurationFeatureAdditionalConfiguration();
+            _resultValue.autoEnable = autoEnable;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

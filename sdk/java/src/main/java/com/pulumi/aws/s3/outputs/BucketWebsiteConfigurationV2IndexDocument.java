@@ -50,9 +50,9 @@ public final class BucketWebsiteConfigurationV2IndexDocument {
             return this;
         }
         public BucketWebsiteConfigurationV2IndexDocument build() {
-            final var o = new BucketWebsiteConfigurationV2IndexDocument();
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new BucketWebsiteConfigurationV2IndexDocument();
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

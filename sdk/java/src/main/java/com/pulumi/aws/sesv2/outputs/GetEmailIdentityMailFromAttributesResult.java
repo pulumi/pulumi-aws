@@ -95,12 +95,12 @@ public final class GetEmailIdentityMailFromAttributesResult {
             return this;
         }
         public GetEmailIdentityMailFromAttributesResult build() {
-            final var o = new GetEmailIdentityMailFromAttributesResult();
-            o.behaviorOnMxFailure = behaviorOnMxFailure;
-            o.emailIdentity = emailIdentity;
-            o.id = id;
-            o.mailFromDomain = mailFromDomain;
-            return o;
+            final var _resultValue = new GetEmailIdentityMailFromAttributesResult();
+            _resultValue.behaviorOnMxFailure = behaviorOnMxFailure;
+            _resultValue.emailIdentity = emailIdentity;
+            _resultValue.id = id;
+            _resultValue.mailFromDomain = mailFromDomain;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class IntegrationTlsConfig {
             return this;
         }
         public IntegrationTlsConfig build() {
-            final var o = new IntegrationTlsConfig();
-            o.serverNameToVerify = serverNameToVerify;
-            return o;
+            final var _resultValue = new IntegrationTlsConfig();
+            _resultValue.serverNameToVerify = serverNameToVerify;
+            return _resultValue;
         }
     }
 }

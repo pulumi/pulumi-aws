@@ -126,13 +126,13 @@ public final class InvocationLoggingConfigurationLoggingConfig {
             return this;
         }
         public InvocationLoggingConfigurationLoggingConfig build() {
-            final var o = new InvocationLoggingConfigurationLoggingConfig();
-            o.cloudwatchConfig = cloudwatchConfig;
-            o.embeddingDataDeliveryEnabled = embeddingDataDeliveryEnabled;
-            o.imageDataDeliveryEnabled = imageDataDeliveryEnabled;
-            o.s3Config = s3Config;
-            o.textDataDeliveryEnabled = textDataDeliveryEnabled;
-            return o;
+            final var _resultValue = new InvocationLoggingConfigurationLoggingConfig();
+            _resultValue.cloudwatchConfig = cloudwatchConfig;
+            _resultValue.embeddingDataDeliveryEnabled = embeddingDataDeliveryEnabled;
+            _resultValue.imageDataDeliveryEnabled = imageDataDeliveryEnabled;
+            _resultValue.s3Config = s3Config;
+            _resultValue.textDataDeliveryEnabled = textDataDeliveryEnabled;
+            return _resultValue;
         }
     }
 }

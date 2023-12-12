@@ -156,14 +156,14 @@ public final class ConfigurationSetEventDestinationEventDestination {
             return this;
         }
         public ConfigurationSetEventDestinationEventDestination build() {
-            final var o = new ConfigurationSetEventDestinationEventDestination();
-            o.cloudWatchDestination = cloudWatchDestination;
-            o.enabled = enabled;
-            o.kinesisFirehoseDestination = kinesisFirehoseDestination;
-            o.matchingEventTypes = matchingEventTypes;
-            o.pinpointDestination = pinpointDestination;
-            o.snsDestination = snsDestination;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestination();
+            _resultValue.cloudWatchDestination = cloudWatchDestination;
+            _resultValue.enabled = enabled;
+            _resultValue.kinesisFirehoseDestination = kinesisFirehoseDestination;
+            _resultValue.matchingEventTypes = matchingEventTypes;
+            _resultValue.pinpointDestination = pinpointDestination;
+            _resultValue.snsDestination = snsDestination;
+            return _resultValue;
         }
     }
 }

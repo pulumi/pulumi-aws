@@ -69,10 +69,10 @@ public final class ThemePermission {
             return this;
         }
         public ThemePermission build() {
-            final var o = new ThemePermission();
-            o.actions = actions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new ThemePermission();
+            _resultValue.actions = actions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

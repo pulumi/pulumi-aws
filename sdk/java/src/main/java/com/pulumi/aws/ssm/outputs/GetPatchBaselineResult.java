@@ -302,23 +302,23 @@ public final class GetPatchBaselineResult {
             return sources(List.of(sources));
         }
         public GetPatchBaselineResult build() {
-            final var o = new GetPatchBaselineResult();
-            o.approvalRules = approvalRules;
-            o.approvedPatches = approvedPatches;
-            o.approvedPatchesComplianceLevel = approvedPatchesComplianceLevel;
-            o.approvedPatchesEnableNonSecurity = approvedPatchesEnableNonSecurity;
-            o.defaultBaseline = defaultBaseline;
-            o.description = description;
-            o.globalFilters = globalFilters;
-            o.id = id;
-            o.name = name;
-            o.namePrefix = namePrefix;
-            o.operatingSystem = operatingSystem;
-            o.owner = owner;
-            o.rejectedPatches = rejectedPatches;
-            o.rejectedPatchesAction = rejectedPatchesAction;
-            o.sources = sources;
-            return o;
+            final var _resultValue = new GetPatchBaselineResult();
+            _resultValue.approvalRules = approvalRules;
+            _resultValue.approvedPatches = approvedPatches;
+            _resultValue.approvedPatchesComplianceLevel = approvedPatchesComplianceLevel;
+            _resultValue.approvedPatchesEnableNonSecurity = approvedPatchesEnableNonSecurity;
+            _resultValue.defaultBaseline = defaultBaseline;
+            _resultValue.description = description;
+            _resultValue.globalFilters = globalFilters;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.namePrefix = namePrefix;
+            _resultValue.operatingSystem = operatingSystem;
+            _resultValue.owner = owner;
+            _resultValue.rejectedPatches = rejectedPatches;
+            _resultValue.rejectedPatchesAction = rejectedPatchesAction;
+            _resultValue.sources = sources;
+            return _resultValue;
         }
     }
 }

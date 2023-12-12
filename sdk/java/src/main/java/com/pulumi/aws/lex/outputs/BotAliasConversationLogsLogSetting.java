@@ -124,13 +124,13 @@ public final class BotAliasConversationLogsLogSetting {
             return this;
         }
         public BotAliasConversationLogsLogSetting build() {
-            final var o = new BotAliasConversationLogsLogSetting();
-            o.destination = destination;
-            o.kmsKeyArn = kmsKeyArn;
-            o.logType = logType;
-            o.resourceArn = resourceArn;
-            o.resourcePrefix = resourcePrefix;
-            return o;
+            final var _resultValue = new BotAliasConversationLogsLogSetting();
+            _resultValue.destination = destination;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.logType = logType;
+            _resultValue.resourceArn = resourceArn;
+            _resultValue.resourcePrefix = resourcePrefix;
+            return _resultValue;
         }
     }
 }

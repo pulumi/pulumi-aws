@@ -65,10 +65,10 @@ public final class TopicRuleErrorActionKafkaHeader {
             return this;
         }
         public TopicRuleErrorActionKafkaHeader build() {
-            final var o = new TopicRuleErrorActionKafkaHeader();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionKafkaHeader();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

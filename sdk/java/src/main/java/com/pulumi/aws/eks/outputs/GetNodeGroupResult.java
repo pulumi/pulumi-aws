@@ -420,28 +420,28 @@ public final class GetNodeGroupResult {
             return this;
         }
         public GetNodeGroupResult build() {
-            final var o = new GetNodeGroupResult();
-            o.amiType = amiType;
-            o.arn = arn;
-            o.capacityType = capacityType;
-            o.clusterName = clusterName;
-            o.diskSize = diskSize;
-            o.id = id;
-            o.instanceTypes = instanceTypes;
-            o.labels = labels;
-            o.launchTemplates = launchTemplates;
-            o.nodeGroupName = nodeGroupName;
-            o.nodeRoleArn = nodeRoleArn;
-            o.releaseVersion = releaseVersion;
-            o.remoteAccesses = remoteAccesses;
-            o.resources = resources;
-            o.scalingConfigs = scalingConfigs;
-            o.status = status;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.taints = taints;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetNodeGroupResult();
+            _resultValue.amiType = amiType;
+            _resultValue.arn = arn;
+            _resultValue.capacityType = capacityType;
+            _resultValue.clusterName = clusterName;
+            _resultValue.diskSize = diskSize;
+            _resultValue.id = id;
+            _resultValue.instanceTypes = instanceTypes;
+            _resultValue.labels = labels;
+            _resultValue.launchTemplates = launchTemplates;
+            _resultValue.nodeGroupName = nodeGroupName;
+            _resultValue.nodeRoleArn = nodeRoleArn;
+            _resultValue.releaseVersion = releaseVersion;
+            _resultValue.remoteAccesses = remoteAccesses;
+            _resultValue.resources = resources;
+            _resultValue.scalingConfigs = scalingConfigs;
+            _resultValue.status = status;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.taints = taints;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

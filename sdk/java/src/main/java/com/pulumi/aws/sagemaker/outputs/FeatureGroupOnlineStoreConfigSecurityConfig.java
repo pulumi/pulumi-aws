@@ -48,9 +48,9 @@ public final class FeatureGroupOnlineStoreConfigSecurityConfig {
             return this;
         }
         public FeatureGroupOnlineStoreConfigSecurityConfig build() {
-            final var o = new FeatureGroupOnlineStoreConfigSecurityConfig();
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new FeatureGroupOnlineStoreConfigSecurityConfig();
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

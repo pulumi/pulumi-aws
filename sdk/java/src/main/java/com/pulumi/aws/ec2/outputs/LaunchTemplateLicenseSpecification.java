@@ -46,9 +46,9 @@ public final class LaunchTemplateLicenseSpecification {
             return this;
         }
         public LaunchTemplateLicenseSpecification build() {
-            final var o = new LaunchTemplateLicenseSpecification();
-            o.licenseConfigurationArn = licenseConfigurationArn;
-            return o;
+            final var _resultValue = new LaunchTemplateLicenseSpecification();
+            _resultValue.licenseConfigurationArn = licenseConfigurationArn;
+            return _resultValue;
         }
     }
 }

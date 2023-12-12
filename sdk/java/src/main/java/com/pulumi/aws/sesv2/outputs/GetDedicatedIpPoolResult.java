@@ -139,14 +139,14 @@ public final class GetDedicatedIpPoolResult {
             return this;
         }
         public GetDedicatedIpPoolResult build() {
-            final var o = new GetDedicatedIpPoolResult();
-            o.arn = arn;
-            o.dedicatedIps = dedicatedIps;
-            o.id = id;
-            o.poolName = poolName;
-            o.scalingMode = scalingMode;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDedicatedIpPoolResult();
+            _resultValue.arn = arn;
+            _resultValue.dedicatedIps = dedicatedIps;
+            _resultValue.id = id;
+            _resultValue.poolName = poolName;
+            _resultValue.scalingMode = scalingMode;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

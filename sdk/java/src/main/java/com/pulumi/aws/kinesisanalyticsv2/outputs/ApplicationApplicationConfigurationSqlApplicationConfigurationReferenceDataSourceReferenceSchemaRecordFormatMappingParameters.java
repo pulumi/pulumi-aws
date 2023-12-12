@@ -68,10 +68,10 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters();
-            o.csvMappingParameters = csvMappingParameters;
-            o.jsonMappingParameters = jsonMappingParameters;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters();
+            _resultValue.csvMappingParameters = csvMappingParameters;
+            _resultValue.jsonMappingParameters = jsonMappingParameters;
+            return _resultValue;
         }
     }
 }

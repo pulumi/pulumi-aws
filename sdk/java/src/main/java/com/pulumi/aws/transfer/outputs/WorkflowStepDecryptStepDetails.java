@@ -125,13 +125,13 @@ public final class WorkflowStepDecryptStepDetails {
             return this;
         }
         public WorkflowStepDecryptStepDetails build() {
-            final var o = new WorkflowStepDecryptStepDetails();
-            o.destinationFileLocation = destinationFileLocation;
-            o.name = name;
-            o.overwriteExisting = overwriteExisting;
-            o.sourceFileLocation = sourceFileLocation;
-            o.type = type;
-            return o;
+            final var _resultValue = new WorkflowStepDecryptStepDetails();
+            _resultValue.destinationFileLocation = destinationFileLocation;
+            _resultValue.name = name;
+            _resultValue.overwriteExisting = overwriteExisting;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

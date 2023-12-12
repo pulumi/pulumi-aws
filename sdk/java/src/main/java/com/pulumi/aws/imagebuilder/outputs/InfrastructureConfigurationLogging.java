@@ -46,9 +46,9 @@ public final class InfrastructureConfigurationLogging {
             return this;
         }
         public InfrastructureConfigurationLogging build() {
-            final var o = new InfrastructureConfigurationLogging();
-            o.s3Logs = s3Logs;
-            return o;
+            final var _resultValue = new InfrastructureConfigurationLogging();
+            _resultValue.s3Logs = s3Logs;
+            return _resultValue;
         }
     }
 }

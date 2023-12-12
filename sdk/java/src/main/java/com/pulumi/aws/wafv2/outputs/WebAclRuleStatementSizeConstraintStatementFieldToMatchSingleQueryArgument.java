@@ -46,9 +46,9 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQ
             return this;
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument();
-            o.name = name;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

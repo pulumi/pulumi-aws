@@ -48,9 +48,9 @@ public final class ConnectorKafkaClusterClientAuthentication {
             return this;
         }
         public ConnectorKafkaClusterClientAuthentication build() {
-            final var o = new ConnectorKafkaClusterClientAuthentication();
-            o.authenticationType = authenticationType;
-            return o;
+            final var _resultValue = new ConnectorKafkaClusterClientAuthentication();
+            _resultValue.authenticationType = authenticationType;
+            return _resultValue;
         }
     }
 }

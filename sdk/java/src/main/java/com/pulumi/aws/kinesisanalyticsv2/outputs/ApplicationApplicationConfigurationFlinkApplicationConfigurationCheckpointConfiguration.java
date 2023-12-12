@@ -113,12 +113,12 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
             return this;
         }
         public ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration();
-            o.checkpointInterval = checkpointInterval;
-            o.checkpointingEnabled = checkpointingEnabled;
-            o.configurationType = configurationType;
-            o.minPauseBetweenCheckpoints = minPauseBetweenCheckpoints;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration();
+            _resultValue.checkpointInterval = checkpointInterval;
+            _resultValue.checkpointingEnabled = checkpointingEnabled;
+            _resultValue.configurationType = configurationType;
+            _resultValue.minPauseBetweenCheckpoints = minPauseBetweenCheckpoints;
+            return _resultValue;
         }
     }
 }

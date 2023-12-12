@@ -93,11 +93,11 @@ public final class GetTagsFilterOrCostCategory {
             return values(List.of(values));
         }
         public GetTagsFilterOrCostCategory build() {
-            final var o = new GetTagsFilterOrCostCategory();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetTagsFilterOrCostCategory();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings();
-            o.containerSettings = containerSettings;
-            o.extension = extension;
-            o.nameModifier = nameModifier;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings();
+            _resultValue.containerSettings = containerSettings;
+            _resultValue.extension = extension;
+            _resultValue.nameModifier = nameModifier;
+            return _resultValue;
         }
     }
 }

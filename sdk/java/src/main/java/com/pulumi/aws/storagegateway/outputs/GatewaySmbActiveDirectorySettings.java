@@ -163,15 +163,15 @@ public final class GatewaySmbActiveDirectorySettings {
             return this;
         }
         public GatewaySmbActiveDirectorySettings build() {
-            final var o = new GatewaySmbActiveDirectorySettings();
-            o.activeDirectoryStatus = activeDirectoryStatus;
-            o.domainControllers = domainControllers;
-            o.domainName = domainName;
-            o.organizationalUnit = organizationalUnit;
-            o.password = password;
-            o.timeoutInSeconds = timeoutInSeconds;
-            o.username = username;
-            return o;
+            final var _resultValue = new GatewaySmbActiveDirectorySettings();
+            _resultValue.activeDirectoryStatus = activeDirectoryStatus;
+            _resultValue.domainControllers = domainControllers;
+            _resultValue.domainName = domainName;
+            _resultValue.organizationalUnit = organizationalUnit;
+            _resultValue.password = password;
+            _resultValue.timeoutInSeconds = timeoutInSeconds;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

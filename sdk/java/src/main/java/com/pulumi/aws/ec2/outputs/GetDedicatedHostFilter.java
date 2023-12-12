@@ -69,10 +69,10 @@ public final class GetDedicatedHostFilter {
             return values(List.of(values));
         }
         public GetDedicatedHostFilter build() {
-            final var o = new GetDedicatedHostFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetDedicatedHostFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

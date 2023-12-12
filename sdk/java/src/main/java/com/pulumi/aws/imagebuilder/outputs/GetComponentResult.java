@@ -310,23 +310,23 @@ public final class GetComponentResult {
             return this;
         }
         public GetComponentResult build() {
-            final var o = new GetComponentResult();
-            o.arn = arn;
-            o.changeDescription = changeDescription;
-            o.data = data;
-            o.dateCreated = dateCreated;
-            o.description = description;
-            o.encrypted = encrypted;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.name = name;
-            o.owner = owner;
-            o.platform = platform;
-            o.supportedOsVersions = supportedOsVersions;
-            o.tags = tags;
-            o.type = type;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetComponentResult();
+            _resultValue.arn = arn;
+            _resultValue.changeDescription = changeDescription;
+            _resultValue.data = data;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.description = description;
+            _resultValue.encrypted = encrypted;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.platform = platform;
+            _resultValue.supportedOsVersions = supportedOsVersions;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -89,11 +89,11 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies {
             return this;
         }
         public RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies build() {
-            final var o = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies();
-            o.matchPatterns = matchPatterns;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies();
+            _resultValue.matchPatterns = matchPatterns;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

@@ -75,11 +75,11 @@ public final class ThingGroupMetadata {
             return rootToParentGroups(List.of(rootToParentGroups));
         }
         public ThingGroupMetadata build() {
-            final var o = new ThingGroupMetadata();
-            o.creationDate = creationDate;
-            o.parentGroupName = parentGroupName;
-            o.rootToParentGroups = rootToParentGroups;
-            return o;
+            final var _resultValue = new ThingGroupMetadata();
+            _resultValue.creationDate = creationDate;
+            _resultValue.parentGroupName = parentGroupName;
+            _resultValue.rootToParentGroups = rootToParentGroups;
+            return _resultValue;
         }
     }
 }

@@ -80,11 +80,11 @@ public final class GetNodeGroupsResult {
             return names(List.of(names));
         }
         public GetNodeGroupsResult build() {
-            final var o = new GetNodeGroupsResult();
-            o.clusterName = clusterName;
-            o.id = id;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetNodeGroupsResult();
+            _resultValue.clusterName = clusterName;
+            _resultValue.id = id;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

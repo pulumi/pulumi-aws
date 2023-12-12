@@ -126,13 +126,13 @@ public final class GetWorkspacesResult {
             return workspaceIds(List.of(workspaceIds));
         }
         public GetWorkspacesResult build() {
-            final var o = new GetWorkspacesResult();
-            o.aliasPrefix = aliasPrefix;
-            o.aliases = aliases;
-            o.arns = arns;
-            o.id = id;
-            o.workspaceIds = workspaceIds;
-            return o;
+            final var _resultValue = new GetWorkspacesResult();
+            _resultValue.aliasPrefix = aliasPrefix;
+            _resultValue.aliases = aliases;
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.workspaceIds = workspaceIds;
+            return _resultValue;
         }
     }
 }

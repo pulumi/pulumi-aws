@@ -48,9 +48,9 @@ public final class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
             return this;
         }
         public SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance build() {
-            final var o = new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance();
-            o.replacementStrategy = replacementStrategy;
-            return o;
+            final var _resultValue = new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance();
+            _resultValue.replacementStrategy = replacementStrategy;
+            return _resultValue;
         }
     }
 }

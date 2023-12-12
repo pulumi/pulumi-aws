@@ -49,10 +49,10 @@ public final class GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListe
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener();
-            o.instancePort = instancePort;
-            o.loadBalancerPort = loadBalancerPort;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener();
+            _resultValue.instancePort = instancePort;
+            _resultValue.loadBalancerPort = loadBalancerPort;
+            return _resultValue;
         }
     }
 }

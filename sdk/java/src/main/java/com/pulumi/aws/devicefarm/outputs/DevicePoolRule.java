@@ -86,11 +86,11 @@ public final class DevicePoolRule {
             return this;
         }
         public DevicePoolRule build() {
-            final var o = new DevicePoolRule();
-            o.attribute = attribute;
-            o.operator = operator;
-            o.value = value;
-            return o;
+            final var _resultValue = new DevicePoolRule();
+            _resultValue.attribute = attribute;
+            _resultValue.operator = operator;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

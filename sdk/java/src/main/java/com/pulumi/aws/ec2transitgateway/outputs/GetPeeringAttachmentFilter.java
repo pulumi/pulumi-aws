@@ -73,10 +73,10 @@ public final class GetPeeringAttachmentFilter {
             return values(List.of(values));
         }
         public GetPeeringAttachmentFilter build() {
-            final var o = new GetPeeringAttachmentFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetPeeringAttachmentFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

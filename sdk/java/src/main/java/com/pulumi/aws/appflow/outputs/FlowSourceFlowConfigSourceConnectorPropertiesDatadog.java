@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesDatadog {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesDatadog build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesDatadog();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesDatadog();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

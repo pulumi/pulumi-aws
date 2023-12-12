@@ -48,9 +48,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatC
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig();
-            o.s3InputFileType = s3InputFileType;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig();
+            _resultValue.s3InputFileType = s3InputFileType;
+            return _resultValue;
         }
     }
 }

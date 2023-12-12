@@ -125,13 +125,13 @@ public final class GetIndexDocumentMetadataConfigurationUpdateRelevance {
             return this;
         }
         public GetIndexDocumentMetadataConfigurationUpdateRelevance build() {
-            final var o = new GetIndexDocumentMetadataConfigurationUpdateRelevance();
-            o.duration = duration;
-            o.freshness = freshness;
-            o.importance = importance;
-            o.rankOrder = rankOrder;
-            o.valuesImportanceMap = valuesImportanceMap;
-            return o;
+            final var _resultValue = new GetIndexDocumentMetadataConfigurationUpdateRelevance();
+            _resultValue.duration = duration;
+            _resultValue.freshness = freshness;
+            _resultValue.importance = importance;
+            _resultValue.rankOrder = rankOrder;
+            _resultValue.valuesImportanceMap = valuesImportanceMap;
+            return _resultValue;
         }
     }
 }

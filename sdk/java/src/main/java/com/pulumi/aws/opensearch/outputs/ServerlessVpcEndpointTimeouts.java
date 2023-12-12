@@ -62,11 +62,11 @@ public final class ServerlessVpcEndpointTimeouts {
             return this;
         }
         public ServerlessVpcEndpointTimeouts build() {
-            final var o = new ServerlessVpcEndpointTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new ServerlessVpcEndpointTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

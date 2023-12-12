@@ -51,10 +51,10 @@ public final class EnvironmentLastUpdatedError {
             return this;
         }
         public EnvironmentLastUpdatedError build() {
-            final var o = new EnvironmentLastUpdatedError();
-            o.errorCode = errorCode;
-            o.errorMessage = errorMessage;
-            return o;
+            final var _resultValue = new EnvironmentLastUpdatedError();
+            _resultValue.errorCode = errorCode;
+            _resultValue.errorMessage = errorMessage;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow();
-            o.instanceUrl = instanceUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow();
+            _resultValue.instanceUrl = instanceUrl;
+            return _resultValue;
         }
     }
 }

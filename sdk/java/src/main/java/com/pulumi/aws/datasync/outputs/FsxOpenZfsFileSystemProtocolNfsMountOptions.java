@@ -48,9 +48,9 @@ public final class FsxOpenZfsFileSystemProtocolNfsMountOptions {
             return this;
         }
         public FsxOpenZfsFileSystemProtocolNfsMountOptions build() {
-            final var o = new FsxOpenZfsFileSystemProtocolNfsMountOptions();
-            o.version = version;
-            return o;
+            final var _resultValue = new FsxOpenZfsFileSystemProtocolNfsMountOptions();
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

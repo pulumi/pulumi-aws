@@ -119,13 +119,13 @@ public final class GetDetectorResult {
             return this;
         }
         public GetDetectorResult build() {
-            final var o = new GetDetectorResult();
-            o.features = features;
-            o.findingPublishingFrequency = findingPublishingFrequency;
-            o.id = id;
-            o.serviceRoleArn = serviceRoleArn;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetDetectorResult();
+            _resultValue.features = features;
+            _resultValue.findingPublishingFrequency = findingPublishingFrequency;
+            _resultValue.id = id;
+            _resultValue.serviceRoleArn = serviceRoleArn;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -71,10 +71,10 @@ public final class DistributionCacheBehaviorSettingsForwardedHeaders {
             return this;
         }
         public DistributionCacheBehaviorSettingsForwardedHeaders build() {
-            final var o = new DistributionCacheBehaviorSettingsForwardedHeaders();
-            o.headersAllowLists = headersAllowLists;
-            o.option = option;
-            return o;
+            final var _resultValue = new DistributionCacheBehaviorSettingsForwardedHeaders();
+            _resultValue.headersAllowLists = headersAllowLists;
+            _resultValue.option = option;
+            return _resultValue;
         }
     }
 }

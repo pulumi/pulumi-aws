@@ -66,10 +66,10 @@ public final class ConnectorProfileConnectorProfileConfig {
             return this;
         }
         public ConnectorProfileConnectorProfileConfig build() {
-            final var o = new ConnectorProfileConnectorProfileConfig();
-            o.connectorProfileCredentials = connectorProfileCredentials;
-            o.connectorProfileProperties = connectorProfileProperties;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfig();
+            _resultValue.connectorProfileCredentials = connectorProfileCredentials;
+            _resultValue.connectorProfileProperties = connectorProfileProperties;
+            return _resultValue;
         }
     }
 }

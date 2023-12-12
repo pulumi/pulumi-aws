@@ -93,14 +93,14 @@ public final class GetProxyAuth {
             return this;
         }
         public GetProxyAuth build() {
-            final var o = new GetProxyAuth();
-            o.authScheme = authScheme;
-            o.clientPasswordAuthType = clientPasswordAuthType;
-            o.description = description;
-            o.iamAuth = iamAuth;
-            o.secretArn = secretArn;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetProxyAuth();
+            _resultValue.authScheme = authScheme;
+            _resultValue.clientPasswordAuthType = clientPasswordAuthType;
+            _resultValue.description = description;
+            _resultValue.iamAuth = iamAuth;
+            _resultValue.secretArn = secretArn;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

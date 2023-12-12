@@ -52,9 +52,9 @@ public final class RouteSpecTcpRouteAction {
             return weightedTargets(List.of(weightedTargets));
         }
         public RouteSpecTcpRouteAction build() {
-            final var o = new RouteSpecTcpRouteAction();
-            o.weightedTargets = weightedTargets;
-            return o;
+            final var _resultValue = new RouteSpecTcpRouteAction();
+            _resultValue.weightedTargets = weightedTargets;
+            return _resultValue;
         }
     }
 }

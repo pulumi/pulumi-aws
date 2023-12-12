@@ -46,9 +46,9 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSs
             return this;
         }
         public BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject build() {
-            final var o = new BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

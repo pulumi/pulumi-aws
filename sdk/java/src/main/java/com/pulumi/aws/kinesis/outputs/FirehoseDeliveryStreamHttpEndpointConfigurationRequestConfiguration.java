@@ -72,10 +72,10 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
             return this;
         }
         public FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration build() {
-            final var o = new FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration();
-            o.commonAttributes = commonAttributes;
-            o.contentEncoding = contentEncoding;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration();
+            _resultValue.commonAttributes = commonAttributes;
+            _resultValue.contentEncoding = contentEncoding;
+            return _resultValue;
         }
     }
 }

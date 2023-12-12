@@ -76,11 +76,11 @@ public final class GetFirehoseDeliveryStreamResult {
             return this;
         }
         public GetFirehoseDeliveryStreamResult build() {
-            final var o = new GetFirehoseDeliveryStreamResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetFirehoseDeliveryStreamResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

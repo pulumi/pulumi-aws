@@ -107,12 +107,12 @@ public final class BucketV2Website {
             return this;
         }
         public BucketV2Website build() {
-            final var o = new BucketV2Website();
-            o.errorDocument = errorDocument;
-            o.indexDocument = indexDocument;
-            o.redirectAllRequestsTo = redirectAllRequestsTo;
-            o.routingRules = routingRules;
-            return o;
+            final var _resultValue = new BucketV2Website();
+            _resultValue.errorDocument = errorDocument;
+            _resultValue.indexDocument = indexDocument;
+            _resultValue.redirectAllRequestsTo = redirectAllRequestsTo;
+            _resultValue.routingRules = routingRules;
+            return _resultValue;
         }
     }
 }

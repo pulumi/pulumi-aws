@@ -51,10 +51,10 @@ public final class ThingGroupMetadataRootToParentGroup {
             return this;
         }
         public ThingGroupMetadataRootToParentGroup build() {
-            final var o = new ThingGroupMetadataRootToParentGroup();
-            o.groupArn = groupArn;
-            o.groupName = groupName;
-            return o;
+            final var _resultValue = new ThingGroupMetadataRootToParentGroup();
+            _resultValue.groupArn = groupArn;
+            _resultValue.groupName = groupName;
+            return _resultValue;
         }
     }
 }

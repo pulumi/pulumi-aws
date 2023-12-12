@@ -51,10 +51,10 @@ public final class InstanceConnectEndpointTimeouts {
             return this;
         }
         public InstanceConnectEndpointTimeouts build() {
-            final var o = new InstanceConnectEndpointTimeouts();
-            o.create = create;
-            o.delete = delete;
-            return o;
+            final var _resultValue = new InstanceConnectEndpointTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            return _resultValue;
         }
     }
 }

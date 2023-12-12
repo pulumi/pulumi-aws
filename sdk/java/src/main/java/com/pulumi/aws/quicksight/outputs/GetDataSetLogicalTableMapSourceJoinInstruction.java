@@ -102,14 +102,14 @@ public final class GetDataSetLogicalTableMapSourceJoinInstruction {
             return this;
         }
         public GetDataSetLogicalTableMapSourceJoinInstruction build() {
-            final var o = new GetDataSetLogicalTableMapSourceJoinInstruction();
-            o.leftJoinKeyProperties = leftJoinKeyProperties;
-            o.leftOperand = leftOperand;
-            o.onClause = onClause;
-            o.rightJoinKeyProperties = rightJoinKeyProperties;
-            o.rightOperand = rightOperand;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapSourceJoinInstruction();
+            _resultValue.leftJoinKeyProperties = leftJoinKeyProperties;
+            _resultValue.leftOperand = leftOperand;
+            _resultValue.onClause = onClause;
+            _resultValue.rightJoinKeyProperties = rightJoinKeyProperties;
+            _resultValue.rightOperand = rightOperand;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

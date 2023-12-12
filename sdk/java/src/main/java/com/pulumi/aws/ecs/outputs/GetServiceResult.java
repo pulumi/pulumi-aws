@@ -184,17 +184,17 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.arn = arn;
-            o.clusterArn = clusterArn;
-            o.desiredCount = desiredCount;
-            o.id = id;
-            o.launchType = launchType;
-            o.schedulingStrategy = schedulingStrategy;
-            o.serviceName = serviceName;
-            o.tags = tags;
-            o.taskDefinition = taskDefinition;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.arn = arn;
+            _resultValue.clusterArn = clusterArn;
+            _resultValue.desiredCount = desiredCount;
+            _resultValue.id = id;
+            _resultValue.launchType = launchType;
+            _resultValue.schedulingStrategy = schedulingStrategy;
+            _resultValue.serviceName = serviceName;
+            _resultValue.tags = tags;
+            _resultValue.taskDefinition = taskDefinition;
+            return _resultValue;
         }
     }
 }

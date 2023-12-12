@@ -146,14 +146,14 @@ public final class GetDirectoryConnectSetting {
             return this;
         }
         public GetDirectoryConnectSetting build() {
-            final var o = new GetDirectoryConnectSetting();
-            o.availabilityZones = availabilityZones;
-            o.connectIps = connectIps;
-            o.customerDnsIps = customerDnsIps;
-            o.customerUsername = customerUsername;
-            o.subnetIds = subnetIds;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetDirectoryConnectSetting();
+            _resultValue.availabilityZones = availabilityZones;
+            _resultValue.connectIps = connectIps;
+            _resultValue.customerDnsIps = customerDnsIps;
+            _resultValue.customerUsername = customerUsername;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

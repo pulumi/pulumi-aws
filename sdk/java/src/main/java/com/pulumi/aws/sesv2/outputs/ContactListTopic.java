@@ -109,12 +109,12 @@ public final class ContactListTopic {
             return this;
         }
         public ContactListTopic build() {
-            final var o = new ContactListTopic();
-            o.defaultSubscriptionStatus = defaultSubscriptionStatus;
-            o.description = description;
-            o.displayName = displayName;
-            o.topicName = topicName;
-            return o;
+            final var _resultValue = new ContactListTopic();
+            _resultValue.defaultSubscriptionStatus = defaultSubscriptionStatus;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.topicName = topicName;
+            return _resultValue;
         }
     }
 }

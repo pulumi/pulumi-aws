@@ -50,9 +50,9 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookies
             return items(List.of(items));
         }
         public GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie build() {
-            final var o = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie();
-            o.items = items;
-            return o;
+            final var _resultValue = new GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

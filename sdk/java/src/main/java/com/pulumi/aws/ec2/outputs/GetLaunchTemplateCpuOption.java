@@ -61,11 +61,11 @@ public final class GetLaunchTemplateCpuOption {
             return this;
         }
         public GetLaunchTemplateCpuOption build() {
-            final var o = new GetLaunchTemplateCpuOption();
-            o.amdSevSnp = amdSevSnp;
-            o.coreCount = coreCount;
-            o.threadsPerCore = threadsPerCore;
-            return o;
+            final var _resultValue = new GetLaunchTemplateCpuOption();
+            _resultValue.amdSevSnp = amdSevSnp;
+            _resultValue.coreCount = coreCount;
+            _resultValue.threadsPerCore = threadsPerCore;
+            return _resultValue;
         }
     }
 }

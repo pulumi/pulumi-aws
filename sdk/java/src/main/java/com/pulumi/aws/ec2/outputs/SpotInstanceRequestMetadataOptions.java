@@ -129,13 +129,13 @@ public final class SpotInstanceRequestMetadataOptions {
             return this;
         }
         public SpotInstanceRequestMetadataOptions build() {
-            final var o = new SpotInstanceRequestMetadataOptions();
-            o.httpEndpoint = httpEndpoint;
-            o.httpProtocolIpv6 = httpProtocolIpv6;
-            o.httpPutResponseHopLimit = httpPutResponseHopLimit;
-            o.httpTokens = httpTokens;
-            o.instanceMetadataTags = instanceMetadataTags;
-            return o;
+            final var _resultValue = new SpotInstanceRequestMetadataOptions();
+            _resultValue.httpEndpoint = httpEndpoint;
+            _resultValue.httpProtocolIpv6 = httpProtocolIpv6;
+            _resultValue.httpPutResponseHopLimit = httpPutResponseHopLimit;
+            _resultValue.httpTokens = httpTokens;
+            _resultValue.instanceMetadataTags = instanceMetadataTags;
+            return _resultValue;
         }
     }
 }

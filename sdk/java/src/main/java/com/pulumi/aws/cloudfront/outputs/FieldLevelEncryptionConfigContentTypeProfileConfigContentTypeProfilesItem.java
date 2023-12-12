@@ -86,11 +86,11 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
             return this;
         }
         public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem build() {
-            final var o = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem();
-            o.contentType = contentType;
-            o.format = format;
-            o.profileId = profileId;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem();
+            _resultValue.contentType = contentType;
+            _resultValue.format = format;
+            _resultValue.profileId = profileId;
+            return _resultValue;
         }
     }
 }

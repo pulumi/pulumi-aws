@@ -96,11 +96,11 @@ public final class GetCostCategoryRuleRuleOr {
             return tags(List.of(tags));
         }
         public GetCostCategoryRuleRuleOr build() {
-            final var o = new GetCostCategoryRuleRuleOr();
-            o.costCategories = costCategories;
-            o.dimensions = dimensions;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCostCategoryRuleRuleOr();
+            _resultValue.costCategories = costCategories;
+            _resultValue.dimensions = dimensions;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

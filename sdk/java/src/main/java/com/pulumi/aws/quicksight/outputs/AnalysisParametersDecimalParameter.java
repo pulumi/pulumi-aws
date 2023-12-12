@@ -66,10 +66,10 @@ public final class AnalysisParametersDecimalParameter {
             return values(List.of(values));
         }
         public AnalysisParametersDecimalParameter build() {
-            final var o = new AnalysisParametersDecimalParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new AnalysisParametersDecimalParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

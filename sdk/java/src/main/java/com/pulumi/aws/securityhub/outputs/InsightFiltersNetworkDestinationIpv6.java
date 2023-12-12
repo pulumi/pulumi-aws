@@ -46,9 +46,9 @@ public final class InsightFiltersNetworkDestinationIpv6 {
             return this;
         }
         public InsightFiltersNetworkDestinationIpv6 build() {
-            final var o = new InsightFiltersNetworkDestinationIpv6();
-            o.cidr = cidr;
-            return o;
+            final var _resultValue = new InsightFiltersNetworkDestinationIpv6();
+            _resultValue.cidr = cidr;
+            return _resultValue;
         }
     }
 }

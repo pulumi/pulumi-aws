@@ -46,9 +46,9 @@ public final class DataSourceLambdaConfig {
             return this;
         }
         public DataSourceLambdaConfig build() {
-            final var o = new DataSourceLambdaConfig();
-            o.functionArn = functionArn;
-            return o;
+            final var _resultValue = new DataSourceLambdaConfig();
+            _resultValue.functionArn = functionArn;
+            return _resultValue;
         }
     }
 }

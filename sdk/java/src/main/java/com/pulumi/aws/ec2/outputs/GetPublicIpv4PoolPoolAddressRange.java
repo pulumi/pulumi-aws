@@ -104,12 +104,12 @@ public final class GetPublicIpv4PoolPoolAddressRange {
             return this;
         }
         public GetPublicIpv4PoolPoolAddressRange build() {
-            final var o = new GetPublicIpv4PoolPoolAddressRange();
-            o.addressCount = addressCount;
-            o.availableAddressCount = availableAddressCount;
-            o.firstAddress = firstAddress;
-            o.lastAddress = lastAddress;
-            return o;
+            final var _resultValue = new GetPublicIpv4PoolPoolAddressRange();
+            _resultValue.addressCount = addressCount;
+            _resultValue.availableAddressCount = availableAddressCount;
+            _resultValue.firstAddress = firstAddress;
+            _resultValue.lastAddress = lastAddress;
+            return _resultValue;
         }
     }
 }

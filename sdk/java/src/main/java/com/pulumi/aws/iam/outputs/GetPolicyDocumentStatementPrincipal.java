@@ -69,10 +69,10 @@ public final class GetPolicyDocumentStatementPrincipal {
             return this;
         }
         public GetPolicyDocumentStatementPrincipal build() {
-            final var o = new GetPolicyDocumentStatementPrincipal();
-            o.identifiers = identifiers;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetPolicyDocumentStatementPrincipal();
+            _resultValue.identifiers = identifiers;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -224,21 +224,21 @@ public final class GetObjectsResult {
             return this;
         }
         public GetObjectsResult build() {
-            final var o = new GetObjectsResult();
-            o.bucket = bucket;
-            o.commonPrefixes = commonPrefixes;
-            o.delimiter = delimiter;
-            o.encodingType = encodingType;
-            o.fetchOwner = fetchOwner;
-            o.id = id;
-            o.keys = keys;
-            o.maxKeys = maxKeys;
-            o.owners = owners;
-            o.prefix = prefix;
-            o.requestCharged = requestCharged;
-            o.requestPayer = requestPayer;
-            o.startAfter = startAfter;
-            return o;
+            final var _resultValue = new GetObjectsResult();
+            _resultValue.bucket = bucket;
+            _resultValue.commonPrefixes = commonPrefixes;
+            _resultValue.delimiter = delimiter;
+            _resultValue.encodingType = encodingType;
+            _resultValue.fetchOwner = fetchOwner;
+            _resultValue.id = id;
+            _resultValue.keys = keys;
+            _resultValue.maxKeys = maxKeys;
+            _resultValue.owners = owners;
+            _resultValue.prefix = prefix;
+            _resultValue.requestCharged = requestCharged;
+            _resultValue.requestPayer = requestPayer;
+            _resultValue.startAfter = startAfter;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class BucketOwnershipControlsRule {
             return this;
         }
         public BucketOwnershipControlsRule build() {
-            final var o = new BucketOwnershipControlsRule();
-            o.objectOwnership = objectOwnership;
-            return o;
+            final var _resultValue = new BucketOwnershipControlsRule();
+            _resultValue.objectOwnership = objectOwnership;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetGroupAlternateIdentifierExternalId {
             return this;
         }
         public GetGroupAlternateIdentifierExternalId build() {
-            final var o = new GetGroupAlternateIdentifierExternalId();
-            o.id = id;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new GetGroupAlternateIdentifierExternalId();
+            _resultValue.id = id;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

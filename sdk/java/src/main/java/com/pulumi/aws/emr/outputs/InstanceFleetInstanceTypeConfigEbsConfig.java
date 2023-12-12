@@ -106,12 +106,12 @@ public final class InstanceFleetInstanceTypeConfigEbsConfig {
             return this;
         }
         public InstanceFleetInstanceTypeConfigEbsConfig build() {
-            final var o = new InstanceFleetInstanceTypeConfigEbsConfig();
-            o.iops = iops;
-            o.size = size;
-            o.type = type;
-            o.volumesPerInstance = volumesPerInstance;
-            return o;
+            final var _resultValue = new InstanceFleetInstanceTypeConfigEbsConfig();
+            _resultValue.iops = iops;
+            _resultValue.size = size;
+            _resultValue.type = type;
+            _resultValue.volumesPerInstance = volumesPerInstance;
+            return _resultValue;
         }
     }
 }

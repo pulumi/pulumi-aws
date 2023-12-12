@@ -51,10 +51,10 @@ public final class ServerlessCollectionTimeouts {
             return this;
         }
         public ServerlessCollectionTimeouts build() {
-            final var o = new ServerlessCollectionTimeouts();
-            o.create = create;
-            o.delete = delete;
-            return o;
+            final var _resultValue = new ServerlessCollectionTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            return _resultValue;
         }
     }
 }

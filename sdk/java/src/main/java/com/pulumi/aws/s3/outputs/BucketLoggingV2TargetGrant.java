@@ -66,10 +66,10 @@ public final class BucketLoggingV2TargetGrant {
             return this;
         }
         public BucketLoggingV2TargetGrant build() {
-            final var o = new BucketLoggingV2TargetGrant();
-            o.grantee = grantee;
-            o.permission = permission;
-            return o;
+            final var _resultValue = new BucketLoggingV2TargetGrant();
+            _resultValue.grantee = grantee;
+            _resultValue.permission = permission;
+            return _resultValue;
         }
     }
 }

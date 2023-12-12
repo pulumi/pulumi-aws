@@ -102,12 +102,12 @@ public final class GetUserPoolsResult {
             return this;
         }
         public GetUserPoolsResult build() {
-            final var o = new GetUserPoolsResult();
-            o.arns = arns;
-            o.id = id;
-            o.ids = ids;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetUserPoolsResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -87,12 +87,12 @@ public final class GetRouteSpecHttpRoute {
             return timeouts(List.of(timeouts));
         }
         public GetRouteSpecHttpRoute build() {
-            final var o = new GetRouteSpecHttpRoute();
-            o.actions = actions;
-            o.matches = matches;
-            o.retryPolicies = retryPolicies;
-            o.timeouts = timeouts;
-            return o;
+            final var _resultValue = new GetRouteSpecHttpRoute();
+            _resultValue.actions = actions;
+            _resultValue.matches = matches;
+            _resultValue.retryPolicies = retryPolicies;
+            _resultValue.timeouts = timeouts;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class IntentDialogCodeHook {
             return this;
         }
         public IntentDialogCodeHook build() {
-            final var o = new IntentDialogCodeHook();
-            o.messageVersion = messageVersion;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new IntentDialogCodeHook();
+            _resultValue.messageVersion = messageVersion;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

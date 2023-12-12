@@ -96,11 +96,11 @@ public final class RuleGroupRuleStatementRegexMatchStatement {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRegexMatchStatement build() {
-            final var o = new RuleGroupRuleStatementRegexMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.regexString = regexString;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.regexString = regexString;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

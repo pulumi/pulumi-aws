@@ -46,9 +46,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput();
-            o.resourceArn = resourceArn;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput();
+            _resultValue.resourceArn = resourceArn;
+            return _resultValue;
         }
     }
 }

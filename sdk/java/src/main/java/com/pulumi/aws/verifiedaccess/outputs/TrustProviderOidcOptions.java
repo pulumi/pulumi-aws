@@ -106,15 +106,15 @@ public final class TrustProviderOidcOptions {
             return this;
         }
         public TrustProviderOidcOptions build() {
-            final var o = new TrustProviderOidcOptions();
-            o.authorizationEndpoint = authorizationEndpoint;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.issuer = issuer;
-            o.scope = scope;
-            o.tokenEndpoint = tokenEndpoint;
-            o.userInfoEndpoint = userInfoEndpoint;
-            return o;
+            final var _resultValue = new TrustProviderOidcOptions();
+            _resultValue.authorizationEndpoint = authorizationEndpoint;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.issuer = issuer;
+            _resultValue.scope = scope;
+            _resultValue.tokenEndpoint = tokenEndpoint;
+            _resultValue.userInfoEndpoint = userInfoEndpoint;
+            return _resultValue;
         }
     }
 }

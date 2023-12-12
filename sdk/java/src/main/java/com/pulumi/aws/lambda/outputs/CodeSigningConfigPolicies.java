@@ -46,9 +46,9 @@ public final class CodeSigningConfigPolicies {
             return this;
         }
         public CodeSigningConfigPolicies build() {
-            final var o = new CodeSigningConfigPolicies();
-            o.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
-            return o;
+            final var _resultValue = new CodeSigningConfigPolicies();
+            _resultValue.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
+            return _resultValue;
         }
     }
 }

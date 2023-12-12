@@ -213,18 +213,18 @@ public final class GetWorkgroupResult {
             return this;
         }
         public GetWorkgroupResult build() {
-            final var o = new GetWorkgroupResult();
-            o.arn = arn;
-            o.endpoints = endpoints;
-            o.enhancedVpcRouting = enhancedVpcRouting;
-            o.id = id;
-            o.namespaceName = namespaceName;
-            o.publiclyAccessible = publiclyAccessible;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.workgroupId = workgroupId;
-            o.workgroupName = workgroupName;
-            return o;
+            final var _resultValue = new GetWorkgroupResult();
+            _resultValue.arn = arn;
+            _resultValue.endpoints = endpoints;
+            _resultValue.enhancedVpcRouting = enhancedVpcRouting;
+            _resultValue.id = id;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.publiclyAccessible = publiclyAccessible;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.workgroupId = workgroupId;
+            _resultValue.workgroupName = workgroupName;
+            return _resultValue;
         }
     }
 }

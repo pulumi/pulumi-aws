@@ -65,10 +65,10 @@ public final class InsightFiltersWorkflowStatus {
             return this;
         }
         public InsightFiltersWorkflowStatus build() {
-            final var o = new InsightFiltersWorkflowStatus();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersWorkflowStatus();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -126,13 +126,13 @@ public final class ClusterScalingConfiguration {
             return this;
         }
         public ClusterScalingConfiguration build() {
-            final var o = new ClusterScalingConfiguration();
-            o.autoPause = autoPause;
-            o.maxCapacity = maxCapacity;
-            o.minCapacity = minCapacity;
-            o.secondsUntilAutoPause = secondsUntilAutoPause;
-            o.timeoutAction = timeoutAction;
-            return o;
+            final var _resultValue = new ClusterScalingConfiguration();
+            _resultValue.autoPause = autoPause;
+            _resultValue.maxCapacity = maxCapacity;
+            _resultValue.minCapacity = minCapacity;
+            _resultValue.secondsUntilAutoPause = secondsUntilAutoPause;
+            _resultValue.timeoutAction = timeoutAction;
+            return _resultValue;
         }
     }
 }

@@ -73,12 +73,12 @@ public final class ServiceQuotaUsageMetricMetricDimension {
             return this;
         }
         public ServiceQuotaUsageMetricMetricDimension build() {
-            final var o = new ServiceQuotaUsageMetricMetricDimension();
-            o.class_ = class_;
-            o.resource = resource;
-            o.service = service;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceQuotaUsageMetricMetricDimension();
+            _resultValue.class_ = class_;
+            _resultValue.resource = resource;
+            _resultValue.service = service;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class ConfigurationSetReputationOptions {
             return this;
         }
         public ConfigurationSetReputationOptions build() {
-            final var o = new ConfigurationSetReputationOptions();
-            o.lastFreshStart = lastFreshStart;
-            o.reputationMetricsEnabled = reputationMetricsEnabled;
-            return o;
+            final var _resultValue = new ConfigurationSetReputationOptions();
+            _resultValue.lastFreshStart = lastFreshStart;
+            _resultValue.reputationMetricsEnabled = reputationMetricsEnabled;
+            return _resultValue;
         }
     }
 }

@@ -90,11 +90,11 @@ public final class DistributionOriginGroup {
             return this;
         }
         public DistributionOriginGroup build() {
-            final var o = new DistributionOriginGroup();
-            o.failoverCriteria = failoverCriteria;
-            o.members = members;
-            o.originId = originId;
-            return o;
+            final var _resultValue = new DistributionOriginGroup();
+            _resultValue.failoverCriteria = failoverCriteria;
+            _resultValue.members = members;
+            _resultValue.originId = originId;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class StreamStreamModeDetails {
             return this;
         }
         public StreamStreamModeDetails build() {
-            final var o = new StreamStreamModeDetails();
-            o.streamMode = streamMode;
-            return o;
+            final var _resultValue = new StreamStreamModeDetails();
+            _resultValue.streamMode = streamMode;
+            return _resultValue;
         }
     }
 }

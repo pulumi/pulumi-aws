@@ -113,12 +113,12 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplication {
             return this;
         }
         public ReplicatorReplicationInfoListConsumerGroupReplication build() {
-            final var o = new ReplicatorReplicationInfoListConsumerGroupReplication();
-            o.consumerGroupsToExcludes = consumerGroupsToExcludes;
-            o.consumerGroupsToReplicates = consumerGroupsToReplicates;
-            o.detectAndCopyNewConsumerGroups = detectAndCopyNewConsumerGroups;
-            o.synchroniseConsumerGroupOffsets = synchroniseConsumerGroupOffsets;
-            return o;
+            final var _resultValue = new ReplicatorReplicationInfoListConsumerGroupReplication();
+            _resultValue.consumerGroupsToExcludes = consumerGroupsToExcludes;
+            _resultValue.consumerGroupsToReplicates = consumerGroupsToReplicates;
+            _resultValue.detectAndCopyNewConsumerGroups = detectAndCopyNewConsumerGroups;
+            _resultValue.synchroniseConsumerGroupOffsets = synchroniseConsumerGroupOffsets;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class PipeEnrichmentParametersHttpParameters {
             return this;
         }
         public PipeEnrichmentParametersHttpParameters build() {
-            final var o = new PipeEnrichmentParametersHttpParameters();
-            o.headerParameters = headerParameters;
-            o.pathParameterValues = pathParameterValues;
-            o.queryStringParameters = queryStringParameters;
-            return o;
+            final var _resultValue = new PipeEnrichmentParametersHttpParameters();
+            _resultValue.headerParameters = headerParameters;
+            _resultValue.pathParameterValues = pathParameterValues;
+            _resultValue.queryStringParameters = queryStringParameters;
+            return _resultValue;
         }
     }
 }

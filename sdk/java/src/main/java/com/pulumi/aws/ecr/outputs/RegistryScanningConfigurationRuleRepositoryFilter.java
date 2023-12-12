@@ -49,10 +49,10 @@ public final class RegistryScanningConfigurationRuleRepositoryFilter {
             return this;
         }
         public RegistryScanningConfigurationRuleRepositoryFilter build() {
-            final var o = new RegistryScanningConfigurationRuleRepositoryFilter();
-            o.filter = filter;
-            o.filterType = filterType;
-            return o;
+            final var _resultValue = new RegistryScanningConfigurationRuleRepositoryFilter();
+            _resultValue.filter = filter;
+            _resultValue.filterType = filterType;
+            return _resultValue;
         }
     }
 }

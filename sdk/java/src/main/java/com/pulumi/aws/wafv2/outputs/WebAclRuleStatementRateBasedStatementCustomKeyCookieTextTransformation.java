@@ -66,10 +66,10 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTrans
             return this;
         }
         public WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation build() {
-            final var o = new WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation();
-            o.priority = priority;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation();
+            _resultValue.priority = priority;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -84,11 +84,11 @@ public final class WorkteamMemberDefinitionCognitoMemberDefinition {
             return this;
         }
         public WorkteamMemberDefinitionCognitoMemberDefinition build() {
-            final var o = new WorkteamMemberDefinitionCognitoMemberDefinition();
-            o.clientId = clientId;
-            o.userGroup = userGroup;
-            o.userPool = userPool;
-            return o;
+            final var _resultValue = new WorkteamMemberDefinitionCognitoMemberDefinition();
+            _resultValue.clientId = clientId;
+            _resultValue.userGroup = userGroup;
+            _resultValue.userPool = userPool;
+            return _resultValue;
         }
     }
 }

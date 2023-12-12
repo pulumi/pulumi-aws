@@ -73,10 +73,10 @@ public final class ExperimentTemplateTargetFilter {
             return values(List.of(values));
         }
         public ExperimentTemplateTargetFilter build() {
-            final var o = new ExperimentTemplateTargetFilter();
-            o.path = path;
-            o.values = values;
-            return o;
+            final var _resultValue = new ExperimentTemplateTargetFilter();
+            _resultValue.path = path;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

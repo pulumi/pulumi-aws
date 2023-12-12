@@ -67,10 +67,10 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationManagedFi
             return this;
         }
         public IndexingConfigurationThingGroupIndexingConfigurationManagedField build() {
-            final var o = new IndexingConfigurationThingGroupIndexingConfigurationManagedField();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new IndexingConfigurationThingGroupIndexingConfigurationManagedField();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

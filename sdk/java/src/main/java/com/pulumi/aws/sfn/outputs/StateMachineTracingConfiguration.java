@@ -48,9 +48,9 @@ public final class StateMachineTracingConfiguration {
             return this;
         }
         public StateMachineTracingConfiguration build() {
-            final var o = new StateMachineTracingConfiguration();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new StateMachineTracingConfiguration();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
             return this;
         }
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds build() {
-            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

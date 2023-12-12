@@ -46,9 +46,9 @@ public final class ChannelCdiInputSpecification {
             return this;
         }
         public ChannelCdiInputSpecification build() {
-            final var o = new ChannelCdiInputSpecification();
-            o.resolution = resolution;
-            return o;
+            final var _resultValue = new ChannelCdiInputSpecification();
+            _resultValue.resolution = resolution;
+            return _resultValue;
         }
     }
 }

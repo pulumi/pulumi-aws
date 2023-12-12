@@ -68,10 +68,10 @@ public final class ClassificationJobS3JobDefinitionScoping {
             return this;
         }
         public ClassificationJobS3JobDefinitionScoping build() {
-            final var o = new ClassificationJobS3JobDefinitionScoping();
-            o.excludes = excludes;
-            o.includes = includes;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionScoping();
+            _resultValue.excludes = excludes;
+            _resultValue.includes = includes;
+            return _resultValue;
         }
     }
 }

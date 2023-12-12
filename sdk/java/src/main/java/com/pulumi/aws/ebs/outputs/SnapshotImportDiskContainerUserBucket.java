@@ -65,10 +65,10 @@ public final class SnapshotImportDiskContainerUserBucket {
             return this;
         }
         public SnapshotImportDiskContainerUserBucket build() {
-            final var o = new SnapshotImportDiskContainerUserBucket();
-            o.s3Bucket = s3Bucket;
-            o.s3Key = s3Key;
-            return o;
+            final var _resultValue = new SnapshotImportDiskContainerUserBucket();
+            _resultValue.s3Bucket = s3Bucket;
+            _resultValue.s3Key = s3Key;
+            return _resultValue;
         }
     }
 }

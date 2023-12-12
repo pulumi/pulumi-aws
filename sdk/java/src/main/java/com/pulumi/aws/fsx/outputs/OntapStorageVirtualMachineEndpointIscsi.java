@@ -71,10 +71,10 @@ public final class OntapStorageVirtualMachineEndpointIscsi {
             return ipAddresses(List.of(ipAddresses));
         }
         public OntapStorageVirtualMachineEndpointIscsi build() {
-            final var o = new OntapStorageVirtualMachineEndpointIscsi();
-            o.dnsName = dnsName;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new OntapStorageVirtualMachineEndpointIscsi();
+            _resultValue.dnsName = dnsName;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

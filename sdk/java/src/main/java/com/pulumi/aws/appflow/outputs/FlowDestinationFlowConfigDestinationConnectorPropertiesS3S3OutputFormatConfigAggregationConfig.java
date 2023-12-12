@@ -48,9 +48,9 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig();
-            o.aggregationType = aggregationType;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig();
+            _resultValue.aggregationType = aggregationType;
+            return _resultValue;
         }
     }
 }

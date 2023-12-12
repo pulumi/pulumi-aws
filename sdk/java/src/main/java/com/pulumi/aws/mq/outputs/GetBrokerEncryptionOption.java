@@ -50,10 +50,10 @@ public final class GetBrokerEncryptionOption {
             return this;
         }
         public GetBrokerEncryptionOption build() {
-            final var o = new GetBrokerEncryptionOption();
-            o.kmsKeyId = kmsKeyId;
-            o.useAwsOwnedKey = useAwsOwnedKey;
-            return o;
+            final var _resultValue = new GetBrokerEncryptionOption();
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.useAwsOwnedKey = useAwsOwnedKey;
+            return _resultValue;
         }
     }
 }

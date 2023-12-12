@@ -86,11 +86,11 @@ public final class CatalogTablePartitionKey {
             return this;
         }
         public CatalogTablePartitionKey build() {
-            final var o = new CatalogTablePartitionKey();
-            o.comment = comment;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new CatalogTablePartitionKey();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

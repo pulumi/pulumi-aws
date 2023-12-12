@@ -82,11 +82,11 @@ public final class GetSecretsResult {
             return secrets(List.of(secrets));
         }
         public GetSecretsResult build() {
-            final var o = new GetSecretsResult();
-            o.id = id;
-            o.plaintext = plaintext;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetSecretsResult();
+            _resultValue.id = id;
+            _resultValue.plaintext = plaintext;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

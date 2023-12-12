@@ -146,14 +146,14 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
             return this;
         }
         public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration build() {
-            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration();
-            o.blockEmail = blockEmail;
-            o.from = from;
-            o.mfaEmail = mfaEmail;
-            o.noActionEmail = noActionEmail;
-            o.replyTo = replyTo;
-            o.sourceArn = sourceArn;
-            return o;
+            final var _resultValue = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration();
+            _resultValue.blockEmail = blockEmail;
+            _resultValue.from = from;
+            _resultValue.mfaEmail = mfaEmail;
+            _resultValue.noActionEmail = noActionEmail;
+            _resultValue.replyTo = replyTo;
+            _resultValue.sourceArn = sourceArn;
+            return _resultValue;
         }
     }
 }

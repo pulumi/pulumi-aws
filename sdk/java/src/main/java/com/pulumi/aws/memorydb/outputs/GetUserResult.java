@@ -158,15 +158,15 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.accessString = accessString;
-            o.arn = arn;
-            o.authenticationModes = authenticationModes;
-            o.id = id;
-            o.minimumEngineVersion = minimumEngineVersion;
-            o.tags = tags;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.accessString = accessString;
+            _resultValue.arn = arn;
+            _resultValue.authenticationModes = authenticationModes;
+            _resultValue.id = id;
+            _resultValue.minimumEngineVersion = minimumEngineVersion;
+            _resultValue.tags = tags;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

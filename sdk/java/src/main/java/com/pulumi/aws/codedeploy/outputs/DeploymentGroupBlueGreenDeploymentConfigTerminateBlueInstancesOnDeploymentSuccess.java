@@ -68,10 +68,10 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
             return this;
         }
         public DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess build() {
-            final var o = new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess();
-            o.action = action;
-            o.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
-            return o;
+            final var _resultValue = new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess();
+            _resultValue.action = action;
+            _resultValue.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
+            return _resultValue;
         }
     }
 }

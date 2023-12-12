@@ -85,11 +85,11 @@ public final class GetReceivedLicensesResult {
             return this;
         }
         public GetReceivedLicensesResult build() {
-            final var o = new GetReceivedLicensesResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetReceivedLicensesResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

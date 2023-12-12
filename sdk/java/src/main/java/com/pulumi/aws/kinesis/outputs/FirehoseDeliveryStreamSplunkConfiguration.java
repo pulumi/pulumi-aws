@@ -204,17 +204,17 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
             return this;
         }
         public FirehoseDeliveryStreamSplunkConfiguration build() {
-            final var o = new FirehoseDeliveryStreamSplunkConfiguration();
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.hecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
-            o.hecEndpoint = hecEndpoint;
-            o.hecEndpointType = hecEndpointType;
-            o.hecToken = hecToken;
-            o.processingConfiguration = processingConfiguration;
-            o.retryDuration = retryDuration;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamSplunkConfiguration();
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.hecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
+            _resultValue.hecEndpoint = hecEndpoint;
+            _resultValue.hecEndpointType = hecEndpointType;
+            _resultValue.hecToken = hecToken;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            return _resultValue;
         }
     }
 }

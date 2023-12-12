@@ -124,14 +124,14 @@ public final class GetSpotPriceResult {
             return this;
         }
         public GetSpotPriceResult build() {
-            final var o = new GetSpotPriceResult();
-            o.availabilityZone = availabilityZone;
-            o.filters = filters;
-            o.id = id;
-            o.instanceType = instanceType;
-            o.spotPrice = spotPrice;
-            o.spotPriceTimestamp = spotPriceTimestamp;
-            return o;
+            final var _resultValue = new GetSpotPriceResult();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.instanceType = instanceType;
+            _resultValue.spotPrice = spotPrice;
+            _resultValue.spotPriceTimestamp = spotPriceTimestamp;
+            return _resultValue;
         }
     }
 }

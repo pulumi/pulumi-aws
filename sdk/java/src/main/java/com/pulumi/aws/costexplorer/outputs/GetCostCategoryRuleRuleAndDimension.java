@@ -91,11 +91,11 @@ public final class GetCostCategoryRuleRuleAndDimension {
             return values(List.of(values));
         }
         public GetCostCategoryRuleRuleAndDimension build() {
-            final var o = new GetCostCategoryRuleRuleAndDimension();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetCostCategoryRuleRuleAndDimension();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

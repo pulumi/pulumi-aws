@@ -86,11 +86,11 @@ public final class AppCampaignHook {
             return this;
         }
         public AppCampaignHook build() {
-            final var o = new AppCampaignHook();
-            o.lambdaFunctionName = lambdaFunctionName;
-            o.mode = mode;
-            o.webUrl = webUrl;
-            return o;
+            final var _resultValue = new AppCampaignHook();
+            _resultValue.lambdaFunctionName = lambdaFunctionName;
+            _resultValue.mode = mode;
+            _resultValue.webUrl = webUrl;
+            return _resultValue;
         }
     }
 }

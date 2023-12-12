@@ -114,15 +114,15 @@ public final class GetLedgerResult {
             return this;
         }
         public GetLedgerResult build() {
-            final var o = new GetLedgerResult();
-            o.arn = arn;
-            o.deletionProtection = deletionProtection;
-            o.id = id;
-            o.kmsKey = kmsKey;
-            o.name = name;
-            o.permissionsMode = permissionsMode;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLedgerResult();
+            _resultValue.arn = arn;
+            _resultValue.deletionProtection = deletionProtection;
+            _resultValue.id = id;
+            _resultValue.kmsKey = kmsKey;
+            _resultValue.name = name;
+            _resultValue.permissionsMode = permissionsMode;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

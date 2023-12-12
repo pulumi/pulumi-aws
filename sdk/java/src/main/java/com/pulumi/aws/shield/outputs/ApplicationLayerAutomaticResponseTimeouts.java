@@ -62,11 +62,11 @@ public final class ApplicationLayerAutomaticResponseTimeouts {
             return this;
         }
         public ApplicationLayerAutomaticResponseTimeouts build() {
-            final var o = new ApplicationLayerAutomaticResponseTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new ApplicationLayerAutomaticResponseTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
             return this;
         }
         public SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec build() {
-            final var o = new SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec();
-            o.instanceType = instanceType;
-            o.lifecycleConfigArn = lifecycleConfigArn;
-            o.sagemakerImageArn = sagemakerImageArn;
-            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
-            return o;
+            final var _resultValue = new SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec();
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycleConfigArn = lifecycleConfigArn;
+            _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return _resultValue;
         }
     }
 }

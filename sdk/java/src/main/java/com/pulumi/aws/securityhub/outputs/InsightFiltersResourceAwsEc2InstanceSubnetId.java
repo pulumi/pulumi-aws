@@ -65,10 +65,10 @@ public final class InsightFiltersResourceAwsEc2InstanceSubnetId {
             return this;
         }
         public InsightFiltersResourceAwsEc2InstanceSubnetId build() {
-            final var o = new InsightFiltersResourceAwsEc2InstanceSubnetId();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsEc2InstanceSubnetId();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

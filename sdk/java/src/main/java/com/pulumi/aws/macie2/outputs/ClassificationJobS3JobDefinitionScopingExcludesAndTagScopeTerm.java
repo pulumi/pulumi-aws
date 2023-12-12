@@ -110,12 +110,12 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
             return this;
         }
         public ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm build() {
-            final var o = new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm();
-            o.comparator = comparator;
-            o.key = key;
-            o.tagValues = tagValues;
-            o.target = target;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm();
+            _resultValue.comparator = comparator;
+            _resultValue.key = key;
+            _resultValue.tagValues = tagValues;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

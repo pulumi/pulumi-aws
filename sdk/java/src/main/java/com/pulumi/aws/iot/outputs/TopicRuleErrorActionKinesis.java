@@ -86,11 +86,11 @@ public final class TopicRuleErrorActionKinesis {
             return this;
         }
         public TopicRuleErrorActionKinesis build() {
-            final var o = new TopicRuleErrorActionKinesis();
-            o.partitionKey = partitionKey;
-            o.roleArn = roleArn;
-            o.streamName = streamName;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionKinesis();
+            _resultValue.partitionKey = partitionKey;
+            _resultValue.roleArn = roleArn;
+            _resultValue.streamName = streamName;
+            return _resultValue;
         }
     }
 }

@@ -135,13 +135,13 @@ public final class VirtualNodeSpec {
             return this;
         }
         public VirtualNodeSpec build() {
-            final var o = new VirtualNodeSpec();
-            o.backendDefaults = backendDefaults;
-            o.backends = backends;
-            o.listeners = listeners;
-            o.logging = logging;
-            o.serviceDiscovery = serviceDiscovery;
-            return o;
+            final var _resultValue = new VirtualNodeSpec();
+            _resultValue.backendDefaults = backendDefaults;
+            _resultValue.backends = backends;
+            _resultValue.listeners = listeners;
+            _resultValue.logging = logging;
+            _resultValue.serviceDiscovery = serviceDiscovery;
+            return _resultValue;
         }
     }
 }

@@ -52,9 +52,9 @@ public final class ProjectDataDeliveryCloudwatchLogs {
             return this;
         }
         public ProjectDataDeliveryCloudwatchLogs build() {
-            final var o = new ProjectDataDeliveryCloudwatchLogs();
-            o.logGroup = logGroup;
-            return o;
+            final var _resultValue = new ProjectDataDeliveryCloudwatchLogs();
+            _resultValue.logGroup = logGroup;
+            return _resultValue;
         }
     }
 }

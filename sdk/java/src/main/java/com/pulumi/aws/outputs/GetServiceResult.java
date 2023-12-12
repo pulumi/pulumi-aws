@@ -124,16 +124,16 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.dnsName = dnsName;
-            o.id = id;
-            o.partition = partition;
-            o.region = region;
-            o.reverseDnsName = reverseDnsName;
-            o.reverseDnsPrefix = reverseDnsPrefix;
-            o.serviceId = serviceId;
-            o.supported = supported;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.dnsName = dnsName;
+            _resultValue.id = id;
+            _resultValue.partition = partition;
+            _resultValue.region = region;
+            _resultValue.reverseDnsName = reverseDnsName;
+            _resultValue.reverseDnsPrefix = reverseDnsPrefix;
+            _resultValue.serviceId = serviceId;
+            _resultValue.supported = supported;
+            return _resultValue;
         }
     }
 }

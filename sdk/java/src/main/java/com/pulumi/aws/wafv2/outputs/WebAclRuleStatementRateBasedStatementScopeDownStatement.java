@@ -268,20 +268,20 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatement build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatement();
-            o.andStatement = andStatement;
-            o.byteMatchStatement = byteMatchStatement;
-            o.geoMatchStatement = geoMatchStatement;
-            o.ipSetReferenceStatement = ipSetReferenceStatement;
-            o.labelMatchStatement = labelMatchStatement;
-            o.notStatement = notStatement;
-            o.orStatement = orStatement;
-            o.regexMatchStatement = regexMatchStatement;
-            o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
-            o.sizeConstraintStatement = sizeConstraintStatement;
-            o.sqliMatchStatement = sqliMatchStatement;
-            o.xssMatchStatement = xssMatchStatement;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatement();
+            _resultValue.andStatement = andStatement;
+            _resultValue.byteMatchStatement = byteMatchStatement;
+            _resultValue.geoMatchStatement = geoMatchStatement;
+            _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;
+            _resultValue.labelMatchStatement = labelMatchStatement;
+            _resultValue.notStatement = notStatement;
+            _resultValue.orStatement = orStatement;
+            _resultValue.regexMatchStatement = regexMatchStatement;
+            _resultValue.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
+            _resultValue.sizeConstraintStatement = sizeConstraintStatement;
+            _resultValue.sqliMatchStatement = sqliMatchStatement;
+            _resultValue.xssMatchStatement = xssMatchStatement;
+            return _resultValue;
         }
     }
 }

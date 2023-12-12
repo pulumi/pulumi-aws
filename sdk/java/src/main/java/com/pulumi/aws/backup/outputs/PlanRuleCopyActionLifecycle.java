@@ -67,10 +67,10 @@ public final class PlanRuleCopyActionLifecycle {
             return this;
         }
         public PlanRuleCopyActionLifecycle build() {
-            final var o = new PlanRuleCopyActionLifecycle();
-            o.coldStorageAfter = coldStorageAfter;
-            o.deleteAfter = deleteAfter;
-            return o;
+            final var _resultValue = new PlanRuleCopyActionLifecycle();
+            _resultValue.coldStorageAfter = coldStorageAfter;
+            _resultValue.deleteAfter = deleteAfter;
+            return _resultValue;
         }
     }
 }

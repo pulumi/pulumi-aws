@@ -67,10 +67,10 @@ public final class DomainDefaultUserSettingsRStudioServerProAppSettings {
             return this;
         }
         public DomainDefaultUserSettingsRStudioServerProAppSettings build() {
-            final var o = new DomainDefaultUserSettingsRStudioServerProAppSettings();
-            o.accessStatus = accessStatus;
-            o.userGroup = userGroup;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsRStudioServerProAppSettings();
+            _resultValue.accessStatus = accessStatus;
+            _resultValue.userGroup = userGroup;
+            return _resultValue;
         }
     }
 }

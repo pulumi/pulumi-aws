@@ -46,9 +46,9 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeReposit
             return this;
         }
         public DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository build() {
-            final var o = new DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository();
-            o.repositoryUrl = repositoryUrl;
-            return o;
+            final var _resultValue = new DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository();
+            _resultValue.repositoryUrl = repositoryUrl;
+            return _resultValue;
         }
     }
 }

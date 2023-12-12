@@ -355,25 +355,25 @@ public final class GetBotResult {
             return this;
         }
         public GetBotResult build() {
-            final var o = new GetBotResult();
-            o.arn = arn;
-            o.checksum = checksum;
-            o.childDirected = childDirected;
-            o.createdDate = createdDate;
-            o.description = description;
-            o.detectSentiment = detectSentiment;
-            o.enableModelImprovements = enableModelImprovements;
-            o.failureReason = failureReason;
-            o.id = id;
-            o.idleSessionTtlInSeconds = idleSessionTtlInSeconds;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.locale = locale;
-            o.name = name;
-            o.nluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
-            o.status = status;
-            o.version = version;
-            o.voiceId = voiceId;
-            return o;
+            final var _resultValue = new GetBotResult();
+            _resultValue.arn = arn;
+            _resultValue.checksum = checksum;
+            _resultValue.childDirected = childDirected;
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.detectSentiment = detectSentiment;
+            _resultValue.enableModelImprovements = enableModelImprovements;
+            _resultValue.failureReason = failureReason;
+            _resultValue.id = id;
+            _resultValue.idleSessionTtlInSeconds = idleSessionTtlInSeconds;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.locale = locale;
+            _resultValue.name = name;
+            _resultValue.nluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
+            _resultValue.status = status;
+            _resultValue.version = version;
+            _resultValue.voiceId = voiceId;
+            return _resultValue;
         }
     }
 }

@@ -25,8 +25,8 @@ public final class InventoryDestinationBucketEncryptionSseS3 {
         }
 
         public InventoryDestinationBucketEncryptionSseS3 build() {
-            final var o = new InventoryDestinationBucketEncryptionSseS3();
-            return o;
+            final var _resultValue = new InventoryDestinationBucketEncryptionSseS3();
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class FleetComputeCapacity {
             return this;
         }
         public FleetComputeCapacity build() {
-            final var o = new FleetComputeCapacity();
-            o.available = available;
-            o.desiredInstances = desiredInstances;
-            o.inUse = inUse;
-            o.running = running;
-            return o;
+            final var _resultValue = new FleetComputeCapacity();
+            _resultValue.available = available;
+            _resultValue.desiredInstances = desiredInstances;
+            _resultValue.inUse = inUse;
+            _resultValue.running = running;
+            return _resultValue;
         }
     }
 }

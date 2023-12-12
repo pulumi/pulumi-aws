@@ -144,14 +144,14 @@ public final class ChannelEncoderSettingsCaptionDescription {
             return this;
         }
         public ChannelEncoderSettingsCaptionDescription build() {
-            final var o = new ChannelEncoderSettingsCaptionDescription();
-            o.accessibility = accessibility;
-            o.captionSelectorName = captionSelectorName;
-            o.destinationSettings = destinationSettings;
-            o.languageCode = languageCode;
-            o.languageDescription = languageDescription;
-            o.name = name;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescription();
+            _resultValue.accessibility = accessibility;
+            _resultValue.captionSelectorName = captionSelectorName;
+            _resultValue.destinationSettings = destinationSettings;
+            _resultValue.languageCode = languageCode;
+            _resultValue.languageDescription = languageDescription;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

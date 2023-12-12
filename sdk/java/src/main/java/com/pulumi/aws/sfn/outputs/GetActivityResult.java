@@ -87,12 +87,12 @@ public final class GetActivityResult {
             return this;
         }
         public GetActivityResult build() {
-            final var o = new GetActivityResult();
-            o.arn = arn;
-            o.creationDate = creationDate;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetActivityResult();
+            _resultValue.arn = arn;
+            _resultValue.creationDate = creationDate;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

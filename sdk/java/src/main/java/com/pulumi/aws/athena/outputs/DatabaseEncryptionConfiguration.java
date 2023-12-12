@@ -67,10 +67,10 @@ public final class DatabaseEncryptionConfiguration {
             return this;
         }
         public DatabaseEncryptionConfiguration build() {
-            final var o = new DatabaseEncryptionConfiguration();
-            o.encryptionOption = encryptionOption;
-            o.kmsKey = kmsKey;
-            return o;
+            final var _resultValue = new DatabaseEncryptionConfiguration();
+            _resultValue.encryptionOption = encryptionOption;
+            _resultValue.kmsKey = kmsKey;
+            return _resultValue;
         }
     }
 }

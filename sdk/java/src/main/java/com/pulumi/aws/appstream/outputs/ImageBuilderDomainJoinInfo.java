@@ -67,10 +67,10 @@ public final class ImageBuilderDomainJoinInfo {
             return this;
         }
         public ImageBuilderDomainJoinInfo build() {
-            final var o = new ImageBuilderDomainJoinInfo();
-            o.directoryName = directoryName;
-            o.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-            return o;
+            final var _resultValue = new ImageBuilderDomainJoinInfo();
+            _resultValue.directoryName = directoryName;
+            _resultValue.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class TemplatePermission {
             return this;
         }
         public TemplatePermission build() {
-            final var o = new TemplatePermission();
-            o.actions = actions;
-            o.principal = principal;
-            return o;
+            final var _resultValue = new TemplatePermission();
+            _resultValue.actions = actions;
+            _resultValue.principal = principal;
+            return _resultValue;
         }
     }
 }

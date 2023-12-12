@@ -67,10 +67,10 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection build() {
-            final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection();
-            o.languageCode = languageCode;
-            o.languageSelectionPolicy = languageSelectionPolicy;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection();
+            _resultValue.languageCode = languageCode;
+            _resultValue.languageSelectionPolicy = languageSelectionPolicy;
+            return _resultValue;
         }
     }
 }

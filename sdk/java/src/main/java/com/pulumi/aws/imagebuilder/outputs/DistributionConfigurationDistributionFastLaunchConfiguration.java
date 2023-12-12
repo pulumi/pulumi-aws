@@ -128,13 +128,13 @@ public final class DistributionConfigurationDistributionFastLaunchConfiguration 
             return this;
         }
         public DistributionConfigurationDistributionFastLaunchConfiguration build() {
-            final var o = new DistributionConfigurationDistributionFastLaunchConfiguration();
-            o.accountId = accountId;
-            o.enabled = enabled;
-            o.launchTemplate = launchTemplate;
-            o.maxParallelLaunches = maxParallelLaunches;
-            o.snapshotConfiguration = snapshotConfiguration;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionFastLaunchConfiguration();
+            _resultValue.accountId = accountId;
+            _resultValue.enabled = enabled;
+            _resultValue.launchTemplate = launchTemplate;
+            _resultValue.maxParallelLaunches = maxParallelLaunches;
+            _resultValue.snapshotConfiguration = snapshotConfiguration;
+            return _resultValue;
         }
     }
 }

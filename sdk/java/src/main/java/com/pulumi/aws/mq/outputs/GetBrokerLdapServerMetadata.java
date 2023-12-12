@@ -153,19 +153,19 @@ public final class GetBrokerLdapServerMetadata {
             return this;
         }
         public GetBrokerLdapServerMetadata build() {
-            final var o = new GetBrokerLdapServerMetadata();
-            o.hosts = hosts;
-            o.roleBase = roleBase;
-            o.roleName = roleName;
-            o.roleSearchMatching = roleSearchMatching;
-            o.roleSearchSubtree = roleSearchSubtree;
-            o.serviceAccountPassword = serviceAccountPassword;
-            o.serviceAccountUsername = serviceAccountUsername;
-            o.userBase = userBase;
-            o.userRoleName = userRoleName;
-            o.userSearchMatching = userSearchMatching;
-            o.userSearchSubtree = userSearchSubtree;
-            return o;
+            final var _resultValue = new GetBrokerLdapServerMetadata();
+            _resultValue.hosts = hosts;
+            _resultValue.roleBase = roleBase;
+            _resultValue.roleName = roleName;
+            _resultValue.roleSearchMatching = roleSearchMatching;
+            _resultValue.roleSearchSubtree = roleSearchSubtree;
+            _resultValue.serviceAccountPassword = serviceAccountPassword;
+            _resultValue.serviceAccountUsername = serviceAccountUsername;
+            _resultValue.userBase = userBase;
+            _resultValue.userRoleName = userRoleName;
+            _resultValue.userSearchMatching = userSearchMatching;
+            _resultValue.userSearchSubtree = userSearchSubtree;
+            return _resultValue;
         }
     }
 }

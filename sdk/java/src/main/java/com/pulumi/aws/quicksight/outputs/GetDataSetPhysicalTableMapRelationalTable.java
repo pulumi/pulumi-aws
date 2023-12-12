@@ -87,13 +87,13 @@ public final class GetDataSetPhysicalTableMapRelationalTable {
             return this;
         }
         public GetDataSetPhysicalTableMapRelationalTable build() {
-            final var o = new GetDataSetPhysicalTableMapRelationalTable();
-            o.catalog = catalog;
-            o.dataSourceArn = dataSourceArn;
-            o.inputColumns = inputColumns;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new GetDataSetPhysicalTableMapRelationalTable();
+            _resultValue.catalog = catalog;
+            _resultValue.dataSourceArn = dataSourceArn;
+            _resultValue.inputColumns = inputColumns;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

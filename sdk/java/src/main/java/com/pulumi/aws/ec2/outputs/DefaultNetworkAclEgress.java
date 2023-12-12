@@ -209,17 +209,17 @@ public final class DefaultNetworkAclEgress {
             return this;
         }
         public DefaultNetworkAclEgress build() {
-            final var o = new DefaultNetworkAclEgress();
-            o.action = action;
-            o.cidrBlock = cidrBlock;
-            o.fromPort = fromPort;
-            o.icmpCode = icmpCode;
-            o.icmpType = icmpType;
-            o.ipv6CidrBlock = ipv6CidrBlock;
-            o.protocol = protocol;
-            o.ruleNo = ruleNo;
-            o.toPort = toPort;
-            return o;
+            final var _resultValue = new DefaultNetworkAclEgress();
+            _resultValue.action = action;
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.fromPort = fromPort;
+            _resultValue.icmpCode = icmpCode;
+            _resultValue.icmpType = icmpType;
+            _resultValue.ipv6CidrBlock = ipv6CidrBlock;
+            _resultValue.protocol = protocol;
+            _resultValue.ruleNo = ruleNo;
+            _resultValue.toPort = toPort;
+            return _resultValue;
         }
     }
 }

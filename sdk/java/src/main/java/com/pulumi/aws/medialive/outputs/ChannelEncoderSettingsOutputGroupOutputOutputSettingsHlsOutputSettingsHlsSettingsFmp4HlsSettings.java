@@ -62,11 +62,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings();
-            o.audioRenditionSets = audioRenditionSets;
-            o.nielsenId3Behavior = nielsenId3Behavior;
-            o.timedMetadataBehavior = timedMetadataBehavior;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings();
+            _resultValue.audioRenditionSets = audioRenditionSets;
+            _resultValue.nielsenId3Behavior = nielsenId3Behavior;
+            _resultValue.timedMetadataBehavior = timedMetadataBehavior;
+            return _resultValue;
         }
     }
 }

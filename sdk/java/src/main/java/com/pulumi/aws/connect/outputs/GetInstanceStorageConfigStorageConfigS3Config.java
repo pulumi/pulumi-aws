@@ -89,11 +89,11 @@ public final class GetInstanceStorageConfigStorageConfigS3Config {
             return encryptionConfigs(List.of(encryptionConfigs));
         }
         public GetInstanceStorageConfigStorageConfigS3Config build() {
-            final var o = new GetInstanceStorageConfigStorageConfigS3Config();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.encryptionConfigs = encryptionConfigs;
-            return o;
+            final var _resultValue = new GetInstanceStorageConfigStorageConfigS3Config();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.encryptionConfigs = encryptionConfigs;
+            return _resultValue;
         }
     }
 }

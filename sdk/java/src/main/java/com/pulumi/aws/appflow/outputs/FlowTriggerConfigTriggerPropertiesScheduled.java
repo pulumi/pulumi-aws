@@ -227,15 +227,15 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
             return this;
         }
         public FlowTriggerConfigTriggerPropertiesScheduled build() {
-            final var o = new FlowTriggerConfigTriggerPropertiesScheduled();
-            o.dataPullMode = dataPullMode;
-            o.firstExecutionFrom = firstExecutionFrom;
-            o.scheduleEndTime = scheduleEndTime;
-            o.scheduleExpression = scheduleExpression;
-            o.scheduleOffset = scheduleOffset;
-            o.scheduleStartTime = scheduleStartTime;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new FlowTriggerConfigTriggerPropertiesScheduled();
+            _resultValue.dataPullMode = dataPullMode;
+            _resultValue.firstExecutionFrom = firstExecutionFrom;
+            _resultValue.scheduleEndTime = scheduleEndTime;
+            _resultValue.scheduleExpression = scheduleExpression;
+            _resultValue.scheduleOffset = scheduleOffset;
+            _resultValue.scheduleStartTime = scheduleStartTime;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

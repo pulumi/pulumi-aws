@@ -170,16 +170,16 @@ public final class GetEmailIdentityResult {
             return this;
         }
         public GetEmailIdentityResult build() {
-            final var o = new GetEmailIdentityResult();
-            o.arn = arn;
-            o.configurationSetName = configurationSetName;
-            o.dkimSigningAttributes = dkimSigningAttributes;
-            o.emailIdentity = emailIdentity;
-            o.id = id;
-            o.identityType = identityType;
-            o.tags = tags;
-            o.verifiedForSendingStatus = verifiedForSendingStatus;
-            return o;
+            final var _resultValue = new GetEmailIdentityResult();
+            _resultValue.arn = arn;
+            _resultValue.configurationSetName = configurationSetName;
+            _resultValue.dkimSigningAttributes = dkimSigningAttributes;
+            _resultValue.emailIdentity = emailIdentity;
+            _resultValue.id = id;
+            _resultValue.identityType = identityType;
+            _resultValue.tags = tags;
+            _resultValue.verifiedForSendingStatus = verifiedForSendingStatus;
+            return _resultValue;
         }
     }
 }

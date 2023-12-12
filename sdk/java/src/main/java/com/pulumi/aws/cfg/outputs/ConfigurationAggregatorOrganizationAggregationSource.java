@@ -95,11 +95,11 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
             return this;
         }
         public ConfigurationAggregatorOrganizationAggregationSource build() {
-            final var o = new ConfigurationAggregatorOrganizationAggregationSource();
-            o.allRegions = allRegions;
-            o.regions = regions;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new ConfigurationAggregatorOrganizationAggregationSource();
+            _resultValue.allRegions = allRegions;
+            _resultValue.regions = regions;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

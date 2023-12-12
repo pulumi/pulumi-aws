@@ -115,12 +115,12 @@ public final class ChannelDestination {
             return settings(List.of(settings));
         }
         public ChannelDestination build() {
-            final var o = new ChannelDestination();
-            o.id = id;
-            o.mediaPackageSettings = mediaPackageSettings;
-            o.multiplexSettings = multiplexSettings;
-            o.settings = settings;
-            return o;
+            final var _resultValue = new ChannelDestination();
+            _resultValue.id = id;
+            _resultValue.mediaPackageSettings = mediaPackageSettings;
+            _resultValue.multiplexSettings = multiplexSettings;
+            _resultValue.settings = settings;
+            return _resultValue;
         }
     }
 }

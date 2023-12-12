@@ -71,10 +71,10 @@ public final class ContainerRecipeComponent {
             return parameters(List.of(parameters));
         }
         public ContainerRecipeComponent build() {
-            final var o = new ContainerRecipeComponent();
-            o.componentArn = componentArn;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new ContainerRecipeComponent();
+            _resultValue.componentArn = componentArn;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

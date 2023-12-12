@@ -46,9 +46,9 @@ public final class WebAclAssociationConfigRequestBodyCloudfront {
             return this;
         }
         public WebAclAssociationConfigRequestBodyCloudfront build() {
-            final var o = new WebAclAssociationConfigRequestBodyCloudfront();
-            o.defaultSizeInspectionLimit = defaultSizeInspectionLimit;
-            return o;
+            final var _resultValue = new WebAclAssociationConfigRequestBodyCloudfront();
+            _resultValue.defaultSizeInspectionLimit = defaultSizeInspectionLimit;
+            return _resultValue;
         }
     }
 }

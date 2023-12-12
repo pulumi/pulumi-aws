@@ -73,10 +73,10 @@ public final class VpcAttachmentOptions {
             return this;
         }
         public VpcAttachmentOptions build() {
-            final var o = new VpcAttachmentOptions();
-            o.applianceModeSupport = applianceModeSupport;
-            o.ipv6Support = ipv6Support;
-            return o;
+            final var _resultValue = new VpcAttachmentOptions();
+            _resultValue.applianceModeSupport = applianceModeSupport;
+            _resultValue.ipv6Support = ipv6Support;
+            return _resultValue;
         }
     }
 }

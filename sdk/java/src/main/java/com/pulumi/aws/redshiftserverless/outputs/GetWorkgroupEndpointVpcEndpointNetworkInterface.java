@@ -103,12 +103,12 @@ public final class GetWorkgroupEndpointVpcEndpointNetworkInterface {
             return this;
         }
         public GetWorkgroupEndpointVpcEndpointNetworkInterface build() {
-            final var o = new GetWorkgroupEndpointVpcEndpointNetworkInterface();
-            o.availabilityZone = availabilityZone;
-            o.networkInterfaceId = networkInterfaceId;
-            o.privateIpAddress = privateIpAddress;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetWorkgroupEndpointVpcEndpointNetworkInterface();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

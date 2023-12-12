@@ -66,10 +66,10 @@ public final class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange {
             return this;
         }
         public InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange build() {
-            final var o = new InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

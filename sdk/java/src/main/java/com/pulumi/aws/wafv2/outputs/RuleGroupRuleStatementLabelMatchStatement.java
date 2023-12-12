@@ -65,10 +65,10 @@ public final class RuleGroupRuleStatementLabelMatchStatement {
             return this;
         }
         public RuleGroupRuleStatementLabelMatchStatement build() {
-            final var o = new RuleGroupRuleStatementLabelMatchStatement();
-            o.key = key;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementLabelMatchStatement();
+            _resultValue.key = key;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

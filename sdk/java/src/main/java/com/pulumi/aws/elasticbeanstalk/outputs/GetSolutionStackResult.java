@@ -90,12 +90,12 @@ public final class GetSolutionStackResult {
             return this;
         }
         public GetSolutionStackResult build() {
-            final var o = new GetSolutionStackResult();
-            o.id = id;
-            o.mostRecent = mostRecent;
-            o.name = name;
-            o.nameRegex = nameRegex;
-            return o;
+            final var _resultValue = new GetSolutionStackResult();
+            _resultValue.id = id;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.name = name;
+            _resultValue.nameRegex = nameRegex;
+            return _resultValue;
         }
     }
 }

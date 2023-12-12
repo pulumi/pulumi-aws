@@ -62,10 +62,10 @@ public final class GetPipelineDefinitionParameterObject {
             return this;
         }
         public GetPipelineDefinitionParameterObject build() {
-            final var o = new GetPipelineDefinitionParameterObject();
-            o.attributes = attributes;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetPipelineDefinitionParameterObject();
+            _resultValue.attributes = attributes;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

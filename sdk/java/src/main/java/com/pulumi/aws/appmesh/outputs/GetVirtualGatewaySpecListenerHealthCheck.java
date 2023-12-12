@@ -105,15 +105,15 @@ public final class GetVirtualGatewaySpecListenerHealthCheck {
             return this;
         }
         public GetVirtualGatewaySpecListenerHealthCheck build() {
-            final var o = new GetVirtualGatewaySpecListenerHealthCheck();
-            o.healthyThreshold = healthyThreshold;
-            o.intervalMillis = intervalMillis;
-            o.path = path;
-            o.port = port;
-            o.protocol = protocol;
-            o.timeoutMillis = timeoutMillis;
-            o.unhealthyThreshold = unhealthyThreshold;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerHealthCheck();
+            _resultValue.healthyThreshold = healthyThreshold;
+            _resultValue.intervalMillis = intervalMillis;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.timeoutMillis = timeoutMillis;
+            _resultValue.unhealthyThreshold = unhealthyThreshold;
+            return _resultValue;
         }
     }
 }

@@ -210,18 +210,18 @@ public final class GetComputeEnvironmentResult {
             return this;
         }
         public GetComputeEnvironmentResult build() {
-            final var o = new GetComputeEnvironmentResult();
-            o.arn = arn;
-            o.computeEnvironmentName = computeEnvironmentName;
-            o.ecsClusterArn = ecsClusterArn;
-            o.id = id;
-            o.serviceRole = serviceRole;
-            o.state = state;
-            o.status = status;
-            o.statusReason = statusReason;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetComputeEnvironmentResult();
+            _resultValue.arn = arn;
+            _resultValue.computeEnvironmentName = computeEnvironmentName;
+            _resultValue.ecsClusterArn = ecsClusterArn;
+            _resultValue.id = id;
+            _resultValue.serviceRole = serviceRole;
+            _resultValue.state = state;
+            _resultValue.status = status;
+            _resultValue.statusReason = statusReason;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -51,9 +51,9 @@ public final class WebAclAssociationConfig {
             return requestBodies(List.of(requestBodies));
         }
         public WebAclAssociationConfig build() {
-            final var o = new WebAclAssociationConfig();
-            o.requestBodies = requestBodies;
-            return o;
+            final var _resultValue = new WebAclAssociationConfig();
+            _resultValue.requestBodies = requestBodies;
+            return _resultValue;
         }
     }
 }

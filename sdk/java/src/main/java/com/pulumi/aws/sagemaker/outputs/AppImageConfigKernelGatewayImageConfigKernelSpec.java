@@ -67,10 +67,10 @@ public final class AppImageConfigKernelGatewayImageConfigKernelSpec {
             return this;
         }
         public AppImageConfigKernelGatewayImageConfigKernelSpec build() {
-            final var o = new AppImageConfigKernelGatewayImageConfigKernelSpec();
-            o.displayName = displayName;
-            o.name = name;
-            return o;
+            final var _resultValue = new AppImageConfigKernelGatewayImageConfigKernelSpec();
+            _resultValue.displayName = displayName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

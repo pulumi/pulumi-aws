@@ -226,19 +226,19 @@ public final class GetConfigurationProfileResult {
             return validators(List.of(validators));
         }
         public GetConfigurationProfileResult build() {
-            final var o = new GetConfigurationProfileResult();
-            o.applicationId = applicationId;
-            o.arn = arn;
-            o.configurationProfileId = configurationProfileId;
-            o.description = description;
-            o.id = id;
-            o.locationUri = locationUri;
-            o.name = name;
-            o.retrievalRoleArn = retrievalRoleArn;
-            o.tags = tags;
-            o.type = type;
-            o.validators = validators;
-            return o;
+            final var _resultValue = new GetConfigurationProfileResult();
+            _resultValue.applicationId = applicationId;
+            _resultValue.arn = arn;
+            _resultValue.configurationProfileId = configurationProfileId;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.locationUri = locationUri;
+            _resultValue.name = name;
+            _resultValue.retrievalRoleArn = retrievalRoleArn;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.validators = validators;
+            return _resultValue;
         }
     }
 }

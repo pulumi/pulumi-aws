@@ -67,10 +67,10 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatch {
             return this;
         }
         public ListenerRuleMatchHttpMatchPathMatchMatch build() {
-            final var o = new ListenerRuleMatchHttpMatchPathMatchMatch();
-            o.exact = exact;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new ListenerRuleMatchHttpMatchPathMatchMatch();
+            _resultValue.exact = exact;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class RuleGroupRuleVisibilityConfig {
             return this;
         }
         public RuleGroupRuleVisibilityConfig build() {
-            final var o = new RuleGroupRuleVisibilityConfig();
-            o.cloudwatchMetricsEnabled = cloudwatchMetricsEnabled;
-            o.metricName = metricName;
-            o.sampledRequestsEnabled = sampledRequestsEnabled;
-            return o;
+            final var _resultValue = new RuleGroupRuleVisibilityConfig();
+            _resultValue.cloudwatchMetricsEnabled = cloudwatchMetricsEnabled;
+            _resultValue.metricName = metricName;
+            _resultValue.sampledRequestsEnabled = sampledRequestsEnabled;
+            return _resultValue;
         }
     }
 }

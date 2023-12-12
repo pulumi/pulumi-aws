@@ -130,15 +130,15 @@ public final class GetFirewallPolicyFirewallPolicy {
             return statelessRuleGroupReferences(List.of(statelessRuleGroupReferences));
         }
         public GetFirewallPolicyFirewallPolicy build() {
-            final var o = new GetFirewallPolicyFirewallPolicy();
-            o.statefulDefaultActions = statefulDefaultActions;
-            o.statefulEngineOptions = statefulEngineOptions;
-            o.statefulRuleGroupReferences = statefulRuleGroupReferences;
-            o.statelessCustomActions = statelessCustomActions;
-            o.statelessDefaultActions = statelessDefaultActions;
-            o.statelessFragmentDefaultActions = statelessFragmentDefaultActions;
-            o.statelessRuleGroupReferences = statelessRuleGroupReferences;
-            return o;
+            final var _resultValue = new GetFirewallPolicyFirewallPolicy();
+            _resultValue.statefulDefaultActions = statefulDefaultActions;
+            _resultValue.statefulEngineOptions = statefulEngineOptions;
+            _resultValue.statefulRuleGroupReferences = statefulRuleGroupReferences;
+            _resultValue.statelessCustomActions = statelessCustomActions;
+            _resultValue.statelessDefaultActions = statelessDefaultActions;
+            _resultValue.statelessFragmentDefaultActions = statelessFragmentDefaultActions;
+            _resultValue.statelessRuleGroupReferences = statelessRuleGroupReferences;
+            return _resultValue;
         }
     }
 }

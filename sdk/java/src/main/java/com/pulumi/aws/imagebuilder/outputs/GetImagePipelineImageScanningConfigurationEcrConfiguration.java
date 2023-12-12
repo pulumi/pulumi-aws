@@ -69,10 +69,10 @@ public final class GetImagePipelineImageScanningConfigurationEcrConfiguration {
             return this;
         }
         public GetImagePipelineImageScanningConfigurationEcrConfiguration build() {
-            final var o = new GetImagePipelineImageScanningConfigurationEcrConfiguration();
-            o.containerTags = containerTags;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new GetImagePipelineImageScanningConfigurationEcrConfiguration();
+            _resultValue.containerTags = containerTags;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class VirtualGatewaySpecBackendDefaults {
             return this;
         }
         public VirtualGatewaySpecBackendDefaults build() {
-            final var o = new VirtualGatewaySpecBackendDefaults();
-            o.clientPolicy = clientPolicy;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaults();
+            _resultValue.clientPolicy = clientPolicy;
+            return _resultValue;
         }
     }
 }

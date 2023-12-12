@@ -93,11 +93,11 @@ public final class CostCategoryRuleRuleAndCostCategory {
             return values(List.of(values));
         }
         public CostCategoryRuleRuleAndCostCategory build() {
-            final var o = new CostCategoryRuleRuleAndCostCategory();
-            o.key = key;
-            o.matchOptions = matchOptions;
-            o.values = values;
-            return o;
+            final var _resultValue = new CostCategoryRuleRuleAndCostCategory();
+            _resultValue.key = key;
+            _resultValue.matchOptions = matchOptions;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

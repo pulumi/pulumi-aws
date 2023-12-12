@@ -100,11 +100,11 @@ public final class IntentSlotValueElicitationPrompt {
             return this;
         }
         public IntentSlotValueElicitationPrompt build() {
-            final var o = new IntentSlotValueElicitationPrompt();
-            o.maxAttempts = maxAttempts;
-            o.messages = messages;
-            o.responseCard = responseCard;
-            return o;
+            final var _resultValue = new IntentSlotValueElicitationPrompt();
+            _resultValue.maxAttempts = maxAttempts;
+            _resultValue.messages = messages;
+            _resultValue.responseCard = responseCard;
+            return _resultValue;
         }
     }
 }

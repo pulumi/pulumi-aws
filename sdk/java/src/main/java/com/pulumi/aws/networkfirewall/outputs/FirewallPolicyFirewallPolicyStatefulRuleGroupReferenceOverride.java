@@ -48,9 +48,9 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrid
             return this;
         }
         public FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride build() {
-            final var o = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride();
-            o.action = action;
-            return o;
+            final var _resultValue = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride();
+            _resultValue.action = action;
+            return _resultValue;
         }
     }
 }

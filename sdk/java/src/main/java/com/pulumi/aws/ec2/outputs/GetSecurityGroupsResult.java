@@ -141,14 +141,14 @@ public final class GetSecurityGroupsResult {
             return vpcIds(List.of(vpcIds));
         }
         public GetSecurityGroupsResult build() {
-            final var o = new GetSecurityGroupsResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            o.vpcIds = vpcIds;
-            return o;
+            final var _resultValue = new GetSecurityGroupsResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            _resultValue.vpcIds = vpcIds;
+            return _resultValue;
         }
     }
 }

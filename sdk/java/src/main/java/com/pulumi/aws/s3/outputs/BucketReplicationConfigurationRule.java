@@ -189,16 +189,16 @@ public final class BucketReplicationConfigurationRule {
             return this;
         }
         public BucketReplicationConfigurationRule build() {
-            final var o = new BucketReplicationConfigurationRule();
-            o.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
-            o.destination = destination;
-            o.filter = filter;
-            o.id = id;
-            o.prefix = prefix;
-            o.priority = priority;
-            o.sourceSelectionCriteria = sourceSelectionCriteria;
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketReplicationConfigurationRule();
+            _resultValue.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
+            _resultValue.destination = destination;
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.prefix = prefix;
+            _resultValue.priority = priority;
+            _resultValue.sourceSelectionCriteria = sourceSelectionCriteria;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -127,13 +127,13 @@ public final class FleetTargetCapacitySpecification {
             return this;
         }
         public FleetTargetCapacitySpecification build() {
-            final var o = new FleetTargetCapacitySpecification();
-            o.defaultTargetCapacityType = defaultTargetCapacityType;
-            o.onDemandTargetCapacity = onDemandTargetCapacity;
-            o.spotTargetCapacity = spotTargetCapacity;
-            o.targetCapacityUnitType = targetCapacityUnitType;
-            o.totalTargetCapacity = totalTargetCapacity;
-            return o;
+            final var _resultValue = new FleetTargetCapacitySpecification();
+            _resultValue.defaultTargetCapacityType = defaultTargetCapacityType;
+            _resultValue.onDemandTargetCapacity = onDemandTargetCapacity;
+            _resultValue.spotTargetCapacity = spotTargetCapacity;
+            _resultValue.targetCapacityUnitType = targetCapacityUnitType;
+            _resultValue.totalTargetCapacity = totalTargetCapacity;
+            return _resultValue;
         }
     }
 }

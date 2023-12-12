@@ -85,11 +85,11 @@ public final class GetInstancesResult {
             return ids(List.of(ids));
         }
         public GetInstancesResult build() {
-            final var o = new GetInstancesResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            return o;
+            final var _resultValue = new GetInstancesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            return _resultValue;
         }
     }
 }

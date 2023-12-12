@@ -164,15 +164,15 @@ public final class TargetGroupConfig {
             return this;
         }
         public TargetGroupConfig build() {
-            final var o = new TargetGroupConfig();
-            o.healthCheck = healthCheck;
-            o.ipAddressType = ipAddressType;
-            o.lambdaEventStructureVersion = lambdaEventStructureVersion;
-            o.port = port;
-            o.protocol = protocol;
-            o.protocolVersion = protocolVersion;
-            o.vpcIdentifier = vpcIdentifier;
-            return o;
+            final var _resultValue = new TargetGroupConfig();
+            _resultValue.healthCheck = healthCheck;
+            _resultValue.ipAddressType = ipAddressType;
+            _resultValue.lambdaEventStructureVersion = lambdaEventStructureVersion;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.protocolVersion = protocolVersion;
+            _resultValue.vpcIdentifier = vpcIdentifier;
+            return _resultValue;
         }
     }
 }

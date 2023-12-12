@@ -46,9 +46,9 @@ public final class DistributionOriginGroupMember {
             return this;
         }
         public DistributionOriginGroupMember build() {
-            final var o = new DistributionOriginGroupMember();
-            o.originId = originId;
-            return o;
+            final var _resultValue = new DistributionOriginGroupMember();
+            _resultValue.originId = originId;
+            return _resultValue;
         }
     }
 }

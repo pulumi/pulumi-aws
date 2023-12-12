@@ -86,11 +86,11 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
             return this;
         }
         public GraphQLApiAdditionalAuthenticationProviderUserPoolConfig build() {
-            final var o = new GraphQLApiAdditionalAuthenticationProviderUserPoolConfig();
-            o.appIdClientRegex = appIdClientRegex;
-            o.awsRegion = awsRegion;
-            o.userPoolId = userPoolId;
-            return o;
+            final var _resultValue = new GraphQLApiAdditionalAuthenticationProviderUserPoolConfig();
+            _resultValue.appIdClientRegex = appIdClientRegex;
+            _resultValue.awsRegion = awsRegion;
+            _resultValue.userPoolId = userPoolId;
+            return _resultValue;
         }
     }
 }

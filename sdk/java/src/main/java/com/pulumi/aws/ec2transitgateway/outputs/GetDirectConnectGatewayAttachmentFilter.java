@@ -69,10 +69,10 @@ public final class GetDirectConnectGatewayAttachmentFilter {
             return values(List.of(values));
         }
         public GetDirectConnectGatewayAttachmentFilter build() {
-            final var o = new GetDirectConnectGatewayAttachmentFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetDirectConnectGatewayAttachmentFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

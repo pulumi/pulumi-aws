@@ -48,9 +48,9 @@ public final class WebAclCaptchaConfig {
             return this;
         }
         public WebAclCaptchaConfig build() {
-            final var o = new WebAclCaptchaConfig();
-            o.immunityTimeProperty = immunityTimeProperty;
-            return o;
+            final var _resultValue = new WebAclCaptchaConfig();
+            _resultValue.immunityTimeProperty = immunityTimeProperty;
+            return _resultValue;
         }
     }
 }

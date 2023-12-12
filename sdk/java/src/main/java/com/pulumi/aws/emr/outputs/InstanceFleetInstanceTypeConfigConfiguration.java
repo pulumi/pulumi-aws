@@ -68,10 +68,10 @@ public final class InstanceFleetInstanceTypeConfigConfiguration {
             return this;
         }
         public InstanceFleetInstanceTypeConfigConfiguration build() {
-            final var o = new InstanceFleetInstanceTypeConfigConfiguration();
-            o.classification = classification;
-            o.properties = properties;
-            return o;
+            final var _resultValue = new InstanceFleetInstanceTypeConfigConfiguration();
+            _resultValue.classification = classification;
+            _resultValue.properties = properties;
+            return _resultValue;
         }
     }
 }

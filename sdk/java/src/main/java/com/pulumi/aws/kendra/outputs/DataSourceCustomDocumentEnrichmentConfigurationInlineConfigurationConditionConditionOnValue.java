@@ -102,12 +102,12 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue build() {
-            final var o = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue();
-            o.dateValue = dateValue;
-            o.longValue = longValue;
-            o.stringListValues = stringListValues;
-            o.stringValue = stringValue;
-            return o;
+            final var _resultValue = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue();
+            _resultValue.dateValue = dateValue;
+            _resultValue.longValue = longValue;
+            _resultValue.stringListValues = stringListValues;
+            _resultValue.stringValue = stringValue;
+            return _resultValue;
         }
     }
 }

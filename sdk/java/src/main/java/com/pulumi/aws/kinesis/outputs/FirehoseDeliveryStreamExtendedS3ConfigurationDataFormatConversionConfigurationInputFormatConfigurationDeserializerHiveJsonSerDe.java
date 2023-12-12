@@ -51,9 +51,9 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             return timestampFormats(List.of(timestampFormats));
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe build() {
-            final var o = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe();
-            o.timestampFormats = timestampFormats;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe();
+            _resultValue.timestampFormats = timestampFormats;
+            return _resultValue;
         }
     }
 }

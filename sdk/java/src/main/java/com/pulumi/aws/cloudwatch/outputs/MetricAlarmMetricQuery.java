@@ -173,15 +173,15 @@ public final class MetricAlarmMetricQuery {
             return this;
         }
         public MetricAlarmMetricQuery build() {
-            final var o = new MetricAlarmMetricQuery();
-            o.accountId = accountId;
-            o.expression = expression;
-            o.id = id;
-            o.label = label;
-            o.metric = metric;
-            o.period = period;
-            o.returnData = returnData;
-            return o;
+            final var _resultValue = new MetricAlarmMetricQuery();
+            _resultValue.accountId = accountId;
+            _resultValue.expression = expression;
+            _resultValue.id = id;
+            _resultValue.label = label;
+            _resultValue.metric = metric;
+            _resultValue.period = period;
+            _resultValue.returnData = returnData;
+            return _resultValue;
         }
     }
 }

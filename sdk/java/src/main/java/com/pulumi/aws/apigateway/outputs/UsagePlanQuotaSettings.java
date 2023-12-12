@@ -87,11 +87,11 @@ public final class UsagePlanQuotaSettings {
             return this;
         }
         public UsagePlanQuotaSettings build() {
-            final var o = new UsagePlanQuotaSettings();
-            o.limit = limit;
-            o.offset = offset;
-            o.period = period;
-            return o;
+            final var _resultValue = new UsagePlanQuotaSettings();
+            _resultValue.limit = limit;
+            _resultValue.offset = offset;
+            _resultValue.period = period;
+            return _resultValue;
         }
     }
 }

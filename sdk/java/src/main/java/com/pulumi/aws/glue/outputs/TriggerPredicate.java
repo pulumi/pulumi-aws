@@ -72,10 +72,10 @@ public final class TriggerPredicate {
             return this;
         }
         public TriggerPredicate build() {
-            final var o = new TriggerPredicate();
-            o.conditions = conditions;
-            o.logical = logical;
-            return o;
+            final var _resultValue = new TriggerPredicate();
+            _resultValue.conditions = conditions;
+            _resultValue.logical = logical;
+            return _resultValue;
         }
     }
 }

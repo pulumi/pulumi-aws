@@ -96,11 +96,11 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatement {
             return textTransformations(List.of(textTransformations));
         }
         public RuleGroupRuleStatementRegexPatternSetReferenceStatement build() {
-            final var o = new RuleGroupRuleStatementRegexPatternSetReferenceStatement();
-            o.arn = arn;
-            o.fieldToMatch = fieldToMatch;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementRegexPatternSetReferenceStatement();
+            _resultValue.arn = arn;
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

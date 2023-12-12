@@ -25,8 +25,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude();
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude();
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetUserFilter {
             return this;
         }
         public GetUserFilter build() {
-            final var o = new GetUserFilter();
-            o.attributePath = attributePath;
-            o.attributeValue = attributeValue;
-            return o;
+            final var _resultValue = new GetUserFilter();
+            _resultValue.attributePath = attributePath;
+            _resultValue.attributeValue = attributeValue;
+            return _resultValue;
         }
     }
 }

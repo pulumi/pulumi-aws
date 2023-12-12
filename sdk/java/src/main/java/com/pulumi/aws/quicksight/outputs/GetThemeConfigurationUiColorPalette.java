@@ -331,24 +331,24 @@ public final class GetThemeConfigurationUiColorPalette {
             return this;
         }
         public GetThemeConfigurationUiColorPalette build() {
-            final var o = new GetThemeConfigurationUiColorPalette();
-            o.accent = accent;
-            o.accentForeground = accentForeground;
-            o.danger = danger;
-            o.dangerForeground = dangerForeground;
-            o.dimension = dimension;
-            o.dimensionForeground = dimensionForeground;
-            o.measure = measure;
-            o.measureForeground = measureForeground;
-            o.primaryBackground = primaryBackground;
-            o.primaryForeground = primaryForeground;
-            o.secondaryBackground = secondaryBackground;
-            o.secondaryForeground = secondaryForeground;
-            o.success = success;
-            o.successForeground = successForeground;
-            o.warning = warning;
-            o.warningForeground = warningForeground;
-            return o;
+            final var _resultValue = new GetThemeConfigurationUiColorPalette();
+            _resultValue.accent = accent;
+            _resultValue.accentForeground = accentForeground;
+            _resultValue.danger = danger;
+            _resultValue.dangerForeground = dangerForeground;
+            _resultValue.dimension = dimension;
+            _resultValue.dimensionForeground = dimensionForeground;
+            _resultValue.measure = measure;
+            _resultValue.measureForeground = measureForeground;
+            _resultValue.primaryBackground = primaryBackground;
+            _resultValue.primaryForeground = primaryForeground;
+            _resultValue.secondaryBackground = secondaryBackground;
+            _resultValue.secondaryForeground = secondaryForeground;
+            _resultValue.success = success;
+            _resultValue.successForeground = successForeground;
+            _resultValue.warning = warning;
+            _resultValue.warningForeground = warningForeground;
+            return _resultValue;
         }
     }
 }

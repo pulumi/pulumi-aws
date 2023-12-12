@@ -65,10 +65,10 @@ public final class InsightFiltersResourceAwsEc2InstanceType {
             return this;
         }
         public InsightFiltersResourceAwsEc2InstanceType build() {
-            final var o = new InsightFiltersResourceAwsEc2InstanceType();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersResourceAwsEc2InstanceType();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

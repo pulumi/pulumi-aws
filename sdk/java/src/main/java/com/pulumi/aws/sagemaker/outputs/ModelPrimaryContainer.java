@@ -186,16 +186,16 @@ public final class ModelPrimaryContainer {
             return this;
         }
         public ModelPrimaryContainer build() {
-            final var o = new ModelPrimaryContainer();
-            o.containerHostname = containerHostname;
-            o.environment = environment;
-            o.image = image;
-            o.imageConfig = imageConfig;
-            o.mode = mode;
-            o.modelDataSource = modelDataSource;
-            o.modelDataUrl = modelDataUrl;
-            o.modelPackageName = modelPackageName;
-            return o;
+            final var _resultValue = new ModelPrimaryContainer();
+            _resultValue.containerHostname = containerHostname;
+            _resultValue.environment = environment;
+            _resultValue.image = image;
+            _resultValue.imageConfig = imageConfig;
+            _resultValue.mode = mode;
+            _resultValue.modelDataSource = modelDataSource;
+            _resultValue.modelDataUrl = modelDataUrl;
+            _resultValue.modelPackageName = modelPackageName;
+            return _resultValue;
         }
     }
 }

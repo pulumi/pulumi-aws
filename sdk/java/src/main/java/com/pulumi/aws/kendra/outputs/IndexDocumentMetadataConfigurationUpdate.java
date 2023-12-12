@@ -107,12 +107,12 @@ public final class IndexDocumentMetadataConfigurationUpdate {
             return this;
         }
         public IndexDocumentMetadataConfigurationUpdate build() {
-            final var o = new IndexDocumentMetadataConfigurationUpdate();
-            o.name = name;
-            o.relevance = relevance;
-            o.search = search;
-            o.type = type;
-            return o;
+            final var _resultValue = new IndexDocumentMetadataConfigurationUpdate();
+            _resultValue.name = name;
+            _resultValue.relevance = relevance;
+            _resultValue.search = search;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

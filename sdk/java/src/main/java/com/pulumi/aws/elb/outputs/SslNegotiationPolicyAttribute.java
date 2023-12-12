@@ -65,10 +65,10 @@ public final class SslNegotiationPolicyAttribute {
             return this;
         }
         public SslNegotiationPolicyAttribute build() {
-            final var o = new SslNegotiationPolicyAttribute();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new SslNegotiationPolicyAttribute();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

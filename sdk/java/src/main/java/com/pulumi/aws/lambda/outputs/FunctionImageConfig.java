@@ -93,11 +93,11 @@ public final class FunctionImageConfig {
             return this;
         }
         public FunctionImageConfig build() {
-            final var o = new FunctionImageConfig();
-            o.commands = commands;
-            o.entryPoints = entryPoints;
-            o.workingDirectory = workingDirectory;
-            return o;
+            final var _resultValue = new FunctionImageConfig();
+            _resultValue.commands = commands;
+            _resultValue.entryPoints = entryPoints;
+            _resultValue.workingDirectory = workingDirectory;
+            return _resultValue;
         }
     }
 }

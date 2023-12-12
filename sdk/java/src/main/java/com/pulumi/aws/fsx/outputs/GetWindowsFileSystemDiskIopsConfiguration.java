@@ -50,10 +50,10 @@ public final class GetWindowsFileSystemDiskIopsConfiguration {
             return this;
         }
         public GetWindowsFileSystemDiskIopsConfiguration build() {
-            final var o = new GetWindowsFileSystemDiskIopsConfiguration();
-            o.iops = iops;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new GetWindowsFileSystemDiskIopsConfiguration();
+            _resultValue.iops = iops;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

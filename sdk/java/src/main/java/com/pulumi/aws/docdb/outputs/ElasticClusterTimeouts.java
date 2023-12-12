@@ -62,11 +62,11 @@ public final class ElasticClusterTimeouts {
             return this;
         }
         public ElasticClusterTimeouts build() {
-            final var o = new ElasticClusterTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new ElasticClusterTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

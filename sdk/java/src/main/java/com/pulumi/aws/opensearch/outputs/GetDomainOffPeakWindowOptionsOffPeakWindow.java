@@ -50,9 +50,9 @@ public final class GetDomainOffPeakWindowOptionsOffPeakWindow {
             return windowStartTimes(List.of(windowStartTimes));
         }
         public GetDomainOffPeakWindowOptionsOffPeakWindow build() {
-            final var o = new GetDomainOffPeakWindowOptionsOffPeakWindow();
-            o.windowStartTimes = windowStartTimes;
-            return o;
+            final var _resultValue = new GetDomainOffPeakWindowOptionsOffPeakWindow();
+            _resultValue.windowStartTimes = windowStartTimes;
+            return _resultValue;
         }
     }
 }

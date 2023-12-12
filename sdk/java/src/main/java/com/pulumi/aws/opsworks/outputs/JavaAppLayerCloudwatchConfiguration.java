@@ -56,10 +56,10 @@ public final class JavaAppLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public JavaAppLayerCloudwatchConfiguration build() {
-            final var o = new JavaAppLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new JavaAppLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

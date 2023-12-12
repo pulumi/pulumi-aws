@@ -94,11 +94,11 @@ public final class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificati
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification();
-            o.id = id;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

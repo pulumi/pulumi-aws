@@ -84,11 +84,11 @@ public final class InputSource {
             return this;
         }
         public InputSource build() {
-            final var o = new InputSource();
-            o.passwordParam = passwordParam;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new InputSource();
+            _resultValue.passwordParam = passwordParam;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -56,10 +56,10 @@ public final class MysqlLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public MysqlLayerCloudwatchConfiguration build() {
-            final var o = new MysqlLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new MysqlLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

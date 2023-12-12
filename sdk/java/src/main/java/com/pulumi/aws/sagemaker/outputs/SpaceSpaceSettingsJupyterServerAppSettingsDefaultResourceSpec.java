@@ -105,12 +105,12 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec
             return this;
         }
         public SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec build() {
-            final var o = new SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec();
-            o.instanceType = instanceType;
-            o.lifecycleConfigArn = lifecycleConfigArn;
-            o.sagemakerImageArn = sagemakerImageArn;
-            o.sagemakerImageVersionArn = sagemakerImageVersionArn;
-            return o;
+            final var _resultValue = new SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec();
+            _resultValue.instanceType = instanceType;
+            _resultValue.lifecycleConfigArn = lifecycleConfigArn;
+            _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
+            return _resultValue;
         }
     }
 }

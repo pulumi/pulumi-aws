@@ -65,10 +65,10 @@ public final class CertificateValidity {
             return this;
         }
         public CertificateValidity build() {
-            final var o = new CertificateValidity();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new CertificateValidity();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

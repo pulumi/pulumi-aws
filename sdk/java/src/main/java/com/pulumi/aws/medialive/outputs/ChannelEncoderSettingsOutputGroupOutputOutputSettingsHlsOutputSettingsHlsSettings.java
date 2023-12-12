@@ -76,12 +76,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings();
-            o.audioOnlyHlsSettings = audioOnlyHlsSettings;
-            o.fmp4HlsSettings = fmp4HlsSettings;
-            o.frameCaptureHlsSettings = frameCaptureHlsSettings;
-            o.standardHlsSettings = standardHlsSettings;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings();
+            _resultValue.audioOnlyHlsSettings = audioOnlyHlsSettings;
+            _resultValue.fmp4HlsSettings = fmp4HlsSettings;
+            _resultValue.frameCaptureHlsSettings = frameCaptureHlsSettings;
+            _resultValue.standardHlsSettings = standardHlsSettings;
+            return _resultValue;
         }
     }
 }

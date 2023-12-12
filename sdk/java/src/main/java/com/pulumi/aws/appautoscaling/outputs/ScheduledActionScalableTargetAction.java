@@ -67,10 +67,10 @@ public final class ScheduledActionScalableTargetAction {
             return this;
         }
         public ScheduledActionScalableTargetAction build() {
-            final var o = new ScheduledActionScalableTargetAction();
-            o.maxCapacity = maxCapacity;
-            o.minCapacity = minCapacity;
-            return o;
+            final var _resultValue = new ScheduledActionScalableTargetAction();
+            _resultValue.maxCapacity = maxCapacity;
+            _resultValue.minCapacity = minCapacity;
+            return _resultValue;
         }
     }
 }

@@ -74,10 +74,10 @@ public final class ReplicationConfigurationReplicationConfigurationRule {
             return repositoryFilters(List.of(repositoryFilters));
         }
         public ReplicationConfigurationReplicationConfigurationRule build() {
-            final var o = new ReplicationConfigurationReplicationConfigurationRule();
-            o.destinations = destinations;
-            o.repositoryFilters = repositoryFilters;
-            return o;
+            final var _resultValue = new ReplicationConfigurationReplicationConfigurationRule();
+            _resultValue.destinations = destinations;
+            _resultValue.repositoryFilters = repositoryFilters;
+            return _resultValue;
         }
     }
 }

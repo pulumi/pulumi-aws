@@ -67,10 +67,10 @@ public final class ByteMatchSetByteMatchTupleFieldToMatch {
             return this;
         }
         public ByteMatchSetByteMatchTupleFieldToMatch build() {
-            final var o = new ByteMatchSetByteMatchTupleFieldToMatch();
-            o.data = data;
-            o.type = type;
-            return o;
+            final var _resultValue = new ByteMatchSetByteMatchTupleFieldToMatch();
+            _resultValue.data = data;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

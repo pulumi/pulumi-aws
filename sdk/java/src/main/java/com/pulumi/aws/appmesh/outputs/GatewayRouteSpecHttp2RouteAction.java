@@ -68,10 +68,10 @@ public final class GatewayRouteSpecHttp2RouteAction {
             return this;
         }
         public GatewayRouteSpecHttp2RouteAction build() {
-            final var o = new GatewayRouteSpecHttp2RouteAction();
-            o.rewrite = rewrite;
-            o.target = target;
-            return o;
+            final var _resultValue = new GatewayRouteSpecHttp2RouteAction();
+            _resultValue.rewrite = rewrite;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

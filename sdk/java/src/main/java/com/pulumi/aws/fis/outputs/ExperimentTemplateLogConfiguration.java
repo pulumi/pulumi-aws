@@ -88,11 +88,11 @@ public final class ExperimentTemplateLogConfiguration {
             return this;
         }
         public ExperimentTemplateLogConfiguration build() {
-            final var o = new ExperimentTemplateLogConfiguration();
-            o.cloudwatchLogsConfiguration = cloudwatchLogsConfiguration;
-            o.logSchemaVersion = logSchemaVersion;
-            o.s3Configuration = s3Configuration;
-            return o;
+            final var _resultValue = new ExperimentTemplateLogConfiguration();
+            _resultValue.cloudwatchLogsConfiguration = cloudwatchLogsConfiguration;
+            _resultValue.logSchemaVersion = logSchemaVersion;
+            _resultValue.s3Configuration = s3Configuration;
+            return _resultValue;
         }
     }
 }

@@ -167,15 +167,15 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig();
-            o.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
-            o.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
-            o.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
-            o.loginPath = loginPath;
-            o.passwordField = passwordField;
-            o.payloadType = payloadType;
-            o.usernameField = usernameField;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig();
+            _resultValue.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
+            _resultValue.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
+            _resultValue.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
+            _resultValue.loginPath = loginPath;
+            _resultValue.passwordField = passwordField;
+            _resultValue.payloadType = payloadType;
+            _resultValue.usernameField = usernameField;
+            return _resultValue;
         }
     }
 }

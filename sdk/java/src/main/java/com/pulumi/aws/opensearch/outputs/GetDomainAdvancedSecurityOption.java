@@ -76,11 +76,11 @@ public final class GetDomainAdvancedSecurityOption {
             return this;
         }
         public GetDomainAdvancedSecurityOption build() {
-            final var o = new GetDomainAdvancedSecurityOption();
-            o.anonymousAuthEnabled = anonymousAuthEnabled;
-            o.enabled = enabled;
-            o.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
-            return o;
+            final var _resultValue = new GetDomainAdvancedSecurityOption();
+            _resultValue.anonymousAuthEnabled = anonymousAuthEnabled;
+            _resultValue.enabled = enabled;
+            _resultValue.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            return _resultValue;
         }
     }
 }

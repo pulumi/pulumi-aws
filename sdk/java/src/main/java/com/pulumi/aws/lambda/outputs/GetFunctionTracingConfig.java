@@ -38,9 +38,9 @@ public final class GetFunctionTracingConfig {
             return this;
         }
         public GetFunctionTracingConfig build() {
-            final var o = new GetFunctionTracingConfig();
-            o.mode = mode;
-            return o;
+            final var _resultValue = new GetFunctionTracingConfig();
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

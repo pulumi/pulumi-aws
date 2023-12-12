@@ -67,10 +67,10 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector 
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector();
-            o.customProperties = customProperties;
-            o.entityName = entityName;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector();
+            _resultValue.customProperties = customProperties;
+            _resultValue.entityName = entityName;
+            return _resultValue;
         }
     }
 }

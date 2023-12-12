@@ -46,9 +46,9 @@ public final class LocationAzureBlobSasConfiguration {
             return this;
         }
         public LocationAzureBlobSasConfiguration build() {
-            final var o = new LocationAzureBlobSasConfiguration();
-            o.token = token;
-            return o;
+            final var _resultValue = new LocationAzureBlobSasConfiguration();
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

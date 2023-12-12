@@ -38,9 +38,9 @@ public final class GetVirtualGatewaySpecListenerTlCertificateAcm {
             return this;
         }
         public GetVirtualGatewaySpecListenerTlCertificateAcm build() {
-            final var o = new GetVirtualGatewaySpecListenerTlCertificateAcm();
-            o.certificateArn = certificateArn;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecListenerTlCertificateAcm();
+            _resultValue.certificateArn = certificateArn;
+            return _resultValue;
         }
     }
 }

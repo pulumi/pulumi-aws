@@ -100,14 +100,14 @@ public final class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule 
             return this;
         }
         public NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule build() {
-            final var o = new NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule();
-            o.cidr = cidr;
-            o.direction = direction;
-            o.portRanges = portRanges;
-            o.prefixListId = prefixListId;
-            o.protocol = protocol;
-            o.securityGroupId = securityGroupId;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule();
+            _resultValue.cidr = cidr;
+            _resultValue.direction = direction;
+            _resultValue.portRanges = portRanges;
+            _resultValue.prefixListId = prefixListId;
+            _resultValue.protocol = protocol;
+            _resultValue.securityGroupId = securityGroupId;
+            return _resultValue;
         }
     }
 }

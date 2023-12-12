@@ -135,14 +135,14 @@ public final class GetVaultResult {
             return this;
         }
         public GetVaultResult build() {
-            final var o = new GetVaultResult();
-            o.arn = arn;
-            o.id = id;
-            o.kmsKeyArn = kmsKeyArn;
-            o.name = name;
-            o.recoveryPoints = recoveryPoints;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetVaultResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.name = name;
+            _resultValue.recoveryPoints = recoveryPoints;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

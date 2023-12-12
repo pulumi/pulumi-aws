@@ -68,10 +68,10 @@ public final class RuleGroupRuleStatementIpSetReferenceStatement {
             return this;
         }
         public RuleGroupRuleStatementIpSetReferenceStatement build() {
-            final var o = new RuleGroupRuleStatementIpSetReferenceStatement();
-            o.arn = arn;
-            o.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementIpSetReferenceStatement();
+            _resultValue.arn = arn;
+            _resultValue.ipSetForwardedIpConfig = ipSetForwardedIpConfig;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fing
             return this;
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint();
-            o.fallbackBehavior = fallbackBehavior;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
             return this;
         }
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile build() {
-            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile();
-            o.certificateChain = certificateChain;
-            o.privateKey = privateKey;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile();
+            _resultValue.certificateChain = certificateChain;
+            _resultValue.privateKey = privateKey;
+            return _resultValue;
         }
     }
 }

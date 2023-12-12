@@ -166,15 +166,15 @@ public final class WorkgroupConfiguration {
             return this;
         }
         public WorkgroupConfiguration build() {
-            final var o = new WorkgroupConfiguration();
-            o.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
-            o.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
-            o.engineVersion = engineVersion;
-            o.executionRole = executionRole;
-            o.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
-            o.requesterPaysEnabled = requesterPaysEnabled;
-            o.resultConfiguration = resultConfiguration;
-            return o;
+            final var _resultValue = new WorkgroupConfiguration();
+            _resultValue.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
+            _resultValue.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.executionRole = executionRole;
+            _resultValue.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
+            _resultValue.requesterPaysEnabled = requesterPaysEnabled;
+            _resultValue.resultConfiguration = resultConfiguration;
+            return _resultValue;
         }
     }
 }

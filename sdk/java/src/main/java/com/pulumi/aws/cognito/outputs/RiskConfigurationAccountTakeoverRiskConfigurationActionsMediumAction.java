@@ -66,10 +66,10 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediu
             return this;
         }
         public RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction build() {
-            final var o = new RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction();
-            o.eventAction = eventAction;
-            o.notify = notify;
-            return o;
+            final var _resultValue = new RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction();
+            _resultValue.eventAction = eventAction;
+            _resultValue.notify = notify;
+            return _resultValue;
         }
     }
 }

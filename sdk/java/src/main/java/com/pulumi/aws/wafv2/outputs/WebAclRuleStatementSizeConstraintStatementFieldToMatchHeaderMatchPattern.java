@@ -94,11 +94,11 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderM
             return includedHeaders(List.of(includedHeaders));
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern();
-            o.all = all;
-            o.excludedHeaders = excludedHeaders;
-            o.includedHeaders = includedHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedHeaders = excludedHeaders;
+            _resultValue.includedHeaders = includedHeaders;
+            return _resultValue;
         }
     }
 }

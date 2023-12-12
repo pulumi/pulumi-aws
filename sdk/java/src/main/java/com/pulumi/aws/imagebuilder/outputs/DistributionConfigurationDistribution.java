@@ -161,14 +161,14 @@ public final class DistributionConfigurationDistribution {
             return this;
         }
         public DistributionConfigurationDistribution build() {
-            final var o = new DistributionConfigurationDistribution();
-            o.amiDistributionConfiguration = amiDistributionConfiguration;
-            o.containerDistributionConfiguration = containerDistributionConfiguration;
-            o.fastLaunchConfigurations = fastLaunchConfigurations;
-            o.launchTemplateConfigurations = launchTemplateConfigurations;
-            o.licenseConfigurationArns = licenseConfigurationArns;
-            o.region = region;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistribution();
+            _resultValue.amiDistributionConfiguration = amiDistributionConfiguration;
+            _resultValue.containerDistributionConfiguration = containerDistributionConfiguration;
+            _resultValue.fastLaunchConfigurations = fastLaunchConfigurations;
+            _resultValue.launchTemplateConfigurations = launchTemplateConfigurations;
+            _resultValue.licenseConfigurationArns = licenseConfigurationArns;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

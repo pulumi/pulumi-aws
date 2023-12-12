@@ -144,14 +144,14 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
             return this;
         }
         public ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues build() {
-            final var o = new ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues();
-            o.buildCommand = buildCommand;
-            o.port = port;
-            o.runtime = runtime;
-            o.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
-            o.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
-            o.startCommand = startCommand;
-            return o;
+            final var _resultValue = new ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues();
+            _resultValue.buildCommand = buildCommand;
+            _resultValue.port = port;
+            _resultValue.runtime = runtime;
+            _resultValue.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
+            _resultValue.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
+            _resultValue.startCommand = startCommand;
+            return _resultValue;
         }
     }
 }

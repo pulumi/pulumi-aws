@@ -128,13 +128,13 @@ public final class BucketNotificationLambdaFunction {
             return this;
         }
         public BucketNotificationLambdaFunction build() {
-            final var o = new BucketNotificationLambdaFunction();
-            o.events = events;
-            o.filterPrefix = filterPrefix;
-            o.filterSuffix = filterSuffix;
-            o.id = id;
-            o.lambdaFunctionArn = lambdaFunctionArn;
-            return o;
+            final var _resultValue = new BucketNotificationLambdaFunction();
+            _resultValue.events = events;
+            _resultValue.filterPrefix = filterPrefix;
+            _resultValue.filterSuffix = filterSuffix;
+            _resultValue.id = id;
+            _resultValue.lambdaFunctionArn = lambdaFunctionArn;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class RouteSpecTcpRouteTimeout {
             return this;
         }
         public RouteSpecTcpRouteTimeout build() {
-            final var o = new RouteSpecTcpRouteTimeout();
-            o.idle = idle;
-            return o;
+            final var _resultValue = new RouteSpecTcpRouteTimeout();
+            _resultValue.idle = idle;
+            return _resultValue;
         }
     }
 }

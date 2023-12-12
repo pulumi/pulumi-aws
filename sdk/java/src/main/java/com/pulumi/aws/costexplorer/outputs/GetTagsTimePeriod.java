@@ -65,10 +65,10 @@ public final class GetTagsTimePeriod {
             return this;
         }
         public GetTagsTimePeriod build() {
-            final var o = new GetTagsTimePeriod();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new GetTagsTimePeriod();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

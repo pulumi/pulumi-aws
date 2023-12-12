@@ -68,10 +68,10 @@ public final class GroupMixedInstancesPolicy {
             return this;
         }
         public GroupMixedInstancesPolicy build() {
-            final var o = new GroupMixedInstancesPolicy();
-            o.instancesDistribution = instancesDistribution;
-            o.launchTemplate = launchTemplate;
-            return o;
+            final var _resultValue = new GroupMixedInstancesPolicy();
+            _resultValue.instancesDistribution = instancesDistribution;
+            _resultValue.launchTemplate = launchTemplate;
+            return _resultValue;
         }
     }
 }

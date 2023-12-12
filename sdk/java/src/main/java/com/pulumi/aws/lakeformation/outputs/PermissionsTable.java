@@ -110,12 +110,12 @@ public final class PermissionsTable {
             return this;
         }
         public PermissionsTable build() {
-            final var o = new PermissionsTable();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.name = name;
-            o.wildcard = wildcard;
-            return o;
+            final var _resultValue = new PermissionsTable();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.name = name;
+            _resultValue.wildcard = wildcard;
+            return _resultValue;
         }
     }
 }

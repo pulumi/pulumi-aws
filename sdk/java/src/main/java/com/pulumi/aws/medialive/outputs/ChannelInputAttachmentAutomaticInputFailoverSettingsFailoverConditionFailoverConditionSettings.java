@@ -88,11 +88,11 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings build() {
-            final var o = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings();
-            o.audioSilenceSettings = audioSilenceSettings;
-            o.inputLossSettings = inputLossSettings;
-            o.videoBlackSettings = videoBlackSettings;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings();
+            _resultValue.audioSilenceSettings = audioSilenceSettings;
+            _resultValue.inputLossSettings = inputLossSettings;
+            _resultValue.videoBlackSettings = videoBlackSettings;
+            return _resultValue;
         }
     }
 }

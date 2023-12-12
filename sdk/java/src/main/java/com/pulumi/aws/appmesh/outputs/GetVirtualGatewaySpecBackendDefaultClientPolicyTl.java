@@ -84,12 +84,12 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTl {
             return validations(List.of(validations));
         }
         public GetVirtualGatewaySpecBackendDefaultClientPolicyTl build() {
-            final var o = new GetVirtualGatewaySpecBackendDefaultClientPolicyTl();
-            o.certificates = certificates;
-            o.enforce = enforce;
-            o.ports = ports;
-            o.validations = validations;
-            return o;
+            final var _resultValue = new GetVirtualGatewaySpecBackendDefaultClientPolicyTl();
+            _resultValue.certificates = certificates;
+            _resultValue.enforce = enforce;
+            _resultValue.ports = ports;
+            _resultValue.validations = validations;
+            return _resultValue;
         }
     }
 }

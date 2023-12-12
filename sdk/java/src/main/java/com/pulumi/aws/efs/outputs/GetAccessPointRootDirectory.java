@@ -70,10 +70,10 @@ public final class GetAccessPointRootDirectory {
             return this;
         }
         public GetAccessPointRootDirectory build() {
-            final var o = new GetAccessPointRootDirectory();
-            o.creationInfos = creationInfos;
-            o.path = path;
-            return o;
+            final var _resultValue = new GetAccessPointRootDirectory();
+            _resultValue.creationInfos = creationInfos;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

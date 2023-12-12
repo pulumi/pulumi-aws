@@ -90,11 +90,11 @@ public final class EndpointGroupEndpointConfiguration {
             return this;
         }
         public EndpointGroupEndpointConfiguration build() {
-            final var o = new EndpointGroupEndpointConfiguration();
-            o.clientIpPreservationEnabled = clientIpPreservationEnabled;
-            o.endpointId = endpointId;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new EndpointGroupEndpointConfiguration();
+            _resultValue.clientIpPreservationEnabled = clientIpPreservationEnabled;
+            _resultValue.endpointId = endpointId;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

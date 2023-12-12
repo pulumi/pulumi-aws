@@ -65,10 +65,10 @@ public final class ClassifierXmlClassifier {
             return this;
         }
         public ClassifierXmlClassifier build() {
-            final var o = new ClassifierXmlClassifier();
-            o.classification = classification;
-            o.rowTag = rowTag;
-            return o;
+            final var _resultValue = new ClassifierXmlClassifier();
+            _resultValue.classification = classification;
+            _resultValue.rowTag = rowTag;
+            return _resultValue;
         }
     }
 }

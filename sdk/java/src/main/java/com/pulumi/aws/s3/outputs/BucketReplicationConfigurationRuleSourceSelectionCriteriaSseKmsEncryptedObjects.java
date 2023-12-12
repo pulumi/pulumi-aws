@@ -46,9 +46,9 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseK
             return this;
         }
         public BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects build() {
-            final var o = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

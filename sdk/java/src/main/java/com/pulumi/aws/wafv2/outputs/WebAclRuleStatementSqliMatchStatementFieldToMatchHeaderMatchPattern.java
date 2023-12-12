@@ -94,11 +94,11 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchP
             return includedHeaders(List.of(includedHeaders));
         }
         public WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern();
-            o.all = all;
-            o.excludedHeaders = excludedHeaders;
-            o.includedHeaders = includedHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedHeaders = excludedHeaders;
+            _resultValue.includedHeaders = includedHeaders;
+            return _resultValue;
         }
     }
 }

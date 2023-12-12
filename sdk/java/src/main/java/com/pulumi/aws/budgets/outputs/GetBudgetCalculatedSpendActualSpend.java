@@ -65,10 +65,10 @@ public final class GetBudgetCalculatedSpendActualSpend {
             return this;
         }
         public GetBudgetCalculatedSpendActualSpend build() {
-            final var o = new GetBudgetCalculatedSpendActualSpend();
-            o.amount = amount;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new GetBudgetCalculatedSpendActualSpend();
+            _resultValue.amount = amount;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

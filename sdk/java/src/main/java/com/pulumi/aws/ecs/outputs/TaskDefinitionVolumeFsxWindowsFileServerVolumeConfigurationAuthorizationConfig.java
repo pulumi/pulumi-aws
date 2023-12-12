@@ -65,10 +65,10 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
             return this;
         }
         public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig build() {
-            final var o = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig();
-            o.credentialsParameter = credentialsParameter;
-            o.domain = domain;
-            return o;
+            final var _resultValue = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig();
+            _resultValue.credentialsParameter = credentialsParameter;
+            _resultValue.domain = domain;
+            return _resultValue;
         }
     }
 }

@@ -98,11 +98,11 @@ public final class ConfigurationAggregatorAccountAggregationSource {
             return regions(List.of(regions));
         }
         public ConfigurationAggregatorAccountAggregationSource build() {
-            final var o = new ConfigurationAggregatorAccountAggregationSource();
-            o.accountIds = accountIds;
-            o.allRegions = allRegions;
-            o.regions = regions;
-            return o;
+            final var _resultValue = new ConfigurationAggregatorAccountAggregationSource();
+            _resultValue.accountIds = accountIds;
+            _resultValue.allRegions = allRegions;
+            _resultValue.regions = regions;
+            return _resultValue;
         }
     }
 }

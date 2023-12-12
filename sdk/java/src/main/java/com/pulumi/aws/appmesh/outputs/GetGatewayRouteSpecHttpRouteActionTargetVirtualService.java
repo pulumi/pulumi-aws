@@ -38,9 +38,9 @@ public final class GetGatewayRouteSpecHttpRouteActionTargetVirtualService {
             return this;
         }
         public GetGatewayRouteSpecHttpRouteActionTargetVirtualService build() {
-            final var o = new GetGatewayRouteSpecHttpRouteActionTargetVirtualService();
-            o.virtualServiceName = virtualServiceName;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttpRouteActionTargetVirtualService();
+            _resultValue.virtualServiceName = virtualServiceName;
+            return _resultValue;
         }
     }
 }

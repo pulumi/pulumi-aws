@@ -51,10 +51,10 @@ public final class V2modelsBotVersionTimeouts {
             return this;
         }
         public V2modelsBotVersionTimeouts build() {
-            final var o = new V2modelsBotVersionTimeouts();
-            o.create = create;
-            o.delete = delete;
-            return o;
+            final var _resultValue = new V2modelsBotVersionTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            return _resultValue;
         }
     }
 }

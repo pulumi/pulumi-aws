@@ -126,13 +126,13 @@ public final class ConnectorCapacityAutoscaling {
             return this;
         }
         public ConnectorCapacityAutoscaling build() {
-            final var o = new ConnectorCapacityAutoscaling();
-            o.maxWorkerCount = maxWorkerCount;
-            o.mcuCount = mcuCount;
-            o.minWorkerCount = minWorkerCount;
-            o.scaleInPolicy = scaleInPolicy;
-            o.scaleOutPolicy = scaleOutPolicy;
-            return o;
+            final var _resultValue = new ConnectorCapacityAutoscaling();
+            _resultValue.maxWorkerCount = maxWorkerCount;
+            _resultValue.mcuCount = mcuCount;
+            _resultValue.minWorkerCount = minWorkerCount;
+            _resultValue.scaleInPolicy = scaleInPolicy;
+            _resultValue.scaleOutPolicy = scaleOutPolicy;
+            return _resultValue;
         }
     }
 }

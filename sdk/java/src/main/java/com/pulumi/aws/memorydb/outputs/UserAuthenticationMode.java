@@ -91,11 +91,11 @@ public final class UserAuthenticationMode {
             return this;
         }
         public UserAuthenticationMode build() {
-            final var o = new UserAuthenticationMode();
-            o.passwordCount = passwordCount;
-            o.passwords = passwords;
-            o.type = type;
-            return o;
+            final var _resultValue = new UserAuthenticationMode();
+            _resultValue.passwordCount = passwordCount;
+            _resultValue.passwords = passwords;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

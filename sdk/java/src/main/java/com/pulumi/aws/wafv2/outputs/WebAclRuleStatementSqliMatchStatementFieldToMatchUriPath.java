@@ -25,8 +25,8 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath {
         }
 
         public WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath build() {
-            final var o = new WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath();
-            return o;
+            final var _resultValue = new WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath();
+            return _resultValue;
         }
     }
 }

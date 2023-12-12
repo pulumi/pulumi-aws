@@ -50,9 +50,9 @@ public final class BucketV2ServerSideEncryptionConfiguration {
             return rules(List.of(rules));
         }
         public BucketV2ServerSideEncryptionConfiguration build() {
-            final var o = new BucketV2ServerSideEncryptionConfiguration();
-            o.rules = rules;
-            return o;
+            final var _resultValue = new BucketV2ServerSideEncryptionConfiguration();
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

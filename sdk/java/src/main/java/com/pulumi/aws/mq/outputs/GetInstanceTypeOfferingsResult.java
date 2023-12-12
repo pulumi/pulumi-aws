@@ -129,13 +129,13 @@ public final class GetInstanceTypeOfferingsResult {
             return this;
         }
         public GetInstanceTypeOfferingsResult build() {
-            final var o = new GetInstanceTypeOfferingsResult();
-            o.brokerInstanceOptions = brokerInstanceOptions;
-            o.engineType = engineType;
-            o.hostInstanceType = hostInstanceType;
-            o.id = id;
-            o.storageType = storageType;
-            return o;
+            final var _resultValue = new GetInstanceTypeOfferingsResult();
+            _resultValue.brokerInstanceOptions = brokerInstanceOptions;
+            _resultValue.engineType = engineType;
+            _resultValue.hostInstanceType = hostInstanceType;
+            _resultValue.id = id;
+            _resultValue.storageType = storageType;
+            return _resultValue;
         }
     }
 }

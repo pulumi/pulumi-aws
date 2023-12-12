@@ -46,9 +46,9 @@ public final class RuleGroupRuleRuleLabel {
             return this;
         }
         public RuleGroupRuleRuleLabel build() {
-            final var o = new RuleGroupRuleRuleLabel();
-            o.name = name;
-            return o;
+            final var _resultValue = new RuleGroupRuleRuleLabel();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

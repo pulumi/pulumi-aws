@@ -86,11 +86,11 @@ public final class EventSourceMappingDocumentDbEventSourceConfig {
             return this;
         }
         public EventSourceMappingDocumentDbEventSourceConfig build() {
-            final var o = new EventSourceMappingDocumentDbEventSourceConfig();
-            o.collectionName = collectionName;
-            o.databaseName = databaseName;
-            o.fullDocument = fullDocument;
-            return o;
+            final var _resultValue = new EventSourceMappingDocumentDbEventSourceConfig();
+            _resultValue.collectionName = collectionName;
+            _resultValue.databaseName = databaseName;
+            _resultValue.fullDocument = fullDocument;
+            return _resultValue;
         }
     }
 }

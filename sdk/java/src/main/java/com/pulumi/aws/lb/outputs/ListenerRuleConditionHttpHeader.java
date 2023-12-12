@@ -69,10 +69,10 @@ public final class ListenerRuleConditionHttpHeader {
             return values(List.of(values));
         }
         public ListenerRuleConditionHttpHeader build() {
-            final var o = new ListenerRuleConditionHttpHeader();
-            o.httpHeaderName = httpHeaderName;
-            o.values = values;
-            return o;
+            final var _resultValue = new ListenerRuleConditionHttpHeader();
+            _resultValue.httpHeaderName = httpHeaderName;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

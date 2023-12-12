@@ -67,10 +67,10 @@ public final class ScheduleTargetEcsParametersPlacementConstraint {
             return this;
         }
         public ScheduleTargetEcsParametersPlacementConstraint build() {
-            final var o = new ScheduleTargetEcsParametersPlacementConstraint();
-            o.expression = expression;
-            o.type = type;
-            return o;
+            final var _resultValue = new ScheduleTargetEcsParametersPlacementConstraint();
+            _resultValue.expression = expression;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

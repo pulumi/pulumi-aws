@@ -69,10 +69,10 @@ public final class GetLocationsResult {
             return locationCodes(List.of(locationCodes));
         }
         public GetLocationsResult build() {
-            final var o = new GetLocationsResult();
-            o.id = id;
-            o.locationCodes = locationCodes;
-            return o;
+            final var _resultValue = new GetLocationsResult();
+            _resultValue.id = id;
+            _resultValue.locationCodes = locationCodes;
+            return _resultValue;
         }
     }
 }

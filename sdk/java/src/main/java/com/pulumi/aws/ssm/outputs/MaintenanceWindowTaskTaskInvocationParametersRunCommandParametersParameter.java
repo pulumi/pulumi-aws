@@ -69,10 +69,10 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
             return values(List.of(values));
         }
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

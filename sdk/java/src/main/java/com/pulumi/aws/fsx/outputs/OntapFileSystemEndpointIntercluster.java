@@ -71,10 +71,10 @@ public final class OntapFileSystemEndpointIntercluster {
             return ipAddresses(List.of(ipAddresses));
         }
         public OntapFileSystemEndpointIntercluster build() {
-            final var o = new OntapFileSystemEndpointIntercluster();
-            o.dnsName = dnsName;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new OntapFileSystemEndpointIntercluster();
+            _resultValue.dnsName = dnsName;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

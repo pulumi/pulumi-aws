@@ -65,10 +65,10 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource();
-            o.bucketArn = bucketArn;
-            o.fileKey = fileKey;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource();
+            _resultValue.bucketArn = bucketArn;
+            _resultValue.fileKey = fileKey;
+            return _resultValue;
         }
     }
 }

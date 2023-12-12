@@ -48,9 +48,9 @@ public final class DomainSoftwareUpdateOptions {
             return this;
         }
         public DomainSoftwareUpdateOptions build() {
-            final var o = new DomainSoftwareUpdateOptions();
-            o.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
-            return o;
+            final var _resultValue = new DomainSoftwareUpdateOptions();
+            _resultValue.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
+            return _resultValue;
         }
     }
 }

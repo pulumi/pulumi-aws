@@ -67,10 +67,10 @@ public final class GetHostedZoneResult {
             return this;
         }
         public GetHostedZoneResult build() {
-            final var o = new GetHostedZoneResult();
-            o.id = id;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetHostedZoneResult();
+            _resultValue.id = id;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

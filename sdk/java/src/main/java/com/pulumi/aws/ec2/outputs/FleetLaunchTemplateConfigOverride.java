@@ -164,15 +164,15 @@ public final class FleetLaunchTemplateConfigOverride {
             return this;
         }
         public FleetLaunchTemplateConfigOverride build() {
-            final var o = new FleetLaunchTemplateConfigOverride();
-            o.availabilityZone = availabilityZone;
-            o.instanceRequirements = instanceRequirements;
-            o.instanceType = instanceType;
-            o.maxPrice = maxPrice;
-            o.priority = priority;
-            o.subnetId = subnetId;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfigOverride();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.instanceRequirements = instanceRequirements;
+            _resultValue.instanceType = instanceType;
+            _resultValue.maxPrice = maxPrice;
+            _resultValue.priority = priority;
+            _resultValue.subnetId = subnetId;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

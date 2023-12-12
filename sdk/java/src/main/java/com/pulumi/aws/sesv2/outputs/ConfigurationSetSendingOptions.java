@@ -48,9 +48,9 @@ public final class ConfigurationSetSendingOptions {
             return this;
         }
         public ConfigurationSetSendingOptions build() {
-            final var o = new ConfigurationSetSendingOptions();
-            o.sendingEnabled = sendingEnabled;
-            return o;
+            final var _resultValue = new ConfigurationSetSendingOptions();
+            _resultValue.sendingEnabled = sendingEnabled;
+            return _resultValue;
         }
     }
 }

@@ -296,22 +296,22 @@ public final class GetImageRecipeResult {
             return this;
         }
         public GetImageRecipeResult build() {
-            final var o = new GetImageRecipeResult();
-            o.arn = arn;
-            o.blockDeviceMappings = blockDeviceMappings;
-            o.components = components;
-            o.dateCreated = dateCreated;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.owner = owner;
-            o.parentImage = parentImage;
-            o.platform = platform;
-            o.tags = tags;
-            o.userDataBase64 = userDataBase64;
-            o.version = version;
-            o.workingDirectory = workingDirectory;
-            return o;
+            final var _resultValue = new GetImageRecipeResult();
+            _resultValue.arn = arn;
+            _resultValue.blockDeviceMappings = blockDeviceMappings;
+            _resultValue.components = components;
+            _resultValue.dateCreated = dateCreated;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            _resultValue.parentImage = parentImage;
+            _resultValue.platform = platform;
+            _resultValue.tags = tags;
+            _resultValue.userDataBase64 = userDataBase64;
+            _resultValue.version = version;
+            _resultValue.workingDirectory = workingDirectory;
+            return _resultValue;
         }
     }
 }

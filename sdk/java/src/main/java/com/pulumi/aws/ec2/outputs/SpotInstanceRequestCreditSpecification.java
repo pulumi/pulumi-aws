@@ -48,9 +48,9 @@ public final class SpotInstanceRequestCreditSpecification {
             return this;
         }
         public SpotInstanceRequestCreditSpecification build() {
-            final var o = new SpotInstanceRequestCreditSpecification();
-            o.cpuCredits = cpuCredits;
-            return o;
+            final var _resultValue = new SpotInstanceRequestCreditSpecification();
+            _resultValue.cpuCredits = cpuCredits;
+            return _resultValue;
         }
     }
 }

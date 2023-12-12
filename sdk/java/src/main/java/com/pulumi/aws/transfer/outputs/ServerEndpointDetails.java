@@ -134,13 +134,13 @@ public final class ServerEndpointDetails {
             return this;
         }
         public ServerEndpointDetails build() {
-            final var o = new ServerEndpointDetails();
-            o.addressAllocationIds = addressAllocationIds;
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            o.vpcEndpointId = vpcEndpointId;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new ServerEndpointDetails();
+            _resultValue.addressAllocationIds = addressAllocationIds;
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

@@ -90,11 +90,11 @@ public final class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig
             return this;
         }
         public GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig build() {
-            final var o = new GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig();
-            o.encryptionConfigs = encryptionConfigs;
-            o.prefix = prefix;
-            o.retentionPeriodHours = retentionPeriodHours;
-            return o;
+            final var _resultValue = new GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig();
+            _resultValue.encryptionConfigs = encryptionConfigs;
+            _resultValue.prefix = prefix;
+            _resultValue.retentionPeriodHours = retentionPeriodHours;
+            return _resultValue;
         }
     }
 }

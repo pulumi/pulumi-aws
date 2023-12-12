@@ -66,10 +66,10 @@ public final class FeatureVariation {
             return this;
         }
         public FeatureVariation build() {
-            final var o = new FeatureVariation();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new FeatureVariation();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

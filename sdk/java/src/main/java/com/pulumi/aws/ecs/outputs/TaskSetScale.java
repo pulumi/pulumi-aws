@@ -68,10 +68,10 @@ public final class TaskSetScale {
             return this;
         }
         public TaskSetScale build() {
-            final var o = new TaskSetScale();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new TaskSetScale();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

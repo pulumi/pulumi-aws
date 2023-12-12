@@ -42,9 +42,9 @@ public final class GetSigningJobSource {
             return s3s(List.of(s3s));
         }
         public GetSigningJobSource build() {
-            final var o = new GetSigningJobSource();
-            o.s3s = s3s;
-            return o;
+            final var _resultValue = new GetSigningJobSource();
+            _resultValue.s3s = s3s;
+            return _resultValue;
         }
     }
 }

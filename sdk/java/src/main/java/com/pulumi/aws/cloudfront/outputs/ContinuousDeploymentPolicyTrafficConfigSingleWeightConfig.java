@@ -68,10 +68,10 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
             return this;
         }
         public ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig build() {
-            final var o = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig();
-            o.sessionStickinessConfig = sessionStickinessConfig;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig();
+            _resultValue.sessionStickinessConfig = sessionStickinessConfig;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

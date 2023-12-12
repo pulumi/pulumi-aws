@@ -50,9 +50,9 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
             return certificateAuthorityArns(List.of(certificateAuthorityArns));
         }
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm build() {
-            final var o = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm();
-            o.certificateAuthorityArns = certificateAuthorityArns;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm();
+            _resultValue.certificateAuthorityArns = certificateAuthorityArns;
+            return _resultValue;
         }
     }
 }

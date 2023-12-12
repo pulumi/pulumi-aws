@@ -46,9 +46,9 @@ public final class GetServiceHealthCheckCustomConfig {
             return this;
         }
         public GetServiceHealthCheckCustomConfig build() {
-            final var o = new GetServiceHealthCheckCustomConfig();
-            o.failureThreshold = failureThreshold;
-            return o;
+            final var _resultValue = new GetServiceHealthCheckCustomConfig();
+            _resultValue.failureThreshold = failureThreshold;
+            return _resultValue;
         }
     }
 }

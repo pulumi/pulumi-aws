@@ -106,12 +106,12 @@ public final class CatalogTableStorageDescriptorColumn {
             return this;
         }
         public CatalogTableStorageDescriptorColumn build() {
-            final var o = new CatalogTableStorageDescriptorColumn();
-            o.comment = comment;
-            o.name = name;
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new CatalogTableStorageDescriptorColumn();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

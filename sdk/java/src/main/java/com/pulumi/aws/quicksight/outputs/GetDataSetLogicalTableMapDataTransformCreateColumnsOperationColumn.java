@@ -60,11 +60,11 @@ public final class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationC
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn();
-            o.columnId = columnId;
-            o.columnName = columnName;
-            o.expression = expression;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn();
+            _resultValue.columnId = columnId;
+            _resultValue.columnName = columnName;
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

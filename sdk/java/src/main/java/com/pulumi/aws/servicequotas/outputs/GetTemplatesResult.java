@@ -82,11 +82,11 @@ public final class GetTemplatesResult {
             return templates(List.of(templates));
         }
         public GetTemplatesResult build() {
-            final var o = new GetTemplatesResult();
-            o.id = id;
-            o.region = region;
-            o.templates = templates;
-            return o;
+            final var _resultValue = new GetTemplatesResult();
+            _resultValue.id = id;
+            _resultValue.region = region;
+            _resultValue.templates = templates;
+            return _resultValue;
         }
     }
 }

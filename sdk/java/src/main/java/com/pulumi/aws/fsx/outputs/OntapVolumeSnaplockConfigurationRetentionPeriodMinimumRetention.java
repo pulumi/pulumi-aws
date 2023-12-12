@@ -68,10 +68,10 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetenti
             return this;
         }
         public OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention build() {
-            final var o = new OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

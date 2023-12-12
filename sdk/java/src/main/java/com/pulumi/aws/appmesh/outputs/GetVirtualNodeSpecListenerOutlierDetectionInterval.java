@@ -50,10 +50,10 @@ public final class GetVirtualNodeSpecListenerOutlierDetectionInterval {
             return this;
         }
         public GetVirtualNodeSpecListenerOutlierDetectionInterval build() {
-            final var o = new GetVirtualNodeSpecListenerOutlierDetectionInterval();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecListenerOutlierDetectionInterval();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

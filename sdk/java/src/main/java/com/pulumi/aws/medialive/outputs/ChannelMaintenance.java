@@ -65,10 +65,10 @@ public final class ChannelMaintenance {
             return this;
         }
         public ChannelMaintenance build() {
-            final var o = new ChannelMaintenance();
-            o.maintenanceDay = maintenanceDay;
-            o.maintenanceStartTime = maintenanceStartTime;
-            return o;
+            final var _resultValue = new ChannelMaintenance();
+            _resultValue.maintenanceDay = maintenanceDay;
+            _resultValue.maintenanceStartTime = maintenanceStartTime;
+            return _resultValue;
         }
     }
 }

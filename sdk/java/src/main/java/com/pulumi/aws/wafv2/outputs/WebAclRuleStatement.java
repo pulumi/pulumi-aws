@@ -328,23 +328,23 @@ public final class WebAclRuleStatement {
             return this;
         }
         public WebAclRuleStatement build() {
-            final var o = new WebAclRuleStatement();
-            o.andStatement = andStatement;
-            o.byteMatchStatement = byteMatchStatement;
-            o.geoMatchStatement = geoMatchStatement;
-            o.ipSetReferenceStatement = ipSetReferenceStatement;
-            o.labelMatchStatement = labelMatchStatement;
-            o.managedRuleGroupStatement = managedRuleGroupStatement;
-            o.notStatement = notStatement;
-            o.orStatement = orStatement;
-            o.rateBasedStatement = rateBasedStatement;
-            o.regexMatchStatement = regexMatchStatement;
-            o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
-            o.ruleGroupReferenceStatement = ruleGroupReferenceStatement;
-            o.sizeConstraintStatement = sizeConstraintStatement;
-            o.sqliMatchStatement = sqliMatchStatement;
-            o.xssMatchStatement = xssMatchStatement;
-            return o;
+            final var _resultValue = new WebAclRuleStatement();
+            _resultValue.andStatement = andStatement;
+            _resultValue.byteMatchStatement = byteMatchStatement;
+            _resultValue.geoMatchStatement = geoMatchStatement;
+            _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;
+            _resultValue.labelMatchStatement = labelMatchStatement;
+            _resultValue.managedRuleGroupStatement = managedRuleGroupStatement;
+            _resultValue.notStatement = notStatement;
+            _resultValue.orStatement = orStatement;
+            _resultValue.rateBasedStatement = rateBasedStatement;
+            _resultValue.regexMatchStatement = regexMatchStatement;
+            _resultValue.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
+            _resultValue.ruleGroupReferenceStatement = ruleGroupReferenceStatement;
+            _resultValue.sizeConstraintStatement = sizeConstraintStatement;
+            _resultValue.sqliMatchStatement = sqliMatchStatement;
+            _resultValue.xssMatchStatement = xssMatchStatement;
+            return _resultValue;
         }
     }
 }

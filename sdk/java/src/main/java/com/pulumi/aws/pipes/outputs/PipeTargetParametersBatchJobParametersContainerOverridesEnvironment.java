@@ -67,10 +67,10 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesEnvir
             return this;
         }
         public PipeTargetParametersBatchJobParametersContainerOverridesEnvironment build() {
-            final var o = new PipeTargetParametersBatchJobParametersContainerOverridesEnvironment();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParametersContainerOverridesEnvironment();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

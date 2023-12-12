@@ -144,14 +144,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination();
-            o.accountId = accountId;
-            o.arn = arn;
-            o.encryption = encryption;
-            o.format = format;
-            o.outputSchemaVersion = outputSchemaVersion;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination();
+            _resultValue.accountId = accountId;
+            _resultValue.arn = arn;
+            _resultValue.encryption = encryption;
+            _resultValue.format = format;
+            _resultValue.outputSchemaVersion = outputSchemaVersion;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

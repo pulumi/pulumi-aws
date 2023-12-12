@@ -65,10 +65,10 @@ public final class InsightFiltersRecordState {
             return this;
         }
         public InsightFiltersRecordState build() {
-            final var o = new InsightFiltersRecordState();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersRecordState();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

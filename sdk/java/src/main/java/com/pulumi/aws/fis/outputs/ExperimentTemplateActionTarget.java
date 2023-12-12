@@ -65,10 +65,10 @@ public final class ExperimentTemplateActionTarget {
             return this;
         }
         public ExperimentTemplateActionTarget build() {
-            final var o = new ExperimentTemplateActionTarget();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new ExperimentTemplateActionTarget();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

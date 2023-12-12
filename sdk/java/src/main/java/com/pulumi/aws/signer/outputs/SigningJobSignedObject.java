@@ -51,9 +51,9 @@ public final class SigningJobSignedObject {
             return s3s(List.of(s3s));
         }
         public SigningJobSignedObject build() {
-            final var o = new SigningJobSignedObject();
-            o.s3s = s3s;
-            return o;
+            final var _resultValue = new SigningJobSignedObject();
+            _resultValue.s3s = s3s;
+            return _resultValue;
         }
     }
 }

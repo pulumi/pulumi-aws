@@ -111,12 +111,12 @@ public final class WebAclRuleStatementByteMatchStatement {
             return textTransformations(List.of(textTransformations));
         }
         public WebAclRuleStatementByteMatchStatement build() {
-            final var o = new WebAclRuleStatementByteMatchStatement();
-            o.fieldToMatch = fieldToMatch;
-            o.positionalConstraint = positionalConstraint;
-            o.searchString = searchString;
-            o.textTransformations = textTransformations;
-            return o;
+            final var _resultValue = new WebAclRuleStatementByteMatchStatement();
+            _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.positionalConstraint = positionalConstraint;
+            _resultValue.searchString = searchString;
+            _resultValue.textTransformations = textTransformations;
+            return _resultValue;
         }
     }
 }

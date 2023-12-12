@@ -67,10 +67,10 @@ public final class DataSourceOpensearchserviceConfig {
             return this;
         }
         public DataSourceOpensearchserviceConfig build() {
-            final var o = new DataSourceOpensearchserviceConfig();
-            o.endpoint = endpoint;
-            o.region = region;
-            return o;
+            final var _resultValue = new DataSourceOpensearchserviceConfig();
+            _resultValue.endpoint = endpoint;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

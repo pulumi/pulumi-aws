@@ -67,10 +67,10 @@ public final class ExperimentTemplateLogConfigurationS3Configuration {
             return this;
         }
         public ExperimentTemplateLogConfigurationS3Configuration build() {
-            final var o = new ExperimentTemplateLogConfigurationS3Configuration();
-            o.bucketName = bucketName;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new ExperimentTemplateLogConfigurationS3Configuration();
+            _resultValue.bucketName = bucketName;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

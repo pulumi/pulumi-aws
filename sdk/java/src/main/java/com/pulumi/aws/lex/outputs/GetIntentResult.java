@@ -208,17 +208,17 @@ public final class GetIntentResult {
             return this;
         }
         public GetIntentResult build() {
-            final var o = new GetIntentResult();
-            o.arn = arn;
-            o.checksum = checksum;
-            o.createdDate = createdDate;
-            o.description = description;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.name = name;
-            o.parentIntentSignature = parentIntentSignature;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetIntentResult();
+            _resultValue.arn = arn;
+            _resultValue.checksum = checksum;
+            _resultValue.createdDate = createdDate;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.name = name;
+            _resultValue.parentIntentSignature = parentIntentSignature;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

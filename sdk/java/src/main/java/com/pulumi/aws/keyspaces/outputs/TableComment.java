@@ -48,9 +48,9 @@ public final class TableComment {
             return this;
         }
         public TableComment build() {
-            final var o = new TableComment();
-            o.message = message;
-            return o;
+            final var _resultValue = new TableComment();
+            _resultValue.message = message;
+            return _resultValue;
         }
     }
 }

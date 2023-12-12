@@ -200,16 +200,16 @@ public final class GetTrafficPolicyDocumentRule {
             return this;
         }
         public GetTrafficPolicyDocumentRule build() {
-            final var o = new GetTrafficPolicyDocumentRule();
-            o.geoProximityLocations = geoProximityLocations;
-            o.id = id;
-            o.items = items;
-            o.locations = locations;
-            o.primary = primary;
-            o.regions = regions;
-            o.secondary = secondary;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetTrafficPolicyDocumentRule();
+            _resultValue.geoProximityLocations = geoProximityLocations;
+            _resultValue.id = id;
+            _resultValue.items = items;
+            _resultValue.locations = locations;
+            _resultValue.primary = primary;
+            _resultValue.regions = regions;
+            _resultValue.secondary = secondary;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

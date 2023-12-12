@@ -50,10 +50,10 @@ public final class GetRouteSpecTcpRouteTimeoutIdle {
             return this;
         }
         public GetRouteSpecTcpRouteTimeoutIdle build() {
-            final var o = new GetRouteSpecTcpRouteTimeoutIdle();
-            o.unit = unit;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetRouteSpecTcpRouteTimeoutIdle();
+            _resultValue.unit = unit;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class InsightFiltersKeyword {
             return this;
         }
         public InsightFiltersKeyword build() {
-            final var o = new InsightFiltersKeyword();
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersKeyword();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

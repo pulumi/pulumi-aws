@@ -212,17 +212,17 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
             return this;
         }
         public DataSourceConfigurationWebCrawlerConfiguration build() {
-            final var o = new DataSourceConfigurationWebCrawlerConfiguration();
-            o.authenticationConfiguration = authenticationConfiguration;
-            o.crawlDepth = crawlDepth;
-            o.maxContentSizePerPageInMegaBytes = maxContentSizePerPageInMegaBytes;
-            o.maxLinksPerPage = maxLinksPerPage;
-            o.maxUrlsPerMinuteCrawlRate = maxUrlsPerMinuteCrawlRate;
-            o.proxyConfiguration = proxyConfiguration;
-            o.urlExclusionPatterns = urlExclusionPatterns;
-            o.urlInclusionPatterns = urlInclusionPatterns;
-            o.urls = urls;
-            return o;
+            final var _resultValue = new DataSourceConfigurationWebCrawlerConfiguration();
+            _resultValue.authenticationConfiguration = authenticationConfiguration;
+            _resultValue.crawlDepth = crawlDepth;
+            _resultValue.maxContentSizePerPageInMegaBytes = maxContentSizePerPageInMegaBytes;
+            _resultValue.maxLinksPerPage = maxLinksPerPage;
+            _resultValue.maxUrlsPerMinuteCrawlRate = maxUrlsPerMinuteCrawlRate;
+            _resultValue.proxyConfiguration = proxyConfiguration;
+            _resultValue.urlExclusionPatterns = urlExclusionPatterns;
+            _resultValue.urlInclusionPatterns = urlInclusionPatterns;
+            _resultValue.urls = urls;
+            return _resultValue;
         }
     }
 }

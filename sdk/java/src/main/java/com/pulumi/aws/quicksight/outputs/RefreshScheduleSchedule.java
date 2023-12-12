@@ -87,11 +87,11 @@ public final class RefreshScheduleSchedule {
             return this;
         }
         public RefreshScheduleSchedule build() {
-            final var o = new RefreshScheduleSchedule();
-            o.refreshType = refreshType;
-            o.scheduleFrequency = scheduleFrequency;
-            o.startAfterDateTime = startAfterDateTime;
-            return o;
+            final var _resultValue = new RefreshScheduleSchedule();
+            _resultValue.refreshType = refreshType;
+            _resultValue.scheduleFrequency = scheduleFrequency;
+            _resultValue.startAfterDateTime = startAfterDateTime;
+            return _resultValue;
         }
     }
 }

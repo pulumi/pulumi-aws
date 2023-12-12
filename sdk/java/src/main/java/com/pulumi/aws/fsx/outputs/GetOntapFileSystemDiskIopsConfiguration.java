@@ -66,10 +66,10 @@ public final class GetOntapFileSystemDiskIopsConfiguration {
             return this;
         }
         public GetOntapFileSystemDiskIopsConfiguration build() {
-            final var o = new GetOntapFileSystemDiskIopsConfiguration();
-            o.iops = iops;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new GetOntapFileSystemDiskIopsConfiguration();
+            _resultValue.iops = iops;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

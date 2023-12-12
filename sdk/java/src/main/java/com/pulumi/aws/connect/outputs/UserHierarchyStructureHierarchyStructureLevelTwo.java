@@ -86,11 +86,11 @@ public final class UserHierarchyStructureHierarchyStructureLevelTwo {
             return this;
         }
         public UserHierarchyStructureHierarchyStructureLevelTwo build() {
-            final var o = new UserHierarchyStructureHierarchyStructureLevelTwo();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new UserHierarchyStructureHierarchyStructureLevelTwo();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

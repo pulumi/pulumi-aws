@@ -46,9 +46,9 @@ public final class VirtualNodeSpecListenerTlsCertificateAcm {
             return this;
         }
         public VirtualNodeSpecListenerTlsCertificateAcm build() {
-            final var o = new VirtualNodeSpecListenerTlsCertificateAcm();
-            o.certificateArn = certificateArn;
-            return o;
+            final var _resultValue = new VirtualNodeSpecListenerTlsCertificateAcm();
+            _resultValue.certificateArn = certificateArn;
+            return _resultValue;
         }
     }
 }

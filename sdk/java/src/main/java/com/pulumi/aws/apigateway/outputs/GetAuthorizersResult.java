@@ -80,11 +80,11 @@ public final class GetAuthorizersResult {
             return this;
         }
         public GetAuthorizersResult build() {
-            final var o = new GetAuthorizersResult();
-            o.id = id;
-            o.ids = ids;
-            o.restApiId = restApiId;
-            return o;
+            final var _resultValue = new GetAuthorizersResult();
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.restApiId = restApiId;
+            return _resultValue;
         }
     }
 }

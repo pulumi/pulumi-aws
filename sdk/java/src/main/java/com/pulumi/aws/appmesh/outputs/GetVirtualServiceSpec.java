@@ -42,9 +42,9 @@ public final class GetVirtualServiceSpec {
             return providers(List.of(providers));
         }
         public GetVirtualServiceSpec build() {
-            final var o = new GetVirtualServiceSpec();
-            o.providers = providers;
-            return o;
+            final var _resultValue = new GetVirtualServiceSpec();
+            _resultValue.providers = providers;
+            return _resultValue;
         }
     }
 }

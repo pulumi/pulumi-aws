@@ -48,9 +48,9 @@ public final class BucketObjectv2OverrideProvider {
             return this;
         }
         public BucketObjectv2OverrideProvider build() {
-            final var o = new BucketObjectv2OverrideProvider();
-            o.defaultTags = defaultTags;
-            return o;
+            final var _resultValue = new BucketObjectv2OverrideProvider();
+            _resultValue.defaultTags = defaultTags;
+            return _resultValue;
         }
     }
 }

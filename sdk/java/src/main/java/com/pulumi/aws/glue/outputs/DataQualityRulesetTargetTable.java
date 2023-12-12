@@ -86,11 +86,11 @@ public final class DataQualityRulesetTargetTable {
             return this;
         }
         public DataQualityRulesetTargetTable build() {
-            final var o = new DataQualityRulesetTargetTable();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new DataQualityRulesetTargetTable();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

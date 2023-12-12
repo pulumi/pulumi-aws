@@ -48,9 +48,9 @@ public final class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewall
             return this;
         }
         public PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy build() {
-            final var o = new PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy();
-            o.firewallDeploymentModel = firewallDeploymentModel;
-            return o;
+            final var _resultValue = new PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy();
+            _resultValue.firewallDeploymentModel = firewallDeploymentModel;
+            return _resultValue;
         }
     }
 }

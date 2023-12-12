@@ -48,9 +48,9 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
             return this;
         }
         public ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess build() {
-            final var o = new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess();
-            o.type = type;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -168,15 +168,15 @@ public final class DataSetLogicalTableMapDataTransform {
             return this;
         }
         public DataSetLogicalTableMapDataTransform build() {
-            final var o = new DataSetLogicalTableMapDataTransform();
-            o.castColumnTypeOperation = castColumnTypeOperation;
-            o.createColumnsOperation = createColumnsOperation;
-            o.filterOperation = filterOperation;
-            o.projectOperation = projectOperation;
-            o.renameColumnOperation = renameColumnOperation;
-            o.tagColumnOperation = tagColumnOperation;
-            o.untagColumnOperation = untagColumnOperation;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMapDataTransform();
+            _resultValue.castColumnTypeOperation = castColumnTypeOperation;
+            _resultValue.createColumnsOperation = createColumnsOperation;
+            _resultValue.filterOperation = filterOperation;
+            _resultValue.projectOperation = projectOperation;
+            _resultValue.renameColumnOperation = renameColumnOperation;
+            _resultValue.tagColumnOperation = tagColumnOperation;
+            _resultValue.untagColumnOperation = untagColumnOperation;
+            return _resultValue;
         }
     }
 }

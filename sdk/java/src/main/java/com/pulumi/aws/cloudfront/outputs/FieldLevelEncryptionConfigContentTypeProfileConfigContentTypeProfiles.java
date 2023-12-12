@@ -42,9 +42,9 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
             return items(List.of(items));
         }
         public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles build() {
-            final var o = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles();
-            o.items = items;
-            return o;
+            final var _resultValue = new FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles();
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

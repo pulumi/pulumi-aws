@@ -85,11 +85,11 @@ public final class WebAclVisibilityConfig {
             return this;
         }
         public WebAclVisibilityConfig build() {
-            final var o = new WebAclVisibilityConfig();
-            o.cloudwatchMetricsEnabled = cloudwatchMetricsEnabled;
-            o.metricName = metricName;
-            o.sampledRequestsEnabled = sampledRequestsEnabled;
-            return o;
+            final var _resultValue = new WebAclVisibilityConfig();
+            _resultValue.cloudwatchMetricsEnabled = cloudwatchMetricsEnabled;
+            _resultValue.metricName = metricName;
+            _resultValue.sampledRequestsEnabled = sampledRequestsEnabled;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class InputDestination {
             return this;
         }
         public InputDestination build() {
-            final var o = new InputDestination();
-            o.streamName = streamName;
-            return o;
+            final var _resultValue = new InputDestination();
+            _resultValue.streamName = streamName;
+            return _resultValue;
         }
     }
 }

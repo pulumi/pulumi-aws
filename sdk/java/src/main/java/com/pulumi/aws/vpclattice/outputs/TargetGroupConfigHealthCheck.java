@@ -216,18 +216,18 @@ public final class TargetGroupConfigHealthCheck {
             return this;
         }
         public TargetGroupConfigHealthCheck build() {
-            final var o = new TargetGroupConfigHealthCheck();
-            o.enabled = enabled;
-            o.healthCheckIntervalSeconds = healthCheckIntervalSeconds;
-            o.healthCheckTimeoutSeconds = healthCheckTimeoutSeconds;
-            o.healthyThresholdCount = healthyThresholdCount;
-            o.matcher = matcher;
-            o.path = path;
-            o.port = port;
-            o.protocol = protocol;
-            o.protocolVersion = protocolVersion;
-            o.unhealthyThresholdCount = unhealthyThresholdCount;
-            return o;
+            final var _resultValue = new TargetGroupConfigHealthCheck();
+            _resultValue.enabled = enabled;
+            _resultValue.healthCheckIntervalSeconds = healthCheckIntervalSeconds;
+            _resultValue.healthCheckTimeoutSeconds = healthCheckTimeoutSeconds;
+            _resultValue.healthyThresholdCount = healthyThresholdCount;
+            _resultValue.matcher = matcher;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.protocolVersion = protocolVersion;
+            _resultValue.unhealthyThresholdCount = unhealthyThresholdCount;
+            return _resultValue;
         }
     }
 }

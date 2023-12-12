@@ -66,10 +66,10 @@ public final class ConnectorWorkerConfiguration {
             return this;
         }
         public ConnectorWorkerConfiguration build() {
-            final var o = new ConnectorWorkerConfiguration();
-            o.arn = arn;
-            o.revision = revision;
-            return o;
+            final var _resultValue = new ConnectorWorkerConfiguration();
+            _resultValue.arn = arn;
+            _resultValue.revision = revision;
+            return _resultValue;
         }
     }
 }

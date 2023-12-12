@@ -67,10 +67,10 @@ public final class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsPar
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters();
-            o.input = input;
-            o.name = name;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters();
+            _resultValue.input = input;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

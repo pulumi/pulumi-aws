@@ -65,10 +65,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog();
-            o.apiKey = apiKey;
-            o.applicationKey = applicationKey;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog();
+            _resultValue.apiKey = apiKey;
+            _resultValue.applicationKey = applicationKey;
+            return _resultValue;
         }
     }
 }

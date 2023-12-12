@@ -72,10 +72,10 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingCon
             return processors(List.of(processors));
         }
         public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration build() {
-            final var o = new FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration();
-            o.enabled = enabled;
-            o.processors = processors;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.processors = processors;
+            return _resultValue;
         }
     }
 }

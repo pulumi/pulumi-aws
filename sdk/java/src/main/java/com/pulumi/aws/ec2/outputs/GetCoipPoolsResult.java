@@ -97,12 +97,12 @@ public final class GetCoipPoolsResult {
             return this;
         }
         public GetCoipPoolsResult build() {
-            final var o = new GetCoipPoolsResult();
-            o.filters = filters;
-            o.id = id;
-            o.poolIds = poolIds;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCoipPoolsResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.poolIds = poolIds;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

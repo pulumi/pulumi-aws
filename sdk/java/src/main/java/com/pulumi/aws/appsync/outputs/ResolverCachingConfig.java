@@ -72,10 +72,10 @@ public final class ResolverCachingConfig {
             return this;
         }
         public ResolverCachingConfig build() {
-            final var o = new ResolverCachingConfig();
-            o.cachingKeys = cachingKeys;
-            o.ttl = ttl;
-            return o;
+            final var _resultValue = new ResolverCachingConfig();
+            _resultValue.cachingKeys = cachingKeys;
+            _resultValue.ttl = ttl;
+            return _resultValue;
         }
     }
 }

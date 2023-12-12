@@ -50,9 +50,9 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
             return siteMaps(List.of(siteMaps));
         }
         public DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration build() {
-            final var o = new DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration();
-            o.siteMaps = siteMaps;
-            return o;
+            final var _resultValue = new DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration();
+            _resultValue.siteMaps = siteMaps;
+            return _resultValue;
         }
     }
 }

@@ -78,11 +78,11 @@ public final class NetworkInsightsAnalysisReturnPathComponentTransitGateway {
             return this;
         }
         public NetworkInsightsAnalysisReturnPathComponentTransitGateway build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponentTransitGateway();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponentTransitGateway();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

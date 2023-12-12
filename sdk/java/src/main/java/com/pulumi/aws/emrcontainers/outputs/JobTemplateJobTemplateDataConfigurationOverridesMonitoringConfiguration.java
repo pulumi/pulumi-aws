@@ -88,11 +88,11 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
             return this;
         }
         public JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration build() {
-            final var o = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration();
-            o.cloudWatchMonitoringConfiguration = cloudWatchMonitoringConfiguration;
-            o.persistentAppUi = persistentAppUi;
-            o.s3MonitoringConfiguration = s3MonitoringConfiguration;
-            return o;
+            final var _resultValue = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration();
+            _resultValue.cloudWatchMonitoringConfiguration = cloudWatchMonitoringConfiguration;
+            _resultValue.persistentAppUi = persistentAppUi;
+            _resultValue.s3MonitoringConfiguration = s3MonitoringConfiguration;
+            return _resultValue;
         }
     }
 }

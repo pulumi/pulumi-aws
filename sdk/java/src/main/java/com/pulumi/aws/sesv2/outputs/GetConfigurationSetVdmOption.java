@@ -73,10 +73,10 @@ public final class GetConfigurationSetVdmOption {
             return guardianOptions(List.of(guardianOptions));
         }
         public GetConfigurationSetVdmOption build() {
-            final var o = new GetConfigurationSetVdmOption();
-            o.dashboardOptions = dashboardOptions;
-            o.guardianOptions = guardianOptions;
-            return o;
+            final var _resultValue = new GetConfigurationSetVdmOption();
+            _resultValue.dashboardOptions = dashboardOptions;
+            _resultValue.guardianOptions = guardianOptions;
+            return _resultValue;
         }
     }
 }

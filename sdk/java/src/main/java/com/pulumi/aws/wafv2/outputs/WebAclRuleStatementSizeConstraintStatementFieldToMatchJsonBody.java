@@ -106,12 +106,12 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBod
             return this;
         }
         public WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody build() {
-            final var o = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody();
-            o.invalidFallbackBehavior = invalidFallbackBehavior;
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody();
+            _resultValue.invalidFallbackBehavior = invalidFallbackBehavior;
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

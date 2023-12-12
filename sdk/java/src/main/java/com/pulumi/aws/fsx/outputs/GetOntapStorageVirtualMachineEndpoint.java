@@ -111,12 +111,12 @@ public final class GetOntapStorageVirtualMachineEndpoint {
             return smbs(List.of(smbs));
         }
         public GetOntapStorageVirtualMachineEndpoint build() {
-            final var o = new GetOntapStorageVirtualMachineEndpoint();
-            o.iscsis = iscsis;
-            o.managements = managements;
-            o.nfs = nfs;
-            o.smbs = smbs;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineEndpoint();
+            _resultValue.iscsis = iscsis;
+            _resultValue.managements = managements;
+            _resultValue.nfs = nfs;
+            _resultValue.smbs = smbs;
+            return _resultValue;
         }
     }
 }

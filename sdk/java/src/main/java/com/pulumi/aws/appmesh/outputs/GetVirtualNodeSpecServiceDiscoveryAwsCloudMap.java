@@ -61,11 +61,11 @@ public final class GetVirtualNodeSpecServiceDiscoveryAwsCloudMap {
             return this;
         }
         public GetVirtualNodeSpecServiceDiscoveryAwsCloudMap build() {
-            final var o = new GetVirtualNodeSpecServiceDiscoveryAwsCloudMap();
-            o.attributes = attributes;
-            o.namespaceName = namespaceName;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new GetVirtualNodeSpecServiceDiscoveryAwsCloudMap();
+            _resultValue.attributes = attributes;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

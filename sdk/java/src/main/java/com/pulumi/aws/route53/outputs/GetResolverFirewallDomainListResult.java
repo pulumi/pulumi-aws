@@ -157,19 +157,19 @@ public final class GetResolverFirewallDomainListResult {
             return this;
         }
         public GetResolverFirewallDomainListResult build() {
-            final var o = new GetResolverFirewallDomainListResult();
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.creatorRequestId = creatorRequestId;
-            o.domainCount = domainCount;
-            o.firewallDomainListId = firewallDomainListId;
-            o.id = id;
-            o.managedOwnerName = managedOwnerName;
-            o.modificationTime = modificationTime;
-            o.name = name;
-            o.status = status;
-            o.statusMessage = statusMessage;
-            return o;
+            final var _resultValue = new GetResolverFirewallDomainListResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.creatorRequestId = creatorRequestId;
+            _resultValue.domainCount = domainCount;
+            _resultValue.firewallDomainListId = firewallDomainListId;
+            _resultValue.id = id;
+            _resultValue.managedOwnerName = managedOwnerName;
+            _resultValue.modificationTime = modificationTime;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.statusMessage = statusMessage;
+            return _resultValue;
         }
     }
 }

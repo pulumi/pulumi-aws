@@ -68,10 +68,10 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings build() {
-            final var o = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings();
-            o.audioSelectorName = audioSelectorName;
-            o.audioSilenceThresholdMsec = audioSilenceThresholdMsec;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings();
+            _resultValue.audioSelectorName = audioSelectorName;
+            _resultValue.audioSilenceThresholdMsec = audioSilenceThresholdMsec;
+            return _resultValue;
         }
     }
 }

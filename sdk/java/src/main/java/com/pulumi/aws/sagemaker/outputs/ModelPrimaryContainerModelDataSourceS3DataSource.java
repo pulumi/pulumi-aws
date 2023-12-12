@@ -84,11 +84,11 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
             return this;
         }
         public ModelPrimaryContainerModelDataSourceS3DataSource build() {
-            final var o = new ModelPrimaryContainerModelDataSourceS3DataSource();
-            o.compressionType = compressionType;
-            o.s3DataType = s3DataType;
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new ModelPrimaryContainerModelDataSourceS3DataSource();
+            _resultValue.compressionType = compressionType;
+            _resultValue.s3DataType = s3DataType;
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

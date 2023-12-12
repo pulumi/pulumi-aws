@@ -67,10 +67,10 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
             return this;
         }
         public DeploymentConfigTrafficRoutingConfigTimeBasedLinear build() {
-            final var o = new DeploymentConfigTrafficRoutingConfigTimeBasedLinear();
-            o.interval = interval;
-            o.percentage = percentage;
-            return o;
+            final var _resultValue = new DeploymentConfigTrafficRoutingConfigTimeBasedLinear();
+            _resultValue.interval = interval;
+            _resultValue.percentage = percentage;
+            return _resultValue;
         }
     }
 }

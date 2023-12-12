@@ -243,19 +243,19 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
             return this;
         }
         public FirehoseDeliveryStreamOpensearchserverlessConfiguration build() {
-            final var o = new FirehoseDeliveryStreamOpensearchserverlessConfiguration();
-            o.bufferingInterval = bufferingInterval;
-            o.bufferingSize = bufferingSize;
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.collectionEndpoint = collectionEndpoint;
-            o.indexName = indexName;
-            o.processingConfiguration = processingConfiguration;
-            o.retryDuration = retryDuration;
-            o.roleArn = roleArn;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            o.vpcConfig = vpcConfig;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamOpensearchserverlessConfiguration();
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.collectionEndpoint = collectionEndpoint;
+            _resultValue.indexName = indexName;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.vpcConfig = vpcConfig;
+            return _resultValue;
         }
     }
 }

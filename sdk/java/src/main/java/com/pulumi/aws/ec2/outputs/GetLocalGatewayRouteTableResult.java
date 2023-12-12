@@ -119,15 +119,15 @@ public final class GetLocalGatewayRouteTableResult {
             return this;
         }
         public GetLocalGatewayRouteTableResult build() {
-            final var o = new GetLocalGatewayRouteTableResult();
-            o.filters = filters;
-            o.id = id;
-            o.localGatewayId = localGatewayId;
-            o.localGatewayRouteTableId = localGatewayRouteTableId;
-            o.outpostArn = outpostArn;
-            o.state = state;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLocalGatewayRouteTableResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.localGatewayId = localGatewayId;
+            _resultValue.localGatewayRouteTableId = localGatewayRouteTableId;
+            _resultValue.outpostArn = outpostArn;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

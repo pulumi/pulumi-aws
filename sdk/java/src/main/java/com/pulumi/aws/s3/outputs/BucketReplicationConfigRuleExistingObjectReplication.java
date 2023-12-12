@@ -46,9 +46,9 @@ public final class BucketReplicationConfigRuleExistingObjectReplication {
             return this;
         }
         public BucketReplicationConfigRuleExistingObjectReplication build() {
-            final var o = new BucketReplicationConfigRuleExistingObjectReplication();
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleExistingObjectReplication();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude();
-            o.apiKey = apiKey;
-            o.secretKey = secretKey;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude();
+            _resultValue.apiKey = apiKey;
+            _resultValue.secretKey = secretKey;
+            return _resultValue;
         }
     }
 }

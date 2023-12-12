@@ -76,11 +76,11 @@ public final class GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListe
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener build() {
-            final var o = new GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

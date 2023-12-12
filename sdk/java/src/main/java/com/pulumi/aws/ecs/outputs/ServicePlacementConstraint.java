@@ -67,10 +67,10 @@ public final class ServicePlacementConstraint {
             return this;
         }
         public ServicePlacementConstraint build() {
-            final var o = new ServicePlacementConstraint();
-            o.expression = expression;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServicePlacementConstraint();
+            _resultValue.expression = expression;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

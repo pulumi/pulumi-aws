@@ -50,9 +50,9 @@ public final class RuleGroupRuleStatementOrStatement {
             return statements(List.of(statements));
         }
         public RuleGroupRuleStatementOrStatement build() {
-            final var o = new RuleGroupRuleStatementOrStatement();
-            o.statements = statements;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementOrStatement();
+            _resultValue.statements = statements;
+            return _resultValue;
         }
     }
 }

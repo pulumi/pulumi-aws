@@ -46,9 +46,9 @@ public final class GetOntapStorageVirtualMachineLifecycleTransitionReason {
             return this;
         }
         public GetOntapStorageVirtualMachineLifecycleTransitionReason build() {
-            final var o = new GetOntapStorageVirtualMachineLifecycleTransitionReason();
-            o.message = message;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineLifecycleTransitionReason();
+            _resultValue.message = message;
+            return _resultValue;
         }
     }
 }

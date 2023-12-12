@@ -153,15 +153,15 @@ public final class GetSecretResult {
             return this;
         }
         public GetSecretResult build() {
-            final var o = new GetSecretResult();
-            o.arn = arn;
-            o.description = description;
-            o.id = id;
-            o.kmsKeyId = kmsKeyId;
-            o.name = name;
-            o.policy = policy;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSecretResult();
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.name = name;
+            _resultValue.policy = policy;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

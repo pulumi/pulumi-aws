@@ -46,9 +46,9 @@ public final class ApplicationApplicationConfigurationApplicationSnapshotConfigu
             return this;
         }
         public ApplicationApplicationConfigurationApplicationSnapshotConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationApplicationSnapshotConfiguration();
-            o.snapshotsEnabled = snapshotsEnabled;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationApplicationSnapshotConfiguration();
+            _resultValue.snapshotsEnabled = snapshotsEnabled;
+            return _resultValue;
         }
     }
 }

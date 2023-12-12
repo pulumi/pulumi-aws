@@ -89,11 +89,11 @@ public final class GetBudgetAutoAdjustData {
             return this;
         }
         public GetBudgetAutoAdjustData build() {
-            final var o = new GetBudgetAutoAdjustData();
-            o.autoAdjustType = autoAdjustType;
-            o.historicalOptions = historicalOptions;
-            o.lastAutoAdjustTime = lastAutoAdjustTime;
-            return o;
+            final var _resultValue = new GetBudgetAutoAdjustData();
+            _resultValue.autoAdjustType = autoAdjustType;
+            _resultValue.historicalOptions = historicalOptions;
+            _resultValue.lastAutoAdjustTime = lastAutoAdjustTime;
+            return _resultValue;
         }
     }
 }

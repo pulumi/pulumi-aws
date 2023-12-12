@@ -65,10 +65,10 @@ public final class InsightFiltersNetworkSourceMac {
             return this;
         }
         public InsightFiltersNetworkSourceMac build() {
-            final var o = new InsightFiltersNetworkSourceMac();
-            o.comparison = comparison;
-            o.value = value;
-            return o;
+            final var _resultValue = new InsightFiltersNetworkSourceMac();
+            _resultValue.comparison = comparison;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

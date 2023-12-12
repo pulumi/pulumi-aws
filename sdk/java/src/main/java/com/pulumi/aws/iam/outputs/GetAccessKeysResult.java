@@ -81,11 +81,11 @@ public final class GetAccessKeysResult {
             return this;
         }
         public GetAccessKeysResult build() {
-            final var o = new GetAccessKeysResult();
-            o.accessKeys = accessKeys;
-            o.id = id;
-            o.user = user;
-            return o;
+            final var _resultValue = new GetAccessKeysResult();
+            _resultValue.accessKeys = accessKeys;
+            _resultValue.id = id;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

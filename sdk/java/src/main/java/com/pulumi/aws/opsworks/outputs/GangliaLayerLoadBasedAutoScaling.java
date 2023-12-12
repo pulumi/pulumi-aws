@@ -64,11 +64,11 @@ public final class GangliaLayerLoadBasedAutoScaling {
             return this;
         }
         public GangliaLayerLoadBasedAutoScaling build() {
-            final var o = new GangliaLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new GangliaLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ContactChannelDeliveryAddress {
             return this;
         }
         public ContactChannelDeliveryAddress build() {
-            final var o = new ContactChannelDeliveryAddress();
-            o.simpleAddress = simpleAddress;
-            return o;
+            final var _resultValue = new ContactChannelDeliveryAddress();
+            _resultValue.simpleAddress = simpleAddress;
+            return _resultValue;
         }
     }
 }

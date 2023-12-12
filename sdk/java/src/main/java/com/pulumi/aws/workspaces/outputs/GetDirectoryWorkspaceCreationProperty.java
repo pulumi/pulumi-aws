@@ -123,13 +123,13 @@ public final class GetDirectoryWorkspaceCreationProperty {
             return this;
         }
         public GetDirectoryWorkspaceCreationProperty build() {
-            final var o = new GetDirectoryWorkspaceCreationProperty();
-            o.customSecurityGroupId = customSecurityGroupId;
-            o.defaultOu = defaultOu;
-            o.enableInternetAccess = enableInternetAccess;
-            o.enableMaintenanceMode = enableMaintenanceMode;
-            o.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
-            return o;
+            final var _resultValue = new GetDirectoryWorkspaceCreationProperty();
+            _resultValue.customSecurityGroupId = customSecurityGroupId;
+            _resultValue.defaultOu = defaultOu;
+            _resultValue.enableInternetAccess = enableInternetAccess;
+            _resultValue.enableMaintenanceMode = enableMaintenanceMode;
+            _resultValue.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
+            return _resultValue;
         }
     }
 }

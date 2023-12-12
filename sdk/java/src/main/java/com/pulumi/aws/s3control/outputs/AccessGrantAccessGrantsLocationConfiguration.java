@@ -48,9 +48,9 @@ public final class AccessGrantAccessGrantsLocationConfiguration {
             return this;
         }
         public AccessGrantAccessGrantsLocationConfiguration build() {
-            final var o = new AccessGrantAccessGrantsLocationConfiguration();
-            o.s3SubPrefix = s3SubPrefix;
-            return o;
+            final var _resultValue = new AccessGrantAccessGrantsLocationConfiguration();
+            _resultValue.s3SubPrefix = s3SubPrefix;
+            return _resultValue;
         }
     }
 }

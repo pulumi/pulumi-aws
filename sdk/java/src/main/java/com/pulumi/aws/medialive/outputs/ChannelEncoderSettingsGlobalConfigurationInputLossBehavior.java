@@ -86,13 +86,13 @@ public final class ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
             return this;
         }
         public ChannelEncoderSettingsGlobalConfigurationInputLossBehavior build() {
-            final var o = new ChannelEncoderSettingsGlobalConfigurationInputLossBehavior();
-            o.blackFrameMsec = blackFrameMsec;
-            o.inputLossImageColor = inputLossImageColor;
-            o.inputLossImageSlate = inputLossImageSlate;
-            o.inputLossImageType = inputLossImageType;
-            o.repeatFrameMsec = repeatFrameMsec;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsGlobalConfigurationInputLossBehavior();
+            _resultValue.blackFrameMsec = blackFrameMsec;
+            _resultValue.inputLossImageColor = inputLossImageColor;
+            _resultValue.inputLossImageSlate = inputLossImageSlate;
+            _resultValue.inputLossImageType = inputLossImageType;
+            _resultValue.repeatFrameMsec = repeatFrameMsec;
+            return _resultValue;
         }
     }
 }

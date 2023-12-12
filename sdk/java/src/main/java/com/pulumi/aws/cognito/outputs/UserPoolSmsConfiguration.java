@@ -86,11 +86,11 @@ public final class UserPoolSmsConfiguration {
             return this;
         }
         public UserPoolSmsConfiguration build() {
-            final var o = new UserPoolSmsConfiguration();
-            o.externalId = externalId;
-            o.snsCallerArn = snsCallerArn;
-            o.snsRegion = snsRegion;
-            return o;
+            final var _resultValue = new UserPoolSmsConfiguration();
+            _resultValue.externalId = externalId;
+            _resultValue.snsCallerArn = snsCallerArn;
+            _resultValue.snsRegion = snsRegion;
+            return _resultValue;
         }
     }
 }

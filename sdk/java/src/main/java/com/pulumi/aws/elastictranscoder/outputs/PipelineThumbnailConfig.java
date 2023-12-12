@@ -67,10 +67,10 @@ public final class PipelineThumbnailConfig {
             return this;
         }
         public PipelineThumbnailConfig build() {
-            final var o = new PipelineThumbnailConfig();
-            o.bucket = bucket;
-            o.storageClass = storageClass;
-            return o;
+            final var _resultValue = new PipelineThumbnailConfig();
+            _resultValue.bucket = bucket;
+            _resultValue.storageClass = storageClass;
+            return _resultValue;
         }
     }
 }

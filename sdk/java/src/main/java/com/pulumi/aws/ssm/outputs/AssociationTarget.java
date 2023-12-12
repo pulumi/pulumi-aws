@@ -69,10 +69,10 @@ public final class AssociationTarget {
             return values(List.of(values));
         }
         public AssociationTarget build() {
-            final var o = new AssociationTarget();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new AssociationTarget();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

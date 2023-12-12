@@ -78,11 +78,11 @@ public final class CertificateRenewalSummary {
             return this;
         }
         public CertificateRenewalSummary build() {
-            final var o = new CertificateRenewalSummary();
-            o.renewalStatus = renewalStatus;
-            o.renewalStatusReason = renewalStatusReason;
-            o.updatedAt = updatedAt;
-            return o;
+            final var _resultValue = new CertificateRenewalSummary();
+            _resultValue.renewalStatus = renewalStatus;
+            _resultValue.renewalStatusReason = renewalStatusReason;
+            _resultValue.updatedAt = updatedAt;
+            return _resultValue;
         }
     }
 }

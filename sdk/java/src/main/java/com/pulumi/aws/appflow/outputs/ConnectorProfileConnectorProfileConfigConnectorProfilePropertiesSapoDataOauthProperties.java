@@ -88,11 +88,11 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties();
-            o.authCodeUrl = authCodeUrl;
-            o.oauthScopes = oauthScopes;
-            o.tokenUrl = tokenUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties();
+            _resultValue.authCodeUrl = authCodeUrl;
+            _resultValue.oauthScopes = oauthScopes;
+            _resultValue.tokenUrl = tokenUrl;
+            return _resultValue;
         }
     }
 }

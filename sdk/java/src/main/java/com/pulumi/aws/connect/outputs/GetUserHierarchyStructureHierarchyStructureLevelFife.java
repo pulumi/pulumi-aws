@@ -84,11 +84,11 @@ public final class GetUserHierarchyStructureHierarchyStructureLevelFife {
             return this;
         }
         public GetUserHierarchyStructureHierarchyStructureLevelFife build() {
-            final var o = new GetUserHierarchyStructureHierarchyStructureLevelFife();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetUserHierarchyStructureHierarchyStructureLevelFife();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

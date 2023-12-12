@@ -86,11 +86,11 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
             return this;
         }
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont build() {
-            final var o = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont();
-            o.passwordParam = passwordParam;
-            o.uri = uri;
-            o.username = username;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont();
+            _resultValue.passwordParam = passwordParam;
+            _resultValue.uri = uri;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

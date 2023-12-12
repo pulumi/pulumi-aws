@@ -86,11 +86,11 @@ public final class KxClusterCode {
             return this;
         }
         public KxClusterCode build() {
-            final var o = new KxClusterCode();
-            o.s3Bucket = s3Bucket;
-            o.s3Key = s3Key;
-            o.s3ObjectVersion = s3ObjectVersion;
-            return o;
+            final var _resultValue = new KxClusterCode();
+            _resultValue.s3Bucket = s3Bucket;
+            _resultValue.s3Key = s3Key;
+            _resultValue.s3ObjectVersion = s3ObjectVersion;
+            return _resultValue;
         }
     }
 }

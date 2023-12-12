@@ -50,9 +50,9 @@ public final class RecordingConfigurationDestinationConfigurationS3 {
             return this;
         }
         public RecordingConfigurationDestinationConfigurationS3 build() {
-            final var o = new RecordingConfigurationDestinationConfigurationS3();
-            o.bucketName = bucketName;
-            return o;
+            final var _resultValue = new RecordingConfigurationDestinationConfigurationS3();
+            _resultValue.bucketName = bucketName;
+            return _resultValue;
         }
     }
 }

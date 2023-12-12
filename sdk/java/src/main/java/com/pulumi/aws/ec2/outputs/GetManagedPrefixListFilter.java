@@ -69,10 +69,10 @@ public final class GetManagedPrefixListFilter {
             return values(List.of(values));
         }
         public GetManagedPrefixListFilter build() {
-            final var o = new GetManagedPrefixListFilter();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetManagedPrefixListFilter();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

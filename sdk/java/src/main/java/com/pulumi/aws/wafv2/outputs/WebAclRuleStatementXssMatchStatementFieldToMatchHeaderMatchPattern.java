@@ -94,11 +94,11 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPa
             return includedHeaders(List.of(includedHeaders));
         }
         public WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern build() {
-            final var o = new WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern();
-            o.all = all;
-            o.excludedHeaders = excludedHeaders;
-            o.includedHeaders = includedHeaders;
-            return o;
+            final var _resultValue = new WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern();
+            _resultValue.all = all;
+            _resultValue.excludedHeaders = excludedHeaders;
+            _resultValue.includedHeaders = includedHeaders;
+            return _resultValue;
         }
     }
 }

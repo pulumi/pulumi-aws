@@ -73,10 +73,10 @@ public final class ServerlessClusterVpcConfig {
             return subnetIds(List.of(subnetIds));
         }
         public ServerlessClusterVpcConfig build() {
-            final var o = new ServerlessClusterVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ServerlessClusterVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

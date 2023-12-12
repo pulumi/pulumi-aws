@@ -65,10 +65,10 @@ public final class GetGroupAlternateIdentifierUniqueAttribute {
             return this;
         }
         public GetGroupAlternateIdentifierUniqueAttribute build() {
-            final var o = new GetGroupAlternateIdentifierUniqueAttribute();
-            o.attributePath = attributePath;
-            o.attributeValue = attributeValue;
-            return o;
+            final var _resultValue = new GetGroupAlternateIdentifierUniqueAttribute();
+            _resultValue.attributePath = attributePath;
+            _resultValue.attributeValue = attributeValue;
+            return _resultValue;
         }
     }
 }

@@ -62,11 +62,11 @@ public final class V2modelsBotTimeouts {
             return this;
         }
         public V2modelsBotTimeouts build() {
-            final var o = new V2modelsBotTimeouts();
-            o.create = create;
-            o.delete = delete;
-            o.update = update;
-            return o;
+            final var _resultValue = new V2modelsBotTimeouts();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

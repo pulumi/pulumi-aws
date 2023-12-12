@@ -50,10 +50,10 @@ public final class SigningProfileSignatureValidityPeriod {
             return this;
         }
         public SigningProfileSignatureValidityPeriod build() {
-            final var o = new SigningProfileSignatureValidityPeriod();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new SigningProfileSignatureValidityPeriod();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

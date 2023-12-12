@@ -65,10 +65,10 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
             return this;
         }
         public ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig build() {
-            final var o = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig();
-            o.idleTtl = idleTtl;
-            o.maximumTtl = maximumTtl;
-            return o;
+            final var _resultValue = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig();
+            _resultValue.idleTtl = idleTtl;
+            _resultValue.maximumTtl = maximumTtl;
+            return _resultValue;
         }
     }
 }

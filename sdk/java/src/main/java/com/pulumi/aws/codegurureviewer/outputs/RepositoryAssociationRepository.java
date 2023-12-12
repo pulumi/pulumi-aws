@@ -76,12 +76,12 @@ public final class RepositoryAssociationRepository {
             return this;
         }
         public RepositoryAssociationRepository build() {
-            final var o = new RepositoryAssociationRepository();
-            o.bitbucket = bitbucket;
-            o.codecommit = codecommit;
-            o.githubEnterpriseServer = githubEnterpriseServer;
-            o.s3Bucket = s3Bucket;
-            return o;
+            final var _resultValue = new RepositoryAssociationRepository();
+            _resultValue.bitbucket = bitbucket;
+            _resultValue.codecommit = codecommit;
+            _resultValue.githubEnterpriseServer = githubEnterpriseServer;
+            _resultValue.s3Bucket = s3Bucket;
+            return _resultValue;
         }
     }
 }

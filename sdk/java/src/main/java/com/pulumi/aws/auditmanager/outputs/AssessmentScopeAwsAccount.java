@@ -46,9 +46,9 @@ public final class AssessmentScopeAwsAccount {
             return this;
         }
         public AssessmentScopeAwsAccount build() {
-            final var o = new AssessmentScopeAwsAccount();
-            o.id = id;
-            return o;
+            final var _resultValue = new AssessmentScopeAwsAccount();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

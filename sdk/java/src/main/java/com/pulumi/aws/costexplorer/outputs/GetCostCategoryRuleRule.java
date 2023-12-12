@@ -165,14 +165,14 @@ public final class GetCostCategoryRuleRule {
             return tags(List.of(tags));
         }
         public GetCostCategoryRuleRule build() {
-            final var o = new GetCostCategoryRuleRule();
-            o.ands = ands;
-            o.costCategories = costCategories;
-            o.dimensions = dimensions;
-            o.nots = nots;
-            o.ors = ors;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetCostCategoryRuleRule();
+            _resultValue.ands = ands;
+            _resultValue.costCategories = costCategories;
+            _resultValue.dimensions = dimensions;
+            _resultValue.nots = nots;
+            _resultValue.ors = ors;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

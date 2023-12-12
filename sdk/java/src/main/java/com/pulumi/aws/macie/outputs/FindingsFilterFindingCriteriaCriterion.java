@@ -191,16 +191,16 @@ public final class FindingsFilterFindingCriteriaCriterion {
             return neqs(List.of(neqs));
         }
         public FindingsFilterFindingCriteriaCriterion build() {
-            final var o = new FindingsFilterFindingCriteriaCriterion();
-            o.eqExactMatches = eqExactMatches;
-            o.eqs = eqs;
-            o.field = field;
-            o.gt = gt;
-            o.gte = gte;
-            o.lt = lt;
-            o.lte = lte;
-            o.neqs = neqs;
-            return o;
+            final var _resultValue = new FindingsFilterFindingCriteriaCriterion();
+            _resultValue.eqExactMatches = eqExactMatches;
+            _resultValue.eqs = eqs;
+            _resultValue.field = field;
+            _resultValue.gt = gt;
+            _resultValue.gte = gte;
+            _resultValue.lt = lt;
+            _resultValue.lte = lte;
+            _resultValue.neqs = neqs;
+            return _resultValue;
         }
     }
 }

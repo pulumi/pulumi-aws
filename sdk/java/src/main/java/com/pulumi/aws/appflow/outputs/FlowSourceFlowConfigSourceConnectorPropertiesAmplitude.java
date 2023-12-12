@@ -46,9 +46,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesAmplitude {
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesAmplitude build() {
-            final var o = new FlowSourceFlowConfigSourceConnectorPropertiesAmplitude();
-            o.object = object;
-            return o;
+            final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesAmplitude();
+            _resultValue.object = object;
+            return _resultValue;
         }
     }
 }

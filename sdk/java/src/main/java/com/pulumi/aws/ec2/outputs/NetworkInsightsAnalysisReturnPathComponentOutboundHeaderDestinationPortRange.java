@@ -51,10 +51,10 @@ public final class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDesti
             return this;
         }
         public NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange build() {
-            final var o = new NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange();
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange();
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

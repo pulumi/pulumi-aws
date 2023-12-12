@@ -64,11 +64,11 @@ public final class MemcachedLayerLoadBasedAutoScaling {
             return this;
         }
         public MemcachedLayerLoadBasedAutoScaling build() {
-            final var o = new MemcachedLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new MemcachedLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

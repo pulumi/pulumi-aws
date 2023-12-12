@@ -85,11 +85,11 @@ public final class RecordAlias {
             return this;
         }
         public RecordAlias build() {
-            final var o = new RecordAlias();
-            o.evaluateTargetHealth = evaluateTargetHealth;
-            o.name = name;
-            o.zoneId = zoneId;
-            return o;
+            final var _resultValue = new RecordAlias();
+            _resultValue.evaluateTargetHealth = evaluateTargetHealth;
+            _resultValue.name = name;
+            _resultValue.zoneId = zoneId;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ChannelDestinationMultiplexSettings {
             return this;
         }
         public ChannelDestinationMultiplexSettings build() {
-            final var o = new ChannelDestinationMultiplexSettings();
-            o.multiplexId = multiplexId;
-            o.programName = programName;
-            return o;
+            final var _resultValue = new ChannelDestinationMultiplexSettings();
+            _resultValue.multiplexId = multiplexId;
+            _resultValue.programName = programName;
+            return _resultValue;
         }
     }
 }

@@ -130,13 +130,13 @@ public final class TopicRuleTimestream {
             return this;
         }
         public TopicRuleTimestream build() {
-            final var o = new TopicRuleTimestream();
-            o.databaseName = databaseName;
-            o.dimensions = dimensions;
-            o.roleArn = roleArn;
-            o.tableName = tableName;
-            o.timestamp = timestamp;
-            return o;
+            final var _resultValue = new TopicRuleTimestream();
+            _resultValue.databaseName = databaseName;
+            _resultValue.dimensions = dimensions;
+            _resultValue.roleArn = roleArn;
+            _resultValue.tableName = tableName;
+            _resultValue.timestamp = timestamp;
+            return _resultValue;
         }
     }
 }

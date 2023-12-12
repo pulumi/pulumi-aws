@@ -60,10 +60,10 @@ public final class DomainOffPeakWindowOptions {
             return this;
         }
         public DomainOffPeakWindowOptions build() {
-            final var o = new DomainOffPeakWindowOptions();
-            o.enabled = enabled;
-            o.offPeakWindow = offPeakWindow;
-            return o;
+            final var _resultValue = new DomainOffPeakWindowOptions();
+            _resultValue.enabled = enabled;
+            _resultValue.offPeakWindow = offPeakWindow;
+            return _resultValue;
         }
     }
 }

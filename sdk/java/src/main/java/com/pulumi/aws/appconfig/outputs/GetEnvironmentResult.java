@@ -190,17 +190,17 @@ public final class GetEnvironmentResult {
             return this;
         }
         public GetEnvironmentResult build() {
-            final var o = new GetEnvironmentResult();
-            o.applicationId = applicationId;
-            o.arn = arn;
-            o.description = description;
-            o.environmentId = environmentId;
-            o.id = id;
-            o.monitors = monitors;
-            o.name = name;
-            o.state = state;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetEnvironmentResult();
+            _resultValue.applicationId = applicationId;
+            _resultValue.arn = arn;
+            _resultValue.description = description;
+            _resultValue.environmentId = environmentId;
+            _resultValue.id = id;
+            _resultValue.monitors = monitors;
+            _resultValue.name = name;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

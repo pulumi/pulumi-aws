@@ -59,10 +59,10 @@ public final class ApplicationCloudwatchLoggingOptions {
             return this;
         }
         public ApplicationCloudwatchLoggingOptions build() {
-            final var o = new ApplicationCloudwatchLoggingOptions();
-            o.cloudwatchLoggingOptionId = cloudwatchLoggingOptionId;
-            o.logStreamArn = logStreamArn;
-            return o;
+            final var _resultValue = new ApplicationCloudwatchLoggingOptions();
+            _resultValue.cloudwatchLoggingOptionId = cloudwatchLoggingOptionId;
+            _resultValue.logStreamArn = logStreamArn;
+            return _resultValue;
         }
     }
 }
