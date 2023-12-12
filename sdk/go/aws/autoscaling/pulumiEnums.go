@@ -156,10 +156,29 @@ func (o MetricPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricInput is an input type that accepts MetricArgs and MetricOutput values.
-// You can construct a concrete instance of `MetricInput` via:
+// MetricInput is an input type that accepts values of the Metric enum
+// A concrete instance of `MetricInput` can be one of the following:
 //
-//	MetricArgs{...}
+//	MetricGroupMinSize
+//	MetricGroupMaxSize
+//	MetricGroupDesiredCapacity
+//	MetricGroupInServiceInstances
+//	MetricGroupInServiceCapacity
+//	MetricGroupPendingInstances
+//	MetricGroupPendingCapacity
+//	MetricGroupStandbyInstances
+//	MetricGroupStandbyCapacity
+//	MetricGroupTerminatingInstances
+//	MetricGroupTerminatingCapacity
+//	MetricGroupTotalInstances
+//	MetricGroupTotalCapacity
+//	MetricWarmPoolDesiredCapacity
+//	MetricWarmPoolWarmedCapacity
+//	MetricWarmPoolPendingCapacity
+//	MetricWarmPoolTerminatingCapacity
+//	MetricWarmPoolTotalCapacity
+//	MetricGroupAndWarmPoolDesiredCapacity
+//	MetricGroupAndWarmPoolTotalCapacity
 type MetricInput interface {
 	pulumi.Input
 
@@ -326,10 +345,10 @@ func (o MetricsGranularityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricsGranularityInput is an input type that accepts MetricsGranularityArgs and MetricsGranularityOutput values.
-// You can construct a concrete instance of `MetricsGranularityInput` via:
+// MetricsGranularityInput is an input type that accepts values of the MetricsGranularity enum
+// A concrete instance of `MetricsGranularityInput` can be one of the following:
 //
-//	MetricsGranularityArgs{...}
+//	MetricsGranularityOneMinute
 type MetricsGranularityInput interface {
 	pulumi.Input
 
@@ -500,10 +519,14 @@ func (o NotificationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// NotificationTypeInput is an input type that accepts NotificationTypeArgs and NotificationTypeOutput values.
-// You can construct a concrete instance of `NotificationTypeInput` via:
+// NotificationTypeInput is an input type that accepts values of the NotificationType enum
+// A concrete instance of `NotificationTypeInput` can be one of the following:
 //
-//	NotificationTypeArgs{...}
+//	NotificationTypeInstanceLaunch
+//	NotificationTypeInstanceTerminate
+//	NotificationTypeInstanceLaunchError
+//	NotificationTypeInstanceTerminateError
+//	NotificationTypeTestNotification
 type NotificationTypeInput interface {
 	pulumi.Input
 
