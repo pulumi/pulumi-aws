@@ -1901,6 +1901,12 @@ github.com/hashicorp/yamux v0.1.1 h1:yrQxtgseBDrq9Y652vSRDvsKCJKOUD+GzTS4Y0Y8pvE
 github.com/hashicorp/yamux v0.1.1/go.mod h1:CtWFDAQgb7dxtzFs4tWbplKIe2jSi3+5vKbgIO0SLnQ=
 github.com/hetznercloud/hcloud-go v1.33.1/go.mod h1:XX/TQub3ge0yWR2yHWmnDVIrB+MQbda1pHxkUmDlUME=
 github.com/hetznercloud/hcloud-go v1.35.0/go.mod h1:mepQwR6va27S3UQthaEPGS86jtzSY9xWL1e9dyxXpgA=
+github.com/hexops/autogold/v2 v2.2.1 h1:JPUXuZQGkcQMv7eeDXuNMovjfoRYaa0yVcm+F3voaGY=
+github.com/hexops/autogold/v2 v2.2.1/go.mod h1:IJwxtUfj1BGLm0YsR/k+dIxYi6xbeLjqGke2bzcOTMI=
+github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUqJM=
+github.com/hexops/gotextdiff v1.0.3/go.mod h1:pSWU5MAI3yDq+fZBTazCSJysOMbxWL1BSow5/V2vxeg=
+github.com/hexops/valast v1.4.4 h1:rETyycw+/L2ZVJHHNxEBgh8KUn+87WugH9MxcEv9PGs=
+github.com/hexops/valast v1.4.4/go.mod h1:Jcy1pNH7LNraVaAZDLyv21hHg2WBv9Nf9FL6fGxU7o4=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
 github.com/huandu/xstrings v1.3.1/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq4ovT0aE=
 github.com/huandu/xstrings v1.3.2/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq4ovT0aE=
@@ -2208,6 +2214,8 @@ github.com/nats-io/nkeys v0.1.3/go.mod h1:xpnFELMwJABBLVhffcfd1MZx6VsNRFpEugbxzi
 github.com/nats-io/nuid v1.0.1/go.mod h1:19wcPz3Ph3q0Jbyiqsd0kePYG7A95tJPxeL+1OSON2c=
 github.com/ncw/swift v1.0.47/go.mod h1:23YIA4yWVnGwv2dQlN4bB7egfYX6YLn0Yo/S6zZO/ZM=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
+github.com/nightlyone/lockfile v1.0.0 h1:RHep2cFKK4PonZJDdEl4GmkabuhbsRMgk/k3uAmxBiA=
+github.com/nightlyone/lockfile v1.0.0/go.mod h1:rywoIealpdNse2r832aiD9jRk8ErCatROs6LzC841CI=
 github.com/nxadm/tail v1.4.4/go.mod h1:kenIhsEOeOJmVchQTgglprH7qJGnHDVpk1VPCcaMI8A=
 github.com/nxadm/tail v1.4.8 h1:nPr65rt6Y5JFSKQO7qToXr7pePgD6Gwiw05lkbyAQTE=
 github.com/nxadm/tail v1.4.8/go.mod h1:+ncqLTQzXmGhMZNUePPaPqPvBxHAIsmXswZKocGu+AU=
@@ -2393,12 +2401,12 @@ github.com/pulumi/esc v0.6.1-0.20231111193429-44b746a5b3b5 h1:1DJMji9F7XPea46bSu
 github.com/pulumi/esc v0.6.1-0.20231111193429-44b746a5b3b5/go.mod h1:Y6W21yUukvxS2NnS5ae1beMSPhMvj0xNAYcDqDHVj/g=
 github.com/pulumi/providertest v0.0.3 h1:DLcAvVGgeP4mHEi1Ftk5zTX9QHjcrO6u5w5GCZrF99s=
 github.com/pulumi/providertest v0.0.3/go.mod h1:kZYBA14iemv3X4G4xsBKaa72zVbn//IyL5HTYKpLuy0=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231207205658-538570c1932f h1:vYOnyhGczomd2iLb8judh5kLHdIqpIFYW/0yAH9LlgY=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231207205658-538570c1932f/go.mod h1:4XbozjoCh9lbGcUD5+83LrjAqzGPQGjya0lavqVq1sQ=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231215003423-cac222566cea h1:2KIMeACVwq0gxSrOGFsqnvxR49P9cKcYjd0/1eMPAas=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.21.1-0.20231215003423-cac222566cea/go.mod h1:tu5vK/uLj19o4W8SztYKJNdewxFNqelM94z/M7ZSbR4=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3 h1:bBWWeAtSPPYpKYlPZr2h0BiYgWQpHRIk0HO/MQmB+jc=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3/go.mod h1:vAQ7DeddebQ7FHdRaSG6ijuS28FS9PC4j8Y9wUuue0c=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.0 h1:HNbo4GeJZP2AjKubxV08o+3K0mt6iNrwbQ//EgPz6bc=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.0/go.mod h1:FQgtkWHv3rMPVA3OMu8yMHkZA4nGEuvCRwshrs4sw0s=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.1-0.20231215003423-cac222566cea h1:+pwXQ1kNwlw6v11Ohg7luLJ68sUwU4a6zVk6anvdGkY=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.68.1-0.20231215003423-cac222566cea/go.mod h1:E6Hs8NU3+WwvA/ygWfOcCbYJNcJz1EwKPL7jRHCvtrU=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20231130182140-6385710fcbc4 h1:8lK+vlRrnAxB6K3J2YIPAq50ETpvvWZ92vi66Hko/4o=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20231130182140-6385710fcbc4/go.mod h1:F/fzVS4Ksc4SPPLtMjGFRM9M76QtM1Rc0CYGnHCHEwU=
 github.com/pulumi/pulumi/pkg/v3 v3.96.2 h1:d+zDsh4K1j90q/upDRkhgxHkspP20Xxd3g6OaMbw574=
@@ -3809,6 +3817,8 @@ modernc.org/strutil v1.1.3/go.mod h1:MEHNA7PdEnEwLvspRMtWTNnp2nnyvMfkimT1NKNAGbw
 modernc.org/tcl v1.13.1/go.mod h1:XOLfOwzhkljL4itZkK6T72ckMgvj0BDsnKNdZVUOecw=
 modernc.org/token v1.0.0/go.mod h1:UGzOrNV1mAFSEB63lOFHIpNRUVMvYTc6yu1SMY/XTDM=
 modernc.org/z v1.5.1/go.mod h1:eWFB510QWW5Th9YGZT81s+LwvaAs3Q2yr4sP0rmLkv8=
+mvdan.cc/gofumpt v0.5.0 h1:0EQ+Z56k8tXjj/6TQD25BFNKQXpCvT0rnansIc7Ug5E=
+mvdan.cc/gofumpt v0.5.0/go.mod h1:HBeVDtMKRZpXyxFciAirzdKklDlGu8aAy1wEbH5Y9js=
 nhooyr.io/websocket v1.8.6/go.mod h1:B70DZP8IakI65RVQ51MsWP/8jndNma26DVA/nFSCgW0=
 pgregory.net/rapid v0.6.1 h1:4eyrDxyht86tT4Ztm+kvlyNBLIk071gR+ZQdhphc9dQ=
 pgregory.net/rapid v0.6.1/go.mod h1:PY5XlDGj0+V1FCq0o192FdRhpKHGTRIWBgqjDBTrq04=
