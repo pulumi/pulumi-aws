@@ -143,10 +143,17 @@ func (o InstancePlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstancePlatformInput is an input type that accepts InstancePlatformArgs and InstancePlatformOutput values.
-// You can construct a concrete instance of `InstancePlatformInput` via:
+// InstancePlatformInput is an input type that accepts values of the InstancePlatform enum
+// A concrete instance of `InstancePlatformInput` can be one of the following:
 //
-//	InstancePlatformArgs{...}
+//	InstancePlatformLinuxUnix
+//	InstancePlatformRedHatEnterpriseLinux
+//	InstancePlatformSuseLinux
+//	InstancePlatformWindows
+//	InstancePlatformWindowsWithSqlServer
+//	InstancePlatformWindowsWithSqlServerEnterprise
+//	InstancePlatformWindowsWithSqlServerStandard
+//	InstancePlatformWindowsWithSqlServerWeb
 type InstancePlatformInput interface {
 	pulumi.Input
 
@@ -786,10 +793,476 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
-// You can construct a concrete instance of `InstanceTypeInput` via:
+// InstanceTypeInput is an input type that accepts values of the InstanceType enum
+// A concrete instance of `InstanceTypeInput` can be one of the following:
 //
-//	InstanceTypeArgs{...}
+//	InstanceType_A1_2XLarge
+//	InstanceType_A1_4XLarge
+//	InstanceType_A1_Large
+//	InstanceType_A1_Medium
+//	InstanceType_A1_Metal
+//	InstanceType_A1_XLarge
+//	InstanceType_C1_Medium
+//	InstanceType_C1_XLarge
+//	InstanceType_C3_2XLarge
+//	InstanceType_C3_4XLarge
+//	InstanceType_C3_8XLarge
+//	InstanceType_C3_Large
+//	InstanceType_C3_XLarge
+//	InstanceType_C4_2XLarge
+//	InstanceType_C4_4XLarge
+//	InstanceType_C4_8XLarge
+//	InstanceType_C4_Large
+//	InstanceType_C4_XLarge
+//	InstanceType_C5_12XLarge
+//	InstanceType_C5_18XLarge
+//	InstanceType_C5_24XLarge
+//	InstanceType_C5_2XLarge
+//	InstanceType_C5_4XLarge
+//	InstanceType_C5_9XLarge
+//	InstanceType_C5_Large
+//	InstanceType_C5_Metal
+//	InstanceType_C5_XLarge
+//	InstanceType_C5a_12XLarge
+//	InstanceType_C5a_16XLarge
+//	InstanceType_C5a_24XLarge
+//	InstanceType_C5a_2XLarge
+//	InstanceType_C5a_4XLarge
+//	InstanceType_C5a_8XLarge
+//	InstanceType_C5a_Large
+//	InstanceType_C5a_XLarge
+//	InstanceType_C5ad_12XLarge
+//	InstanceType_C5ad_16XLarge
+//	InstanceType_C5ad_24XLarge
+//	InstanceType_C5ad_2XLarge
+//	InstanceType_C5ad_4XLarge
+//	InstanceType_C5ad_8XLarge
+//	InstanceType_C5ad_Large
+//	InstanceType_C5ad_XLarge
+//	InstanceType_C5d_12XLarge
+//	InstanceType_C5d_18XLarge
+//	InstanceType_C5d_24XLarge
+//	InstanceType_C5d_2XLarge
+//	InstanceType_C5d_4XLarge
+//	InstanceType_C5d_9XLarge
+//	InstanceType_C5d_Large
+//	InstanceType_C5d_Metal
+//	InstanceType_C5d_XLarge
+//	InstanceType_C5n_18XLarge
+//	InstanceType_C5n_2XLarge
+//	InstanceType_C5n_4XLarge
+//	InstanceType_C5n_9XLarge
+//	InstanceType_C5n_Large
+//	InstanceType_C5n_Metal
+//	InstanceType_C5n_XLarge
+//	InstanceType_C6a_Large
+//	InstanceType_C6a_Metal
+//	InstanceType_C6a_XLarge
+//	InstanceType_C6a_2XLarge
+//	InstanceType_C6a_4XLarge
+//	InstanceType_C6a_8XLarge
+//	InstanceType_C6a_12XLarge
+//	InstanceType_C6a_16XLarge
+//	InstanceType_C6a_24XLarge
+//	InstanceType_C6a_32XLarge
+//	InstanceType_C6a_48XLarge
+//	InstanceType_C6g_12XLarge
+//	InstanceType_C6g_16XLarge
+//	InstanceType_C6g_2XLarge
+//	InstanceType_C6g_4XLarge
+//	InstanceType_C6g_8XLarge
+//	InstanceType_C6g_Large
+//	InstanceType_C6g_Medium
+//	InstanceType_C6g_Metal
+//	InstanceType_C6g_XLarge
+//	InstanceType_C6gd_12XLarge
+//	InstanceType_C6gd_16XLarge
+//	InstanceType_C6gd_2XLarge
+//	InstanceType_C6gd_4XLarge
+//	InstanceType_C6gd_8XLarge
+//	InstanceType_C6gd_Large
+//	InstanceType_C6gd_Medium
+//	InstanceType_C6gd_Metal
+//	InstanceType_C6gd_XLarge
+//	InstanceType_C6i_Large
+//	InstanceType_C6i_XLarge
+//	InstanceType_C6i_2XLarge
+//	InstanceType_C6i_4XLarge
+//	InstanceType_C6i_8XLarge
+//	InstanceType_C6i_12XLarge
+//	InstanceType_C6i_16XLarge
+//	InstanceType_C6i_24XLarge
+//	InstanceType_C6i_32XLarge
+//	InstanceType_C6i_Metal
+//	InstanceType_C6id_Large
+//	InstanceType_C6id_XLarge
+//	InstanceType_C6id_2XLarge
+//	InstanceType_C6id_4XLarge
+//	InstanceType_C6id_8XLarge
+//	InstanceType_C6id_12XLarge
+//	InstanceType_C6id_16XLarge
+//	InstanceType_C6id_24XLarge
+//	InstanceType_C6id_32XLarge
+//	InstanceType_C6id_Metal
+//	InstanceType_Cc2_8XLarge
+//	InstanceType_D2_2XLarge
+//	InstanceType_D2_4XLarge
+//	InstanceType_D2_8XLarge
+//	InstanceType_D2_XLarge
+//	InstanceType_D3_2XLarge
+//	InstanceType_D3_4XLarge
+//	InstanceType_D3_8XLarge
+//	InstanceType_D3_XLarge
+//	InstanceType_D3en_12XLarge
+//	InstanceType_D3en_2XLarge
+//	InstanceType_D3en_4XLarge
+//	InstanceType_D3en_6XLarge
+//	InstanceType_D3en_8XLarge
+//	InstanceType_D3en_XLarge
+//	InstanceType_F1_16XLarge
+//	InstanceType_F1_2XLarge
+//	InstanceType_F1_4XLarge
+//	InstanceType_G2_2XLarge
+//	InstanceType_G2_8XLarge
+//	InstanceType_G3_16XLarge
+//	InstanceType_G3_4XLarge
+//	InstanceType_G3_8XLarge
+//	InstanceType_G3s_XLarge
+//	InstanceType_G4ad_16XLarge
+//	InstanceType_G4ad_XLarge
+//	InstanceType_G4ad_2XLarge
+//	InstanceType_G4ad_4XLarge
+//	InstanceType_G4ad_8XLarge
+//	InstanceType_G4dn_12XLarge
+//	InstanceType_G4dn_16XLarge
+//	InstanceType_G4dn_2XLarge
+//	InstanceType_G4dn_4XLarge
+//	InstanceType_G4dn_8XLarge
+//	InstanceType_G4dn_Metal
+//	InstanceType_G4dn_XLarge
+//	InstanceType_H1_16XLarge
+//	InstanceType_H1_2XLarge
+//	InstanceType_H1_4XLarge
+//	InstanceType_H1_8XLarge
+//	InstanceType_I2_2XLarge
+//	InstanceType_I2_4XLarge
+//	InstanceType_I2_8XLarge
+//	InstanceType_I2_XLarge
+//	InstanceType_I3_16XLarge
+//	InstanceType_I3_2XLarge
+//	InstanceType_I3_4XLarge
+//	InstanceType_I3_8XLarge
+//	InstanceType_I3_Large
+//	InstanceType_I3_XLarge
+//	InstanceType_I3_Metal
+//	InstanceType_I3en_12XLarge
+//	InstanceType_I3en_24XLarge
+//	InstanceType_I3en_2XLarge
+//	InstanceType_I3en_3XLarge
+//	InstanceType_I3en_6XLarge
+//	InstanceType_I3en_Large
+//	InstanceType_I3en_Metal
+//	InstanceType_I3en_XLarge
+//	InstanceType_Inf1_24XLarge
+//	InstanceType_Inf1_2XLarge
+//	InstanceType_Inf1_6XLarge
+//	InstanceType_Inf1_XLarge
+//	InstanceType_M1_Large
+//	InstanceType_M1_Medium
+//	InstanceType_M1_Small
+//	InstanceType_M1_XLarge
+//	InstanceType_M2_2XLarge
+//	InstanceType_M2_4XLarge
+//	InstanceType_M2_XLarge
+//	InstanceType_M3_2XLarge
+//	InstanceType_M3_Large
+//	InstanceType_M3_Medium
+//	InstanceType_M3_XLarge
+//	InstanceType_M4_10XLarge
+//	InstanceType_M4_16XLarge
+//	InstanceType_M4_2XLarge
+//	InstanceType_M4_4XLarge
+//	InstanceType_M4_Large
+//	InstanceType_M4_XLarge
+//	InstanceType_M5_12XLarge
+//	InstanceType_M5_16XLarge
+//	InstanceType_M5_24XLarge
+//	InstanceType_M5_2XLarge
+//	InstanceType_M5_4XLarge
+//	InstanceType_M5_8XLarge
+//	InstanceType_M5_Large
+//	InstanceType_M5_Metal
+//	InstanceType_M5_XLarge
+//	InstanceType_M5a_12XLarge
+//	InstanceType_M5a_16XLarge
+//	InstanceType_M5a_24XLarge
+//	InstanceType_M5a_2XLarge
+//	InstanceType_M5a_4XLarge
+//	InstanceType_M5a_8XLarge
+//	InstanceType_M5a_Large
+//	InstanceType_M5a_XLarge
+//	InstanceType_M5ad_12XLarge
+//	InstanceType_M5ad_16XLarge
+//	InstanceType_M5ad_24XLarge
+//	InstanceType_M5ad_2XLarge
+//	InstanceType_M5ad_4XLarge
+//	InstanceType_M5ad_8XLarge
+//	InstanceType_M5ad_Large
+//	InstanceType_M5as_XLarge
+//	InstanceType_M5d_12XLarge
+//	InstanceType_M5d_16XLarge
+//	InstanceType_M5d_24XLarge
+//	InstanceType_M5d_2XLarge
+//	InstanceType_M5d_4XLarge
+//	InstanceType_M5d_8XLarge
+//	InstanceType_M5d_Large
+//	InstanceType_M5d_Metal
+//	InstanceType_M5d_XLarge
+//	InstanceType_M5dn_12XLarge
+//	InstanceType_M5dn_16XLarge
+//	InstanceType_M5dn_24XLarge
+//	InstanceType_M5dn_2XLarge
+//	InstanceType_M5dn_4XLarge
+//	InstanceType_M5dn_8XLarge
+//	InstanceType_M5dn_Large
+//	InstanceType_M5dn_XLarge
+//	InstanceType_M5n_12XLarge
+//	InstanceType_M5n_16XLarge
+//	InstanceType_M5n_24XLarge
+//	InstanceType_M5n_2XLarge
+//	InstanceType_M5n_4XLarge
+//	InstanceType_M5n_8XLarge
+//	InstanceType_M5n_Large
+//	InstanceType_M5n_XLarge
+//	InstanceType_M5zn_12XLarge
+//	InstanceType_M5zn_2XLarge
+//	InstanceType_M5zn_3XLarge
+//	InstanceType_M5zn_6XLarge
+//	InstanceType_M5zn_Large
+//	InstanceType_M5zn_Metal
+//	InstanceType_M5zn_XLarge
+//	InstanceType_M6a_Large
+//	InstanceType_M6a_Metal
+//	InstanceType_M6a_XLarge
+//	InstanceType_M6a_2XLarge
+//	InstanceType_M6a_4XLarge
+//	InstanceType_M6a_8XLarge
+//	InstanceType_M6a_12XLarge
+//	InstanceType_M6a_16XLarge
+//	InstanceType_M6a_24XLarge
+//	InstanceType_M6a_32XLarge
+//	InstanceType_M6a_48XLarge
+//	InstanceType_M6g_12XLarge
+//	InstanceType_M6g_16XLarge
+//	InstanceType_M6g_2XLarge
+//	InstanceType_M6g_4XLarge
+//	InstanceType_M6g_8XLarge
+//	InstanceType_M6g_Large
+//	InstanceType_M6g_Medium
+//	InstanceType_M6g_Metal
+//	InstanceType_M6g_XLarge
+//	InstanceType_M6gd_12XLarge
+//	InstanceType_M6gd_16XLarge
+//	InstanceType_M6gd_2XLarge
+//	InstanceType_M6gd_4XLarge
+//	InstanceType_M6gd_8XLarge
+//	InstanceType_M6gd_Large
+//	InstanceType_M6gd_Medium
+//	InstanceType_M6gd_Metal
+//	InstanceType_M6gd_XLarge
+//	InstanceType_M6i_Large
+//	InstanceType_M6i_XLarge
+//	InstanceType_M6i_2XLarge
+//	InstanceType_M6i_4XLarge
+//	InstanceType_M6i_8XLarge
+//	InstanceType_M6i_12XLarge
+//	InstanceType_M6i_16XLarge
+//	InstanceType_M6i_24XLarge
+//	InstanceType_M6i_32XLarge
+//	InstanceType_M6i_Metal
+//	InstanceType_M6id_Large
+//	InstanceType_M6id_XLarge
+//	InstanceType_M6id_2XLarge
+//	InstanceType_M6id_4XLarge
+//	InstanceType_M6id_8XLarge
+//	InstanceType_M6id_12XLarge
+//	InstanceType_M6id_16XLarge
+//	InstanceType_M6id_24XLarge
+//	InstanceType_M6id_32XLarge
+//	InstanceType_M6id_Metal
+//	InstanceType_M7a_Medium
+//	InstanceType_M7a_Large
+//	InstanceType_M7a_XLarge
+//	InstanceType_M7a_2XLarge
+//	InstanceType_M7a_4XLarge
+//	InstanceType_M7a_8XLarge
+//	InstanceType_M7a_12XLarge
+//	InstanceType_M7a_16XLarge
+//	InstanceType_M7a_24XLarge
+//	InstanceType_M7a_32XLarge
+//	InstanceType_M7a_48XLarge
+//	InstanceType_M7a_Metal
+//	InstanceType_Mac1_Metal
+//	InstanceType_P2_16XLarge
+//	InstanceType_P2_8XLarge
+//	InstanceType_P2_XLarge
+//	InstanceType_P3_16XLarge
+//	InstanceType_P3_2XLarge
+//	InstanceType_P3_8XLarge
+//	InstanceType_P3dn_24XLarge
+//	InstanceType_P4d_24XLarge
+//	InstanceType_R3_2XLarge
+//	InstanceType_R3_4XLarge
+//	InstanceType_R3_8XLarge
+//	InstanceType_R3_Large
+//	InstanceType_R3_XLarge
+//	InstanceType_R4_16XLarge
+//	InstanceType_R4_2XLarge
+//	InstanceType_R4_4XLarge
+//	InstanceType_R4_8XLarge
+//	InstanceType_R4_Large
+//	InstanceType_R4_XLarge
+//	InstanceType_R5_12XLarge
+//	InstanceType_R5_16XLarge
+//	InstanceType_R5_24XLarge
+//	InstanceType_R5_2XLarge
+//	InstanceType_R5_4XLarge
+//	InstanceType_R5_8XLarge
+//	InstanceType_R5_Large
+//	InstanceType_R5_Metal
+//	InstanceType_R5_XLarge
+//	InstanceType_R5a_12XLarge
+//	InstanceType_R5a_16XLarge
+//	InstanceType_R5a_24XLarge
+//	InstanceType_R5a_2XLarge
+//	InstanceType_R5a_4XLarge
+//	InstanceType_R5a_8XLarge
+//	InstanceType_R5a_Large
+//	InstanceType_R5a_XLarge
+//	InstanceType_R5ad_12XLarge
+//	InstanceType_R5ad_16XLarge
+//	InstanceType_R5ad_24XLarge
+//	InstanceType_R5ad_2XLarge
+//	InstanceType_R5ad_4XLarge
+//	InstanceType_R5ad_8XLarge
+//	InstanceType_R5ad_Large
+//	InstanceType_R5ad_XLarge
+//	InstanceType_R5b_12XLarge
+//	InstanceType_R5b_16XLarge
+//	InstanceType_R5b_24XLarge
+//	InstanceType_R5b_2XLarge
+//	InstanceType_R5b_4XLarge
+//	InstanceType_R5b_8XLarge
+//	InstanceType_R5b_Large
+//	InstanceType_R5b_Metal
+//	InstanceType_R5b_XLarge
+//	InstanceType_R5d_12XLarge
+//	InstanceType_R5d_16XLarge
+//	InstanceType_R5d_24XLarge
+//	InstanceType_R5d_2XLarge
+//	InstanceType_R5d_4XLarge
+//	InstanceType_R5d_8XLarge
+//	InstanceType_R5d_Large
+//	InstanceType_R5d_Metal
+//	InstanceType_R5d_XLarge
+//	InstanceType_R5dn_12XLarge
+//	InstanceType_R5dn_16XLarge
+//	InstanceType_R5dn_24XLarge
+//	InstanceType_R5dn_2XLarge
+//	InstanceType_R5dn_4XLarge
+//	InstanceType_R5dn_8XLarge
+//	InstanceType_R5dn_Large
+//	InstanceType_R5dn_XLarge
+//	InstanceType_R5n_12XLarge
+//	InstanceType_R5n_16XLarge
+//	InstanceType_R5n_24XLarge
+//	InstanceType_R5n_2XLarge
+//	InstanceType_R5n_4XLarge
+//	InstanceType_R5n_8XLarge
+//	InstanceType_R5n_Large
+//	InstanceType_R5n_XLarge
+//	InstanceType_R6g_12XLarge
+//	InstanceType_R6g_16XLarge
+//	InstanceType_R6g_2XLarge
+//	InstanceType_R6g_4XLarge
+//	InstanceType_R6g_8XLarge
+//	InstanceType_R6g_Large
+//	InstanceType_R6g_Medium
+//	InstanceType_R6g_Metal
+//	InstanceType_R6g_XLarge
+//	InstanceType_R6gd_12XLarge
+//	InstanceType_R6gd_16XLarge
+//	InstanceType_R6gd_2XLarge
+//	InstanceType_R6gd_4XLarge
+//	InstanceType_R6gd_8XLarge
+//	InstanceType_R6gd_Large
+//	InstanceType_R6gd_Medium
+//	InstanceType_R6gd_Metal
+//	InstanceType_R6gd_XLarge
+//	InstanceType_R6i_Large
+//	InstanceType_R6i_XLarge
+//	InstanceType_R6i_2XLarge
+//	InstanceType_R6i_4XLarge
+//	InstanceType_R6i_8XLarge
+//	InstanceType_R6i_12XLarge
+//	InstanceType_R6i_16XLarge
+//	InstanceType_R6i_24XLarge
+//	InstanceType_R6i_32XLarge
+//	InstanceType_R6i_Metal
+//	InstanceType_R6id_Large
+//	InstanceType_R6id_XLarge
+//	InstanceType_R6id_2XLarge
+//	InstanceType_R6id_4XLarge
+//	InstanceType_R6id_8XLarge
+//	InstanceType_R6id_12XLarge
+//	InstanceType_R6id_16XLarge
+//	InstanceType_R6id_24XLarge
+//	InstanceType_R6id_32XLarge
+//	InstanceType_R6id_Metal
+//	InstanceType_T1_Micro
+//	InstanceType_T2_2XLarge
+//	InstanceType_T2_Large
+//	InstanceType_T2_Medium
+//	InstanceType_T2_Micro
+//	InstanceType_T2_Nano
+//	InstanceType_T2_Small
+//	InstanceType_T2_XLarge
+//	InstanceType_T3_2XLarge
+//	InstanceType_T3_Large
+//	InstanceType_T3_Medium
+//	InstanceType_T3_Micro
+//	InstanceType_T3_Nano
+//	InstanceType_T3_Small
+//	InstanceType_T3_XLarge
+//	InstanceType_T3a_2XLarge
+//	InstanceType_T3a_Large
+//	InstanceType_T3a_Medium
+//	InstanceType_T3a_Micro
+//	InstanceType_T3a_Nano
+//	InstanceType_T3a_Small
+//	InstanceType_T3a_XLarge
+//	InstanceType_T4g_2XLarge
+//	InstanceType_T4g_Large
+//	InstanceType_T4g_Medium
+//	InstanceType_T4g_Micro
+//	InstanceType_T4g_Nano
+//	InstanceType_T4g_Small
+//	InstanceType_T4g_XLarge
+//	InstanceType_X1_16XLarge
+//	InstanceType_X1_32XLarge
+//	InstanceType_X1e_16XLarge
+//	InstanceType_X1e_2XLarge
+//	InstanceType_X1e_32XLarge
+//	InstanceType_X1e_4XLarge
+//	InstanceType_X1e_8XLarge
+//	InstanceType_X1e_XLarge
+//	InstanceType_Z1d_12XLarge
+//	InstanceType_Z1d_2XLarge
+//	InstanceType_Z1d_3XLarge
+//	InstanceType_Z1d_6XLarge
+//	InstanceType_Z1d_Large
+//	InstanceType_Z1d_Metal
+//	InstanceType_Z1d_XLarge
 type InstanceTypeInput interface {
 	pulumi.Input
 
@@ -961,10 +1434,11 @@ func (o PlacementStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PlacementStrategyInput is an input type that accepts PlacementStrategyArgs and PlacementStrategyOutput values.
-// You can construct a concrete instance of `PlacementStrategyInput` via:
+// PlacementStrategyInput is an input type that accepts values of the PlacementStrategy enum
+// A concrete instance of `PlacementStrategyInput` can be one of the following:
 //
-//	PlacementStrategyArgs{...}
+//	PlacementStrategySpread
+//	PlacementStrategyCluster
 type PlacementStrategyInput interface {
 	pulumi.Input
 
@@ -1133,10 +1607,13 @@ func (o ProtocolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtocolTypeInput is an input type that accepts ProtocolTypeArgs and ProtocolTypeOutput values.
-// You can construct a concrete instance of `ProtocolTypeInput` via:
+// ProtocolTypeInput is an input type that accepts values of the ProtocolType enum
+// A concrete instance of `ProtocolTypeInput` can be one of the following:
 //
-//	ProtocolTypeArgs{...}
+//	ProtocolTypeAll
+//	ProtocolTypeTCP
+//	ProtocolTypeUDP
+//	ProtocolTypeICMP
 type ProtocolTypeInput interface {
 	pulumi.Input
 
@@ -1303,10 +1780,11 @@ func (o TenancyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// TenancyInput is an input type that accepts TenancyArgs and TenancyOutput values.
-// You can construct a concrete instance of `TenancyInput` via:
+// TenancyInput is an input type that accepts values of the Tenancy enum
+// A concrete instance of `TenancyInput` can be one of the following:
 //
-//	TenancyArgs{...}
+//	TenancyDefault
+//	TenancyDedicated
 type TenancyInput interface {
 	pulumi.Input
 
