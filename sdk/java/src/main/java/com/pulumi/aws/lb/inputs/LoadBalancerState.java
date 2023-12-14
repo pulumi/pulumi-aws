@@ -232,6 +232,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * 
+     */
+    @Import(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
+    private @Nullable Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+
+    /**
+     * @return Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * 
+     */
+    public Optional<Output<String>> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
+        return Optional.ofNullable(this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic);
+    }
+
+    /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      * 
      */
@@ -481,6 +496,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         this.enableTlsVersionAndCipherSuiteHeaders = $.enableTlsVersionAndCipherSuiteHeaders;
         this.enableWafFailOpen = $.enableWafFailOpen;
         this.enableXffClientPort = $.enableXffClientPort;
+        this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = $.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         this.idleTimeout = $.idleTimeout;
         this.internal = $.internal;
         this.ipAddressType = $.ipAddressType;
@@ -808,6 +824,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableXffClientPort(Boolean enableXffClientPort) {
             return enableXffClientPort(Output.of(enableXffClientPort));
+        }
+
+        /**
+         * @param enforceSecurityGroupInboundRulesOnPrivateLinkTraffic Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enforceSecurityGroupInboundRulesOnPrivateLinkTraffic(@Nullable Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic) {
+            $.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+            return this;
+        }
+
+        /**
+         * @param enforceSecurityGroupInboundRulesOnPrivateLinkTraffic Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enforceSecurityGroupInboundRulesOnPrivateLinkTraffic(String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic) {
+            return enforceSecurityGroupInboundRulesOnPrivateLinkTraffic(Output.of(enforceSecurityGroupInboundRulesOnPrivateLinkTraffic));
         }
 
         /**

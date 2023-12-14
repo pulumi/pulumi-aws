@@ -25,6 +25,11 @@ export const getPullThroughCacheRule: typeof import("./getPullThroughCacheRule")
 export const getPullThroughCacheRuleOutput: typeof import("./getPullThroughCacheRule").getPullThroughCacheRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getPullThroughCacheRule","getPullThroughCacheRuleOutput"], () => require("./getPullThroughCacheRule"));
 
+export { GetRepositoriesResult } from "./getRepositories";
+export const getRepositories: typeof import("./getRepositories").getRepositories = null as any;
+export const getRepositoriesOutput: typeof import("./getRepositories").getRepositoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositories","getRepositoriesOutput"], () => require("./getRepositories"));
+
 export { GetRepositoryArgs, GetRepositoryResult, GetRepositoryOutputArgs } from "./getRepository";
 export const getRepository: typeof import("./getRepository").getRepository = null as any;
 export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;

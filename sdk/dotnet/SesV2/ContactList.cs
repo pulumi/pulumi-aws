@@ -61,7 +61,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For example:
+    /// Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `id`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:sesv2/contactList:ContactList example example
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.SesV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the contact list.
+        /// Name of the contact list.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -82,19 +82,19 @@ namespace Pulumi.Aws.SesV2
         public Output<string> ContactListName { get; private set; } = null!;
 
         /// <summary>
-        /// A timestamp noting when the contact list was created in ISO 8601 format.
+        /// Timestamp noting when the contact list was created in ISO 8601 format.
         /// </summary>
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// A description of what the contact list is about.
+        /// Description of what the contact list is about.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A timestamp noting the last time the contact list was updated in ISO 8601 format.
+        /// Timestamp noting the last time the contact list was updated in ISO 8601 format.
         /// </summary>
         [Output("lastUpdatedTimestamp")]
         public Output<string> LastUpdatedTimestamp { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class ContactListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the contact list.
+        /// Name of the contact list.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string> ContactListName { get; set; } = null!;
 
         /// <summary>
-        /// A description of what the contact list is about.
+        /// Description of what the contact list is about.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the contact list.
+        /// Name of the contact list.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -222,19 +222,19 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? ContactListName { get; set; }
 
         /// <summary>
-        /// A timestamp noting when the contact list was created in ISO 8601 format.
+        /// Timestamp noting when the contact list was created in ISO 8601 format.
         /// </summary>
         [Input("createdTimestamp")]
         public Input<string>? CreatedTimestamp { get; set; }
 
         /// <summary>
-        /// A description of what the contact list is about.
+        /// Description of what the contact list is about.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A timestamp noting the last time the contact list was updated in ISO 8601 format.
+        /// Timestamp noting the last time the contact list was updated in ISO 8601 format.
         /// </summary>
         [Input("lastUpdatedTimestamp")]
         public Input<string>? LastUpdatedTimestamp { get; set; }

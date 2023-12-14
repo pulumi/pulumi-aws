@@ -13,6 +13,330 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApplicationPortalOptions struct {
+	// Sign-in options for the access portal. See `signInOptions` below.
+	SignInOptions *ApplicationPortalOptionsSignInOptions `pulumi:"signInOptions"`
+	// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
+	Visibility *string `pulumi:"visibility"`
+}
+
+// ApplicationPortalOptionsInput is an input type that accepts ApplicationPortalOptionsArgs and ApplicationPortalOptionsOutput values.
+// You can construct a concrete instance of `ApplicationPortalOptionsInput` via:
+//
+//	ApplicationPortalOptionsArgs{...}
+type ApplicationPortalOptionsInput interface {
+	pulumi.Input
+
+	ToApplicationPortalOptionsOutput() ApplicationPortalOptionsOutput
+	ToApplicationPortalOptionsOutputWithContext(context.Context) ApplicationPortalOptionsOutput
+}
+
+type ApplicationPortalOptionsArgs struct {
+	// Sign-in options for the access portal. See `signInOptions` below.
+	SignInOptions ApplicationPortalOptionsSignInOptionsPtrInput `pulumi:"signInOptions"`
+	// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
+	Visibility pulumi.StringPtrInput `pulumi:"visibility"`
+}
+
+func (ApplicationPortalOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPortalOptions)(nil)).Elem()
+}
+
+func (i ApplicationPortalOptionsArgs) ToApplicationPortalOptionsOutput() ApplicationPortalOptionsOutput {
+	return i.ToApplicationPortalOptionsOutputWithContext(context.Background())
+}
+
+func (i ApplicationPortalOptionsArgs) ToApplicationPortalOptionsOutputWithContext(ctx context.Context) ApplicationPortalOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPortalOptionsOutput)
+}
+
+func (i ApplicationPortalOptionsArgs) ToApplicationPortalOptionsPtrOutput() ApplicationPortalOptionsPtrOutput {
+	return i.ToApplicationPortalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationPortalOptionsArgs) ToApplicationPortalOptionsPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPortalOptionsOutput).ToApplicationPortalOptionsPtrOutputWithContext(ctx)
+}
+
+// ApplicationPortalOptionsPtrInput is an input type that accepts ApplicationPortalOptionsArgs, ApplicationPortalOptionsPtr and ApplicationPortalOptionsPtrOutput values.
+// You can construct a concrete instance of `ApplicationPortalOptionsPtrInput` via:
+//
+//	        ApplicationPortalOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationPortalOptionsPtrInput interface {
+	pulumi.Input
+
+	ToApplicationPortalOptionsPtrOutput() ApplicationPortalOptionsPtrOutput
+	ToApplicationPortalOptionsPtrOutputWithContext(context.Context) ApplicationPortalOptionsPtrOutput
+}
+
+type applicationPortalOptionsPtrType ApplicationPortalOptionsArgs
+
+func ApplicationPortalOptionsPtr(v *ApplicationPortalOptionsArgs) ApplicationPortalOptionsPtrInput {
+	return (*applicationPortalOptionsPtrType)(v)
+}
+
+func (*applicationPortalOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPortalOptions)(nil)).Elem()
+}
+
+func (i *applicationPortalOptionsPtrType) ToApplicationPortalOptionsPtrOutput() ApplicationPortalOptionsPtrOutput {
+	return i.ToApplicationPortalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationPortalOptionsPtrType) ToApplicationPortalOptionsPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPortalOptionsPtrOutput)
+}
+
+type ApplicationPortalOptionsOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPortalOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPortalOptions)(nil)).Elem()
+}
+
+func (o ApplicationPortalOptionsOutput) ToApplicationPortalOptionsOutput() ApplicationPortalOptionsOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsOutput) ToApplicationPortalOptionsOutputWithContext(ctx context.Context) ApplicationPortalOptionsOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsOutput) ToApplicationPortalOptionsPtrOutput() ApplicationPortalOptionsPtrOutput {
+	return o.ToApplicationPortalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationPortalOptionsOutput) ToApplicationPortalOptionsPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPortalOptions) *ApplicationPortalOptions {
+		return &v
+	}).(ApplicationPortalOptionsPtrOutput)
+}
+
+// Sign-in options for the access portal. See `signInOptions` below.
+func (o ApplicationPortalOptionsOutput) SignInOptions() ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return o.ApplyT(func(v ApplicationPortalOptions) *ApplicationPortalOptionsSignInOptions { return v.SignInOptions }).(ApplicationPortalOptionsSignInOptionsPtrOutput)
+}
+
+// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
+func (o ApplicationPortalOptionsOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPortalOptions) *string { return v.Visibility }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationPortalOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPortalOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPortalOptions)(nil)).Elem()
+}
+
+func (o ApplicationPortalOptionsPtrOutput) ToApplicationPortalOptionsPtrOutput() ApplicationPortalOptionsPtrOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsPtrOutput) ToApplicationPortalOptionsPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsPtrOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsPtrOutput) Elem() ApplicationPortalOptionsOutput {
+	return o.ApplyT(func(v *ApplicationPortalOptions) ApplicationPortalOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPortalOptions
+		return ret
+	}).(ApplicationPortalOptionsOutput)
+}
+
+// Sign-in options for the access portal. See `signInOptions` below.
+func (o ApplicationPortalOptionsPtrOutput) SignInOptions() ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return o.ApplyT(func(v *ApplicationPortalOptions) *ApplicationPortalOptionsSignInOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SignInOptions
+	}).(ApplicationPortalOptionsSignInOptionsPtrOutput)
+}
+
+// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
+func (o ApplicationPortalOptionsPtrOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPortalOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationPortalOptionsSignInOptions struct {
+	// URL that accepts authentication requests for an application.
+	ApplicationUrl *string `pulumi:"applicationUrl"`
+	// Determines how IAM Identity Center navigates the user to the target application.
+	// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
+	// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
+	// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
+	Origin string `pulumi:"origin"`
+}
+
+// ApplicationPortalOptionsSignInOptionsInput is an input type that accepts ApplicationPortalOptionsSignInOptionsArgs and ApplicationPortalOptionsSignInOptionsOutput values.
+// You can construct a concrete instance of `ApplicationPortalOptionsSignInOptionsInput` via:
+//
+//	ApplicationPortalOptionsSignInOptionsArgs{...}
+type ApplicationPortalOptionsSignInOptionsInput interface {
+	pulumi.Input
+
+	ToApplicationPortalOptionsSignInOptionsOutput() ApplicationPortalOptionsSignInOptionsOutput
+	ToApplicationPortalOptionsSignInOptionsOutputWithContext(context.Context) ApplicationPortalOptionsSignInOptionsOutput
+}
+
+type ApplicationPortalOptionsSignInOptionsArgs struct {
+	// URL that accepts authentication requests for an application.
+	ApplicationUrl pulumi.StringPtrInput `pulumi:"applicationUrl"`
+	// Determines how IAM Identity Center navigates the user to the target application.
+	// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
+	// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
+	// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
+	Origin pulumi.StringInput `pulumi:"origin"`
+}
+
+func (ApplicationPortalOptionsSignInOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPortalOptionsSignInOptions)(nil)).Elem()
+}
+
+func (i ApplicationPortalOptionsSignInOptionsArgs) ToApplicationPortalOptionsSignInOptionsOutput() ApplicationPortalOptionsSignInOptionsOutput {
+	return i.ToApplicationPortalOptionsSignInOptionsOutputWithContext(context.Background())
+}
+
+func (i ApplicationPortalOptionsSignInOptionsArgs) ToApplicationPortalOptionsSignInOptionsOutputWithContext(ctx context.Context) ApplicationPortalOptionsSignInOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPortalOptionsSignInOptionsOutput)
+}
+
+func (i ApplicationPortalOptionsSignInOptionsArgs) ToApplicationPortalOptionsSignInOptionsPtrOutput() ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return i.ToApplicationPortalOptionsSignInOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationPortalOptionsSignInOptionsArgs) ToApplicationPortalOptionsSignInOptionsPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPortalOptionsSignInOptionsOutput).ToApplicationPortalOptionsSignInOptionsPtrOutputWithContext(ctx)
+}
+
+// ApplicationPortalOptionsSignInOptionsPtrInput is an input type that accepts ApplicationPortalOptionsSignInOptionsArgs, ApplicationPortalOptionsSignInOptionsPtr and ApplicationPortalOptionsSignInOptionsPtrOutput values.
+// You can construct a concrete instance of `ApplicationPortalOptionsSignInOptionsPtrInput` via:
+//
+//	        ApplicationPortalOptionsSignInOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationPortalOptionsSignInOptionsPtrInput interface {
+	pulumi.Input
+
+	ToApplicationPortalOptionsSignInOptionsPtrOutput() ApplicationPortalOptionsSignInOptionsPtrOutput
+	ToApplicationPortalOptionsSignInOptionsPtrOutputWithContext(context.Context) ApplicationPortalOptionsSignInOptionsPtrOutput
+}
+
+type applicationPortalOptionsSignInOptionsPtrType ApplicationPortalOptionsSignInOptionsArgs
+
+func ApplicationPortalOptionsSignInOptionsPtr(v *ApplicationPortalOptionsSignInOptionsArgs) ApplicationPortalOptionsSignInOptionsPtrInput {
+	return (*applicationPortalOptionsSignInOptionsPtrType)(v)
+}
+
+func (*applicationPortalOptionsSignInOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPortalOptionsSignInOptions)(nil)).Elem()
+}
+
+func (i *applicationPortalOptionsSignInOptionsPtrType) ToApplicationPortalOptionsSignInOptionsPtrOutput() ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return i.ToApplicationPortalOptionsSignInOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationPortalOptionsSignInOptionsPtrType) ToApplicationPortalOptionsSignInOptionsPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPortalOptionsSignInOptionsPtrOutput)
+}
+
+type ApplicationPortalOptionsSignInOptionsOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPortalOptionsSignInOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPortalOptionsSignInOptions)(nil)).Elem()
+}
+
+func (o ApplicationPortalOptionsSignInOptionsOutput) ToApplicationPortalOptionsSignInOptionsOutput() ApplicationPortalOptionsSignInOptionsOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsSignInOptionsOutput) ToApplicationPortalOptionsSignInOptionsOutputWithContext(ctx context.Context) ApplicationPortalOptionsSignInOptionsOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsSignInOptionsOutput) ToApplicationPortalOptionsSignInOptionsPtrOutput() ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return o.ToApplicationPortalOptionsSignInOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationPortalOptionsSignInOptionsOutput) ToApplicationPortalOptionsSignInOptionsPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPortalOptionsSignInOptions) *ApplicationPortalOptionsSignInOptions {
+		return &v
+	}).(ApplicationPortalOptionsSignInOptionsPtrOutput)
+}
+
+// URL that accepts authentication requests for an application.
+func (o ApplicationPortalOptionsSignInOptionsOutput) ApplicationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPortalOptionsSignInOptions) *string { return v.ApplicationUrl }).(pulumi.StringPtrOutput)
+}
+
+// Determines how IAM Identity Center navigates the user to the target application.
+// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
+// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
+// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
+func (o ApplicationPortalOptionsSignInOptionsOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPortalOptionsSignInOptions) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+type ApplicationPortalOptionsSignInOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPortalOptionsSignInOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPortalOptionsSignInOptions)(nil)).Elem()
+}
+
+func (o ApplicationPortalOptionsSignInOptionsPtrOutput) ToApplicationPortalOptionsSignInOptionsPtrOutput() ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsSignInOptionsPtrOutput) ToApplicationPortalOptionsSignInOptionsPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsSignInOptionsPtrOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsSignInOptionsPtrOutput) Elem() ApplicationPortalOptionsSignInOptionsOutput {
+	return o.ApplyT(func(v *ApplicationPortalOptionsSignInOptions) ApplicationPortalOptionsSignInOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPortalOptionsSignInOptions
+		return ret
+	}).(ApplicationPortalOptionsSignInOptionsOutput)
+}
+
+// URL that accepts authentication requests for an application.
+func (o ApplicationPortalOptionsSignInOptionsPtrOutput) ApplicationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPortalOptionsSignInOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines how IAM Identity Center navigates the user to the target application.
+// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
+// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
+// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
+func (o ApplicationPortalOptionsSignInOptionsPtrOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPortalOptionsSignInOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Origin
+	}).(pulumi.StringPtrOutput)
+}
+
 type CustomerManagedPolicyAttachmentCustomerManagedPolicyReference struct {
 	// Name of the customer managed IAM Policy to be attached.
 	Name string `pulumi:"name"`
@@ -692,7 +1016,443 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetApplicationPortalOption struct {
+	SignInOptions []GetApplicationPortalOptionSignInOption `pulumi:"signInOptions"`
+	Visibility    string                                   `pulumi:"visibility"`
+}
+
+// GetApplicationPortalOptionInput is an input type that accepts GetApplicationPortalOptionArgs and GetApplicationPortalOptionOutput values.
+// You can construct a concrete instance of `GetApplicationPortalOptionInput` via:
+//
+//	GetApplicationPortalOptionArgs{...}
+type GetApplicationPortalOptionInput interface {
+	pulumi.Input
+
+	ToGetApplicationPortalOptionOutput() GetApplicationPortalOptionOutput
+	ToGetApplicationPortalOptionOutputWithContext(context.Context) GetApplicationPortalOptionOutput
+}
+
+type GetApplicationPortalOptionArgs struct {
+	SignInOptions GetApplicationPortalOptionSignInOptionArrayInput `pulumi:"signInOptions"`
+	Visibility    pulumi.StringInput                               `pulumi:"visibility"`
+}
+
+func (GetApplicationPortalOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationPortalOption)(nil)).Elem()
+}
+
+func (i GetApplicationPortalOptionArgs) ToGetApplicationPortalOptionOutput() GetApplicationPortalOptionOutput {
+	return i.ToGetApplicationPortalOptionOutputWithContext(context.Background())
+}
+
+func (i GetApplicationPortalOptionArgs) ToGetApplicationPortalOptionOutputWithContext(ctx context.Context) GetApplicationPortalOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationPortalOptionOutput)
+}
+
+// GetApplicationPortalOptionArrayInput is an input type that accepts GetApplicationPortalOptionArray and GetApplicationPortalOptionArrayOutput values.
+// You can construct a concrete instance of `GetApplicationPortalOptionArrayInput` via:
+//
+//	GetApplicationPortalOptionArray{ GetApplicationPortalOptionArgs{...} }
+type GetApplicationPortalOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationPortalOptionArrayOutput() GetApplicationPortalOptionArrayOutput
+	ToGetApplicationPortalOptionArrayOutputWithContext(context.Context) GetApplicationPortalOptionArrayOutput
+}
+
+type GetApplicationPortalOptionArray []GetApplicationPortalOptionInput
+
+func (GetApplicationPortalOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationPortalOption)(nil)).Elem()
+}
+
+func (i GetApplicationPortalOptionArray) ToGetApplicationPortalOptionArrayOutput() GetApplicationPortalOptionArrayOutput {
+	return i.ToGetApplicationPortalOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationPortalOptionArray) ToGetApplicationPortalOptionArrayOutputWithContext(ctx context.Context) GetApplicationPortalOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationPortalOptionArrayOutput)
+}
+
+type GetApplicationPortalOptionOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationPortalOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationPortalOption)(nil)).Elem()
+}
+
+func (o GetApplicationPortalOptionOutput) ToGetApplicationPortalOptionOutput() GetApplicationPortalOptionOutput {
+	return o
+}
+
+func (o GetApplicationPortalOptionOutput) ToGetApplicationPortalOptionOutputWithContext(ctx context.Context) GetApplicationPortalOptionOutput {
+	return o
+}
+
+func (o GetApplicationPortalOptionOutput) SignInOptions() GetApplicationPortalOptionSignInOptionArrayOutput {
+	return o.ApplyT(func(v GetApplicationPortalOption) []GetApplicationPortalOptionSignInOption { return v.SignInOptions }).(GetApplicationPortalOptionSignInOptionArrayOutput)
+}
+
+func (o GetApplicationPortalOptionOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationPortalOption) string { return v.Visibility }).(pulumi.StringOutput)
+}
+
+type GetApplicationPortalOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationPortalOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationPortalOption)(nil)).Elem()
+}
+
+func (o GetApplicationPortalOptionArrayOutput) ToGetApplicationPortalOptionArrayOutput() GetApplicationPortalOptionArrayOutput {
+	return o
+}
+
+func (o GetApplicationPortalOptionArrayOutput) ToGetApplicationPortalOptionArrayOutputWithContext(ctx context.Context) GetApplicationPortalOptionArrayOutput {
+	return o
+}
+
+func (o GetApplicationPortalOptionArrayOutput) Index(i pulumi.IntInput) GetApplicationPortalOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationPortalOption {
+		return vs[0].([]GetApplicationPortalOption)[vs[1].(int)]
+	}).(GetApplicationPortalOptionOutput)
+}
+
+type GetApplicationPortalOptionSignInOption struct {
+	ApplicationUrl string `pulumi:"applicationUrl"`
+	Origin         string `pulumi:"origin"`
+}
+
+// GetApplicationPortalOptionSignInOptionInput is an input type that accepts GetApplicationPortalOptionSignInOptionArgs and GetApplicationPortalOptionSignInOptionOutput values.
+// You can construct a concrete instance of `GetApplicationPortalOptionSignInOptionInput` via:
+//
+//	GetApplicationPortalOptionSignInOptionArgs{...}
+type GetApplicationPortalOptionSignInOptionInput interface {
+	pulumi.Input
+
+	ToGetApplicationPortalOptionSignInOptionOutput() GetApplicationPortalOptionSignInOptionOutput
+	ToGetApplicationPortalOptionSignInOptionOutputWithContext(context.Context) GetApplicationPortalOptionSignInOptionOutput
+}
+
+type GetApplicationPortalOptionSignInOptionArgs struct {
+	ApplicationUrl pulumi.StringInput `pulumi:"applicationUrl"`
+	Origin         pulumi.StringInput `pulumi:"origin"`
+}
+
+func (GetApplicationPortalOptionSignInOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationPortalOptionSignInOption)(nil)).Elem()
+}
+
+func (i GetApplicationPortalOptionSignInOptionArgs) ToGetApplicationPortalOptionSignInOptionOutput() GetApplicationPortalOptionSignInOptionOutput {
+	return i.ToGetApplicationPortalOptionSignInOptionOutputWithContext(context.Background())
+}
+
+func (i GetApplicationPortalOptionSignInOptionArgs) ToGetApplicationPortalOptionSignInOptionOutputWithContext(ctx context.Context) GetApplicationPortalOptionSignInOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationPortalOptionSignInOptionOutput)
+}
+
+// GetApplicationPortalOptionSignInOptionArrayInput is an input type that accepts GetApplicationPortalOptionSignInOptionArray and GetApplicationPortalOptionSignInOptionArrayOutput values.
+// You can construct a concrete instance of `GetApplicationPortalOptionSignInOptionArrayInput` via:
+//
+//	GetApplicationPortalOptionSignInOptionArray{ GetApplicationPortalOptionSignInOptionArgs{...} }
+type GetApplicationPortalOptionSignInOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationPortalOptionSignInOptionArrayOutput() GetApplicationPortalOptionSignInOptionArrayOutput
+	ToGetApplicationPortalOptionSignInOptionArrayOutputWithContext(context.Context) GetApplicationPortalOptionSignInOptionArrayOutput
+}
+
+type GetApplicationPortalOptionSignInOptionArray []GetApplicationPortalOptionSignInOptionInput
+
+func (GetApplicationPortalOptionSignInOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationPortalOptionSignInOption)(nil)).Elem()
+}
+
+func (i GetApplicationPortalOptionSignInOptionArray) ToGetApplicationPortalOptionSignInOptionArrayOutput() GetApplicationPortalOptionSignInOptionArrayOutput {
+	return i.ToGetApplicationPortalOptionSignInOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationPortalOptionSignInOptionArray) ToGetApplicationPortalOptionSignInOptionArrayOutputWithContext(ctx context.Context) GetApplicationPortalOptionSignInOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationPortalOptionSignInOptionArrayOutput)
+}
+
+type GetApplicationPortalOptionSignInOptionOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationPortalOptionSignInOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationPortalOptionSignInOption)(nil)).Elem()
+}
+
+func (o GetApplicationPortalOptionSignInOptionOutput) ToGetApplicationPortalOptionSignInOptionOutput() GetApplicationPortalOptionSignInOptionOutput {
+	return o
+}
+
+func (o GetApplicationPortalOptionSignInOptionOutput) ToGetApplicationPortalOptionSignInOptionOutputWithContext(ctx context.Context) GetApplicationPortalOptionSignInOptionOutput {
+	return o
+}
+
+func (o GetApplicationPortalOptionSignInOptionOutput) ApplicationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationPortalOptionSignInOption) string { return v.ApplicationUrl }).(pulumi.StringOutput)
+}
+
+func (o GetApplicationPortalOptionSignInOptionOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationPortalOptionSignInOption) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+type GetApplicationPortalOptionSignInOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationPortalOptionSignInOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationPortalOptionSignInOption)(nil)).Elem()
+}
+
+func (o GetApplicationPortalOptionSignInOptionArrayOutput) ToGetApplicationPortalOptionSignInOptionArrayOutput() GetApplicationPortalOptionSignInOptionArrayOutput {
+	return o
+}
+
+func (o GetApplicationPortalOptionSignInOptionArrayOutput) ToGetApplicationPortalOptionSignInOptionArrayOutputWithContext(ctx context.Context) GetApplicationPortalOptionSignInOptionArrayOutput {
+	return o
+}
+
+func (o GetApplicationPortalOptionSignInOptionArrayOutput) Index(i pulumi.IntInput) GetApplicationPortalOptionSignInOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationPortalOptionSignInOption {
+		return vs[0].([]GetApplicationPortalOptionSignInOption)[vs[1].(int)]
+	}).(GetApplicationPortalOptionSignInOptionOutput)
+}
+
+type GetApplicationProvidersApplicationProvider struct {
+	// ARN of the application provider.
+	ApplicationProviderArn string `pulumi:"applicationProviderArn"`
+	// An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
+	DisplayDatas []GetApplicationProvidersApplicationProviderDisplayData `pulumi:"displayDatas"`
+	// Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
+	FederationProtocol string `pulumi:"federationProtocol"`
+}
+
+// GetApplicationProvidersApplicationProviderInput is an input type that accepts GetApplicationProvidersApplicationProviderArgs and GetApplicationProvidersApplicationProviderOutput values.
+// You can construct a concrete instance of `GetApplicationProvidersApplicationProviderInput` via:
+//
+//	GetApplicationProvidersApplicationProviderArgs{...}
+type GetApplicationProvidersApplicationProviderInput interface {
+	pulumi.Input
+
+	ToGetApplicationProvidersApplicationProviderOutput() GetApplicationProvidersApplicationProviderOutput
+	ToGetApplicationProvidersApplicationProviderOutputWithContext(context.Context) GetApplicationProvidersApplicationProviderOutput
+}
+
+type GetApplicationProvidersApplicationProviderArgs struct {
+	// ARN of the application provider.
+	ApplicationProviderArn pulumi.StringInput `pulumi:"applicationProviderArn"`
+	// An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
+	DisplayDatas GetApplicationProvidersApplicationProviderDisplayDataArrayInput `pulumi:"displayDatas"`
+	// Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
+	FederationProtocol pulumi.StringInput `pulumi:"federationProtocol"`
+}
+
+func (GetApplicationProvidersApplicationProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationProvidersApplicationProvider)(nil)).Elem()
+}
+
+func (i GetApplicationProvidersApplicationProviderArgs) ToGetApplicationProvidersApplicationProviderOutput() GetApplicationProvidersApplicationProviderOutput {
+	return i.ToGetApplicationProvidersApplicationProviderOutputWithContext(context.Background())
+}
+
+func (i GetApplicationProvidersApplicationProviderArgs) ToGetApplicationProvidersApplicationProviderOutputWithContext(ctx context.Context) GetApplicationProvidersApplicationProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationProvidersApplicationProviderOutput)
+}
+
+// GetApplicationProvidersApplicationProviderArrayInput is an input type that accepts GetApplicationProvidersApplicationProviderArray and GetApplicationProvidersApplicationProviderArrayOutput values.
+// You can construct a concrete instance of `GetApplicationProvidersApplicationProviderArrayInput` via:
+//
+//	GetApplicationProvidersApplicationProviderArray{ GetApplicationProvidersApplicationProviderArgs{...} }
+type GetApplicationProvidersApplicationProviderArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationProvidersApplicationProviderArrayOutput() GetApplicationProvidersApplicationProviderArrayOutput
+	ToGetApplicationProvidersApplicationProviderArrayOutputWithContext(context.Context) GetApplicationProvidersApplicationProviderArrayOutput
+}
+
+type GetApplicationProvidersApplicationProviderArray []GetApplicationProvidersApplicationProviderInput
+
+func (GetApplicationProvidersApplicationProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationProvidersApplicationProvider)(nil)).Elem()
+}
+
+func (i GetApplicationProvidersApplicationProviderArray) ToGetApplicationProvidersApplicationProviderArrayOutput() GetApplicationProvidersApplicationProviderArrayOutput {
+	return i.ToGetApplicationProvidersApplicationProviderArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationProvidersApplicationProviderArray) ToGetApplicationProvidersApplicationProviderArrayOutputWithContext(ctx context.Context) GetApplicationProvidersApplicationProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationProvidersApplicationProviderArrayOutput)
+}
+
+type GetApplicationProvidersApplicationProviderOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationProvidersApplicationProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationProvidersApplicationProvider)(nil)).Elem()
+}
+
+func (o GetApplicationProvidersApplicationProviderOutput) ToGetApplicationProvidersApplicationProviderOutput() GetApplicationProvidersApplicationProviderOutput {
+	return o
+}
+
+func (o GetApplicationProvidersApplicationProviderOutput) ToGetApplicationProvidersApplicationProviderOutputWithContext(ctx context.Context) GetApplicationProvidersApplicationProviderOutput {
+	return o
+}
+
+// ARN of the application provider.
+func (o GetApplicationProvidersApplicationProviderOutput) ApplicationProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationProvidersApplicationProvider) string { return v.ApplicationProviderArn }).(pulumi.StringOutput)
+}
+
+// An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
+func (o GetApplicationProvidersApplicationProviderOutput) DisplayDatas() GetApplicationProvidersApplicationProviderDisplayDataArrayOutput {
+	return o.ApplyT(func(v GetApplicationProvidersApplicationProvider) []GetApplicationProvidersApplicationProviderDisplayData {
+		return v.DisplayDatas
+	}).(GetApplicationProvidersApplicationProviderDisplayDataArrayOutput)
+}
+
+// Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
+func (o GetApplicationProvidersApplicationProviderOutput) FederationProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationProvidersApplicationProvider) string { return v.FederationProtocol }).(pulumi.StringOutput)
+}
+
+type GetApplicationProvidersApplicationProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationProvidersApplicationProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationProvidersApplicationProvider)(nil)).Elem()
+}
+
+func (o GetApplicationProvidersApplicationProviderArrayOutput) ToGetApplicationProvidersApplicationProviderArrayOutput() GetApplicationProvidersApplicationProviderArrayOutput {
+	return o
+}
+
+func (o GetApplicationProvidersApplicationProviderArrayOutput) ToGetApplicationProvidersApplicationProviderArrayOutputWithContext(ctx context.Context) GetApplicationProvidersApplicationProviderArrayOutput {
+	return o
+}
+
+func (o GetApplicationProvidersApplicationProviderArrayOutput) Index(i pulumi.IntInput) GetApplicationProvidersApplicationProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationProvidersApplicationProvider {
+		return vs[0].([]GetApplicationProvidersApplicationProvider)[vs[1].(int)]
+	}).(GetApplicationProvidersApplicationProviderOutput)
+}
+
+type GetApplicationProvidersApplicationProviderDisplayData struct {
+	// Description of the application provider.
+	Description string `pulumi:"description"`
+	// Name of the application provider.
+	DisplayName string `pulumi:"displayName"`
+	// URL that points to an icon that represents the application provider.
+	IconUrl string `pulumi:"iconUrl"`
+}
+
+// GetApplicationProvidersApplicationProviderDisplayDataInput is an input type that accepts GetApplicationProvidersApplicationProviderDisplayDataArgs and GetApplicationProvidersApplicationProviderDisplayDataOutput values.
+// You can construct a concrete instance of `GetApplicationProvidersApplicationProviderDisplayDataInput` via:
+//
+//	GetApplicationProvidersApplicationProviderDisplayDataArgs{...}
+type GetApplicationProvidersApplicationProviderDisplayDataInput interface {
+	pulumi.Input
+
+	ToGetApplicationProvidersApplicationProviderDisplayDataOutput() GetApplicationProvidersApplicationProviderDisplayDataOutput
+	ToGetApplicationProvidersApplicationProviderDisplayDataOutputWithContext(context.Context) GetApplicationProvidersApplicationProviderDisplayDataOutput
+}
+
+type GetApplicationProvidersApplicationProviderDisplayDataArgs struct {
+	// Description of the application provider.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Name of the application provider.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// URL that points to an icon that represents the application provider.
+	IconUrl pulumi.StringInput `pulumi:"iconUrl"`
+}
+
+func (GetApplicationProvidersApplicationProviderDisplayDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationProvidersApplicationProviderDisplayData)(nil)).Elem()
+}
+
+func (i GetApplicationProvidersApplicationProviderDisplayDataArgs) ToGetApplicationProvidersApplicationProviderDisplayDataOutput() GetApplicationProvidersApplicationProviderDisplayDataOutput {
+	return i.ToGetApplicationProvidersApplicationProviderDisplayDataOutputWithContext(context.Background())
+}
+
+func (i GetApplicationProvidersApplicationProviderDisplayDataArgs) ToGetApplicationProvidersApplicationProviderDisplayDataOutputWithContext(ctx context.Context) GetApplicationProvidersApplicationProviderDisplayDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationProvidersApplicationProviderDisplayDataOutput)
+}
+
+// GetApplicationProvidersApplicationProviderDisplayDataArrayInput is an input type that accepts GetApplicationProvidersApplicationProviderDisplayDataArray and GetApplicationProvidersApplicationProviderDisplayDataArrayOutput values.
+// You can construct a concrete instance of `GetApplicationProvidersApplicationProviderDisplayDataArrayInput` via:
+//
+//	GetApplicationProvidersApplicationProviderDisplayDataArray{ GetApplicationProvidersApplicationProviderDisplayDataArgs{...} }
+type GetApplicationProvidersApplicationProviderDisplayDataArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationProvidersApplicationProviderDisplayDataArrayOutput() GetApplicationProvidersApplicationProviderDisplayDataArrayOutput
+	ToGetApplicationProvidersApplicationProviderDisplayDataArrayOutputWithContext(context.Context) GetApplicationProvidersApplicationProviderDisplayDataArrayOutput
+}
+
+type GetApplicationProvidersApplicationProviderDisplayDataArray []GetApplicationProvidersApplicationProviderDisplayDataInput
+
+func (GetApplicationProvidersApplicationProviderDisplayDataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationProvidersApplicationProviderDisplayData)(nil)).Elem()
+}
+
+func (i GetApplicationProvidersApplicationProviderDisplayDataArray) ToGetApplicationProvidersApplicationProviderDisplayDataArrayOutput() GetApplicationProvidersApplicationProviderDisplayDataArrayOutput {
+	return i.ToGetApplicationProvidersApplicationProviderDisplayDataArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationProvidersApplicationProviderDisplayDataArray) ToGetApplicationProvidersApplicationProviderDisplayDataArrayOutputWithContext(ctx context.Context) GetApplicationProvidersApplicationProviderDisplayDataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationProvidersApplicationProviderDisplayDataArrayOutput)
+}
+
+type GetApplicationProvidersApplicationProviderDisplayDataOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationProvidersApplicationProviderDisplayDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationProvidersApplicationProviderDisplayData)(nil)).Elem()
+}
+
+func (o GetApplicationProvidersApplicationProviderDisplayDataOutput) ToGetApplicationProvidersApplicationProviderDisplayDataOutput() GetApplicationProvidersApplicationProviderDisplayDataOutput {
+	return o
+}
+
+func (o GetApplicationProvidersApplicationProviderDisplayDataOutput) ToGetApplicationProvidersApplicationProviderDisplayDataOutputWithContext(ctx context.Context) GetApplicationProvidersApplicationProviderDisplayDataOutput {
+	return o
+}
+
+// Description of the application provider.
+func (o GetApplicationProvidersApplicationProviderDisplayDataOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationProvidersApplicationProviderDisplayData) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Name of the application provider.
+func (o GetApplicationProvidersApplicationProviderDisplayDataOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationProvidersApplicationProviderDisplayData) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// URL that points to an icon that represents the application provider.
+func (o GetApplicationProvidersApplicationProviderDisplayDataOutput) IconUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationProvidersApplicationProviderDisplayData) string { return v.IconUrl }).(pulumi.StringOutput)
+}
+
+type GetApplicationProvidersApplicationProviderDisplayDataArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationProvidersApplicationProviderDisplayDataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationProvidersApplicationProviderDisplayData)(nil)).Elem()
+}
+
+func (o GetApplicationProvidersApplicationProviderDisplayDataArrayOutput) ToGetApplicationProvidersApplicationProviderDisplayDataArrayOutput() GetApplicationProvidersApplicationProviderDisplayDataArrayOutput {
+	return o
+}
+
+func (o GetApplicationProvidersApplicationProviderDisplayDataArrayOutput) ToGetApplicationProvidersApplicationProviderDisplayDataArrayOutputWithContext(ctx context.Context) GetApplicationProvidersApplicationProviderDisplayDataArrayOutput {
+	return o
+}
+
+func (o GetApplicationProvidersApplicationProviderDisplayDataArrayOutput) Index(i pulumi.IntInput) GetApplicationProvidersApplicationProviderDisplayDataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationProvidersApplicationProviderDisplayData {
+		return vs[0].([]GetApplicationProvidersApplicationProviderDisplayData)[vs[1].(int)]
+	}).(GetApplicationProvidersApplicationProviderDisplayDataOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPortalOptionsInput)(nil)).Elem(), ApplicationPortalOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPortalOptionsPtrInput)(nil)).Elem(), ApplicationPortalOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPortalOptionsSignInOptionsInput)(nil)).Elem(), ApplicationPortalOptionsSignInOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPortalOptionsSignInOptionsPtrInput)(nil)).Elem(), ApplicationPortalOptionsSignInOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceInput)(nil)).Elem(), CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributesAttributeInput)(nil)).Elem(), InstanceAccessControlAttributesAttributeArgs{})
@@ -703,6 +1463,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationPortalOptionInput)(nil)).Elem(), GetApplicationPortalOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationPortalOptionArrayInput)(nil)).Elem(), GetApplicationPortalOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationPortalOptionSignInOptionInput)(nil)).Elem(), GetApplicationPortalOptionSignInOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationPortalOptionSignInOptionArrayInput)(nil)).Elem(), GetApplicationPortalOptionSignInOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationProvidersApplicationProviderInput)(nil)).Elem(), GetApplicationProvidersApplicationProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationProvidersApplicationProviderArrayInput)(nil)).Elem(), GetApplicationProvidersApplicationProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationProvidersApplicationProviderDisplayDataInput)(nil)).Elem(), GetApplicationProvidersApplicationProviderDisplayDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationProvidersApplicationProviderDisplayDataArrayInput)(nil)).Elem(), GetApplicationProvidersApplicationProviderDisplayDataArray{})
+	pulumi.RegisterOutputType(ApplicationPortalOptionsOutput{})
+	pulumi.RegisterOutputType(ApplicationPortalOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationPortalOptionsSignInOptionsOutput{})
+	pulumi.RegisterOutputType(ApplicationPortalOptionsSignInOptionsPtrOutput{})
 	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput{})
 	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributesAttributeOutput{})
@@ -713,4 +1485,12 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput{})
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput{})
+	pulumi.RegisterOutputType(GetApplicationPortalOptionOutput{})
+	pulumi.RegisterOutputType(GetApplicationPortalOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationPortalOptionSignInOptionOutput{})
+	pulumi.RegisterOutputType(GetApplicationPortalOptionSignInOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationProvidersApplicationProviderOutput{})
+	pulumi.RegisterOutputType(GetApplicationProvidersApplicationProviderArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationProvidersApplicationProviderDisplayDataOutput{})
+	pulumi.RegisterOutputType(GetApplicationProvidersApplicationProviderDisplayDataArrayOutput{})
 }

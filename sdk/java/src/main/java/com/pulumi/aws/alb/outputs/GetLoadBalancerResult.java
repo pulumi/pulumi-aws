@@ -28,6 +28,7 @@ public final class GetLoadBalancerResult {
     private Boolean enableTlsVersionAndCipherSuiteHeaders;
     private Boolean enableWafFailOpen;
     private Boolean enableXffClientPort;
+    private String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -86,6 +87,9 @@ public final class GetLoadBalancerResult {
     }
     public Boolean enableXffClientPort() {
         return this.enableXffClientPort;
+    }
+    public String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
+        return this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -156,6 +160,7 @@ public final class GetLoadBalancerResult {
         private Boolean enableTlsVersionAndCipherSuiteHeaders;
         private Boolean enableWafFailOpen;
         private Boolean enableXffClientPort;
+        private String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         private String id;
         private Integer idleTimeout;
         private Boolean internal;
@@ -186,6 +191,7 @@ public final class GetLoadBalancerResult {
     	      this.enableTlsVersionAndCipherSuiteHeaders = defaults.enableTlsVersionAndCipherSuiteHeaders;
     	      this.enableWafFailOpen = defaults.enableWafFailOpen;
     	      this.enableXffClientPort = defaults.enableXffClientPort;
+    	      this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = defaults.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     	      this.id = defaults.id;
     	      this.idleTimeout = defaults.idleTimeout;
     	      this.internal = defaults.internal;
@@ -265,6 +271,11 @@ public final class GetLoadBalancerResult {
         @CustomType.Setter
         public Builder enableXffClientPort(Boolean enableXffClientPort) {
             this.enableXffClientPort = Objects.requireNonNull(enableXffClientPort);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enforceSecurityGroupInboundRulesOnPrivateLinkTraffic(String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic) {
+            this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = Objects.requireNonNull(enforceSecurityGroupInboundRulesOnPrivateLinkTraffic);
             return this;
         }
         @CustomType.Setter
@@ -361,6 +372,7 @@ public final class GetLoadBalancerResult {
             _resultValue.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             _resultValue.enableWafFailOpen = enableWafFailOpen;
             _resultValue.enableXffClientPort = enableXffClientPort;
+            _resultValue.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
             _resultValue.id = id;
             _resultValue.idleTimeout = idleTimeout;
             _resultValue.internal = internal;

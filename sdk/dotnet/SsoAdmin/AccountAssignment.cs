@@ -12,6 +12,8 @@ namespace Pulumi.Aws.SsoAdmin
     /// <summary>
     /// Provides a Single Sign-On (SSO) Account Assignment resource
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:

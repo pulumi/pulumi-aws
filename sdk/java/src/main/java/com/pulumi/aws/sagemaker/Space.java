@@ -106,6 +106,20 @@ public class Space extends com.pulumi.resources.CustomResource {
         return this.homeEfsFileSystemUid;
     }
     /**
+     * The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    @Export(name="spaceDisplayName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> spaceDisplayName;
+
+    /**
+     * @return The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    public Output<Optional<String>> spaceDisplayName() {
+        return Codegen.optional(this.spaceDisplayName);
+    }
+    /**
      * The name of the space.
      * 
      */
@@ -164,6 +178,20 @@ public class Space extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     * 
+     */
+    @Export(name="url", refs={String.class}, tree="[0]")
+    private Output<String> url;
+
+    /**
+     * @return Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     * 
+     */
+    public Output<String> url() {
+        return this.url;
     }
 
     /**

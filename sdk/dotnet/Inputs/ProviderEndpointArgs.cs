@@ -495,6 +495,9 @@ namespace Pulumi.Aws.Inputs
         [Input("logs")]
         public Input<string>? Logs { get; set; }
 
+        [Input("lookoutmetrics")]
+        public Input<string>? Lookoutmetrics { get; set; }
+
         [Input("macie2")]
         public Input<string>? Macie2 { get; set; }
 

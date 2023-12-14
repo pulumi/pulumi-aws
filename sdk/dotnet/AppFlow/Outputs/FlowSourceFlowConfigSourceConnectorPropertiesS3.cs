@@ -20,7 +20,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// <summary>
         /// Amazon S3 bucket prefix.
         /// </summary>
-        public readonly string? BucketPrefix;
+        public readonly string BucketPrefix;
         /// <summary>
         /// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         private FlowSourceFlowConfigSourceConnectorPropertiesS3(
             string bucketName,
 
-            string? bucketPrefix,
+            string bucketPrefix,
 
             Outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig? s3InputFormatConfig)
         {

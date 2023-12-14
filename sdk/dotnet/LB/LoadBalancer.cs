@@ -236,6 +236,12 @@ namespace Pulumi.Aws.LB
         public Output<bool?> EnableXffClientPort { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        /// </summary>
+        [Output("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        public Output<string> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; private set; } = null!;
+
+        /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         /// </summary>
         [Output("idleTimeout")]
@@ -447,6 +453,12 @@ namespace Pulumi.Aws.LB
         public Input<bool>? EnableXffClientPort { get; set; }
 
         /// <summary>
+        /// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        /// </summary>
+        [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
+
+        /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         /// </summary>
         [Input("idleTimeout")]
@@ -637,6 +649,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("enableXffClientPort")]
         public Input<bool>? EnableXffClientPort { get; set; }
+
+        /// <summary>
+        /// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        /// </summary>
+        [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
 
         /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.

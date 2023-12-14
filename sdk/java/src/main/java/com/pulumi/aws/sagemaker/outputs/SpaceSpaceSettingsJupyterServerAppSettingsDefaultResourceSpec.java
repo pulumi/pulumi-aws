@@ -27,6 +27,11 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec
      */
     private @Nullable String sagemakerImageArn;
     /**
+     * @return The SageMaker Image Version Alias.
+     * 
+     */
+    private @Nullable String sagemakerImageVersionAlias;
+    /**
      * @return The ARN of the image version created on the instance.
      * 
      */
@@ -55,6 +60,13 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec
         return Optional.ofNullable(this.sagemakerImageArn);
     }
     /**
+     * @return The SageMaker Image Version Alias.
+     * 
+     */
+    public Optional<String> sagemakerImageVersionAlias() {
+        return Optional.ofNullable(this.sagemakerImageVersionAlias);
+    }
+    /**
      * @return The ARN of the image version created on the instance.
      * 
      */
@@ -74,6 +86,7 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec
         private @Nullable String instanceType;
         private @Nullable String lifecycleConfigArn;
         private @Nullable String sagemakerImageArn;
+        private @Nullable String sagemakerImageVersionAlias;
         private @Nullable String sagemakerImageVersionArn;
         public Builder() {}
         public Builder(SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaults) {
@@ -81,6 +94,7 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec
     	      this.instanceType = defaults.instanceType;
     	      this.lifecycleConfigArn = defaults.lifecycleConfigArn;
     	      this.sagemakerImageArn = defaults.sagemakerImageArn;
+    	      this.sagemakerImageVersionAlias = defaults.sagemakerImageVersionAlias;
     	      this.sagemakerImageVersionArn = defaults.sagemakerImageVersionArn;
         }
 
@@ -100,6 +114,11 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec
             return this;
         }
         @CustomType.Setter
+        public Builder sagemakerImageVersionAlias(@Nullable String sagemakerImageVersionAlias) {
+            this.sagemakerImageVersionAlias = sagemakerImageVersionAlias;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sagemakerImageVersionArn(@Nullable String sagemakerImageVersionArn) {
             this.sagemakerImageVersionArn = sagemakerImageVersionArn;
             return this;
@@ -109,6 +128,7 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec
             _resultValue.instanceType = instanceType;
             _resultValue.lifecycleConfigArn = lifecycleConfigArn;
             _resultValue.sagemakerImageArn = sagemakerImageArn;
+            _resultValue.sagemakerImageVersionAlias = sagemakerImageVersionAlias;
             _resultValue.sagemakerImageVersionArn = sagemakerImageVersionArn;
             return _resultValue;
         }

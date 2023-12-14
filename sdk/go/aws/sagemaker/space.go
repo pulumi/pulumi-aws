@@ -60,6 +60,8 @@ type Space struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName pulumi.StringPtrOutput `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
@@ -70,6 +72,8 @@ type Space struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewSpace registers a new resource with the given unique name, arguments, and options.
@@ -118,6 +122,8 @@ type spaceState struct {
 	DomainId *string `pulumi:"domainId"`
 	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid *string `pulumi:"homeEfsFileSystemUid"`
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName *string `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
@@ -128,6 +134,8 @@ type spaceState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+	Url *string `pulumi:"url"`
 }
 
 type SpaceState struct {
@@ -137,6 +145,8 @@ type SpaceState struct {
 	DomainId pulumi.StringPtrInput
 	// The ID of the space's profile in the Amazon Elastic File System volume.
 	HomeEfsFileSystemUid pulumi.StringPtrInput
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringPtrInput
 	// A collection of space settings. See Space Settings below.
@@ -147,6 +157,8 @@ type SpaceState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+	Url pulumi.StringPtrInput
 }
 
 func (SpaceState) ElementType() reflect.Type {
@@ -156,6 +168,8 @@ func (SpaceState) ElementType() reflect.Type {
 type spaceArgs struct {
 	// The ID of the associated Domain.
 	DomainId string `pulumi:"domainId"`
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName string `pulumi:"spaceName"`
 	// A collection of space settings. See Space Settings below.
@@ -168,6 +182,8 @@ type spaceArgs struct {
 type SpaceArgs struct {
 	// The ID of the associated Domain.
 	DomainId pulumi.StringInput
+	// The name of the space that appears in the SageMaker Studio UI.
+	SpaceDisplayName pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringInput
 	// A collection of space settings. See Space Settings below.
@@ -278,6 +294,11 @@ func (o SpaceOutput) HomeEfsFileSystemUid() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringOutput)
 }
 
+// The name of the space that appears in the SageMaker Studio UI.
+func (o SpaceOutput) SpaceDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Space) pulumi.StringPtrOutput { return v.SpaceDisplayName }).(pulumi.StringPtrOutput)
+}
+
 // The name of the space.
 func (o SpaceOutput) SpaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.SpaceName }).(pulumi.StringOutput)
@@ -298,6 +319,11 @@ func (o SpaceOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o SpaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+func (o SpaceOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
 type SpaceArrayOutput struct{ *pulumi.OutputState }

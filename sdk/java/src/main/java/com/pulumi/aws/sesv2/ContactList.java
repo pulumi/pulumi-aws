@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For example:
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `id`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:sesv2/contactList:ContactList example example
@@ -106,7 +106,7 @@ public class ContactList extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The name of the contact list.
+     * Name of the contact list.
      * 
      * The following arguments are optional:
      * 
@@ -115,7 +115,7 @@ public class ContactList extends com.pulumi.resources.CustomResource {
     private Output<String> contactListName;
 
     /**
-     * @return The name of the contact list.
+     * @return Name of the contact list.
      * 
      * The following arguments are optional:
      * 
@@ -124,42 +124,42 @@ public class ContactList extends com.pulumi.resources.CustomResource {
         return this.contactListName;
     }
     /**
-     * A timestamp noting when the contact list was created in ISO 8601 format.
+     * Timestamp noting when the contact list was created in ISO 8601 format.
      * 
      */
     @Export(name="createdTimestamp", refs={String.class}, tree="[0]")
     private Output<String> createdTimestamp;
 
     /**
-     * @return A timestamp noting when the contact list was created in ISO 8601 format.
+     * @return Timestamp noting when the contact list was created in ISO 8601 format.
      * 
      */
     public Output<String> createdTimestamp() {
         return this.createdTimestamp;
     }
     /**
-     * A description of what the contact list is about.
+     * Description of what the contact list is about.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of what the contact list is about.
+     * @return Description of what the contact list is about.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A timestamp noting the last time the contact list was updated in ISO 8601 format.
+     * Timestamp noting the last time the contact list was updated in ISO 8601 format.
      * 
      */
     @Export(name="lastUpdatedTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTimestamp;
 
     /**
-     * @return A timestamp noting the last time the contact list was updated in ISO 8601 format.
+     * @return Timestamp noting the last time the contact list was updated in ISO 8601 format.
      * 
      */
     public Output<String> lastUpdatedTimestamp() {

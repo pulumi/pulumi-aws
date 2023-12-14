@@ -819,7 +819,6 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
-        /// is redshift). More details are given below.
         /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
@@ -970,7 +969,6 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
-        /// is redshift). More details are given below.
         /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
@@ -1079,7 +1077,6 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
-        /// is redshift). More details are given below.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }

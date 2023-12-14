@@ -19,6 +19,7 @@ __all__ = [
     'ListenerDefaultActionForwardStickinessArgs',
     'ListenerDefaultActionForwardTargetGroupArgs',
     'ListenerDefaultActionRedirectArgs',
+    'ListenerMutualAuthenticationArgs',
     'ListenerRuleActionArgs',
     'ListenerRuleActionAuthenticateCognitoArgs',
     'ListenerRuleActionAuthenticateOidcArgs',
@@ -785,6 +786,60 @@ class ListenerDefaultActionRedirectArgs:
     @query.setter
     def query(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class ListenerMutualAuthenticationArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 ignore_client_certificate_expiry: Optional[pulumi.Input[bool]] = None,
+                 trust_store_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mode: Valid values are `off`, `verify` and `passthrough`.
+        :param pulumi.Input[bool] ignore_client_certificate_expiry: Whether client certificate expiry is ignored. Default is `false`.
+        :param pulumi.Input[str] trust_store_arn: ARN of the elbv2 Trust Store.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if ignore_client_certificate_expiry is not None:
+            pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
+        if trust_store_arn is not None:
+            pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        Valid values are `off`, `verify` and `passthrough`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="ignoreClientCertificateExpiry")
+    def ignore_client_certificate_expiry(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether client certificate expiry is ignored. Default is `false`.
+        """
+        return pulumi.get(self, "ignore_client_certificate_expiry")
+
+    @ignore_client_certificate_expiry.setter
+    def ignore_client_certificate_expiry(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_client_certificate_expiry", value)
+
+    @property
+    @pulumi.getter(name="trustStoreArn")
+    def trust_store_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the elbv2 Trust Store.
+        """
+        return pulumi.get(self, "trust_store_arn")
+
+    @trust_store_arn.setter
+    def trust_store_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trust_store_arn", value)
 
 
 @pulumi.input_type

@@ -26,7 +26,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the contact list.
+     * Name of the contact list.
      * 
      * The following arguments are optional:
      * 
@@ -35,7 +35,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> contactListName;
 
     /**
-     * @return The name of the contact list.
+     * @return Name of the contact list.
      * 
      * The following arguments are optional:
      * 
@@ -45,14 +45,14 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A timestamp noting when the contact list was created in ISO 8601 format.
+     * Timestamp noting when the contact list was created in ISO 8601 format.
      * 
      */
     @Import(name="createdTimestamp")
     private @Nullable Output<String> createdTimestamp;
 
     /**
-     * @return A timestamp noting when the contact list was created in ISO 8601 format.
+     * @return Timestamp noting when the contact list was created in ISO 8601 format.
      * 
      */
     public Optional<Output<String>> createdTimestamp() {
@@ -60,14 +60,14 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of what the contact list is about.
+     * Description of what the contact list is about.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of what the contact list is about.
+     * @return Description of what the contact list is about.
      * 
      */
     public Optional<Output<String>> description() {
@@ -75,14 +75,14 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A timestamp noting the last time the contact list was updated in ISO 8601 format.
+     * Timestamp noting the last time the contact list was updated in ISO 8601 format.
      * 
      */
     @Import(name="lastUpdatedTimestamp")
     private @Nullable Output<String> lastUpdatedTimestamp;
 
     /**
-     * @return A timestamp noting the last time the contact list was updated in ISO 8601 format.
+     * @return Timestamp noting the last time the contact list was updated in ISO 8601 format.
      * 
      */
     public Optional<Output<String>> lastUpdatedTimestamp() {
@@ -179,7 +179,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contactListName The name of the contact list.
+         * @param contactListName Name of the contact list.
          * 
          * The following arguments are optional:
          * 
@@ -192,7 +192,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contactListName The name of the contact list.
+         * @param contactListName Name of the contact list.
          * 
          * The following arguments are optional:
          * 
@@ -204,7 +204,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTimestamp A timestamp noting when the contact list was created in ISO 8601 format.
+         * @param createdTimestamp Timestamp noting when the contact list was created in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTimestamp A timestamp noting when the contact list was created in ISO 8601 format.
+         * @param createdTimestamp Timestamp noting when the contact list was created in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of what the contact list is about.
+         * @param description Description of what the contact list is about.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of what the contact list is about.
+         * @param description Description of what the contact list is about.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTimestamp A timestamp noting the last time the contact list was updated in ISO 8601 format.
+         * @param lastUpdatedTimestamp Timestamp noting the last time the contact list was updated in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTimestamp A timestamp noting the last time the contact list was updated in ISO 8601 format.
+         * @param lastUpdatedTimestamp Timestamp noting the last time the contact list was updated in ISO 8601 format.
          * 
          * @return builder
          * 

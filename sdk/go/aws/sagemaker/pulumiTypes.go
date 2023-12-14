@@ -13,6 +13,322 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AppImageConfigJupyterLabImageConfig struct {
+	// The configuration used to run the application image container. See Container Config details below.
+	ContainerConfig *AppImageConfigJupyterLabImageConfigContainerConfig `pulumi:"containerConfig"`
+}
+
+// AppImageConfigJupyterLabImageConfigInput is an input type that accepts AppImageConfigJupyterLabImageConfigArgs and AppImageConfigJupyterLabImageConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigJupyterLabImageConfigInput` via:
+//
+//	AppImageConfigJupyterLabImageConfigArgs{...}
+type AppImageConfigJupyterLabImageConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigJupyterLabImageConfigOutput() AppImageConfigJupyterLabImageConfigOutput
+	ToAppImageConfigJupyterLabImageConfigOutputWithContext(context.Context) AppImageConfigJupyterLabImageConfigOutput
+}
+
+type AppImageConfigJupyterLabImageConfigArgs struct {
+	// The configuration used to run the application image container. See Container Config details below.
+	ContainerConfig AppImageConfigJupyterLabImageConfigContainerConfigPtrInput `pulumi:"containerConfig"`
+}
+
+func (AppImageConfigJupyterLabImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigJupyterLabImageConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigJupyterLabImageConfigArgs) ToAppImageConfigJupyterLabImageConfigOutput() AppImageConfigJupyterLabImageConfigOutput {
+	return i.ToAppImageConfigJupyterLabImageConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigJupyterLabImageConfigArgs) ToAppImageConfigJupyterLabImageConfigOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabImageConfigOutput)
+}
+
+func (i AppImageConfigJupyterLabImageConfigArgs) ToAppImageConfigJupyterLabImageConfigPtrOutput() AppImageConfigJupyterLabImageConfigPtrOutput {
+	return i.ToAppImageConfigJupyterLabImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigJupyterLabImageConfigArgs) ToAppImageConfigJupyterLabImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabImageConfigOutput).ToAppImageConfigJupyterLabImageConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigJupyterLabImageConfigPtrInput is an input type that accepts AppImageConfigJupyterLabImageConfigArgs, AppImageConfigJupyterLabImageConfigPtr and AppImageConfigJupyterLabImageConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigJupyterLabImageConfigPtrInput` via:
+//
+//	        AppImageConfigJupyterLabImageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppImageConfigJupyterLabImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigJupyterLabImageConfigPtrOutput() AppImageConfigJupyterLabImageConfigPtrOutput
+	ToAppImageConfigJupyterLabImageConfigPtrOutputWithContext(context.Context) AppImageConfigJupyterLabImageConfigPtrOutput
+}
+
+type appImageConfigJupyterLabImageConfigPtrType AppImageConfigJupyterLabImageConfigArgs
+
+func AppImageConfigJupyterLabImageConfigPtr(v *AppImageConfigJupyterLabImageConfigArgs) AppImageConfigJupyterLabImageConfigPtrInput {
+	return (*appImageConfigJupyterLabImageConfigPtrType)(v)
+}
+
+func (*appImageConfigJupyterLabImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigJupyterLabImageConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigJupyterLabImageConfigPtrType) ToAppImageConfigJupyterLabImageConfigPtrOutput() AppImageConfigJupyterLabImageConfigPtrOutput {
+	return i.ToAppImageConfigJupyterLabImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigJupyterLabImageConfigPtrType) ToAppImageConfigJupyterLabImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabImageConfigPtrOutput)
+}
+
+type AppImageConfigJupyterLabImageConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigJupyterLabImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigJupyterLabImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigJupyterLabImageConfigOutput) ToAppImageConfigJupyterLabImageConfigOutput() AppImageConfigJupyterLabImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigOutput) ToAppImageConfigJupyterLabImageConfigOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigOutput) ToAppImageConfigJupyterLabImageConfigPtrOutput() AppImageConfigJupyterLabImageConfigPtrOutput {
+	return o.ToAppImageConfigJupyterLabImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigJupyterLabImageConfigOutput) ToAppImageConfigJupyterLabImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigJupyterLabImageConfig) *AppImageConfigJupyterLabImageConfig {
+		return &v
+	}).(AppImageConfigJupyterLabImageConfigPtrOutput)
+}
+
+// The configuration used to run the application image container. See Container Config details below.
+func (o AppImageConfigJupyterLabImageConfigOutput) ContainerConfig() AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return o.ApplyT(func(v AppImageConfigJupyterLabImageConfig) *AppImageConfigJupyterLabImageConfigContainerConfig {
+		return v.ContainerConfig
+	}).(AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput)
+}
+
+type AppImageConfigJupyterLabImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigJupyterLabImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigJupyterLabImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigJupyterLabImageConfigPtrOutput) ToAppImageConfigJupyterLabImageConfigPtrOutput() AppImageConfigJupyterLabImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigPtrOutput) ToAppImageConfigJupyterLabImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigPtrOutput) Elem() AppImageConfigJupyterLabImageConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfig) AppImageConfigJupyterLabImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigJupyterLabImageConfig
+		return ret
+	}).(AppImageConfigJupyterLabImageConfigOutput)
+}
+
+// The configuration used to run the application image container. See Container Config details below.
+func (o AppImageConfigJupyterLabImageConfigPtrOutput) ContainerConfig() AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfig) *AppImageConfigJupyterLabImageConfigContainerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerConfig
+	}).(AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput)
+}
+
+type AppImageConfigJupyterLabImageConfigContainerConfig struct {
+	// The arguments for the container when you're running the application.
+	ContainerArguments []string `pulumi:"containerArguments"`
+	// The entrypoint used to run the application in the container.
+	ContainerEntrypoints []string `pulumi:"containerEntrypoints"`
+	// The environment variables to set in the container.
+	ContainerEnvironmentVariables map[string]string `pulumi:"containerEnvironmentVariables"`
+}
+
+// AppImageConfigJupyterLabImageConfigContainerConfigInput is an input type that accepts AppImageConfigJupyterLabImageConfigContainerConfigArgs and AppImageConfigJupyterLabImageConfigContainerConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigJupyterLabImageConfigContainerConfigInput` via:
+//
+//	AppImageConfigJupyterLabImageConfigContainerConfigArgs{...}
+type AppImageConfigJupyterLabImageConfigContainerConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigJupyterLabImageConfigContainerConfigOutput() AppImageConfigJupyterLabImageConfigContainerConfigOutput
+	ToAppImageConfigJupyterLabImageConfigContainerConfigOutputWithContext(context.Context) AppImageConfigJupyterLabImageConfigContainerConfigOutput
+}
+
+type AppImageConfigJupyterLabImageConfigContainerConfigArgs struct {
+	// The arguments for the container when you're running the application.
+	ContainerArguments pulumi.StringArrayInput `pulumi:"containerArguments"`
+	// The entrypoint used to run the application in the container.
+	ContainerEntrypoints pulumi.StringArrayInput `pulumi:"containerEntrypoints"`
+	// The environment variables to set in the container.
+	ContainerEnvironmentVariables pulumi.StringMapInput `pulumi:"containerEnvironmentVariables"`
+}
+
+func (AppImageConfigJupyterLabImageConfigContainerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigJupyterLabImageConfigContainerConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigJupyterLabImageConfigContainerConfigArgs) ToAppImageConfigJupyterLabImageConfigContainerConfigOutput() AppImageConfigJupyterLabImageConfigContainerConfigOutput {
+	return i.ToAppImageConfigJupyterLabImageConfigContainerConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigJupyterLabImageConfigContainerConfigArgs) ToAppImageConfigJupyterLabImageConfigContainerConfigOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigContainerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabImageConfigContainerConfigOutput)
+}
+
+func (i AppImageConfigJupyterLabImageConfigContainerConfigArgs) ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutput() AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return i.ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigJupyterLabImageConfigContainerConfigArgs) ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabImageConfigContainerConfigOutput).ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigJupyterLabImageConfigContainerConfigPtrInput is an input type that accepts AppImageConfigJupyterLabImageConfigContainerConfigArgs, AppImageConfigJupyterLabImageConfigContainerConfigPtr and AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigJupyterLabImageConfigContainerConfigPtrInput` via:
+//
+//	        AppImageConfigJupyterLabImageConfigContainerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppImageConfigJupyterLabImageConfigContainerConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutput() AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput
+	ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutputWithContext(context.Context) AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput
+}
+
+type appImageConfigJupyterLabImageConfigContainerConfigPtrType AppImageConfigJupyterLabImageConfigContainerConfigArgs
+
+func AppImageConfigJupyterLabImageConfigContainerConfigPtr(v *AppImageConfigJupyterLabImageConfigContainerConfigArgs) AppImageConfigJupyterLabImageConfigContainerConfigPtrInput {
+	return (*appImageConfigJupyterLabImageConfigContainerConfigPtrType)(v)
+}
+
+func (*appImageConfigJupyterLabImageConfigContainerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigJupyterLabImageConfigContainerConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigJupyterLabImageConfigContainerConfigPtrType) ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutput() AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return i.ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigJupyterLabImageConfigContainerConfigPtrType) ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput)
+}
+
+type AppImageConfigJupyterLabImageConfigContainerConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigJupyterLabImageConfigContainerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigJupyterLabImageConfigContainerConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigJupyterLabImageConfigContainerConfigOutput) ToAppImageConfigJupyterLabImageConfigContainerConfigOutput() AppImageConfigJupyterLabImageConfigContainerConfigOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigContainerConfigOutput) ToAppImageConfigJupyterLabImageConfigContainerConfigOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigContainerConfigOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigContainerConfigOutput) ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutput() AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return o.ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigJupyterLabImageConfigContainerConfigOutput) ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigJupyterLabImageConfigContainerConfig) *AppImageConfigJupyterLabImageConfigContainerConfig {
+		return &v
+	}).(AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput)
+}
+
+// The arguments for the container when you're running the application.
+func (o AppImageConfigJupyterLabImageConfigContainerConfigOutput) ContainerArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppImageConfigJupyterLabImageConfigContainerConfig) []string { return v.ContainerArguments }).(pulumi.StringArrayOutput)
+}
+
+// The entrypoint used to run the application in the container.
+func (o AppImageConfigJupyterLabImageConfigContainerConfigOutput) ContainerEntrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppImageConfigJupyterLabImageConfigContainerConfig) []string { return v.ContainerEntrypoints }).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to set in the container.
+func (o AppImageConfigJupyterLabImageConfigContainerConfigOutput) ContainerEnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AppImageConfigJupyterLabImageConfigContainerConfig) map[string]string {
+		return v.ContainerEnvironmentVariables
+	}).(pulumi.StringMapOutput)
+}
+
+type AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigJupyterLabImageConfigContainerConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput) ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutput() AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput) ToAppImageConfigJupyterLabImageConfigContainerConfigPtrOutputWithContext(ctx context.Context) AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput) Elem() AppImageConfigJupyterLabImageConfigContainerConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfigContainerConfig) AppImageConfigJupyterLabImageConfigContainerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigJupyterLabImageConfigContainerConfig
+		return ret
+	}).(AppImageConfigJupyterLabImageConfigContainerConfigOutput)
+}
+
+// The arguments for the container when you're running the application.
+func (o AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput) ContainerArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfigContainerConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerArguments
+	}).(pulumi.StringArrayOutput)
+}
+
+// The entrypoint used to run the application in the container.
+func (o AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput) ContainerEntrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfigContainerConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerEntrypoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to set in the container.
+func (o AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput) ContainerEnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AppImageConfigJupyterLabImageConfigContainerConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerEnvironmentVariables
+	}).(pulumi.StringMapOutput)
+}
+
 type AppImageConfigKernelGatewayImageConfig struct {
 	// The URL where the Git repository is located. See File System Config details below.
 	FileSystemConfig *AppImageConfigKernelGatewayImageConfigFileSystemConfig `pulumi:"fileSystemConfig"`
@@ -519,6 +835,8 @@ type AppResourceSpec struct {
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -541,6 +859,8 @@ type AppResourceSpecArgs struct {
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -637,6 +957,11 @@ func (o AppResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.SagemakerImageArn }).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o AppResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourceSpec) *string { return v.SagemakerImageVersionAlias }).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o AppResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.SagemakerImageVersionArn }).(pulumi.StringPtrOutput)
@@ -693,6 +1018,16 @@ func (o AppResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o AppResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4621,6 +4956,8 @@ type DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec struc
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -4643,6 +4980,8 @@ type DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs s
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -4745,6 +5084,13 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
@@ -4803,6 +5149,16 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtr
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5121,6 +5477,8 @@ type DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec struc
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -5143,6 +5501,8 @@ type DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs s
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -5245,6 +5605,13 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
@@ -5306,6 +5673,16 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
@@ -5319,8 +5696,18 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr
 type DomainDefaultUserSettings struct {
 	// The Canvas app settings. See Canvas App Settings below.
 	CanvasAppSettings *DomainDefaultUserSettingsCanvasAppSettings `pulumi:"canvasAppSettings"`
+	// The Code Editor application settings. See Code Editor App Settings below.
+	CodeEditorAppSettings *DomainDefaultUserSettingsCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+	CustomFileSystemConfigs []DomainDefaultUserSettingsCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
+	// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+	CustomPosixUserConfig *DomainDefaultUserSettingsCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
+	// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+	DefaultLandingUri *string `pulumi:"defaultLandingUri"`
 	// The execution role ARN for the user.
 	ExecutionRole string `pulumi:"executionRole"`
+	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	JupyterLabAppSettings *DomainDefaultUserSettingsJupyterLabAppSettings `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *DomainDefaultUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
@@ -5333,6 +5720,10 @@ type DomainDefaultUserSettings struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
 	SharingSettings *DomainDefaultUserSettingsSharingSettings `pulumi:"sharingSettings"`
+	// The storage settings for a private space. See Space Storage Settings below.
+	SpaceStorageSettings *DomainDefaultUserSettingsSpaceStorageSettings `pulumi:"spaceStorageSettings"`
+	// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+	StudioWebPortal *string `pulumi:"studioWebPortal"`
 	// The TensorBoard app settings. See TensorBoard App Settings below.
 	TensorBoardAppSettings *DomainDefaultUserSettingsTensorBoardAppSettings `pulumi:"tensorBoardAppSettings"`
 }
@@ -5351,8 +5742,18 @@ type DomainDefaultUserSettingsInput interface {
 type DomainDefaultUserSettingsArgs struct {
 	// The Canvas app settings. See Canvas App Settings below.
 	CanvasAppSettings DomainDefaultUserSettingsCanvasAppSettingsPtrInput `pulumi:"canvasAppSettings"`
+	// The Code Editor application settings. See Code Editor App Settings below.
+	CodeEditorAppSettings DomainDefaultUserSettingsCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+	CustomFileSystemConfigs DomainDefaultUserSettingsCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
+	// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+	CustomPosixUserConfig DomainDefaultUserSettingsCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
+	// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+	DefaultLandingUri pulumi.StringPtrInput `pulumi:"defaultLandingUri"`
 	// The execution role ARN for the user.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	JupyterLabAppSettings DomainDefaultUserSettingsJupyterLabAppSettingsPtrInput `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
@@ -5365,6 +5766,10 @@ type DomainDefaultUserSettingsArgs struct {
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
 	SharingSettings DomainDefaultUserSettingsSharingSettingsPtrInput `pulumi:"sharingSettings"`
+	// The storage settings for a private space. See Space Storage Settings below.
+	SpaceStorageSettings DomainDefaultUserSettingsSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
+	// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+	StudioWebPortal pulumi.StringPtrInput `pulumi:"studioWebPortal"`
 	// The TensorBoard app settings. See TensorBoard App Settings below.
 	TensorBoardAppSettings DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput `pulumi:"tensorBoardAppSettings"`
 }
@@ -5453,9 +5858,42 @@ func (o DomainDefaultUserSettingsOutput) CanvasAppSettings() DomainDefaultUserSe
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The Code Editor application settings. See Code Editor App Settings below.
+func (o DomainDefaultUserSettingsOutput) CodeEditorAppSettings() DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsCodeEditorAppSettings {
+		return v.CodeEditorAppSettings
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+func (o DomainDefaultUserSettingsOutput) CustomFileSystemConfigs() DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) []DomainDefaultUserSettingsCustomFileSystemConfig {
+		return v.CustomFileSystemConfigs
+	}).(DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput)
+}
+
+// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+func (o DomainDefaultUserSettingsOutput) CustomPosixUserConfig() DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsCustomPosixUserConfig {
+		return v.CustomPosixUserConfig
+	}).(DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput)
+}
+
+// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+func (o DomainDefaultUserSettingsOutput) DefaultLandingUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *string { return v.DefaultLandingUri }).(pulumi.StringPtrOutput)
+}
+
 // The execution role ARN for the user.
 func (o DomainDefaultUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+func (o DomainDefaultUserSettingsOutput) JupyterLabAppSettings() DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterLabAppSettings {
+		return v.JupyterLabAppSettings
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput)
 }
 
 // The Jupyter server's app settings. See Jupyter Server App Settings below.
@@ -5494,6 +5932,18 @@ func (o DomainDefaultUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutp
 // The sharing settings. See Sharing Settings below.
 func (o DomainDefaultUserSettingsOutput) SharingSettings() DomainDefaultUserSettingsSharingSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsSharingSettings { return v.SharingSettings }).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
+}
+
+// The storage settings for a private space. See Space Storage Settings below.
+func (o DomainDefaultUserSettingsOutput) SpaceStorageSettings() DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsSpaceStorageSettings {
+		return v.SpaceStorageSettings
+	}).(DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput)
+}
+
+// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsOutput) StudioWebPortal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *string { return v.StudioWebPortal }).(pulumi.StringPtrOutput)
 }
 
 // The TensorBoard app settings. See TensorBoard App Settings below.
@@ -5537,6 +5987,46 @@ func (o DomainDefaultUserSettingsPtrOutput) CanvasAppSettings() DomainDefaultUse
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The Code Editor application settings. See Code Editor App Settings below.
+func (o DomainDefaultUserSettingsPtrOutput) CodeEditorAppSettings() DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsCodeEditorAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.CodeEditorAppSettings
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+func (o DomainDefaultUserSettingsPtrOutput) CustomFileSystemConfigs() DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) []DomainDefaultUserSettingsCustomFileSystemConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CustomFileSystemConfigs
+	}).(DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput)
+}
+
+// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+func (o DomainDefaultUserSettingsPtrOutput) CustomPosixUserConfig() DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsCustomPosixUserConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPosixUserConfig
+	}).(DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput)
+}
+
+// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+func (o DomainDefaultUserSettingsPtrOutput) DefaultLandingUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultLandingUri
+	}).(pulumi.StringPtrOutput)
+}
+
 // The execution role ARN for the user.
 func (o DomainDefaultUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *string {
@@ -5545,6 +6035,16 @@ func (o DomainDefaultUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutp
 		}
 		return &v.ExecutionRole
 	}).(pulumi.StringPtrOutput)
+}
+
+// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+func (o DomainDefaultUserSettingsPtrOutput) JupyterLabAppSettings() DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterLabAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterLabAppSettings
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput)
 }
 
 // The Jupyter server's app settings. See Jupyter Server App Settings below.
@@ -5605,6 +6105,26 @@ func (o DomainDefaultUserSettingsPtrOutput) SharingSettings() DomainDefaultUserS
 		}
 		return v.SharingSettings
 	}).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
+}
+
+// The storage settings for a private space. See Space Storage Settings below.
+func (o DomainDefaultUserSettingsPtrOutput) SpaceStorageSettings() DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsSpaceStorageSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SpaceStorageSettings
+	}).(DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput)
+}
+
+// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsPtrOutput) StudioWebPortal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StudioWebPortal
+	}).(pulumi.StringPtrOutput)
 }
 
 // The TensorBoard app settings. See TensorBoard App Settings below.
@@ -6730,6 +7250,1437 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainDefaultUserSettingsCodeEditorAppSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsArgs and DomainDefaultUserSettingsCodeEditorAppSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsInput` via:
+//
+//	DomainDefaultUserSettingsCodeEditorAppSettingsArgs{...}
+type DomainDefaultUserSettingsCodeEditorAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsOutput() DomainDefaultUserSettingsCodeEditorAppSettingsOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsOutput
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
+}
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsOutput() DomainDefaultUserSettingsCodeEditorAppSettingsOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsOutput).ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsArgs, DomainDefaultUserSettingsCodeEditorAppSettingsPtr and DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCodeEditorAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCodeEditorAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCodeEditorAppSettingsPtrType DomainDefaultUserSettingsCodeEditorAppSettingsArgs
+
+func DomainDefaultUserSettingsCodeEditorAppSettingsPtr(v *DomainDefaultUserSettingsCodeEditorAppSettingsArgs) DomainDefaultUserSettingsCodeEditorAppSettingsPtrInput {
+	return (*domainDefaultUserSettingsCodeEditorAppSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCodeEditorAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCodeEditorAppSettingsPtrType) ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCodeEditorAppSettingsPtrType) ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsOutput() DomainDefaultUserSettingsCodeEditorAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettings {
+		return &v
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsCodeEditorAppSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) DomainDefaultUserSettingsCodeEditorAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCodeEditorAppSettings
+		return ret
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs and DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput` via:
+//
+//	DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{...}
+type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
+}
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput).ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs, DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtr and DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type domainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs
+
+func DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtr(v *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput {
+	return (*domainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		return &v
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) Elem() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec
+		return ret
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCustomFileSystemConfig struct {
+	// The default EBS storage settings for a private space. See EFS File System Config below.
+	EfsFileSystemConfig *DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
+}
+
+// DomainDefaultUserSettingsCustomFileSystemConfigInput is an input type that accepts DomainDefaultUserSettingsCustomFileSystemConfigArgs and DomainDefaultUserSettingsCustomFileSystemConfigOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCustomFileSystemConfigInput` via:
+//
+//	DomainDefaultUserSettingsCustomFileSystemConfigArgs{...}
+type DomainDefaultUserSettingsCustomFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCustomFileSystemConfigOutput() DomainDefaultUserSettingsCustomFileSystemConfigOutput
+	ToDomainDefaultUserSettingsCustomFileSystemConfigOutputWithContext(context.Context) DomainDefaultUserSettingsCustomFileSystemConfigOutput
+}
+
+type DomainDefaultUserSettingsCustomFileSystemConfigArgs struct {
+	// The default EBS storage settings for a private space. See EFS File System Config below.
+	EfsFileSystemConfig DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
+}
+
+func (DomainDefaultUserSettingsCustomFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCustomFileSystemConfig)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCustomFileSystemConfigArgs) ToDomainDefaultUserSettingsCustomFileSystemConfigOutput() DomainDefaultUserSettingsCustomFileSystemConfigOutput {
+	return i.ToDomainDefaultUserSettingsCustomFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCustomFileSystemConfigArgs) ToDomainDefaultUserSettingsCustomFileSystemConfigOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCustomFileSystemConfigOutput)
+}
+
+// DomainDefaultUserSettingsCustomFileSystemConfigArrayInput is an input type that accepts DomainDefaultUserSettingsCustomFileSystemConfigArray and DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCustomFileSystemConfigArrayInput` via:
+//
+//	DomainDefaultUserSettingsCustomFileSystemConfigArray{ DomainDefaultUserSettingsCustomFileSystemConfigArgs{...} }
+type DomainDefaultUserSettingsCustomFileSystemConfigArrayInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCustomFileSystemConfigArrayOutput() DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput
+	ToDomainDefaultUserSettingsCustomFileSystemConfigArrayOutputWithContext(context.Context) DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput
+}
+
+type DomainDefaultUserSettingsCustomFileSystemConfigArray []DomainDefaultUserSettingsCustomFileSystemConfigInput
+
+func (DomainDefaultUserSettingsCustomFileSystemConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsCustomFileSystemConfig)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCustomFileSystemConfigArray) ToDomainDefaultUserSettingsCustomFileSystemConfigArrayOutput() DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput {
+	return i.ToDomainDefaultUserSettingsCustomFileSystemConfigArrayOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCustomFileSystemConfigArray) ToDomainDefaultUserSettingsCustomFileSystemConfigArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput)
+}
+
+type DomainDefaultUserSettingsCustomFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCustomFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCustomFileSystemConfig)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigOutput() DomainDefaultUserSettingsCustomFileSystemConfigOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigOutput {
+	return o
+}
+
+// The default EBS storage settings for a private space. See EFS File System Config below.
+func (o DomainDefaultUserSettingsCustomFileSystemConfigOutput) EfsFileSystemConfig() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCustomFileSystemConfig) *DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
+		return v.EfsFileSystemConfig
+	}).(DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput)
+}
+
+type DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsCustomFileSystemConfig)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigArrayOutput() DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput) Index(i pulumi.IntInput) DomainDefaultUserSettingsCustomFileSystemConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDefaultUserSettingsCustomFileSystemConfig {
+		return vs[0].([]DomainDefaultUserSettingsCustomFileSystemConfig)[vs[1].(int)]
+	}).(DomainDefaultUserSettingsCustomFileSystemConfigOutput)
+}
+
+type DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig struct {
+	// The ID of your Amazon EFS file system.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+	FileSystemPath string `pulumi:"fileSystemPath"`
+}
+
+// DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigInput is an input type that accepts DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs and DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigInput` via:
+//
+//	DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs{...}
+type DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput
+	ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutputWithContext(context.Context) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput
+}
+
+type DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs struct {
+	// The ID of your Amazon EFS file system.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+	FileSystemPath pulumi.StringInput `pulumi:"fileSystemPath"`
+}
+
+func (DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return i.ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput)
+}
+
+func (i DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
+	return i.ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput).ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrInput is an input type that accepts DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs, DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtr and DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput
+	ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput
+}
+
+type domainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrType DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs
+
+func DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtr(v *DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrInput {
+	return (*domainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrType) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
+	return i.ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrType) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput)
+}
+
+type DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
+	return o.ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig) *DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
+		return &v
+	}).(DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput)
+}
+
+// The ID of your Amazon EFS file system.
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig) string {
+		return v.FileSystemId
+	}).(pulumi.StringOutput)
+}
+
+// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) FileSystemPath() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig) string {
+		return v.FileSystemPath
+	}).(pulumi.StringOutput)
+}
+
+type DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput) ToDomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput) Elem() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig) DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig
+		return ret
+	}).(DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput)
+}
+
+// The ID of your Amazon EFS file system.
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+func (o DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCustomPosixUserConfig struct {
+	// The POSIX group ID.
+	Gid int `pulumi:"gid"`
+	// The POSIX user ID.
+	Uid int `pulumi:"uid"`
+}
+
+// DomainDefaultUserSettingsCustomPosixUserConfigInput is an input type that accepts DomainDefaultUserSettingsCustomPosixUserConfigArgs and DomainDefaultUserSettingsCustomPosixUserConfigOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCustomPosixUserConfigInput` via:
+//
+//	DomainDefaultUserSettingsCustomPosixUserConfigArgs{...}
+type DomainDefaultUserSettingsCustomPosixUserConfigInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCustomPosixUserConfigOutput() DomainDefaultUserSettingsCustomPosixUserConfigOutput
+	ToDomainDefaultUserSettingsCustomPosixUserConfigOutputWithContext(context.Context) DomainDefaultUserSettingsCustomPosixUserConfigOutput
+}
+
+type DomainDefaultUserSettingsCustomPosixUserConfigArgs struct {
+	// The POSIX group ID.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// The POSIX user ID.
+	Uid pulumi.IntInput `pulumi:"uid"`
+}
+
+func (DomainDefaultUserSettingsCustomPosixUserConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCustomPosixUserConfig)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCustomPosixUserConfigArgs) ToDomainDefaultUserSettingsCustomPosixUserConfigOutput() DomainDefaultUserSettingsCustomPosixUserConfigOutput {
+	return i.ToDomainDefaultUserSettingsCustomPosixUserConfigOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCustomPosixUserConfigArgs) ToDomainDefaultUserSettingsCustomPosixUserConfigOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomPosixUserConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCustomPosixUserConfigOutput)
+}
+
+func (i DomainDefaultUserSettingsCustomPosixUserConfigArgs) ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutput() DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return i.ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCustomPosixUserConfigArgs) ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCustomPosixUserConfigOutput).ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCustomPosixUserConfigPtrInput is an input type that accepts DomainDefaultUserSettingsCustomPosixUserConfigArgs, DomainDefaultUserSettingsCustomPosixUserConfigPtr and DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCustomPosixUserConfigPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCustomPosixUserConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCustomPosixUserConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutput() DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput
+	ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput
+}
+
+type domainDefaultUserSettingsCustomPosixUserConfigPtrType DomainDefaultUserSettingsCustomPosixUserConfigArgs
+
+func DomainDefaultUserSettingsCustomPosixUserConfigPtr(v *DomainDefaultUserSettingsCustomPosixUserConfigArgs) DomainDefaultUserSettingsCustomPosixUserConfigPtrInput {
+	return (*domainDefaultUserSettingsCustomPosixUserConfigPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCustomPosixUserConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCustomPosixUserConfig)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCustomPosixUserConfigPtrType) ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutput() DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return i.ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCustomPosixUserConfigPtrType) ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput)
+}
+
+type DomainDefaultUserSettingsCustomPosixUserConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCustomPosixUserConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCustomPosixUserConfig)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCustomPosixUserConfigOutput) ToDomainDefaultUserSettingsCustomPosixUserConfigOutput() DomainDefaultUserSettingsCustomPosixUserConfigOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomPosixUserConfigOutput) ToDomainDefaultUserSettingsCustomPosixUserConfigOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomPosixUserConfigOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomPosixUserConfigOutput) ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutput() DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return o.ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCustomPosixUserConfigOutput) ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCustomPosixUserConfig) *DomainDefaultUserSettingsCustomPosixUserConfig {
+		return &v
+	}).(DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput)
+}
+
+// The POSIX group ID.
+func (o DomainDefaultUserSettingsCustomPosixUserConfigOutput) Gid() pulumi.IntOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCustomPosixUserConfig) int { return v.Gid }).(pulumi.IntOutput)
+}
+
+// The POSIX user ID.
+func (o DomainDefaultUserSettingsCustomPosixUserConfigOutput) Uid() pulumi.IntOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCustomPosixUserConfig) int { return v.Uid }).(pulumi.IntOutput)
+}
+
+type DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCustomPosixUserConfig)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput) ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutput() DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput) ToDomainDefaultUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput) Elem() DomainDefaultUserSettingsCustomPosixUserConfigOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCustomPosixUserConfig) DomainDefaultUserSettingsCustomPosixUserConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCustomPosixUserConfig
+		return ret
+	}).(DomainDefaultUserSettingsCustomPosixUserConfigOutput)
+}
+
+// The POSIX group ID.
+func (o DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput) Gid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCustomPosixUserConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Gid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The POSIX user ID.
+func (o DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput) Uid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCustomPosixUserConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Uid
+	}).(pulumi.IntPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettings struct {
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsArgs and DomainDefaultUserSettingsJupyterLabAppSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsInput` via:
+//
+//	DomainDefaultUserSettingsJupyterLabAppSettingsArgs{...}
+type DomainDefaultUserSettingsJupyterLabAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsOutput() DomainDefaultUserSettingsJupyterLabAppSettingsOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsOutput
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsArgs struct {
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
+}
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsOutput() DomainDefaultUserSettingsJupyterLabAppSettingsOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsOutput).ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsArgs, DomainDefaultUserSettingsJupyterLabAppSettingsPtr and DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsJupyterLabAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsJupyterLabAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsJupyterLabAppSettingsPtrType DomainDefaultUserSettingsJupyterLabAppSettingsArgs
+
+func DomainDefaultUserSettingsJupyterLabAppSettingsPtr(v *DomainDefaultUserSettingsJupyterLabAppSettingsArgs) DomainDefaultUserSettingsJupyterLabAppSettingsPtrInput {
+	return (*domainDefaultUserSettingsJupyterLabAppSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsJupyterLabAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsOutput() DomainDefaultUserSettingsJupyterLabAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettings {
+		return &v
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput)
+}
+
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) CodeRepositories() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository {
+		return v.CodeRepositories
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) CustomImages() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) []DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage {
+		return v.CustomImages
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsJupyterLabAppSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) DomainDefaultUserSettingsJupyterLabAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsJupyterLabAppSettings
+		return ret
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsOutput)
+}
+
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository {
+		if v == nil {
+			return nil
+		}
+		return v.CodeRepositories
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) []DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository struct {
+	// The URL of the Git repository.
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs and DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryInput` via:
+//
+//	DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs{...}
+type DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs struct {
+	// The URL of the Git repository.
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+}
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput)
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArray and DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput` via:
+//
+//	DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArray{ DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs{...} }
+type DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArray []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryInput
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArray) ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArray) ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return o
+}
+
+// The URL of the Git repository.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) Index(i pulumi.IntInput) DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository {
+		return vs[0].([]DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository)[vs[1].(int)]
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage struct {
+	// The name of the App Image Config.
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs and DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageInput` via:
+//
+//	DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs{...}
+type DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput)
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArray and DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayInput` via:
+//
+//	DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArray{ DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs{...} }
+type DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArray []DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageInput
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArray) ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArray) ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return o
+}
+
+// The name of the App Image Config.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The name of the Custom Image.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The version number of the Custom Image.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) Index(i pulumi.IntInput) DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage {
+		return vs[0].([]DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage)[vs[1].(int)]
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs and DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput` via:
+//
+//	DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{...}
+type DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
+}
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput).ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs, DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtr and DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//	        DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type domainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs
+
+func DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtr(v *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput {
+	return (*domainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		return &v
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) Elem() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec
+		return ret
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainDefaultUserSettingsJupyterServerAppSettings struct {
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories []DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
@@ -7013,6 +8964,8 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -7035,6 +8988,8 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs st
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -7137,6 +9092,13 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
@@ -7195,6 +9157,16 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7511,6 +9483,8 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -7533,6 +9507,8 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs st
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -7635,6 +9611,13 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
@@ -7693,6 +9676,16 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7988,6 +9981,8 @@ type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec struct {
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -8010,6 +10005,8 @@ type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs struct 
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -8110,6 +10107,13 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
@@ -8168,6 +10172,16 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8512,6 +10526,305 @@ func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainDefaultUserSettingsSpaceStorageSettings struct {
+	// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+	DefaultEbsStorageSettings *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings `pulumi:"defaultEbsStorageSettings"`
+}
+
+// DomainDefaultUserSettingsSpaceStorageSettingsInput is an input type that accepts DomainDefaultUserSettingsSpaceStorageSettingsArgs and DomainDefaultUserSettingsSpaceStorageSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsSpaceStorageSettingsInput` via:
+//
+//	DomainDefaultUserSettingsSpaceStorageSettingsArgs{...}
+type DomainDefaultUserSettingsSpaceStorageSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsSpaceStorageSettingsOutput() DomainDefaultUserSettingsSpaceStorageSettingsOutput
+	ToDomainDefaultUserSettingsSpaceStorageSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsSpaceStorageSettingsOutput
+}
+
+type DomainDefaultUserSettingsSpaceStorageSettingsArgs struct {
+	// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+	DefaultEbsStorageSettings DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput `pulumi:"defaultEbsStorageSettings"`
+}
+
+func (DomainDefaultUserSettingsSpaceStorageSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsSpaceStorageSettingsArgs) ToDomainDefaultUserSettingsSpaceStorageSettingsOutput() DomainDefaultUserSettingsSpaceStorageSettingsOutput {
+	return i.ToDomainDefaultUserSettingsSpaceStorageSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsSpaceStorageSettingsArgs) ToDomainDefaultUserSettingsSpaceStorageSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsSpaceStorageSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsSpaceStorageSettingsArgs) ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsSpaceStorageSettingsArgs) ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsSpaceStorageSettingsOutput).ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsSpaceStorageSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsSpaceStorageSettingsArgs, DomainDefaultUserSettingsSpaceStorageSettingsPtr and DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsSpaceStorageSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsSpaceStorageSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsSpaceStorageSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput
+	ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsSpaceStorageSettingsPtrType DomainDefaultUserSettingsSpaceStorageSettingsArgs
+
+func DomainDefaultUserSettingsSpaceStorageSettingsPtr(v *DomainDefaultUserSettingsSpaceStorageSettingsArgs) DomainDefaultUserSettingsSpaceStorageSettingsPtrInput {
+	return (*domainDefaultUserSettingsSpaceStorageSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsSpaceStorageSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsSpaceStorageSettingsPtrType) ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsSpaceStorageSettingsPtrType) ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsSpaceStorageSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsSpaceStorageSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsOutput() DomainDefaultUserSettingsSpaceStorageSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsSpaceStorageSettings) *DomainDefaultUserSettingsSpaceStorageSettings {
+		return &v
+	}).(DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput)
+}
+
+// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+func (o DomainDefaultUserSettingsSpaceStorageSettingsOutput) DefaultEbsStorageSettings() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsSpaceStorageSettings) *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+		return v.DefaultEbsStorageSettings
+	}).(DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput) Elem() DomainDefaultUserSettingsSpaceStorageSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSpaceStorageSettings) DomainDefaultUserSettingsSpaceStorageSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsSpaceStorageSettings
+		return ret
+	}).(DomainDefaultUserSettingsSpaceStorageSettingsOutput)
+}
+
+// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+func (o DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput) DefaultEbsStorageSettings() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSpaceStorageSettings) *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultEbsStorageSettings
+	}).(DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings struct {
+	// The default size of the EBS storage volume for a private space.
+	DefaultEbsVolumeSizeInGb int `pulumi:"defaultEbsVolumeSizeInGb"`
+	// The maximum size of the EBS storage volume for a private space.
+	MaximumEbsVolumeSizeInGb int `pulumi:"maximumEbsVolumeSizeInGb"`
+}
+
+// DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsInput is an input type that accepts DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs and DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsInput` via:
+//
+//	DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs{...}
+type DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput
+	ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput
+}
+
+type DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs struct {
+	// The default size of the EBS storage volume for a private space.
+	DefaultEbsVolumeSizeInGb pulumi.IntInput `pulumi:"defaultEbsVolumeSizeInGb"`
+	// The maximum size of the EBS storage volume for a private space.
+	MaximumEbsVolumeSizeInGb pulumi.IntInput `pulumi:"maximumEbsVolumeSizeInGb"`
+}
+
+func (DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return i.ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput).ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs, DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtr and DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput
+	ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs
+
+func DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtr(v *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput {
+	return (*domainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+		return &v
+	}).(DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput)
+}
+
+// The default size of the EBS storage volume for a private space.
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) DefaultEbsVolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) int {
+		return v.DefaultEbsVolumeSizeInGb
+	}).(pulumi.IntOutput)
+}
+
+// The maximum size of the EBS storage volume for a private space.
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) MaximumEbsVolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) int {
+		return v.MaximumEbsVolumeSizeInGb
+	}).(pulumi.IntOutput)
+}
+
+type DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) ToDomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) Elem() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings
+		return ret
+	}).(DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput)
+}
+
+// The default size of the EBS storage volume for a private space.
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) DefaultEbsVolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultEbsVolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum size of the EBS storage volume for a private space.
+func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) MaximumEbsVolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumEbsVolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
 type DomainDefaultUserSettingsTensorBoardAppSettings struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
@@ -8658,6 +10971,8 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -8680,6 +10995,8 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs stru
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -8782,6 +11099,13 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
@@ -8840,6 +11164,16 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9233,6 +11567,8 @@ type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec struc
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -9255,6 +11591,8 @@ type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs s
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -9357,6 +11695,13 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
@@ -9415,6 +11760,16 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtr
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19256,6 +21611,8 @@ type SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -19278,6 +21635,8 @@ type SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -19378,6 +21737,13 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) Sag
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
@@ -19436,6 +21802,16 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19750,6 +22126,8 @@ type SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -19772,6 +22150,8 @@ type SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -19872,6 +22252,13 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) Sag
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
@@ -19933,6 +22320,16 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SageMaker Image Version Alias.
+func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the image version created on the instance.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
@@ -19946,20 +22343,34 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 type UserProfileUserSettings struct {
 	// The Canvas app settings. See Canvas App Settings below.
 	CanvasAppSettings *UserProfileUserSettingsCanvasAppSettings `pulumi:"canvasAppSettings"`
+	// The Code Editor application settings. See Code Editor App Settings below.
+	CodeEditorAppSettings *UserProfileUserSettingsCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+	CustomFileSystemConfigs []UserProfileUserSettingsCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
+	// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+	CustomPosixUserConfig *UserProfileUserSettingsCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
+	// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+	DefaultLandingUri *string `pulumi:"defaultLandingUri"`
 	// The execution role ARN for the user.
 	ExecutionRole string `pulumi:"executionRole"`
+	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	JupyterLabAppSettings *UserProfileUserSettingsJupyterLabAppSettings `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *UserProfileUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *UserProfileUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
 	// The RSession app settings. See RSession App Settings below.
 	RSessionAppSettings *UserProfileUserSettingsRSessionAppSettings `pulumi:"rSessionAppSettings"`
-	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
 	RStudioServerProAppSettings *UserProfileUserSettingsRStudioServerProAppSettings `pulumi:"rStudioServerProAppSettings"`
-	// The security groups.
+	// A list of security group IDs that will be attached to the user.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
 	SharingSettings *UserProfileUserSettingsSharingSettings `pulumi:"sharingSettings"`
+	// The storage settings for a private space. See Space Storage Settings below.
+	SpaceStorageSettings *UserProfileUserSettingsSpaceStorageSettings `pulumi:"spaceStorageSettings"`
+	// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+	StudioWebPortal *string `pulumi:"studioWebPortal"`
 	// The TensorBoard app settings. See TensorBoard App Settings below.
 	TensorBoardAppSettings *UserProfileUserSettingsTensorBoardAppSettings `pulumi:"tensorBoardAppSettings"`
 }
@@ -19978,20 +22389,34 @@ type UserProfileUserSettingsInput interface {
 type UserProfileUserSettingsArgs struct {
 	// The Canvas app settings. See Canvas App Settings below.
 	CanvasAppSettings UserProfileUserSettingsCanvasAppSettingsPtrInput `pulumi:"canvasAppSettings"`
+	// The Code Editor application settings. See Code Editor App Settings below.
+	CodeEditorAppSettings UserProfileUserSettingsCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+	CustomFileSystemConfigs UserProfileUserSettingsCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
+	// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+	CustomPosixUserConfig UserProfileUserSettingsCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
+	// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+	DefaultLandingUri pulumi.StringPtrInput `pulumi:"defaultLandingUri"`
 	// The execution role ARN for the user.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	JupyterLabAppSettings UserProfileUserSettingsJupyterLabAppSettingsPtrInput `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings UserProfileUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings UserProfileUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
 	// The RSession app settings. See RSession App Settings below.
 	RSessionAppSettings UserProfileUserSettingsRSessionAppSettingsPtrInput `pulumi:"rSessionAppSettings"`
-	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
 	RStudioServerProAppSettings UserProfileUserSettingsRStudioServerProAppSettingsPtrInput `pulumi:"rStudioServerProAppSettings"`
-	// The security groups.
+	// A list of security group IDs that will be attached to the user.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
 	SharingSettings UserProfileUserSettingsSharingSettingsPtrInput `pulumi:"sharingSettings"`
+	// The storage settings for a private space. See Space Storage Settings below.
+	SpaceStorageSettings UserProfileUserSettingsSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
+	// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+	StudioWebPortal pulumi.StringPtrInput `pulumi:"studioWebPortal"`
 	// The TensorBoard app settings. See TensorBoard App Settings below.
 	TensorBoardAppSettings UserProfileUserSettingsTensorBoardAppSettingsPtrInput `pulumi:"tensorBoardAppSettings"`
 }
@@ -20078,9 +22503,42 @@ func (o UserProfileUserSettingsOutput) CanvasAppSettings() UserProfileUserSettin
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsCanvasAppSettings { return v.CanvasAppSettings }).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The Code Editor application settings. See Code Editor App Settings below.
+func (o UserProfileUserSettingsOutput) CodeEditorAppSettings() UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsCodeEditorAppSettings {
+		return v.CodeEditorAppSettings
+	}).(UserProfileUserSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+func (o UserProfileUserSettingsOutput) CustomFileSystemConfigs() UserProfileUserSettingsCustomFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) []UserProfileUserSettingsCustomFileSystemConfig {
+		return v.CustomFileSystemConfigs
+	}).(UserProfileUserSettingsCustomFileSystemConfigArrayOutput)
+}
+
+// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+func (o UserProfileUserSettingsOutput) CustomPosixUserConfig() UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsCustomPosixUserConfig {
+		return v.CustomPosixUserConfig
+	}).(UserProfileUserSettingsCustomPosixUserConfigPtrOutput)
+}
+
+// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+func (o UserProfileUserSettingsOutput) DefaultLandingUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *string { return v.DefaultLandingUri }).(pulumi.StringPtrOutput)
+}
+
 // The execution role ARN for the user.
 func (o UserProfileUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+func (o UserProfileUserSettingsOutput) JupyterLabAppSettings() UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsJupyterLabAppSettings {
+		return v.JupyterLabAppSettings
+	}).(UserProfileUserSettingsJupyterLabAppSettingsPtrOutput)
 }
 
 // The Jupyter server's app settings. See Jupyter Server App Settings below.
@@ -20104,14 +22562,14 @@ func (o UserProfileUserSettingsOutput) RSessionAppSettings() UserProfileUserSett
 	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
 }
 
-// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
 func (o UserProfileUserSettingsOutput) RStudioServerProAppSettings() UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsRStudioServerProAppSettings {
 		return v.RStudioServerProAppSettings
 	}).(UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput)
 }
 
-// The security groups.
+// A list of security group IDs that will be attached to the user.
 func (o UserProfileUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -20119,6 +22577,18 @@ func (o UserProfileUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput
 // The sharing settings. See Sharing Settings below.
 func (o UserProfileUserSettingsOutput) SharingSettings() UserProfileUserSettingsSharingSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsSharingSettings { return v.SharingSettings }).(UserProfileUserSettingsSharingSettingsPtrOutput)
+}
+
+// The storage settings for a private space. See Space Storage Settings below.
+func (o UserProfileUserSettingsOutput) SpaceStorageSettings() UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsSpaceStorageSettings {
+		return v.SpaceStorageSettings
+	}).(UserProfileUserSettingsSpaceStorageSettingsPtrOutput)
+}
+
+// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsOutput) StudioWebPortal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *string { return v.StudioWebPortal }).(pulumi.StringPtrOutput)
 }
 
 // The TensorBoard app settings. See TensorBoard App Settings below.
@@ -20162,6 +22632,46 @@ func (o UserProfileUserSettingsPtrOutput) CanvasAppSettings() UserProfileUserSet
 	}).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The Code Editor application settings. See Code Editor App Settings below.
+func (o UserProfileUserSettingsPtrOutput) CodeEditorAppSettings() UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsCodeEditorAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.CodeEditorAppSettings
+	}).(UserProfileUserSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+func (o UserProfileUserSettingsPtrOutput) CustomFileSystemConfigs() UserProfileUserSettingsCustomFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) []UserProfileUserSettingsCustomFileSystemConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CustomFileSystemConfigs
+	}).(UserProfileUserSettingsCustomFileSystemConfigArrayOutput)
+}
+
+// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+func (o UserProfileUserSettingsPtrOutput) CustomPosixUserConfig() UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsCustomPosixUserConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPosixUserConfig
+	}).(UserProfileUserSettingsCustomPosixUserConfigPtrOutput)
+}
+
+// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+func (o UserProfileUserSettingsPtrOutput) DefaultLandingUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultLandingUri
+	}).(pulumi.StringPtrOutput)
+}
+
 // The execution role ARN for the user.
 func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *string {
@@ -20170,6 +22680,16 @@ func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput
 		}
 		return &v.ExecutionRole
 	}).(pulumi.StringPtrOutput)
+}
+
+// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+func (o UserProfileUserSettingsPtrOutput) JupyterLabAppSettings() UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsJupyterLabAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterLabAppSettings
+	}).(UserProfileUserSettingsJupyterLabAppSettingsPtrOutput)
 }
 
 // The Jupyter server's app settings. See Jupyter Server App Settings below.
@@ -20202,7 +22722,7 @@ func (o UserProfileUserSettingsPtrOutput) RSessionAppSettings() UserProfileUserS
 	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
 }
 
-// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
 func (o UserProfileUserSettingsPtrOutput) RStudioServerProAppSettings() UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsRStudioServerProAppSettings {
 		if v == nil {
@@ -20212,7 +22732,7 @@ func (o UserProfileUserSettingsPtrOutput) RStudioServerProAppSettings() UserProf
 	}).(UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput)
 }
 
-// The security groups.
+// A list of security group IDs that will be attached to the user.
 func (o UserProfileUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) []string {
 		if v == nil {
@@ -20230,6 +22750,26 @@ func (o UserProfileUserSettingsPtrOutput) SharingSettings() UserProfileUserSetti
 		}
 		return v.SharingSettings
 	}).(UserProfileUserSettingsSharingSettingsPtrOutput)
+}
+
+// The storage settings for a private space. See Space Storage Settings below.
+func (o UserProfileUserSettingsPtrOutput) SpaceStorageSettings() UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsSpaceStorageSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SpaceStorageSettings
+	}).(UserProfileUserSettingsSpaceStorageSettingsPtrOutput)
+}
+
+// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsPtrOutput) StudioWebPortal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StudioWebPortal
+	}).(pulumi.StringPtrOutput)
 }
 
 // The TensorBoard app settings. See TensorBoard App Settings below.
@@ -20251,7 +22791,7 @@ type UserProfileUserSettingsCanvasAppSettings struct {
 	KendraSettings *UserProfileUserSettingsCanvasAppSettingsKendraSettings `pulumi:"kendraSettings"`
 	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 	ModelRegisterSettings *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings `pulumi:"modelRegisterSettings"`
-	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
 	// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
 	WorkspaceSettings *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings `pulumi:"workspaceSettings"`
@@ -20277,7 +22817,7 @@ type UserProfileUserSettingsCanvasAppSettingsArgs struct {
 	KendraSettings UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrInput `pulumi:"kendraSettings"`
 	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 	ModelRegisterSettings UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput `pulumi:"modelRegisterSettings"`
-	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
 	// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
 	WorkspaceSettings UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput `pulumi:"workspaceSettings"`
@@ -20388,7 +22928,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsOutput) ModelRegisterSettings() 
 	}).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
 }
 
-// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 func (o UserProfileUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingSettings() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		return v.TimeSeriesForecastingSettings
@@ -20466,7 +23006,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) ModelRegisterSettings
 	}).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
 }
 
-// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecastingSettings() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		if v == nil {
@@ -21351,6 +23891,1381 @@ func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3Km
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserProfileUserSettingsCodeEditorAppSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsArgs and UserProfileUserSettingsCodeEditorAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsInput` via:
+//
+//	UserProfileUserSettingsCodeEditorAppSettingsArgs{...}
+type UserProfileUserSettingsCodeEditorAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsOutput() UserProfileUserSettingsCodeEditorAppSettingsOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsOutput
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
+}
+
+func (UserProfileUserSettingsCodeEditorAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsArgs) ToUserProfileUserSettingsCodeEditorAppSettingsOutput() UserProfileUserSettingsCodeEditorAppSettingsOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsArgs) ToUserProfileUserSettingsCodeEditorAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsOutput)
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsArgs) ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsArgs) ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsOutput).ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsPtrInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsArgs, UserProfileUserSettingsCodeEditorAppSettingsPtr and UserProfileUserSettingsCodeEditorAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCodeEditorAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCodeEditorAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsPtrOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsPtrOutput
+}
+
+type userProfileUserSettingsCodeEditorAppSettingsPtrType UserProfileUserSettingsCodeEditorAppSettingsArgs
+
+func UserProfileUserSettingsCodeEditorAppSettingsPtr(v *UserProfileUserSettingsCodeEditorAppSettingsArgs) UserProfileUserSettingsCodeEditorAppSettingsPtrInput {
+	return (*userProfileUserSettingsCodeEditorAppSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCodeEditorAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCodeEditorAppSettingsPtrType) ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCodeEditorAppSettingsPtrType) ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) ToUserProfileUserSettingsCodeEditorAppSettingsOutput() UserProfileUserSettingsCodeEditorAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) ToUserProfileUserSettingsCodeEditorAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCodeEditorAppSettings) *UserProfileUserSettingsCodeEditorAppSettings {
+		return &v
+	}).(UserProfileUserSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettings) *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) ToUserProfileUserSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) Elem() UserProfileUserSettingsCodeEditorAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) UserProfileUserSettingsCodeEditorAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCodeEditorAppSettings
+		return ret
+	}).(UserProfileUserSettingsCodeEditorAppSettingsOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs and UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput` via:
+//
+//	UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{...}
+type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
+}
+
+func (UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput).ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs, UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtr and UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//	        UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type userProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs
+
+func UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtr(v *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput {
+	return (*userProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*userProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		return &v
+	}).(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) Elem() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec
+		return ret
+	}).(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCustomFileSystemConfig struct {
+	// The default EBS storage settings for a private space. See EFS File System Config below.
+	EfsFileSystemConfigs []UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig `pulumi:"efsFileSystemConfigs"`
+}
+
+// UserProfileUserSettingsCustomFileSystemConfigInput is an input type that accepts UserProfileUserSettingsCustomFileSystemConfigArgs and UserProfileUserSettingsCustomFileSystemConfigOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCustomFileSystemConfigInput` via:
+//
+//	UserProfileUserSettingsCustomFileSystemConfigArgs{...}
+type UserProfileUserSettingsCustomFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCustomFileSystemConfigOutput() UserProfileUserSettingsCustomFileSystemConfigOutput
+	ToUserProfileUserSettingsCustomFileSystemConfigOutputWithContext(context.Context) UserProfileUserSettingsCustomFileSystemConfigOutput
+}
+
+type UserProfileUserSettingsCustomFileSystemConfigArgs struct {
+	// The default EBS storage settings for a private space. See EFS File System Config below.
+	EfsFileSystemConfigs UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayInput `pulumi:"efsFileSystemConfigs"`
+}
+
+func (UserProfileUserSettingsCustomFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCustomFileSystemConfig)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCustomFileSystemConfigArgs) ToUserProfileUserSettingsCustomFileSystemConfigOutput() UserProfileUserSettingsCustomFileSystemConfigOutput {
+	return i.ToUserProfileUserSettingsCustomFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCustomFileSystemConfigArgs) ToUserProfileUserSettingsCustomFileSystemConfigOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCustomFileSystemConfigOutput)
+}
+
+// UserProfileUserSettingsCustomFileSystemConfigArrayInput is an input type that accepts UserProfileUserSettingsCustomFileSystemConfigArray and UserProfileUserSettingsCustomFileSystemConfigArrayOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCustomFileSystemConfigArrayInput` via:
+//
+//	UserProfileUserSettingsCustomFileSystemConfigArray{ UserProfileUserSettingsCustomFileSystemConfigArgs{...} }
+type UserProfileUserSettingsCustomFileSystemConfigArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCustomFileSystemConfigArrayOutput() UserProfileUserSettingsCustomFileSystemConfigArrayOutput
+	ToUserProfileUserSettingsCustomFileSystemConfigArrayOutputWithContext(context.Context) UserProfileUserSettingsCustomFileSystemConfigArrayOutput
+}
+
+type UserProfileUserSettingsCustomFileSystemConfigArray []UserProfileUserSettingsCustomFileSystemConfigInput
+
+func (UserProfileUserSettingsCustomFileSystemConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsCustomFileSystemConfig)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCustomFileSystemConfigArray) ToUserProfileUserSettingsCustomFileSystemConfigArrayOutput() UserProfileUserSettingsCustomFileSystemConfigArrayOutput {
+	return i.ToUserProfileUserSettingsCustomFileSystemConfigArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCustomFileSystemConfigArray) ToUserProfileUserSettingsCustomFileSystemConfigArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomFileSystemConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCustomFileSystemConfigArrayOutput)
+}
+
+type UserProfileUserSettingsCustomFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCustomFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCustomFileSystemConfig)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigOutput) ToUserProfileUserSettingsCustomFileSystemConfigOutput() UserProfileUserSettingsCustomFileSystemConfigOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigOutput) ToUserProfileUserSettingsCustomFileSystemConfigOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomFileSystemConfigOutput {
+	return o
+}
+
+// The default EBS storage settings for a private space. See EFS File System Config below.
+func (o UserProfileUserSettingsCustomFileSystemConfigOutput) EfsFileSystemConfigs() UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCustomFileSystemConfig) []UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
+		return v.EfsFileSystemConfigs
+	}).(UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput)
+}
+
+type UserProfileUserSettingsCustomFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCustomFileSystemConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsCustomFileSystemConfig)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigArrayOutput) ToUserProfileUserSettingsCustomFileSystemConfigArrayOutput() UserProfileUserSettingsCustomFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigArrayOutput) ToUserProfileUserSettingsCustomFileSystemConfigArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigArrayOutput) Index(i pulumi.IntInput) UserProfileUserSettingsCustomFileSystemConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileUserSettingsCustomFileSystemConfig {
+		return vs[0].([]UserProfileUserSettingsCustomFileSystemConfig)[vs[1].(int)]
+	}).(UserProfileUserSettingsCustomFileSystemConfigOutput)
+}
+
+type UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig struct {
+	// The ID of your Amazon EFS file system.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+	FileSystemPath *string `pulumi:"fileSystemPath"`
+}
+
+// UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigInput is an input type that accepts UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs and UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigInput` via:
+//
+//	UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs{...}
+type UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput() UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput
+	ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutputWithContext(context.Context) UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput
+}
+
+type UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs struct {
+	// The ID of your Amazon EFS file system.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+	FileSystemPath pulumi.StringPtrInput `pulumi:"fileSystemPath"`
+}
+
+func (UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs) ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput() UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return i.ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs) ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput)
+}
+
+// UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayInput is an input type that accepts UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArray and UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayInput` via:
+//
+//	UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArray{ UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs{...} }
+type UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput() UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput
+	ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutputWithContext(context.Context) UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput
+}
+
+type UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArray []UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigInput
+
+func (UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArray) ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput() UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput {
+	return i.ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArray) ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput)
+}
+
+type UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput() UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return o
+}
+
+// The ID of your Amazon EFS file system.
+func (o UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+func (o UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput) FileSystemPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig) *string {
+		return v.FileSystemPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput) ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput() UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput) ToUserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput) Index(i pulumi.IntInput) UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
+		return vs[0].([]UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig)[vs[1].(int)]
+	}).(UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput)
+}
+
+type UserProfileUserSettingsCustomPosixUserConfig struct {
+	// The POSIX group ID.
+	Gid int `pulumi:"gid"`
+	// The POSIX user ID.
+	Uid int `pulumi:"uid"`
+}
+
+// UserProfileUserSettingsCustomPosixUserConfigInput is an input type that accepts UserProfileUserSettingsCustomPosixUserConfigArgs and UserProfileUserSettingsCustomPosixUserConfigOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCustomPosixUserConfigInput` via:
+//
+//	UserProfileUserSettingsCustomPosixUserConfigArgs{...}
+type UserProfileUserSettingsCustomPosixUserConfigInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCustomPosixUserConfigOutput() UserProfileUserSettingsCustomPosixUserConfigOutput
+	ToUserProfileUserSettingsCustomPosixUserConfigOutputWithContext(context.Context) UserProfileUserSettingsCustomPosixUserConfigOutput
+}
+
+type UserProfileUserSettingsCustomPosixUserConfigArgs struct {
+	// The POSIX group ID.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// The POSIX user ID.
+	Uid pulumi.IntInput `pulumi:"uid"`
+}
+
+func (UserProfileUserSettingsCustomPosixUserConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCustomPosixUserConfig)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCustomPosixUserConfigArgs) ToUserProfileUserSettingsCustomPosixUserConfigOutput() UserProfileUserSettingsCustomPosixUserConfigOutput {
+	return i.ToUserProfileUserSettingsCustomPosixUserConfigOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCustomPosixUserConfigArgs) ToUserProfileUserSettingsCustomPosixUserConfigOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomPosixUserConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCustomPosixUserConfigOutput)
+}
+
+func (i UserProfileUserSettingsCustomPosixUserConfigArgs) ToUserProfileUserSettingsCustomPosixUserConfigPtrOutput() UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return i.ToUserProfileUserSettingsCustomPosixUserConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCustomPosixUserConfigArgs) ToUserProfileUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCustomPosixUserConfigOutput).ToUserProfileUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCustomPosixUserConfigPtrInput is an input type that accepts UserProfileUserSettingsCustomPosixUserConfigArgs, UserProfileUserSettingsCustomPosixUserConfigPtr and UserProfileUserSettingsCustomPosixUserConfigPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCustomPosixUserConfigPtrInput` via:
+//
+//	        UserProfileUserSettingsCustomPosixUserConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCustomPosixUserConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCustomPosixUserConfigPtrOutput() UserProfileUserSettingsCustomPosixUserConfigPtrOutput
+	ToUserProfileUserSettingsCustomPosixUserConfigPtrOutputWithContext(context.Context) UserProfileUserSettingsCustomPosixUserConfigPtrOutput
+}
+
+type userProfileUserSettingsCustomPosixUserConfigPtrType UserProfileUserSettingsCustomPosixUserConfigArgs
+
+func UserProfileUserSettingsCustomPosixUserConfigPtr(v *UserProfileUserSettingsCustomPosixUserConfigArgs) UserProfileUserSettingsCustomPosixUserConfigPtrInput {
+	return (*userProfileUserSettingsCustomPosixUserConfigPtrType)(v)
+}
+
+func (*userProfileUserSettingsCustomPosixUserConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCustomPosixUserConfig)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCustomPosixUserConfigPtrType) ToUserProfileUserSettingsCustomPosixUserConfigPtrOutput() UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return i.ToUserProfileUserSettingsCustomPosixUserConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCustomPosixUserConfigPtrType) ToUserProfileUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCustomPosixUserConfigPtrOutput)
+}
+
+type UserProfileUserSettingsCustomPosixUserConfigOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCustomPosixUserConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCustomPosixUserConfig)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCustomPosixUserConfigOutput) ToUserProfileUserSettingsCustomPosixUserConfigOutput() UserProfileUserSettingsCustomPosixUserConfigOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomPosixUserConfigOutput) ToUserProfileUserSettingsCustomPosixUserConfigOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomPosixUserConfigOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomPosixUserConfigOutput) ToUserProfileUserSettingsCustomPosixUserConfigPtrOutput() UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return o.ToUserProfileUserSettingsCustomPosixUserConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCustomPosixUserConfigOutput) ToUserProfileUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCustomPosixUserConfig) *UserProfileUserSettingsCustomPosixUserConfig {
+		return &v
+	}).(UserProfileUserSettingsCustomPosixUserConfigPtrOutput)
+}
+
+// The POSIX group ID.
+func (o UserProfileUserSettingsCustomPosixUserConfigOutput) Gid() pulumi.IntOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCustomPosixUserConfig) int { return v.Gid }).(pulumi.IntOutput)
+}
+
+// The POSIX user ID.
+func (o UserProfileUserSettingsCustomPosixUserConfigOutput) Uid() pulumi.IntOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCustomPosixUserConfig) int { return v.Uid }).(pulumi.IntOutput)
+}
+
+type UserProfileUserSettingsCustomPosixUserConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCustomPosixUserConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCustomPosixUserConfig)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCustomPosixUserConfigPtrOutput) ToUserProfileUserSettingsCustomPosixUserConfigPtrOutput() UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomPosixUserConfigPtrOutput) ToUserProfileUserSettingsCustomPosixUserConfigPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCustomPosixUserConfigPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCustomPosixUserConfigPtrOutput) Elem() UserProfileUserSettingsCustomPosixUserConfigOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCustomPosixUserConfig) UserProfileUserSettingsCustomPosixUserConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCustomPosixUserConfig
+		return ret
+	}).(UserProfileUserSettingsCustomPosixUserConfigOutput)
+}
+
+// The POSIX group ID.
+func (o UserProfileUserSettingsCustomPosixUserConfigPtrOutput) Gid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCustomPosixUserConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Gid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The POSIX user ID.
+func (o UserProfileUserSettingsCustomPosixUserConfigPtrOutput) Uid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCustomPosixUserConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Uid
+	}).(pulumi.IntPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettings struct {
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories []UserProfileUserSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages []UserProfileUserSettingsJupyterLabAppSettingsCustomImage `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsArgs and UserProfileUserSettingsJupyterLabAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsInput` via:
+//
+//	UserProfileUserSettingsJupyterLabAppSettingsArgs{...}
+type UserProfileUserSettingsJupyterLabAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsOutput() UserProfileUserSettingsJupyterLabAppSettingsOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsOutput
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsArgs struct {
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	CustomImages UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
+}
+
+func (UserProfileUserSettingsJupyterLabAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsOutput() UserProfileUserSettingsJupyterLabAppSettingsOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsOutput)
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsOutput).ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsPtrInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsArgs, UserProfileUserSettingsJupyterLabAppSettingsPtr and UserProfileUserSettingsJupyterLabAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsJupyterLabAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsJupyterLabAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsPtrOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsPtrOutput
+}
+
+type userProfileUserSettingsJupyterLabAppSettingsPtrType UserProfileUserSettingsJupyterLabAppSettingsArgs
+
+func UserProfileUserSettingsJupyterLabAppSettingsPtr(v *UserProfileUserSettingsJupyterLabAppSettingsArgs) UserProfileUserSettingsJupyterLabAppSettingsPtrInput {
+	return (*userProfileUserSettingsJupyterLabAppSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsJupyterLabAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsOutput() UserProfileUserSettingsJupyterLabAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettings {
+		return &v
+	}).(UserProfileUserSettingsJupyterLabAppSettingsPtrOutput)
+}
+
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) CodeRepositories() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) []UserProfileUserSettingsJupyterLabAppSettingsCodeRepository {
+		return v.CodeRepositories
+	}).(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) CustomImages() UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) []UserProfileUserSettingsJupyterLabAppSettingsCustomImage {
+		return v.CustomImages
+	}).(UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) Elem() UserProfileUserSettingsJupyterLabAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) UserProfileUserSettingsJupyterLabAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsJupyterLabAppSettings
+		return ret
+	}).(UserProfileUserSettingsJupyterLabAppSettingsOutput)
+}
+
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) []UserProfileUserSettingsJupyterLabAppSettingsCodeRepository {
+		if v == nil {
+			return nil
+		}
+		return v.CodeRepositories
+	}).(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
+}
+
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) CustomImages() UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) []UserProfileUserSettingsJupyterLabAppSettingsCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCodeRepository struct {
+	// The URL of the Git repository.
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs and UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryInput` via:
+//
+//	UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs{...}
+type UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs struct {
+	// The URL of the Git repository.
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+}
+
+func (UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs) ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs) ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput)
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArray and UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput` via:
+//
+//	UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArray{ UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs{...} }
+type UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArray []UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryInput
+
+func (UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArray) ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArray) ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput) ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput) ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return o
+}
+
+// The URL of the Git repository.
+func (o UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) ToUserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) Index(i pulumi.IntInput) UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileUserSettingsJupyterLabAppSettingsCodeRepository {
+		return vs[0].([]UserProfileUserSettingsJupyterLabAppSettingsCodeRepository)[vs[1].(int)]
+	}).(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCustomImage struct {
+	// The name of the App Image Config.
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsCustomImageInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs and UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsCustomImageInput` via:
+//
+//	UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs{...}
+type UserProfileUserSettingsJupyterLabAppSettingsCustomImageInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput() UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs) ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput() UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs) ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput)
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsCustomImageArray and UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput` via:
+//
+//	UserProfileUserSettingsJupyterLabAppSettingsCustomImageArray{ UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs{...} }
+type UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput() UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCustomImageArray []UserProfileUserSettingsJupyterLabAppSettingsCustomImageInput
+
+func (UserProfileUserSettingsJupyterLabAppSettingsCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsJupyterLabAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsCustomImageArray) ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput() UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsCustomImageArray) ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput) ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput() UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput) ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return o
+}
+
+// The name of the App Image Config.
+func (o UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The name of the Custom Image.
+func (o UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The version number of the Custom Image.
+func (o UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsJupyterLabAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput() UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) ToUserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) Index(i pulumi.IntInput) UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileUserSettingsJupyterLabAppSettingsCustomImage {
+		return vs[0].([]UserProfileUserSettingsJupyterLabAppSettingsCustomImage)[vs[1].(int)]
+	}).(UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs and UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput` via:
+//
+//	UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{...}
+type UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
+}
+
+func (UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput).ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs, UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtr and UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//	        UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type userProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs
+
+func UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtr(v *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput {
+	return (*userProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*userProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		return &v
+	}).(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) Elem() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec
+		return ret
+	}).(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserProfileUserSettingsJupyterServerAppSettings struct {
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories []UserProfileUserSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
@@ -21628,12 +25543,14 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput
 }
 
 type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -21650,12 +25567,14 @@ type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput int
 }
 
 type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -21737,7 +25656,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
@@ -21751,10 +25670,17 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21789,7 +25715,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -21809,13 +25735,23 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22124,12 +26060,14 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) I
 }
 
 type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -22146,12 +26084,14 @@ type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput int
 }
 
 type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -22233,7 +26173,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
@@ -22247,10 +26187,17 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22285,7 +26232,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -22305,13 +26252,23 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22601,12 +26558,14 @@ func (o UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput) Index(
 }
 
 type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -22623,12 +26582,14 @@ type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecInput interfac
 }
 
 type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -22710,7 +26671,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) ToU
 	}).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -22722,10 +26683,17 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) Lif
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22760,7 +26728,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -22780,13 +26748,23 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -23131,9 +27109,308 @@ func (o UserProfileUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserProfileUserSettingsSpaceStorageSettings struct {
+	// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+	DefaultEbsStorageSettings *UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings `pulumi:"defaultEbsStorageSettings"`
+}
+
+// UserProfileUserSettingsSpaceStorageSettingsInput is an input type that accepts UserProfileUserSettingsSpaceStorageSettingsArgs and UserProfileUserSettingsSpaceStorageSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsSpaceStorageSettingsInput` via:
+//
+//	UserProfileUserSettingsSpaceStorageSettingsArgs{...}
+type UserProfileUserSettingsSpaceStorageSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsSpaceStorageSettingsOutput() UserProfileUserSettingsSpaceStorageSettingsOutput
+	ToUserProfileUserSettingsSpaceStorageSettingsOutputWithContext(context.Context) UserProfileUserSettingsSpaceStorageSettingsOutput
+}
+
+type UserProfileUserSettingsSpaceStorageSettingsArgs struct {
+	// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+	DefaultEbsStorageSettings UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput `pulumi:"defaultEbsStorageSettings"`
+}
+
+func (UserProfileUserSettingsSpaceStorageSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsSpaceStorageSettingsArgs) ToUserProfileUserSettingsSpaceStorageSettingsOutput() UserProfileUserSettingsSpaceStorageSettingsOutput {
+	return i.ToUserProfileUserSettingsSpaceStorageSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsSpaceStorageSettingsArgs) ToUserProfileUserSettingsSpaceStorageSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsSpaceStorageSettingsOutput)
+}
+
+func (i UserProfileUserSettingsSpaceStorageSettingsArgs) ToUserProfileUserSettingsSpaceStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsSpaceStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsSpaceStorageSettingsArgs) ToUserProfileUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsSpaceStorageSettingsOutput).ToUserProfileUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsSpaceStorageSettingsPtrInput is an input type that accepts UserProfileUserSettingsSpaceStorageSettingsArgs, UserProfileUserSettingsSpaceStorageSettingsPtr and UserProfileUserSettingsSpaceStorageSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsSpaceStorageSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsSpaceStorageSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsSpaceStorageSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsSpaceStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsPtrOutput
+	ToUserProfileUserSettingsSpaceStorageSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsSpaceStorageSettingsPtrOutput
+}
+
+type userProfileUserSettingsSpaceStorageSettingsPtrType UserProfileUserSettingsSpaceStorageSettingsArgs
+
+func UserProfileUserSettingsSpaceStorageSettingsPtr(v *UserProfileUserSettingsSpaceStorageSettingsArgs) UserProfileUserSettingsSpaceStorageSettingsPtrInput {
+	return (*userProfileUserSettingsSpaceStorageSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsSpaceStorageSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsSpaceStorageSettingsPtrType) ToUserProfileUserSettingsSpaceStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsSpaceStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsSpaceStorageSettingsPtrType) ToUserProfileUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsSpaceStorageSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsSpaceStorageSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsSpaceStorageSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsOutput) ToUserProfileUserSettingsSpaceStorageSettingsOutput() UserProfileUserSettingsSpaceStorageSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsOutput) ToUserProfileUserSettingsSpaceStorageSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsOutput) ToUserProfileUserSettingsSpaceStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsSpaceStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsOutput) ToUserProfileUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsSpaceStorageSettings) *UserProfileUserSettingsSpaceStorageSettings {
+		return &v
+	}).(UserProfileUserSettingsSpaceStorageSettingsPtrOutput)
+}
+
+// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+func (o UserProfileUserSettingsSpaceStorageSettingsOutput) DefaultEbsStorageSettings() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsSpaceStorageSettings) *UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+		return v.DefaultEbsStorageSettings
+	}).(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsSpaceStorageSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsSpaceStorageSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsPtrOutput) ToUserProfileUserSettingsSpaceStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsPtrOutput) ToUserProfileUserSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsPtrOutput) Elem() UserProfileUserSettingsSpaceStorageSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsSpaceStorageSettings) UserProfileUserSettingsSpaceStorageSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsSpaceStorageSettings
+		return ret
+	}).(UserProfileUserSettingsSpaceStorageSettingsOutput)
+}
+
+// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+func (o UserProfileUserSettingsSpaceStorageSettingsPtrOutput) DefaultEbsStorageSettings() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsSpaceStorageSettings) *UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultEbsStorageSettings
+	}).(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings struct {
+	// The default size of the EBS storage volume for a private space.
+	DefaultEbsVolumeSizeInGb int `pulumi:"defaultEbsVolumeSizeInGb"`
+	// The maximum size of the EBS storage volume for a private space.
+	MaximumEbsVolumeSizeInGb int `pulumi:"maximumEbsVolumeSizeInGb"`
+}
+
+// UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsInput is an input type that accepts UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs and UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsInput` via:
+//
+//	UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs{...}
+type UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput
+	ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutputWithContext(context.Context) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput
+}
+
+type UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs struct {
+	// The default size of the EBS storage volume for a private space.
+	DefaultEbsVolumeSizeInGb pulumi.IntInput `pulumi:"defaultEbsVolumeSizeInGb"`
+	// The maximum size of the EBS storage volume for a private space.
+	MaximumEbsVolumeSizeInGb pulumi.IntInput `pulumi:"maximumEbsVolumeSizeInGb"`
+}
+
+func (UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return i.ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput)
+}
+
+func (i UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput).ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput is an input type that accepts UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs, UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtr and UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput
+	ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput
+}
+
+type userProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs
+
+func UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtr(v *UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput {
+	return (*userProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrType) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) *UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+		return &v
+	}).(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput)
+}
+
+// The default size of the EBS storage volume for a private space.
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) DefaultEbsVolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) int {
+		return v.DefaultEbsVolumeSizeInGb
+	}).(pulumi.IntOutput)
+}
+
+// The maximum size of the EBS storage volume for a private space.
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput) MaximumEbsVolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) int {
+		return v.MaximumEbsVolumeSizeInGb
+	}).(pulumi.IntOutput)
+}
+
+type UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) ToUserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) Elem() UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings
+		return ret
+	}).(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput)
+}
+
+// The default size of the EBS storage volume for a private space.
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) DefaultEbsVolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultEbsVolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum size of the EBS storage volume for a private space.
+func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput) MaximumEbsVolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumEbsVolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
 type UserProfileUserSettingsTensorBoardAppSettings struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
 // UserProfileUserSettingsTensorBoardAppSettingsInput is an input type that accepts UserProfileUserSettingsTensorBoardAppSettingsArgs and UserProfileUserSettingsTensorBoardAppSettingsOutput values.
@@ -23149,7 +27426,7 @@ type UserProfileUserSettingsTensorBoardAppSettingsInput interface {
 
 type UserProfileUserSettingsTensorBoardAppSettingsArgs struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
 func (UserProfileUserSettingsTensorBoardAppSettingsArgs) ElementType() reflect.Type {
@@ -23230,10 +27507,10 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) ToUserProfileUserSe
 }
 
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettings) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettings) *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
-	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
+	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
 
 type UserProfileUserSettingsTensorBoardAppSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -23266,17 +27543,19 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceS
 		if v == nil {
 			return nil
 		}
-		return &v.DefaultResourceSpec
+		return v.DefaultResourceSpec
 	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
 
 type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
 }
@@ -23293,12 +27572,14 @@ type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput inter
 }
 
 type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type.
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	// The ARN of the SageMaker image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
 	// The ARN of the image version created on the instance.
 	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
 }
@@ -23380,7 +27661,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) 
 	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
@@ -23394,10 +27675,17 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -23432,7 +27720,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type.
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -23452,13 +27740,23 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -24785,6 +29083,10 @@ func (o WorkteamNotificationConfigurationPtrOutput) NotificationTopicArn() pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigPtrInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigContainerConfigInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigContainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigJupyterLabImageConfigContainerConfigPtrInput)(nil)).Elem(), AppImageConfigJupyterLabImageConfigContainerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigPtrInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelGatewayImageConfigFileSystemConfigInput)(nil)).Elem(), AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{})
@@ -24865,6 +29167,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCustomFileSystemConfigInput)(nil)).Elem(), DomainDefaultUserSettingsCustomFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCustomFileSystemConfigArrayInput)(nil)).Elem(), DomainDefaultUserSettingsCustomFileSystemConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigInput)(nil)).Elem(), DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCustomPosixUserConfigInput)(nil)).Elem(), DomainDefaultUserSettingsCustomPosixUserConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCustomPosixUserConfigPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCustomPosixUserConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs{})
@@ -24887,6 +29207,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRStudioServerProAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsRStudioServerProAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSharingSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSharingSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsSharingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSpaceStorageSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsSpaceStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSpaceStorageSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsSpaceStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsTensorBoardAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsTensorBoardAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs{})
@@ -25043,6 +29367,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCustomFileSystemConfigInput)(nil)).Elem(), UserProfileUserSettingsCustomFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCustomFileSystemConfigArrayInput)(nil)).Elem(), UserProfileUserSettingsCustomFileSystemConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigInput)(nil)).Elem(), UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayInput)(nil)).Elem(), UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCustomPosixUserConfigInput)(nil)).Elem(), UserProfileUserSettingsCustomPosixUserConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCustomPosixUserConfigPtrInput)(nil)).Elem(), UserProfileUserSettingsCustomPosixUserConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCustomImageInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsCustomImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs{})
@@ -25065,6 +29407,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRStudioServerProAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsRStudioServerProAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSharingSettingsInput)(nil)).Elem(), UserProfileUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSharingSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsSharingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSpaceStorageSettingsInput)(nil)).Elem(), UserProfileUserSettingsSpaceStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSpaceStorageSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsSpaceStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsInput)(nil)).Elem(), UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsTensorBoardAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsTensorBoardAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsTensorBoardAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsTensorBoardAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs{})
@@ -25085,6 +29431,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamMemberDefinitionOidcMemberDefinitionPtrInput)(nil)).Elem(), WorkteamMemberDefinitionOidcMemberDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamNotificationConfigurationInput)(nil)).Elem(), WorkteamNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamNotificationConfigurationPtrInput)(nil)).Elem(), WorkteamNotificationConfigurationArgs{})
+	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigContainerConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigJupyterLabImageConfigContainerConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput{})
@@ -25165,6 +29515,24 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCustomFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCustomPosixUserConfigOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutput{})
@@ -25187,6 +29555,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsSharingSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsSpaceStorageSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput{})
@@ -25343,6 +29715,24 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCustomFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCustomFileSystemConfigArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCustomPosixUserConfigOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCustomPosixUserConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryOutput{})
@@ -25365,6 +29755,10 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsSharingSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsSpaceStorageSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsSpaceStorageSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput{})

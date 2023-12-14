@@ -30,6 +30,11 @@ export const getTargetGroup: typeof import("./getTargetGroup").getTargetGroup = 
 export const getTargetGroupOutput: typeof import("./getTargetGroup").getTargetGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getTargetGroup","getTargetGroupOutput"], () => require("./getTargetGroup"));
 
+export { GetTrustStoreArgs, GetTrustStoreResult, GetTrustStoreOutputArgs } from "./getTrustStore";
+export const getTrustStore: typeof import("./getTrustStore").getTrustStore = null as any;
+export const getTrustStoreOutput: typeof import("./getTrustStore").getTrustStoreOutput = null as any;
+utilities.lazyLoad(exports, ["getTrustStore","getTrustStoreOutput"], () => require("./getTrustStore"));
+
 export { ListenerArgs, ListenerState } from "./listener";
 export type Listener = import("./listener").Listener;
 export const Listener: typeof import("./listener").Listener = null as any;
@@ -60,6 +65,16 @@ export type TargetGroupAttachment = import("./targetGroupAttachment").TargetGrou
 export const TargetGroupAttachment: typeof import("./targetGroupAttachment").TargetGroupAttachment = null as any;
 utilities.lazyLoad(exports, ["TargetGroupAttachment"], () => require("./targetGroupAttachment"));
 
+export { TrustStoreArgs, TrustStoreState } from "./trustStore";
+export type TrustStore = import("./trustStore").TrustStore;
+export const TrustStore: typeof import("./trustStore").TrustStore = null as any;
+utilities.lazyLoad(exports, ["TrustStore"], () => require("./trustStore"));
+
+export { TrustStoreRevocationArgs, TrustStoreRevocationState } from "./trustStoreRevocation";
+export type TrustStoreRevocation = import("./trustStoreRevocation").TrustStoreRevocation;
+export const TrustStoreRevocation: typeof import("./trustStoreRevocation").TrustStoreRevocation = null as any;
+utilities.lazyLoad(exports, ["TrustStoreRevocation"], () => require("./trustStoreRevocation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -77,6 +92,10 @@ const _module = {
                 return new TargetGroup(name, <any>undefined, { urn })
             case "aws:lb/targetGroupAttachment:TargetGroupAttachment":
                 return new TargetGroupAttachment(name, <any>undefined, { urn })
+            case "aws:lb/trustStore:TrustStore":
+                return new TrustStore(name, <any>undefined, { urn })
+            case "aws:lb/trustStoreRevocation:TrustStoreRevocation":
+                return new TrustStoreRevocation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -88,3 +107,5 @@ pulumi.runtime.registerResourceModule("aws", "lb/listenerRule", _module)
 pulumi.runtime.registerResourceModule("aws", "lb/loadBalancer", _module)
 pulumi.runtime.registerResourceModule("aws", "lb/targetGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "lb/targetGroupAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "lb/trustStore", _module)
+pulumi.runtime.registerResourceModule("aws", "lb/trustStoreRevocation", _module)

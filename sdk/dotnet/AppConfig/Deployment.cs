@@ -30,6 +30,7 @@ namespace Pulumi.Aws.AppConfig
     ///         DeploymentStrategyId = aws_appconfig_deployment_strategy.Example.Id,
     ///         Description = "My example deployment",
     ///         EnvironmentId = aws_appconfig_environment.Example.Environment_id,
+    ///         KmsKeyIdentifier = aws_kms_key.Example.Arn,
     ///         Tags = 
     ///         {
     ///             { "Type", "AppConfig Deployment" },
@@ -97,6 +98,18 @@ namespace Pulumi.Aws.AppConfig
         /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the KMS key used to encrypt configuration data.
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string> KmsKeyArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+        /// </summary>
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// State of the deployment.
@@ -202,6 +215,12 @@ namespace Pulumi.Aws.AppConfig
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
 
+        /// <summary>
+        /// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -269,6 +288,18 @@ namespace Pulumi.Aws.AppConfig
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
+
+        /// <summary>
+        /// ARN of the KMS key used to encrypt configuration data.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
+        /// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
         /// State of the deployment.

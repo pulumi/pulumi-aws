@@ -12,22 +12,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ContactListTopic {
     /**
-     * @return The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+     * @return Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
      * 
      */
     private String defaultSubscriptionStatus;
     /**
-     * @return A description of what the topic is about, which the contact will see.
+     * @return Description of what the topic is about, which the contact will see.
      * 
      */
     private @Nullable String description;
     /**
-     * @return The name of the topic the contact will see.
+     * @return Name of the topic the contact will see.
      * 
      */
     private String displayName;
     /**
-     * @return The name of the topic.
+     * @return Name of the topic.
      * 
      * The following arguments are optional:
      * 
@@ -36,28 +36,28 @@ public final class ContactListTopic {
 
     private ContactListTopic() {}
     /**
-     * @return The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+     * @return Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
      * 
      */
     public String defaultSubscriptionStatus() {
         return this.defaultSubscriptionStatus;
     }
     /**
-     * @return A description of what the topic is about, which the contact will see.
+     * @return Description of what the topic is about, which the contact will see.
      * 
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The name of the topic the contact will see.
+     * @return Name of the topic the contact will see.
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return The name of the topic.
+     * @return Name of the topic.
      * 
      * The following arguments are optional:
      * 

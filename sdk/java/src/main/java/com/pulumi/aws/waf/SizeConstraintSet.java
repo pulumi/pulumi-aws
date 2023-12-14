@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a WAF Size Constraint Set Resource
+ * Use the `aws.waf.SizeConstraintSet` resource to manage WAF size constraint sets.
  * 
  * ## Example Usage
  * ```java
@@ -70,42 +70,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:waf/sizeConstraintSet:SizeConstraintSet")
 public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN)
+     * Amazon Resource Name (ARN).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return Amazon Resource Name (ARN).
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name or description of the Size Constraint Set.
+     * Name or description of the Size Constraint Set.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name or description of the Size Constraint Set.
+     * @return Name or description of the Size Constraint Set.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the parts of web requests that you want to inspect the size of.
+     * Parts of web requests that you want to inspect the size of.
      * 
      */
     @Export(name="sizeConstraints", refs={List.class,SizeConstraintSetSizeConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SizeConstraintSetSizeConstraint>> sizeConstraints;
 
     /**
-     * @return Specifies the parts of web requests that you want to inspect the size of.
+     * @return Parts of web requests that you want to inspect the size of.
      * 
      */
     public Output<Optional<List<SizeConstraintSetSizeConstraint>>> sizeConstraints() {

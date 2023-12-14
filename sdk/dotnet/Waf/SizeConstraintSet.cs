@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf
 {
     /// <summary>
-    /// Provides a WAF Size Constraint Set Resource
+    /// Use the `aws.waf.SizeConstraintSet` resource to manage WAF size constraint sets.
     /// 
     /// ## Example Usage
     /// 
@@ -54,19 +54,19 @@ namespace Pulumi.Aws.Waf
     public partial class SizeConstraintSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name or description of the Size Constraint Set.
+        /// Name or description of the Size Constraint Set.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the parts of web requests that you want to inspect the size of.
+        /// Parts of web requests that you want to inspect the size of.
         /// </summary>
         [Output("sizeConstraints")]
         public Output<ImmutableArray<Outputs.SizeConstraintSetSizeConstraint>> SizeConstraints { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Waf
     public sealed class SizeConstraintSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name or description of the Size Constraint Set.
+        /// Name or description of the Size Constraint Set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Waf
         private InputList<Inputs.SizeConstraintSetSizeConstraintArgs>? _sizeConstraints;
 
         /// <summary>
-        /// Specifies the parts of web requests that you want to inspect the size of.
+        /// Parts of web requests that you want to inspect the size of.
         /// </summary>
         public InputList<Inputs.SizeConstraintSetSizeConstraintArgs> SizeConstraints
         {
@@ -144,13 +144,13 @@ namespace Pulumi.Aws.Waf
     public sealed class SizeConstraintSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name or description of the Size Constraint Set.
+        /// Name or description of the Size Constraint Set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Waf
         private InputList<Inputs.SizeConstraintSetSizeConstraintGetArgs>? _sizeConstraints;
 
         /// <summary>
-        /// Specifies the parts of web requests that you want to inspect the size of.
+        /// Parts of web requests that you want to inspect the size of.
         /// </summary>
         public InputList<Inputs.SizeConstraintSetSizeConstraintGetArgs> SizeConstraints
         {

@@ -66,6 +66,10 @@ export class LogGroup extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
+     * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     */
+    public readonly logGroupClass!: pulumi.Output<string | undefined>;
+    /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class LogGroup extends pulumi.CustomResource {
             const state = argsOrState as LogGroupState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["logGroupClass"] = state ? state.logGroupClass : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
@@ -118,6 +123,7 @@ export class LogGroup extends pulumi.CustomResource {
         } else {
             const args = argsOrState as LogGroupArgs | undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["logGroupClass"] = args ? args.logGroupClass : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
@@ -147,6 +153,10 @@ export interface LogGroupState {
      * permissions for the CMK whenever the encrypted data is requested.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     */
+    logGroupClass?: pulumi.Input<string>;
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      */
@@ -187,6 +197,10 @@ export interface LogGroupArgs {
      * permissions for the CMK whenever the encrypted data is requested.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     */
+    logGroupClass?: pulumi.Input<string>;
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      */

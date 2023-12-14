@@ -17143,7 +17143,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3 struct {
 	// Name of the Amazon S3 bucket.
 	BucketName string `pulumi:"bucketName"`
 	// Amazon S3 bucket prefix.
-	BucketPrefix *string `pulumi:"bucketPrefix"`
+	BucketPrefix string `pulumi:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig *FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig `pulumi:"s3InputFormatConfig"`
 }
@@ -17163,7 +17163,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3Args struct {
 	// Name of the Amazon S3 bucket.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// Amazon S3 bucket prefix.
-	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	BucketPrefix pulumi.StringInput `pulumi:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrInput `pulumi:"s3InputFormatConfig"`
 }
@@ -17251,8 +17251,8 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketName() pulu
 }
 
 // Amazon S3 bucket prefix.
-func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) string { return v.BucketPrefix }).(pulumi.StringOutput)
 }
 
 // When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
@@ -17302,7 +17302,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) BucketPrefix()
 		if v == nil {
 			return nil
 		}
-		return v.BucketPrefix
+		return &v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 

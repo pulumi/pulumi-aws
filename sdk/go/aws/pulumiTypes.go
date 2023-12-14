@@ -784,6 +784,7 @@ type ProviderEndpoint struct {
 	Location                             *string `pulumi:"location"`
 	Locationservice                      *string `pulumi:"locationservice"`
 	Logs                                 *string `pulumi:"logs"`
+	Lookoutmetrics                       *string `pulumi:"lookoutmetrics"`
 	Macie2                               *string `pulumi:"macie2"`
 	Managedgrafana                       *string `pulumi:"managedgrafana"`
 	Mediaconnect                         *string `pulumi:"mediaconnect"`
@@ -1056,6 +1057,7 @@ type ProviderEndpointArgs struct {
 	Location                             pulumi.StringPtrInput `pulumi:"location"`
 	Locationservice                      pulumi.StringPtrInput `pulumi:"locationservice"`
 	Logs                                 pulumi.StringPtrInput `pulumi:"logs"`
+	Lookoutmetrics                       pulumi.StringPtrInput `pulumi:"lookoutmetrics"`
 	Macie2                               pulumi.StringPtrInput `pulumi:"macie2"`
 	Managedgrafana                       pulumi.StringPtrInput `pulumi:"managedgrafana"`
 	Mediaconnect                         pulumi.StringPtrInput `pulumi:"mediaconnect"`
@@ -1848,6 +1850,10 @@ func (o ProviderEndpointOutput) Locationservice() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Logs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Logs }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Lookoutmetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Lookoutmetrics }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Macie2() pulumi.StringPtrOutput {

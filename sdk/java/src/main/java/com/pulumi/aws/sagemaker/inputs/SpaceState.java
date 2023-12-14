@@ -63,6 +63,21 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    @Import(name="spaceDisplayName")
+    private @Nullable Output<String> spaceDisplayName;
+
+    /**
+     * @return The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    public Optional<Output<String>> spaceDisplayName() {
+        return Optional.ofNullable(this.spaceDisplayName);
+    }
+
+    /**
      * The name of the space.
      * 
      */
@@ -130,16 +145,33 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     * 
+     */
+    @Import(name="url")
+    private @Nullable Output<String> url;
+
+    /**
+     * @return Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     * 
+     */
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
+    }
+
     private SpaceState() {}
 
     private SpaceState(SpaceState $) {
         this.arn = $.arn;
         this.domainId = $.domainId;
         this.homeEfsFileSystemUid = $.homeEfsFileSystemUid;
+        this.spaceDisplayName = $.spaceDisplayName;
         this.spaceName = $.spaceName;
         this.spaceSettings = $.spaceSettings;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.url = $.url;
     }
 
     public static Builder builder() {
@@ -221,6 +253,27 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder homeEfsFileSystemUid(String homeEfsFileSystemUid) {
             return homeEfsFileSystemUid(Output.of(homeEfsFileSystemUid));
+        }
+
+        /**
+         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceDisplayName(@Nullable Output<String> spaceDisplayName) {
+            $.spaceDisplayName = spaceDisplayName;
+            return this;
+        }
+
+        /**
+         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceDisplayName(String spaceDisplayName) {
+            return spaceDisplayName(Output.of(spaceDisplayName));
         }
 
         /**
@@ -313,6 +366,27 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param url Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(@Nullable Output<String> url) {
+            $.url = url;
+            return this;
+        }
+
+        /**
+         * @param url Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(String url) {
+            return url(Output.of(url));
         }
 
         public SpaceState build() {

@@ -297,6 +297,45 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
+    /// ### Mutual TLS Authentication
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLoadBalancer = new Aws.LB.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         LoadBalancerType = "application",
+    ///     });
+    /// 
+    ///     // ...
+    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("exampleTargetGroup");
+    /// 
+    ///     // ...
+    ///     var exampleListener = new Aws.LB.Listener("exampleListener", new()
+    ///     {
+    ///         LoadBalancerArn = exampleLoadBalancer.Id,
+    ///         DefaultActions = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///             {
+    ///                 TargetGroupArn = exampleTargetGroup.Id,
+    ///                 Type = "forward",
+    ///             },
+    ///         },
+    ///         MutualAuthentication = new Aws.LB.Inputs.ListenerMutualAuthenticationArgs
+    ///         {
+    ///             Mode = "verify",
+    ///             TrustStoreArn = "...",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -342,6 +381,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The mutual authentication configuration information. Detailed below.
+        /// </summary>
+        [Output("mutualAuthentication")]
+        public Output<Outputs.ListenerMutualAuthentication> MutualAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
@@ -462,6 +507,12 @@ namespace Pulumi.Aws.LB
         public Input<string> LoadBalancerArn { get; set; } = null!;
 
         /// <summary>
+        /// The mutual authentication configuration information. Detailed below.
+        /// </summary>
+        [Input("mutualAuthentication")]
+        public Input<Inputs.ListenerMutualAuthenticationArgs>? MutualAuthentication { get; set; }
+
+        /// <summary>
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         /// </summary>
         [Input("port")]
@@ -540,6 +591,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("loadBalancerArn")]
         public Input<string>? LoadBalancerArn { get; set; }
+
+        /// <summary>
+        /// The mutual authentication configuration information. Detailed below.
+        /// </summary>
+        [Input("mutualAuthentication")]
+        public Input<Inputs.ListenerMutualAuthenticationGetArgs>? MutualAuthentication { get; set; }
 
         /// <summary>
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.

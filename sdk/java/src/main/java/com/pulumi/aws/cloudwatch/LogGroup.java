@@ -98,6 +98,20 @@ public class LogGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
+     * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     * 
+     */
+    @Export(name="logGroupClass", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> logGroupClass;
+
+    /**
+     * @return Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     * 
+     */
+    public Output<Optional<String>> logGroupClass() {
+        return Codegen.optional(this.logGroupClass);
+    }
+    /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      * 
      */

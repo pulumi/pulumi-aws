@@ -19,10 +19,46 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsArgs>? CanvasAppSettings { get; set; }
 
         /// <summary>
+        /// The Code Editor application settings. See Code Editor App Settings below.
+        /// </summary>
+        [Input("codeEditorAppSettings")]
+        public Input<Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsArgs>? CodeEditorAppSettings { get; set; }
+
+        [Input("customFileSystemConfigs")]
+        private InputList<Inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs>? _customFileSystemConfigs;
+
+        /// <summary>
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        /// </summary>
+        public InputList<Inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs> CustomFileSystemConfigs
+        {
+            get => _customFileSystemConfigs ?? (_customFileSystemConfigs = new InputList<Inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs>());
+            set => _customFileSystemConfigs = value;
+        }
+
+        /// <summary>
+        /// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        /// </summary>
+        [Input("customPosixUserConfig")]
+        public Input<Inputs.DomainDefaultUserSettingsCustomPosixUserConfigArgs>? CustomPosixUserConfig { get; set; }
+
+        /// <summary>
+        /// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+        /// </summary>
+        [Input("defaultLandingUri")]
+        public Input<string>? DefaultLandingUri { get; set; }
+
+        /// <summary>
         /// The execution role ARN for the user.
         /// </summary>
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
+
+        /// <summary>
+        /// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        /// </summary>
+        [Input("jupyterLabAppSettings")]
+        public Input<Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
 
         /// <summary>
         /// The Jupyter server's app settings. See Jupyter Server App Settings below.
@@ -65,6 +101,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// </summary>
         [Input("sharingSettings")]
         public Input<Inputs.DomainDefaultUserSettingsSharingSettingsArgs>? SharingSettings { get; set; }
+
+        /// <summary>
+        /// The storage settings for a private space. See Space Storage Settings below.
+        /// </summary>
+        [Input("spaceStorageSettings")]
+        public Input<Inputs.DomainDefaultUserSettingsSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }
+
+        /// <summary>
+        /// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+        /// </summary>
+        [Input("studioWebPortal")]
+        public Input<string>? StudioWebPortal { get; set; }
 
         /// <summary>
         /// The TensorBoard app settings. See TensorBoard App Settings below.

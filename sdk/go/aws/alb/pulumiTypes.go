@@ -1659,6 +1659,181 @@ func (o ListenerDefaultActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type ListenerMutualAuthentication struct {
+	// Whether client certificate expiry is ignored. Default is `false`.
+	IgnoreClientCertificateExpiry *bool `pulumi:"ignoreClientCertificateExpiry"`
+	// Valid values are `off`, `verify` and `passthrough`.
+	Mode string `pulumi:"mode"`
+	// ARN of the elbv2 Trust Store.
+	TrustStoreArn *string `pulumi:"trustStoreArn"`
+}
+
+// ListenerMutualAuthenticationInput is an input type that accepts ListenerMutualAuthenticationArgs and ListenerMutualAuthenticationOutput values.
+// You can construct a concrete instance of `ListenerMutualAuthenticationInput` via:
+//
+//	ListenerMutualAuthenticationArgs{...}
+type ListenerMutualAuthenticationInput interface {
+	pulumi.Input
+
+	ToListenerMutualAuthenticationOutput() ListenerMutualAuthenticationOutput
+	ToListenerMutualAuthenticationOutputWithContext(context.Context) ListenerMutualAuthenticationOutput
+}
+
+type ListenerMutualAuthenticationArgs struct {
+	// Whether client certificate expiry is ignored. Default is `false`.
+	IgnoreClientCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreClientCertificateExpiry"`
+	// Valid values are `off`, `verify` and `passthrough`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// ARN of the elbv2 Trust Store.
+	TrustStoreArn pulumi.StringPtrInput `pulumi:"trustStoreArn"`
+}
+
+func (ListenerMutualAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationOutput() ListenerMutualAuthenticationOutput {
+	return i.ToListenerMutualAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationOutputWithContext(ctx context.Context) ListenerMutualAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationOutput)
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return i.ToListenerMutualAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationOutput).ToListenerMutualAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ListenerMutualAuthenticationPtrInput is an input type that accepts ListenerMutualAuthenticationArgs, ListenerMutualAuthenticationPtr and ListenerMutualAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ListenerMutualAuthenticationPtrInput` via:
+//
+//	        ListenerMutualAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerMutualAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput
+	ToListenerMutualAuthenticationPtrOutputWithContext(context.Context) ListenerMutualAuthenticationPtrOutput
+}
+
+type listenerMutualAuthenticationPtrType ListenerMutualAuthenticationArgs
+
+func ListenerMutualAuthenticationPtr(v *ListenerMutualAuthenticationArgs) ListenerMutualAuthenticationPtrInput {
+	return (*listenerMutualAuthenticationPtrType)(v)
+}
+
+func (*listenerMutualAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i *listenerMutualAuthenticationPtrType) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return i.ToListenerMutualAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerMutualAuthenticationPtrType) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationPtrOutput)
+}
+
+type ListenerMutualAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ListenerMutualAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationOutput() ListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationOutputWithContext(ctx context.Context) ListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return o.ToListenerMutualAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerMutualAuthentication) *ListenerMutualAuthentication {
+		return &v
+	}).(ListenerMutualAuthenticationPtrOutput)
+}
+
+// Whether client certificate expiry is ignored. Default is `false`.
+func (o ListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) *bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `off`, `verify` and `passthrough`.
+func (o ListenerMutualAuthenticationOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// ARN of the elbv2 Trust Store.
+func (o ListenerMutualAuthenticationOutput) TrustStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.TrustStoreArn }).(pulumi.StringPtrOutput)
+}
+
+type ListenerMutualAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerMutualAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) Elem() ListenerMutualAuthenticationOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) ListenerMutualAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerMutualAuthentication
+		return ret
+	}).(ListenerMutualAuthenticationOutput)
+}
+
+// Whether client certificate expiry is ignored. Default is `false`.
+func (o ListenerMutualAuthenticationPtrOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreClientCertificateExpiry
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `off`, `verify` and `passthrough`.
+func (o ListenerMutualAuthenticationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the elbv2 Trust Store.
+func (o ListenerMutualAuthenticationPtrOutput) TrustStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustStoreArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ListenerRuleAction struct {
 	// Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
 	AuthenticateCognito *ListenerRuleActionAuthenticateCognito `pulumi:"authenticateCognito"`
@@ -6221,6 +6396,112 @@ func (o GetListenerDefaultActionRedirectArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetListenerDefaultActionRedirectOutput)
 }
 
+type GetListenerMutualAuthentication struct {
+	IgnoreClientCertificateExpiry bool   `pulumi:"ignoreClientCertificateExpiry"`
+	Mode                          string `pulumi:"mode"`
+	TrustStoreArn                 string `pulumi:"trustStoreArn"`
+}
+
+// GetListenerMutualAuthenticationInput is an input type that accepts GetListenerMutualAuthenticationArgs and GetListenerMutualAuthenticationOutput values.
+// You can construct a concrete instance of `GetListenerMutualAuthenticationInput` via:
+//
+//	GetListenerMutualAuthenticationArgs{...}
+type GetListenerMutualAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetListenerMutualAuthenticationOutput() GetListenerMutualAuthenticationOutput
+	ToGetListenerMutualAuthenticationOutputWithContext(context.Context) GetListenerMutualAuthenticationOutput
+}
+
+type GetListenerMutualAuthenticationArgs struct {
+	IgnoreClientCertificateExpiry pulumi.BoolInput   `pulumi:"ignoreClientCertificateExpiry"`
+	Mode                          pulumi.StringInput `pulumi:"mode"`
+	TrustStoreArn                 pulumi.StringInput `pulumi:"trustStoreArn"`
+}
+
+func (GetListenerMutualAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i GetListenerMutualAuthenticationArgs) ToGetListenerMutualAuthenticationOutput() GetListenerMutualAuthenticationOutput {
+	return i.ToGetListenerMutualAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetListenerMutualAuthenticationArgs) ToGetListenerMutualAuthenticationOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerMutualAuthenticationOutput)
+}
+
+// GetListenerMutualAuthenticationArrayInput is an input type that accepts GetListenerMutualAuthenticationArray and GetListenerMutualAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetListenerMutualAuthenticationArrayInput` via:
+//
+//	GetListenerMutualAuthenticationArray{ GetListenerMutualAuthenticationArgs{...} }
+type GetListenerMutualAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerMutualAuthenticationArrayOutput() GetListenerMutualAuthenticationArrayOutput
+	ToGetListenerMutualAuthenticationArrayOutputWithContext(context.Context) GetListenerMutualAuthenticationArrayOutput
+}
+
+type GetListenerMutualAuthenticationArray []GetListenerMutualAuthenticationInput
+
+func (GetListenerMutualAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i GetListenerMutualAuthenticationArray) ToGetListenerMutualAuthenticationArrayOutput() GetListenerMutualAuthenticationArrayOutput {
+	return i.ToGetListenerMutualAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerMutualAuthenticationArray) ToGetListenerMutualAuthenticationArrayOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerMutualAuthenticationArrayOutput)
+}
+
+type GetListenerMutualAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetListenerMutualAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o GetListenerMutualAuthenticationOutput) ToGetListenerMutualAuthenticationOutput() GetListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o GetListenerMutualAuthenticationOutput) ToGetListenerMutualAuthenticationOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o GetListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetListenerMutualAuthentication) bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolOutput)
+}
+
+func (o GetListenerMutualAuthenticationOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerMutualAuthentication) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o GetListenerMutualAuthenticationOutput) TrustStoreArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerMutualAuthentication) string { return v.TrustStoreArn }).(pulumi.StringOutput)
+}
+
+type GetListenerMutualAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerMutualAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o GetListenerMutualAuthenticationArrayOutput) ToGetListenerMutualAuthenticationArrayOutput() GetListenerMutualAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetListenerMutualAuthenticationArrayOutput) ToGetListenerMutualAuthenticationArrayOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetListenerMutualAuthenticationArrayOutput) Index(i pulumi.IntInput) GetListenerMutualAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerMutualAuthentication {
+		return vs[0].([]GetListenerMutualAuthentication)[vs[1].(int)]
+	}).(GetListenerMutualAuthenticationOutput)
+}
+
 type GetLoadBalancerAccessLogs struct {
 	Bucket  string `pulumi:"bucket"`
 	Enabled bool   `pulumi:"enabled"`
@@ -6581,6 +6862,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), ListenerDefaultActionForwardTargetGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionRedirectInput)(nil)).Elem(), ListenerDefaultActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionRedirectPtrInput)(nil)).Elem(), ListenerDefaultActionRedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerMutualAuthenticationInput)(nil)).Elem(), ListenerMutualAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerMutualAuthenticationPtrInput)(nil)).Elem(), ListenerMutualAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionInput)(nil)).Elem(), ListenerRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionArrayInput)(nil)).Elem(), ListenerRuleActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionAuthenticateCognitoInput)(nil)).Elem(), ListenerRuleActionAuthenticateCognitoArgs{})
@@ -6639,6 +6922,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectInput)(nil)).Elem(), GetListenerDefaultActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectArrayInput)(nil)).Elem(), GetListenerDefaultActionRedirectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerMutualAuthenticationInput)(nil)).Elem(), GetListenerMutualAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerMutualAuthenticationArrayInput)(nil)).Elem(), GetListenerMutualAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingArrayInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArray{})
@@ -6660,6 +6945,8 @@ func init() {
 	pulumi.RegisterOutputType(ListenerDefaultActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionRedirectPtrOutput{})
+	pulumi.RegisterOutputType(ListenerMutualAuthenticationOutput{})
+	pulumi.RegisterOutputType(ListenerMutualAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionArrayOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionAuthenticateCognitoOutput{})
@@ -6718,6 +7005,8 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerMutualAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetListenerMutualAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingArrayOutput{})

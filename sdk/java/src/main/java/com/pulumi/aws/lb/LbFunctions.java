@@ -14,11 +14,14 @@ import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
 import com.pulumi.aws.lb.inputs.GetLoadBalancerPlainArgs;
 import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
 import com.pulumi.aws.lb.inputs.GetTargetGroupPlainArgs;
+import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+import com.pulumi.aws.lb.inputs.GetTrustStorePlainArgs;
 import com.pulumi.aws.lb.outputs.GetHostedZoneIdResult;
 import com.pulumi.aws.lb.outputs.GetLbsResult;
 import com.pulumi.aws.lb.outputs.GetListenerResult;
 import com.pulumi.aws.lb.outputs.GetLoadBalancerResult;
 import com.pulumi.aws.lb.outputs.GetTargetGroupResult;
+import com.pulumi.aws.lb.outputs.GetTrustStoreResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -1435,5 +1438,287 @@ public final class LbFunctions {
      */
     public static CompletableFuture<GetTargetGroupResult> getTargetGroupPlain(GetTargetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lb/getTargetGroup:getTargetGroup", TypeShape.of(GetTargetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTrustStoreResult> getTrustStore() {
+        return getTrustStore(GetTrustStoreArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTrustStoreResult> getTrustStorePlain() {
+        return getTrustStorePlain(GetTrustStorePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTrustStoreResult> getTrustStore(GetTrustStoreArgs args) {
+        return getTrustStore(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTrustStoreResult> getTrustStorePlain(GetTrustStorePlainArgs args) {
+        return getTrustStorePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTrustStoreResult> getTrustStore(GetTrustStoreArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:lb/getTrustStore:getTrustStore", TypeShape.of(GetTrustStoreResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Trust Store.
+     * 
+     * This data source can prove useful when a module accepts an LB Trust Store as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Trust Store for use in other resources, given LB Trust Store name.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
+     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
+     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
+     *             .arn(lbTsArn)
+     *             .name(lbTsName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTrustStoreResult> getTrustStorePlain(GetTrustStorePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:lb/getTrustStore:getTrustStore", TypeShape.of(GetTrustStoreResult.class), args, Utilities.withVersion(options));
     }
 }

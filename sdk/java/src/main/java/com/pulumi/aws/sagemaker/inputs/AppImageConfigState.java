@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.AppImageConfigJupyterLabImageConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -45,6 +46,13 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    @Import(name="jupyterLabImageConfig")
+    private @Nullable Output<AppImageConfigJupyterLabImageConfigArgs> jupyterLabImageConfig;
+
+    public Optional<Output<AppImageConfigJupyterLabImageConfigArgs>> jupyterLabImageConfig() {
+        return Optional.ofNullable(this.jupyterLabImageConfig);
     }
 
     /**
@@ -105,6 +113,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
     private AppImageConfigState(AppImageConfigState $) {
         this.appImageConfigName = $.appImageConfigName;
         this.arn = $.arn;
+        this.jupyterLabImageConfig = $.jupyterLabImageConfig;
         this.kernelGatewayImageConfig = $.kernelGatewayImageConfig;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -168,6 +177,15 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        public Builder jupyterLabImageConfig(@Nullable Output<AppImageConfigJupyterLabImageConfigArgs> jupyterLabImageConfig) {
+            $.jupyterLabImageConfig = jupyterLabImageConfig;
+            return this;
+        }
+
+        public Builder jupyterLabImageConfig(AppImageConfigJupyterLabImageConfigArgs jupyterLabImageConfig) {
+            return jupyterLabImageConfig(Output.of(jupyterLabImageConfig));
         }
 
         /**

@@ -7,6 +7,8 @@ import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsTensorBoardAppSett
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class UserProfileUserSettingsTensorBoardAppSettingsArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,15 +19,15 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsArgs extends com
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    @Import(name="defaultResourceSpec", required=true)
-    private Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
+    @Import(name="defaultResourceSpec")
+    private @Nullable Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    public Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec() {
-        return this.defaultResourceSpec;
+    public Optional<Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
+        return Optional.ofNullable(this.defaultResourceSpec);
     }
 
     private UserProfileUserSettingsTensorBoardAppSettingsArgs() {}
@@ -58,7 +60,7 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsArgs extends com
          * @return builder
          * 
          */
-        public Builder defaultResourceSpec(Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
+        public Builder defaultResourceSpec(@Nullable Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
@@ -74,7 +76,6 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsArgs extends com
         }
 
         public UserProfileUserSettingsTensorBoardAppSettingsArgs build() {
-            $.defaultResourceSpec = Objects.requireNonNull($.defaultResourceSpec, "expected parameter 'defaultResourceSpec' to be non-null");
             return $;
         }
     }

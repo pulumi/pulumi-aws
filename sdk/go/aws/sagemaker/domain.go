@@ -179,6 +179,8 @@ type Domain struct {
 	RetentionPolicy DomainRetentionPolicyPtrOutput `pulumi:"retentionPolicy"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary pulumi.StringOutput `pulumi:"securityGroupIdForDomainBoundary"`
+	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+	SingleSignOnApplicationArn pulumi.StringOutput `pulumi:"singleSignOnApplicationArn"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
@@ -270,6 +272,8 @@ type domainState struct {
 	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary *string `pulumi:"securityGroupIdForDomainBoundary"`
+	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+	SingleSignOnApplicationArn *string `pulumi:"singleSignOnApplicationArn"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
@@ -313,6 +317,8 @@ type DomainState struct {
 	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary pulumi.StringPtrInput
+	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+	SingleSignOnApplicationArn pulumi.StringPtrInput
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringPtrInput
 	// The VPC subnets that Studio uses for communication.
@@ -539,6 +545,11 @@ func (o DomainOutput) RetentionPolicy() DomainRetentionPolicyPtrOutput {
 // The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 func (o DomainOutput) SecurityGroupIdForDomainBoundary() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SecurityGroupIdForDomainBoundary }).(pulumi.StringOutput)
+}
+
+// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+func (o DomainOutput) SingleSignOnApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SingleSignOnApplicationArn }).(pulumi.StringOutput)
 }
 
 // The SSO managed application instance ID.

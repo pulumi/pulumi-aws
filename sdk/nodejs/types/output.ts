@@ -340,6 +340,12 @@ export namespace alb {
         statusCode: string;
     }
 
+    export interface GetListenerMutualAuthentication {
+        ignoreClientCertificateExpiry: boolean;
+        mode: string;
+        trustStoreArn: string;
+    }
+
     export interface GetLoadBalancerAccessLogs {
         bucket: string;
         enabled: boolean;
@@ -579,6 +585,21 @@ export namespace alb {
          * The following arguments are optional:
          */
         statusCode: string;
+    }
+
+    export interface ListenerMutualAuthentication {
+        /**
+         * Whether client certificate expiry is ignored. Default is `false`.
+         */
+        ignoreClientCertificateExpiry?: boolean;
+        /**
+         * Valid values are `off`, `verify` and `passthrough`.
+         */
+        mode: string;
+        /**
+         * ARN of the elbv2 Trust Store.
+         */
+        trustStoreArn?: string;
     }
 
     export interface ListenerRuleAction {
@@ -2678,7 +2699,7 @@ export namespace appflow {
         /**
          * Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
          */
-        s3?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3;
+        s3: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3;
         /**
          * Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
          */
@@ -2873,18 +2894,18 @@ export namespace appflow {
         /**
          * Amazon S3 bucket prefix.
          */
-        bucketPrefix?: string;
+        bucketPrefix: string;
         /**
          * Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
          */
-        s3OutputFormatConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig;
+        s3OutputFormatConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig {
         /**
          * Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
          */
-        aggregationConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig;
+        aggregationConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig;
         /**
          * File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
          */
@@ -2892,18 +2913,18 @@ export namespace appflow {
         /**
          * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
          */
-        prefixConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig;
+        prefixConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig;
         /**
          * Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
          */
-        preserveSourceDataTyping?: boolean;
+        preserveSourceDataTyping: boolean;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig {
         /**
          * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
          */
-        aggregationType?: string;
+        aggregationType: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig {
@@ -3178,7 +3199,7 @@ export namespace appflow {
         /**
          * Information that is required for querying Amazon S3. See S3 Source Properties for more details.
          */
-        s3?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3;
+        s3: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3;
         /**
          * Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
          */
@@ -3274,7 +3295,7 @@ export namespace appflow {
         /**
          * Amazon S3 bucket prefix.
          */
-        bucketPrefix?: string;
+        bucketPrefix: string;
         /**
          * When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
          */
@@ -14409,6 +14430,16 @@ export namespace codedeploy {
 
 }
 
+export namespace codeguruprofiler {
+    export interface ProfilingGroupAgentOrchestrationConfig {
+        /**
+         * (Required) Boolean that specifies whether the profiling agent collects profiling data or
+         */
+        profilingEnabled: boolean;
+    }
+
+}
+
 export namespace codegurureviewer {
     export interface RepositoryAssociationKmsKeyDetails {
         /**
@@ -15769,6 +15800,7 @@ export namespace config {
         location?: string;
         locationservice?: string;
         logs?: string;
+        lookoutmetrics?: string;
         macie2?: string;
         managedgrafana?: string;
         mediaconnect?: string;
@@ -17987,6 +18019,345 @@ export namespace costexplorer {
          * End of the time period.
          */
         start: string;
+    }
+
+}
+
+export namespace customerprofiles {
+    export interface DomainMatching {
+        /**
+         * A block that specifies the configuration about the auto-merging process. Documented below.
+         */
+        autoMerging: outputs.customerprofiles.DomainMatchingAutoMerging;
+        /**
+         * The flag that enables the matching process of duplicate profiles.
+         */
+        enabled: boolean;
+        /**
+         * A block that specifies the configuration for exporting Identity Resolution results. Documented below.
+         */
+        exportingConfig?: outputs.customerprofiles.DomainMatchingExportingConfig;
+        /**
+         * A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
+         */
+        jobSchedule?: outputs.customerprofiles.DomainMatchingJobSchedule;
+    }
+
+    export interface DomainMatchingAutoMerging {
+        /**
+         * A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
+         */
+        conflictResolution?: outputs.customerprofiles.DomainMatchingAutoMergingConflictResolution;
+        /**
+         * A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
+         * * `minAllowedConfidenceScoreForMerging ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+         */
+        consolidation?: outputs.customerprofiles.DomainMatchingAutoMergingConsolidation;
+        /**
+         * The flag that enables the auto-merging of duplicate profiles.
+         */
+        enabled: boolean;
+        minAllowedConfidenceScoreForMerging?: number;
+    }
+
+    export interface DomainMatchingAutoMergingConflictResolution {
+        /**
+         * How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
+         */
+        conflictResolvingModel: string;
+        /**
+         * The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
+         */
+        sourceName?: string;
+    }
+
+    export interface DomainMatchingAutoMergingConsolidation {
+        /**
+         * A list of matching criteria.
+         */
+        matchingAttributesLists: string[][];
+    }
+
+    export interface DomainMatchingExportingConfig {
+        s3Exporting?: outputs.customerprofiles.DomainMatchingExportingConfigS3Exporting;
+    }
+
+    export interface DomainMatchingExportingConfigS3Exporting {
+        /**
+         * The name of the S3 bucket where Identity Resolution Jobs write result files.
+         */
+        s3BucketName: string;
+        /**
+         * The S3 key name of the location where Identity Resolution Jobs write result files.
+         */
+        s3KeyName?: string;
+    }
+
+    export interface DomainMatchingJobSchedule {
+        /**
+         * The day when the Identity Resolution Job should run every week.
+         */
+        dayOfTheWeek: string;
+        /**
+         * The time when the Identity Resolution Job should run every week.
+         */
+        time: string;
+    }
+
+    export interface DomainRuleBasedMatching {
+        /**
+         * A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
+         */
+        attributeTypesSelector?: outputs.customerprofiles.DomainRuleBasedMatchingAttributeTypesSelector;
+        /**
+         * A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
+         */
+        conflictResolution?: outputs.customerprofiles.DomainRuleBasedMatchingConflictResolution;
+        /**
+         * The flag that enables the rule-based matching process of duplicate profiles.
+         */
+        enabled: boolean;
+        /**
+         * A block that specifies the configuration for exporting Identity Resolution results. Documented below.
+         */
+        exportingConfig?: outputs.customerprofiles.DomainRuleBasedMatchingExportingConfig;
+        /**
+         * A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
+         */
+        matchingRules?: outputs.customerprofiles.DomainRuleBasedMatchingMatchingRule[];
+        /**
+         * Indicates the maximum allowed rule level for matching.
+         */
+        maxAllowedRuleLevelForMatching?: number;
+        /**
+         * Indicates the maximum allowed rule level for merging.
+         */
+        maxAllowedRuleLevelForMerging?: number;
+        status: string;
+    }
+
+    export interface DomainRuleBasedMatchingAttributeTypesSelector {
+        /**
+         * The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
+         */
+        addresses?: string[];
+        /**
+         * Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
+         */
+        attributeMatchingModel: string;
+        /**
+         * The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
+         */
+        emailAddresses?: string[];
+        /**
+         * The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
+         */
+        phoneNumbers?: string[];
+    }
+
+    export interface DomainRuleBasedMatchingConflictResolution {
+        /**
+         * How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
+         */
+        conflictResolvingModel: string;
+        /**
+         * The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
+         */
+        sourceName?: string;
+    }
+
+    export interface DomainRuleBasedMatchingExportingConfig {
+        s3Exporting?: outputs.customerprofiles.DomainRuleBasedMatchingExportingConfigS3Exporting;
+    }
+
+    export interface DomainRuleBasedMatchingExportingConfigS3Exporting {
+        /**
+         * The name of the S3 bucket where Identity Resolution Jobs write result files.
+         */
+        s3BucketName: string;
+        /**
+         * The S3 key name of the location where Identity Resolution Jobs write result files.
+         */
+        s3KeyName?: string;
+    }
+
+    export interface DomainRuleBasedMatchingMatchingRule {
+        /**
+         * A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
+         */
+        rules: string[];
+    }
+
+    export interface ProfileAddress {
+        /**
+         * The first line of a customer address.
+         */
+        address1?: string;
+        /**
+         * The second line of a customer address.
+         */
+        address2?: string;
+        /**
+         * The third line of a customer address.
+         */
+        address3?: string;
+        /**
+         * The fourth line of a customer address.
+         */
+        address4?: string;
+        /**
+         * The city in which a customer lives.
+         */
+        city?: string;
+        /**
+         * The country in which a customer lives.
+         */
+        country?: string;
+        /**
+         * The county in which a customer lives.
+         */
+        county?: string;
+        /**
+         * The postal code of a customer address.
+         */
+        postalCode?: string;
+        /**
+         * The province in which a customer lives.
+         */
+        province?: string;
+        /**
+         * The state in which a customer lives.
+         */
+        state?: string;
+    }
+
+    export interface ProfileBillingAddress {
+        /**
+         * The first line of a customer address.
+         */
+        address1?: string;
+        /**
+         * The second line of a customer address.
+         */
+        address2?: string;
+        /**
+         * The third line of a customer address.
+         */
+        address3?: string;
+        /**
+         * The fourth line of a customer address.
+         */
+        address4?: string;
+        /**
+         * The city in which a customer lives.
+         */
+        city?: string;
+        /**
+         * The country in which a customer lives.
+         */
+        country?: string;
+        /**
+         * The county in which a customer lives.
+         */
+        county?: string;
+        /**
+         * The postal code of a customer address.
+         */
+        postalCode?: string;
+        /**
+         * The province in which a customer lives.
+         */
+        province?: string;
+        /**
+         * The state in which a customer lives.
+         */
+        state?: string;
+    }
+
+    export interface ProfileMailingAddress {
+        /**
+         * The first line of a customer address.
+         */
+        address1?: string;
+        /**
+         * The second line of a customer address.
+         */
+        address2?: string;
+        /**
+         * The third line of a customer address.
+         */
+        address3?: string;
+        /**
+         * The fourth line of a customer address.
+         */
+        address4?: string;
+        /**
+         * The city in which a customer lives.
+         */
+        city?: string;
+        /**
+         * The country in which a customer lives.
+         */
+        country?: string;
+        /**
+         * The county in which a customer lives.
+         */
+        county?: string;
+        /**
+         * The postal code of a customer address.
+         */
+        postalCode?: string;
+        /**
+         * The province in which a customer lives.
+         */
+        province?: string;
+        /**
+         * The state in which a customer lives.
+         */
+        state?: string;
+    }
+
+    export interface ProfileShippingAddress {
+        /**
+         * The first line of a customer address.
+         */
+        address1?: string;
+        /**
+         * The second line of a customer address.
+         */
+        address2?: string;
+        /**
+         * The third line of a customer address.
+         */
+        address3?: string;
+        /**
+         * The fourth line of a customer address.
+         */
+        address4?: string;
+        /**
+         * The city in which a customer lives.
+         */
+        city?: string;
+        /**
+         * The country in which a customer lives.
+         */
+        country?: string;
+        /**
+         * The county in which a customer lives.
+         */
+        county?: string;
+        /**
+         * The postal code of a customer address.
+         */
+        postalCode?: string;
+        /**
+         * The province in which a customer lives.
+         */
+        province?: string;
+        /**
+         * The state in which a customer lives.
+         */
+        state?: string;
     }
 
 }
@@ -29806,6 +30177,7 @@ export namespace finspace {
          * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
          * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
          * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+         * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
          */
         type: string;
     }
@@ -39573,6 +39945,12 @@ export namespace lb {
         statusCode: string;
     }
 
+    export interface GetListenerMutualAuthentication {
+        ignoreClientCertificateExpiry: boolean;
+        mode: string;
+        trustStoreArn: string;
+    }
+
     export interface GetLoadBalancerAccessLogs {
         bucket: string;
         enabled: boolean;
@@ -39812,6 +40190,21 @@ export namespace lb {
          * The following arguments are optional:
          */
         statusCode: string;
+    }
+
+    export interface ListenerMutualAuthentication {
+        /**
+         * Whether client certificate expiry is ignored. Default is `false`.
+         */
+        ignoreClientCertificateExpiry?: boolean;
+        /**
+         * Valid values are `off`, `verify` and `passthrough`.
+         */
+        mode: string;
+        /**
+         * ARN of the elbv2 Trust Store.
+         */
+        trustStoreArn?: string;
     }
 
     export interface ListenerRuleAction {
@@ -55028,6 +55421,28 @@ export namespace s3outposts {
 }
 
 export namespace sagemaker {
+    export interface AppImageConfigJupyterLabImageConfig {
+        /**
+         * The configuration used to run the application image container. See Container Config details below.
+         */
+        containerConfig?: outputs.sagemaker.AppImageConfigJupyterLabImageConfigContainerConfig;
+    }
+
+    export interface AppImageConfigJupyterLabImageConfigContainerConfig {
+        /**
+         * The arguments for the container when you're running the application.
+         */
+        containerArguments?: string[];
+        /**
+         * The entrypoint used to run the application in the container.
+         */
+        containerEntrypoints?: string[];
+        /**
+         * The environment variables to set in the container.
+         */
+        containerEnvironmentVariables?: {[key: string]: string};
+    }
+
     export interface AppImageConfigKernelGatewayImageConfig {
         /**
          * The URL where the Git repository is located. See File System Config details below.
@@ -55080,6 +55495,10 @@ export namespace sagemaker {
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
         /**
          * The ARN of the image version created on the instance.
          */
@@ -55396,6 +55815,10 @@ export namespace sagemaker {
          */
         sagemakerImageArn?: string;
         /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: string;
@@ -55445,6 +55868,10 @@ export namespace sagemaker {
          */
         sagemakerImageArn?: string;
         /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: string;
@@ -55456,9 +55883,29 @@ export namespace sagemaker {
          */
         canvasAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettings;
         /**
+         * The Code Editor application settings. See Code Editor App Settings below.
+         */
+        codeEditorAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettings;
+        /**
+         * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         */
+        customFileSystemConfigs?: outputs.sagemaker.DomainDefaultUserSettingsCustomFileSystemConfig[];
+        /**
+         * Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         */
+        customPosixUserConfig?: outputs.sagemaker.DomainDefaultUserSettingsCustomPosixUserConfig;
+        /**
+         * The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+         */
+        defaultLandingUri: string;
+        /**
          * The execution role ARN for the user.
          */
         executionRole: string;
+        /**
+         * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         */
+        jupyterLabAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettings;
         /**
          * The Jupyter server's app settings. See Jupyter Server App Settings below.
          */
@@ -55483,6 +55930,14 @@ export namespace sagemaker {
          * The sharing settings. See Sharing Settings below.
          */
         sharingSettings?: outputs.sagemaker.DomainDefaultUserSettingsSharingSettings;
+        /**
+         * The storage settings for a private space. See Space Storage Settings below.
+         */
+        spaceStorageSettings: outputs.sagemaker.DomainDefaultUserSettingsSpaceStorageSettings;
+        /**
+         * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+         */
+        studioWebPortal: string;
         /**
          * The TensorBoard app settings. See TensorBoard App Settings below.
          */
@@ -55578,6 +56033,133 @@ export namespace sagemaker {
         s3KmsKeyId?: string;
     }
 
+    export interface DomainDefaultUserSettingsCodeEditorAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
+    }
+
+    export interface DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
+    }
+
+    export interface DomainDefaultUserSettingsCustomFileSystemConfig {
+        /**
+         * The default EBS storage settings for a private space. See EFS File System Config below.
+         */
+        efsFileSystemConfig?: outputs.sagemaker.DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig;
+    }
+
+    export interface DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
+        /**
+         * The ID of your Amazon EFS file system.
+         */
+        fileSystemId: string;
+        /**
+         * The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+         */
+        fileSystemPath: string;
+    }
+
+    export interface DomainDefaultUserSettingsCustomPosixUserConfig {
+        /**
+         * The POSIX group ID.
+         */
+        gid: number;
+        /**
+         * The POSIX user ID.
+         */
+        uid: number;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterLabAppSettings {
+        /**
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         */
+        codeRepositories?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository[];
+        /**
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         */
+        customImages?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage[];
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
+    }
+
+    export interface DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository {
+        /**
+         * The URL of the Git repository.
+         */
+        repositoryUrl: string;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: string;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: string;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: number;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
+    }
+
     export interface DomainDefaultUserSettingsJupyterServerAppSettings {
         /**
          * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
@@ -55613,6 +56195,10 @@ export namespace sagemaker {
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
         /**
          * The ARN of the image version created on the instance.
          */
@@ -55663,6 +56249,10 @@ export namespace sagemaker {
          */
         sagemakerImageArn?: string;
         /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: string;
@@ -55708,6 +56298,10 @@ export namespace sagemaker {
          */
         sagemakerImageArn?: string;
         /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: string;
@@ -55739,6 +56333,24 @@ export namespace sagemaker {
         s3OutputPath?: string;
     }
 
+    export interface DomainDefaultUserSettingsSpaceStorageSettings {
+        /**
+         * The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+         */
+        defaultEbsStorageSettings?: outputs.sagemaker.DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings;
+    }
+
+    export interface DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+        /**
+         * The default size of the EBS storage volume for a private space.
+         */
+        defaultEbsVolumeSizeInGb: number;
+        /**
+         * The maximum size of the EBS storage volume for a private space.
+         */
+        maximumEbsVolumeSizeInGb: number;
+    }
+
     export interface DomainDefaultUserSettingsTensorBoardAppSettings {
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
@@ -55759,6 +56371,10 @@ export namespace sagemaker {
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
         /**
          * The ARN of the image version created on the instance.
          */
@@ -55812,6 +56428,10 @@ export namespace sagemaker {
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
         /**
          * The ARN of the image version created on the instance.
          */
@@ -56699,6 +57319,10 @@ export namespace sagemaker {
          */
         sagemakerImageArn?: string;
         /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: string;
@@ -56748,6 +57372,10 @@ export namespace sagemaker {
          */
         sagemakerImageArn?: string;
         /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: string;
@@ -56759,9 +57387,29 @@ export namespace sagemaker {
          */
         canvasAppSettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettings;
         /**
+         * The Code Editor application settings. See Code Editor App Settings below.
+         */
+        codeEditorAppSettings?: outputs.sagemaker.UserProfileUserSettingsCodeEditorAppSettings;
+        /**
+         * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         */
+        customFileSystemConfigs?: outputs.sagemaker.UserProfileUserSettingsCustomFileSystemConfig[];
+        /**
+         * Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         */
+        customPosixUserConfig?: outputs.sagemaker.UserProfileUserSettingsCustomPosixUserConfig;
+        /**
+         * The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+         */
+        defaultLandingUri?: string;
+        /**
          * The execution role ARN for the user.
          */
         executionRole: string;
+        /**
+         * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         */
+        jupyterLabAppSettings?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettings;
         /**
          * The Jupyter server's app settings. See Jupyter Server App Settings below.
          */
@@ -56775,17 +57423,25 @@ export namespace sagemaker {
          */
         rSessionAppSettings?: outputs.sagemaker.UserProfileUserSettingsRSessionAppSettings;
         /**
-         * A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+         * A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
          */
         rStudioServerProAppSettings?: outputs.sagemaker.UserProfileUserSettingsRStudioServerProAppSettings;
         /**
-         * The security groups.
+         * A list of security group IDs that will be attached to the user.
          */
         securityGroups?: string[];
         /**
          * The sharing settings. See Sharing Settings below.
          */
         sharingSettings?: outputs.sagemaker.UserProfileUserSettingsSharingSettings;
+        /**
+         * The storage settings for a private space. See Space Storage Settings below.
+         */
+        spaceStorageSettings: outputs.sagemaker.UserProfileUserSettingsSpaceStorageSettings;
+        /**
+         * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+         */
+        studioWebPortal: string;
         /**
          * The TensorBoard app settings. See TensorBoard App Settings below.
          */
@@ -56810,7 +57466,7 @@ export namespace sagemaker {
          */
         modelRegisterSettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings;
         /**
-         * Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+         * Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
          */
         timeSeriesForecastingSettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings;
         /**
@@ -56881,6 +57537,133 @@ export namespace sagemaker {
         s3KmsKeyId?: string;
     }
 
+    export interface UserProfileUserSettingsCodeEditorAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
+    }
+
+    export interface UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
+    }
+
+    export interface UserProfileUserSettingsCustomFileSystemConfig {
+        /**
+         * The default EBS storage settings for a private space. See EFS File System Config below.
+         */
+        efsFileSystemConfigs?: outputs.sagemaker.UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig[];
+    }
+
+    export interface UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
+        /**
+         * The ID of your Amazon EFS file system.
+         */
+        fileSystemId: string;
+        /**
+         * The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+         */
+        fileSystemPath?: string;
+    }
+
+    export interface UserProfileUserSettingsCustomPosixUserConfig {
+        /**
+         * The POSIX group ID.
+         */
+        gid: number;
+        /**
+         * The POSIX user ID.
+         */
+        uid: number;
+    }
+
+    export interface UserProfileUserSettingsJupyterLabAppSettings {
+        /**
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         */
+        codeRepositories?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository[];
+        /**
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         */
+        customImages?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsCustomImage[];
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
+    }
+
+    export interface UserProfileUserSettingsJupyterLabAppSettingsCodeRepository {
+        /**
+         * The URL of the Git repository.
+         */
+        repositoryUrl: string;
+    }
+
+    export interface UserProfileUserSettingsJupyterLabAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: string;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: string;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: number;
+    }
+
+    export interface UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
+    }
+
     export interface UserProfileUserSettingsJupyterServerAppSettings {
         /**
          * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
@@ -56905,7 +57688,7 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
         /**
-         * The instance type.
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -56913,9 +57696,13 @@ export namespace sagemaker {
          */
         lifecycleConfigArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
         /**
          * The ARN of the image version created on the instance.
          */
@@ -56954,7 +57741,7 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
         /**
-         * The instance type.
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -56962,9 +57749,13 @@ export namespace sagemaker {
          */
         lifecycleConfigArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
         /**
          * The ARN of the image version created on the instance.
          */
@@ -56999,7 +57790,7 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
         /**
-         * The instance type.
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -57007,9 +57798,13 @@ export namespace sagemaker {
          */
         lifecycleConfigArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
         /**
          * The ARN of the image version created on the instance.
          */
@@ -57042,16 +57837,34 @@ export namespace sagemaker {
         s3OutputPath?: string;
     }
 
+    export interface UserProfileUserSettingsSpaceStorageSettings {
+        /**
+         * The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+         */
+        defaultEbsStorageSettings?: outputs.sagemaker.UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings;
+    }
+
+    export interface UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+        /**
+         * The default size of the EBS storage volume for a private space.
+         */
+        defaultEbsVolumeSizeInGb: number;
+        /**
+         * The maximum size of the EBS storage volume for a private space.
+         */
+        maximumEbsVolumeSizeInGb: number;
+    }
+
     export interface UserProfileUserSettingsTensorBoardAppSettings {
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
-        defaultResourceSpec: outputs.sagemaker.UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
+        defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
     }
 
     export interface UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
         /**
-         * The instance type.
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -57059,9 +57872,13 @@ export namespace sagemaker {
          */
         lifecycleConfigArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
         /**
          * The ARN of the image version created on the instance.
          */
@@ -58981,6 +59798,74 @@ export namespace securityhub {
 
 }
 
+export namespace securitylake {
+    export interface DataLakeConfiguration {
+        /**
+         * Provides encryption details of Amazon Security Lake object.
+         */
+        encryptionConfigurations: {[key: string]: any}[];
+        /**
+         * Provides lifecycle details of Amazon Security Lake object.
+         */
+        lifecycleConfiguration?: outputs.securitylake.DataLakeConfigurationLifecycleConfiguration;
+        /**
+         * The AWS Regions where Security Lake is automatically enabled.
+         */
+        region: string;
+        /**
+         * Provides replication details of Amazon Security Lake object.
+         */
+        replicationConfiguration?: outputs.securitylake.DataLakeConfigurationReplicationConfiguration;
+    }
+
+    export interface DataLakeConfigurationLifecycleConfiguration {
+        /**
+         * Provides data expiration details of Amazon Security Lake object.
+         */
+        expiration?: outputs.securitylake.DataLakeConfigurationLifecycleConfigurationExpiration;
+        /**
+         * Provides data storage transition details of Amazon Security Lake object.
+         */
+        transitions?: outputs.securitylake.DataLakeConfigurationLifecycleConfigurationTransition[];
+    }
+
+    export interface DataLakeConfigurationLifecycleConfigurationExpiration {
+        /**
+         * Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
+         */
+        days?: number;
+    }
+
+    export interface DataLakeConfigurationLifecycleConfigurationTransition {
+        /**
+         * Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
+         */
+        days?: number;
+        /**
+         * The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
+         */
+        storageClass?: string;
+    }
+
+    export interface DataLakeConfigurationReplicationConfiguration {
+        /**
+         * Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
+         */
+        regions?: string[];
+        /**
+         * Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
+         */
+        roleArn?: string;
+    }
+
+    export interface DataLakeTimeouts {
+        create?: string;
+        delete?: string;
+        update?: string;
+    }
+
+}
+
 export namespace servicecatalog {
     export interface GetLaunchPathsSummary {
         /**
@@ -59704,19 +60589,19 @@ export namespace sesv2 {
 
     export interface ContactListTopic {
         /**
-         * The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+         * Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
          */
         defaultSubscriptionStatus: string;
         /**
-         * A description of what the topic is about, which the contact will see.
+         * Description of what the topic is about, which the contact will see.
          */
         description?: string;
         /**
-         * The name of the topic the contact will see.
+         * Name of the topic the contact will see.
          */
         displayName: string;
         /**
-         * The name of the topic.
+         * Name of the topic.
          *
          * The following arguments are optional:
          */
@@ -60777,6 +61662,31 @@ export namespace ssmincidents {
 }
 
 export namespace ssoadmin {
+    export interface ApplicationPortalOptions {
+        /**
+         * Sign-in options for the access portal. See `signInOptions` below.
+         */
+        signInOptions?: outputs.ssoadmin.ApplicationPortalOptionsSignInOptions;
+        /**
+         * Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
+         */
+        visibility: string;
+    }
+
+    export interface ApplicationPortalOptionsSignInOptions {
+        /**
+         * URL that accepts authentication requests for an application.
+         */
+        applicationUrl?: string;
+        /**
+         * Determines how IAM Identity Center navigates the user to the target application.
+         * Valid values are `APPLICATION` and `IDENTITY_CENTER`.
+         * If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
+         * If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
+         */
+        origin: string;
+    }
+
     export interface CustomerManagedPolicyAttachmentCustomerManagedPolicyReference {
         /**
          * Name of the customer managed IAM Policy to be attached.
@@ -60786,6 +61696,46 @@ export namespace ssoadmin {
          * The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
          */
         path?: string;
+    }
+
+    export interface GetApplicationPortalOption {
+        signInOptions?: outputs.ssoadmin.GetApplicationPortalOptionSignInOption[];
+        visibility: string;
+    }
+
+    export interface GetApplicationPortalOptionSignInOption {
+        applicationUrl: string;
+        origin: string;
+    }
+
+    export interface GetApplicationProvidersApplicationProvider {
+        /**
+         * ARN of the application provider.
+         */
+        applicationProviderArn: string;
+        /**
+         * An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
+         */
+        displayDatas?: outputs.ssoadmin.GetApplicationProvidersApplicationProviderDisplayData[];
+        /**
+         * Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
+         */
+        federationProtocol: string;
+    }
+
+    export interface GetApplicationProvidersApplicationProviderDisplayData {
+        /**
+         * Description of the application provider.
+         */
+        description: string;
+        /**
+         * Name of the application provider.
+         */
+        displayName: string;
+        /**
+         * URL that points to an icon that represents the application provider.
+         */
+        iconUrl: string;
     }
 
     export interface InstanceAccessControlAttributesAttribute {
@@ -62266,42 +63216,31 @@ export namespace waf {
 
     export interface SizeConstraintSetSizeConstraint {
         /**
-         * The type of comparison you want to perform.
-         * e.g., `EQ`, `NE`, `LT`, `GT`.
-         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
+         * Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
          */
         comparisonOperator: string;
         /**
-         * Specifies where in a web request to look for the size constraint.
+         * Parameter that specifies where in a web request to look for the size constraint.
          */
         fieldToMatch: outputs.waf.SizeConstraintSetSizeConstraintFieldToMatch;
         /**
-         * The size in bytes that you want to compare against the size of the specified `fieldToMatch`.
-         * Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
+         * Size in bytes that you want to compare against the size of the specified `fieldToMatch`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
          */
         size: number;
         /**
-         * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
-         * for all supported values.
-         * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
+         * Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `fieldToMatch` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
+         * **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
          */
         textTransformation: string;
     }
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-         * If `type` is any other value, omit this field.
+         * When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
          */
         data?: string;
         /**
-         * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g., `HEADER`, `METHOD` or `BODY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-         * for all supported values.
+         * Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
          */
         type: string;
     }

@@ -27,6 +27,7 @@ class LoadBalancerArgs:
                  enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
                  enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
                  enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -52,6 +53,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[bool] enable_tls_version_and_cipher_suite_headers: Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
@@ -91,6 +93,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
         if enable_xff_client_port is not None:
             pulumi.set(__self__, "enable_xff_client_port", enable_xff_client_port)
+        if enforce_security_group_inbound_rules_on_private_link_traffic is not None:
+            pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
         if idle_timeout is not None:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if internal is not None:
@@ -247,6 +251,18 @@ class LoadBalancerArgs:
     @enable_xff_client_port.setter
     def enable_xff_client_port(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_xff_client_port", value)
+
+    @property
+    @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        """
+        return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
+
+    @enforce_security_group_inbound_rules_on_private_link_traffic.setter
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enforce_security_group_inbound_rules_on_private_link_traffic", value)
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -414,6 +430,7 @@ class _LoadBalancerState:
                  enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
                  enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
                  enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -445,6 +462,7 @@ class _LoadBalancerState:
         :param pulumi.Input[bool] enable_tls_version_and_cipher_suite_headers: Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
@@ -492,6 +510,8 @@ class _LoadBalancerState:
             pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
         if enable_xff_client_port is not None:
             pulumi.set(__self__, "enable_xff_client_port", enable_xff_client_port)
+        if enforce_security_group_inbound_rules_on_private_link_traffic is not None:
+            pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
         if idle_timeout is not None:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if internal is not None:
@@ -695,6 +715,18 @@ class _LoadBalancerState:
         pulumi.set(self, "enable_xff_client_port", value)
 
     @property
+    @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        """
+        return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
+
+    @enforce_security_group_inbound_rules_on_private_link_traffic.setter
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enforce_security_group_inbound_rules_on_private_link_traffic", value)
+
+    @property
     @pulumi.getter(name="idleTimeout")
     def idle_timeout(self) -> Optional[pulumi.Input[int]]:
         """
@@ -895,6 +927,7 @@ class LoadBalancer(pulumi.CustomResource):
                  enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
                  enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
                  enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -1010,6 +1043,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_tls_version_and_cipher_suite_headers: Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
@@ -1148,6 +1182,7 @@ class LoadBalancer(pulumi.CustomResource):
                  enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
                  enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
                  enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -1180,6 +1215,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["enable_tls_version_and_cipher_suite_headers"] = enable_tls_version_and_cipher_suite_headers
             __props__.__dict__["enable_waf_fail_open"] = enable_waf_fail_open
             __props__.__dict__["enable_xff_client_port"] = enable_xff_client_port
+            __props__.__dict__["enforce_security_group_inbound_rules_on_private_link_traffic"] = enforce_security_group_inbound_rules_on_private_link_traffic
             __props__.__dict__["idle_timeout"] = idle_timeout
             __props__.__dict__["internal"] = internal
             __props__.__dict__["ip_address_type"] = ip_address_type
@@ -1226,6 +1262,7 @@ class LoadBalancer(pulumi.CustomResource):
             enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
             enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
             enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
+            enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
             idle_timeout: Optional[pulumi.Input[int]] = None,
             internal: Optional[pulumi.Input[bool]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -1262,6 +1299,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_tls_version_and_cipher_suite_headers: Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
@@ -1299,6 +1337,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["enable_tls_version_and_cipher_suite_headers"] = enable_tls_version_and_cipher_suite_headers
         __props__.__dict__["enable_waf_fail_open"] = enable_waf_fail_open
         __props__.__dict__["enable_xff_client_port"] = enable_xff_client_port
+        __props__.__dict__["enforce_security_group_inbound_rules_on_private_link_traffic"] = enforce_security_group_inbound_rules_on_private_link_traffic
         __props__.__dict__["idle_timeout"] = idle_timeout
         __props__.__dict__["internal"] = internal
         __props__.__dict__["ip_address_type"] = ip_address_type
@@ -1427,6 +1466,14 @@ class LoadBalancer(pulumi.CustomResource):
         Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         """
         return pulumi.get(self, "enable_xff_client_port")
+
+    @property
+    @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> pulumi.Output[str]:
+        """
+        Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        """
+        return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
     @property
     @pulumi.getter(name="idleTimeout")

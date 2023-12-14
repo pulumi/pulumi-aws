@@ -172,6 +172,7 @@ public final class Endpoints {
     private @Nullable String location;
     private @Nullable String locationservice;
     private @Nullable String logs;
+    private @Nullable String lookoutmetrics;
     private @Nullable String macie2;
     private @Nullable String managedgrafana;
     private @Nullable String mediaconnect;
@@ -754,6 +755,9 @@ public final class Endpoints {
     public Optional<String> logs() {
         return Optional.ofNullable(this.logs);
     }
+    public Optional<String> lookoutmetrics() {
+        return Optional.ofNullable(this.lookoutmetrics);
+    }
     public Optional<String> macie2() {
         return Optional.ofNullable(this.macie2);
     }
@@ -1216,6 +1220,7 @@ public final class Endpoints {
         private @Nullable String location;
         private @Nullable String locationservice;
         private @Nullable String logs;
+        private @Nullable String lookoutmetrics;
         private @Nullable String macie2;
         private @Nullable String managedgrafana;
         private @Nullable String mediaconnect;
@@ -1477,6 +1482,7 @@ public final class Endpoints {
     	      this.location = defaults.location;
     	      this.locationservice = defaults.locationservice;
     	      this.logs = defaults.logs;
+    	      this.lookoutmetrics = defaults.lookoutmetrics;
     	      this.macie2 = defaults.macie2;
     	      this.managedgrafana = defaults.managedgrafana;
     	      this.mediaconnect = defaults.mediaconnect;
@@ -2382,6 +2388,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder lookoutmetrics(@Nullable String lookoutmetrics) {
+            this.lookoutmetrics = lookoutmetrics;
+            return this;
+        }
+        @CustomType.Setter
         public Builder macie2(@Nullable String macie2) {
             this.macie2 = macie2;
             return this;
@@ -3029,6 +3040,7 @@ public final class Endpoints {
             _resultValue.location = location;
             _resultValue.locationservice = locationservice;
             _resultValue.logs = logs;
+            _resultValue.lookoutmetrics = lookoutmetrics;
             _resultValue.macie2 = macie2;
             _resultValue.managedgrafana = managedgrafana;
             _resultValue.mediaconnect = mediaconnect;

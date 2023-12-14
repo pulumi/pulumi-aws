@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? SagemakerImageArn { get; set; }
 
         /// <summary>
+        /// The SageMaker Image Version Alias.
+        /// </summary>
+        [Input("sagemakerImageVersionAlias")]
+        public Input<string>? SagemakerImageVersionAlias { get; set; }
+
+        /// <summary>
         /// The ARN of the image version created on the instance.
         /// </summary>
         [Input("sagemakerImageVersionArn")]

@@ -21,7 +21,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
      * @return Amazon S3 bucket prefix.
      * 
      */
-    private @Nullable String bucketPrefix;
+    private String bucketPrefix;
     /**
      * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
      * 
@@ -40,8 +40,8 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
      * @return Amazon S3 bucket prefix.
      * 
      */
-    public Optional<String> bucketPrefix() {
-        return Optional.ofNullable(this.bucketPrefix);
+    public String bucketPrefix() {
+        return this.bucketPrefix;
     }
     /**
      * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
@@ -61,7 +61,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
     @CustomType.Builder
     public static final class Builder {
         private String bucketName;
-        private @Nullable String bucketPrefix;
+        private String bucketPrefix;
         private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig;
         public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesS3 defaults) {
@@ -77,8 +77,8 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
             return this;
         }
         @CustomType.Setter
-        public Builder bucketPrefix(@Nullable String bucketPrefix) {
-            this.bucketPrefix = bucketPrefix;
+        public Builder bucketPrefix(String bucketPrefix) {
+            this.bucketPrefix = Objects.requireNonNull(bucketPrefix);
             return this;
         }
         @CustomType.Setter

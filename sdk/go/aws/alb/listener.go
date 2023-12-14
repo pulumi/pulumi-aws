@@ -346,6 +346,51 @@ import (
 //	}
 //
 // ```
+// ### Mutual TLS Authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("application"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTargetGroup, err := lb.NewTargetGroup(ctx, "exampleTargetGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewListener(ctx, "exampleListener", &lb.ListenerArgs{
+//				LoadBalancerArn: exampleLoadBalancer.ID(),
+//				DefaultActions: lb.ListenerDefaultActionArray{
+//					&lb.ListenerDefaultActionArgs{
+//						TargetGroupArn: exampleTargetGroup.ID(),
+//						Type:           pulumi.String("forward"),
+//					},
+//				},
+//				MutualAuthentication: &lb.ListenerMutualAuthenticationArgs{
+//					Mode:          pulumi.String("verify"),
+//					TrustStoreArn: pulumi.String("..."),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -373,6 +418,8 @@ type Listener struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication ListenerMutualAuthenticationOutput `pulumi:"mutualAuthentication"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -449,6 +496,8 @@ type listenerState struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port *int `pulumi:"port"`
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -480,6 +529,8 @@ type ListenerState struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringPtrInput
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication ListenerMutualAuthenticationPtrInput
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrInput
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -511,6 +562,8 @@ type listenerArgs struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port *int `pulumi:"port"`
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -535,6 +588,8 @@ type ListenerArgs struct {
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringInput
+	// The mutual authentication configuration information. Detailed below.
+	MutualAuthentication ListenerMutualAuthenticationPtrInput
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrInput
 	// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
@@ -661,6 +716,11 @@ func (o ListenerOutput) DefaultActions() ListenerDefaultActionArrayOutput {
 // The following arguments are optional:
 func (o ListenerOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
+}
+
+// The mutual authentication configuration information. Detailed below.
+func (o ListenerOutput) MutualAuthentication() ListenerMutualAuthenticationOutput {
+	return o.ApplyT(func(v *Listener) ListenerMutualAuthenticationOutput { return v.MutualAuthentication }).(ListenerMutualAuthenticationOutput)
 }
 
 // Port on which the load balancer is listening. Not valid for Gateway Load Balancers.

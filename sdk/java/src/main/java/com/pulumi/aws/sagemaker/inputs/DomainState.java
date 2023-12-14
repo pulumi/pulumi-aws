@@ -202,6 +202,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * 
+     */
+    @Import(name="singleSignOnApplicationArn")
+    private @Nullable Output<String> singleSignOnApplicationArn;
+
+    /**
+     * @return The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * 
+     */
+    public Optional<Output<String>> singleSignOnApplicationArn() {
+        return Optional.ofNullable(this.singleSignOnApplicationArn);
+    }
+
+    /**
      * The SSO managed application instance ID.
      * 
      */
@@ -318,6 +333,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.retentionPolicy = $.retentionPolicy;
         this.securityGroupIdForDomainBoundary = $.securityGroupIdForDomainBoundary;
+        this.singleSignOnApplicationArn = $.singleSignOnApplicationArn;
         this.singleSignOnManagedApplicationInstanceId = $.singleSignOnManagedApplicationInstanceId;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -594,6 +610,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityGroupIdForDomainBoundary(String securityGroupIdForDomainBoundary) {
             return securityGroupIdForDomainBoundary(Output.of(securityGroupIdForDomainBoundary));
+        }
+
+        /**
+         * @param singleSignOnApplicationArn The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder singleSignOnApplicationArn(@Nullable Output<String> singleSignOnApplicationArn) {
+            $.singleSignOnApplicationArn = singleSignOnApplicationArn;
+            return this;
+        }
+
+        /**
+         * @param singleSignOnApplicationArn The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder singleSignOnApplicationArn(String singleSignOnApplicationArn) {
+            return singleSignOnApplicationArn(Output.of(singleSignOnApplicationArn));
         }
 
         /**

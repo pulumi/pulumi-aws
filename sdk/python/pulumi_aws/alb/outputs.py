@@ -20,6 +20,7 @@ __all__ = [
     'ListenerDefaultActionForwardStickiness',
     'ListenerDefaultActionForwardTargetGroup',
     'ListenerDefaultActionRedirect',
+    'ListenerMutualAuthentication',
     'ListenerRuleAction',
     'ListenerRuleActionAuthenticateCognito',
     'ListenerRuleActionAuthenticateOidc',
@@ -49,6 +50,7 @@ __all__ = [
     'GetListenerDefaultActionForwardStickinessResult',
     'GetListenerDefaultActionForwardTargetGroupResult',
     'GetListenerDefaultActionRedirectResult',
+    'GetListenerMutualAuthenticationResult',
     'GetLoadBalancerAccessLogsResult',
     'GetLoadBalancerSubnetMappingResult',
     'GetTargetGroupHealthCheckResult',
@@ -770,6 +772,67 @@ class ListenerDefaultActionRedirect(dict):
         Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class ListenerMutualAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreClientCertificateExpiry":
+            suggest = "ignore_client_certificate_expiry"
+        elif key == "trustStoreArn":
+            suggest = "trust_store_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerMutualAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerMutualAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerMutualAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: str,
+                 ignore_client_certificate_expiry: Optional[bool] = None,
+                 trust_store_arn: Optional[str] = None):
+        """
+        :param str mode: Valid values are `off`, `verify` and `passthrough`.
+        :param bool ignore_client_certificate_expiry: Whether client certificate expiry is ignored. Default is `false`.
+        :param str trust_store_arn: ARN of the elbv2 Trust Store.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if ignore_client_certificate_expiry is not None:
+            pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
+        if trust_store_arn is not None:
+            pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Valid values are `off`, `verify` and `passthrough`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="ignoreClientCertificateExpiry")
+    def ignore_client_certificate_expiry(self) -> Optional[bool]:
+        """
+        Whether client certificate expiry is ignored. Default is `false`.
+        """
+        return pulumi.get(self, "ignore_client_certificate_expiry")
+
+    @property
+    @pulumi.getter(name="trustStoreArn")
+    def trust_store_arn(self) -> Optional[str]:
+        """
+        ARN of the elbv2 Trust Store.
+        """
+        return pulumi.get(self, "trust_store_arn")
 
 
 @pulumi.output_type
@@ -2502,6 +2565,32 @@ class GetListenerDefaultActionRedirectResult(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> str:
         return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class GetListenerMutualAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 ignore_client_certificate_expiry: bool,
+                 mode: str,
+                 trust_store_arn: str):
+        pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter(name="ignoreClientCertificateExpiry")
+    def ignore_client_certificate_expiry(self) -> bool:
+        return pulumi.get(self, "ignore_client_certificate_expiry")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="trustStoreArn")
+    def trust_store_arn(self) -> str:
+        return pulumi.get(self, "trust_store_arn")
 
 
 @pulumi.output_type

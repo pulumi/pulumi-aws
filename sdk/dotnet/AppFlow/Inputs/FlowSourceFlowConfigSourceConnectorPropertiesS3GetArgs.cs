@@ -21,8 +21,8 @@ namespace Pulumi.Aws.AppFlow.Inputs
         /// <summary>
         /// Amazon S3 bucket prefix.
         /// </summary>
-        [Input("bucketPrefix")]
-        public Input<string>? BucketPrefix { get; set; }
+        [Input("bucketPrefix", required: true)]
+        public Input<string> BucketPrefix { get; set; } = null!;
 
         /// <summary>
         /// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.

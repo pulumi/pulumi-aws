@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a WAF Size Constraint Set Resource
+ * Use the `aws.waf.SizeConstraintSet` resource to manage WAF size constraint sets.
  *
  * ## Example Usage
  *
@@ -63,15 +63,15 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * Amazon Resource Name (ARN).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name or description of the Size Constraint Set.
+     * Name or description of the Size Constraint Set.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the parts of web requests that you want to inspect the size of.
+     * Parts of web requests that you want to inspect the size of.
      */
     public readonly sizeConstraints!: pulumi.Output<outputs.waf.SizeConstraintSetSizeConstraint[] | undefined>;
 
@@ -107,15 +107,15 @@ export class SizeConstraintSet extends pulumi.CustomResource {
  */
 export interface SizeConstraintSetState {
     /**
-     * Amazon Resource Name (ARN)
+     * Amazon Resource Name (ARN).
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name or description of the Size Constraint Set.
+     * Name or description of the Size Constraint Set.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the parts of web requests that you want to inspect the size of.
+     * Parts of web requests that you want to inspect the size of.
      */
     sizeConstraints?: pulumi.Input<pulumi.Input<inputs.waf.SizeConstraintSetSizeConstraint>[]>;
 }
@@ -125,11 +125,11 @@ export interface SizeConstraintSetState {
  */
 export interface SizeConstraintSetArgs {
     /**
-     * The name or description of the Size Constraint Set.
+     * Name or description of the Size Constraint Set.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the parts of web requests that you want to inspect the size of.
+     * Parts of web requests that you want to inspect the size of.
      */
     sizeConstraints?: pulumi.Input<pulumi.Input<inputs.waf.SizeConstraintSetSizeConstraint>[]>;
 }

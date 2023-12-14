@@ -314,6 +314,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableXffClientPort);
     }
     /**
+     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * 
+     */
+    @Export(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic", refs={String.class}, tree="[0]")
+    private Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+
+    /**
+     * @return Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * 
+     */
+    public Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
+        return this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+    }
+    /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      * 
      */

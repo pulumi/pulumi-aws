@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec
     {
         /// <summary>
-        /// The instance type.
+        /// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
@@ -22,9 +22,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? LifecycleConfigArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        /// The ARN of the SageMaker image that the image version belongs to.
         /// </summary>
         public readonly string? SagemakerImageArn;
+        /// <summary>
+        /// The SageMaker Image Version Alias.
+        /// </summary>
+        public readonly string? SagemakerImageVersionAlias;
         /// <summary>
         /// The ARN of the image version created on the instance.
         /// </summary>
@@ -38,11 +42,14 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             string? sagemakerImageArn,
 
+            string? sagemakerImageVersionAlias,
+
             string? sagemakerImageVersionArn)
         {
             InstanceType = instanceType;
             LifecycleConfigArn = lifecycleConfigArn;
             SagemakerImageArn = sagemakerImageArn;
+            SagemakerImageVersionAlias = sagemakerImageVersionAlias;
             SagemakerImageVersionArn = sagemakerImageVersionArn;
         }
     }

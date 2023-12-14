@@ -10,6 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AppImageConfigJupyterLabImageConfigArgs',
+    'AppImageConfigJupyterLabImageConfigContainerConfigArgs',
     'AppImageConfigKernelGatewayImageConfigArgs',
     'AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs',
     'AppImageConfigKernelGatewayImageConfigKernelSpecArgs',
@@ -50,6 +52,15 @@ __all__ = [
     'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs',
+    'DomainDefaultUserSettingsCodeEditorAppSettingsArgs',
+    'DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs',
+    'DomainDefaultUserSettingsCustomFileSystemConfigArgs',
+    'DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs',
+    'DomainDefaultUserSettingsCustomPosixUserConfigArgs',
+    'DomainDefaultUserSettingsJupyterLabAppSettingsArgs',
+    'DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs',
+    'DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs',
+    'DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs',
     'DomainDefaultUserSettingsJupyterServerAppSettingsArgs',
     'DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs',
     'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs',
@@ -61,6 +72,8 @@ __all__ = [
     'DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs',
     'DomainDefaultUserSettingsRStudioServerProAppSettingsArgs',
     'DomainDefaultUserSettingsSharingSettingsArgs',
+    'DomainDefaultUserSettingsSpaceStorageSettingsArgs',
+    'DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs',
     'DomainDefaultUserSettingsTensorBoardAppSettingsArgs',
     'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs',
     'DomainDomainSettingsArgs',
@@ -139,6 +152,15 @@ __all__ = [
     'UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs',
+    'UserProfileUserSettingsCodeEditorAppSettingsArgs',
+    'UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs',
+    'UserProfileUserSettingsCustomFileSystemConfigArgs',
+    'UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs',
+    'UserProfileUserSettingsCustomPosixUserConfigArgs',
+    'UserProfileUserSettingsJupyterLabAppSettingsArgs',
+    'UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs',
+    'UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs',
+    'UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs',
     'UserProfileUserSettingsJupyterServerAppSettingsArgs',
     'UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs',
     'UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs',
@@ -150,6 +172,8 @@ __all__ = [
     'UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs',
     'UserProfileUserSettingsRStudioServerProAppSettingsArgs',
     'UserProfileUserSettingsSharingSettingsArgs',
+    'UserProfileUserSettingsSpaceStorageSettingsArgs',
+    'UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs',
     'UserProfileUserSettingsTensorBoardAppSettingsArgs',
     'UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs',
     'WorkforceCognitoConfigArgs',
@@ -161,6 +185,84 @@ __all__ = [
     'WorkteamMemberDefinitionOidcMemberDefinitionArgs',
     'WorkteamNotificationConfigurationArgs',
 ]
+
+@pulumi.input_type
+class AppImageConfigJupyterLabImageConfigArgs:
+    def __init__(__self__, *,
+                 container_config: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigContainerConfigArgs']] = None):
+        """
+        :param pulumi.Input['AppImageConfigJupyterLabImageConfigContainerConfigArgs'] container_config: The configuration used to run the application image container. See Container Config details below.
+        """
+        if container_config is not None:
+            pulumi.set(__self__, "container_config", container_config)
+
+    @property
+    @pulumi.getter(name="containerConfig")
+    def container_config(self) -> Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigContainerConfigArgs']]:
+        """
+        The configuration used to run the application image container. See Container Config details below.
+        """
+        return pulumi.get(self, "container_config")
+
+    @container_config.setter
+    def container_config(self, value: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigContainerConfigArgs']]):
+        pulumi.set(self, "container_config", value)
+
+
+@pulumi.input_type
+class AppImageConfigJupyterLabImageConfigContainerConfigArgs:
+    def __init__(__self__, *,
+                 container_arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 container_entrypoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 container_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_arguments: The arguments for the container when you're running the application.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_entrypoints: The entrypoint used to run the application in the container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] container_environment_variables: The environment variables to set in the container.
+        """
+        if container_arguments is not None:
+            pulumi.set(__self__, "container_arguments", container_arguments)
+        if container_entrypoints is not None:
+            pulumi.set(__self__, "container_entrypoints", container_entrypoints)
+        if container_environment_variables is not None:
+            pulumi.set(__self__, "container_environment_variables", container_environment_variables)
+
+    @property
+    @pulumi.getter(name="containerArguments")
+    def container_arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The arguments for the container when you're running the application.
+        """
+        return pulumi.get(self, "container_arguments")
+
+    @container_arguments.setter
+    def container_arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_arguments", value)
+
+    @property
+    @pulumi.getter(name="containerEntrypoints")
+    def container_entrypoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The entrypoint used to run the application in the container.
+        """
+        return pulumi.get(self, "container_entrypoints")
+
+    @container_entrypoints.setter
+    def container_entrypoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_entrypoints", value)
+
+    @property
+    @pulumi.getter(name="containerEnvironmentVariables")
+    def container_environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The environment variables to set in the container.
+        """
+        return pulumi.get(self, "container_environment_variables")
+
+    @container_environment_variables.setter
+    def container_environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "container_environment_variables", value)
+
 
 @pulumi.input_type
 class AppImageConfigKernelGatewayImageConfigArgs:
@@ -303,11 +405,13 @@ class AppResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -316,6 +420,8 @@ class AppResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -354,6 +460,18 @@ class AppResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -1420,11 +1538,13 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -1433,6 +1553,8 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -1471,6 +1593,18 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -1599,11 +1733,13 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -1612,6 +1748,8 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -1652,6 +1790,18 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
         pulumi.set(self, "sagemaker_image_arn", value)
 
     @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
+
+    @property
     @pulumi.getter(name="sagemakerImageVersionArn")
     def sagemaker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1669,27 +1819,51 @@ class DomainDefaultUserSettingsArgs:
     def __init__(__self__, *,
                  execution_role: pulumi.Input[str],
                  canvas_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsArgs']] = None,
+                 code_editor_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsArgs']] = None,
+                 custom_file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]]] = None,
+                 custom_posix_user_config: Optional[pulumi.Input['DomainDefaultUserSettingsCustomPosixUserConfigArgs']] = None,
+                 default_landing_uri: Optional[pulumi.Input[str]] = None,
+                 jupyter_lab_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsArgs']] = None,
                  jupyter_server_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsArgs']] = None,
                  kernel_gateway_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsArgs']] = None,
                  r_session_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsArgs']] = None,
                  r_studio_server_pro_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsRStudioServerProAppSettingsArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sharing_settings: Optional[pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs']] = None,
+                 space_storage_settings: Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsArgs']] = None,
+                 studio_web_portal: Optional[pulumi.Input[str]] = None,
                  tensor_board_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs']] = None):
         """
         :param pulumi.Input[str] execution_role: The execution role ARN for the user.
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsArgs'] canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
+        :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        :param pulumi.Input['DomainDefaultUserSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        :param pulumi.Input[str] default_landing_uri: The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See Jupyter Lab App Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsArgs'] r_session_app_settings: The RSession app settings. See RSession App Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsRStudioServerProAppSettingsArgs'] r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group IDs that will be attached to the user.
         :param pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs'] sharing_settings: The sharing settings. See Sharing Settings below.
+        :param pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a private space. See Space Storage Settings below.
+        :param pulumi.Input[str] studio_web_portal: Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs'] tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
         if canvas_app_settings is not None:
             pulumi.set(__self__, "canvas_app_settings", canvas_app_settings)
+        if code_editor_app_settings is not None:
+            pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
+        if custom_file_system_configs is not None:
+            pulumi.set(__self__, "custom_file_system_configs", custom_file_system_configs)
+        if custom_posix_user_config is not None:
+            pulumi.set(__self__, "custom_posix_user_config", custom_posix_user_config)
+        if default_landing_uri is not None:
+            pulumi.set(__self__, "default_landing_uri", default_landing_uri)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
@@ -1702,6 +1876,10 @@ class DomainDefaultUserSettingsArgs:
             pulumi.set(__self__, "security_groups", security_groups)
         if sharing_settings is not None:
             pulumi.set(__self__, "sharing_settings", sharing_settings)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
+        if studio_web_portal is not None:
+            pulumi.set(__self__, "studio_web_portal", studio_web_portal)
         if tensor_board_app_settings is not None:
             pulumi.set(__self__, "tensor_board_app_settings", tensor_board_app_settings)
 
@@ -1728,6 +1906,66 @@ class DomainDefaultUserSettingsArgs:
     @canvas_app_settings.setter
     def canvas_app_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsArgs']]):
         pulumi.set(self, "canvas_app_settings", value)
+
+    @property
+    @pulumi.getter(name="codeEditorAppSettings")
+    def code_editor_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsArgs']]:
+        """
+        The Code Editor application settings. See Code Editor App Settings below.
+        """
+        return pulumi.get(self, "code_editor_app_settings")
+
+    @code_editor_app_settings.setter
+    def code_editor_app_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsArgs']]):
+        pulumi.set(self, "code_editor_app_settings", value)
+
+    @property
+    @pulumi.getter(name="customFileSystemConfigs")
+    def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]]]:
+        """
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        """
+        return pulumi.get(self, "custom_file_system_configs")
+
+    @custom_file_system_configs.setter
+    def custom_file_system_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]]]):
+        pulumi.set(self, "custom_file_system_configs", value)
+
+    @property
+    @pulumi.getter(name="customPosixUserConfig")
+    def custom_posix_user_config(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCustomPosixUserConfigArgs']]:
+        """
+        Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        """
+        return pulumi.get(self, "custom_posix_user_config")
+
+    @custom_posix_user_config.setter
+    def custom_posix_user_config(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCustomPosixUserConfigArgs']]):
+        pulumi.set(self, "custom_posix_user_config", value)
+
+    @property
+    @pulumi.getter(name="defaultLandingUri")
+    def default_landing_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+        """
+        return pulumi.get(self, "default_landing_uri")
+
+    @default_landing_uri.setter
+    def default_landing_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_landing_uri", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsArgs']]:
+        """
+        The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        """
+        return pulumi.get(self, "jupyter_lab_app_settings")
+
+    @jupyter_lab_app_settings.setter
+    def jupyter_lab_app_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_lab_app_settings", value)
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -1800,6 +2038,30 @@ class DomainDefaultUserSettingsArgs:
     @sharing_settings.setter
     def sharing_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs']]):
         pulumi.set(self, "sharing_settings", value)
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsArgs']]:
+        """
+        The storage settings for a private space. See Space Storage Settings below.
+        """
+        return pulumi.get(self, "space_storage_settings")
+
+    @space_storage_settings.setter
+    def space_storage_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsArgs']]):
+        pulumi.set(self, "space_storage_settings", value)
+
+    @property
+    @pulumi.getter(name="studioWebPortal")
+    def studio_web_portal(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "studio_web_portal")
+
+    @studio_web_portal.setter
+    def studio_web_portal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "studio_web_portal", value)
 
     @property
     @pulumi.getter(name="tensorBoardAppSettings")
@@ -2135,6 +2397,462 @@ class DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
 
 
 @pulumi.input_type
+class DomainDefaultUserSettingsCodeEditorAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @lifecycle_config_arn.setter
+    def lifecycle_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_config_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @sagemaker_image_arn.setter
+    def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
+
+    @sagemaker_image_version_arn.setter
+    def sagemaker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_arn", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCustomFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 efs_file_system_config: Optional[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']] = None):
+        """
+        :param pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs'] efs_file_system_config: The default EBS storage settings for a private space. See EFS File System Config below.
+        """
+        if efs_file_system_config is not None:
+            pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
+
+    @property
+    @pulumi.getter(name="efsFileSystemConfig")
+    def efs_file_system_config(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]:
+        """
+        The default EBS storage settings for a private space. See EFS File System Config below.
+        """
+        return pulumi.get(self, "efs_file_system_config")
+
+    @efs_file_system_config.setter
+    def efs_file_system_config(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]):
+        pulumi.set(self, "efs_file_system_config", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str],
+                 file_system_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] file_system_id: The ID of your Amazon EFS file system.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_path", file_system_path)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The ID of your Amazon EFS file system.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemPath")
+    def file_system_path(self) -> pulumi.Input[str]:
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
+        return pulumi.get(self, "file_system_path")
+
+    @file_system_path.setter
+    def file_system_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_path", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCustomPosixUserConfigArgs:
+    def __init__(__self__, *,
+                 gid: pulumi.Input[int],
+                 uid: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] gid: The POSIX group ID.
+        :param pulumi.Input[int] uid: The POSIX user ID.
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> pulumi.Input[int]:
+        """
+        The POSIX group ID.
+        """
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> pulumi.Input[int]:
+        """
+        The POSIX user ID.
+        """
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "uid", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
+    def __init__(__self__, *,
+                 code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]] = None,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]]] = None,
+                 default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        if code_repositories is not None:
+            pulumi.set(__self__, "code_repositories", code_repositories)
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="codeRepositories")
+    def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
+        """
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        """
+        return pulumi.get(self, "code_repositories")
+
+    @code_repositories.setter
+    def code_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]):
+        pulumi.set(self, "code_repositories", value)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]]]:
+        """
+        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_url: The URL of the Git repository.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        """
+        The URL of the Git repository.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs:
+    def __init__(__self__, *,
+                 app_image_config_name: pulumi.Input[str],
+                 image_name: pulumi.Input[str],
+                 image_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
+        :param pulumi.Input[str] image_name: The name of the Custom Image.
+        :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> pulumi.Input[str]:
+        """
+        The name of the App Image Config.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @app_image_config_name.setter
+    def app_image_config_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Custom Image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of the Custom Image.
+        """
+        return pulumi.get(self, "image_version_number")
+
+    @image_version_number.setter
+    def image_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_version_number", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @lifecycle_config_arn.setter
+    def lifecycle_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_config_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @sagemaker_image_arn.setter
+    def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
+
+    @sagemaker_image_version_arn.setter
+    def sagemaker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_arn", value)
+
+
+@pulumi.input_type
 class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
     def __init__(__self__, *,
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]] = None,
@@ -2217,11 +2935,13 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -2230,6 +2950,8 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -2268,6 +2990,18 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -2396,11 +3130,13 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -2409,6 +3145,8 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -2447,6 +3185,18 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -2559,11 +3309,13 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -2572,6 +3324,8 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -2610,6 +3364,18 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -2719,6 +3485,66 @@ class DomainDefaultUserSettingsSharingSettingsArgs:
 
 
 @pulumi.input_type
+class DomainDefaultUserSettingsSpaceStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_storage_settings: Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']] = None):
+        """
+        :param pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs'] default_ebs_storage_settings: The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+        """
+        if default_ebs_storage_settings is not None:
+            pulumi.set(__self__, "default_ebs_storage_settings", default_ebs_storage_settings)
+
+    @property
+    @pulumi.getter(name="defaultEbsStorageSettings")
+    def default_ebs_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]:
+        """
+        The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+        """
+        return pulumi.get(self, "default_ebs_storage_settings")
+
+    @default_ebs_storage_settings.setter
+    def default_ebs_storage_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]):
+        pulumi.set(self, "default_ebs_storage_settings", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_volume_size_in_gb: pulumi.Input[int],
+                 maximum_ebs_volume_size_in_gb: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] default_ebs_volume_size_in_gb: The default size of the EBS storage volume for a private space.
+        :param pulumi.Input[int] maximum_ebs_volume_size_in_gb: The maximum size of the EBS storage volume for a private space.
+        """
+        pulumi.set(__self__, "default_ebs_volume_size_in_gb", default_ebs_volume_size_in_gb)
+        pulumi.set(__self__, "maximum_ebs_volume_size_in_gb", maximum_ebs_volume_size_in_gb)
+
+    @property
+    @pulumi.getter(name="defaultEbsVolumeSizeInGb")
+    def default_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        The default size of the EBS storage volume for a private space.
+        """
+        return pulumi.get(self, "default_ebs_volume_size_in_gb")
+
+    @default_ebs_volume_size_in_gb.setter
+    def default_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "default_ebs_volume_size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="maximumEbsVolumeSizeInGb")
+    def maximum_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        The maximum size of the EBS storage volume for a private space.
+        """
+        return pulumi.get(self, "maximum_ebs_volume_size_in_gb")
+
+    @maximum_ebs_volume_size_in_gb.setter
+    def maximum_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_ebs_volume_size_in_gb", value)
+
+
+@pulumi.input_type
 class DomainDefaultUserSettingsTensorBoardAppSettingsArgs:
     def __init__(__self__, *,
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']] = None):
@@ -2747,11 +3573,13 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -2760,6 +3588,8 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -2798,6 +3628,18 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -2943,11 +3785,13 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -2956,6 +3800,8 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -2994,6 +3840,18 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -6123,11 +6981,13 @@ class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -6136,6 +6996,8 @@ class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -6174,6 +7036,18 @@ class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -6301,11 +7175,13 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -6314,6 +7190,8 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -6354,6 +7232,18 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
         pulumi.set(self, "sagemaker_image_arn", value)
 
     @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
+
+    @property
     @pulumi.getter(name="sagemakerImageVersionArn")
     def sagemaker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -6371,27 +7261,51 @@ class UserProfileUserSettingsArgs:
     def __init__(__self__, *,
                  execution_role: pulumi.Input[str],
                  canvas_app_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsArgs']] = None,
+                 code_editor_app_settings: Optional[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsArgs']] = None,
+                 custom_file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgs']]]] = None,
+                 custom_posix_user_config: Optional[pulumi.Input['UserProfileUserSettingsCustomPosixUserConfigArgs']] = None,
+                 default_landing_uri: Optional[pulumi.Input[str]] = None,
+                 jupyter_lab_app_settings: Optional[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsArgs']] = None,
                  jupyter_server_app_settings: Optional[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsArgs']] = None,
                  kernel_gateway_app_settings: Optional[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsArgs']] = None,
                  r_session_app_settings: Optional[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsArgs']] = None,
                  r_studio_server_pro_app_settings: Optional[pulumi.Input['UserProfileUserSettingsRStudioServerProAppSettingsArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sharing_settings: Optional[pulumi.Input['UserProfileUserSettingsSharingSettingsArgs']] = None,
+                 space_storage_settings: Optional[pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsArgs']] = None,
+                 studio_web_portal: Optional[pulumi.Input[str]] = None,
                  tensor_board_app_settings: Optional[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsArgs']] = None):
         """
         :param pulumi.Input[str] execution_role: The execution role ARN for the user.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsArgs'] canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
+        :param pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        :param pulumi.Input['UserProfileUserSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        :param pulumi.Input[str] default_landing_uri: The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+        :param pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See Jupyter Lab App Settings below.
         :param pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
         :param pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         :param pulumi.Input['UserProfileUserSettingsRSessionAppSettingsArgs'] r_session_app_settings: The RSession app settings. See RSession App Settings below.
-        :param pulumi.Input['UserProfileUserSettingsRStudioServerProAppSettingsArgs'] r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups.
+        :param pulumi.Input['UserProfileUserSettingsRStudioServerProAppSettingsArgs'] r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group IDs that will be attached to the user.
         :param pulumi.Input['UserProfileUserSettingsSharingSettingsArgs'] sharing_settings: The sharing settings. See Sharing Settings below.
+        :param pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a private space. See Space Storage Settings below.
+        :param pulumi.Input[str] studio_web_portal: Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsArgs'] tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
         if canvas_app_settings is not None:
             pulumi.set(__self__, "canvas_app_settings", canvas_app_settings)
+        if code_editor_app_settings is not None:
+            pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
+        if custom_file_system_configs is not None:
+            pulumi.set(__self__, "custom_file_system_configs", custom_file_system_configs)
+        if custom_posix_user_config is not None:
+            pulumi.set(__self__, "custom_posix_user_config", custom_posix_user_config)
+        if default_landing_uri is not None:
+            pulumi.set(__self__, "default_landing_uri", default_landing_uri)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
@@ -6404,6 +7318,10 @@ class UserProfileUserSettingsArgs:
             pulumi.set(__self__, "security_groups", security_groups)
         if sharing_settings is not None:
             pulumi.set(__self__, "sharing_settings", sharing_settings)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
+        if studio_web_portal is not None:
+            pulumi.set(__self__, "studio_web_portal", studio_web_portal)
         if tensor_board_app_settings is not None:
             pulumi.set(__self__, "tensor_board_app_settings", tensor_board_app_settings)
 
@@ -6430,6 +7348,66 @@ class UserProfileUserSettingsArgs:
     @canvas_app_settings.setter
     def canvas_app_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsArgs']]):
         pulumi.set(self, "canvas_app_settings", value)
+
+    @property
+    @pulumi.getter(name="codeEditorAppSettings")
+    def code_editor_app_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsArgs']]:
+        """
+        The Code Editor application settings. See Code Editor App Settings below.
+        """
+        return pulumi.get(self, "code_editor_app_settings")
+
+    @code_editor_app_settings.setter
+    def code_editor_app_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsArgs']]):
+        pulumi.set(self, "code_editor_app_settings", value)
+
+    @property
+    @pulumi.getter(name="customFileSystemConfigs")
+    def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgs']]]]:
+        """
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        """
+        return pulumi.get(self, "custom_file_system_configs")
+
+    @custom_file_system_configs.setter
+    def custom_file_system_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgs']]]]):
+        pulumi.set(self, "custom_file_system_configs", value)
+
+    @property
+    @pulumi.getter(name="customPosixUserConfig")
+    def custom_posix_user_config(self) -> Optional[pulumi.Input['UserProfileUserSettingsCustomPosixUserConfigArgs']]:
+        """
+        Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        """
+        return pulumi.get(self, "custom_posix_user_config")
+
+    @custom_posix_user_config.setter
+    def custom_posix_user_config(self, value: Optional[pulumi.Input['UserProfileUserSettingsCustomPosixUserConfigArgs']]):
+        pulumi.set(self, "custom_posix_user_config", value)
+
+    @property
+    @pulumi.getter(name="defaultLandingUri")
+    def default_landing_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+        """
+        return pulumi.get(self, "default_landing_uri")
+
+    @default_landing_uri.setter
+    def default_landing_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_landing_uri", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsArgs']]:
+        """
+        The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        """
+        return pulumi.get(self, "jupyter_lab_app_settings")
+
+    @jupyter_lab_app_settings.setter
+    def jupyter_lab_app_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_lab_app_settings", value)
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -6471,7 +7449,7 @@ class UserProfileUserSettingsArgs:
     @pulumi.getter(name="rStudioServerProAppSettings")
     def r_studio_server_pro_app_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsRStudioServerProAppSettingsArgs']]:
         """
-        A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+        A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
         """
         return pulumi.get(self, "r_studio_server_pro_app_settings")
 
@@ -6483,7 +7461,7 @@ class UserProfileUserSettingsArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The security groups.
+        A list of security group IDs that will be attached to the user.
         """
         return pulumi.get(self, "security_groups")
 
@@ -6502,6 +7480,30 @@ class UserProfileUserSettingsArgs:
     @sharing_settings.setter
     def sharing_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsSharingSettingsArgs']]):
         pulumi.set(self, "sharing_settings", value)
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsArgs']]:
+        """
+        The storage settings for a private space. See Space Storage Settings below.
+        """
+        return pulumi.get(self, "space_storage_settings")
+
+    @space_storage_settings.setter
+    def space_storage_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsArgs']]):
+        pulumi.set(self, "space_storage_settings", value)
+
+    @property
+    @pulumi.getter(name="studioWebPortal")
+    def studio_web_portal(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "studio_web_portal")
+
+    @studio_web_portal.setter
+    def studio_web_portal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "studio_web_portal", value)
 
     @property
     @pulumi.getter(name="tensorBoardAppSettings")
@@ -6530,7 +7532,7 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]] identity_provider_oauth_settings: The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs'] kendra_settings: The settings for document querying. See Kendra Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
-        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
         """
         if direct_deploy_settings is not None:
@@ -6598,7 +7600,7 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="timeSeriesForecastingSettings")
     def time_series_forecasting_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']]:
         """
-        Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         """
         return pulumi.get(self, "time_series_forecasting_settings")
 
@@ -6837,6 +7839,463 @@ class UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
 
 
 @pulumi.input_type
+class UserProfileUserSettingsCodeEditorAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @lifecycle_config_arn.setter
+    def lifecycle_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_config_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @sagemaker_image_arn.setter
+    def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
+
+    @sagemaker_image_version_arn.setter
+    def sagemaker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_arn", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsCustomFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 efs_file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]] efs_file_system_configs: The default EBS storage settings for a private space. See EFS File System Config below.
+        """
+        if efs_file_system_configs is not None:
+            pulumi.set(__self__, "efs_file_system_configs", efs_file_system_configs)
+
+    @property
+    @pulumi.getter(name="efsFileSystemConfigs")
+    def efs_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]]]:
+        """
+        The default EBS storage settings for a private space. See EFS File System Config below.
+        """
+        return pulumi.get(self, "efs_file_system_configs")
+
+    @efs_file_system_configs.setter
+    def efs_file_system_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]]]):
+        pulumi.set(self, "efs_file_system_configs", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str],
+                 file_system_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] file_system_id: The ID of your Amazon EFS file system.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        if file_system_path is not None:
+            pulumi.set(__self__, "file_system_path", file_system_path)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The ID of your Amazon EFS file system.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemPath")
+    def file_system_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
+        return pulumi.get(self, "file_system_path")
+
+    @file_system_path.setter
+    def file_system_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_path", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsCustomPosixUserConfigArgs:
+    def __init__(__self__, *,
+                 gid: pulumi.Input[int],
+                 uid: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] gid: The POSIX group ID.
+        :param pulumi.Input[int] uid: The POSIX user ID.
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> pulumi.Input[int]:
+        """
+        The POSIX group ID.
+        """
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> pulumi.Input[int]:
+        """
+        The POSIX user ID.
+        """
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "uid", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsJupyterLabAppSettingsArgs:
+    def __init__(__self__, *,
+                 code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]] = None,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs']]]] = None,
+                 default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        if code_repositories is not None:
+            pulumi.set(__self__, "code_repositories", code_repositories)
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="codeRepositories")
+    def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
+        """
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        """
+        return pulumi.get(self, "code_repositories")
+
+    @code_repositories.setter
+    def code_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]):
+        pulumi.set(self, "code_repositories", value)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs']]]]:
+        """
+        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_url: The URL of the Git repository.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        """
+        The URL of the Git repository.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs:
+    def __init__(__self__, *,
+                 app_image_config_name: pulumi.Input[str],
+                 image_name: pulumi.Input[str],
+                 image_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
+        :param pulumi.Input[str] image_name: The name of the Custom Image.
+        :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> pulumi.Input[str]:
+        """
+        The name of the App Image Config.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @app_image_config_name.setter
+    def app_image_config_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Custom Image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of the Custom Image.
+        """
+        return pulumi.get(self, "image_version_number")
+
+    @image_version_number.setter
+    def image_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_version_number", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @lifecycle_config_arn.setter
+    def lifecycle_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_config_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @sagemaker_image_arn.setter
+    def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
+
+    @sagemaker_image_version_arn.setter
+    def sagemaker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_arn", value)
+
+
+@pulumi.input_type
 class UserProfileUserSettingsJupyterServerAppSettingsArgs:
     def __init__(__self__, *,
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]] = None,
@@ -6919,11 +8378,13 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type.
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -6932,6 +8393,8 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -6939,7 +8402,7 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type.
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -6963,13 +8426,25 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -7098,11 +8573,13 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type.
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -7111,6 +8588,8 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -7118,7 +8597,7 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type.
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -7142,13 +8621,25 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -7261,11 +8752,13 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type.
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -7274,6 +8767,8 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -7281,7 +8776,7 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type.
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -7305,13 +8800,25 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")
@@ -7421,24 +8928,85 @@ class UserProfileUserSettingsSharingSettingsArgs:
 
 
 @pulumi.input_type
+class UserProfileUserSettingsSpaceStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_storage_settings: Optional[pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']] = None):
+        """
+        :param pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs'] default_ebs_storage_settings: The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+        """
+        if default_ebs_storage_settings is not None:
+            pulumi.set(__self__, "default_ebs_storage_settings", default_ebs_storage_settings)
+
+    @property
+    @pulumi.getter(name="defaultEbsStorageSettings")
+    def default_ebs_storage_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]:
+        """
+        The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+        """
+        return pulumi.get(self, "default_ebs_storage_settings")
+
+    @default_ebs_storage_settings.setter
+    def default_ebs_storage_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]):
+        pulumi.set(self, "default_ebs_storage_settings", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_volume_size_in_gb: pulumi.Input[int],
+                 maximum_ebs_volume_size_in_gb: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] default_ebs_volume_size_in_gb: The default size of the EBS storage volume for a private space.
+        :param pulumi.Input[int] maximum_ebs_volume_size_in_gb: The maximum size of the EBS storage volume for a private space.
+        """
+        pulumi.set(__self__, "default_ebs_volume_size_in_gb", default_ebs_volume_size_in_gb)
+        pulumi.set(__self__, "maximum_ebs_volume_size_in_gb", maximum_ebs_volume_size_in_gb)
+
+    @property
+    @pulumi.getter(name="defaultEbsVolumeSizeInGb")
+    def default_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        The default size of the EBS storage volume for a private space.
+        """
+        return pulumi.get(self, "default_ebs_volume_size_in_gb")
+
+    @default_ebs_volume_size_in_gb.setter
+    def default_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "default_ebs_volume_size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="maximumEbsVolumeSizeInGb")
+    def maximum_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        The maximum size of the EBS storage volume for a private space.
+        """
+        return pulumi.get(self, "maximum_ebs_volume_size_in_gb")
+
+    @maximum_ebs_volume_size_in_gb.setter
+    def maximum_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_ebs_volume_size_in_gb", value)
+
+
+@pulumi.input_type
 class UserProfileUserSettingsTensorBoardAppSettingsArgs:
     def __init__(__self__, *,
-                 default_resource_spec: pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']):
+                 default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']] = None):
         """
         :param pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
-        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
-    def default_resource_spec(self) -> pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']:
+    def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']]:
         """
         The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
         return pulumi.get(self, "default_resource_spec")
 
     @default_resource_spec.setter
-    def default_resource_spec(self, value: pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']):
+    def default_resource_spec(self, value: Optional[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']]):
         pulumi.set(self, "default_resource_spec", value)
 
 
@@ -7448,11 +9016,13 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type.
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -7461,6 +9031,8 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
             pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
             pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
         if sagemaker_image_version_arn is not None:
             pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
 
@@ -7468,7 +9040,7 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type.
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -7492,13 +9064,25 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
 
     @property
     @pulumi.getter(name="sagemakerImageVersionArn")

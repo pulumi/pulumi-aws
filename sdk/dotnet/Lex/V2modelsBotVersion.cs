@@ -13,13 +13,37 @@ namespace Pulumi.Aws.Lex
     /// Resource for managing an AWS Lex V2 Models Bot Version.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Lex.V2modelsBotVersion("test", new()
+    ///     {
+    ///         BotId = aws_lexv2models.Test.Id,
+    ///         LocaleSpecification = 
+    ///         {
+    ///             { "en_US", new Aws.Lex.Inputs.V2modelsBotVersionLocaleSpecificationArgs
+    ///             {
+    ///                 SourceBotVersion = "DRAFT",
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lex V2 Models Bot Version using the `example_id_arg`. For example:
+    /// Using `pulumi import`, import Lex V2 Models Bot Version using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example bot_version-id-12345678
+    ///  $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/v2modelsBotVersion:V2modelsBotVersion")]
@@ -31,6 +55,9 @@ namespace Pulumi.Aws.Lex
         [Output("botId")]
         public Output<string> BotId { get; private set; } = null!;
 
+        /// <summary>
+        /// Version number assigned to the version.
+        /// </summary>
         [Output("botVersion")]
         public Output<string> BotVersion { get; private set; } = null!;
 
@@ -40,6 +67,11 @@ namespace Pulumi.Aws.Lex
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Output("localeSpecification")]
         public Output<ImmutableDictionary<string, Outputs.V2modelsBotVersionLocaleSpecification>> LocaleSpecification { get; private set; } = null!;
 
@@ -98,6 +130,9 @@ namespace Pulumi.Aws.Lex
         [Input("botId", required: true)]
         public Input<string> BotId { get; set; } = null!;
 
+        /// <summary>
+        /// Version number assigned to the version.
+        /// </summary>
         [Input("botVersion")]
         public Input<string>? BotVersion { get; set; }
 
@@ -109,6 +144,12 @@ namespace Pulumi.Aws.Lex
 
         [Input("localeSpecification", required: true)]
         private InputMap<Inputs.V2modelsBotVersionLocaleSpecificationArgs>? _localeSpecification;
+
+        /// <summary>
+        /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         public InputMap<Inputs.V2modelsBotVersionLocaleSpecificationArgs> LocaleSpecification
         {
             get => _localeSpecification ?? (_localeSpecification = new InputMap<Inputs.V2modelsBotVersionLocaleSpecificationArgs>());
@@ -132,6 +173,9 @@ namespace Pulumi.Aws.Lex
         [Input("botId")]
         public Input<string>? BotId { get; set; }
 
+        /// <summary>
+        /// Version number assigned to the version.
+        /// </summary>
         [Input("botVersion")]
         public Input<string>? BotVersion { get; set; }
 
@@ -143,6 +187,12 @@ namespace Pulumi.Aws.Lex
 
         [Input("localeSpecification")]
         private InputMap<Inputs.V2modelsBotVersionLocaleSpecificationGetArgs>? _localeSpecification;
+
+        /// <summary>
+        /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         public InputMap<Inputs.V2modelsBotVersionLocaleSpecificationGetArgs> LocaleSpecification
         {
             get => _localeSpecification ?? (_localeSpecification = new InputMap<Inputs.V2modelsBotVersionLocaleSpecificationGetArgs>());

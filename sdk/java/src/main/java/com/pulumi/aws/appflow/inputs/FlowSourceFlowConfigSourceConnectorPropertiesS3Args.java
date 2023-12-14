@@ -35,15 +35,15 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
      * Amazon S3 bucket prefix.
      * 
      */
-    @Import(name="bucketPrefix")
-    private @Nullable Output<String> bucketPrefix;
+    @Import(name="bucketPrefix", required=true)
+    private Output<String> bucketPrefix;
 
     /**
      * @return Amazon S3 bucket prefix.
      * 
      */
-    public Optional<Output<String>> bucketPrefix() {
-        return Optional.ofNullable(this.bucketPrefix);
+    public Output<String> bucketPrefix() {
+        return this.bucketPrefix;
     }
 
     /**
@@ -114,7 +114,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
          * @return builder
          * 
          */
-        public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
+        public Builder bucketPrefix(Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
@@ -152,6 +152,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
 
         public FlowSourceFlowConfigSourceConnectorPropertiesS3Args build() {
             $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
+            $.bucketPrefix = Objects.requireNonNull($.bucketPrefix, "expected parameter 'bucketPrefix' to be non-null");
             return $;
         }
     }

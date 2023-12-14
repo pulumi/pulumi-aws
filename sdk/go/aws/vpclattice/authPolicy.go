@@ -73,11 +73,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For example:
+// Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
 //
 // ```sh
 //
-//	$ pulumi import aws:vpclattice/authPolicy:AuthPolicy example rft-8012925589
+//	$ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
 //
 // ```
 type AuthPolicy struct {
@@ -87,7 +87,7 @@ type AuthPolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringOutput `pulumi:"resourceIdentifier"`
-	// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+	// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 }
 
@@ -131,7 +131,7 @@ type authPolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
-	// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+	// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State *string `pulumi:"state"`
 }
 
@@ -140,7 +140,7 @@ type AuthPolicyState struct {
 	Policy pulumi.StringPtrInput
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringPtrInput
-	// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+	// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State pulumi.StringPtrInput
 }
 
@@ -153,7 +153,7 @@ type authPolicyArgs struct {
 	Policy string `pulumi:"policy"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier string `pulumi:"resourceIdentifier"`
-	// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+	// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State *string `pulumi:"state"`
 }
 
@@ -163,7 +163,7 @@ type AuthPolicyArgs struct {
 	Policy pulumi.StringInput
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringInput
-	// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+	// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State pulumi.StringPtrInput
 }
 
@@ -264,7 +264,7 @@ func (o AuthPolicyOutput) ResourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthPolicy) pulumi.StringOutput { return v.ResourceIdentifier }).(pulumi.StringOutput)
 }
 
-// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 func (o AuthPolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthPolicy) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
