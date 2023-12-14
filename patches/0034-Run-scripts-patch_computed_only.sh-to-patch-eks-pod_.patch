@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Thu, 7 Dec 2023 00:05:40 -0500
-Subject: [PATCH 34/34] Run scripts/patch_computed_only.sh to patch
+Subject: [PATCH 34/36] Run scripts/patch_computed_only.sh to patch
  eks/pod_identity_association and more
 
 
@@ -19,7 +19,7 @@ index 31b2fbe18f..aa6820adf4 100644
  				ElementType: types.StringType,
  				Optional:    true,
 diff --git a/internal/service/eks/pod_identity_association.go b/internal/service/eks/pod_identity_association.go
-index b5f6e46d2b..98c3f91956 100644
+index e4f57d15e7..672d9018c5 100644
 --- a/internal/service/eks/pod_identity_association.go
 +++ b/internal/service/eks/pod_identity_association.go
 @@ -105,7 +105,7 @@ func (r *podIdentityAssociationResource) Schema(ctx context.Context, req resourc
