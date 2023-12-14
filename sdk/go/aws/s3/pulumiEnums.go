@@ -144,10 +144,17 @@ func (o CannedAclPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// CannedAclInput is an input type that accepts CannedAclArgs and CannedAclOutput values.
-// You can construct a concrete instance of `CannedAclInput` via:
+// CannedAclInput is an input type that accepts values of the CannedAcl enum
+// A concrete instance of `CannedAclInput` can be one of the following:
 //
-//	CannedAclArgs{...}
+//	CannedAclPrivate
+//	CannedAclPublicRead
+//	CannedAclPublicReadWrite
+//	CannedAclAwsExecRead
+//	CannedAclAuthenticatedRead
+//	CannedAclBucketOwnerRead
+//	CannedAclBucketOwnerFullControl
+//	CannedAclLogDeliveryWrite
 type CannedAclInput interface {
 	pulumi.Input
 
