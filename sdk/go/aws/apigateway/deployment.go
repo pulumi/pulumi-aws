@@ -30,8 +30,8 @@ import (
 // import (
 //
 //	"crypto/sha1"
+//	"encoding/hex"
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -114,8 +114,8 @@ import (
 // import (
 //
 //	"crypto/sha1"
+//	"encoding/hex"
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
