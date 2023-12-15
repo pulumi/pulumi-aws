@@ -61,10 +61,10 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For example:
+    /// Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example rft-8012925589
+    ///  $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/authPolicy:AuthPolicy")]
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> ResourceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string> ResourceIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? ResourceIdentifier { get; set; }
 
         /// <summary>
-        /// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

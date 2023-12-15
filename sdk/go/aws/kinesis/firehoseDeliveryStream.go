@@ -849,7 +849,6 @@ type FirehoseDeliveryStream struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
-	// is redshift). More details are given below.
 	Destination   pulumi.StringOutput `pulumi:"destination"`
 	DestinationId pulumi.StringOutput `pulumi:"destinationId"`
 	// Configuration options when `destination` is `elasticsearch`. More details are given below.
@@ -925,7 +924,6 @@ type firehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn *string `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
-	// is redshift). More details are given below.
 	Destination   *string `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
 	// Configuration options when `destination` is `elasticsearch`. More details are given below.
@@ -965,7 +963,6 @@ type FirehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringPtrInput
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
-	// is redshift). More details are given below.
 	Destination   pulumi.StringPtrInput
 	DestinationId pulumi.StringPtrInput
 	// Configuration options when `destination` is `elasticsearch`. More details are given below.
@@ -1009,7 +1006,6 @@ type firehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn *string `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
-	// is redshift). More details are given below.
 	Destination   string  `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
 	// Configuration options when `destination` is `elasticsearch`. More details are given below.
@@ -1046,7 +1042,6 @@ type FirehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringPtrInput
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
-	// is redshift). More details are given below.
 	Destination   pulumi.StringInput
 	DestinationId pulumi.StringPtrInput
 	// Configuration options when `destination` is `elasticsearch`. More details are given below.
@@ -1171,7 +1166,6 @@ func (o FirehoseDeliveryStreamOutput) Arn() pulumi.StringOutput {
 }
 
 // This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
-// is redshift). More details are given below.
 func (o FirehoseDeliveryStreamOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }

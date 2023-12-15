@@ -545,6 +545,7 @@ namespace Pulumi.Aws
                 public string? Location { get; set; } = null!;
                 public string? Locationservice { get; set; } = null!;
                 public string? Logs { get; set; } = null!;
+                public string? Lookoutmetrics { get; set; } = null!;
                 public string? Macie2 { get; set; } = null!;
                 public string? Managedgrafana { get; set; } = null!;
                 public string? Mediaconnect { get; set; } = null!;

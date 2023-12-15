@@ -29,6 +29,7 @@ public final class GetConfigurationProfileResult {
      * 
      */
     private String id;
+    private String kmsKeyIdentifier;
     /**
      * @return Location URI of the Configuration Profile.
      * 
@@ -88,6 +89,9 @@ public final class GetConfigurationProfileResult {
     public String id() {
         return this.id;
     }
+    public String kmsKeyIdentifier() {
+        return this.kmsKeyIdentifier;
+    }
     /**
      * @return Location URI of the Configuration Profile.
      * 
@@ -145,6 +149,7 @@ public final class GetConfigurationProfileResult {
         private String configurationProfileId;
         private String description;
         private String id;
+        private String kmsKeyIdentifier;
         private String locationUri;
         private String name;
         private String retrievalRoleArn;
@@ -159,6 +164,7 @@ public final class GetConfigurationProfileResult {
     	      this.configurationProfileId = defaults.configurationProfileId;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
     	      this.locationUri = defaults.locationUri;
     	      this.name = defaults.name;
     	      this.retrievalRoleArn = defaults.retrievalRoleArn;
@@ -190,6 +196,11 @@ public final class GetConfigurationProfileResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            this.kmsKeyIdentifier = Objects.requireNonNull(kmsKeyIdentifier);
             return this;
         }
         @CustomType.Setter
@@ -232,6 +243,7 @@ public final class GetConfigurationProfileResult {
             _resultValue.configurationProfileId = configurationProfileId;
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;
             _resultValue.locationUri = locationUri;
             _resultValue.name = name;
             _resultValue.retrievalRoleArn = retrievalRoleArn;

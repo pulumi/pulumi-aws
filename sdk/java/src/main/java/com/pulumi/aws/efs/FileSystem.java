@@ -127,14 +127,14 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.availabilityZoneId;
     }
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
     @Export(name="availabilityZoneName", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneName;
 
     /**
-     * @return the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * @return the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
     public Output<String> availabilityZoneName() {

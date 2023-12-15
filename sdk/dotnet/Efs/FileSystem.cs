@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         /// </summary>
         [Output("availabilityZoneName")]
         public Output<string> AvailabilityZoneName { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Efs
     public sealed class FileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         /// </summary>
         [Input("availabilityZoneName")]
         public Input<string>? AvailabilityZoneName { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         /// </summary>
         [Input("availabilityZoneName")]
         public Input<string>? AvailabilityZoneName { get; set; }

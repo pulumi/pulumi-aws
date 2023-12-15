@@ -60,6 +60,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+        /// </summary>
+        [Output("logGroupClass")]
+        public Output<string?> LogGroupClass { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the log group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
@@ -156,6 +162,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+        /// </summary>
+        [Input("logGroupClass")]
+        public Input<string>? LogGroupClass { get; set; }
+
+        /// <summary>
         /// The name of the log group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
@@ -214,6 +226,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+        /// </summary>
+        [Input("logGroupClass")]
+        public Input<string>? LogGroupClass { get; set; }
 
         /// <summary>
         /// The name of the log group. If omitted, this provider will assign a random, unique name.

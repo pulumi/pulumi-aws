@@ -73,10 +73,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For example:
+ * Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example rft-8012925589
+ *  $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
  * ```
  * 
  */
@@ -111,14 +111,14 @@ public class AuthPolicy extends com.pulumi.resources.CustomResource {
         return this.resourceIdentifier;
     }
     /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
-     * @return The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+     * @return The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      * 
      */
     public Output<Optional<String>> state() {

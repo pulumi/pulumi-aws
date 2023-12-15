@@ -38,6 +38,21 @@ public final class LogGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     * 
+     */
+    @Import(name="logGroupClass")
+    private @Nullable Output<String> logGroupClass;
+
+    /**
+     * @return Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+     * 
+     */
+    public Optional<Output<String>> logGroupClass() {
+        return Optional.ofNullable(this.logGroupClass);
+    }
+
+    /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      * 
      */
@@ -120,6 +135,7 @@ public final class LogGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     private LogGroupArgs(LogGroupArgs $) {
         this.kmsKeyId = $.kmsKeyId;
+        this.logGroupClass = $.logGroupClass;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.retentionInDays = $.retentionInDays;
@@ -168,6 +184,27 @@ public final class LogGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
+        }
+
+        /**
+         * @param logGroupClass Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logGroupClass(@Nullable Output<String> logGroupClass) {
+            $.logGroupClass = logGroupClass;
+            return this;
+        }
+
+        /**
+         * @param logGroupClass Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logGroupClass(String logGroupClass) {
+            return logGroupClass(Output.of(logGroupClass));
         }
 
         /**

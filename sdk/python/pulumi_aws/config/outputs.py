@@ -332,6 +332,7 @@ class Endpoints(dict):
                  location: Optional[str] = None,
                  locationservice: Optional[str] = None,
                  logs: Optional[str] = None,
+                 lookoutmetrics: Optional[str] = None,
                  macie2: Optional[str] = None,
                  managedgrafana: Optional[str] = None,
                  mediaconnect: Optional[str] = None,
@@ -751,6 +752,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "locationservice", locationservice)
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
+        if lookoutmetrics is not None:
+            pulumi.set(__self__, "lookoutmetrics", lookoutmetrics)
         if macie2 is not None:
             pulumi.set(__self__, "macie2", macie2)
         if managedgrafana is not None:
@@ -1750,6 +1753,11 @@ class Endpoints(dict):
     @pulumi.getter
     def logs(self) -> Optional[str]:
         return pulumi.get(self, "logs")
+
+    @property
+    @pulumi.getter
+    def lookoutmetrics(self) -> Optional[str]:
+        return pulumi.get(self, "lookoutmetrics")
 
     @property
     @pulumi.getter

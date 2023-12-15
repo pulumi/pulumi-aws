@@ -33,6 +33,21 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    @Import(name="spaceDisplayName")
+    private @Nullable Output<String> spaceDisplayName;
+
+    /**
+     * @return The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    public Optional<Output<String>> spaceDisplayName() {
+        return Optional.ofNullable(this.spaceDisplayName);
+    }
+
+    /**
      * The name of the space.
      * 
      */
@@ -81,6 +96,7 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
 
     private SpaceArgs(SpaceArgs $) {
         this.domainId = $.domainId;
+        this.spaceDisplayName = $.spaceDisplayName;
         this.spaceName = $.spaceName;
         this.spaceSettings = $.spaceSettings;
         this.tags = $.tags;
@@ -123,6 +139,27 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domainId(String domainId) {
             return domainId(Output.of(domainId));
+        }
+
+        /**
+         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceDisplayName(@Nullable Output<String> spaceDisplayName) {
+            $.spaceDisplayName = spaceDisplayName;
+            return this;
+        }
+
+        /**
+         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceDisplayName(String spaceDisplayName) {
+            return spaceDisplayName(Output.of(spaceDisplayName));
         }
 
         /**

@@ -77,7 +77,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly availabilityZoneId!: pulumi.Output<string>;
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      */
     public readonly availabilityZoneName!: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export interface FileSystemState {
      */
     availabilityZoneId?: pulumi.Input<string>;
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      */
     availabilityZoneName?: pulumi.Input<string>;
     /**
@@ -283,7 +283,7 @@ export interface FileSystemState {
  */
 export interface FileSystemArgs {
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      */
     availabilityZoneName?: pulumi.Input<string>;
     /**

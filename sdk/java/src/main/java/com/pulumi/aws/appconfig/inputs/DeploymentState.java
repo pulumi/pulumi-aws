@@ -138,6 +138,36 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the KMS key used to encrypt configuration data.
+     * 
+     */
+    @Import(name="kmsKeyArn")
+    private @Nullable Output<String> kmsKeyArn;
+
+    /**
+     * @return ARN of the KMS key used to encrypt configuration data.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
+    }
+
+    /**
+     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * 
+     */
+    @Import(name="kmsKeyIdentifier")
+    private @Nullable Output<String> kmsKeyIdentifier;
+
+    /**
+     * @return The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyIdentifier() {
+        return Optional.ofNullable(this.kmsKeyIdentifier);
+    }
+
+    /**
      * State of the deployment.
      * 
      */
@@ -201,6 +231,8 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         this.deploymentStrategyId = $.deploymentStrategyId;
         this.description = $.description;
         this.environmentId = $.environmentId;
+        this.kmsKeyArn = $.kmsKeyArn;
+        this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.state = $.state;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -390,6 +422,48 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder environmentId(String environmentId) {
             return environmentId(Output.of(environmentId));
+        }
+
+        /**
+         * @param kmsKeyArn ARN of the KMS key used to encrypt configuration data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
+            $.kmsKeyArn = kmsKeyArn;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyArn ARN of the KMS key used to encrypt configuration data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(String kmsKeyArn) {
+            return kmsKeyArn(Output.of(kmsKeyArn));
+        }
+
+        /**
+         * @param kmsKeyIdentifier The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
+            $.kmsKeyIdentifier = kmsKeyIdentifier;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyIdentifier The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
         }
 
         /**

@@ -404,6 +404,7 @@ class ProviderEndpointArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  locationservice: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[str]] = None,
+                 lookoutmetrics: Optional[pulumi.Input[str]] = None,
                  macie2: Optional[pulumi.Input[str]] = None,
                  managedgrafana: Optional[pulumi.Input[str]] = None,
                  mediaconnect: Optional[pulumi.Input[str]] = None,
@@ -823,6 +824,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "locationservice", locationservice)
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
+        if lookoutmetrics is not None:
+            pulumi.set(__self__, "lookoutmetrics", lookoutmetrics)
         if macie2 is not None:
             pulumi.set(__self__, "macie2", macie2)
         if managedgrafana is not None:
@@ -2466,6 +2469,15 @@ class ProviderEndpointArgs:
     @logs.setter
     def logs(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "logs", value)
+
+    @property
+    @pulumi.getter
+    def lookoutmetrics(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lookoutmetrics")
+
+    @lookoutmetrics.setter
+    def lookoutmetrics(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lookoutmetrics", value)
 
     @property
     @pulumi.getter

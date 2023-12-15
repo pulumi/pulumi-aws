@@ -79,6 +79,7 @@ export interface GetLoadBalancerResult {
     readonly enableTlsVersionAndCipherSuiteHeaders: boolean;
     readonly enableWafFailOpen: boolean;
     readonly enableXffClientPort: boolean;
+    readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */

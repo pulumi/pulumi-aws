@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *             .deploymentStrategyId(aws_appconfig_deployment_strategy.example().id())
  *             .description(&#34;My example deployment&#34;)
  *             .environmentId(aws_appconfig_environment.example().environment_id())
+ *             .kmsKeyIdentifier(aws_kms_key.example().arn())
  *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Deployment&#34;))
  *             .build());
  * 
@@ -178,6 +179,34 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> environmentId() {
         return this.environmentId;
+    }
+    /**
+     * ARN of the KMS key used to encrypt configuration data.
+     * 
+     */
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
+    private Output<String> kmsKeyArn;
+
+    /**
+     * @return ARN of the KMS key used to encrypt configuration data.
+     * 
+     */
+    public Output<String> kmsKeyArn() {
+        return this.kmsKeyArn;
+    }
+    /**
+     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * 
+     */
+    @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsKeyIdentifier;
+
+    /**
+     * @return The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * 
+     */
+    public Output<Optional<String>> kmsKeyIdentifier() {
+        return Codegen.optional(this.kmsKeyIdentifier);
     }
     /**
      * State of the deployment.

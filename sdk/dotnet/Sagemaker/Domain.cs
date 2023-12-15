@@ -218,6 +218,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> SecurityGroupIdForDomainBoundary { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        /// </summary>
+        [Output("singleSignOnApplicationArn")]
+        public Output<string> SingleSignOnApplicationArn { get; private set; } = null!;
+
+        /// <summary>
         /// The SSO managed application instance ID.
         /// </summary>
         [Output("singleSignOnManagedApplicationInstanceId")]
@@ -470,6 +476,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("securityGroupIdForDomainBoundary")]
         public Input<string>? SecurityGroupIdForDomainBoundary { get; set; }
+
+        /// <summary>
+        /// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        /// </summary>
+        [Input("singleSignOnApplicationArn")]
+        public Input<string>? SingleSignOnApplicationArn { get; set; }
 
         /// <summary>
         /// The SSO managed application instance ID.

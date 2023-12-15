@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Wed, 2 Aug 2023 14:12:03 +0200
-Subject: [PATCH 25/30] Match the "tags" behavior of other resources
+Subject: [PATCH 25/36] Match the "tags" behavior of other resources
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go

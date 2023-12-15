@@ -185,6 +185,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly enableXffClientPort!: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     */
+    public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic!: pulumi.Output<string>;
+    /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
     public readonly idleTimeout!: pulumi.Output<number | undefined>;
@@ -275,6 +279,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = state ? state.enableTlsVersionAndCipherSuiteHeaders : undefined;
             resourceInputs["enableWafFailOpen"] = state ? state.enableWafFailOpen : undefined;
             resourceInputs["enableXffClientPort"] = state ? state.enableXffClientPort : undefined;
+            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = state ? state.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
             resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
             resourceInputs["internal"] = state ? state.internal : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
@@ -303,6 +308,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = args ? args.enableTlsVersionAndCipherSuiteHeaders : undefined;
             resourceInputs["enableWafFailOpen"] = args ? args.enableWafFailOpen : undefined;
             resourceInputs["enableXffClientPort"] = args ? args.enableXffClientPort : undefined;
+            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args ? args.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
             resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
             resourceInputs["internal"] = args ? args.internal : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
@@ -391,6 +397,10 @@ export interface LoadBalancerState {
      * Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      */
     enableXffClientPort?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     */
+    enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: pulumi.Input<string>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
@@ -504,6 +514,10 @@ export interface LoadBalancerArgs {
      * Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      */
     enableXffClientPort?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     */
+    enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: pulumi.Input<string>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */

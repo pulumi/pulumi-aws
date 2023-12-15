@@ -119,6 +119,7 @@ import * as codebuild from "./codebuild";
 import * as codecatalyst from "./codecatalyst";
 import * as codecommit from "./codecommit";
 import * as codedeploy from "./codedeploy";
+import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
 import * as codepipeline from "./codepipeline";
 import * as codestarconnections from "./codestarconnections";
@@ -130,6 +131,7 @@ import * as connect from "./connect";
 import * as controltower from "./controltower";
 import * as costexplorer from "./costexplorer";
 import * as cur from "./cur";
+import * as customerprofiles from "./customerprofiles";
 import * as dataexchange from "./dataexchange";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
@@ -237,6 +239,7 @@ import * as scheduler from "./scheduler";
 import * as schemas from "./schemas";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
+import * as securitylake from "./securitylake";
 import * as serverlessrepository from "./serverlessrepository";
 import * as servicecatalog from "./servicecatalog";
 import * as servicediscovery from "./servicediscovery";
@@ -316,6 +319,7 @@ export {
     codecatalyst,
     codecommit,
     codedeploy,
+    codeguruprofiler,
     codegurureviewer,
     codepipeline,
     codestarconnections,
@@ -327,6 +331,7 @@ export {
     controltower,
     costexplorer,
     cur,
+    customerprofiles,
     dataexchange,
     datapipeline,
     datasync,
@@ -434,6 +439,7 @@ export {
     schemas,
     secretsmanager,
     securityhub,
+    securitylake,
     serverlessrepository,
     servicecatalog,
     servicediscovery,

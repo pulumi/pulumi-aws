@@ -78,6 +78,7 @@ export interface GetListenerResult {
      */
     readonly id: string;
     readonly loadBalancerArn: string;
+    readonly mutualAuthentications: outputs.lb.GetListenerMutualAuthentication[];
     readonly port: number;
     readonly protocol: string;
     readonly sslPolicy: string;

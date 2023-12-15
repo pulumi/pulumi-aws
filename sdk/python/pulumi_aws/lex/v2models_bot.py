@@ -416,7 +416,7 @@ class V2modelsBot(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Lex V2 Models Bot using the `example_id_arg`. For example:
+        Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
 
         ```sh
          $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
@@ -465,7 +465,7 @@ class V2modelsBot(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Lex V2 Models Bot using the `example_id_arg`. For example:
+        Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
 
         ```sh
          $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678

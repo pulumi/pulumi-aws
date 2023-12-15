@@ -4,11 +4,16 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCodeEditorAppSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCustomPosixUserConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsJupyterLabAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsJupyterServerAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsRSessionAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsRStudioServerProAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsSharingSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsSpaceStorageSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsTensorBoardAppSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -39,6 +44,66 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * The Code Editor application settings. See Code Editor App Settings below.
+     * 
+     */
+    @Import(name="codeEditorAppSettings")
+    private @Nullable Output<DomainDefaultUserSettingsCodeEditorAppSettingsArgs> codeEditorAppSettings;
+
+    /**
+     * @return The Code Editor application settings. See Code Editor App Settings below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsCodeEditorAppSettingsArgs>> codeEditorAppSettings() {
+        return Optional.ofNullable(this.codeEditorAppSettings);
+    }
+
+    /**
+     * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * 
+     */
+    @Import(name="customFileSystemConfigs")
+    private @Nullable Output<List<DomainDefaultUserSettingsCustomFileSystemConfigArgs>> customFileSystemConfigs;
+
+    /**
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * 
+     */
+    public Optional<Output<List<DomainDefaultUserSettingsCustomFileSystemConfigArgs>>> customFileSystemConfigs() {
+        return Optional.ofNullable(this.customFileSystemConfigs);
+    }
+
+    /**
+     * Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * 
+     */
+    @Import(name="customPosixUserConfig")
+    private @Nullable Output<DomainDefaultUserSettingsCustomPosixUserConfigArgs> customPosixUserConfig;
+
+    /**
+     * @return Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsCustomPosixUserConfigArgs>> customPosixUserConfig() {
+        return Optional.ofNullable(this.customPosixUserConfig);
+    }
+
+    /**
+     * The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+     * 
+     */
+    @Import(name="defaultLandingUri")
+    private @Nullable Output<String> defaultLandingUri;
+
+    /**
+     * @return The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+     * 
+     */
+    public Optional<Output<String>> defaultLandingUri() {
+        return Optional.ofNullable(this.defaultLandingUri);
+    }
+
+    /**
      * The execution role ARN for the user.
      * 
      */
@@ -51,6 +116,21 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
      */
     public Output<String> executionRole() {
         return this.executionRole;
+    }
+
+    /**
+     * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * 
+     */
+    @Import(name="jupyterLabAppSettings")
+    private @Nullable Output<DomainDefaultUserSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings;
+
+    /**
+     * @return The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsJupyterLabAppSettingsArgs>> jupyterLabAppSettings() {
+        return Optional.ofNullable(this.jupyterLabAppSettings);
     }
 
     /**
@@ -144,6 +224,36 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * The storage settings for a private space. See Space Storage Settings below.
+     * 
+     */
+    @Import(name="spaceStorageSettings")
+    private @Nullable Output<DomainDefaultUserSettingsSpaceStorageSettingsArgs> spaceStorageSettings;
+
+    /**
+     * @return The storage settings for a private space. See Space Storage Settings below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsSpaceStorageSettingsArgs>> spaceStorageSettings() {
+        return Optional.ofNullable(this.spaceStorageSettings);
+    }
+
+    /**
+     * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
+    @Import(name="studioWebPortal")
+    private @Nullable Output<String> studioWebPortal;
+
+    /**
+     * @return Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+     * 
+     */
+    public Optional<Output<String>> studioWebPortal() {
+        return Optional.ofNullable(this.studioWebPortal);
+    }
+
+    /**
      * The TensorBoard app settings. See TensorBoard App Settings below.
      * 
      */
@@ -162,13 +272,20 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
 
     private DomainDefaultUserSettingsArgs(DomainDefaultUserSettingsArgs $) {
         this.canvasAppSettings = $.canvasAppSettings;
+        this.codeEditorAppSettings = $.codeEditorAppSettings;
+        this.customFileSystemConfigs = $.customFileSystemConfigs;
+        this.customPosixUserConfig = $.customPosixUserConfig;
+        this.defaultLandingUri = $.defaultLandingUri;
         this.executionRole = $.executionRole;
+        this.jupyterLabAppSettings = $.jupyterLabAppSettings;
         this.jupyterServerAppSettings = $.jupyterServerAppSettings;
         this.kernelGatewayAppSettings = $.kernelGatewayAppSettings;
         this.rSessionAppSettings = $.rSessionAppSettings;
         this.rStudioServerProAppSettings = $.rStudioServerProAppSettings;
         this.securityGroups = $.securityGroups;
         this.sharingSettings = $.sharingSettings;
+        this.spaceStorageSettings = $.spaceStorageSettings;
+        this.studioWebPortal = $.studioWebPortal;
         this.tensorBoardAppSettings = $.tensorBoardAppSettings;
     }
 
@@ -212,6 +329,100 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
+         * @param codeEditorAppSettings The Code Editor application settings. See Code Editor App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeEditorAppSettings(@Nullable Output<DomainDefaultUserSettingsCodeEditorAppSettingsArgs> codeEditorAppSettings) {
+            $.codeEditorAppSettings = codeEditorAppSettings;
+            return this;
+        }
+
+        /**
+         * @param codeEditorAppSettings The Code Editor application settings. See Code Editor App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeEditorAppSettings(DomainDefaultUserSettingsCodeEditorAppSettingsArgs codeEditorAppSettings) {
+            return codeEditorAppSettings(Output.of(codeEditorAppSettings));
+        }
+
+        /**
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customFileSystemConfigs(@Nullable Output<List<DomainDefaultUserSettingsCustomFileSystemConfigArgs>> customFileSystemConfigs) {
+            $.customFileSystemConfigs = customFileSystemConfigs;
+            return this;
+        }
+
+        /**
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customFileSystemConfigs(List<DomainDefaultUserSettingsCustomFileSystemConfigArgs> customFileSystemConfigs) {
+            return customFileSystemConfigs(Output.of(customFileSystemConfigs));
+        }
+
+        /**
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customFileSystemConfigs(DomainDefaultUserSettingsCustomFileSystemConfigArgs... customFileSystemConfigs) {
+            return customFileSystemConfigs(List.of(customFileSystemConfigs));
+        }
+
+        /**
+         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customPosixUserConfig(@Nullable Output<DomainDefaultUserSettingsCustomPosixUserConfigArgs> customPosixUserConfig) {
+            $.customPosixUserConfig = customPosixUserConfig;
+            return this;
+        }
+
+        /**
+         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customPosixUserConfig(DomainDefaultUserSettingsCustomPosixUserConfigArgs customPosixUserConfig) {
+            return customPosixUserConfig(Output.of(customPosixUserConfig));
+        }
+
+        /**
+         * @param defaultLandingUri The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultLandingUri(@Nullable Output<String> defaultLandingUri) {
+            $.defaultLandingUri = defaultLandingUri;
+            return this;
+        }
+
+        /**
+         * @param defaultLandingUri The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultLandingUri(String defaultLandingUri) {
+            return defaultLandingUri(Output.of(defaultLandingUri));
+        }
+
+        /**
          * @param executionRole The execution role ARN for the user.
          * 
          * @return builder
@@ -230,6 +441,27 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
          */
         public Builder executionRole(String executionRole) {
             return executionRole(Output.of(executionRole));
+        }
+
+        /**
+         * @param jupyterLabAppSettings The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jupyterLabAppSettings(@Nullable Output<DomainDefaultUserSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings) {
+            $.jupyterLabAppSettings = jupyterLabAppSettings;
+            return this;
+        }
+
+        /**
+         * @param jupyterLabAppSettings The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jupyterLabAppSettings(DomainDefaultUserSettingsJupyterLabAppSettingsArgs jupyterLabAppSettings) {
+            return jupyterLabAppSettings(Output.of(jupyterLabAppSettings));
         }
 
         /**
@@ -366,6 +598,48 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
          */
         public Builder sharingSettings(DomainDefaultUserSettingsSharingSettingsArgs sharingSettings) {
             return sharingSettings(Output.of(sharingSettings));
+        }
+
+        /**
+         * @param spaceStorageSettings The storage settings for a private space. See Space Storage Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceStorageSettings(@Nullable Output<DomainDefaultUserSettingsSpaceStorageSettingsArgs> spaceStorageSettings) {
+            $.spaceStorageSettings = spaceStorageSettings;
+            return this;
+        }
+
+        /**
+         * @param spaceStorageSettings The storage settings for a private space. See Space Storage Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceStorageSettings(DomainDefaultUserSettingsSpaceStorageSettingsArgs spaceStorageSettings) {
+            return spaceStorageSettings(Output.of(spaceStorageSettings));
+        }
+
+        /**
+         * @param studioWebPortal Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder studioWebPortal(@Nullable Output<String> studioWebPortal) {
+            $.studioWebPortal = studioWebPortal;
+            return this;
+        }
+
+        /**
+         * @param studioWebPortal Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder studioWebPortal(String studioWebPortal) {
+            return studioWebPortal(Output.of(studioWebPortal));
         }
 
         /**

@@ -15,6 +15,7 @@ __all__ = ['LogGroupArgs', 'LogGroup']
 class LogGroupArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 log_group_class: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -25,6 +26,7 @@ class LogGroupArgs:
         :param pulumi.Input[str] kms_key_id: The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
                AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
                permissions for the CMK whenever the encrypted data is requested.
+        :param pulumi.Input[str] log_group_class: Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         :param pulumi.Input[str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[int] retention_in_days: Specifies the number of days
@@ -35,6 +37,8 @@ class LogGroupArgs:
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if log_group_class is not None:
+            pulumi.set(__self__, "log_group_class", log_group_class)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -59,6 +63,18 @@ class LogGroupArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="logGroupClass")
+    def log_group_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+        """
+        return pulumi.get(self, "log_group_class")
+
+    @log_group_class.setter
+    def log_group_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_class", value)
 
     @property
     @pulumi.getter
@@ -128,6 +144,7 @@ class _LogGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 log_group_class: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -140,6 +157,7 @@ class _LogGroupState:
         :param pulumi.Input[str] kms_key_id: The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
                AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
                permissions for the CMK whenever the encrypted data is requested.
+        :param pulumi.Input[str] log_group_class: Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         :param pulumi.Input[str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[int] retention_in_days: Specifies the number of days
@@ -153,6 +171,8 @@ class _LogGroupState:
             pulumi.set(__self__, "arn", arn)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if log_group_class is not None:
+            pulumi.set(__self__, "log_group_class", log_group_class)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -194,6 +214,18 @@ class _LogGroupState:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="logGroupClass")
+    def log_group_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+        """
+        return pulumi.get(self, "log_group_class")
+
+    @log_group_class.setter
+    def log_group_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_class", value)
 
     @property
     @pulumi.getter
@@ -279,6 +311,7 @@ class LogGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 log_group_class: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -313,6 +346,7 @@ class LogGroup(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
                AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
                permissions for the CMK whenever the encrypted data is requested.
+        :param pulumi.Input[str] log_group_class: Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         :param pulumi.Input[str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[int] retention_in_days: Specifies the number of days
@@ -366,6 +400,7 @@ class LogGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 log_group_class: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -381,6 +416,7 @@ class LogGroup(pulumi.CustomResource):
             __props__ = LogGroupArgs.__new__(LogGroupArgs)
 
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["log_group_class"] = log_group_class
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["retention_in_days"] = retention_in_days
@@ -402,6 +438,7 @@ class LogGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
+            log_group_class: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -419,6 +456,7 @@ class LogGroup(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
                AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
                permissions for the CMK whenever the encrypted data is requested.
+        :param pulumi.Input[str] log_group_class: Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         :param pulumi.Input[str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[int] retention_in_days: Specifies the number of days
@@ -434,6 +472,7 @@ class LogGroup(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["log_group_class"] = log_group_class
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["retention_in_days"] = retention_in_days
@@ -459,6 +498,14 @@ class LogGroup(pulumi.CustomResource):
         permissions for the CMK whenever the encrypted data is requested.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="logGroupClass")
+    def log_group_class(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+        """
+        return pulumi.get(self, "log_group_class")
 
     @property
     @pulumi.getter

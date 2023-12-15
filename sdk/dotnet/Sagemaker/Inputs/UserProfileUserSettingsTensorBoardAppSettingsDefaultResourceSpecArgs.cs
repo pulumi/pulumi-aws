@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The instance type.
+        /// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -25,10 +25,16 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? LifecycleConfigArn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        /// The ARN of the SageMaker image that the image version belongs to.
         /// </summary>
         [Input("sagemakerImageArn")]
         public Input<string>? SagemakerImageArn { get; set; }
+
+        /// <summary>
+        /// The SageMaker Image Version Alias.
+        /// </summary>
+        [Input("sagemakerImageVersionAlias")]
+        public Input<string>? SagemakerImageVersionAlias { get; set; }
 
         /// <summary>
         /// The ARN of the image version created on the instance.

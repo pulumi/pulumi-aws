@@ -330,6 +330,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.securityGroupIdForDomainBoundary;
     }
     /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * 
+     */
+    @Export(name="singleSignOnApplicationArn", refs={String.class}, tree="[0]")
+    private Output<String> singleSignOnApplicationArn;
+
+    /**
+     * @return The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * 
+     */
+    public Output<String> singleSignOnApplicationArn() {
+        return this.singleSignOnApplicationArn;
+    }
+    /**
      * The SSO managed application instance ID.
      * 
      */

@@ -87,7 +87,7 @@ type FileSystem struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName pulumi.StringOutput `pulumi:"availabilityZoneName"`
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -162,7 +162,7 @@ type fileSystemState struct {
 	Arn *string `pulumi:"arn"`
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -204,7 +204,7 @@ type FileSystemState struct {
 	Arn pulumi.StringPtrInput
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId pulumi.StringPtrInput
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName pulumi.StringPtrInput
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -246,7 +246,7 @@ func (FileSystemState) ElementType() reflect.Type {
 }
 
 type fileSystemArgs struct {
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -271,7 +271,7 @@ type fileSystemArgs struct {
 
 // The set of arguments for constructing a FileSystem resource.
 type FileSystemArgs struct {
-	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+	// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 	AvailabilityZoneName pulumi.StringPtrInput
 	// A unique name (a maximum of 64 characters are allowed)
 	// used as reference when creating the Elastic File System to ensure idempotent file
@@ -391,7 +391,7 @@ func (o FileSystemOutput) AvailabilityZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.AvailabilityZoneId }).(pulumi.StringOutput)
 }
 
-// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
 func (o FileSystemOutput) AvailabilityZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.AvailabilityZoneName }).(pulumi.StringOutput)
 }

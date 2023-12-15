@@ -43,7 +43,6 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
 
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
-     * is redshift). More details are given below.
      * 
      */
     @Import(name="destination")
@@ -51,7 +50,6 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
 
     /**
      * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
-     * is redshift). More details are given below.
      * 
      */
     public Optional<Output<String>> destination() {
@@ -348,7 +346,6 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
 
         /**
          * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
-         * is redshift). More details are given below.
          * 
          * @return builder
          * 
@@ -360,7 +357,6 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
 
         /**
          * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
-         * is redshift). More details are given below.
          * 
          * @return builder
          * 

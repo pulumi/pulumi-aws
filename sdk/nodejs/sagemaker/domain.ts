@@ -164,6 +164,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string>;
     /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     */
+    public /*out*/ readonly singleSignOnApplicationArn!: pulumi.Output<string>;
+    /**
      * The SSO managed application instance ID.
      */
     public /*out*/ readonly singleSignOnManagedApplicationInstanceId!: pulumi.Output<string>;
@@ -217,6 +221,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             resourceInputs["securityGroupIdForDomainBoundary"] = state ? state.securityGroupIdForDomainBoundary : undefined;
+            resourceInputs["singleSignOnApplicationArn"] = state ? state.singleSignOnApplicationArn : undefined;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = state ? state.singleSignOnManagedApplicationInstanceId : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -255,6 +260,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
             resourceInputs["securityGroupIdForDomainBoundary"] = undefined /*out*/;
+            resourceInputs["singleSignOnApplicationArn"] = undefined /*out*/;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
@@ -318,6 +324,10 @@ export interface DomainState {
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      */
     securityGroupIdForDomainBoundary?: pulumi.Input<string>;
+    /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     */
+    singleSignOnApplicationArn?: pulumi.Input<string>;
     /**
      * The SSO managed application instance ID.
      */

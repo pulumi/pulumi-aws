@@ -863,7 +863,6 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
     }
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
-     * is redshift). More details are given below.
      * 
      */
     @Export(name="destination", refs={String.class}, tree="[0]")
@@ -871,7 +870,6 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
 
     /**
      * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
-     * is redshift). More details are given below.
      * 
      */
     public Output<String> destination() {

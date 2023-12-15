@@ -10,10 +10,35 @@ export type AccountAssignment = import("./accountAssignment").AccountAssignment;
 export const AccountAssignment: typeof import("./accountAssignment").AccountAssignment = null as any;
 utilities.lazyLoad(exports, ["AccountAssignment"], () => require("./accountAssignment"));
 
+export { ApplicationArgs, ApplicationState } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+
+export { ApplicationAssignmentArgs, ApplicationAssignmentState } from "./applicationAssignment";
+export type ApplicationAssignment = import("./applicationAssignment").ApplicationAssignment;
+export const ApplicationAssignment: typeof import("./applicationAssignment").ApplicationAssignment = null as any;
+utilities.lazyLoad(exports, ["ApplicationAssignment"], () => require("./applicationAssignment"));
+
+export { ApplicationAssignmentConfigurationArgs, ApplicationAssignmentConfigurationState } from "./applicationAssignmentConfiguration";
+export type ApplicationAssignmentConfiguration = import("./applicationAssignmentConfiguration").ApplicationAssignmentConfiguration;
+export const ApplicationAssignmentConfiguration: typeof import("./applicationAssignmentConfiguration").ApplicationAssignmentConfiguration = null as any;
+utilities.lazyLoad(exports, ["ApplicationAssignmentConfiguration"], () => require("./applicationAssignmentConfiguration"));
+
 export { CustomerManagedPolicyAttachmentArgs, CustomerManagedPolicyAttachmentState } from "./customerManagedPolicyAttachment";
 export type CustomerManagedPolicyAttachment = import("./customerManagedPolicyAttachment").CustomerManagedPolicyAttachment;
 export const CustomerManagedPolicyAttachment: typeof import("./customerManagedPolicyAttachment").CustomerManagedPolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["CustomerManagedPolicyAttachment"], () => require("./customerManagedPolicyAttachment"));
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
+export { GetApplicationProvidersArgs, GetApplicationProvidersResult, GetApplicationProvidersOutputArgs } from "./getApplicationProviders";
+export const getApplicationProviders: typeof import("./getApplicationProviders").getApplicationProviders = null as any;
+export const getApplicationProvidersOutput: typeof import("./getApplicationProviders").getApplicationProvidersOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationProviders","getApplicationProvidersOutput"], () => require("./getApplicationProviders"));
 
 export { GetInstancesResult } from "./getInstances";
 export const getInstances: typeof import("./getInstances").getInstances = null as any;
@@ -57,6 +82,12 @@ const _module = {
         switch (type) {
             case "aws:ssoadmin/accountAssignment:AccountAssignment":
                 return new AccountAssignment(name, <any>undefined, { urn })
+            case "aws:ssoadmin/application:Application":
+                return new Application(name, <any>undefined, { urn })
+            case "aws:ssoadmin/applicationAssignment:ApplicationAssignment":
+                return new ApplicationAssignment(name, <any>undefined, { urn })
+            case "aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration":
+                return new ApplicationAssignmentConfiguration(name, <any>undefined, { urn })
             case "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment":
                 return new CustomerManagedPolicyAttachment(name, <any>undefined, { urn })
             case "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes":
@@ -75,6 +106,9 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/accountAssignment", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/application", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/applicationAssignment", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/applicationAssignmentConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/customerManagedPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/instanceAccessControlAttributes", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachment", _module)

@@ -155,6 +155,7 @@ namespace Pulumi.Aws.AppConfig
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string KmsKeyIdentifier;
         /// <summary>
         /// Location URI of the Configuration Profile.
         /// </summary>
@@ -192,6 +193,8 @@ namespace Pulumi.Aws.AppConfig
 
             string id,
 
+            string kmsKeyIdentifier,
+
             string locationUri,
 
             string name,
@@ -209,6 +212,7 @@ namespace Pulumi.Aws.AppConfig
             ConfigurationProfileId = configurationProfileId;
             Description = description;
             Id = id;
+            KmsKeyIdentifier = kmsKeyIdentifier;
             LocationUri = locationUri;
             Name = name;
             RetrievalRoleArn = retrievalRoleArn;

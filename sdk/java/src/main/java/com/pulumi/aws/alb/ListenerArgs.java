@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb;
 
 import com.pulumi.aws.alb.inputs.ListenerDefaultActionArgs;
+import com.pulumi.aws.alb.inputs.ListenerMutualAuthenticationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -84,6 +85,21 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The mutual authentication configuration information. Detailed below.
+     * 
+     */
+    @Import(name="mutualAuthentication")
+    private @Nullable Output<ListenerMutualAuthenticationArgs> mutualAuthentication;
+
+    /**
+     * @return The mutual authentication configuration information. Detailed below.
+     * 
+     */
+    public Optional<Output<ListenerMutualAuthenticationArgs>> mutualAuthentication() {
+        return Optional.ofNullable(this.mutualAuthentication);
+    }
+
+    /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      * 
      */
@@ -154,6 +170,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         this.certificateArn = $.certificateArn;
         this.defaultActions = $.defaultActions;
         this.loadBalancerArn = $.loadBalancerArn;
+        this.mutualAuthentication = $.mutualAuthentication;
         this.port = $.port;
         this.protocol = $.protocol;
         this.sslPolicy = $.sslPolicy;
@@ -274,6 +291,27 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder loadBalancerArn(String loadBalancerArn) {
             return loadBalancerArn(Output.of(loadBalancerArn));
+        }
+
+        /**
+         * @param mutualAuthentication The mutual authentication configuration information. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mutualAuthentication(@Nullable Output<ListenerMutualAuthenticationArgs> mutualAuthentication) {
+            $.mutualAuthentication = mutualAuthentication;
+            return this;
+        }
+
+        /**
+         * @param mutualAuthentication The mutual authentication configuration information. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mutualAuthentication(ListenerMutualAuthenticationArgs mutualAuthentication) {
+            return mutualAuthentication(Output.of(mutualAuthentication));
         }
 
         /**

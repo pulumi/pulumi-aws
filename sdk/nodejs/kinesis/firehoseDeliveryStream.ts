@@ -568,7 +568,6 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     public readonly arn!: pulumi.Output<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
-     * is redshift). More details are given below.
      */
     public readonly destination!: pulumi.Output<string>;
     public readonly destinationId!: pulumi.Output<string>;
@@ -702,7 +701,6 @@ export interface FirehoseDeliveryStreamState {
     arn?: pulumi.Input<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
-     * is redshift). More details are given below.
      */
     destination?: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;
@@ -777,7 +775,6 @@ export interface FirehoseDeliveryStreamArgs {
     arn?: pulumi.Input<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
-     * is redshift). More details are given below.
      */
     destination: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;

@@ -6,6 +6,8 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsTensorBoardAppSettings {
@@ -13,15 +15,15 @@ public final class UserProfileUserSettingsTensorBoardAppSettings {
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    private UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
+    private @Nullable UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private UserProfileUserSettingsTensorBoardAppSettings() {}
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    public UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec() {
-        return this.defaultResourceSpec;
+    public Optional<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec> defaultResourceSpec() {
+        return Optional.ofNullable(this.defaultResourceSpec);
     }
 
     public static Builder builder() {
@@ -33,7 +35,7 @@ public final class UserProfileUserSettingsTensorBoardAppSettings {
     }
     @CustomType.Builder
     public static final class Builder {
-        private UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
+        private @Nullable UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
         public Builder() {}
         public Builder(UserProfileUserSettingsTensorBoardAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -41,8 +43,8 @@ public final class UserProfileUserSettingsTensorBoardAppSettings {
         }
 
         @CustomType.Setter
-        public Builder defaultResourceSpec(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec) {
-            this.defaultResourceSpec = Objects.requireNonNull(defaultResourceSpec);
+        public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec) {
+            this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         public UserProfileUserSettingsTensorBoardAppSettings build() {

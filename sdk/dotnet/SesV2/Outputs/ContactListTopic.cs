@@ -14,19 +14,19 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class ContactListTopic
     {
         /// <summary>
-        /// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        /// Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
         /// </summary>
         public readonly string DefaultSubscriptionStatus;
         /// <summary>
-        /// A description of what the topic is about, which the contact will see.
+        /// Description of what the topic is about, which the contact will see.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The name of the topic the contact will see.
+        /// Name of the topic the contact will see.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The name of the topic.
+        /// Name of the topic.
         /// 
         /// The following arguments are optional:
         /// </summary>

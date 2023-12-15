@@ -46,14 +46,14 @@ public final class AuthPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+     * @return The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      * 
      */
     public Optional<Output<String>> state() {
@@ -129,7 +129,7 @@ public final class AuthPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+         * @param state The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class AuthPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+         * @param state The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
          * 
          * @return builder
          * 

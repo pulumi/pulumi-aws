@@ -38,7 +38,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
      */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
     /**
-     * @return Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
      * 
      */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
@@ -78,7 +78,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
         return Optional.ofNullable(this.modelRegisterSettings);
     }
     /**
-     * @return Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
      * 
      */
     public Optional<UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings> timeSeriesForecastingSettings() {

@@ -111,6 +111,8 @@ if typing.TYPE_CHECKING:
     codecommit = __codecommit
     import pulumi_aws.codedeploy as __codedeploy
     codedeploy = __codedeploy
+    import pulumi_aws.codeguruprofiler as __codeguruprofiler
+    codeguruprofiler = __codeguruprofiler
     import pulumi_aws.codegurureviewer as __codegurureviewer
     codegurureviewer = __codegurureviewer
     import pulumi_aws.codepipeline as __codepipeline
@@ -133,6 +135,8 @@ if typing.TYPE_CHECKING:
     costexplorer = __costexplorer
     import pulumi_aws.cur as __cur
     cur = __cur
+    import pulumi_aws.customerprofiles as __customerprofiles
+    customerprofiles = __customerprofiles
     import pulumi_aws.dataexchange as __dataexchange
     dataexchange = __dataexchange
     import pulumi_aws.datapipeline as __datapipeline
@@ -347,6 +351,8 @@ if typing.TYPE_CHECKING:
     secretsmanager = __secretsmanager
     import pulumi_aws.securityhub as __securityhub
     securityhub = __securityhub
+    import pulumi_aws.securitylake as __securitylake
+    securitylake = __securitylake
     import pulumi_aws.serverlessrepository as __serverlessrepository
     serverlessrepository = __serverlessrepository
     import pulumi_aws.servicecatalog as __servicecatalog
@@ -454,6 +460,7 @@ else:
     codecatalyst = _utilities.lazy_import('pulumi_aws.codecatalyst')
     codecommit = _utilities.lazy_import('pulumi_aws.codecommit')
     codedeploy = _utilities.lazy_import('pulumi_aws.codedeploy')
+    codeguruprofiler = _utilities.lazy_import('pulumi_aws.codeguruprofiler')
     codegurureviewer = _utilities.lazy_import('pulumi_aws.codegurureviewer')
     codepipeline = _utilities.lazy_import('pulumi_aws.codepipeline')
     codestarconnections = _utilities.lazy_import('pulumi_aws.codestarconnections')
@@ -465,6 +472,7 @@ else:
     controltower = _utilities.lazy_import('pulumi_aws.controltower')
     costexplorer = _utilities.lazy_import('pulumi_aws.costexplorer')
     cur = _utilities.lazy_import('pulumi_aws.cur')
+    customerprofiles = _utilities.lazy_import('pulumi_aws.customerprofiles')
     dataexchange = _utilities.lazy_import('pulumi_aws.dataexchange')
     datapipeline = _utilities.lazy_import('pulumi_aws.datapipeline')
     datasync = _utilities.lazy_import('pulumi_aws.datasync')
@@ -572,6 +580,7 @@ else:
     schemas = _utilities.lazy_import('pulumi_aws.schemas')
     secretsmanager = _utilities.lazy_import('pulumi_aws.secretsmanager')
     securityhub = _utilities.lazy_import('pulumi_aws.securityhub')
+    securitylake = _utilities.lazy_import('pulumi_aws.securitylake')
     serverlessrepository = _utilities.lazy_import('pulumi_aws.serverlessrepository')
     servicecatalog = _utilities.lazy_import('pulumi_aws.servicecatalog')
     servicediscovery = _utilities.lazy_import('pulumi_aws.servicediscovery')
@@ -2545,6 +2554,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "codeguruprofiler/profilingGroup",
+  "fqn": "pulumi_aws.codeguruprofiler",
+  "classes": {
+   "aws:codeguruprofiler/profilingGroup:ProfilingGroup": "ProfilingGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "codegurureviewer/repositoryAssociation",
   "fqn": "pulumi_aws.codegurureviewer",
   "classes": {
@@ -2901,6 +2918,22 @@ _utilities.register(
   "fqn": "pulumi_aws.cur",
   "classes": {
    "aws:cur/reportDefinition:ReportDefinition": "ReportDefinition"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "customerprofiles/domain",
+  "fqn": "pulumi_aws.customerprofiles",
+  "classes": {
+   "aws:customerprofiles/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "customerprofiles/profile",
+  "fqn": "pulumi_aws.customerprofiles",
+  "classes": {
+   "aws:customerprofiles/profile:Profile": "Profile"
   }
  },
  {
@@ -6569,6 +6602,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lb/trustStore",
+  "fqn": "pulumi_aws.lb",
+  "classes": {
+   "aws:lb/trustStore:TrustStore": "TrustStore"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lb/trustStoreRevocation",
+  "fqn": "pulumi_aws.lb",
+  "classes": {
+   "aws:lb/trustStoreRevocation:TrustStoreRevocation": "TrustStoreRevocation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lex/bot",
   "fqn": "pulumi_aws.lex",
   "classes": {
@@ -9513,6 +9562,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "securitylake/dataLake",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/dataLake:DataLake": "DataLake"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "serverlessrepository/cloudFormationStack",
   "fqn": "pulumi_aws.serverlessrepository",
   "classes": {
@@ -10197,6 +10254,30 @@ _utilities.register(
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
    "aws:ssoadmin/accountAssignment:AccountAssignment": "AccountAssignment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/application",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/application:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/applicationAssignment",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/applicationAssignment:ApplicationAssignment": "ApplicationAssignment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/applicationAssignmentConfiguration",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration": "ApplicationAssignmentConfiguration"
   }
  },
  {

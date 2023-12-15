@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? SagemakerImageArn;
         /// <summary>
+        /// The SageMaker Image Version Alias.
+        /// </summary>
+        public readonly string? SagemakerImageVersionAlias;
+        /// <summary>
         /// The ARN of the image version created on the instance.
         /// </summary>
         public readonly string? SagemakerImageVersionArn;
@@ -38,11 +42,14 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             string? sagemakerImageArn,
 
+            string? sagemakerImageVersionAlias,
+
             string? sagemakerImageVersionArn)
         {
             InstanceType = instanceType;
             LifecycleConfigArn = lifecycleConfigArn;
             SagemakerImageArn = sagemakerImageArn;
+            SagemakerImageVersionAlias = sagemakerImageVersionAlias;
             SagemakerImageVersionArn = sagemakerImageVersionArn;
         }
     }

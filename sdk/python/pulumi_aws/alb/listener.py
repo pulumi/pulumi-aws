@@ -20,6 +20,7 @@ class ListenerArgs:
                  load_balancer_arn: pulumi.Input[str],
                  alpn_policy: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
+                 mutual_authentication: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class ListenerArgs:
                The following arguments are optional:
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
+        :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. Detailed below.
         :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
@@ -45,6 +47,8 @@ class ListenerArgs:
             pulumi.set(__self__, "alpn_policy", alpn_policy)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if mutual_authentication is not None:
+            pulumi.set(__self__, "mutual_authentication", mutual_authentication)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -105,6 +109,18 @@ class ListenerArgs:
         pulumi.set(self, "certificate_arn", value)
 
     @property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]:
+        """
+        The mutual authentication configuration information. Detailed below.
+        """
+        return pulumi.get(self, "mutual_authentication")
+
+    @mutual_authentication.setter
+    def mutual_authentication(self, value: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]):
+        pulumi.set(self, "mutual_authentication", value)
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
@@ -163,6 +179,7 @@ class _ListenerState:
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  default_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
+                 mutual_authentication: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,
@@ -179,6 +196,7 @@ class _ListenerState:
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
+        :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. Detailed below.
         :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
@@ -197,6 +215,8 @@ class _ListenerState:
             pulumi.set(__self__, "default_actions", default_actions)
         if load_balancer_arn is not None:
             pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
+        if mutual_authentication is not None:
+            pulumi.set(__self__, "mutual_authentication", mutual_authentication)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -276,6 +296,18 @@ class _ListenerState:
         pulumi.set(self, "load_balancer_arn", value)
 
     @property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]:
+        """
+        The mutual authentication configuration information. Detailed below.
+        """
+        return pulumi.get(self, "mutual_authentication")
+
+    @mutual_authentication.setter
+    def mutual_authentication(self, value: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]):
+        pulumi.set(self, "mutual_authentication", value)
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
@@ -350,6 +382,7 @@ class Listener(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
+                 mutual_authentication: Optional[pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,
@@ -535,6 +568,27 @@ class Listener(pulumi.CustomResource):
                 type="forward",
             )])
         ```
+        ### Mutual TLS Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer", load_balancer_type="application")
+        # ...
+        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
+        # ...
+        example_listener = aws.lb.Listener("exampleListener",
+            load_balancer_arn=example_load_balancer.id,
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                target_group_arn=example_target_group.id,
+                type="forward",
+            )],
+            mutual_authentication=aws.lb.ListenerMutualAuthenticationArgs(
+                mode="verify",
+                trust_store_arn="...",
+            ))
+        ```
 
         ## Import
 
@@ -552,6 +606,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
+        :param pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']] mutual_authentication: The mutual authentication configuration information. Detailed below.
         :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
@@ -745,6 +800,27 @@ class Listener(pulumi.CustomResource):
                 type="forward",
             )])
         ```
+        ### Mutual TLS Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer", load_balancer_type="application")
+        # ...
+        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
+        # ...
+        example_listener = aws.lb.Listener("exampleListener",
+            load_balancer_arn=example_load_balancer.id,
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                target_group_arn=example_target_group.id,
+                type="forward",
+            )],
+            mutual_authentication=aws.lb.ListenerMutualAuthenticationArgs(
+                mode="verify",
+                trust_store_arn="...",
+            ))
+        ```
 
         ## Import
 
@@ -773,6 +849,7 @@ class Listener(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
+                 mutual_authentication: Optional[pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,
@@ -794,6 +871,7 @@ class Listener(pulumi.CustomResource):
             if load_balancer_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_arn'")
             __props__.__dict__["load_balancer_arn"] = load_balancer_arn
+            __props__.__dict__["mutual_authentication"] = mutual_authentication
             __props__.__dict__["port"] = port
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["ssl_policy"] = ssl_policy
@@ -819,6 +897,7 @@ class Listener(pulumi.CustomResource):
             certificate_arn: Optional[pulumi.Input[str]] = None,
             default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]]] = None,
             load_balancer_arn: Optional[pulumi.Input[str]] = None,
+            mutual_authentication: Optional[pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']]] = None,
             port: Optional[pulumi.Input[int]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
             ssl_policy: Optional[pulumi.Input[str]] = None,
@@ -840,6 +919,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
+        :param pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']] mutual_authentication: The mutual authentication configuration information. Detailed below.
         :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
@@ -857,6 +937,7 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["certificate_arn"] = certificate_arn
         __props__.__dict__["default_actions"] = default_actions
         __props__.__dict__["load_balancer_arn"] = load_balancer_arn
+        __props__.__dict__["mutual_authentication"] = mutual_authentication
         __props__.__dict__["port"] = port
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["ssl_policy"] = ssl_policy
@@ -907,6 +988,14 @@ class Listener(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "load_balancer_arn")
+
+    @property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> pulumi.Output['outputs.ListenerMutualAuthentication']:
+        """
+        The mutual authentication configuration information. Detailed below.
+        """
+        return pulumi.get(self, "mutual_authentication")
 
     @property
     @pulumi.getter

@@ -20,6 +20,7 @@ class DeploymentArgs:
                  deployment_strategy_id: pulumi.Input[str],
                  environment_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
@@ -29,6 +30,7 @@ class DeploymentArgs:
         :param pulumi.Input[str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] description: Description of the deployment. Can be at most 1024 characters.
+        :param pulumi.Input[str] kms_key_identifier: The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -38,6 +40,8 @@ class DeploymentArgs:
         pulumi.set(__self__, "environment_id", environment_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -114,6 +118,18 @@ class DeploymentArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_identifier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -137,6 +153,8 @@ class _DeploymentState:
                  deployment_strategy_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -150,6 +168,8 @@ class _DeploymentState:
         :param pulumi.Input[str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] description: Description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt configuration data.
+        :param pulumi.Input[str] kms_key_identifier: The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
         :param pulumi.Input[str] state: State of the deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -170,6 +190,10 @@ class _DeploymentState:
             pulumi.set(__self__, "description", description)
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -277,6 +301,30 @@ class _DeploymentState:
         pulumi.set(self, "environment_id", value)
 
     @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the KMS key used to encrypt configuration data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_identifier", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
@@ -327,6 +375,7 @@ class Deployment(pulumi.CustomResource):
                  deployment_strategy_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -345,6 +394,7 @@ class Deployment(pulumi.CustomResource):
             deployment_strategy_id=aws_appconfig_deployment_strategy["example"]["id"],
             description="My example deployment",
             environment_id=aws_appconfig_environment["example"]["environment_id"],
+            kms_key_identifier=aws_kms_key["example"]["arn"],
             tags={
                 "Type": "AppConfig Deployment",
             })
@@ -366,6 +416,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] description: Description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] kms_key_identifier: The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -390,6 +441,7 @@ class Deployment(pulumi.CustomResource):
             deployment_strategy_id=aws_appconfig_deployment_strategy["example"]["id"],
             description="My example deployment",
             environment_id=aws_appconfig_environment["example"]["environment_id"],
+            kms_key_identifier=aws_kms_key["example"]["arn"],
             tags={
                 "Type": "AppConfig Deployment",
             })
@@ -424,6 +476,7 @@ class Deployment(pulumi.CustomResource):
                  deployment_strategy_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -450,9 +503,11 @@ class Deployment(pulumi.CustomResource):
             if environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_id'")
             __props__.__dict__["environment_id"] = environment_id
+            __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["deployment_number"] = None
+            __props__.__dict__["kms_key_arn"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
@@ -475,6 +530,8 @@ class Deployment(pulumi.CustomResource):
             deployment_strategy_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
+            kms_key_arn: Optional[pulumi.Input[str]] = None,
+            kms_key_identifier: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Deployment':
@@ -493,6 +550,8 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] description: Description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt configuration data.
+        :param pulumi.Input[str] kms_key_identifier: The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
         :param pulumi.Input[str] state: State of the deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -509,6 +568,8 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["deployment_strategy_id"] = deployment_strategy_id
         __props__.__dict__["description"] = description
         __props__.__dict__["environment_id"] = environment_id
+        __props__.__dict__["kms_key_arn"] = kms_key_arn
+        __props__.__dict__["kms_key_identifier"] = kms_key_identifier
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -577,6 +638,22 @@ class Deployment(pulumi.CustomResource):
         Environment ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the KMS key used to encrypt configuration data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+        """
+        return pulumi.get(self, "kms_key_identifier")
 
     @property
     @pulumi.getter

@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sagemaker.AppImageConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.AppImageConfigState;
+import com.pulumi.aws.sagemaker.outputs.AppImageConfigJupyterLabImageConfig;
 import com.pulumi.aws.sagemaker.outputs.AppImageConfigKernelGatewayImageConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -134,6 +135,12 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    @Export(name="jupyterLabImageConfig", refs={AppImageConfigJupyterLabImageConfig.class}, tree="[0]")
+    private Output</* @Nullable */ AppImageConfigJupyterLabImageConfig> jupyterLabImageConfig;
+
+    public Output<Optional<AppImageConfigJupyterLabImageConfig>> jupyterLabImageConfig() {
+        return Codegen.optional(this.jupyterLabImageConfig);
     }
     /**
      * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.

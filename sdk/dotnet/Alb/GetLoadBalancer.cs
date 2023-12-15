@@ -174,6 +174,7 @@ namespace Pulumi.Aws.Alb
         public readonly bool EnableTlsVersionAndCipherSuiteHeaders;
         public readonly bool EnableWafFailOpen;
         public readonly bool EnableXffClientPort;
+        public readonly string EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -220,6 +221,8 @@ namespace Pulumi.Aws.Alb
 
             bool enableXffClientPort,
 
+            string enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
+
             string id,
 
             int idleTimeout,
@@ -261,6 +264,7 @@ namespace Pulumi.Aws.Alb
             EnableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             EnableWafFailOpen = enableWafFailOpen;
             EnableXffClientPort = enableXffClientPort;
+            EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
             Id = id;
             IdleTimeout = idleTimeout;
             Internal = @internal;

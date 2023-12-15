@@ -82,14 +82,14 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
     }
 
     /**
-     * Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
      * 
      */
     @Import(name="timeSeriesForecastingSettings")
     private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings;
 
     /**
-     * @return Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>> timeSeriesForecastingSettings() {
@@ -235,7 +235,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
         }
 
         /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
         }
 
         /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
          * 
          * @return builder
          * 

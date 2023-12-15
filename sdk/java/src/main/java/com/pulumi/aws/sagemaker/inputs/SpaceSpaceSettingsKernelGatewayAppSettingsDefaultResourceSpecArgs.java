@@ -61,6 +61,21 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
     }
 
     /**
+     * The SageMaker Image Version Alias.
+     * 
+     */
+    @Import(name="sagemakerImageVersionAlias")
+    private @Nullable Output<String> sagemakerImageVersionAlias;
+
+    /**
+     * @return The SageMaker Image Version Alias.
+     * 
+     */
+    public Optional<Output<String>> sagemakerImageVersionAlias() {
+        return Optional.ofNullable(this.sagemakerImageVersionAlias);
+    }
+
+    /**
      * The ARN of the image version created on the instance.
      * 
      */
@@ -81,6 +96,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
         this.instanceType = $.instanceType;
         this.lifecycleConfigArn = $.lifecycleConfigArn;
         this.sagemakerImageArn = $.sagemakerImageArn;
+        this.sagemakerImageVersionAlias = $.sagemakerImageVersionAlias;
         this.sagemakerImageVersionArn = $.sagemakerImageVersionArn;
     }
 
@@ -163,6 +179,27 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
          */
         public Builder sagemakerImageArn(String sagemakerImageArn) {
             return sagemakerImageArn(Output.of(sagemakerImageArn));
+        }
+
+        /**
+         * @param sagemakerImageVersionAlias The SageMaker Image Version Alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sagemakerImageVersionAlias(@Nullable Output<String> sagemakerImageVersionAlias) {
+            $.sagemakerImageVersionAlias = sagemakerImageVersionAlias;
+            return this;
+        }
+
+        /**
+         * @param sagemakerImageVersionAlias The SageMaker Image Version Alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sagemakerImageVersionAlias(String sagemakerImageVersionAlias) {
+            return sagemakerImageVersionAlias(Output.of(sagemakerImageVersionAlias));
         }
 
         /**

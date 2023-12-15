@@ -5827,7 +5827,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
 
     def __init__(__self__, *,
                  bucket_name: str,
-                 bucket_prefix: Optional[str] = None,
+                 bucket_prefix: str,
                  s3_input_format_config: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig'] = None):
         """
         :param str bucket_name: Name of the Amazon S3 bucket.
@@ -5835,8 +5835,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs' s3_input_format_config: When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
-        if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if s3_input_format_config is not None:
             pulumi.set(__self__, "s3_input_format_config", s3_input_format_config)
 
@@ -5850,7 +5849,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
 
     @property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[str]:
+    def bucket_prefix(self) -> str:
         """
         Amazon S3 bucket prefix.
         """

@@ -72,6 +72,10 @@ export class Space extends pulumi.CustomResource {
      */
     public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string>;
     /**
+     * The name of the space that appears in the SageMaker Studio UI.
+     */
+    public readonly spaceDisplayName!: pulumi.Output<string | undefined>;
+    /**
      * The name of the space.
      */
     public readonly spaceName!: pulumi.Output<string>;
@@ -89,6 +93,10 @@ export class Space extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     */
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Space resource with the given unique name, arguments, and options.
@@ -106,10 +114,12 @@ export class Space extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domainId"] = state ? state.domainId : undefined;
             resourceInputs["homeEfsFileSystemUid"] = state ? state.homeEfsFileSystemUid : undefined;
+            resourceInputs["spaceDisplayName"] = state ? state.spaceDisplayName : undefined;
             resourceInputs["spaceName"] = state ? state.spaceName : undefined;
             resourceInputs["spaceSettings"] = state ? state.spaceSettings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as SpaceArgs | undefined;
             if ((!args || args.domainId === undefined) && !opts.urn) {
@@ -119,12 +129,14 @@ export class Space extends pulumi.CustomResource {
                 throw new Error("Missing required property 'spaceName'");
             }
             resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["spaceDisplayName"] = args ? args.spaceDisplayName : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
             resourceInputs["spaceSettings"] = args ? args.spaceSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemUid"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
@@ -150,6 +162,10 @@ export interface SpaceState {
      */
     homeEfsFileSystemUid?: pulumi.Input<string>;
     /**
+     * The name of the space that appears in the SageMaker Studio UI.
+     */
+    spaceDisplayName?: pulumi.Input<string>;
+    /**
      * The name of the space.
      */
     spaceName?: pulumi.Input<string>;
@@ -167,6 +183,10 @@ export interface SpaceState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     */
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -177,6 +197,10 @@ export interface SpaceArgs {
      * The ID of the associated Domain.
      */
     domainId: pulumi.Input<string>;
+    /**
+     * The name of the space that appears in the SageMaker Studio UI.
+     */
+    spaceDisplayName?: pulumi.Input<string>;
     /**
      * The name of the space.
      */

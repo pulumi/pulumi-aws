@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
+// Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
 //
 // ```sh
 //

@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.aws.lb.outputs.GetListenerDefaultAction;
+import com.pulumi.aws.lb.outputs.GetListenerMutualAuthentication;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -23,6 +24,7 @@ public final class GetListenerResult {
      */
     private String id;
     private String loadBalancerArn;
+    private List<GetListenerMutualAuthentication> mutualAuthentications;
     private Integer port;
     private String protocol;
     private String sslPolicy;
@@ -50,6 +52,9 @@ public final class GetListenerResult {
     }
     public String loadBalancerArn() {
         return this.loadBalancerArn;
+    }
+    public List<GetListenerMutualAuthentication> mutualAuthentications() {
+        return this.mutualAuthentications;
     }
     public Integer port() {
         return this.port;
@@ -79,6 +84,7 @@ public final class GetListenerResult {
         private List<GetListenerDefaultAction> defaultActions;
         private String id;
         private String loadBalancerArn;
+        private List<GetListenerMutualAuthentication> mutualAuthentications;
         private Integer port;
         private String protocol;
         private String sslPolicy;
@@ -92,6 +98,7 @@ public final class GetListenerResult {
     	      this.defaultActions = defaults.defaultActions;
     	      this.id = defaults.id;
     	      this.loadBalancerArn = defaults.loadBalancerArn;
+    	      this.mutualAuthentications = defaults.mutualAuthentications;
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
     	      this.sslPolicy = defaults.sslPolicy;
@@ -132,6 +139,14 @@ public final class GetListenerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder mutualAuthentications(List<GetListenerMutualAuthentication> mutualAuthentications) {
+            this.mutualAuthentications = Objects.requireNonNull(mutualAuthentications);
+            return this;
+        }
+        public Builder mutualAuthentications(GetListenerMutualAuthentication... mutualAuthentications) {
+            return mutualAuthentications(List.of(mutualAuthentications));
+        }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
@@ -159,6 +174,7 @@ public final class GetListenerResult {
             _resultValue.defaultActions = defaultActions;
             _resultValue.id = id;
             _resultValue.loadBalancerArn = loadBalancerArn;
+            _resultValue.mutualAuthentications = mutualAuthentications;
             _resultValue.port = port;
             _resultValue.protocol = protocol;
             _resultValue.sslPolicy = sslPolicy;

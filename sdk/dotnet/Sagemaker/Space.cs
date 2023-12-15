@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> HomeEfsFileSystemUid { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the space that appears in the SageMaker Studio UI.
+        /// </summary>
+        [Output("spaceDisplayName")]
+        public Output<string?> SpaceDisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the space.
         /// </summary>
         [Output("spaceName")]
@@ -84,6 +90,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+        /// </summary>
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -142,6 +154,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
+        /// The name of the space that appears in the SageMaker Studio UI.
+        /// </summary>
+        [Input("spaceDisplayName")]
+        public Input<string>? SpaceDisplayName { get; set; }
+
+        /// <summary>
         /// The name of the space.
         /// </summary>
         [Input("spaceName", required: true)]
@@ -192,6 +210,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? HomeEfsFileSystemUid { get; set; }
 
         /// <summary>
+        /// The name of the space that appears in the SageMaker Studio UI.
+        /// </summary>
+        [Input("spaceDisplayName")]
+        public Input<string>? SpaceDisplayName { get; set; }
+
+        /// <summary>
         /// The name of the space.
         /// </summary>
         [Input("spaceName")]
@@ -231,6 +255,12 @@ namespace Pulumi.Aws.Sagemaker
                 _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
             }
         }
+
+        /// <summary>
+        /// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public SpaceState()
         {

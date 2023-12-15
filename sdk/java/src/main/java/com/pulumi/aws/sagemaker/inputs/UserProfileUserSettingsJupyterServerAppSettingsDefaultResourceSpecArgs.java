@@ -16,14 +16,14 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourc
     public static final UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs Empty = new UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs();
 
     /**
-     * The instance type.
+     * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
     /**
-     * @return The instance type.
+     * @return The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
      * 
      */
     public Optional<Output<String>> instanceType() {
@@ -46,18 +46,33 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+     * The ARN of the SageMaker image that the image version belongs to.
      * 
      */
     @Import(name="sagemakerImageArn")
     private @Nullable Output<String> sagemakerImageArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+     * @return The ARN of the SageMaker image that the image version belongs to.
      * 
      */
     public Optional<Output<String>> sagemakerImageArn() {
         return Optional.ofNullable(this.sagemakerImageArn);
+    }
+
+    /**
+     * The SageMaker Image Version Alias.
+     * 
+     */
+    @Import(name="sagemakerImageVersionAlias")
+    private @Nullable Output<String> sagemakerImageVersionAlias;
+
+    /**
+     * @return The SageMaker Image Version Alias.
+     * 
+     */
+    public Optional<Output<String>> sagemakerImageVersionAlias() {
+        return Optional.ofNullable(this.sagemakerImageVersionAlias);
     }
 
     /**
@@ -81,6 +96,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourc
         this.instanceType = $.instanceType;
         this.lifecycleConfigArn = $.lifecycleConfigArn;
         this.sagemakerImageArn = $.sagemakerImageArn;
+        this.sagemakerImageVersionAlias = $.sagemakerImageVersionAlias;
         this.sagemakerImageVersionArn = $.sagemakerImageVersionArn;
     }
 
@@ -103,7 +119,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourc
         }
 
         /**
-         * @param instanceType The instance type.
+         * @param instanceType The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          * 
          * @return builder
          * 
@@ -114,7 +130,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourc
         }
 
         /**
-         * @param instanceType The instance type.
+         * @param instanceType The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          * 
          * @return builder
          * 
@@ -145,7 +161,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourc
         }
 
         /**
-         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * @param sagemakerImageArn The ARN of the SageMaker image that the image version belongs to.
          * 
          * @return builder
          * 
@@ -156,13 +172,34 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourc
         }
 
         /**
-         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * @param sagemakerImageArn The ARN of the SageMaker image that the image version belongs to.
          * 
          * @return builder
          * 
          */
         public Builder sagemakerImageArn(String sagemakerImageArn) {
             return sagemakerImageArn(Output.of(sagemakerImageArn));
+        }
+
+        /**
+         * @param sagemakerImageVersionAlias The SageMaker Image Version Alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sagemakerImageVersionAlias(@Nullable Output<String> sagemakerImageVersionAlias) {
+            $.sagemakerImageVersionAlias = sagemakerImageVersionAlias;
+            return this;
+        }
+
+        /**
+         * @param sagemakerImageVersionAlias The SageMaker Image Version Alias.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sagemakerImageVersionAlias(String sagemakerImageVersionAlias) {
+            return sagemakerImageVersionAlias(Output.of(sagemakerImageVersionAlias));
         }
 
         /**

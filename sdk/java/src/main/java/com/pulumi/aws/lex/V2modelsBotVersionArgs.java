@@ -33,9 +33,17 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
         return this.botId;
     }
 
+    /**
+     * Version number assigned to the version.
+     * 
+     */
     @Import(name="botVersion")
     private @Nullable Output<String> botVersion;
 
+    /**
+     * @return Version number assigned to the version.
+     * 
+     */
     public Optional<Output<String>> botVersion() {
         return Optional.ofNullable(this.botVersion);
     }
@@ -55,9 +63,21 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="localeSpecification", required=true)
     private Output<Map<String,V2modelsBotVersionLocaleSpecificationArgs>> localeSpecification;
 
+    /**
+     * @return Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<Map<String,V2modelsBotVersionLocaleSpecificationArgs>> localeSpecification() {
         return this.localeSpecification;
     }
@@ -118,11 +138,23 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
             return botId(Output.of(botId));
         }
 
+        /**
+         * @param botVersion Version number assigned to the version.
+         * 
+         * @return builder
+         * 
+         */
         public Builder botVersion(@Nullable Output<String> botVersion) {
             $.botVersion = botVersion;
             return this;
         }
 
+        /**
+         * @param botVersion Version number assigned to the version.
+         * 
+         * @return builder
+         * 
+         */
         public Builder botVersion(String botVersion) {
             return botVersion(Output.of(botVersion));
         }
@@ -148,11 +180,27 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
             return description(Output.of(description));
         }
 
+        /**
+         * @param localeSpecification Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder localeSpecification(Output<Map<String,V2modelsBotVersionLocaleSpecificationArgs>> localeSpecification) {
             $.localeSpecification = localeSpecification;
             return this;
         }
 
+        /**
+         * @param localeSpecification Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder localeSpecification(Map<String,V2modelsBotVersionLocaleSpecificationArgs> localeSpecification) {
             return localeSpecification(Output.of(localeSpecification));
         }

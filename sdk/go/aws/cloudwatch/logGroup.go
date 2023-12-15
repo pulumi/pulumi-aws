@@ -60,6 +60,8 @@ type LogGroup struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	LogGroupClass pulumi.StringPtrOutput `pulumi:"logGroupClass"`
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -118,6 +120,8 @@ type logGroupState struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	LogGroupClass *string `pulumi:"logGroupClass"`
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -143,6 +147,8 @@ type LogGroupState struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId pulumi.StringPtrInput
+	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	LogGroupClass pulumi.StringPtrInput
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -170,6 +176,8 @@ type logGroupArgs struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	LogGroupClass *string `pulumi:"logGroupClass"`
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -190,6 +198,8 @@ type LogGroupArgs struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId pulumi.StringPtrInput
+	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	LogGroupClass pulumi.StringPtrInput
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -301,6 +311,11 @@ func (o LogGroupOutput) Arn() pulumi.StringOutput {
 // permissions for the CMK whenever the encrypted data is requested.
 func (o LogGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+func (o LogGroupOutput) LogGroupClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.LogGroupClass }).(pulumi.StringPtrOutput)
 }
 
 // The name of the log group. If omitted, this provider will assign a random, unique name.

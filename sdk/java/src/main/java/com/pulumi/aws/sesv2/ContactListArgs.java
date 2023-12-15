@@ -19,7 +19,7 @@ public final class ContactListArgs extends com.pulumi.resources.ResourceArgs {
     public static final ContactListArgs Empty = new ContactListArgs();
 
     /**
-     * The name of the contact list.
+     * Name of the contact list.
      * 
      * The following arguments are optional:
      * 
@@ -28,7 +28,7 @@ public final class ContactListArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> contactListName;
 
     /**
-     * @return The name of the contact list.
+     * @return Name of the contact list.
      * 
      * The following arguments are optional:
      * 
@@ -38,14 +38,14 @@ public final class ContactListArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of what the contact list is about.
+     * Description of what the contact list is about.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of what the contact list is about.
+     * @return Description of what the contact list is about.
      * 
      */
     public Optional<Output<String>> description() {
@@ -110,7 +110,7 @@ public final class ContactListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contactListName The name of the contact list.
+         * @param contactListName Name of the contact list.
          * 
          * The following arguments are optional:
          * 
@@ -123,7 +123,7 @@ public final class ContactListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contactListName The name of the contact list.
+         * @param contactListName Name of the contact list.
          * 
          * The following arguments are optional:
          * 
@@ -135,7 +135,7 @@ public final class ContactListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of what the contact list is about.
+         * @param description Description of what the contact list is about.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ContactListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of what the contact list is about.
+         * @param description Description of what the contact list is about.
          * 
          * @return builder
          * 

@@ -1142,6 +1142,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.logs);
     }
 
+    @Import(name="lookoutmetrics")
+    private @Nullable Output<String> lookoutmetrics;
+
+    public Optional<Output<String>> lookoutmetrics() {
+        return Optional.ofNullable(this.lookoutmetrics);
+    }
+
     @Import(name="macie2")
     private @Nullable Output<String> macie2;
 
@@ -1985,6 +1992,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.location = $.location;
         this.locationservice = $.locationservice;
         this.logs = $.logs;
+        this.lookoutmetrics = $.lookoutmetrics;
         this.macie2 = $.macie2;
         this.managedgrafana = $.managedgrafana;
         this.mediaconnect = $.mediaconnect;
@@ -3549,6 +3557,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder logs(String logs) {
             return logs(Output.of(logs));
+        }
+
+        public Builder lookoutmetrics(@Nullable Output<String> lookoutmetrics) {
+            $.lookoutmetrics = lookoutmetrics;
+            return this;
+        }
+
+        public Builder lookoutmetrics(String lookoutmetrics) {
+            return lookoutmetrics(Output.of(lookoutmetrics));
         }
 
         public Builder macie2(@Nullable Output<String> macie2) {

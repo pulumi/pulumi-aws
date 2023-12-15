@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     deploymentStrategyId: aws_appconfig_deployment_strategy.example.id,
  *     description: "My example deployment",
  *     environmentId: aws_appconfig_environment.example.environment_id,
+ *     kmsKeyIdentifier: aws_kms_key.example.arn,
  *     tags: {
  *         Type: "AppConfig Deployment",
  *     },
@@ -95,6 +96,14 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly environmentId!: pulumi.Output<string>;
     /**
+     * ARN of the KMS key used to encrypt configuration data.
+     */
+    public /*out*/ readonly kmsKeyArn!: pulumi.Output<string>;
+    /**
+     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     */
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * State of the deployment.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -130,6 +139,8 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["deploymentStrategyId"] = state ? state.deploymentStrategyId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -156,9 +167,11 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["deploymentStrategyId"] = args ? args.deploymentStrategyId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deploymentNumber"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -206,6 +219,14 @@ export interface DeploymentState {
      */
     environmentId?: pulumi.Input<string>;
     /**
+     * ARN of the KMS key used to encrypt configuration data.
+     */
+    kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
+    /**
      * State of the deployment.
      */
     state?: pulumi.Input<string>;
@@ -249,6 +270,10 @@ export interface DeploymentArgs {
      * Environment ID. Must be between 4 and 7 characters in length.
      */
     environmentId: pulumi.Input<string>;
+    /**
+     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

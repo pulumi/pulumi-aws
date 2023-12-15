@@ -53,14 +53,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
     @Import(name="availabilityZoneName")
     private @Nullable Output<String> availabilityZoneName;
 
     /**
-     * @return the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * @return the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
     public Optional<Output<String>> availabilityZoneName() {
@@ -374,7 +374,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneName the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+         * @param availabilityZoneName the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneName the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+         * @param availabilityZoneName the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
          * 
          * @return builder
          * 

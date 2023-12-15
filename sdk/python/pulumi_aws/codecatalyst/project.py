@@ -172,7 +172,7 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
+        Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
 
         ```sh
          $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
@@ -210,7 +210,7 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
+        Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
 
         ```sh
          $ pulumi import aws:codecatalyst/project:Project example project-id-12345678

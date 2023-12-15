@@ -10,12 +10,101 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ApplicationPortalOptionsArgs',
+    'ApplicationPortalOptionsSignInOptionsArgs',
     'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs',
     'InstanceAccessControlAttributesAttributeArgs',
     'InstanceAccessControlAttributesAttributeValueArgs',
     'PermissionsBoundaryAttachmentPermissionsBoundaryArgs',
     'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs',
+    'GetApplicationPortalOptionArgs',
+    'GetApplicationPortalOptionSignInOptionArgs',
+    'GetApplicationProvidersApplicationProviderArgs',
+    'GetApplicationProvidersApplicationProviderDisplayDataArgs',
 ]
+
+@pulumi.input_type
+class ApplicationPortalOptionsArgs:
+    def __init__(__self__, *,
+                 sign_in_options: Optional[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgs']] = None,
+                 visibility: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ApplicationPortalOptionsSignInOptionsArgs'] sign_in_options: Sign-in options for the access portal. See `sign_in_options` below.
+        :param pulumi.Input[str] visibility: Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if sign_in_options is not None:
+            pulumi.set(__self__, "sign_in_options", sign_in_options)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="signInOptions")
+    def sign_in_options(self) -> Optional[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgs']]:
+        """
+        Sign-in options for the access portal. See `sign_in_options` below.
+        """
+        return pulumi.get(self, "sign_in_options")
+
+    @sign_in_options.setter
+    def sign_in_options(self, value: Optional[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgs']]):
+        pulumi.set(self, "sign_in_options", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+
+@pulumi.input_type
+class ApplicationPortalOptionsSignInOptionsArgs:
+    def __init__(__self__, *,
+                 origin: pulumi.Input[str],
+                 application_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] origin: Determines how IAM Identity Center navigates the user to the target application.
+               Valid values are `APPLICATION` and `IDENTITY_CENTER`.
+               If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
+               If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
+        :param pulumi.Input[str] application_url: URL that accepts authentication requests for an application.
+        """
+        pulumi.set(__self__, "origin", origin)
+        if application_url is not None:
+            pulumi.set(__self__, "application_url", application_url)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> pulumi.Input[str]:
+        """
+        Determines how IAM Identity Center navigates the user to the target application.
+        Valid values are `APPLICATION` and `IDENTITY_CENTER`.
+        If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
+        If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
+        """
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: pulumi.Input[str]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter(name="applicationUrl")
+    def application_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL that accepts authentication requests for an application.
+        """
+        return pulumi.get(self, "application_url")
+
+    @application_url.setter
+    def application_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_url", value)
+
 
 @pulumi.input_type
 class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
@@ -189,5 +278,165 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class GetApplicationPortalOptionArgs:
+    def __init__(__self__, *,
+                 visibility: str,
+                 sign_in_options: Optional[Sequence['GetApplicationPortalOptionSignInOptionArgs']] = None):
+        pulumi.set(__self__, "visibility", visibility)
+        if sign_in_options is not None:
+            pulumi.set(__self__, "sign_in_options", sign_in_options)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> str:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: str):
+        pulumi.set(self, "visibility", value)
+
+    @property
+    @pulumi.getter(name="signInOptions")
+    def sign_in_options(self) -> Optional[Sequence['GetApplicationPortalOptionSignInOptionArgs']]:
+        return pulumi.get(self, "sign_in_options")
+
+    @sign_in_options.setter
+    def sign_in_options(self, value: Optional[Sequence['GetApplicationPortalOptionSignInOptionArgs']]):
+        pulumi.set(self, "sign_in_options", value)
+
+
+@pulumi.input_type
+class GetApplicationPortalOptionSignInOptionArgs:
+    def __init__(__self__, *,
+                 application_url: str,
+                 origin: str):
+        pulumi.set(__self__, "application_url", application_url)
+        pulumi.set(__self__, "origin", origin)
+
+    @property
+    @pulumi.getter(name="applicationUrl")
+    def application_url(self) -> str:
+        return pulumi.get(self, "application_url")
+
+    @application_url.setter
+    def application_url(self, value: str):
+        pulumi.set(self, "application_url", value)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> str:
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: str):
+        pulumi.set(self, "origin", value)
+
+
+@pulumi.input_type
+class GetApplicationProvidersApplicationProviderArgs:
+    def __init__(__self__, *,
+                 application_provider_arn: str,
+                 federation_protocol: str,
+                 display_datas: Optional[Sequence['GetApplicationProvidersApplicationProviderDisplayDataArgs']] = None):
+        """
+        :param str application_provider_arn: ARN of the application provider.
+        :param str federation_protocol: Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
+        :param Sequence['GetApplicationProvidersApplicationProviderDisplayDataArgs'] display_datas: An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
+        """
+        pulumi.set(__self__, "application_provider_arn", application_provider_arn)
+        pulumi.set(__self__, "federation_protocol", federation_protocol)
+        if display_datas is not None:
+            pulumi.set(__self__, "display_datas", display_datas)
+
+    @property
+    @pulumi.getter(name="applicationProviderArn")
+    def application_provider_arn(self) -> str:
+        """
+        ARN of the application provider.
+        """
+        return pulumi.get(self, "application_provider_arn")
+
+    @application_provider_arn.setter
+    def application_provider_arn(self, value: str):
+        pulumi.set(self, "application_provider_arn", value)
+
+    @property
+    @pulumi.getter(name="federationProtocol")
+    def federation_protocol(self) -> str:
+        """
+        Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
+        """
+        return pulumi.get(self, "federation_protocol")
+
+    @federation_protocol.setter
+    def federation_protocol(self, value: str):
+        pulumi.set(self, "federation_protocol", value)
+
+    @property
+    @pulumi.getter(name="displayDatas")
+    def display_datas(self) -> Optional[Sequence['GetApplicationProvidersApplicationProviderDisplayDataArgs']]:
+        """
+        An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
+        """
+        return pulumi.get(self, "display_datas")
+
+    @display_datas.setter
+    def display_datas(self, value: Optional[Sequence['GetApplicationProvidersApplicationProviderDisplayDataArgs']]):
+        pulumi.set(self, "display_datas", value)
+
+
+@pulumi.input_type
+class GetApplicationProvidersApplicationProviderDisplayDataArgs:
+    def __init__(__self__, *,
+                 description: str,
+                 display_name: str,
+                 icon_url: str):
+        """
+        :param str description: Description of the application provider.
+        :param str display_name: Name of the application provider.
+        :param str icon_url: URL that points to an icon that represents the application provider.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "icon_url", icon_url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the application provider.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: str):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Name of the application provider.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: str):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="iconUrl")
+    def icon_url(self) -> str:
+        """
+        URL that points to an icon that represents the application provider.
+        """
+        return pulumi.get(self, "icon_url")
+
+    @icon_url.setter
+    def icon_url(self, value: str):
+        pulumi.set(self, "icon_url", value)
 
 

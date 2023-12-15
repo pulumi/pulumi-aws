@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lb.ListenerArgs;
 import com.pulumi.aws.lb.inputs.ListenerState;
 import com.pulumi.aws.lb.outputs.ListenerDefaultAction;
+import com.pulumi.aws.lb.outputs.ListenerMutualAuthentication;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -369,6 +370,54 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Mutual TLS Authentication
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.LoadBalancer;
+ * import com.pulumi.aws.lb.LoadBalancerArgs;
+ * import com.pulumi.aws.lb.TargetGroup;
+ * import com.pulumi.aws.lb.Listener;
+ * import com.pulumi.aws.lb.ListenerArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *             .loadBalancerType(&#34;application&#34;)
+ *             .build());
+ * 
+ *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;);
+ * 
+ *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .loadBalancerArn(exampleLoadBalancer.id())
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .targetGroupArn(exampleTargetGroup.id())
+ *                 .type(&#34;forward&#34;)
+ *                 .build())
+ *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
+ *                 .mode(&#34;verify&#34;)
+ *                 .trustStoreArn(&#34;...&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -458,6 +507,20 @@ public class Listener extends com.pulumi.resources.CustomResource {
      */
     public Output<String> loadBalancerArn() {
         return this.loadBalancerArn;
+    }
+    /**
+     * The mutual authentication configuration information. Detailed below.
+     * 
+     */
+    @Export(name="mutualAuthentication", refs={ListenerMutualAuthentication.class}, tree="[0]")
+    private Output<ListenerMutualAuthentication> mutualAuthentication;
+
+    /**
+     * @return The mutual authentication configuration information. Detailed below.
+     * 
+     */
+    public Output<ListenerMutualAuthentication> mutualAuthentication() {
+        return this.mutualAuthentication;
     }
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.

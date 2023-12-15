@@ -1080,21 +1080,14 @@ func (o RulePredicateArrayOutput) Index(i pulumi.IntInput) RulePredicateOutput {
 }
 
 type SizeConstraintSetSizeConstraint struct {
-	// The type of comparison you want to perform.
-	// e.g., `EQ`, `NE`, `LT`, `GT`.
-	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
+	// Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
 	ComparisonOperator string `pulumi:"comparisonOperator"`
-	// Specifies where in a web request to look for the size constraint.
+	// Parameter that specifies where in a web request to look for the size constraint.
 	FieldToMatch SizeConstraintSetSizeConstraintFieldToMatch `pulumi:"fieldToMatch"`
-	// The size in bytes that you want to compare against the size of the specified `fieldToMatch`.
-	// Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
+	// Size in bytes that you want to compare against the size of the specified `fieldToMatch`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
 	Size int `pulumi:"size"`
-	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-	// If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-	// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
-	// for all supported values.
-	// **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
+	// Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `fieldToMatch` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
+	// **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
 	TextTransformation string `pulumi:"textTransformation"`
 }
 
@@ -1110,21 +1103,14 @@ type SizeConstraintSetSizeConstraintInput interface {
 }
 
 type SizeConstraintSetSizeConstraintArgs struct {
-	// The type of comparison you want to perform.
-	// e.g., `EQ`, `NE`, `LT`, `GT`.
-	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
+	// Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
 	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
-	// Specifies where in a web request to look for the size constraint.
+	// Parameter that specifies where in a web request to look for the size constraint.
 	FieldToMatch SizeConstraintSetSizeConstraintFieldToMatchInput `pulumi:"fieldToMatch"`
-	// The size in bytes that you want to compare against the size of the specified `fieldToMatch`.
-	// Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
+	// Size in bytes that you want to compare against the size of the specified `fieldToMatch`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
 	Size pulumi.IntInput `pulumi:"size"`
-	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-	// If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-	// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
-	// for all supported values.
-	// **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
+	// Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `fieldToMatch` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
+	// **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
 	TextTransformation pulumi.StringInput `pulumi:"textTransformation"`
 }
 
@@ -1179,32 +1165,25 @@ func (o SizeConstraintSetSizeConstraintOutput) ToSizeConstraintSetSizeConstraint
 	return o
 }
 
-// The type of comparison you want to perform.
-// e.g., `EQ`, `NE`, `LT`, `GT`.
-// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
+// Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
 func (o SizeConstraintSetSizeConstraintOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v SizeConstraintSetSizeConstraint) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
-// Specifies where in a web request to look for the size constraint.
+// Parameter that specifies where in a web request to look for the size constraint.
 func (o SizeConstraintSetSizeConstraintOutput) FieldToMatch() SizeConstraintSetSizeConstraintFieldToMatchOutput {
 	return o.ApplyT(func(v SizeConstraintSetSizeConstraint) SizeConstraintSetSizeConstraintFieldToMatch {
 		return v.FieldToMatch
 	}).(SizeConstraintSetSizeConstraintFieldToMatchOutput)
 }
 
-// The size in bytes that you want to compare against the size of the specified `fieldToMatch`.
-// Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
+// Size in bytes that you want to compare against the size of the specified `fieldToMatch`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
 func (o SizeConstraintSetSizeConstraintOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v SizeConstraintSetSizeConstraint) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-// If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
-// for all supported values.
-// **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
+// Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `fieldToMatch` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
+// **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
 func (o SizeConstraintSetSizeConstraintOutput) TextTransformation() pulumi.StringOutput {
 	return o.ApplyT(func(v SizeConstraintSetSizeConstraint) string { return v.TextTransformation }).(pulumi.StringOutput)
 }
@@ -1230,13 +1209,9 @@ func (o SizeConstraintSetSizeConstraintArrayOutput) Index(i pulumi.IntInput) Siz
 }
 
 type SizeConstraintSetSizeConstraintFieldToMatch struct {
-	// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-	// If `type` is any other value, omit this field.
+	// When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
 	Data *string `pulumi:"data"`
-	// The part of the web request that you want AWS WAF to search for a specified string.
-	// e.g., `HEADER`, `METHOD` or `BODY`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-	// for all supported values.
+	// Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
 	Type string `pulumi:"type"`
 }
 
@@ -1252,13 +1227,9 @@ type SizeConstraintSetSizeConstraintFieldToMatchInput interface {
 }
 
 type SizeConstraintSetSizeConstraintFieldToMatchArgs struct {
-	// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-	// If `type` is any other value, omit this field.
+	// When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
 	Data pulumi.StringPtrInput `pulumi:"data"`
-	// The part of the web request that you want AWS WAF to search for a specified string.
-	// e.g., `HEADER`, `METHOD` or `BODY`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-	// for all supported values.
+	// Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1288,16 +1259,12 @@ func (o SizeConstraintSetSizeConstraintFieldToMatchOutput) ToSizeConstraintSetSi
 	return o
 }
 
-// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-// If `type` is any other value, omit this field.
+// When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
 func (o SizeConstraintSetSizeConstraintFieldToMatchOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SizeConstraintSetSizeConstraintFieldToMatch) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
-// The part of the web request that you want AWS WAF to search for a specified string.
-// e.g., `HEADER`, `METHOD` or `BODY`.
-// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-// for all supported values.
+// Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
 func (o SizeConstraintSetSizeConstraintFieldToMatchOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SizeConstraintSetSizeConstraintFieldToMatch) string { return v.Type }).(pulumi.StringOutput)
 }

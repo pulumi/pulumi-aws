@@ -21,7 +21,7 @@ class AuthPolicyArgs:
         The set of arguments for constructing a AuthPolicy resource.
         :param pulumi.Input[str] policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-        :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_identifier", resource_identifier)
@@ -56,7 +56,7 @@ class AuthPolicyArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         return pulumi.get(self, "state")
 
@@ -75,7 +75,7 @@ class _AuthPolicyState:
         Input properties used for looking up and filtering AuthPolicy resources.
         :param pulumi.Input[str] policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-        :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -112,7 +112,7 @@ class _AuthPolicyState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         return pulumi.get(self, "state")
 
@@ -164,17 +164,17 @@ class AuthPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For example:
+        Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example rft-8012925589
+         $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-        :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         ...
     @overload
@@ -216,10 +216,10 @@ class AuthPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For example:
+        Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example rft-8012925589
+         $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -278,7 +278,7 @@ class AuthPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-        :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,7 +309,7 @@ class AuthPolicy(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[str]]:
         """
-        The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         return pulumi.get(self, "state")
 

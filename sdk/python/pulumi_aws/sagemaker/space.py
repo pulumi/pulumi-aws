@@ -18,17 +18,21 @@ class SpaceArgs:
     def __init__(__self__, *,
                  domain_id: pulumi.Input[str],
                  space_name: pulumi.Input[str],
+                 space_display_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Space resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] space_name: The name of the space.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
         :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "space_name", space_name)
+        if space_display_name is not None:
+            pulumi.set(__self__, "space_display_name", space_display_name)
         if space_settings is not None:
             pulumi.set(__self__, "space_settings", space_settings)
         if tags is not None:
@@ -57,6 +61,18 @@ class SpaceArgs:
     @space_name.setter
     def space_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "space_name", value)
+
+    @property
+    @pulumi.getter(name="spaceDisplayName")
+    def space_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the space that appears in the SageMaker Studio UI.
+        """
+        return pulumi.get(self, "space_display_name")
+
+    @space_display_name.setter
+    def space_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "space_display_name", value)
 
     @property
     @pulumi.getter(name="spaceSettings")
@@ -89,19 +105,23 @@ class _SpaceState:
                  arn: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  home_efs_file_system_uid: Optional[pulumi.Input[str]] = None,
+                 space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Space resources.
         :param pulumi.Input[str] arn: The space's Amazon Resource Name (ARN).
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
         :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] url: Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -109,6 +129,8 @@ class _SpaceState:
             pulumi.set(__self__, "domain_id", domain_id)
         if home_efs_file_system_uid is not None:
             pulumi.set(__self__, "home_efs_file_system_uid", home_efs_file_system_uid)
+        if space_display_name is not None:
+            pulumi.set(__self__, "space_display_name", space_display_name)
         if space_name is not None:
             pulumi.set(__self__, "space_name", space_name)
         if space_settings is not None:
@@ -120,6 +142,8 @@ class _SpaceState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -156,6 +180,18 @@ class _SpaceState:
     @home_efs_file_system_uid.setter
     def home_efs_file_system_uid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "home_efs_file_system_uid", value)
+
+    @property
+    @pulumi.getter(name="spaceDisplayName")
+    def space_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the space that appears in the SageMaker Studio UI.
+        """
+        return pulumi.get(self, "space_display_name")
+
+    @space_display_name.setter
+    def space_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "space_display_name", value)
 
     @property
     @pulumi.getter(name="spaceName")
@@ -208,6 +244,18 @@ class _SpaceState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
 
 class Space(pulumi.CustomResource):
     @overload
@@ -215,6 +263,7 @@ class Space(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
+                 space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -245,6 +294,7 @@ class Space(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
         :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -294,6 +344,7 @@ class Space(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
+                 space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -309,6 +360,7 @@ class Space(pulumi.CustomResource):
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
+            __props__.__dict__["space_display_name"] = space_display_name
             if space_name is None and not opts.urn:
                 raise TypeError("Missing required property 'space_name'")
             __props__.__dict__["space_name"] = space_name
@@ -317,6 +369,7 @@ class Space(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["home_efs_file_system_uid"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["url"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Space, __self__).__init__(
@@ -332,10 +385,12 @@ class Space(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             domain_id: Optional[pulumi.Input[str]] = None,
             home_efs_file_system_uid: Optional[pulumi.Input[str]] = None,
+            space_display_name: Optional[pulumi.Input[str]] = None,
             space_name: Optional[pulumi.Input[str]] = None,
             space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Space':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            url: Optional[pulumi.Input[str]] = None) -> 'Space':
         """
         Get an existing Space resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -346,10 +401,12 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The space's Amazon Resource Name (ARN).
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
         :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] url: Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -358,10 +415,12 @@ class Space(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["domain_id"] = domain_id
         __props__.__dict__["home_efs_file_system_uid"] = home_efs_file_system_uid
+        __props__.__dict__["space_display_name"] = space_display_name
         __props__.__dict__["space_name"] = space_name
         __props__.__dict__["space_settings"] = space_settings
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["url"] = url
         return Space(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -387,6 +446,14 @@ class Space(pulumi.CustomResource):
         The ID of the space's profile in the Amazon Elastic File System volume.
         """
         return pulumi.get(self, "home_efs_file_system_uid")
+
+    @property
+    @pulumi.getter(name="spaceDisplayName")
+    def space_display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the space that appears in the SageMaker Studio UI.
+        """
+        return pulumi.get(self, "space_display_name")
 
     @property
     @pulumi.getter(name="spaceName")
@@ -422,4 +489,12 @@ class Space(pulumi.CustomResource):
         pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
 
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[str]:
+        """
+        Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+        """
+        return pulumi.get(self, "url")
 

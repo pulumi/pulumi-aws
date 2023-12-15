@@ -184,6 +184,7 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         public readonly string Id;
         public readonly string LoadBalancerArn;
+        public readonly ImmutableArray<Outputs.GetListenerMutualAuthenticationResult> MutualAuthentications;
         public readonly int Port;
         public readonly string Protocol;
         public readonly string SslPolicy;
@@ -203,6 +204,8 @@ namespace Pulumi.Aws.Alb
 
             string loadBalancerArn,
 
+            ImmutableArray<Outputs.GetListenerMutualAuthenticationResult> mutualAuthentications,
+
             int port,
 
             string protocol,
@@ -217,6 +220,7 @@ namespace Pulumi.Aws.Alb
             DefaultActions = defaultActions;
             Id = id;
             LoadBalancerArn = loadBalancerArn;
+            MutualAuthentications = mutualAuthentications;
             Port = port;
             Protocol = protocol;
             SslPolicy = sslPolicy;

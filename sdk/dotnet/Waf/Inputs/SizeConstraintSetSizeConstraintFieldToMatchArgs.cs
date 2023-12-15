@@ -13,17 +13,13 @@ namespace Pulumi.Aws.Waf.Inputs
     public sealed class SizeConstraintSetSizeConstraintFieldToMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-        /// If `type` is any other value, omit this field.
+        /// When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
         /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string.
-        /// e.g., `HEADER`, `METHOD` or `BODY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-        /// for all supported values.
+        /// Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

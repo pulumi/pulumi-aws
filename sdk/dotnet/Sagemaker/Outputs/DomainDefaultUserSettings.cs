@@ -18,9 +18,29 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettings? CanvasAppSettings;
         /// <summary>
+        /// The Code Editor application settings. See Code Editor App Settings below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsCodeEditorAppSettings? CodeEditorAppSettings;
+        /// <summary>
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsCustomFileSystemConfig> CustomFileSystemConfigs;
+        /// <summary>
+        /// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsCustomPosixUserConfig? CustomPosixUserConfig;
+        /// <summary>
+        /// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
+        /// </summary>
+        public readonly string? DefaultLandingUri;
+        /// <summary>
         /// The execution role ARN for the user.
         /// </summary>
         public readonly string ExecutionRole;
+        /// <summary>
+        /// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsJupyterLabAppSettings? JupyterLabAppSettings;
         /// <summary>
         /// The Jupyter server's app settings. See Jupyter Server App Settings below.
         /// </summary>
@@ -46,6 +66,14 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsSharingSettings? SharingSettings;
         /// <summary>
+        /// The storage settings for a private space. See Space Storage Settings below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsSpaceStorageSettings? SpaceStorageSettings;
+        /// <summary>
+        /// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+        /// </summary>
+        public readonly string? StudioWebPortal;
+        /// <summary>
         /// The TensorBoard app settings. See TensorBoard App Settings below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsTensorBoardAppSettings? TensorBoardAppSettings;
@@ -54,7 +82,17 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private DomainDefaultUserSettings(
             Outputs.DomainDefaultUserSettingsCanvasAppSettings? canvasAppSettings,
 
+            Outputs.DomainDefaultUserSettingsCodeEditorAppSettings? codeEditorAppSettings,
+
+            ImmutableArray<Outputs.DomainDefaultUserSettingsCustomFileSystemConfig> customFileSystemConfigs,
+
+            Outputs.DomainDefaultUserSettingsCustomPosixUserConfig? customPosixUserConfig,
+
+            string? defaultLandingUri,
+
             string executionRole,
+
+            Outputs.DomainDefaultUserSettingsJupyterLabAppSettings? jupyterLabAppSettings,
 
             Outputs.DomainDefaultUserSettingsJupyterServerAppSettings? jupyterServerAppSettings,
 
@@ -68,16 +106,27 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.DomainDefaultUserSettingsSharingSettings? sharingSettings,
 
+            Outputs.DomainDefaultUserSettingsSpaceStorageSettings? spaceStorageSettings,
+
+            string? studioWebPortal,
+
             Outputs.DomainDefaultUserSettingsTensorBoardAppSettings? tensorBoardAppSettings)
         {
             CanvasAppSettings = canvasAppSettings;
+            CodeEditorAppSettings = codeEditorAppSettings;
+            CustomFileSystemConfigs = customFileSystemConfigs;
+            CustomPosixUserConfig = customPosixUserConfig;
+            DefaultLandingUri = defaultLandingUri;
             ExecutionRole = executionRole;
+            JupyterLabAppSettings = jupyterLabAppSettings;
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
             RSessionAppSettings = rSessionAppSettings;
             RStudioServerProAppSettings = rStudioServerProAppSettings;
             SecurityGroups = securityGroups;
             SharingSettings = sharingSettings;
+            SpaceStorageSettings = spaceStorageSettings;
+            StudioWebPortal = studioWebPortal;
             TensorBoardAppSettings = tensorBoardAppSettings;
         }
     }

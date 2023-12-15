@@ -333,7 +333,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
         Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example bot_locale-id-12345678
+         $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
         ```
 
         :param str resource_name: The name of the resource.
@@ -392,7 +392,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
         Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example bot_locale-id-12345678
+         $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
         ```
 
         :param str resource_name: The name of the resource.

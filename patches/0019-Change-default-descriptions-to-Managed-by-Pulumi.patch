@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
-Subject: [PATCH 19/30] Change default descriptions to "Managed by Pulumi"
+Subject: [PATCH 19/36] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
@@ -70,7 +70,7 @@ index 6970e2c917..9644b1a733 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 4ac9f81739..f25a8b53cb 100644
+index 8d23ab1a46..a588c1b318 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -66,7 +66,7 @@ func ResourceSecurityGroup() *schema.Resource {

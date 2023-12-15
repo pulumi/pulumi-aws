@@ -22,7 +22,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -46,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new V2modelsBotVersion(&#34;test&#34;, V2modelsBotVersionArgs.builder()        
  *             .botId(aws_lexv2models.test().id())
- *             .localeDetails(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .localeSpecification(Map.of(&#34;en_US&#34;, Map.of(&#34;sourceBotVersion&#34;, &#34;DRAFT&#34;)))
  *             .build());
  * 
  *     }
@@ -55,10 +54,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Lex V2 Models Bot Version using the `example_id_arg`. For example:
+ * Using `pulumi import`, import Lex V2 Models Bot Version using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example bot_version-id-12345678
+ *  $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
  * ```
  * 
  */
@@ -78,9 +77,17 @@ public class V2modelsBotVersion extends com.pulumi.resources.CustomResource {
     public Output<String> botId() {
         return this.botId;
     }
+    /**
+     * Version number assigned to the version.
+     * 
+     */
     @Export(name="botVersion", refs={String.class}, tree="[0]")
     private Output<String> botVersion;
 
+    /**
+     * @return Version number assigned to the version.
+     * 
+     */
     public Output<String> botVersion() {
         return this.botVersion;
     }
@@ -98,9 +105,21 @@ public class V2modelsBotVersion extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Export(name="localeSpecification", refs={Map.class,String.class,V2modelsBotVersionLocaleSpecification.class}, tree="[0,1,2]")
     private Output<Map<String,V2modelsBotVersionLocaleSpecification>> localeSpecification;
 
+    /**
+     * @return Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<Map<String,V2modelsBotVersionLocaleSpecification>> localeSpecification() {
         return this.localeSpecification;
     }

@@ -196,6 +196,28 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Mutual TLS Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLoadBalancer = new aws.lb.LoadBalancer("exampleLoadBalancer", {loadBalancerType: "application"});
+ * // ...
+ * const exampleTargetGroup = new aws.lb.TargetGroup("exampleTargetGroup", {});
+ * // ...
+ * const exampleListener = new aws.lb.Listener("exampleListener", {
+ *     loadBalancerArn: exampleLoadBalancer.id,
+ *     defaultActions: [{
+ *         targetGroupArn: exampleTargetGroup.id,
+ *         type: "forward",
+ *     }],
+ *     mutualAuthentication: {
+ *         mode: "verify",
+ *         trustStoreArn: "...",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -258,6 +280,10 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly loadBalancerArn!: pulumi.Output<string>;
     /**
+     * The mutual authentication configuration information. Detailed below.
+     */
+    public readonly mutualAuthentication!: pulumi.Output<outputs.alb.ListenerMutualAuthentication>;
+    /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */
     public readonly port!: pulumi.Output<number | undefined>;
@@ -300,6 +326,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
             resourceInputs["defaultActions"] = state ? state.defaultActions : undefined;
             resourceInputs["loadBalancerArn"] = state ? state.loadBalancerArn : undefined;
+            resourceInputs["mutualAuthentication"] = state ? state.mutualAuthentication : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["sslPolicy"] = state ? state.sslPolicy : undefined;
@@ -317,6 +344,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
             resourceInputs["defaultActions"] = args ? args.defaultActions : undefined;
             resourceInputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
+            resourceInputs["mutualAuthentication"] = args ? args.mutualAuthentication : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
@@ -361,6 +389,10 @@ export interface ListenerState {
      * The following arguments are optional:
      */
     loadBalancerArn?: pulumi.Input<string>;
+    /**
+     * The mutual authentication configuration information. Detailed below.
+     */
+    mutualAuthentication?: pulumi.Input<inputs.alb.ListenerMutualAuthentication>;
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */
@@ -409,6 +441,10 @@ export interface ListenerArgs {
      * The following arguments are optional:
      */
     loadBalancerArn: pulumi.Input<string>;
+    /**
+     * The mutual authentication configuration information. Detailed below.
+     */
+    mutualAuthentication?: pulumi.Input<inputs.alb.ListenerMutualAuthentication>;
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */
