@@ -29,9 +29,9 @@ import (
 //
 // )
 //
-//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//	func filebase64OrPanic(path string) string {
 //		if fileData, err := os.ReadFile(path); err == nil {
-//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//			return base64.StdEncoding.EncodeToString(fileData[:])
 //		} else {
 //			panic(err.Error())
 //		}

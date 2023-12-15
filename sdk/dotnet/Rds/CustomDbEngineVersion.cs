@@ -60,11 +60,13 @@ namespace Pulumi.Aws.Rds
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// 	private static string ComputeFileBase64Sha256(string path) {
-    /// 		var fileData = System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path));
-    /// 		var hashData = SHA256.Create().ComputeHash(fileData);
-    /// 		return Convert.ToBase64String(hashData);
-    /// 	}
+    /// 	
+    /// string ComputeFileBase64Sha256(string path) 
+    /// {
+    ///     var fileData = Encoding.UTF8.GetBytes(File.ReadAllText(path));
+    ///     var hashData = SHA256.Create().ComputeHash(fileData);
+    ///     return Convert.ToBase64String(hashData);
+    /// }
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
