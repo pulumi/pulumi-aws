@@ -83,7 +83,7 @@ index 8d23ab1a46..a588c1b318 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index a8423f2c68..fd011f951c 100644
+index 9fe188ece7..9af5d901cc 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
 @@ -49,7 +49,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -242,7 +242,7 @@ index 47ffb9fa19..448999b3b4 100644
  			"name": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/mediapackage/channel.go b/internal/service/mediapackage/channel.go
-index 3ca2263a6a..7f96152e95 100644
+index 74bb15b961..b89c7980f3 100644
 --- a/internal/service/mediapackage/channel.go
 +++ b/internal/service/mediapackage/channel.go
 @@ -51,7 +51,7 @@ func ResourceChannel() *schema.Resource {
@@ -255,10 +255,10 @@ index 3ca2263a6a..7f96152e95 100644
  			"hls_ingest": {
  				Type:     schema.TypeList,
 diff --git a/internal/service/memorydb/cluster.go b/internal/service/memorydb/cluster.go
-index 6eacd29bdb..064d0d56e0 100644
+index 5cc41d41a5..76702cb008 100644
 --- a/internal/service/memorydb/cluster.go
 +++ b/internal/service/memorydb/cluster.go
-@@ -72,7 +72,7 @@ func ResourceCluster() *schema.Resource {
+@@ -73,7 +73,7 @@ func ResourceCluster() *schema.Resource {
  			"description": {
  				Type:     schema.TypeString,
  				Optional: true,
@@ -268,10 +268,10 @@ index 6eacd29bdb..064d0d56e0 100644
  			"engine_patch_version": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/parameter_group.go b/internal/service/memorydb/parameter_group.go
-index 36215e1258..d545824f11 100644
+index 6a00a65414..4f6e17d0fc 100644
 --- a/internal/service/memorydb/parameter_group.go
 +++ b/internal/service/memorydb/parameter_group.go
-@@ -50,7 +50,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -51,7 +51,7 @@ func ResourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -281,10 +281,10 @@ index 36215e1258..d545824f11 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/subnet_group.go b/internal/service/memorydb/subnet_group.go
-index f8739b158d..b0c862290d 100644
+index 539b58f81f..bc15c792e8 100644
 --- a/internal/service/memorydb/subnet_group.go
 +++ b/internal/service/memorydb/subnet_group.go
-@@ -45,7 +45,7 @@ func ResourceSubnetGroup() *schema.Resource {
+@@ -46,7 +46,7 @@ func ResourceSubnetGroup() *schema.Resource {
  			"description": {
  				Type:     schema.TypeString,
  				Optional: true,
