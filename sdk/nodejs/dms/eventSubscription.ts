@@ -87,11 +87,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Ids of sources to listen to.
      */
-    public readonly sourceIds!: pulumi.Output<string[] | undefined>;
+    public readonly sourceIds!: pulumi.Output<string[]>;
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    public readonly sourceType!: pulumi.Output<string>;
     /**
      * Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -132,6 +132,12 @@ export class EventSubscription extends pulumi.CustomResource {
             }
             if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
+            }
+            if ((!args || args.sourceIds === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sourceIds'");
+            }
+            if ((!args || args.sourceType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sourceType'");
             }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
@@ -217,11 +223,11 @@ export interface EventSubscriptionArgs {
     /**
      * Ids of sources to listen to.
      */
-    sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
-    sourceType?: pulumi.Input<string>;
+    sourceType: pulumi.Input<string>;
     /**
      * Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

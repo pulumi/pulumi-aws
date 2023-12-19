@@ -137,6 +137,7 @@ namespace Pulumi.Aws.Dms
         public readonly ImmutableArray<Outputs.GetEndpointMongodbSettingResult> MongodbSettings;
         public readonly string Password;
         public readonly int Port;
+        public readonly ImmutableArray<Outputs.GetEndpointPostgresSettingResult> PostgresSettings;
         public readonly ImmutableArray<Outputs.GetEndpointRedisSettingResult> RedisSettings;
         public readonly ImmutableArray<Outputs.GetEndpointRedshiftSettingResult> RedshiftSettings;
         public readonly ImmutableArray<Outputs.GetEndpointS3SettingResult> S3Settings;
@@ -180,6 +181,8 @@ namespace Pulumi.Aws.Dms
 
             int port,
 
+            ImmutableArray<Outputs.GetEndpointPostgresSettingResult> postgresSettings,
+
             ImmutableArray<Outputs.GetEndpointRedisSettingResult> redisSettings,
 
             ImmutableArray<Outputs.GetEndpointRedshiftSettingResult> redshiftSettings,
@@ -215,6 +218,7 @@ namespace Pulumi.Aws.Dms
             MongodbSettings = mongodbSettings;
             Password = password;
             Port = port;
+            PostgresSettings = postgresSettings;
             RedisSettings = redisSettings;
             RedshiftSettings = redshiftSettings;
             S3Settings = s3Settings;

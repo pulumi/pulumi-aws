@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## RDS Instance Class Types
  *
- * Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+ * Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
  * For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
  *
  * ## Low-Downtime Updates
@@ -61,6 +61,56 @@ import * as utilities from "../utilities";
  *     password: "foobarbaz",
  *     skipFinalSnapshot: true,
  *     username: "foo",
+ * });
+ * ```
+ * ### RDS Db2 Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const default = aws.rds.getEngineVersion({
+ *     engine: "db2-se",
+ * });
+ * const exampleOrderableDbInstance = Promise.all([_default, _default]).then(([_default, _default1]) => aws.rds.getOrderableDbInstance({
+ *     engine: _default.engine,
+ *     engineVersion: _default1.version,
+ *     licenseModel: "bring-your-own-license",
+ *     storageType: "gp3",
+ *     preferredInstanceClasses: [
+ *         "db.t3.small",
+ *         "db.r6i.large",
+ *         "db.m6i.large",
+ *     ],
+ * }));
+ * // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+ * const exampleParameterGroup = new aws.rds.ParameterGroup("exampleParameterGroup", {
+ *     family: _default.then(_default => _default.parameterGroupFamily),
+ *     parameters: [
+ *         {
+ *             applyMethod: "immediate",
+ *             name: "rds.ibm_customer_id",
+ *             value: "0",
+ *         },
+ *         {
+ *             applyMethod: "immediate",
+ *             name: "rds.ibm_site_id",
+ *             value: "0",
+ *         },
+ *     ],
+ * });
+ * // Create the RDS Db2 instance, use the data sources defined to set attributes
+ * const exampleInstance = new aws.rds.Instance("exampleInstance", {
+ *     allocatedStorage: 100,
+ *     backupRetentionPeriod: 7,
+ *     dbName: "test",
+ *     engine: exampleOrderableDbInstance.then(exampleOrderableDbInstance => exampleOrderableDbInstance.engine),
+ *     engineVersion: exampleOrderableDbInstance.then(exampleOrderableDbInstance => exampleOrderableDbInstance.engineVersion),
+ *     identifier: "db2-instance-demo",
+ *     instanceClass: exampleOrderableDbInstance.then(exampleOrderableDbInstance => exampleOrderableDbInstance.instanceClass).apply((x) => aws.rds.instancetype.InstanceType[x]),
+ *     parameterGroupName: exampleParameterGroup.name,
+ *     password: "avoid-plaintext-passwords",
+ *     username: "test",
  * });
  * ```
  * ### Storage Autoscaling
@@ -409,8 +459,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly optionGroupName!: pulumi.Output<string>;
     /**
-     * Name of the DB parameter group to
-     * associate.
+     * Name of the DB parameter group to associate.
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
@@ -965,8 +1014,7 @@ export interface InstanceState {
      */
     optionGroupName?: pulumi.Input<string>;
     /**
-     * Name of the DB parameter group to
-     * associate.
+     * Name of the DB parameter group to associate.
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
@@ -1316,8 +1364,7 @@ export interface InstanceArgs {
      */
     optionGroupName?: pulumi.Input<string>;
     /**
-     * Name of the DB parameter group to
-     * associate.
+     * Name of the DB parameter group to associate.
      */
     parameterGroupName?: pulumi.Input<string>;
     /**

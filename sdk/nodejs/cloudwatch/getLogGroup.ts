@@ -61,6 +61,10 @@ export interface GetLogGroupResult {
      * ARN of the KMS Key to use when encrypting log data.
      */
     readonly kmsKeyId: string;
+    /**
+     * The log class of the log group.
+     */
+    readonly logGroupClass: string;
     readonly name: string;
     /**
      * Number of days log events retained in the specified log group.

@@ -1016,6 +1016,462 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	}).(pulumi.StringPtrOutput)
 }
 
+type TrustedTokenIssuerTrustedTokenIssuerConfiguration struct {
+	// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+	OidcJwtConfiguration *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration `pulumi:"oidcJwtConfiguration"`
+}
+
+// TrustedTokenIssuerTrustedTokenIssuerConfigurationInput is an input type that accepts TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs and TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput values.
+// You can construct a concrete instance of `TrustedTokenIssuerTrustedTokenIssuerConfigurationInput` via:
+//
+//	TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{...}
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationInput interface {
+	pulumi.Input
+
+	ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput
+	ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOutputWithContext(context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput
+}
+
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs struct {
+	// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+	OidcJwtConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrInput `pulumi:"oidcJwtConfiguration"`
+}
+
+func (TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfiguration)(nil)).Elem()
+}
+
+func (i TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput {
+	return i.ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOutputWithContext(context.Background())
+}
+
+func (i TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput)
+}
+
+func (i TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
+	return i.ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput).ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx)
+}
+
+// TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput is an input type that accepts TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs, TrustedTokenIssuerTrustedTokenIssuerConfigurationPtr and TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput values.
+// You can construct a concrete instance of `TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput` via:
+//
+//	        TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput
+	ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutputWithContext(context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput
+}
+
+type trustedTokenIssuerTrustedTokenIssuerConfigurationPtrType TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs
+
+func TrustedTokenIssuerTrustedTokenIssuerConfigurationPtr(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs) TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput {
+	return (*trustedTokenIssuerTrustedTokenIssuerConfigurationPtrType)(v)
+}
+
+func (*trustedTokenIssuerTrustedTokenIssuerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustedTokenIssuerTrustedTokenIssuerConfiguration)(nil)).Elem()
+}
+
+func (i *trustedTokenIssuerTrustedTokenIssuerConfigurationPtrType) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
+	return i.ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *trustedTokenIssuerTrustedTokenIssuerConfigurationPtrType) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput)
+}
+
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfiguration)(nil)).Elem()
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput {
+	return o
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput {
+	return o
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
+	return o.ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustedTokenIssuerTrustedTokenIssuerConfiguration) *TrustedTokenIssuerTrustedTokenIssuerConfiguration {
+		return &v
+	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput)
+}
+
+// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) OidcJwtConfiguration() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfiguration) *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
+		return v.OidcJwtConfiguration
+	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput)
+}
+
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustedTokenIssuerTrustedTokenIssuerConfiguration)(nil)).Elem()
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
+	return o
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput {
+	return o
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput) Elem() TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput {
+	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfiguration) TrustedTokenIssuerTrustedTokenIssuerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TrustedTokenIssuerTrustedTokenIssuerConfiguration
+		return ret
+	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput)
+}
+
+// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput) OidcJwtConfiguration() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfiguration) *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OidcJwtConfiguration
+	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput)
+}
+
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration struct {
+	// Specifies the path of the source attribute in the JWT from the trusted token issuer.
+	ClaimAttributePath string `pulumi:"claimAttributePath"`
+	// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+	IdentityStoreAttributePath string `pulumi:"identityStoreAttributePath"`
+	// Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+	IssuerUrl string `pulumi:"issuerUrl"`
+	// The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+	JwksRetrievalOption string `pulumi:"jwksRetrievalOption"`
+}
+
+// TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationInput is an input type that accepts TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs and TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput values.
+// You can construct a concrete instance of `TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationInput` via:
+//
+//	TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs{...}
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationInput interface {
+	pulumi.Input
+
+	ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput
+	ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutputWithContext(context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput
+}
+
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs struct {
+	// Specifies the path of the source attribute in the JWT from the trusted token issuer.
+	ClaimAttributePath pulumi.StringInput `pulumi:"claimAttributePath"`
+	// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+	IdentityStoreAttributePath pulumi.StringInput `pulumi:"identityStoreAttributePath"`
+	// Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+	IssuerUrl pulumi.StringInput `pulumi:"issuerUrl"`
+	// The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+	JwksRetrievalOption pulumi.StringInput `pulumi:"jwksRetrievalOption"`
+}
+
+func (TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration)(nil)).Elem()
+}
+
+func (i TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput {
+	return i.ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutputWithContext(context.Background())
+}
+
+func (i TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput)
+}
+
+func (i TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return i.ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput).ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutputWithContext(ctx)
+}
+
+// TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrInput is an input type that accepts TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs, TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtr and TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput values.
+// You can construct a concrete instance of `TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrInput` via:
+//
+//	        TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput
+	ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutputWithContext(context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput
+}
+
+type trustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrType TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs
+
+func TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtr(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrInput {
+	return (*trustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrType)(v)
+}
+
+func (*trustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration)(nil)).Elem()
+}
+
+func (i *trustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrType) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return i.ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *trustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrType) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput)
+}
+
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration)(nil)).Elem()
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput {
+	return o
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput {
+	return o
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return o.ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
+		return &v
+	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput)
+}
+
+// Specifies the path of the source attribute in the JWT from the trusted token issuer.
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) ClaimAttributePath() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) string {
+		return v.ClaimAttributePath
+	}).(pulumi.StringOutput)
+}
+
+// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) IdentityStoreAttributePath() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) string {
+		return v.IdentityStoreAttributePath
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) IssuerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) string {
+		return v.IssuerUrl
+	}).(pulumi.StringOutput)
+}
+
+// The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput) JwksRetrievalOption() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) string {
+		return v.JwksRetrievalOption
+	}).(pulumi.StringOutput)
+}
+
+type TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration)(nil)).Elem()
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return o
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) ToTrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutputWithContext(ctx context.Context) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
+	return o
+}
+
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) Elem() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput {
+	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration
+		return ret
+	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput)
+}
+
+// Specifies the path of the source attribute in the JWT from the trusted token issuer.
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) ClaimAttributePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClaimAttributePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) IdentityStoreAttributePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityStoreAttributePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) IssuerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IssuerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput) JwksRetrievalOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JwksRetrievalOption
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetApplicationAssignmentsApplicationAssignment struct {
+	// ARN of the application.
+	ApplicationArn string `pulumi:"applicationArn"`
+	// An identifier for an object in IAM Identity Center, such as a user or group.
+	PrincipalId string `pulumi:"principalId"`
+	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+	PrincipalType string `pulumi:"principalType"`
+}
+
+// GetApplicationAssignmentsApplicationAssignmentInput is an input type that accepts GetApplicationAssignmentsApplicationAssignmentArgs and GetApplicationAssignmentsApplicationAssignmentOutput values.
+// You can construct a concrete instance of `GetApplicationAssignmentsApplicationAssignmentInput` via:
+//
+//	GetApplicationAssignmentsApplicationAssignmentArgs{...}
+type GetApplicationAssignmentsApplicationAssignmentInput interface {
+	pulumi.Input
+
+	ToGetApplicationAssignmentsApplicationAssignmentOutput() GetApplicationAssignmentsApplicationAssignmentOutput
+	ToGetApplicationAssignmentsApplicationAssignmentOutputWithContext(context.Context) GetApplicationAssignmentsApplicationAssignmentOutput
+}
+
+type GetApplicationAssignmentsApplicationAssignmentArgs struct {
+	// ARN of the application.
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+	// An identifier for an object in IAM Identity Center, such as a user or group.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+}
+
+func (GetApplicationAssignmentsApplicationAssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationAssignmentsApplicationAssignment)(nil)).Elem()
+}
+
+func (i GetApplicationAssignmentsApplicationAssignmentArgs) ToGetApplicationAssignmentsApplicationAssignmentOutput() GetApplicationAssignmentsApplicationAssignmentOutput {
+	return i.ToGetApplicationAssignmentsApplicationAssignmentOutputWithContext(context.Background())
+}
+
+func (i GetApplicationAssignmentsApplicationAssignmentArgs) ToGetApplicationAssignmentsApplicationAssignmentOutputWithContext(ctx context.Context) GetApplicationAssignmentsApplicationAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAssignmentsApplicationAssignmentOutput)
+}
+
+// GetApplicationAssignmentsApplicationAssignmentArrayInput is an input type that accepts GetApplicationAssignmentsApplicationAssignmentArray and GetApplicationAssignmentsApplicationAssignmentArrayOutput values.
+// You can construct a concrete instance of `GetApplicationAssignmentsApplicationAssignmentArrayInput` via:
+//
+//	GetApplicationAssignmentsApplicationAssignmentArray{ GetApplicationAssignmentsApplicationAssignmentArgs{...} }
+type GetApplicationAssignmentsApplicationAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationAssignmentsApplicationAssignmentArrayOutput() GetApplicationAssignmentsApplicationAssignmentArrayOutput
+	ToGetApplicationAssignmentsApplicationAssignmentArrayOutputWithContext(context.Context) GetApplicationAssignmentsApplicationAssignmentArrayOutput
+}
+
+type GetApplicationAssignmentsApplicationAssignmentArray []GetApplicationAssignmentsApplicationAssignmentInput
+
+func (GetApplicationAssignmentsApplicationAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationAssignmentsApplicationAssignment)(nil)).Elem()
+}
+
+func (i GetApplicationAssignmentsApplicationAssignmentArray) ToGetApplicationAssignmentsApplicationAssignmentArrayOutput() GetApplicationAssignmentsApplicationAssignmentArrayOutput {
+	return i.ToGetApplicationAssignmentsApplicationAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationAssignmentsApplicationAssignmentArray) ToGetApplicationAssignmentsApplicationAssignmentArrayOutputWithContext(ctx context.Context) GetApplicationAssignmentsApplicationAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAssignmentsApplicationAssignmentArrayOutput)
+}
+
+type GetApplicationAssignmentsApplicationAssignmentOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationAssignmentsApplicationAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationAssignmentsApplicationAssignment)(nil)).Elem()
+}
+
+func (o GetApplicationAssignmentsApplicationAssignmentOutput) ToGetApplicationAssignmentsApplicationAssignmentOutput() GetApplicationAssignmentsApplicationAssignmentOutput {
+	return o
+}
+
+func (o GetApplicationAssignmentsApplicationAssignmentOutput) ToGetApplicationAssignmentsApplicationAssignmentOutputWithContext(ctx context.Context) GetApplicationAssignmentsApplicationAssignmentOutput {
+	return o
+}
+
+// ARN of the application.
+func (o GetApplicationAssignmentsApplicationAssignmentOutput) ApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationAssignmentsApplicationAssignment) string { return v.ApplicationArn }).(pulumi.StringOutput)
+}
+
+// An identifier for an object in IAM Identity Center, such as a user or group.
+func (o GetApplicationAssignmentsApplicationAssignmentOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationAssignmentsApplicationAssignment) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+func (o GetApplicationAssignmentsApplicationAssignmentOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationAssignmentsApplicationAssignment) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+type GetApplicationAssignmentsApplicationAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationAssignmentsApplicationAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationAssignmentsApplicationAssignment)(nil)).Elem()
+}
+
+func (o GetApplicationAssignmentsApplicationAssignmentArrayOutput) ToGetApplicationAssignmentsApplicationAssignmentArrayOutput() GetApplicationAssignmentsApplicationAssignmentArrayOutput {
+	return o
+}
+
+func (o GetApplicationAssignmentsApplicationAssignmentArrayOutput) ToGetApplicationAssignmentsApplicationAssignmentArrayOutputWithContext(ctx context.Context) GetApplicationAssignmentsApplicationAssignmentArrayOutput {
+	return o
+}
+
+func (o GetApplicationAssignmentsApplicationAssignmentArrayOutput) Index(i pulumi.IntInput) GetApplicationAssignmentsApplicationAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationAssignmentsApplicationAssignment {
+		return vs[0].([]GetApplicationAssignmentsApplicationAssignment)[vs[1].(int)]
+	}).(GetApplicationAssignmentsApplicationAssignmentOutput)
+}
+
 type GetApplicationPortalOption struct {
 	SignInOptions []GetApplicationPortalOptionSignInOption `pulumi:"signInOptions"`
 	Visibility    string                                   `pulumi:"visibility"`
@@ -1448,6 +1904,121 @@ func (o GetApplicationProvidersApplicationProviderDisplayDataArrayOutput) Index(
 	}).(GetApplicationProvidersApplicationProviderDisplayDataOutput)
 }
 
+type GetPrincipalApplicationAssignmentsApplicationAssignment struct {
+	// ARN of the application.
+	ApplicationArn string `pulumi:"applicationArn"`
+	// An identifier for an object in IAM Identity Center, such as a user or group.
+	PrincipalId string `pulumi:"principalId"`
+	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+	PrincipalType string `pulumi:"principalType"`
+}
+
+// GetPrincipalApplicationAssignmentsApplicationAssignmentInput is an input type that accepts GetPrincipalApplicationAssignmentsApplicationAssignmentArgs and GetPrincipalApplicationAssignmentsApplicationAssignmentOutput values.
+// You can construct a concrete instance of `GetPrincipalApplicationAssignmentsApplicationAssignmentInput` via:
+//
+//	GetPrincipalApplicationAssignmentsApplicationAssignmentArgs{...}
+type GetPrincipalApplicationAssignmentsApplicationAssignmentInput interface {
+	pulumi.Input
+
+	ToGetPrincipalApplicationAssignmentsApplicationAssignmentOutput() GetPrincipalApplicationAssignmentsApplicationAssignmentOutput
+	ToGetPrincipalApplicationAssignmentsApplicationAssignmentOutputWithContext(context.Context) GetPrincipalApplicationAssignmentsApplicationAssignmentOutput
+}
+
+type GetPrincipalApplicationAssignmentsApplicationAssignmentArgs struct {
+	// ARN of the application.
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+	// An identifier for an object in IAM Identity Center, such as a user or group.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+}
+
+func (GetPrincipalApplicationAssignmentsApplicationAssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalApplicationAssignmentsApplicationAssignment)(nil)).Elem()
+}
+
+func (i GetPrincipalApplicationAssignmentsApplicationAssignmentArgs) ToGetPrincipalApplicationAssignmentsApplicationAssignmentOutput() GetPrincipalApplicationAssignmentsApplicationAssignmentOutput {
+	return i.ToGetPrincipalApplicationAssignmentsApplicationAssignmentOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalApplicationAssignmentsApplicationAssignmentArgs) ToGetPrincipalApplicationAssignmentsApplicationAssignmentOutputWithContext(ctx context.Context) GetPrincipalApplicationAssignmentsApplicationAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalApplicationAssignmentsApplicationAssignmentOutput)
+}
+
+// GetPrincipalApplicationAssignmentsApplicationAssignmentArrayInput is an input type that accepts GetPrincipalApplicationAssignmentsApplicationAssignmentArray and GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput values.
+// You can construct a concrete instance of `GetPrincipalApplicationAssignmentsApplicationAssignmentArrayInput` via:
+//
+//	GetPrincipalApplicationAssignmentsApplicationAssignmentArray{ GetPrincipalApplicationAssignmentsApplicationAssignmentArgs{...} }
+type GetPrincipalApplicationAssignmentsApplicationAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToGetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput() GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput
+	ToGetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutputWithContext(context.Context) GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput
+}
+
+type GetPrincipalApplicationAssignmentsApplicationAssignmentArray []GetPrincipalApplicationAssignmentsApplicationAssignmentInput
+
+func (GetPrincipalApplicationAssignmentsApplicationAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrincipalApplicationAssignmentsApplicationAssignment)(nil)).Elem()
+}
+
+func (i GetPrincipalApplicationAssignmentsApplicationAssignmentArray) ToGetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput() GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput {
+	return i.ToGetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalApplicationAssignmentsApplicationAssignmentArray) ToGetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutputWithContext(ctx context.Context) GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput)
+}
+
+type GetPrincipalApplicationAssignmentsApplicationAssignmentOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalApplicationAssignmentsApplicationAssignment)(nil)).Elem()
+}
+
+func (o GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) ToGetPrincipalApplicationAssignmentsApplicationAssignmentOutput() GetPrincipalApplicationAssignmentsApplicationAssignmentOutput {
+	return o
+}
+
+func (o GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) ToGetPrincipalApplicationAssignmentsApplicationAssignmentOutputWithContext(ctx context.Context) GetPrincipalApplicationAssignmentsApplicationAssignmentOutput {
+	return o
+}
+
+// ARN of the application.
+func (o GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) ApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsApplicationAssignment) string { return v.ApplicationArn }).(pulumi.StringOutput)
+}
+
+// An identifier for an object in IAM Identity Center, such as a user or group.
+func (o GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsApplicationAssignment) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+func (o GetPrincipalApplicationAssignmentsApplicationAssignmentOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsApplicationAssignment) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+type GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrincipalApplicationAssignmentsApplicationAssignment)(nil)).Elem()
+}
+
+func (o GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput) ToGetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput() GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput {
+	return o
+}
+
+func (o GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput) ToGetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutputWithContext(ctx context.Context) GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput {
+	return o
+}
+
+func (o GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput) Index(i pulumi.IntInput) GetPrincipalApplicationAssignmentsApplicationAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrincipalApplicationAssignmentsApplicationAssignment {
+		return vs[0].([]GetPrincipalApplicationAssignmentsApplicationAssignment)[vs[1].(int)]
+	}).(GetPrincipalApplicationAssignmentsApplicationAssignmentOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPortalOptionsInput)(nil)).Elem(), ApplicationPortalOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPortalOptionsPtrInput)(nil)).Elem(), ApplicationPortalOptionsArgs{})
@@ -1463,6 +2034,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfigurationInput)(nil)).Elem(), TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput)(nil)).Elem(), TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationInput)(nil)).Elem(), TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrInput)(nil)).Elem(), TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationAssignmentsApplicationAssignmentInput)(nil)).Elem(), GetApplicationAssignmentsApplicationAssignmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationAssignmentsApplicationAssignmentArrayInput)(nil)).Elem(), GetApplicationAssignmentsApplicationAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationPortalOptionInput)(nil)).Elem(), GetApplicationPortalOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationPortalOptionArrayInput)(nil)).Elem(), GetApplicationPortalOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationPortalOptionSignInOptionInput)(nil)).Elem(), GetApplicationPortalOptionSignInOptionArgs{})
@@ -1471,6 +2048,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationProvidersApplicationProviderArrayInput)(nil)).Elem(), GetApplicationProvidersApplicationProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationProvidersApplicationProviderDisplayDataInput)(nil)).Elem(), GetApplicationProvidersApplicationProviderDisplayDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationProvidersApplicationProviderDisplayDataArrayInput)(nil)).Elem(), GetApplicationProvidersApplicationProviderDisplayDataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalApplicationAssignmentsApplicationAssignmentInput)(nil)).Elem(), GetPrincipalApplicationAssignmentsApplicationAssignmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalApplicationAssignmentsApplicationAssignmentArrayInput)(nil)).Elem(), GetPrincipalApplicationAssignmentsApplicationAssignmentArray{})
 	pulumi.RegisterOutputType(ApplicationPortalOptionsOutput{})
 	pulumi.RegisterOutputType(ApplicationPortalOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPortalOptionsSignInOptionsOutput{})
@@ -1485,6 +2064,12 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput{})
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput{})
+	pulumi.RegisterOutputType(TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput{})
+	pulumi.RegisterOutputType(TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput{})
+	pulumi.RegisterOutputType(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetApplicationAssignmentsApplicationAssignmentOutput{})
+	pulumi.RegisterOutputType(GetApplicationAssignmentsApplicationAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationPortalOptionOutput{})
 	pulumi.RegisterOutputType(GetApplicationPortalOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationPortalOptionSignInOptionOutput{})
@@ -1493,4 +2078,6 @@ func init() {
 	pulumi.RegisterOutputType(GetApplicationProvidersApplicationProviderArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationProvidersApplicationProviderDisplayDataOutput{})
 	pulumi.RegisterOutputType(GetApplicationProvidersApplicationProviderDisplayDataArrayOutput{})
+	pulumi.RegisterOutputType(GetPrincipalApplicationAssignmentsApplicationAssignmentOutput{})
+	pulumi.RegisterOutputType(GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput{})
 }

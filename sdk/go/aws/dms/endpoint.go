@@ -98,8 +98,10 @@ type Endpoint struct {
 	Password              pulumi.StringPtrOutput `pulumi:"password"`
 	PauseReplicationTasks pulumi.BoolPtrOutput   `pulumi:"pauseReplicationTasks"`
 	// Port used by the endpoint database.
-	Port          pulumi.IntPtrOutput            `pulumi:"port"`
-	RedisSettings EndpointRedisSettingsPtrOutput `pulumi:"redisSettings"`
+	Port pulumi.IntPtrOutput `pulumi:"port"`
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings EndpointPostgresSettingsPtrOutput `pulumi:"postgresSettings"`
+	RedisSettings    EndpointRedisSettingsPtrOutput    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsOutput `pulumi:"redshiftSettings"`
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
@@ -201,8 +203,10 @@ type endpointState struct {
 	Password              *string `pulumi:"password"`
 	PauseReplicationTasks *bool   `pulumi:"pauseReplicationTasks"`
 	// Port used by the endpoint database.
-	Port          *int                   `pulumi:"port"`
-	RedisSettings *EndpointRedisSettings `pulumi:"redisSettings"`
+	Port *int `pulumi:"port"`
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings *EndpointPostgresSettings `pulumi:"postgresSettings"`
+	RedisSettings    *EndpointRedisSettings    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings *EndpointRedshiftSettings `pulumi:"redshiftSettings"`
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
@@ -258,8 +262,10 @@ type EndpointState struct {
 	Password              pulumi.StringPtrInput
 	PauseReplicationTasks pulumi.BoolPtrInput
 	// Port used by the endpoint database.
-	Port          pulumi.IntPtrInput
-	RedisSettings EndpointRedisSettingsPtrInput
+	Port pulumi.IntPtrInput
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings EndpointPostgresSettingsPtrInput
+	RedisSettings    EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsPtrInput
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
@@ -317,8 +323,10 @@ type endpointArgs struct {
 	Password              *string `pulumi:"password"`
 	PauseReplicationTasks *bool   `pulumi:"pauseReplicationTasks"`
 	// Port used by the endpoint database.
-	Port          *int                   `pulumi:"port"`
-	RedisSettings *EndpointRedisSettings `pulumi:"redisSettings"`
+	Port *int `pulumi:"port"`
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings *EndpointPostgresSettings `pulumi:"postgresSettings"`
+	RedisSettings    *EndpointRedisSettings    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings *EndpointRedshiftSettings `pulumi:"redshiftSettings"`
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
@@ -369,8 +377,10 @@ type EndpointArgs struct {
 	Password              pulumi.StringPtrInput
 	PauseReplicationTasks pulumi.BoolPtrInput
 	// Port used by the endpoint database.
-	Port          pulumi.IntPtrInput
-	RedisSettings EndpointRedisSettingsPtrInput
+	Port pulumi.IntPtrInput
+	// Configuration block for Postgres settings. See below.
+	PostgresSettings EndpointPostgresSettingsPtrInput
+	RedisSettings    EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsPtrInput
 	// (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
@@ -552,6 +562,11 @@ func (o EndpointOutput) PauseReplicationTasks() pulumi.BoolPtrOutput {
 // Port used by the endpoint database.
 func (o EndpointOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Configuration block for Postgres settings. See below.
+func (o EndpointOutput) PostgresSettings() EndpointPostgresSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointPostgresSettingsPtrOutput { return v.PostgresSettings }).(EndpointPostgresSettingsPtrOutput)
 }
 
 func (o EndpointOutput) RedisSettings() EndpointRedisSettingsPtrOutput {

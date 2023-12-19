@@ -576,6 +576,9 @@ namespace Pulumi.Aws.Inputs
         [Input("pipes")]
         public Input<string>? Pipes { get; set; }
 
+        [Input("polly")]
+        public Input<string>? Polly { get; set; }
+
         [Input("pricing")]
         public Input<string>? Pricing { get; set; }
 

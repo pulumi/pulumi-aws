@@ -19,6 +19,10 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
      * 
      */
     private @Nullable Integer errorClearTimeMsec;
+    /**
+     * @return A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * 
+     */
     private @Nullable List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions;
     /**
      * @return Input preference when deciding which input to make active when a previously failed input has recovered.
@@ -39,6 +43,10 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
     public Optional<Integer> errorClearTimeMsec() {
         return Optional.ofNullable(this.errorClearTimeMsec);
     }
+    /**
+     * @return A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * 
+     */
     public List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions() {
         return this.failoverConditions == null ? List.of() : this.failoverConditions;
     }

@@ -133,6 +133,10 @@ export class Endpoint extends pulumi.CustomResource {
      * Port used by the endpoint database.
      */
     public readonly port!: pulumi.Output<number | undefined>;
+    /**
+     * Configuration block for Postgres settings. See below.
+     */
+    public readonly postgresSettings!: pulumi.Output<outputs.dms.EndpointPostgresSettings | undefined>;
     public readonly redisSettings!: pulumi.Output<outputs.dms.EndpointRedisSettings | undefined>;
     /**
      * Configuration block for Redshift settings. See below.
@@ -205,6 +209,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["pauseReplicationTasks"] = state ? state.pauseReplicationTasks : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["postgresSettings"] = state ? state.postgresSettings : undefined;
             resourceInputs["redisSettings"] = state ? state.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = state ? state.redshiftSettings : undefined;
             resourceInputs["s3Settings"] = state ? state.s3Settings : undefined;
@@ -241,6 +246,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["pauseReplicationTasks"] = args ? args.pauseReplicationTasks : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["postgresSettings"] = args ? args.postgresSettings : undefined;
             resourceInputs["redisSettings"] = args ? args.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
             resourceInputs["s3Settings"] = args ? args.s3Settings : undefined;
@@ -324,6 +330,10 @@ export interface EndpointState {
      * Port used by the endpoint database.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Configuration block for Postgres settings. See below.
+     */
+    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings>;
     redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
     /**
      * Configuration block for Redshift settings. See below.
@@ -428,6 +438,10 @@ export interface EndpointArgs {
      * Port used by the endpoint database.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Configuration block for Postgres settings. See below.
+     */
+    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings>;
     redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
     /**
      * Configuration block for Redshift settings. See below.

@@ -143,28 +143,28 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> sourceIds;
+    private Output<List<String>> sourceIds;
 
     /**
      * @return Ids of sources to listen to.
      * 
      */
-    public Output<Optional<List<String>>> sourceIds() {
-        return Codegen.optional(this.sourceIds);
+    public Output<List<String>> sourceIds() {
+        return this.sourceIds;
     }
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      * 
      */
     @Export(name="sourceType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> sourceType;
+    private Output<String> sourceType;
 
     /**
      * @return Type of source for events. Valid values: `replication-instance` or `replication-task`
      * 
      */
-    public Output<Optional<String>> sourceType() {
-        return Codegen.optional(this.sourceType);
+    public Output<String> sourceType() {
+        return this.sourceType;
     }
     /**
      * Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

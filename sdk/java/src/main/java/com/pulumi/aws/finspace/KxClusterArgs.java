@@ -9,6 +9,8 @@ import com.pulumi.aws.finspace.inputs.KxClusterCapacityConfigurationArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterCodeArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterDatabaseArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterSavedownStorageConfigurationArgs;
+import com.pulumi.aws.finspace.inputs.KxClusterScalingGroupConfigurationArgs;
+import com.pulumi.aws.finspace.inputs.KxClusterTickerplantLogConfigurationArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterVpcConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -92,15 +94,15 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      * 
      */
-    @Import(name="capacityConfiguration", required=true)
-    private Output<KxClusterCapacityConfigurationArgs> capacityConfiguration;
+    @Import(name="capacityConfiguration")
+    private @Nullable Output<KxClusterCapacityConfigurationArgs> capacityConfiguration;
 
     /**
      * @return Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      * 
      */
-    public Output<KxClusterCapacityConfigurationArgs> capacityConfiguration() {
-        return this.capacityConfiguration;
+    public Optional<Output<KxClusterCapacityConfigurationArgs>> capacityConfiguration() {
+        return Optional.ofNullable(this.capacityConfiguration);
     }
 
     /**
@@ -254,6 +256,21 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The structure that stores the configuration details of a scaling group.
+     * 
+     */
+    @Import(name="scalingGroupConfiguration")
+    private @Nullable Output<KxClusterScalingGroupConfigurationArgs> scalingGroupConfiguration;
+
+    /**
+     * @return The structure that stores the configuration details of a scaling group.
+     * 
+     */
+    public Optional<Output<KxClusterScalingGroupConfigurationArgs>> scalingGroupConfiguration() {
+        return Optional.ofNullable(this.scalingGroupConfiguration);
+    }
+
+    /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -266,6 +283,21 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * 
+     */
+    @Import(name="tickerplantLogConfigurations")
+    private @Nullable Output<List<KxClusterTickerplantLogConfigurationArgs>> tickerplantLogConfigurations;
+
+    /**
+     * @return A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * 
+     */
+    public Optional<Output<List<KxClusterTickerplantLogConfigurationArgs>>> tickerplantLogConfigurations() {
+        return Optional.ofNullable(this.tickerplantLogConfigurations);
     }
 
     /**
@@ -328,7 +360,9 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.releaseLabel = $.releaseLabel;
         this.savedownStorageConfiguration = $.savedownStorageConfiguration;
+        this.scalingGroupConfiguration = $.scalingGroupConfiguration;
         this.tags = $.tags;
+        this.tickerplantLogConfigurations = $.tickerplantLogConfigurations;
         this.type = $.type;
         this.vpcConfiguration = $.vpcConfiguration;
     }
@@ -455,7 +489,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder capacityConfiguration(Output<KxClusterCapacityConfigurationArgs> capacityConfiguration) {
+        public Builder capacityConfiguration(@Nullable Output<KxClusterCapacityConfigurationArgs> capacityConfiguration) {
             $.capacityConfiguration = capacityConfiguration;
             return this;
         }
@@ -691,6 +725,27 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param scalingGroupConfiguration The structure that stores the configuration details of a scaling group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingGroupConfiguration(@Nullable Output<KxClusterScalingGroupConfigurationArgs> scalingGroupConfiguration) {
+            $.scalingGroupConfiguration = scalingGroupConfiguration;
+            return this;
+        }
+
+        /**
+         * @param scalingGroupConfiguration The structure that stores the configuration details of a scaling group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingGroupConfiguration(KxClusterScalingGroupConfigurationArgs scalingGroupConfiguration) {
+            return scalingGroupConfiguration(Output.of(scalingGroupConfiguration));
+        }
+
+        /**
          * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -709,6 +764,37 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tickerplantLogConfigurations(@Nullable Output<List<KxClusterTickerplantLogConfigurationArgs>> tickerplantLogConfigurations) {
+            $.tickerplantLogConfigurations = tickerplantLogConfigurations;
+            return this;
+        }
+
+        /**
+         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tickerplantLogConfigurations(List<KxClusterTickerplantLogConfigurationArgs> tickerplantLogConfigurations) {
+            return tickerplantLogConfigurations(Output.of(tickerplantLogConfigurations));
+        }
+
+        /**
+         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tickerplantLogConfigurations(KxClusterTickerplantLogConfigurationArgs... tickerplantLogConfigurations) {
+            return tickerplantLogConfigurations(List.of(tickerplantLogConfigurations));
         }
 
         /**
@@ -767,7 +853,6 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         public KxClusterArgs build() {
             $.azMode = Objects.requireNonNull($.azMode, "expected parameter 'azMode' to be non-null");
-            $.capacityConfiguration = Objects.requireNonNull($.capacityConfiguration, "expected parameter 'capacityConfiguration' to be non-null");
             $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
             $.releaseLabel = Objects.requireNonNull($.releaseLabel, "expected parameter 'releaseLabel' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");

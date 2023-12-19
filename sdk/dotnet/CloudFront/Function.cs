@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var test = new Aws.CloudFront.Function("test", new()
     ///     {
-    ///         Runtime = "cloudfront-js-1.0",
+    ///         Runtime = "cloudfront-js-2.0",
     ///         Comment = "my function",
     ///         Publish = true,
     ///         Code = File.ReadAllText($"{path.Module}/function.js"),
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<bool?> Publish { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
-        /// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
-        /// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
         /// 
         /// The following arguments are optional:
         /// </summary>

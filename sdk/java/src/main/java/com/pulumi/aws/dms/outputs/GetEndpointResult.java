@@ -7,6 +7,7 @@ import com.pulumi.aws.dms.outputs.GetEndpointElasticsearchSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointKafkaSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointKinesisSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointMongodbSetting;
+import com.pulumi.aws.dms.outputs.GetEndpointPostgresSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointRedisSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointRedshiftSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointS3Setting;
@@ -38,6 +39,7 @@ public final class GetEndpointResult {
     private List<GetEndpointMongodbSetting> mongodbSettings;
     private String password;
     private Integer port;
+    private List<GetEndpointPostgresSetting> postgresSettings;
     private List<GetEndpointRedisSetting> redisSettings;
     private List<GetEndpointRedshiftSetting> redshiftSettings;
     private List<GetEndpointS3Setting> s3Settings;
@@ -99,6 +101,9 @@ public final class GetEndpointResult {
     public Integer port() {
         return this.port;
     }
+    public List<GetEndpointPostgresSetting> postgresSettings() {
+        return this.postgresSettings;
+    }
     public List<GetEndpointRedisSetting> redisSettings() {
         return this.redisSettings;
     }
@@ -154,6 +159,7 @@ public final class GetEndpointResult {
         private List<GetEndpointMongodbSetting> mongodbSettings;
         private String password;
         private Integer port;
+        private List<GetEndpointPostgresSetting> postgresSettings;
         private List<GetEndpointRedisSetting> redisSettings;
         private List<GetEndpointRedshiftSetting> redshiftSettings;
         private List<GetEndpointS3Setting> s3Settings;
@@ -182,6 +188,7 @@ public final class GetEndpointResult {
     	      this.mongodbSettings = defaults.mongodbSettings;
     	      this.password = defaults.password;
     	      this.port = defaults.port;
+    	      this.postgresSettings = defaults.postgresSettings;
     	      this.redisSettings = defaults.redisSettings;
     	      this.redshiftSettings = defaults.redshiftSettings;
     	      this.s3Settings = defaults.s3Settings;
@@ -282,6 +289,14 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder postgresSettings(List<GetEndpointPostgresSetting> postgresSettings) {
+            this.postgresSettings = Objects.requireNonNull(postgresSettings);
+            return this;
+        }
+        public Builder postgresSettings(GetEndpointPostgresSetting... postgresSettings) {
+            return postgresSettings(List.of(postgresSettings));
+        }
+        @CustomType.Setter
         public Builder redisSettings(List<GetEndpointRedisSetting> redisSettings) {
             this.redisSettings = Objects.requireNonNull(redisSettings);
             return this;
@@ -357,6 +372,7 @@ public final class GetEndpointResult {
             _resultValue.mongodbSettings = mongodbSettings;
             _resultValue.password = password;
             _resultValue.port = port;
+            _resultValue.postgresSettings = postgresSettings;
             _resultValue.redisSettings = redisSettings;
             _resultValue.redshiftSettings = redshiftSettings;
             _resultValue.s3Settings = s3Settings;

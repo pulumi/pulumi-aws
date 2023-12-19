@@ -4550,6 +4550,181 @@ func (o LoadBalancerAccessLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LoadBalancerConnectionLogs struct {
+	// The S3 bucket name to store the logs in.
+	Bucket string `pulumi:"bucket"`
+	// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
+	Enabled *bool `pulumi:"enabled"`
+	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// LoadBalancerConnectionLogsInput is an input type that accepts LoadBalancerConnectionLogsArgs and LoadBalancerConnectionLogsOutput values.
+// You can construct a concrete instance of `LoadBalancerConnectionLogsInput` via:
+//
+//	LoadBalancerConnectionLogsArgs{...}
+type LoadBalancerConnectionLogsInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConnectionLogsOutput() LoadBalancerConnectionLogsOutput
+	ToLoadBalancerConnectionLogsOutputWithContext(context.Context) LoadBalancerConnectionLogsOutput
+}
+
+type LoadBalancerConnectionLogsArgs struct {
+	// The S3 bucket name to store the logs in.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (LoadBalancerConnectionLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConnectionLogs)(nil)).Elem()
+}
+
+func (i LoadBalancerConnectionLogsArgs) ToLoadBalancerConnectionLogsOutput() LoadBalancerConnectionLogsOutput {
+	return i.ToLoadBalancerConnectionLogsOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConnectionLogsArgs) ToLoadBalancerConnectionLogsOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConnectionLogsOutput)
+}
+
+func (i LoadBalancerConnectionLogsArgs) ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput {
+	return i.ToLoadBalancerConnectionLogsPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConnectionLogsArgs) ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConnectionLogsOutput).ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerConnectionLogsPtrInput is an input type that accepts LoadBalancerConnectionLogsArgs, LoadBalancerConnectionLogsPtr and LoadBalancerConnectionLogsPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerConnectionLogsPtrInput` via:
+//
+//	        LoadBalancerConnectionLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LoadBalancerConnectionLogsPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput
+	ToLoadBalancerConnectionLogsPtrOutputWithContext(context.Context) LoadBalancerConnectionLogsPtrOutput
+}
+
+type loadBalancerConnectionLogsPtrType LoadBalancerConnectionLogsArgs
+
+func LoadBalancerConnectionLogsPtr(v *LoadBalancerConnectionLogsArgs) LoadBalancerConnectionLogsPtrInput {
+	return (*loadBalancerConnectionLogsPtrType)(v)
+}
+
+func (*loadBalancerConnectionLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerConnectionLogs)(nil)).Elem()
+}
+
+func (i *loadBalancerConnectionLogsPtrType) ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput {
+	return i.ToLoadBalancerConnectionLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerConnectionLogsPtrType) ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConnectionLogsPtrOutput)
+}
+
+type LoadBalancerConnectionLogsOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConnectionLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConnectionLogs)(nil)).Elem()
+}
+
+func (o LoadBalancerConnectionLogsOutput) ToLoadBalancerConnectionLogsOutput() LoadBalancerConnectionLogsOutput {
+	return o
+}
+
+func (o LoadBalancerConnectionLogsOutput) ToLoadBalancerConnectionLogsOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsOutput {
+	return o
+}
+
+func (o LoadBalancerConnectionLogsOutput) ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput {
+	return o.ToLoadBalancerConnectionLogsPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerConnectionLogsOutput) ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerConnectionLogs) *LoadBalancerConnectionLogs {
+		return &v
+	}).(LoadBalancerConnectionLogsPtrOutput)
+}
+
+// The S3 bucket name to store the logs in.
+func (o LoadBalancerConnectionLogsOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerConnectionLogs) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
+func (o LoadBalancerConnectionLogsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConnectionLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The S3 bucket prefix. Logs are stored in the root if not configured.
+func (o LoadBalancerConnectionLogsOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConnectionLogs) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type LoadBalancerConnectionLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConnectionLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerConnectionLogs)(nil)).Elem()
+}
+
+func (o LoadBalancerConnectionLogsPtrOutput) ToLoadBalancerConnectionLogsPtrOutput() LoadBalancerConnectionLogsPtrOutput {
+	return o
+}
+
+func (o LoadBalancerConnectionLogsPtrOutput) ToLoadBalancerConnectionLogsPtrOutputWithContext(ctx context.Context) LoadBalancerConnectionLogsPtrOutput {
+	return o
+}
+
+func (o LoadBalancerConnectionLogsPtrOutput) Elem() LoadBalancerConnectionLogsOutput {
+	return o.ApplyT(func(v *LoadBalancerConnectionLogs) LoadBalancerConnectionLogs {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerConnectionLogs
+		return ret
+	}).(LoadBalancerConnectionLogsOutput)
+}
+
+// The S3 bucket name to store the logs in.
+func (o LoadBalancerConnectionLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerConnectionLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
+func (o LoadBalancerConnectionLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerConnectionLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The S3 bucket prefix. Logs are stored in the root if not configured.
+func (o LoadBalancerConnectionLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerConnectionLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type LoadBalancerSubnetMapping struct {
 	// The allocation ID of the Elastic IP address for an internet-facing load balancer.
 	AllocationId *string `pulumi:"allocationId"`
@@ -6563,6 +6738,112 @@ func (o GetLoadBalancerAccessLogsOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerAccessLogs) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
+type GetLoadBalancerConnectionLog struct {
+	Bucket  string `pulumi:"bucket"`
+	Enabled bool   `pulumi:"enabled"`
+	Prefix  string `pulumi:"prefix"`
+}
+
+// GetLoadBalancerConnectionLogInput is an input type that accepts GetLoadBalancerConnectionLogArgs and GetLoadBalancerConnectionLogOutput values.
+// You can construct a concrete instance of `GetLoadBalancerConnectionLogInput` via:
+//
+//	GetLoadBalancerConnectionLogArgs{...}
+type GetLoadBalancerConnectionLogInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerConnectionLogOutput() GetLoadBalancerConnectionLogOutput
+	ToGetLoadBalancerConnectionLogOutputWithContext(context.Context) GetLoadBalancerConnectionLogOutput
+}
+
+type GetLoadBalancerConnectionLogArgs struct {
+	Bucket  pulumi.StringInput `pulumi:"bucket"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Prefix  pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (GetLoadBalancerConnectionLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerConnectionLog)(nil)).Elem()
+}
+
+func (i GetLoadBalancerConnectionLogArgs) ToGetLoadBalancerConnectionLogOutput() GetLoadBalancerConnectionLogOutput {
+	return i.ToGetLoadBalancerConnectionLogOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerConnectionLogArgs) ToGetLoadBalancerConnectionLogOutputWithContext(ctx context.Context) GetLoadBalancerConnectionLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerConnectionLogOutput)
+}
+
+// GetLoadBalancerConnectionLogArrayInput is an input type that accepts GetLoadBalancerConnectionLogArray and GetLoadBalancerConnectionLogArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerConnectionLogArrayInput` via:
+//
+//	GetLoadBalancerConnectionLogArray{ GetLoadBalancerConnectionLogArgs{...} }
+type GetLoadBalancerConnectionLogArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerConnectionLogArrayOutput() GetLoadBalancerConnectionLogArrayOutput
+	ToGetLoadBalancerConnectionLogArrayOutputWithContext(context.Context) GetLoadBalancerConnectionLogArrayOutput
+}
+
+type GetLoadBalancerConnectionLogArray []GetLoadBalancerConnectionLogInput
+
+func (GetLoadBalancerConnectionLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerConnectionLog)(nil)).Elem()
+}
+
+func (i GetLoadBalancerConnectionLogArray) ToGetLoadBalancerConnectionLogArrayOutput() GetLoadBalancerConnectionLogArrayOutput {
+	return i.ToGetLoadBalancerConnectionLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerConnectionLogArray) ToGetLoadBalancerConnectionLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerConnectionLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerConnectionLogArrayOutput)
+}
+
+type GetLoadBalancerConnectionLogOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerConnectionLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerConnectionLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerConnectionLogOutput) ToGetLoadBalancerConnectionLogOutput() GetLoadBalancerConnectionLogOutput {
+	return o
+}
+
+func (o GetLoadBalancerConnectionLogOutput) ToGetLoadBalancerConnectionLogOutputWithContext(ctx context.Context) GetLoadBalancerConnectionLogOutput {
+	return o
+}
+
+func (o GetLoadBalancerConnectionLogOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerConnectionLog) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerConnectionLogOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerConnectionLog) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetLoadBalancerConnectionLogOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerConnectionLog) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type GetLoadBalancerConnectionLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerConnectionLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerConnectionLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerConnectionLogArrayOutput) ToGetLoadBalancerConnectionLogArrayOutput() GetLoadBalancerConnectionLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerConnectionLogArrayOutput) ToGetLoadBalancerConnectionLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerConnectionLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerConnectionLogArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerConnectionLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerConnectionLog {
+		return vs[0].([]GetLoadBalancerConnectionLog)[vs[1].(int)]
+	}).(GetLoadBalancerConnectionLogOutput)
+}
+
 type GetLoadBalancerSubnetMapping struct {
 	AllocationId       string `pulumi:"allocationId"`
 	Ipv6Address        string `pulumi:"ipv6Address"`
@@ -6896,6 +7177,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleConditionSourceIpPtrInput)(nil)).Elem(), ListenerRuleConditionSourceIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsPtrInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsPtrInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingInput)(nil)).Elem(), LoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingArrayInput)(nil)).Elem(), LoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckInput)(nil)).Elem(), TargetGroupHealthCheckArgs{})
@@ -6925,6 +7208,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerMutualAuthenticationInput)(nil)).Elem(), GetListenerMutualAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerMutualAuthenticationArrayInput)(nil)).Elem(), GetListenerMutualAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogInput)(nil)).Elem(), GetLoadBalancerConnectionLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogArrayInput)(nil)).Elem(), GetLoadBalancerConnectionLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingArrayInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupHealthCheckInput)(nil)).Elem(), GetTargetGroupHealthCheckArgs{})
@@ -6979,6 +7264,8 @@ func init() {
 	pulumi.RegisterOutputType(ListenerRuleConditionSourceIpPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConnectionLogsOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConnectionLogsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupHealthCheckOutput{})
@@ -7008,6 +7295,8 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerMutualAuthenticationOutput{})
 	pulumi.RegisterOutputType(GetListenerMutualAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetTargetGroupHealthCheckOutput{})

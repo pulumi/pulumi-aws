@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PermissionSetInlinePolicy{}
 	case "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment":
 		r = &PermissionsBoundaryAttachment{}
+	case "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer":
+		r = &TrustedTokenIssuer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -102,6 +104,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssoadmin/permissionsBoundaryAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssoadmin/trustedTokenIssuer",
 		&module{version},
 	)
 }

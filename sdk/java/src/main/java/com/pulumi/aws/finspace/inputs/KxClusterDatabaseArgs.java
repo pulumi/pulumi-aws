@@ -62,12 +62,28 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         return this.databaseName;
     }
 
+    /**
+     * The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+     * 
+     */
+    @Import(name="dataviewName")
+    private @Nullable Output<String> dataviewName;
+
+    /**
+     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+     * 
+     */
+    public Optional<Output<String>> dataviewName() {
+        return Optional.ofNullable(this.dataviewName);
+    }
+
     private KxClusterDatabaseArgs() {}
 
     private KxClusterDatabaseArgs(KxClusterDatabaseArgs $) {
         this.cacheConfigurations = $.cacheConfigurations;
         this.changesetId = $.changesetId;
         this.databaseName = $.databaseName;
+        this.dataviewName = $.dataviewName;
     }
 
     public static Builder builder() {
@@ -159,6 +175,27 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
+        }
+
+        /**
+         * @param dataviewName The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataviewName(@Nullable Output<String> dataviewName) {
+            $.dataviewName = dataviewName;
+            return this;
+        }
+
+        /**
+         * @param dataviewName The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataviewName(String dataviewName) {
+            return dataviewName(Output.of(dataviewName));
         }
 
         public KxClusterDatabaseArgs build() {

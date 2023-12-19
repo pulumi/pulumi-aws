@@ -22,7 +22,7 @@ class GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
-    def __init__(__self__, certificate_arn=None, database_name=None, elasticsearch_settings=None, endpoint_arn=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, id=None, kafka_settings=None, kinesis_settings=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, redis_settings=None, redshift_settings=None, s3_settings=None, secrets_manager_access_role_arn=None, secrets_manager_arn=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None):
+    def __init__(__self__, certificate_arn=None, database_name=None, elasticsearch_settings=None, endpoint_arn=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, id=None, kafka_settings=None, kinesis_settings=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, postgres_settings=None, redis_settings=None, redshift_settings=None, s3_settings=None, secrets_manager_access_role_arn=None, secrets_manager_arn=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -68,6 +68,9 @@ class GetEndpointResult:
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
+        if postgres_settings and not isinstance(postgres_settings, list):
+            raise TypeError("Expected argument 'postgres_settings' to be a list")
+        pulumi.set(__self__, "postgres_settings", postgres_settings)
         if redis_settings and not isinstance(redis_settings, list):
             raise TypeError("Expected argument 'redis_settings' to be a list")
         pulumi.set(__self__, "redis_settings", redis_settings)
@@ -178,6 +181,11 @@ class GetEndpointResult:
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter(name="postgresSettings")
+    def postgres_settings(self) -> Sequence['outputs.GetEndpointPostgresSettingResult']:
+        return pulumi.get(self, "postgres_settings")
+
+    @property
     @pulumi.getter(name="redisSettings")
     def redis_settings(self) -> Sequence['outputs.GetEndpointRedisSettingResult']:
         return pulumi.get(self, "redis_settings")
@@ -249,6 +257,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             mongodb_settings=self.mongodb_settings,
             password=self.password,
             port=self.port,
+            postgres_settings=self.postgres_settings,
             redis_settings=self.redis_settings,
             redshift_settings=self.redshift_settings,
             s3_settings=self.s3_settings,
@@ -302,6 +311,7 @@ def get_endpoint(endpoint_id: Optional[str] = None,
         mongodb_settings=pulumi.get(__ret__, 'mongodb_settings'),
         password=pulumi.get(__ret__, 'password'),
         port=pulumi.get(__ret__, 'port'),
+        postgres_settings=pulumi.get(__ret__, 'postgres_settings'),
         redis_settings=pulumi.get(__ret__, 'redis_settings'),
         redshift_settings=pulumi.get(__ret__, 'redshift_settings'),
         s3_settings=pulumi.get(__ret__, 's3_settings'),

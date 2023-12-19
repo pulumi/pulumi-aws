@@ -61,7 +61,7 @@ type LogGroup struct {
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
-	LogGroupClass pulumi.StringPtrOutput `pulumi:"logGroupClass"`
+	LogGroupClass pulumi.StringOutput `pulumi:"logGroupClass"`
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -314,8 +314,8 @@ func (o LogGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
 }
 
 // Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
-func (o LogGroupOutput) LogGroupClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.LogGroupClass }).(pulumi.StringPtrOutput)
+func (o LogGroupOutput) LogGroupClass() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.LogGroupClass }).(pulumi.StringOutput)
 }
 
 // The name of the log group. If omitted, this provider will assign a random, unique name.

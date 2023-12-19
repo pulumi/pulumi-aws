@@ -171,6 +171,20 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * 
+     */
+    @Export(name="standbyReplicas", refs={String.class}, tree="[0]")
+    private Output<String> standbyReplicas;
+
+    /**
+     * @return Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * 
+     */
+    public Output<String> standbyReplicas() {
+        return this.standbyReplicas;
+    }
+    /**
      * A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

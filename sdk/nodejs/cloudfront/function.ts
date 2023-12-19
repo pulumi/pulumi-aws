@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as fs from "fs";
  *
  * const test = new aws.cloudfront.Function("test", {
- *     runtime: "cloudfront-js-1.0",
+ *     runtime: "cloudfront-js-2.0",
  *     comment: "my function",
  *     publish: true,
  *     code: fs.readFileSync(`${path.module}/function.js`, "utf8"),
@@ -92,7 +92,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly publish!: pulumi.Output<boolean | undefined>;
     /**
-     * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     * Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      *
      * The following arguments are optional:
      */
@@ -180,7 +180,7 @@ export interface FunctionState {
      */
     publish?: pulumi.Input<boolean>;
     /**
-     * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     * Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      *
      * The following arguments are optional:
      */
@@ -212,7 +212,7 @@ export interface FunctionArgs {
      */
     publish?: pulumi.Input<boolean>;
     /**
-     * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     * Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      *
      * The following arguments are optional:
      */

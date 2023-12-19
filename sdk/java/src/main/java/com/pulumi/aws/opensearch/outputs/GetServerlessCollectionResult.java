@@ -48,6 +48,11 @@ public final class GetServerlessCollectionResult {
     private String lastModifiedDate;
     private String name;
     /**
+     * @return Indicates whether standby replicas should be used for a collection.
+     * 
+     */
+    private String standbyReplicas;
+    /**
      * @return A map of tags to assign to the collection.
      * 
      */
@@ -115,6 +120,13 @@ public final class GetServerlessCollectionResult {
         return this.name;
     }
     /**
+     * @return Indicates whether standby replicas should be used for a collection.
+     * 
+     */
+    public String standbyReplicas() {
+        return this.standbyReplicas;
+    }
+    /**
      * @return A map of tags to assign to the collection.
      * 
      */
@@ -147,6 +159,7 @@ public final class GetServerlessCollectionResult {
         private String kmsKeyArn;
         private String lastModifiedDate;
         private String name;
+        private String standbyReplicas;
         private Map<String,String> tags;
         private String type;
         public Builder() {}
@@ -161,6 +174,7 @@ public final class GetServerlessCollectionResult {
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.lastModifiedDate = defaults.lastModifiedDate;
     	      this.name = defaults.name;
+    	      this.standbyReplicas = defaults.standbyReplicas;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
@@ -211,6 +225,11 @@ public final class GetServerlessCollectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder standbyReplicas(String standbyReplicas) {
+            this.standbyReplicas = Objects.requireNonNull(standbyReplicas);
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -231,6 +250,7 @@ public final class GetServerlessCollectionResult {
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.lastModifiedDate = lastModifiedDate;
             _resultValue.name = name;
+            _resultValue.standbyReplicas = standbyReplicas;
             _resultValue.tags = tags;
             _resultValue.type = type;
             return _resultValue;

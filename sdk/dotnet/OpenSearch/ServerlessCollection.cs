@@ -111,6 +111,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// </summary>
+        [Output("standbyReplicas")]
+        public Output<string> StandbyReplicas { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.OpenSearch
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// </summary>
+        [Input("standbyReplicas")]
+        public Input<string>? StandbyReplicas { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -258,6 +270,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// </summary>
+        [Input("standbyReplicas")]
+        public Input<string>? StandbyReplicas { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

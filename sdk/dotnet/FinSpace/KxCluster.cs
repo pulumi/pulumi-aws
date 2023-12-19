@@ -61,7 +61,7 @@ namespace Pulumi.Aws.FinSpace
         /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         /// </summary>
         [Output("capacityConfiguration")]
-        public Output<Outputs.KxClusterCapacityConfiguration> CapacityConfiguration { get; private set; } = null!;
+        public Output<Outputs.KxClusterCapacityConfiguration?> CapacityConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
@@ -135,6 +135,12 @@ namespace Pulumi.Aws.FinSpace
         [Output("savedownStorageConfiguration")]
         public Output<Outputs.KxClusterSavedownStorageConfiguration?> SavedownStorageConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The structure that stores the configuration details of a scaling group.
+        /// </summary>
+        [Output("scalingGroupConfiguration")]
+        public Output<Outputs.KxClusterScalingGroupConfiguration?> ScalingGroupConfiguration { get; private set; } = null!;
+
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -152,6 +158,12 @@ namespace Pulumi.Aws.FinSpace
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// </summary>
+        [Output("tickerplantLogConfigurations")]
+        public Output<ImmutableArray<Outputs.KxClusterTickerplantLogConfiguration>> TickerplantLogConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Type of KDB database. The following types are available:
@@ -256,8 +268,8 @@ namespace Pulumi.Aws.FinSpace
         /// <summary>
         /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         /// </summary>
-        [Input("capacityConfiguration", required: true)]
-        public Input<Inputs.KxClusterCapacityConfigurationArgs> CapacityConfiguration { get; set; } = null!;
+        [Input("capacityConfiguration")]
+        public Input<Inputs.KxClusterCapacityConfigurationArgs>? CapacityConfiguration { get; set; }
 
         /// <summary>
         /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
@@ -331,6 +343,12 @@ namespace Pulumi.Aws.FinSpace
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationArgs>? SavedownStorageConfiguration { get; set; }
 
+        /// <summary>
+        /// The structure that stores the configuration details of a scaling group.
+        /// </summary>
+        [Input("scalingGroupConfiguration")]
+        public Input<Inputs.KxClusterScalingGroupConfigurationArgs>? ScalingGroupConfiguration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -341,6 +359,18 @@ namespace Pulumi.Aws.FinSpace
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tickerplantLogConfigurations")]
+        private InputList<Inputs.KxClusterTickerplantLogConfigurationArgs>? _tickerplantLogConfigurations;
+
+        /// <summary>
+        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// </summary>
+        public InputList<Inputs.KxClusterTickerplantLogConfigurationArgs> TickerplantLogConfigurations
+        {
+            get => _tickerplantLogConfigurations ?? (_tickerplantLogConfigurations = new InputList<Inputs.KxClusterTickerplantLogConfigurationArgs>());
+            set => _tickerplantLogConfigurations = value;
         }
 
         /// <summary>
@@ -497,6 +527,12 @@ namespace Pulumi.Aws.FinSpace
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationGetArgs>? SavedownStorageConfiguration { get; set; }
 
+        /// <summary>
+        /// The structure that stores the configuration details of a scaling group.
+        /// </summary>
+        [Input("scalingGroupConfiguration")]
+        public Input<Inputs.KxClusterScalingGroupConfigurationGetArgs>? ScalingGroupConfiguration { get; set; }
+
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -530,6 +566,18 @@ namespace Pulumi.Aws.FinSpace
                 var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
                 _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
             }
+        }
+
+        [Input("tickerplantLogConfigurations")]
+        private InputList<Inputs.KxClusterTickerplantLogConfigurationGetArgs>? _tickerplantLogConfigurations;
+
+        /// <summary>
+        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// </summary>
+        public InputList<Inputs.KxClusterTickerplantLogConfigurationGetArgs> TickerplantLogConfigurations
+        {
+            get => _tickerplantLogConfigurations ?? (_tickerplantLogConfigurations = new InputList<Inputs.KxClusterTickerplantLogConfigurationGetArgs>());
+            set => _tickerplantLogConfigurations = value;
         }
 
         /// <summary>

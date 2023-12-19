@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +20,15 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
      * Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
-    @Import(name="size", required=true)
-    private Output<Integer> size;
+    @Import(name="size")
+    private @Nullable Output<Integer> size;
 
     /**
      * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
-    public Output<Integer> size() {
-        return this.size;
+    public Optional<Output<Integer>> size() {
+        return Optional.ofNullable(this.size);
     }
 
     /**
@@ -34,16 +36,31 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
      * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
      * 
      */
-    @Import(name="type", required=true)
-    private Output<String> type;
+    @Import(name="type")
+    private @Nullable Output<String> type;
 
     /**
      * @return Type of writeable storage space for temporarily storing your savedown data. The valid values are:
      * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+     * 
+     */
+    @Import(name="volumeName")
+    private @Nullable Output<String> volumeName;
+
+    /**
+     * @return The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+     * 
+     */
+    public Optional<Output<String>> volumeName() {
+        return Optional.ofNullable(this.volumeName);
     }
 
     private KxClusterSavedownStorageConfigurationArgs() {}
@@ -51,6 +68,7 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
     private KxClusterSavedownStorageConfigurationArgs(KxClusterSavedownStorageConfigurationArgs $) {
         this.size = $.size;
         this.type = $.type;
+        this.volumeName = $.volumeName;
     }
 
     public static Builder builder() {
@@ -77,7 +95,7 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder size(Output<Integer> size) {
+        public Builder size(@Nullable Output<Integer> size) {
             $.size = size;
             return this;
         }
@@ -99,7 +117,7 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder type(Output<String> type) {
+        public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
@@ -115,9 +133,28 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
             return type(Output.of(type));
         }
 
+        /**
+         * @param volumeName The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeName(@Nullable Output<String> volumeName) {
+            $.volumeName = volumeName;
+            return this;
+        }
+
+        /**
+         * @param volumeName The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeName(String volumeName) {
+            return volumeName(Output.of(volumeName));
+        }
+
         public KxClusterSavedownStorageConfigurationArgs build() {
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             return $;
         }
     }

@@ -29,6 +29,10 @@ namespace Pulumi.Aws.Dms.Outputs
         /// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         /// </summary>
         public readonly string ServiceAccessRoleArn;
+        /// <summary>
+        /// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+        /// </summary>
+        public readonly bool? UseNewMappingType;
 
         [OutputConstructor]
         private EndpointElasticsearchSettings(
@@ -38,12 +42,15 @@ namespace Pulumi.Aws.Dms.Outputs
 
             int? fullLoadErrorPercentage,
 
-            string serviceAccessRoleArn)
+            string serviceAccessRoleArn,
+
+            bool? useNewMappingType)
         {
             EndpointUri = endpointUri;
             ErrorRetryDuration = errorRetryDuration;
             FullLoadErrorPercentage = fullLoadErrorPercentage;
             ServiceAccessRoleArn = serviceAccessRoleArn;
+            UseNewMappingType = useNewMappingType;
         }
     }
 }

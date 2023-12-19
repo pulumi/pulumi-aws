@@ -213,6 +213,7 @@ import * as organizations from "./organizations";
 import * as outposts from "./outposts";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
+import * as polly from "./polly";
 import * as pricing from "./pricing";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
@@ -413,6 +414,7 @@ export {
     outposts,
     pinpoint,
     pipes,
+    polly,
     pricing,
     qldb,
     quicksight,

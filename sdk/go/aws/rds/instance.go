@@ -33,7 +33,7 @@ import (
 //
 // ## RDS Instance Class Types
 //
-// Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+// Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
 // For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
 //
 // ## Low-Downtime Updates
@@ -73,6 +73,78 @@ import (
 //				Password:           pulumi.String("foobarbaz"),
 //				SkipFinalSnapshot:  pulumi.Bool(true),
 //				Username:           pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### RDS Db2 Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
+//				Engine: "db2-se",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleOrderableDbInstance, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
+//				Engine:        _default.Engine,
+//				EngineVersion: pulumi.StringRef(_default.Version),
+//				LicenseModel:  pulumi.StringRef("bring-your-own-license"),
+//				StorageType:   pulumi.StringRef("gp3"),
+//				PreferredInstanceClasses: []string{
+//					"db.t3.small",
+//					"db.r6i.large",
+//					"db.m6i.large",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleParameterGroup, err := rds.NewParameterGroup(ctx, "exampleParameterGroup", &rds.ParameterGroupArgs{
+//				Family: *pulumi.String(_default.ParameterGroupFamily),
+//				Parameters: rds.ParameterGroupParameterArray{
+//					&rds.ParameterGroupParameterArgs{
+//						ApplyMethod: pulumi.String("immediate"),
+//						Name:        pulumi.String("rds.ibm_customer_id"),
+//						Value:       pulumi.String("0"),
+//					},
+//					&rds.ParameterGroupParameterArgs{
+//						ApplyMethod: pulumi.String("immediate"),
+//						Name:        pulumi.String("rds.ibm_site_id"),
+//						Value:       pulumi.String("0"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
+//				AllocatedStorage:      pulumi.Int(100),
+//				BackupRetentionPeriod: pulumi.Int(7),
+//				DbName:                pulumi.String("test"),
+//				Engine:                *pulumi.String(exampleOrderableDbInstance.Engine),
+//				EngineVersion:         *pulumi.String(exampleOrderableDbInstance.EngineVersion),
+//				Identifier:            pulumi.String("db2-instance-demo"),
+//				InstanceClass:         exampleOrderableDbInstance.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
+//				ParameterGroupName:    exampleParameterGroup.Name,
+//				Password:              pulumi.String("avoid-plaintext-passwords"),
+//				Username:              pulumi.String("test"),
 //			})
 //			if err != nil {
 //				return err
@@ -354,8 +426,7 @@ type Instance struct {
 	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringOutput `pulumi:"optionGroupName"`
-	// Name of the DB parameter group to
-	// associate.
+	// Name of the DB parameter group to associate.
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
@@ -628,8 +699,7 @@ type instanceState struct {
 	NetworkType *string `pulumi:"networkType"`
 	// Name of the DB option group to associate.
 	OptionGroupName *string `pulumi:"optionGroupName"`
-	// Name of the DB parameter group to
-	// associate.
+	// Name of the DB parameter group to associate.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
@@ -862,8 +932,7 @@ type InstanceState struct {
 	NetworkType pulumi.StringPtrInput
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringPtrInput
-	// Name of the DB parameter group to
-	// associate.
+	// Name of the DB parameter group to associate.
 	ParameterGroupName pulumi.StringPtrInput
 	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
@@ -1084,8 +1153,7 @@ type instanceArgs struct {
 	NetworkType *string `pulumi:"networkType"`
 	// Name of the DB option group to associate.
 	OptionGroupName *string `pulumi:"optionGroupName"`
-	// Name of the DB parameter group to
-	// associate.
+	// Name of the DB parameter group to associate.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
@@ -1294,8 +1362,7 @@ type InstanceArgs struct {
 	NetworkType pulumi.StringPtrInput
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringPtrInput
-	// Name of the DB parameter group to
-	// associate.
+	// Name of the DB parameter group to associate.
 	ParameterGroupName pulumi.StringPtrInput
 	// (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
@@ -1755,8 +1822,7 @@ func (o InstanceOutput) OptionGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.OptionGroupName }).(pulumi.StringOutput)
 }
 
-// Name of the DB parameter group to
-// associate.
+// Name of the DB parameter group to associate.
 func (o InstanceOutput) ParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
 }

@@ -35,6 +35,11 @@ export const getApplication: typeof import("./getApplication").getApplication = 
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
 utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
+export { GetApplicationAssignmentsArgs, GetApplicationAssignmentsResult, GetApplicationAssignmentsOutputArgs } from "./getApplicationAssignments";
+export const getApplicationAssignments: typeof import("./getApplicationAssignments").getApplicationAssignments = null as any;
+export const getApplicationAssignmentsOutput: typeof import("./getApplicationAssignments").getApplicationAssignmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationAssignments","getApplicationAssignmentsOutput"], () => require("./getApplicationAssignments"));
+
 export { GetApplicationProvidersArgs, GetApplicationProvidersResult, GetApplicationProvidersOutputArgs } from "./getApplicationProviders";
 export const getApplicationProviders: typeof import("./getApplicationProviders").getApplicationProviders = null as any;
 export const getApplicationProvidersOutput: typeof import("./getApplicationProviders").getApplicationProvidersOutput = null as any;
@@ -49,6 +54,11 @@ export { GetPermissionSetArgs, GetPermissionSetResult, GetPermissionSetOutputArg
 export const getPermissionSet: typeof import("./getPermissionSet").getPermissionSet = null as any;
 export const getPermissionSetOutput: typeof import("./getPermissionSet").getPermissionSetOutput = null as any;
 utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
+
+export { GetPrincipalApplicationAssignmentsArgs, GetPrincipalApplicationAssignmentsResult, GetPrincipalApplicationAssignmentsOutputArgs } from "./getPrincipalApplicationAssignments";
+export const getPrincipalApplicationAssignments: typeof import("./getPrincipalApplicationAssignments").getPrincipalApplicationAssignments = null as any;
+export const getPrincipalApplicationAssignmentsOutput: typeof import("./getPrincipalApplicationAssignments").getPrincipalApplicationAssignmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getPrincipalApplicationAssignments","getPrincipalApplicationAssignmentsOutput"], () => require("./getPrincipalApplicationAssignments"));
 
 export { InstanceAccessControlAttributesArgs, InstanceAccessControlAttributesState } from "./instanceAccessControlAttributes";
 export type InstanceAccessControlAttributes = import("./instanceAccessControlAttributes").InstanceAccessControlAttributes;
@@ -75,6 +85,11 @@ export type PermissionsBoundaryAttachment = import("./permissionsBoundaryAttachm
 export const PermissionsBoundaryAttachment: typeof import("./permissionsBoundaryAttachment").PermissionsBoundaryAttachment = null as any;
 utilities.lazyLoad(exports, ["PermissionsBoundaryAttachment"], () => require("./permissionsBoundaryAttachment"));
 
+export { TrustedTokenIssuerArgs, TrustedTokenIssuerState } from "./trustedTokenIssuer";
+export type TrustedTokenIssuer = import("./trustedTokenIssuer").TrustedTokenIssuer;
+export const TrustedTokenIssuer: typeof import("./trustedTokenIssuer").TrustedTokenIssuer = null as any;
+utilities.lazyLoad(exports, ["TrustedTokenIssuer"], () => require("./trustedTokenIssuer"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -100,6 +115,8 @@ const _module = {
                 return new PermissionSetInlinePolicy(name, <any>undefined, { urn })
             case "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment":
                 return new PermissionsBoundaryAttachment(name, <any>undefined, { urn })
+            case "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer":
+                return new TrustedTokenIssuer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -115,3 +132,4 @@ pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachment",
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSet", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSetInlinePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionsBoundaryAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/trustedTokenIssuer", _module)

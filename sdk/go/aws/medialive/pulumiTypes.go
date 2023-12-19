@@ -25276,7 +25276,8 @@ func (o ChannelInputAttachmentArrayOutput) Index(i pulumi.IntInput) ChannelInput
 
 type ChannelInputAttachmentAutomaticInputFailoverSettings struct {
 	// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
-	ErrorClearTimeMsec *int                                                                    `pulumi:"errorClearTimeMsec"`
+	ErrorClearTimeMsec *int `pulumi:"errorClearTimeMsec"`
+	// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
 	FailoverConditions []ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition `pulumi:"failoverConditions"`
 	// Input preference when deciding which input to make active when a previously failed input has recovered.
 	InputPreference *string `pulumi:"inputPreference"`
@@ -25297,7 +25298,8 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsInput interface {
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsArgs struct {
 	// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
-	ErrorClearTimeMsec pulumi.IntPtrInput                                                              `pulumi:"errorClearTimeMsec"`
+	ErrorClearTimeMsec pulumi.IntPtrInput `pulumi:"errorClearTimeMsec"`
+	// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
 	FailoverConditions ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrayInput `pulumi:"failoverConditions"`
 	// Input preference when deciding which input to make active when a previously failed input has recovered.
 	InputPreference pulumi.StringPtrInput `pulumi:"inputPreference"`
@@ -25387,6 +25389,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsOutput) ErrorClearTi
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettings) *int { return v.ErrorClearTimeMsec }).(pulumi.IntPtrOutput)
 }
 
+// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsOutput) FailoverConditions() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrayOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettings) []ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
 		return v.FailoverConditions
@@ -25437,6 +25440,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) ErrorClea
 	}).(pulumi.IntPtrOutput)
 }
 
+// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) FailoverConditions() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrayOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettings) []ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
 		if v == nil {

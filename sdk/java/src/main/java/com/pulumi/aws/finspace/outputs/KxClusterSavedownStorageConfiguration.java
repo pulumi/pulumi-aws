@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class KxClusterSavedownStorageConfiguration {
@@ -14,29 +16,41 @@ public final class KxClusterSavedownStorageConfiguration {
      * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
-    private Integer size;
+    private @Nullable Integer size;
     /**
      * @return Type of writeable storage space for temporarily storing your savedown data. The valid values are:
      * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
      * 
      */
-    private String type;
+    private @Nullable String type;
+    /**
+     * @return The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+     * 
+     */
+    private @Nullable String volumeName;
 
     private KxClusterSavedownStorageConfiguration() {}
     /**
      * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
-    public Integer size() {
-        return this.size;
+    public Optional<Integer> size() {
+        return Optional.ofNullable(this.size);
     }
     /**
      * @return Type of writeable storage space for temporarily storing your savedown data. The valid values are:
      * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
+    }
+    /**
+     * @return The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+     * 
+     */
+    public Optional<String> volumeName() {
+        return Optional.ofNullable(this.volumeName);
     }
 
     public static Builder builder() {
@@ -48,29 +62,37 @@ public final class KxClusterSavedownStorageConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer size;
-        private String type;
+        private @Nullable Integer size;
+        private @Nullable String type;
+        private @Nullable String volumeName;
         public Builder() {}
         public Builder(KxClusterSavedownStorageConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.size = defaults.size;
     	      this.type = defaults.type;
+    	      this.volumeName = defaults.volumeName;
         }
 
         @CustomType.Setter
-        public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+        public Builder size(@Nullable Integer size) {
+            this.size = size;
             return this;
         }
         @CustomType.Setter
-        public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+        public Builder type(@Nullable String type) {
+            this.type = type;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder volumeName(@Nullable String volumeName) {
+            this.volumeName = volumeName;
             return this;
         }
         public KxClusterSavedownStorageConfiguration build() {
             final var _resultValue = new KxClusterSavedownStorageConfiguration();
             _resultValue.size = size;
             _resultValue.type = type;
+            _resultValue.volumeName = volumeName;
             return _resultValue;
         }
     }

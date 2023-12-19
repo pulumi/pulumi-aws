@@ -14,6 +14,7 @@ __all__ = [
     'EndpointKafkaSettings',
     'EndpointKinesisSettings',
     'EndpointMongodbSettings',
+    'EndpointPostgresSettings',
     'EndpointRedisSettings',
     'EndpointRedshiftSettings',
     'EndpointS3Settings',
@@ -22,6 +23,7 @@ __all__ = [
     'GetEndpointKafkaSettingResult',
     'GetEndpointKinesisSettingResult',
     'GetEndpointMongodbSettingResult',
+    'GetEndpointPostgresSettingResult',
     'GetEndpointRedisSettingResult',
     'GetEndpointRedshiftSettingResult',
     'GetEndpointS3SettingResult',
@@ -40,6 +42,8 @@ class EndpointElasticsearchSettings(dict):
             suggest = "error_retry_duration"
         elif key == "fullLoadErrorPercentage":
             suggest = "full_load_error_percentage"
+        elif key == "useNewMappingType":
+            suggest = "use_new_mapping_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointElasticsearchSettings. Access the value via the '{suggest}' property getter instead.")
@@ -56,12 +60,14 @@ class EndpointElasticsearchSettings(dict):
                  endpoint_uri: str,
                  service_access_role_arn: str,
                  error_retry_duration: Optional[int] = None,
-                 full_load_error_percentage: Optional[int] = None):
+                 full_load_error_percentage: Optional[int] = None,
+                 use_new_mapping_type: Optional[bool] = None):
         """
         :param str endpoint_uri: Endpoint for the OpenSearch cluster.
         :param str service_access_role_arn: ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         :param int error_retry_duration: Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
         :param int full_load_error_percentage: Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
+        :param bool use_new_mapping_type: Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
         """
         pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
@@ -69,6 +75,8 @@ class EndpointElasticsearchSettings(dict):
             pulumi.set(__self__, "error_retry_duration", error_retry_duration)
         if full_load_error_percentage is not None:
             pulumi.set(__self__, "full_load_error_percentage", full_load_error_percentage)
+        if use_new_mapping_type is not None:
+            pulumi.set(__self__, "use_new_mapping_type", use_new_mapping_type)
 
     @property
     @pulumi.getter(name="endpointUri")
@@ -101,6 +109,14 @@ class EndpointElasticsearchSettings(dict):
         Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
         """
         return pulumi.get(self, "full_load_error_percentage")
+
+    @property
+    @pulumi.getter(name="useNewMappingType")
+    def use_new_mapping_type(self) -> Optional[bool]:
+        """
+        Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+        """
+        return pulumi.get(self, "use_new_mapping_type")
 
 
 @pulumi.output_type
@@ -627,6 +643,252 @@ class EndpointMongodbSettings(dict):
 
 
 @pulumi.output_type
+class EndpointPostgresSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "afterConnectScript":
+            suggest = "after_connect_script"
+        elif key == "babelfishDatabaseName":
+            suggest = "babelfish_database_name"
+        elif key == "captureDdls":
+            suggest = "capture_ddls"
+        elif key == "databaseMode":
+            suggest = "database_mode"
+        elif key == "ddlArtifactsSchema":
+            suggest = "ddl_artifacts_schema"
+        elif key == "executeTimeout":
+            suggest = "execute_timeout"
+        elif key == "failTasksOnLobTruncation":
+            suggest = "fail_tasks_on_lob_truncation"
+        elif key == "heartbeatEnable":
+            suggest = "heartbeat_enable"
+        elif key == "heartbeatFrequency":
+            suggest = "heartbeat_frequency"
+        elif key == "heartbeatSchema":
+            suggest = "heartbeat_schema"
+        elif key == "mapBooleanAsBoolean":
+            suggest = "map_boolean_as_boolean"
+        elif key == "mapJsonbAsClob":
+            suggest = "map_jsonb_as_clob"
+        elif key == "mapLongVarcharAs":
+            suggest = "map_long_varchar_as"
+        elif key == "maxFileSize":
+            suggest = "max_file_size"
+        elif key == "pluginName":
+            suggest = "plugin_name"
+        elif key == "slotName":
+            suggest = "slot_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointPostgresSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointPostgresSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointPostgresSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 after_connect_script: Optional[str] = None,
+                 babelfish_database_name: Optional[str] = None,
+                 capture_ddls: Optional[bool] = None,
+                 database_mode: Optional[str] = None,
+                 ddl_artifacts_schema: Optional[str] = None,
+                 execute_timeout: Optional[int] = None,
+                 fail_tasks_on_lob_truncation: Optional[bool] = None,
+                 heartbeat_enable: Optional[bool] = None,
+                 heartbeat_frequency: Optional[int] = None,
+                 heartbeat_schema: Optional[str] = None,
+                 map_boolean_as_boolean: Optional[bool] = None,
+                 map_jsonb_as_clob: Optional[bool] = None,
+                 map_long_varchar_as: Optional[str] = None,
+                 max_file_size: Optional[int] = None,
+                 plugin_name: Optional[str] = None,
+                 slot_name: Optional[str] = None):
+        """
+        :param str after_connect_script: For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+        :param str babelfish_database_name: The Babelfish for Aurora PostgreSQL database name for the endpoint.
+        :param bool capture_ddls: To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+        :param str database_mode: Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+        :param str ddl_artifacts_schema: Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+        :param int execute_timeout: Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+        :param bool fail_tasks_on_lob_truncation: When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+        :param bool heartbeat_enable: The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+        :param int heartbeat_frequency: Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+        :param str heartbeat_schema: Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+        :param bool map_boolean_as_boolean: You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+        :param bool map_jsonb_as_clob: Optional When true, DMS migrates JSONB values as CLOB.
+        :param str map_long_varchar_as: Optional When true, DMS migrates LONG values as VARCHAR.
+        :param int max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        :param str plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        :param str slot_name: Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+        """
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if babelfish_database_name is not None:
+            pulumi.set(__self__, "babelfish_database_name", babelfish_database_name)
+        if capture_ddls is not None:
+            pulumi.set(__self__, "capture_ddls", capture_ddls)
+        if database_mode is not None:
+            pulumi.set(__self__, "database_mode", database_mode)
+        if ddl_artifacts_schema is not None:
+            pulumi.set(__self__, "ddl_artifacts_schema", ddl_artifacts_schema)
+        if execute_timeout is not None:
+            pulumi.set(__self__, "execute_timeout", execute_timeout)
+        if fail_tasks_on_lob_truncation is not None:
+            pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+        if heartbeat_enable is not None:
+            pulumi.set(__self__, "heartbeat_enable", heartbeat_enable)
+        if heartbeat_frequency is not None:
+            pulumi.set(__self__, "heartbeat_frequency", heartbeat_frequency)
+        if heartbeat_schema is not None:
+            pulumi.set(__self__, "heartbeat_schema", heartbeat_schema)
+        if map_boolean_as_boolean is not None:
+            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
+        if map_jsonb_as_clob is not None:
+            pulumi.set(__self__, "map_jsonb_as_clob", map_jsonb_as_clob)
+        if map_long_varchar_as is not None:
+            pulumi.set(__self__, "map_long_varchar_as", map_long_varchar_as)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if plugin_name is not None:
+            pulumi.set(__self__, "plugin_name", plugin_name)
+        if slot_name is not None:
+            pulumi.set(__self__, "slot_name", slot_name)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[str]:
+        """
+        For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+        """
+        return pulumi.get(self, "after_connect_script")
+
+    @property
+    @pulumi.getter(name="babelfishDatabaseName")
+    def babelfish_database_name(self) -> Optional[str]:
+        """
+        The Babelfish for Aurora PostgreSQL database name for the endpoint.
+        """
+        return pulumi.get(self, "babelfish_database_name")
+
+    @property
+    @pulumi.getter(name="captureDdls")
+    def capture_ddls(self) -> Optional[bool]:
+        """
+        To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+        """
+        return pulumi.get(self, "capture_ddls")
+
+    @property
+    @pulumi.getter(name="databaseMode")
+    def database_mode(self) -> Optional[str]:
+        """
+        Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+        """
+        return pulumi.get(self, "database_mode")
+
+    @property
+    @pulumi.getter(name="ddlArtifactsSchema")
+    def ddl_artifacts_schema(self) -> Optional[str]:
+        """
+        Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+        """
+        return pulumi.get(self, "ddl_artifacts_schema")
+
+    @property
+    @pulumi.getter(name="executeTimeout")
+    def execute_timeout(self) -> Optional[int]:
+        """
+        Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+        """
+        return pulumi.get(self, "execute_timeout")
+
+    @property
+    @pulumi.getter(name="failTasksOnLobTruncation")
+    def fail_tasks_on_lob_truncation(self) -> Optional[bool]:
+        """
+        When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+        """
+        return pulumi.get(self, "fail_tasks_on_lob_truncation")
+
+    @property
+    @pulumi.getter(name="heartbeatEnable")
+    def heartbeat_enable(self) -> Optional[bool]:
+        """
+        The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+        """
+        return pulumi.get(self, "heartbeat_enable")
+
+    @property
+    @pulumi.getter(name="heartbeatFrequency")
+    def heartbeat_frequency(self) -> Optional[int]:
+        """
+        Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+        """
+        return pulumi.get(self, "heartbeat_frequency")
+
+    @property
+    @pulumi.getter(name="heartbeatSchema")
+    def heartbeat_schema(self) -> Optional[str]:
+        """
+        Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+        """
+        return pulumi.get(self, "heartbeat_schema")
+
+    @property
+    @pulumi.getter(name="mapBooleanAsBoolean")
+    def map_boolean_as_boolean(self) -> Optional[bool]:
+        """
+        You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+        """
+        return pulumi.get(self, "map_boolean_as_boolean")
+
+    @property
+    @pulumi.getter(name="mapJsonbAsClob")
+    def map_jsonb_as_clob(self) -> Optional[bool]:
+        """
+        Optional When true, DMS migrates JSONB values as CLOB.
+        """
+        return pulumi.get(self, "map_jsonb_as_clob")
+
+    @property
+    @pulumi.getter(name="mapLongVarcharAs")
+    def map_long_varchar_as(self) -> Optional[str]:
+        """
+        Optional When true, DMS migrates LONG values as VARCHAR.
+        """
+        return pulumi.get(self, "map_long_varchar_as")
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[int]:
+        """
+        Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @property
+    @pulumi.getter(name="pluginName")
+    def plugin_name(self) -> Optional[str]:
+        """
+        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        """
+        return pulumi.get(self, "plugin_name")
+
+    @property
+    @pulumi.getter(name="slotName")
+    def slot_name(self) -> Optional[str]:
+        """
+        Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+        """
+        return pulumi.get(self, "slot_name")
+
+
+@pulumi.output_type
 class EndpointRedisSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -991,7 +1253,7 @@ class EndpointS3Settings(dict):
         :param bool glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param int ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
         :param bool include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        :param int max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+        :param int max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         :param bool parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
         :param str parquet_version: Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
         :param bool preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
@@ -1300,7 +1562,7 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> Optional[int]:
         """
-        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+        Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         """
         return pulumi.get(self, "max_file_size")
 
@@ -1819,6 +2081,123 @@ class GetEndpointMongodbSettingResult(dict):
     @pulumi.getter(name="nestingLevel")
     def nesting_level(self) -> str:
         return pulumi.get(self, "nesting_level")
+
+
+@pulumi.output_type
+class GetEndpointPostgresSettingResult(dict):
+    def __init__(__self__, *,
+                 after_connect_script: str,
+                 babelfish_database_name: str,
+                 capture_ddls: bool,
+                 database_mode: str,
+                 ddl_artifacts_schema: str,
+                 execute_timeout: int,
+                 fail_tasks_on_lob_truncation: bool,
+                 heartbeat_enable: bool,
+                 heartbeat_frequency: int,
+                 heartbeat_schema: str,
+                 map_boolean_as_boolean: bool,
+                 map_jsonb_as_clob: bool,
+                 map_long_varchar_as: str,
+                 max_file_size: int,
+                 plugin_name: str,
+                 slot_name: str):
+        pulumi.set(__self__, "after_connect_script", after_connect_script)
+        pulumi.set(__self__, "babelfish_database_name", babelfish_database_name)
+        pulumi.set(__self__, "capture_ddls", capture_ddls)
+        pulumi.set(__self__, "database_mode", database_mode)
+        pulumi.set(__self__, "ddl_artifacts_schema", ddl_artifacts_schema)
+        pulumi.set(__self__, "execute_timeout", execute_timeout)
+        pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+        pulumi.set(__self__, "heartbeat_enable", heartbeat_enable)
+        pulumi.set(__self__, "heartbeat_frequency", heartbeat_frequency)
+        pulumi.set(__self__, "heartbeat_schema", heartbeat_schema)
+        pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
+        pulumi.set(__self__, "map_jsonb_as_clob", map_jsonb_as_clob)
+        pulumi.set(__self__, "map_long_varchar_as", map_long_varchar_as)
+        pulumi.set(__self__, "max_file_size", max_file_size)
+        pulumi.set(__self__, "plugin_name", plugin_name)
+        pulumi.set(__self__, "slot_name", slot_name)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> str:
+        return pulumi.get(self, "after_connect_script")
+
+    @property
+    @pulumi.getter(name="babelfishDatabaseName")
+    def babelfish_database_name(self) -> str:
+        return pulumi.get(self, "babelfish_database_name")
+
+    @property
+    @pulumi.getter(name="captureDdls")
+    def capture_ddls(self) -> bool:
+        return pulumi.get(self, "capture_ddls")
+
+    @property
+    @pulumi.getter(name="databaseMode")
+    def database_mode(self) -> str:
+        return pulumi.get(self, "database_mode")
+
+    @property
+    @pulumi.getter(name="ddlArtifactsSchema")
+    def ddl_artifacts_schema(self) -> str:
+        return pulumi.get(self, "ddl_artifacts_schema")
+
+    @property
+    @pulumi.getter(name="executeTimeout")
+    def execute_timeout(self) -> int:
+        return pulumi.get(self, "execute_timeout")
+
+    @property
+    @pulumi.getter(name="failTasksOnLobTruncation")
+    def fail_tasks_on_lob_truncation(self) -> bool:
+        return pulumi.get(self, "fail_tasks_on_lob_truncation")
+
+    @property
+    @pulumi.getter(name="heartbeatEnable")
+    def heartbeat_enable(self) -> bool:
+        return pulumi.get(self, "heartbeat_enable")
+
+    @property
+    @pulumi.getter(name="heartbeatFrequency")
+    def heartbeat_frequency(self) -> int:
+        return pulumi.get(self, "heartbeat_frequency")
+
+    @property
+    @pulumi.getter(name="heartbeatSchema")
+    def heartbeat_schema(self) -> str:
+        return pulumi.get(self, "heartbeat_schema")
+
+    @property
+    @pulumi.getter(name="mapBooleanAsBoolean")
+    def map_boolean_as_boolean(self) -> bool:
+        return pulumi.get(self, "map_boolean_as_boolean")
+
+    @property
+    @pulumi.getter(name="mapJsonbAsClob")
+    def map_jsonb_as_clob(self) -> bool:
+        return pulumi.get(self, "map_jsonb_as_clob")
+
+    @property
+    @pulumi.getter(name="mapLongVarcharAs")
+    def map_long_varchar_as(self) -> str:
+        return pulumi.get(self, "map_long_varchar_as")
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> int:
+        return pulumi.get(self, "max_file_size")
+
+    @property
+    @pulumi.getter(name="pluginName")
+    def plugin_name(self) -> str:
+        return pulumi.get(self, "plugin_name")
+
+    @property
+    @pulumi.getter(name="slotName")
+    def slot_name(self) -> str:
+        return pulumi.get(self, "slot_name")
 
 
 @pulumi.output_type

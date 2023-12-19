@@ -5,15 +5,21 @@ package com.pulumi.aws.ssoadmin;
 
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
+import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
+import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsPlainArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationPlainArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersPlainArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetPlainArgs;
+import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
+import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsPlainArgs;
+import com.pulumi.aws.ssoadmin.outputs.GetApplicationAssignmentsResult;
 import com.pulumi.aws.ssoadmin.outputs.GetApplicationProvidersResult;
 import com.pulumi.aws.ssoadmin.outputs.GetApplicationResult;
 import com.pulumi.aws.ssoadmin.outputs.GetInstancesResult;
 import com.pulumi.aws.ssoadmin.outputs.GetPermissionSetResult;
+import com.pulumi.aws.ssoadmin.outputs.GetPrincipalApplicationAssignmentsResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -173,6 +179,158 @@ public final class SsoadminFunctions {
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssoadmin/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS SSO Admin Application Assignments.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
+     *             .applicationArn(aws_ssoadmin_application.example().application_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetApplicationAssignmentsResult> getApplicationAssignments(GetApplicationAssignmentsArgs args) {
+        return getApplicationAssignments(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS SSO Admin Application Assignments.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
+     *             .applicationArn(aws_ssoadmin_application.example().application_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetApplicationAssignmentsResult> getApplicationAssignmentsPlain(GetApplicationAssignmentsPlainArgs args) {
+        return getApplicationAssignmentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS SSO Admin Application Assignments.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
+     *             .applicationArn(aws_ssoadmin_application.example().application_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetApplicationAssignmentsResult> getApplicationAssignments(GetApplicationAssignmentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", TypeShape.of(GetApplicationAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS SSO Admin Application Assignments.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
+     *             .applicationArn(aws_ssoadmin_application.example().application_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetApplicationAssignmentsResult> getApplicationAssignmentsPlain(GetApplicationAssignmentsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", TypeShape.of(GetApplicationAssignmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for managing AWS SSO Admin Application Providers.
@@ -459,5 +617,41 @@ public final class SsoadminFunctions {
      */
     public static CompletableFuture<GetPermissionSetResult> getPermissionSetPlain(GetPermissionSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssoadmin/getPermissionSet:getPermissionSet", TypeShape.of(GetPermissionSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for viewing AWS SSO Admin Principal Application Assignments.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPrincipalApplicationAssignmentsResult> getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs args) {
+        return getPrincipalApplicationAssignments(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for viewing AWS SSO Admin Principal Application Assignments.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetPrincipalApplicationAssignmentsResult> getPrincipalApplicationAssignmentsPlain(GetPrincipalApplicationAssignmentsPlainArgs args) {
+        return getPrincipalApplicationAssignmentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for viewing AWS SSO Admin Principal Application Assignments.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPrincipalApplicationAssignmentsResult> getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", TypeShape.of(GetPrincipalApplicationAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for viewing AWS SSO Admin Principal Application Assignments.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetPrincipalApplicationAssignmentsResult> getPrincipalApplicationAssignmentsPlain(GetPrincipalApplicationAssignmentsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", TypeShape.of(GetPrincipalApplicationAssignmentsResult.class), args, Utilities.withVersion(options));
     }
 }

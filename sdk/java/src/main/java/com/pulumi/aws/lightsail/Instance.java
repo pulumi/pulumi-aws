@@ -133,57 +133,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Availability Zones
- * 
- * Lightsail currently supports the following Availability Zones (e.g., `us-east-1a`):
- * 
- * - `ap-northeast-1{a,c,d}`
- * - `ap-northeast-2{a,c}`
- * - `ap-south-1{a,b}`
- * - `ap-southeast-1{a,b,c}`
- * - `ap-southeast-2{a,b,c}`
- * - `ca-central-1{a,b}`
- * - `eu-central-1{a,b,c}`
- * - `eu-west-1{a,b,c}`
- * - `eu-west-2{a,b,c}`
- * - `eu-west-3{a,b,c}`
- * - `us-east-1{a,b,c,d,e,f}`
- * - `us-east-2{a,b,c}`
- * - `us-west-2{a,b,c}`
- * 
- * ## Bundles
- * 
- * Lightsail currently supports the following Bundle IDs (e.g., an instance in `ap-northeast-1` would use `small_2_0`):
- * 
- * ### Prefix
- * 
- * A Bundle ID starts with one of the below size prefixes:
- * 
- * - `nano_`
- * - `micro_`
- * - `small_`
- * - `medium_`
- * - `large_`
- * - `xlarge_`
- * - `2xlarge_`
- * 
- * ### Suffix
- * 
- * A Bundle ID ends with one of the following suffixes depending on Availability Zone:
- * 
- * - ap-northeast-1: `2_0`
- * - ap-northeast-2: `2_0`
- * - ap-south-1: `2_1`
- * - ap-southeast-1: `2_0`
- * - ap-southeast-2: `2_2`
- * - ca-central-1: `2_0`
- * - eu-central-1: `2_0`
- * - eu-west-1: `2_0`
- * - eu-west-2: `2_0`
- * - eu-west-3: `2_0`
- * - us-east-1: `2_0`
- * - us-east-2: `2_0`
- * - us-west-2: `2_0`
  * 
  * ## Import
  * 
@@ -225,44 +174,54 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The Availability Zone in which to create your
-     * instance (see list below)
+     * The Availability Zone in which to create your instance. A
+     * list of available zones can be obtained using the AWS CLI command:
+     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone in which to create your
-     * instance (see list below)
+     * @return The Availability Zone in which to create your instance. A
+     * list of available zones can be obtained using the AWS CLI command:
+     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     * The ID for a virtual private server image. A list of available
+     * blueprint IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
     @Export(name="blueprintId", refs={String.class}, tree="[0]")
     private Output<String> blueprintId;
 
     /**
-     * @return The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     * @return The ID for a virtual private server image. A list of available
+     * blueprint IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
     public Output<String> blueprintId() {
         return this.blueprintId;
     }
     /**
-     * The bundle of specification information (see list below)
+     * The bundle of specification information. A list of available
+     * bundle IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
     @Export(name="bundleId", refs={String.class}, tree="[0]")
     private Output<String> bundleId;
 
     /**
-     * @return The bundle of specification information (see list below)
+     * @return The bundle of specification information. A list of available
+     * bundle IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
     public Output<String> bundleId() {
@@ -355,14 +314,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyPairName);
     }
     /**
-     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     * The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     * @return The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      * 
      */
     public Output<String> name() {

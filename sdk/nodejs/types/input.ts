@@ -289,6 +289,7 @@ export interface ProviderEndpoint {
     outposts?: pulumi.Input<string>;
     pinpoint?: pulumi.Input<string>;
     pipes?: pulumi.Input<string>;
+    polly?: pulumi.Input<string>;
     pricing?: pulumi.Input<string>;
     prometheus?: pulumi.Input<string>;
     prometheusservice?: pulumi.Input<string>;
@@ -1071,6 +1072,21 @@ export namespace alb {
         bucket: pulumi.Input<string>;
         /**
          * Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The S3 bucket prefix. Logs are stored in the root if not configured.
+         */
+        prefix?: pulumi.Input<string>;
+    }
+
+    export interface LoadBalancerConnectionLogs {
+        /**
+         * The S3 bucket name to store the logs in.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -16559,6 +16575,10 @@ export namespace dms {
          * ARN of the IAM Role with permissions to write to the OpenSearch cluster.
          */
         serviceAccessRoleArn: pulumi.Input<string>;
+        /**
+         * Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+         */
+        useNewMappingType?: pulumi.Input<boolean>;
     }
 
     export interface EndpointKafkaSettings {
@@ -16700,6 +16720,73 @@ export namespace dms {
          * Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
          */
         nestingLevel?: pulumi.Input<string>;
+    }
+
+    export interface EndpointPostgresSettings {
+        /**
+         * For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+         */
+        afterConnectScript?: pulumi.Input<string>;
+        /**
+         * The Babelfish for Aurora PostgreSQL database name for the endpoint.
+         */
+        babelfishDatabaseName?: pulumi.Input<string>;
+        /**
+         * To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+         */
+        captureDdls?: pulumi.Input<boolean>;
+        /**
+         * Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+         */
+        databaseMode?: pulumi.Input<string>;
+        /**
+         * Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+         */
+        ddlArtifactsSchema?: pulumi.Input<string>;
+        /**
+         * Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+         */
+        executeTimeout?: pulumi.Input<number>;
+        /**
+         * When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+         */
+        failTasksOnLobTruncation?: pulumi.Input<boolean>;
+        /**
+         * The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+         */
+        heartbeatEnable?: pulumi.Input<boolean>;
+        /**
+         * Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+         */
+        heartbeatFrequency?: pulumi.Input<number>;
+        /**
+         * Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+         */
+        heartbeatSchema?: pulumi.Input<string>;
+        /**
+         * You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+         */
+        mapBooleanAsBoolean?: pulumi.Input<boolean>;
+        /**
+         * Optional When true, DMS migrates JSONB values as CLOB.
+         */
+        mapJsonbAsClob?: pulumi.Input<boolean>;
+        /**
+         * Optional When true, DMS migrates LONG values as VARCHAR.
+         */
+        mapLongVarcharAs?: pulumi.Input<string>;
+        /**
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+         */
+        maxFileSize?: pulumi.Input<number>;
+        /**
+         * Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+         */
+        pluginName?: pulumi.Input<string>;
+        /**
+         * Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+         */
+        slotName?: pulumi.Input<string>;
     }
 
     export interface EndpointRedisSettings {
@@ -16866,7 +16953,7 @@ export namespace dms {
          */
         includeOpForFullLoad?: pulumi.Input<boolean>;
         /**
-         * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
          */
         maxFileSize?: pulumi.Input<number>;
         /**
@@ -26010,6 +26097,10 @@ export namespace finspace {
          * Name of the KX database.
          */
         databaseName: pulumi.Input<string>;
+        /**
+         * The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+         */
+        dataviewName?: pulumi.Input<string>;
     }
 
     export interface KxClusterDatabaseCacheConfiguration {
@@ -26027,12 +26118,43 @@ export namespace finspace {
         /**
          * Size of temporary storage in gigabytes. Must be between 10 and 16000.
          */
-        size: pulumi.Input<number>;
+        size?: pulumi.Input<number>;
         /**
          * Type of writeable storage space for temporarily storing your savedown data. The valid values are:
          * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
          */
-        type: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
+        /**
+         * The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+         */
+        volumeName?: pulumi.Input<string>;
+    }
+
+    export interface KxClusterScalingGroupConfiguration {
+        /**
+         * The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * An optional hard limit on the amount of memory a kdb cluster can use.
+         */
+        memoryLimit?: pulumi.Input<number>;
+        /**
+         * A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+         */
+        memoryReservation: pulumi.Input<number>;
+        /**
+         * The number of kdb cluster nodes.
+         */
+        nodeCount: pulumi.Input<number>;
+        /**
+         * A unique identifier for the kdb scaling group.
+         */
+        scalingGroupName: pulumi.Input<string>;
+    }
+
+    export interface KxClusterTickerplantLogConfiguration {
+        tickerplantLogVolumes: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface KxClusterVpcConfiguration {
@@ -26050,6 +26172,17 @@ export namespace finspace {
          * Identifier of the VPC endpoint
          */
         vpcId: pulumi.Input<string>;
+    }
+
+    export interface KxDataviewSegmentConfiguration {
+        /**
+         * The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+         */
+        dbPaths: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+         */
+        volumeName: pulumi.Input<string>;
     }
 
     export interface KxEnvironmentCustomDnsConfiguration {
@@ -26125,6 +26258,23 @@ export namespace finspace {
          * Last port in the range.
          */
         to: pulumi.Input<number>;
+    }
+
+    export interface KxVolumeAttachedCluster {
+        clusterName: pulumi.Input<string>;
+        clusterStatus: pulumi.Input<string>;
+        clusterType: pulumi.Input<string>;
+    }
+
+    export interface KxVolumeNas1Configuration {
+        /**
+         * The size of the network attached storage.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+         */
+        type: pulumi.Input<string>;
     }
 }
 
@@ -35177,6 +35327,21 @@ export namespace lb {
         prefix?: pulumi.Input<string>;
     }
 
+    export interface LoadBalancerConnectionLogs {
+        /**
+         * The S3 bucket name to store the logs in.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The S3 bucket prefix. Logs are stored in the root if not configured.
+         */
+        prefix?: pulumi.Input<string>;
+    }
+
     export interface LoadBalancerSubnetMapping {
         /**
          * The allocation ID of the Elastic IP address for an internet-facing load balancer.
@@ -38634,6 +38799,9 @@ export namespace medialive {
          * This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
          */
         errorClearTimeMsec?: pulumi.Input<number>;
+        /**
+         * A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+         */
         failoverConditions?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition>[]>;
         /**
          * Input preference when deciding which input to make active when a previously failed input has recovered.
@@ -43744,6 +43912,70 @@ export namespace pipes {
          * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
          */
         invocationType: pulumi.Input<string>;
+    }
+}
+
+export namespace polly {
+    export interface GetVoicesVoice {
+        /**
+         * Additional codes for languages available for the specified voice in addition to its default language.
+         */
+        additionalLanguageCodes?: string[];
+        /**
+         * Gender of the voice.
+         */
+        gender?: string;
+        /**
+         * Amazon Polly assigned voice ID.
+         */
+        id?: string;
+        /**
+         * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
+         */
+        languageCode?: string;
+        /**
+         * Human readable name of the language in English.
+         */
+        languageName?: string;
+        /**
+         * Name of the voice.
+         */
+        name?: string;
+        /**
+         * Specifies which engines are supported by a given voice.
+         */
+        supportedEngines?: string[];
+    }
+
+    export interface GetVoicesVoiceArgs {
+        /**
+         * Additional codes for languages available for the specified voice in addition to its default language.
+         */
+        additionalLanguageCodes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Gender of the voice.
+         */
+        gender?: pulumi.Input<string>;
+        /**
+         * Amazon Polly assigned voice ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
+         */
+        languageCode?: pulumi.Input<string>;
+        /**
+         * Human readable name of the language in English.
+         */
+        languageName?: pulumi.Input<string>;
+        /**
+         * Name of the voice.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Specifies which engines are supported by a given voice.
+         */
+        supportedEngines?: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -54870,6 +55102,36 @@ export namespace ssoadmin {
         path?: pulumi.Input<string>;
     }
 
+    export interface GetApplicationAssignmentsApplicationAssignment {
+        /**
+         * ARN of the application.
+         */
+        applicationArn?: string;
+        /**
+         * An identifier for an object in IAM Identity Center, such as a user or group.
+         */
+        principalId?: string;
+        /**
+         * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+         */
+        principalType?: string;
+    }
+
+    export interface GetApplicationAssignmentsApplicationAssignmentArgs {
+        /**
+         * ARN of the application.
+         */
+        applicationArn?: pulumi.Input<string>;
+        /**
+         * An identifier for an object in IAM Identity Center, such as a user or group.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+         */
+        principalType?: pulumi.Input<string>;
+    }
+
     export interface GetApplicationPortalOption {
         signInOptions?: inputs.ssoadmin.GetApplicationPortalOptionSignInOption[];
         visibility?: string;
@@ -54950,6 +55212,36 @@ export namespace ssoadmin {
         iconUrl?: pulumi.Input<string>;
     }
 
+    export interface GetPrincipalApplicationAssignmentsApplicationAssignment {
+        /**
+         * ARN of the application.
+         */
+        applicationArn?: string;
+        /**
+         * An identifier for an object in IAM Identity Center, such as a user or group.
+         */
+        principalId?: string;
+        /**
+         * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+         */
+        principalType?: string;
+    }
+
+    export interface GetPrincipalApplicationAssignmentsApplicationAssignmentArgs {
+        /**
+         * ARN of the application.
+         */
+        applicationArn?: pulumi.Input<string>;
+        /**
+         * An identifier for an object in IAM Identity Center, such as a user or group.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+         */
+        principalType?: pulumi.Input<string>;
+    }
+
     export interface InstanceAccessControlAttributesAttribute {
         /**
          * The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
@@ -54988,6 +55280,32 @@ export namespace ssoadmin {
          * The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
          */
         path?: pulumi.Input<string>;
+    }
+
+    export interface TrustedTokenIssuerTrustedTokenIssuerConfiguration {
+        /**
+         * A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+         */
+        oidcJwtConfiguration?: pulumi.Input<inputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration>;
+    }
+
+    export interface TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
+        /**
+         * Specifies the path of the source attribute in the JWT from the trusted token issuer.
+         */
+        claimAttributePath: pulumi.Input<string>;
+        /**
+         * Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+         */
+        identityStoreAttributePath: pulumi.Input<string>;
+        /**
+         * Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+         */
+        issuerUrl: pulumi.Input<string>;
+        /**
+         * The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+         */
+        jwksRetrievalOption: pulumi.Input<string>;
     }
 }
 

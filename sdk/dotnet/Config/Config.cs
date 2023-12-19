@@ -572,6 +572,7 @@ namespace Pulumi.Aws
                 public string? Outposts { get; set; } = null!;
                 public string? Pinpoint { get; set; } = null!;
                 public string? Pipes { get; set; } = null!;
+                public string? Polly { get; set; } = null!;
                 public string? Pricing { get; set; } = null!;
                 public string? Prometheus { get; set; } = null!;
                 public string? Prometheusservice { get; set; } = null!;

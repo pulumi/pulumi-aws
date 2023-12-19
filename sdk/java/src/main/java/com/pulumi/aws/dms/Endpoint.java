@@ -10,6 +10,7 @@ import com.pulumi.aws.dms.outputs.EndpointElasticsearchSettings;
 import com.pulumi.aws.dms.outputs.EndpointKafkaSettings;
 import com.pulumi.aws.dms.outputs.EndpointKinesisSettings;
 import com.pulumi.aws.dms.outputs.EndpointMongodbSettings;
+import com.pulumi.aws.dms.outputs.EndpointPostgresSettings;
 import com.pulumi.aws.dms.outputs.EndpointRedisSettings;
 import com.pulumi.aws.dms.outputs.EndpointRedshiftSettings;
 import com.pulumi.aws.dms.outputs.EndpointS3Settings;
@@ -288,6 +289,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> port() {
         return Codegen.optional(this.port);
+    }
+    /**
+     * Configuration block for Postgres settings. See below.
+     * 
+     */
+    @Export(name="postgresSettings", refs={EndpointPostgresSettings.class}, tree="[0]")
+    private Output</* @Nullable */ EndpointPostgresSettings> postgresSettings;
+
+    /**
+     * @return Configuration block for Postgres settings. See below.
+     * 
+     */
+    public Output<Optional<EndpointPostgresSettings>> postgresSettings() {
+        return Codegen.optional(this.postgresSettings);
     }
     @Export(name="redisSettings", refs={EndpointRedisSettings.class}, tree="[0]")
     private Output</* @Nullable */ EndpointRedisSettings> redisSettings;

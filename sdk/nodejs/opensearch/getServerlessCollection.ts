@@ -78,6 +78,10 @@ export interface GetServerlessCollectionResult {
     readonly lastModifiedDate: string;
     readonly name: string;
     /**
+     * Indicates whether standby replicas should be used for a collection.
+     */
+    readonly standbyReplicas: string;
+    /**
      * A map of tags to assign to the collection.
      */
     readonly tags: {[key: string]: string};

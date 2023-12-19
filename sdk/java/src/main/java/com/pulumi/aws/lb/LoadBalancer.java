@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lb.LoadBalancerArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerState;
 import com.pulumi.aws.lb.outputs.LoadBalancerAccessLogs;
+import com.pulumi.aws.lb.outputs.LoadBalancerConnectionLogs;
 import com.pulumi.aws.lb.outputs.LoadBalancerSubnetMapping;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
@@ -158,6 +159,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arnSuffix() {
         return this.arnSuffix;
+    }
+    /**
+     * A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    @Export(name="connectionLogs", refs={LoadBalancerConnectionLogs.class}, tree="[0]")
+    private Output</* @Nullable */ LoadBalancerConnectionLogs> connectionLogs;
+
+    /**
+     * @return A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    public Output<Optional<LoadBalancerConnectionLogs>> connectionLogs() {
+        return Codegen.optional(this.connectionLogs);
     }
     /**
      * The ID of the customer owned ipv4 pool to use for this load balancer.
@@ -444,32 +459,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.securityGroups;
     }
     /**
-     * A subnet mapping block as documented below.
+     * A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     @Export(name="subnetMappings", refs={List.class,LoadBalancerSubnetMapping.class}, tree="[0,1]")
     private Output<List<LoadBalancerSubnetMapping>> subnetMappings;
 
     /**
-     * @return A subnet mapping block as documented below.
+     * @return A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     public Output<List<LoadBalancerSubnetMapping>> subnetMappings() {
         return this.subnetMappings;
     }
     /**
-     * A list of subnet IDs to attach to the LB. Subnets
-     * cannot be updated for Load Balancers of type `network`. Changing this value
-     * for load balancers of type `network` will force a recreation of the resource.
+     * A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     @Export(name="subnets", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnets;
 
     /**
-     * @return A list of subnet IDs to attach to the LB. Subnets
-     * cannot be updated for Load Balancers of type `network`. Changing this value
-     * for load balancers of type `network` will force a recreation of the resource.
+     * @return A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     public Output<List<String>> subnets() {

@@ -148,6 +148,12 @@ namespace Pulumi.Aws.Dms
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for Postgres settings. See below.
+        /// </summary>
+        [Output("postgresSettings")]
+        public Output<Outputs.EndpointPostgresSettings?> PostgresSettings { get; private set; } = null!;
+
         [Output("redisSettings")]
         public Output<Outputs.EndpointRedisSettings?> RedisSettings { get; private set; } = null!;
 
@@ -355,6 +361,12 @@ namespace Pulumi.Aws.Dms
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Configuration block for Postgres settings. See below.
+        /// </summary>
+        [Input("postgresSettings")]
+        public Input<Inputs.EndpointPostgresSettingsArgs>? PostgresSettings { get; set; }
+
         [Input("redisSettings")]
         public Input<Inputs.EndpointRedisSettingsArgs>? RedisSettings { get; set; }
 
@@ -524,6 +536,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// Configuration block for Postgres settings. See below.
+        /// </summary>
+        [Input("postgresSettings")]
+        public Input<Inputs.EndpointPostgresSettingsGetArgs>? PostgresSettings { get; set; }
 
         [Input("redisSettings")]
         public Input<Inputs.EndpointRedisSettingsGetArgs>? RedisSettings { get; set; }

@@ -36,6 +36,7 @@ __all__ = [
     'ListenerRuleConditionQueryString',
     'ListenerRuleConditionSourceIp',
     'LoadBalancerAccessLogs',
+    'LoadBalancerConnectionLogs',
     'LoadBalancerSubnetMapping',
     'TargetGroupHealthCheck',
     'TargetGroupStickiness',
@@ -51,6 +52,7 @@ __all__ = [
     'GetListenerDefaultActionRedirectResult',
     'GetListenerMutualAuthenticationResult',
     'GetLoadBalancerAccessLogsResult',
+    'GetLoadBalancerConnectionLogResult',
     'GetLoadBalancerSubnetMappingResult',
     'GetTargetGroupHealthCheckResult',
     'GetTargetGroupStickinessResult',
@@ -1816,6 +1818,48 @@ class LoadBalancerAccessLogs(dict):
 
 
 @pulumi.output_type
+class LoadBalancerConnectionLogs(dict):
+    def __init__(__self__, *,
+                 bucket: str,
+                 enabled: Optional[bool] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str bucket: The S3 bucket name to store the logs in.
+        :param bool enabled: Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
+        :param str prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        """
+        The S3 bucket name to store the logs in.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The S3 bucket prefix. Logs are stored in the root if not configured.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
 class LoadBalancerSubnetMapping(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2594,6 +2638,32 @@ class GetListenerMutualAuthenticationResult(dict):
 
 @pulumi.output_type
 class GetLoadBalancerAccessLogsResult(dict):
+    def __init__(__self__, *,
+                 bucket: str,
+                 enabled: bool,
+                 prefix: str):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class GetLoadBalancerConnectionLogResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  enabled: bool,

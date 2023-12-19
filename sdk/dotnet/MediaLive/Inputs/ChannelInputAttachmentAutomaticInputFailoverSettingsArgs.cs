@@ -20,6 +20,10 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
         [Input("failoverConditions")]
         private InputList<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>? _failoverConditions;
+
+        /// <summary>
+        /// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+        /// </summary>
         public InputList<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs> FailoverConditions
         {
             get => _failoverConditions ?? (_failoverConditions = new InputList<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>());

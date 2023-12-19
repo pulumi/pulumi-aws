@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Dms
         /// Type of source for events. Valid values: `replication-instance` or `replication-task`
         /// </summary>
         [Output("sourceType")]
-        public Output<string?> SourceType { get; private set; } = null!;
+        public Output<string> SourceType { get; private set; } = null!;
 
         /// <summary>
         /// Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Dms
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
 
-        [Input("sourceIds")]
+        [Input("sourceIds", required: true)]
         private InputList<string>? _sourceIds;
 
         /// <summary>
@@ -205,8 +205,8 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// Type of source for events. Valid values: `replication-instance` or `replication-task`
         /// </summary>
-        [Input("sourceType")]
-        public Input<string>? SourceType { get; set; }
+        [Input("sourceType", required: true)]
+        public Input<string> SourceType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
