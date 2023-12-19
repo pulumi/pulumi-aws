@@ -147,10 +147,21 @@ func (o RecordTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// RecordTypeInput is an input type that accepts RecordTypeArgs and RecordTypeOutput values.
-// You can construct a concrete instance of `RecordTypeInput` via:
+// RecordTypeInput is an input type that accepts values of the RecordType enum
+// A concrete instance of `RecordTypeInput` can be one of the following:
 //
-//	RecordTypeArgs{...}
+//	RecordTypeA
+//	RecordTypeAAAA
+//	RecordTypeCNAME
+//	RecordTypeCAA
+//	RecordTypeMX
+//	RecordTypeNAPTR
+//	RecordTypeNS
+//	RecordTypePTR
+//	RecordTypeSOA
+//	RecordTypeSPF
+//	RecordTypeSRV
+//	RecordTypeTXT
 type RecordTypeInput interface {
 	pulumi.Input
 

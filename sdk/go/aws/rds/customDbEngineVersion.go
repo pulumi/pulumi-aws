@@ -64,7 +64,6 @@ import (
 // import (
 //
 //	"crypto/sha256"
-//	"fmt"
 //	"os"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
@@ -73,10 +72,10 @@ import (
 //
 // )
 //
-//	func filebase64sha256OrPanic(path string) pulumi.StringPtrInput {
+//	func filebase64sha256OrPanic(path string) string {
 //		if fileData, err := os.ReadFile(path); err == nil {
 //			hashedData := sha256.Sum256([]byte(fileData))
-//			return pulumi.String(base64.StdEncoding.EncodeToString(hashedData[:]))
+//			return base64.StdEncoding.EncodeToString(hashedData[:])
 //		} else {
 //			panic(err.Error())
 //		}

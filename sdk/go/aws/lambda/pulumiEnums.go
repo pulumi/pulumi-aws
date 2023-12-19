@@ -167,10 +167,30 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuntimeInput is an input type that accepts RuntimeArgs and RuntimeOutput values.
-// You can construct a concrete instance of `RuntimeInput` via:
+// RuntimeInput is an input type that accepts values of the Runtime enum
+// A concrete instance of `RuntimeInput` can be one of the following:
 //
-//	RuntimeArgs{...}
+//	RuntimeDotnetCore3d1
+//	RuntimeDotnet5d0
+//	RuntimeDotnet6
+//	RuntimeGo1dx
+//	RuntimeJava8
+//	RuntimeJava8AL2
+//	RuntimeJava11
+//	RuntimeJava17
+//	RuntimeRuby2d7
+//	RuntimeRuby3d2
+//	RuntimeNodeJS12dX
+//	RuntimeNodeJS14dX
+//	RuntimeNodeJS16dX
+//	RuntimeNodeJS18dX
+//	RuntimePython3d7
+//	RuntimePython3d8
+//	RuntimePython3d9
+//	RuntimePython3d10
+//	RuntimePython3d11
+//	RuntimeCustom
+//	RuntimeCustomAL2
 type RuntimeInput interface {
 	pulumi.Input
 
