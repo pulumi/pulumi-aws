@@ -16,31 +16,29 @@ class EventSubscriptionArgs:
     def __init__(__self__, *,
                  event_categories: pulumi.Input[Sequence[pulumi.Input[str]]],
                  sns_topic_arn: pulumi.Input[str],
+                 source_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 source_type: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[str] sns_topic_arn: SNS topic arn to send events on.
-        :param pulumi.Input[bool] enabled: Whether the event subscription should be enabled.
-        :param pulumi.Input[str] name: Name of event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
         :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
+        :param pulumi.Input[bool] enabled: Whether the event subscription should be enabled.
+        :param pulumi.Input[str] name: Name of event subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "event_categories", event_categories)
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        pulumi.set(__self__, "source_ids", source_ids)
+        pulumi.set(__self__, "source_type", source_type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if source_ids is not None:
-            pulumi.set(__self__, "source_ids", source_ids)
-        if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -69,6 +67,30 @@ class EventSubscriptionArgs:
         pulumi.set(self, "sns_topic_arn", value)
 
     @property
+    @pulumi.getter(name="sourceIds")
+    def source_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Ids of sources to listen to.
+        """
+        return pulumi.get(self, "source_ids")
+
+    @source_ids.setter
+    def source_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "source_ids", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> pulumi.Input[str]:
+        """
+        Type of source for events. Valid values: `replication-instance` or `replication-task`
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_type", value)
+
+    @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -91,30 +113,6 @@ class EventSubscriptionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="sourceIds")
-    def source_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Ids of sources to listen to.
-        """
-        return pulumi.get(self, "source_ids")
-
-    @source_ids.setter
-    def source_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "source_ids", value)
-
-    @property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of source for events. Valid values: `replication-instance` or `replication-task`
-        """
-        return pulumi.get(self, "source_type")
-
-    @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_type", value)
 
     @property
     @pulumi.getter
@@ -417,7 +415,11 @@ class EventSubscription(pulumi.CustomResource):
             if sns_topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'sns_topic_arn'")
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
+            if source_ids is None and not opts.urn:
+                raise TypeError("Missing required property 'source_ids'")
             __props__.__dict__["source_ids"] = source_ids
+            if source_type is None and not opts.urn:
+                raise TypeError("Missing required property 'source_type'")
             __props__.__dict__["source_type"] = source_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -517,7 +519,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceIds")
-    def source_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def source_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         Ids of sources to listen to.
         """
@@ -525,7 +527,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> pulumi.Output[Optional[str]]:
+    def source_type(self) -> pulumi.Output[str]:
         """
         Type of source for events. Valid values: `replication-instance` or `replication-task`
         """

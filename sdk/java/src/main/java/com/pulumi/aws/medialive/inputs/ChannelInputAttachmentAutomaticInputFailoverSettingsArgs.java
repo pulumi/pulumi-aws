@@ -33,9 +33,17 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
         return Optional.ofNullable(this.errorClearTimeMsec);
     }
 
+    /**
+     * A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * 
+     */
     @Import(name="failoverConditions")
     private @Nullable Output<List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>> failoverConditions;
 
+    /**
+     * @return A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * 
+     */
     public Optional<Output<List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>>> failoverConditions() {
         return Optional.ofNullable(this.failoverConditions);
     }
@@ -118,15 +126,33 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
             return errorClearTimeMsec(Output.of(errorClearTimeMsec));
         }
 
+        /**
+         * @param failoverConditions A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failoverConditions(@Nullable Output<List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>> failoverConditions) {
             $.failoverConditions = failoverConditions;
             return this;
         }
 
+        /**
+         * @param failoverConditions A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failoverConditions(List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs> failoverConditions) {
             return failoverConditions(Output.of(failoverConditions));
         }
 
+        /**
+         * @param failoverConditions A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failoverConditions(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs... failoverConditions) {
             return failoverConditions(List.of(failoverConditions));
         }

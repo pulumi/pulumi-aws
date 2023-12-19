@@ -21,7 +21,7 @@ class GetLogGroupResult:
     """
     A collection of values returned by getLogGroup.
     """
-    def __init__(__self__, arn=None, creation_time=None, id=None, kms_key_id=None, name=None, retention_in_days=None, tags=None):
+    def __init__(__self__, arn=None, creation_time=None, id=None, kms_key_id=None, log_group_class=None, name=None, retention_in_days=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetLogGroupResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if log_group_class and not isinstance(log_group_class, str):
+            raise TypeError("Expected argument 'log_group_class' to be a str")
+        pulumi.set(__self__, "log_group_class", log_group_class)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -77,6 +80,14 @@ class GetLogGroupResult:
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="logGroupClass")
+    def log_group_class(self) -> str:
+        """
+        The log class of the log group.
+        """
+        return pulumi.get(self, "log_group_class")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
@@ -108,6 +119,7 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
             creation_time=self.creation_time,
             id=self.id,
             kms_key_id=self.kms_key_id,
+            log_group_class=self.log_group_class,
             name=self.name,
             retention_in_days=self.retention_in_days,
             tags=self.tags)
@@ -143,6 +155,7 @@ def get_log_group(name: Optional[str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        log_group_class=pulumi.get(__ret__, 'log_group_class'),
         name=pulumi.get(__ret__, 'name'),
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))

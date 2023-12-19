@@ -82,30 +82,30 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
      * Ids of sources to listen to.
      * 
      */
-    @Import(name="sourceIds")
-    private @Nullable Output<List<String>> sourceIds;
+    @Import(name="sourceIds", required=true)
+    private Output<List<String>> sourceIds;
 
     /**
      * @return Ids of sources to listen to.
      * 
      */
-    public Optional<Output<List<String>>> sourceIds() {
-        return Optional.ofNullable(this.sourceIds);
+    public Output<List<String>> sourceIds() {
+        return this.sourceIds;
     }
 
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      * 
      */
-    @Import(name="sourceType")
-    private @Nullable Output<String> sourceType;
+    @Import(name="sourceType", required=true)
+    private Output<String> sourceType;
 
     /**
      * @return Type of source for events. Valid values: `replication-instance` or `replication-task`
      * 
      */
-    public Optional<Output<String>> sourceType() {
-        return Optional.ofNullable(this.sourceType);
+    public Output<String> sourceType() {
+        return this.sourceType;
     }
 
     /**
@@ -253,7 +253,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder sourceIds(@Nullable Output<List<String>> sourceIds) {
+        public Builder sourceIds(Output<List<String>> sourceIds) {
             $.sourceIds = sourceIds;
             return this;
         }
@@ -284,7 +284,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder sourceType(@Nullable Output<String> sourceType) {
+        public Builder sourceType(Output<String> sourceType) {
             $.sourceType = sourceType;
             return this;
         }
@@ -323,6 +323,8 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         public EventSubscriptionArgs build() {
             $.eventCategories = Objects.requireNonNull($.eventCategories, "expected parameter 'eventCategories' to be non-null");
             $.snsTopicArn = Objects.requireNonNull($.snsTopicArn, "expected parameter 'snsTopicArn' to be non-null");
+            $.sourceIds = Objects.requireNonNull($.sourceIds, "expected parameter 'sourceIds' to be non-null");
+            $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");
             return $;
         }
     }

@@ -17,7 +17,6 @@ __all__ = ['KxClusterArgs', 'KxCluster']
 class KxClusterArgs:
     def __init__(__self__, *,
                  az_mode: pulumi.Input[str],
-                 capacity_configuration: pulumi.Input['KxClusterCapacityConfigurationArgs'],
                  environment_id: pulumi.Input[str],
                  release_label: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -25,6 +24,7 @@ class KxClusterArgs:
                  auto_scaling_configuration: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']] = None,
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]] = None,
+                 capacity_configuration: Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']] = None,
                  code: Optional[pulumi.Input['KxClusterCodeArgs']] = None,
                  command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  databases: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]] = None,
@@ -33,13 +33,14 @@ class KxClusterArgs:
                  initialization_script: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 scaling_group_configuration: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a KxCluster resource.
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
                * SINGLE - Assigns one availability zone per cluster.
                * MULTI - Assigns all the availability zones per cluster.
-        :param pulumi.Input['KxClusterCapacityConfigurationArgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         :param pulumi.Input[str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
@@ -53,6 +54,7 @@ class KxClusterArgs:
         :param pulumi.Input['KxClusterAutoScalingConfigurationArgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         :param pulumi.Input[str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         :param pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+        :param pulumi.Input['KxClusterCapacityConfigurationArgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         :param pulumi.Input['KxClusterCodeArgs'] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] command_line_arguments: List of key-value pairs to make available inside the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]] databases: KX database that will be available for querying. Defined below.
@@ -61,10 +63,11 @@ class KxClusterArgs:
         :param pulumi.Input[str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
         :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        :param pulumi.Input['KxClusterScalingGroupConfigurationArgs'] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         """
         pulumi.set(__self__, "az_mode", az_mode)
-        pulumi.set(__self__, "capacity_configuration", capacity_configuration)
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "release_label", release_label)
         pulumi.set(__self__, "type", type)
@@ -75,6 +78,8 @@ class KxClusterArgs:
             pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         if cache_storage_configurations is not None:
             pulumi.set(__self__, "cache_storage_configurations", cache_storage_configurations)
+        if capacity_configuration is not None:
+            pulumi.set(__self__, "capacity_configuration", capacity_configuration)
         if code is not None:
             pulumi.set(__self__, "code", code)
         if command_line_arguments is not None:
@@ -91,8 +96,12 @@ class KxClusterArgs:
             pulumi.set(__self__, "name", name)
         if savedown_storage_configuration is not None:
             pulumi.set(__self__, "savedown_storage_configuration", savedown_storage_configuration)
+        if scaling_group_configuration is not None:
+            pulumi.set(__self__, "scaling_group_configuration", scaling_group_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tickerplant_log_configurations is not None:
+            pulumi.set(__self__, "tickerplant_log_configurations", tickerplant_log_configurations)
 
     @property
     @pulumi.getter(name="azMode")
@@ -107,18 +116,6 @@ class KxClusterArgs:
     @az_mode.setter
     def az_mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "az_mode", value)
-
-    @property
-    @pulumi.getter(name="capacityConfiguration")
-    def capacity_configuration(self) -> pulumi.Input['KxClusterCapacityConfigurationArgs']:
-        """
-        Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        """
-        return pulumi.get(self, "capacity_configuration")
-
-    @capacity_configuration.setter
-    def capacity_configuration(self, value: pulumi.Input['KxClusterCapacityConfigurationArgs']):
-        pulumi.set(self, "capacity_configuration", value)
 
     @property
     @pulumi.getter(name="environmentId")
@@ -209,6 +206,18 @@ class KxClusterArgs:
     @cache_storage_configurations.setter
     def cache_storage_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]):
         pulumi.set(self, "cache_storage_configurations", value)
+
+    @property
+    @pulumi.getter(name="capacityConfiguration")
+    def capacity_configuration(self) -> Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]:
+        """
+        Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+        """
+        return pulumi.get(self, "capacity_configuration")
+
+    @capacity_configuration.setter
+    def capacity_configuration(self, value: Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]):
+        pulumi.set(self, "capacity_configuration", value)
 
     @property
     @pulumi.getter
@@ -307,6 +316,18 @@ class KxClusterArgs:
         pulumi.set(self, "savedown_storage_configuration", value)
 
     @property
+    @pulumi.getter(name="scalingGroupConfiguration")
+    def scaling_group_configuration(self) -> Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]:
+        """
+        The structure that stores the configuration details of a scaling group.
+        """
+        return pulumi.get(self, "scaling_group_configuration")
+
+    @scaling_group_configuration.setter
+    def scaling_group_configuration(self, value: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]):
+        pulumi.set(self, "scaling_group_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -317,6 +338,18 @@ class KxClusterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tickerplantLogConfigurations")
+    def tickerplant_log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]:
+        """
+        A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        """
+        return pulumi.get(self, "tickerplant_log_configurations")
+
+    @tickerplant_log_configurations.setter
+    def tickerplant_log_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]):
+        pulumi.set(self, "tickerplant_log_configurations", value)
 
 
 @pulumi.input_type
@@ -340,10 +373,12 @@ class _KxClusterState:
                  name: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
+                 scaling_group_configuration: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  status_reason: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_configuration: Optional[pulumi.Input['KxClusterVpcConfigurationArgs']] = None):
         """
@@ -368,8 +403,10 @@ class _KxClusterState:
         :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
         :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        :param pulumi.Input['KxClusterScalingGroupConfigurationArgs'] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
@@ -415,6 +452,8 @@ class _KxClusterState:
             pulumi.set(__self__, "release_label", release_label)
         if savedown_storage_configuration is not None:
             pulumi.set(__self__, "savedown_storage_configuration", savedown_storage_configuration)
+        if scaling_group_configuration is not None:
+            pulumi.set(__self__, "scaling_group_configuration", scaling_group_configuration)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if status_reason is not None:
@@ -426,6 +465,8 @@ class _KxClusterState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if tickerplant_log_configurations is not None:
+            pulumi.set(__self__, "tickerplant_log_configurations", tickerplant_log_configurations)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if vpc_configuration is not None:
@@ -650,6 +691,18 @@ class _KxClusterState:
         pulumi.set(self, "savedown_storage_configuration", value)
 
     @property
+    @pulumi.getter(name="scalingGroupConfiguration")
+    def scaling_group_configuration(self) -> Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]:
+        """
+        The structure that stores the configuration details of a scaling group.
+        """
+        return pulumi.get(self, "scaling_group_configuration")
+
+    @scaling_group_configuration.setter
+    def scaling_group_configuration(self, value: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]):
+        pulumi.set(self, "scaling_group_configuration", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "status")
@@ -693,6 +746,18 @@ class _KxClusterState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="tickerplantLogConfigurations")
+    def tickerplant_log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]:
+        """
+        A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        """
+        return pulumi.get(self, "tickerplant_log_configurations")
+
+    @tickerplant_log_configurations.setter
+    def tickerplant_log_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]):
+        pulumi.set(self, "tickerplant_log_configurations", value)
 
     @property
     @pulumi.getter
@@ -745,7 +810,9 @@ class KxCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  savedown_storage_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']]] = None,
+                 scaling_group_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterScalingGroupConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterTickerplantLogConfigurationArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArgs']]] = None,
                  __props__=None):
@@ -781,7 +848,9 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
         :param pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterScalingGroupConfigurationArgs']] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterTickerplantLogConfigurationArgs']]]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
@@ -840,7 +909,9 @@ class KxCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  savedown_storage_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']]] = None,
+                 scaling_group_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterScalingGroupConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterTickerplantLogConfigurationArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArgs']]] = None,
                  __props__=None):
@@ -858,8 +929,6 @@ class KxCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'az_mode'")
             __props__.__dict__["az_mode"] = az_mode
             __props__.__dict__["cache_storage_configurations"] = cache_storage_configurations
-            if capacity_configuration is None and not opts.urn:
-                raise TypeError("Missing required property 'capacity_configuration'")
             __props__.__dict__["capacity_configuration"] = capacity_configuration
             __props__.__dict__["code"] = code
             __props__.__dict__["command_line_arguments"] = command_line_arguments
@@ -875,7 +944,9 @@ class KxCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'release_label'")
             __props__.__dict__["release_label"] = release_label
             __props__.__dict__["savedown_storage_configuration"] = savedown_storage_configuration
+            __props__.__dict__["scaling_group_configuration"] = scaling_group_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tickerplant_log_configurations"] = tickerplant_log_configurations
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -918,10 +989,12 @@ class KxCluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             release_label: Optional[pulumi.Input[str]] = None,
             savedown_storage_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']]] = None,
+            scaling_group_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterScalingGroupConfigurationArgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             status_reason: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterTickerplantLogConfigurationArgs']]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
             vpc_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArgs']]] = None) -> 'KxCluster':
         """
@@ -951,8 +1024,10 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
         :param pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterScalingGroupConfigurationArgs']] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterTickerplantLogConfigurationArgs']]]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
@@ -984,10 +1059,12 @@ class KxCluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["release_label"] = release_label
         __props__.__dict__["savedown_storage_configuration"] = savedown_storage_configuration
+        __props__.__dict__["scaling_group_configuration"] = scaling_group_configuration
         __props__.__dict__["status"] = status
         __props__.__dict__["status_reason"] = status_reason
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["tickerplant_log_configurations"] = tickerplant_log_configurations
         __props__.__dict__["type"] = type
         __props__.__dict__["vpc_configuration"] = vpc_configuration
         return KxCluster(resource_name, opts=opts, __props__=__props__)
@@ -1036,7 +1113,7 @@ class KxCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="capacityConfiguration")
-    def capacity_configuration(self) -> pulumi.Output['outputs.KxClusterCapacityConfiguration']:
+    def capacity_configuration(self) -> pulumi.Output[Optional['outputs.KxClusterCapacityConfiguration']]:
         """
         Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         """
@@ -1139,6 +1216,14 @@ class KxCluster(pulumi.CustomResource):
         return pulumi.get(self, "savedown_storage_configuration")
 
     @property
+    @pulumi.getter(name="scalingGroupConfiguration")
+    def scaling_group_configuration(self) -> pulumi.Output[Optional['outputs.KxClusterScalingGroupConfiguration']]:
+        """
+        The structure that stores the configuration details of a scaling group.
+        """
+        return pulumi.get(self, "scaling_group_configuration")
+
+    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
@@ -1166,6 +1251,14 @@ class KxCluster(pulumi.CustomResource):
         pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
 
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="tickerplantLogConfigurations")
+    def tickerplant_log_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.KxClusterTickerplantLogConfiguration']]]:
+        """
+        A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        """
+        return pulumi.get(self, "tickerplant_log_configurations")
 
     @property
     @pulumi.getter

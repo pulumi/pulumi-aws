@@ -73,7 +73,7 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      */
-    public readonly capacityConfiguration!: pulumi.Output<outputs.finspace.KxClusterCapacityConfiguration>;
+    public readonly capacityConfiguration!: pulumi.Output<outputs.finspace.KxClusterCapacityConfiguration | undefined>;
     /**
      * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
      */
@@ -122,6 +122,10 @@ export class KxCluster extends pulumi.CustomResource {
      * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
      */
     public readonly savedownStorageConfiguration!: pulumi.Output<outputs.finspace.KxClusterSavedownStorageConfiguration | undefined>;
+    /**
+     * The structure that stores the configuration details of a scaling group.
+     */
+    public readonly scalingGroupConfiguration!: pulumi.Output<outputs.finspace.KxClusterScalingGroupConfiguration | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
@@ -134,6 +138,10 @@ export class KxCluster extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     */
+    public readonly tickerplantLogConfigurations!: pulumi.Output<outputs.finspace.KxClusterTickerplantLogConfiguration[] | undefined>;
     /**
      * Type of KDB database. The following types are available:
      * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -180,19 +188,18 @@ export class KxCluster extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
             resourceInputs["savedownStorageConfiguration"] = state ? state.savedownStorageConfiguration : undefined;
+            resourceInputs["scalingGroupConfiguration"] = state ? state.scalingGroupConfiguration : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusReason"] = state ? state.statusReason : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tickerplantLogConfigurations"] = state ? state.tickerplantLogConfigurations : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
         } else {
             const args = argsOrState as KxClusterArgs | undefined;
             if ((!args || args.azMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azMode'");
-            }
-            if ((!args || args.capacityConfiguration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'capacityConfiguration'");
             }
             if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
@@ -221,7 +228,9 @@ export class KxCluster extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
             resourceInputs["savedownStorageConfiguration"] = args ? args.savedownStorageConfiguration : undefined;
+            resourceInputs["scalingGroupConfiguration"] = args ? args.scalingGroupConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tickerplantLogConfigurations"] = args ? args.tickerplantLogConfigurations : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -316,6 +325,10 @@ export interface KxClusterState {
      * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
      */
     savedownStorageConfiguration?: pulumi.Input<inputs.finspace.KxClusterSavedownStorageConfiguration>;
+    /**
+     * The structure that stores the configuration details of a scaling group.
+     */
+    scalingGroupConfiguration?: pulumi.Input<inputs.finspace.KxClusterScalingGroupConfiguration>;
     status?: pulumi.Input<string>;
     statusReason?: pulumi.Input<string>;
     /**
@@ -328,6 +341,10 @@ export interface KxClusterState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     */
+    tickerplantLogConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterTickerplantLogConfiguration>[]>;
     /**
      * Type of KDB database. The following types are available:
      * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -369,7 +386,7 @@ export interface KxClusterArgs {
     /**
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      */
-    capacityConfiguration: pulumi.Input<inputs.finspace.KxClusterCapacityConfiguration>;
+    capacityConfiguration?: pulumi.Input<inputs.finspace.KxClusterCapacityConfiguration>;
     /**
      * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
      */
@@ -411,9 +428,17 @@ export interface KxClusterArgs {
      */
     savedownStorageConfiguration?: pulumi.Input<inputs.finspace.KxClusterSavedownStorageConfiguration>;
     /**
+     * The structure that stores the configuration details of a scaling group.
+     */
+    scalingGroupConfiguration?: pulumi.Input<inputs.finspace.KxClusterScalingGroupConfiguration>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     */
+    tickerplantLogConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterTickerplantLogConfiguration>[]>;
     /**
      * Type of KDB database. The following types are available:
      * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.

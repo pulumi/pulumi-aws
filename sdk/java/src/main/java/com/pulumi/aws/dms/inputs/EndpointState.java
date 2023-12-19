@@ -7,6 +7,7 @@ import com.pulumi.aws.dms.inputs.EndpointElasticsearchSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointKafkaSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointKinesisSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointMongodbSettingsArgs;
+import com.pulumi.aws.dms.inputs.EndpointPostgresSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointRedisSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointRedshiftSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointS3SettingsArgs;
@@ -246,6 +247,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.port);
     }
 
+    /**
+     * Configuration block for Postgres settings. See below.
+     * 
+     */
+    @Import(name="postgresSettings")
+    private @Nullable Output<EndpointPostgresSettingsArgs> postgresSettings;
+
+    /**
+     * @return Configuration block for Postgres settings. See below.
+     * 
+     */
+    public Optional<Output<EndpointPostgresSettingsArgs>> postgresSettings() {
+        return Optional.ofNullable(this.postgresSettings);
+    }
+
     @Import(name="redisSettings")
     private @Nullable Output<EndpointRedisSettingsArgs> redisSettings;
 
@@ -429,6 +445,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.password = $.password;
         this.pauseReplicationTasks = $.pauseReplicationTasks;
         this.port = $.port;
+        this.postgresSettings = $.postgresSettings;
         this.redisSettings = $.redisSettings;
         this.redshiftSettings = $.redshiftSettings;
         this.s3Settings = $.s3Settings;
@@ -765,6 +782,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param postgresSettings Configuration block for Postgres settings. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder postgresSettings(@Nullable Output<EndpointPostgresSettingsArgs> postgresSettings) {
+            $.postgresSettings = postgresSettings;
+            return this;
+        }
+
+        /**
+         * @param postgresSettings Configuration block for Postgres settings. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder postgresSettings(EndpointPostgresSettingsArgs postgresSettings) {
+            return postgresSettings(Output.of(postgresSettings));
         }
 
         public Builder redisSettings(@Nullable Output<EndpointRedisSettingsArgs> redisSettings) {

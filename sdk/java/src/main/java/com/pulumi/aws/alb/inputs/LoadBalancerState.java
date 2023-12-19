@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.aws.alb.inputs.LoadBalancerAccessLogsArgs;
+import com.pulumi.aws.alb.inputs.LoadBalancerConnectionLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerSubnetMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -64,6 +65,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arnSuffix() {
         return Optional.ofNullable(this.arnSuffix);
+    }
+
+    /**
+     * A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    @Import(name="connectionLogs")
+    private @Nullable Output<LoadBalancerConnectionLogsArgs> connectionLogs;
+
+    /**
+     * @return A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * 
+     */
+    public Optional<Output<LoadBalancerConnectionLogsArgs>> connectionLogs() {
+        return Optional.ofNullable(this.connectionLogs);
     }
 
     /**
@@ -371,14 +387,14 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A subnet mapping block as documented below.
+     * A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     @Import(name="subnetMappings")
     private @Nullable Output<List<LoadBalancerSubnetMappingArgs>> subnetMappings;
 
     /**
-     * @return A subnet mapping block as documented below.
+     * @return A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     public Optional<Output<List<LoadBalancerSubnetMappingArgs>>> subnetMappings() {
@@ -386,18 +402,14 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of subnet IDs to attach to the LB. Subnets
-     * cannot be updated for Load Balancers of type `network`. Changing this value
-     * for load balancers of type `network` will force a recreation of the resource.
+     * A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     @Import(name="subnets")
     private @Nullable Output<List<String>> subnets;
 
     /**
-     * @return A list of subnet IDs to attach to the LB. Subnets
-     * cannot be updated for Load Balancers of type `network`. Changing this value
-     * for load balancers of type `network` will force a recreation of the resource.
+     * @return A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     public Optional<Output<List<String>>> subnets() {
@@ -485,6 +497,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         this.accessLogs = $.accessLogs;
         this.arn = $.arn;
         this.arnSuffix = $.arnSuffix;
+        this.connectionLogs = $.connectionLogs;
         this.customerOwnedIpv4Pool = $.customerOwnedIpv4Pool;
         this.desyncMitigationMode = $.desyncMitigationMode;
         this.dnsName = $.dnsName;
@@ -593,6 +606,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arnSuffix(String arnSuffix) {
             return arnSuffix(Output.of(arnSuffix));
+        }
+
+        /**
+         * @param connectionLogs A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionLogs(@Nullable Output<LoadBalancerConnectionLogsArgs> connectionLogs) {
+            $.connectionLogs = connectionLogs;
+            return this;
+        }
+
+        /**
+         * @param connectionLogs A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionLogs(LoadBalancerConnectionLogsArgs connectionLogs) {
+            return connectionLogs(Output.of(connectionLogs));
         }
 
         /**
@@ -1030,7 +1064,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetMappings A subnet mapping block as documented below.
+         * @param subnetMappings A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
          * 
          * @return builder
          * 
@@ -1041,7 +1075,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetMappings A subnet mapping block as documented below.
+         * @param subnetMappings A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
          * 
          * @return builder
          * 
@@ -1051,7 +1085,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetMappings A subnet mapping block as documented below.
+         * @param subnetMappings A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
          * 
          * @return builder
          * 
@@ -1061,9 +1095,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the LB. Subnets
-         * cannot be updated for Load Balancers of type `network`. Changing this value
-         * for load balancers of type `network` will force a recreation of the resource.
+         * @param subnets A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -1074,9 +1106,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the LB. Subnets
-         * cannot be updated for Load Balancers of type `network`. Changing this value
-         * for load balancers of type `network` will force a recreation of the resource.
+         * @param subnets A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -1086,9 +1116,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the LB. Subnets
-         * cannot be updated for Load Balancers of type `network`. Changing this value
-         * for load balancers of type `network` will force a recreation of the resource.
+         * @param subnets A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
          * 
          * @return builder
          * 

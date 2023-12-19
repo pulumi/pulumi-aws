@@ -175,6 +175,8 @@ type LoadBalancer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs LoadBalancerConnectionLogsPtrOutput `pulumi:"connectionLogs"`
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -217,11 +219,9 @@ type LoadBalancer struct {
 	PreserveHostHeader pulumi.BoolPtrOutput `pulumi:"preserveHostHeader"`
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings LoadBalancerSubnetMappingArrayOutput `pulumi:"subnetMappings"`
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -282,6 +282,8 @@ type loadBalancerState struct {
 	Arn *string `pulumi:"arn"`
 	// The ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix *string `pulumi:"arnSuffix"`
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs *LoadBalancerConnectionLogs `pulumi:"connectionLogs"`
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -324,11 +326,9 @@ type loadBalancerState struct {
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -350,6 +350,8 @@ type LoadBalancerState struct {
 	Arn pulumi.StringPtrInput
 	// The ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringPtrInput
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs LoadBalancerConnectionLogsPtrInput
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -392,11 +394,9 @@ type LoadBalancerState struct {
 	PreserveHostHeader pulumi.BoolPtrInput
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -418,6 +418,8 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// An Access Logs block. Access Logs documented below.
 	AccessLogs *LoadBalancerAccessLogs `pulumi:"accessLogs"`
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs *LoadBalancerConnectionLogs `pulumi:"connectionLogs"`
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -458,11 +460,9 @@ type loadBalancerArgs struct {
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -474,6 +474,8 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// An Access Logs block. Access Logs documented below.
 	AccessLogs LoadBalancerAccessLogsPtrInput
+	// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+	ConnectionLogs LoadBalancerConnectionLogsPtrInput
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
@@ -514,11 +516,9 @@ type LoadBalancerArgs struct {
 	PreserveHostHeader pulumi.BoolPtrInput
 	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
-	// A subnet mapping block as documented below.
+	// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
-	// A list of subnet IDs to attach to the LB. Subnets
-	// cannot be updated for Load Balancers of type `network`. Changing this value
-	// for load balancers of type `network` will force a recreation of the resource.
+	// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -628,6 +628,11 @@ func (o LoadBalancerOutput) ArnSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.ArnSuffix }).(pulumi.StringOutput)
 }
 
+// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+func (o LoadBalancerOutput) ConnectionLogs() LoadBalancerConnectionLogsPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerConnectionLogsPtrOutput { return v.ConnectionLogs }).(LoadBalancerConnectionLogsPtrOutput)
+}
+
 // The ID of the customer owned ipv4 pool to use for this load balancer.
 func (o LoadBalancerOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.CustomerOwnedIpv4Pool }).(pulumi.StringPtrOutput)
@@ -732,14 +737,12 @@ func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// A subnet mapping block as documented below.
+// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
 func (o LoadBalancerOutput) SubnetMappings() LoadBalancerSubnetMappingArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerSubnetMappingArrayOutput { return v.SubnetMappings }).(LoadBalancerSubnetMappingArrayOutput)
 }
 
-// A list of subnet IDs to attach to the LB. Subnets
-// cannot be updated for Load Balancers of type `network`. Changing this value
-// for load balancers of type `network` will force a recreation of the resource.
+// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
 func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }

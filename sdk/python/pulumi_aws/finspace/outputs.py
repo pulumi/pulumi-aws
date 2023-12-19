@@ -18,12 +18,17 @@ __all__ = [
     'KxClusterDatabase',
     'KxClusterDatabaseCacheConfiguration',
     'KxClusterSavedownStorageConfiguration',
+    'KxClusterScalingGroupConfiguration',
+    'KxClusterTickerplantLogConfiguration',
     'KxClusterVpcConfiguration',
+    'KxDataviewSegmentConfiguration',
     'KxEnvironmentCustomDnsConfiguration',
     'KxEnvironmentTransitGatewayConfiguration',
     'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration',
     'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode',
     'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange',
+    'KxVolumeAttachedCluster',
+    'KxVolumeNas1Configuration',
 ]
 
 @pulumi.output_type
@@ -308,6 +313,8 @@ class KxClusterDatabase(dict):
             suggest = "cache_configurations"
         elif key == "changesetId":
             suggest = "changeset_id"
+        elif key == "dataviewName":
+            suggest = "dataview_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KxClusterDatabase. Access the value via the '{suggest}' property getter instead.")
@@ -323,17 +330,21 @@ class KxClusterDatabase(dict):
     def __init__(__self__, *,
                  database_name: str,
                  cache_configurations: Optional[Sequence['outputs.KxClusterDatabaseCacheConfiguration']] = None,
-                 changeset_id: Optional[str] = None):
+                 changeset_id: Optional[str] = None,
+                 dataview_name: Optional[str] = None):
         """
         :param str database_name: Name of the KX database.
         :param Sequence['KxClusterDatabaseCacheConfigurationArgs'] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param str changeset_id: A unique identifier of the changeset that is associated with the cluster.
+        :param str dataview_name: The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
         """
         pulumi.set(__self__, "database_name", database_name)
         if cache_configurations is not None:
             pulumi.set(__self__, "cache_configurations", cache_configurations)
         if changeset_id is not None:
             pulumi.set(__self__, "changeset_id", changeset_id)
+        if dataview_name is not None:
+            pulumi.set(__self__, "dataview_name", dataview_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -358,6 +369,14 @@ class KxClusterDatabase(dict):
         A unique identifier of the changeset that is associated with the cluster.
         """
         return pulumi.get(self, "changeset_id")
+
+    @property
+    @pulumi.getter(name="dataviewName")
+    def dataview_name(self) -> Optional[str]:
+        """
+        The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+        """
+        return pulumi.get(self, "dataview_name")
 
 
 @pulumi.output_type
@@ -411,20 +430,43 @@ class KxClusterDatabaseCacheConfiguration(dict):
 
 @pulumi.output_type
 class KxClusterSavedownStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeName":
+            suggest = "volume_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KxClusterSavedownStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KxClusterSavedownStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KxClusterSavedownStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 size: int,
-                 type: str):
+                 size: Optional[int] = None,
+                 type: Optional[str] = None,
+                 volume_name: Optional[str] = None):
         """
         :param int size: Size of temporary storage in gigabytes. Must be between 10 and 16000.
         :param str type: Type of writeable storage space for temporarily storing your savedown data. The valid values are:
                * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
+        :param str volume_name: The name of the kdb volume that you want to use as writeable save-down storage for clusters.
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if volume_name is not None:
+            pulumi.set(__self__, "volume_name", volume_name)
 
     @property
     @pulumi.getter
-    def size(self) -> int:
+    def size(self) -> Optional[int]:
         """
         Size of temporary storage in gigabytes. Must be between 10 and 16000.
         """
@@ -432,12 +474,136 @@ class KxClusterSavedownStorageConfiguration(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         Type of writeable storage space for temporarily storing your savedown data. The valid values are:
         * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> Optional[str]:
+        """
+        The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+        """
+        return pulumi.get(self, "volume_name")
+
+
+@pulumi.output_type
+class KxClusterScalingGroupConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memoryReservation":
+            suggest = "memory_reservation"
+        elif key == "nodeCount":
+            suggest = "node_count"
+        elif key == "scalingGroupName":
+            suggest = "scaling_group_name"
+        elif key == "memoryLimit":
+            suggest = "memory_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KxClusterScalingGroupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KxClusterScalingGroupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KxClusterScalingGroupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 memory_reservation: int,
+                 node_count: int,
+                 scaling_group_name: str,
+                 cpu: Optional[float] = None,
+                 memory_limit: Optional[int] = None):
+        """
+        :param int memory_reservation: A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+        :param int node_count: The number of kdb cluster nodes.
+        :param str scaling_group_name: A unique identifier for the kdb scaling group.
+        :param float cpu: The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+        :param int memory_limit: An optional hard limit on the amount of memory a kdb cluster can use.
+        """
+        pulumi.set(__self__, "memory_reservation", memory_reservation)
+        pulumi.set(__self__, "node_count", node_count)
+        pulumi.set(__self__, "scaling_group_name", scaling_group_name)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory_limit is not None:
+            pulumi.set(__self__, "memory_limit", memory_limit)
+
+    @property
+    @pulumi.getter(name="memoryReservation")
+    def memory_reservation(self) -> int:
+        """
+        A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+        """
+        return pulumi.get(self, "memory_reservation")
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> int:
+        """
+        The number of kdb cluster nodes.
+        """
+        return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter(name="scalingGroupName")
+    def scaling_group_name(self) -> str:
+        """
+        A unique identifier for the kdb scaling group.
+        """
+        return pulumi.get(self, "scaling_group_name")
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[float]:
+        """
+        The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="memoryLimit")
+    def memory_limit(self) -> Optional[int]:
+        """
+        An optional hard limit on the amount of memory a kdb cluster can use.
+        """
+        return pulumi.get(self, "memory_limit")
+
+
+@pulumi.output_type
+class KxClusterTickerplantLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tickerplantLogVolumes":
+            suggest = "tickerplant_log_volumes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KxClusterTickerplantLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KxClusterTickerplantLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KxClusterTickerplantLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tickerplant_log_volumes: Sequence[str]):
+        pulumi.set(__self__, "tickerplant_log_volumes", tickerplant_log_volumes)
+
+    @property
+    @pulumi.getter(name="tickerplantLogVolumes")
+    def tickerplant_log_volumes(self) -> Sequence[str]:
+        return pulumi.get(self, "tickerplant_log_volumes")
 
 
 @pulumi.output_type
@@ -510,6 +676,54 @@ class KxClusterVpcConfiguration(dict):
         Identifier of the VPC endpoint
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class KxDataviewSegmentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dbPaths":
+            suggest = "db_paths"
+        elif key == "volumeName":
+            suggest = "volume_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KxDataviewSegmentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KxDataviewSegmentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KxDataviewSegmentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 db_paths: Sequence[str],
+                 volume_name: str):
+        """
+        :param Sequence[str] db_paths: The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+        :param str volume_name: The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+        """
+        pulumi.set(__self__, "db_paths", db_paths)
+        pulumi.set(__self__, "volume_name", volume_name)
+
+    @property
+    @pulumi.getter(name="dbPaths")
+    def db_paths(self) -> Sequence[str]:
+        """
+        The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+        """
+        return pulumi.get(self, "db_paths")
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> str:
+        """
+        The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+        """
+        return pulumi.get(self, "volume_name")
 
 
 @pulumi.output_type
@@ -795,5 +1009,81 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationP
         Last port in the range.
         """
         return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class KxVolumeAttachedCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterName":
+            suggest = "cluster_name"
+        elif key == "clusterStatus":
+            suggest = "cluster_status"
+        elif key == "clusterType":
+            suggest = "cluster_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KxVolumeAttachedCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KxVolumeAttachedCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KxVolumeAttachedCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_name: str,
+                 cluster_status: str,
+                 cluster_type: str):
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "cluster_status", cluster_status)
+        pulumi.set(__self__, "cluster_type", cluster_type)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> str:
+        return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="clusterStatus")
+    def cluster_status(self) -> str:
+        return pulumi.get(self, "cluster_status")
+
+    @property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> str:
+        return pulumi.get(self, "cluster_type")
+
+
+@pulumi.output_type
+class KxVolumeNas1Configuration(dict):
+    def __init__(__self__, *,
+                 size: int,
+                 type: str):
+        """
+        :param int size: The size of the network attached storage.
+        :param str type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        """
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        """
+        The size of the network attached storage.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        """
+        return pulumi.get(self, "type")
 
 

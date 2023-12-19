@@ -93,57 +93,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
-    /// ## Availability Zones
-    /// 
-    /// Lightsail currently supports the following Availability Zones (e.g., `us-east-1a`):
-    /// 
-    /// - `ap-northeast-1{a,c,d}`
-    /// - `ap-northeast-2{a,c}`
-    /// - `ap-south-1{a,b}`
-    /// - `ap-southeast-1{a,b,c}`
-    /// - `ap-southeast-2{a,b,c}`
-    /// - `ca-central-1{a,b}`
-    /// - `eu-central-1{a,b,c}`
-    /// - `eu-west-1{a,b,c}`
-    /// - `eu-west-2{a,b,c}`
-    /// - `eu-west-3{a,b,c}`
-    /// - `us-east-1{a,b,c,d,e,f}`
-    /// - `us-east-2{a,b,c}`
-    /// - `us-west-2{a,b,c}`
-    /// 
-    /// ## Bundles
-    /// 
-    /// Lightsail currently supports the following Bundle IDs (e.g., an instance in `ap-northeast-1` would use `small_2_0`):
-    /// 
-    /// ### Prefix
-    /// 
-    /// A Bundle ID starts with one of the below size prefixes:
-    /// 
-    /// - `nano_`
-    /// - `micro_`
-    /// - `small_`
-    /// - `medium_`
-    /// - `large_`
-    /// - `xlarge_`
-    /// - `2xlarge_`
-    /// 
-    /// ### Suffix
-    /// 
-    /// A Bundle ID ends with one of the following suffixes depending on Availability Zone:
-    /// 
-    /// - ap-northeast-1: `2_0`
-    /// - ap-northeast-2: `2_0`
-    /// - ap-south-1: `2_1`
-    /// - ap-southeast-1: `2_0`
-    /// - ap-southeast-2: `2_2`
-    /// - ca-central-1: `2_0`
-    /// - eu-central-1: `2_0`
-    /// - eu-west-1: `2_0`
-    /// - eu-west-2: `2_0`
-    /// - eu-west-3: `2_0`
-    /// - us-east-1: `2_0`
-    /// - us-east-2: `2_0`
-    /// - us-west-2: `2_0`
     /// 
     /// ## Import
     /// 
@@ -169,20 +118,25 @@ namespace Pulumi.Aws.LightSail
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Availability Zone in which to create your
-        /// instance (see list below)
+        /// The Availability Zone in which to create your instance. A
+        /// list of available zones can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+        /// The ID for a virtual private server image. A list of available
+        /// blueprint IDs can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         /// </summary>
         [Output("blueprintId")]
         public Output<string> BlueprintId { get; private set; } = null!;
 
         /// <summary>
-        /// The bundle of specification information (see list below)
+        /// The bundle of specification information. A list of available
+        /// bundle IDs can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         /// </summary>
         [Output("bundleId")]
         public Output<string> BundleId { get; private set; } = null!;
@@ -225,7 +179,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string?> KeyPairName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -329,20 +283,25 @@ namespace Pulumi.Aws.LightSail
         public Input<Inputs.InstanceAddOnArgs>? AddOn { get; set; }
 
         /// <summary>
-        /// The Availability Zone in which to create your
-        /// instance (see list below)
+        /// The Availability Zone in which to create your instance. A
+        /// list of available zones can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
         /// <summary>
-        /// The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+        /// The ID for a virtual private server image. A list of available
+        /// blueprint IDs can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         /// </summary>
         [Input("blueprintId", required: true)]
         public Input<string> BlueprintId { get; set; } = null!;
 
         /// <summary>
-        /// The bundle of specification information (see list below)
+        /// The bundle of specification information. A list of available
+        /// bundle IDs can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         /// </summary>
         [Input("bundleId", required: true)]
         public Input<string> BundleId { get; set; } = null!;
@@ -361,7 +320,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? KeyPairName { get; set; }
 
         /// <summary>
-        /// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -405,20 +364,25 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Availability Zone in which to create your
-        /// instance (see list below)
+        /// The Availability Zone in which to create your instance. A
+        /// list of available zones can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+        /// The ID for a virtual private server image. A list of available
+        /// blueprint IDs can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         /// </summary>
         [Input("blueprintId")]
         public Input<string>? BlueprintId { get; set; }
 
         /// <summary>
-        /// The bundle of specification information (see list below)
+        /// The bundle of specification information. A list of available
+        /// bundle IDs can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         /// </summary>
         [Input("bundleId")]
         public Input<string>? BundleId { get; set; }
@@ -467,7 +431,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? KeyPairName { get; set; }
 
         /// <summary>
-        /// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

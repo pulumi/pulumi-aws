@@ -14,6 +14,7 @@ __all__ = [
     'EndpointKafkaSettingsArgs',
     'EndpointKinesisSettingsArgs',
     'EndpointMongodbSettingsArgs',
+    'EndpointPostgresSettingsArgs',
     'EndpointRedisSettingsArgs',
     'EndpointRedshiftSettingsArgs',
     'EndpointS3SettingsArgs',
@@ -26,12 +27,14 @@ class EndpointElasticsearchSettingsArgs:
                  endpoint_uri: pulumi.Input[str],
                  service_access_role_arn: pulumi.Input[str],
                  error_retry_duration: Optional[pulumi.Input[int]] = None,
-                 full_load_error_percentage: Optional[pulumi.Input[int]] = None):
+                 full_load_error_percentage: Optional[pulumi.Input[int]] = None,
+                 use_new_mapping_type: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] endpoint_uri: Endpoint for the OpenSearch cluster.
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         :param pulumi.Input[int] error_retry_duration: Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
         :param pulumi.Input[int] full_load_error_percentage: Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
+        :param pulumi.Input[bool] use_new_mapping_type: Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
         """
         pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
@@ -39,6 +42,8 @@ class EndpointElasticsearchSettingsArgs:
             pulumi.set(__self__, "error_retry_duration", error_retry_duration)
         if full_load_error_percentage is not None:
             pulumi.set(__self__, "full_load_error_percentage", full_load_error_percentage)
+        if use_new_mapping_type is not None:
+            pulumi.set(__self__, "use_new_mapping_type", use_new_mapping_type)
 
     @property
     @pulumi.getter(name="endpointUri")
@@ -87,6 +92,18 @@ class EndpointElasticsearchSettingsArgs:
     @full_load_error_percentage.setter
     def full_load_error_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "full_load_error_percentage", value)
+
+    @property
+    @pulumi.getter(name="useNewMappingType")
+    def use_new_mapping_type(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+        """
+        return pulumi.get(self, "use_new_mapping_type")
+
+    @use_new_mapping_type.setter
+    def use_new_mapping_type(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_new_mapping_type", value)
 
 
 @pulumi.input_type
@@ -638,6 +655,269 @@ class EndpointMongodbSettingsArgs:
 
 
 @pulumi.input_type
+class EndpointPostgresSettingsArgs:
+    def __init__(__self__, *,
+                 after_connect_script: Optional[pulumi.Input[str]] = None,
+                 babelfish_database_name: Optional[pulumi.Input[str]] = None,
+                 capture_ddls: Optional[pulumi.Input[bool]] = None,
+                 database_mode: Optional[pulumi.Input[str]] = None,
+                 ddl_artifacts_schema: Optional[pulumi.Input[str]] = None,
+                 execute_timeout: Optional[pulumi.Input[int]] = None,
+                 fail_tasks_on_lob_truncation: Optional[pulumi.Input[bool]] = None,
+                 heartbeat_enable: Optional[pulumi.Input[bool]] = None,
+                 heartbeat_frequency: Optional[pulumi.Input[int]] = None,
+                 heartbeat_schema: Optional[pulumi.Input[str]] = None,
+                 map_boolean_as_boolean: Optional[pulumi.Input[bool]] = None,
+                 map_jsonb_as_clob: Optional[pulumi.Input[bool]] = None,
+                 map_long_varchar_as: Optional[pulumi.Input[str]] = None,
+                 max_file_size: Optional[pulumi.Input[int]] = None,
+                 plugin_name: Optional[pulumi.Input[str]] = None,
+                 slot_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] after_connect_script: For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+        :param pulumi.Input[str] babelfish_database_name: The Babelfish for Aurora PostgreSQL database name for the endpoint.
+        :param pulumi.Input[bool] capture_ddls: To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+        :param pulumi.Input[str] database_mode: Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+        :param pulumi.Input[str] ddl_artifacts_schema: Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+        :param pulumi.Input[int] execute_timeout: Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+        :param pulumi.Input[bool] fail_tasks_on_lob_truncation: When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+        :param pulumi.Input[bool] heartbeat_enable: The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+        :param pulumi.Input[int] heartbeat_frequency: Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+        :param pulumi.Input[str] heartbeat_schema: Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+        :param pulumi.Input[bool] map_boolean_as_boolean: You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+        :param pulumi.Input[bool] map_jsonb_as_clob: Optional When true, DMS migrates JSONB values as CLOB.
+        :param pulumi.Input[str] map_long_varchar_as: Optional When true, DMS migrates LONG values as VARCHAR.
+        :param pulumi.Input[int] max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        :param pulumi.Input[str] plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        :param pulumi.Input[str] slot_name: Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+        """
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if babelfish_database_name is not None:
+            pulumi.set(__self__, "babelfish_database_name", babelfish_database_name)
+        if capture_ddls is not None:
+            pulumi.set(__self__, "capture_ddls", capture_ddls)
+        if database_mode is not None:
+            pulumi.set(__self__, "database_mode", database_mode)
+        if ddl_artifacts_schema is not None:
+            pulumi.set(__self__, "ddl_artifacts_schema", ddl_artifacts_schema)
+        if execute_timeout is not None:
+            pulumi.set(__self__, "execute_timeout", execute_timeout)
+        if fail_tasks_on_lob_truncation is not None:
+            pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+        if heartbeat_enable is not None:
+            pulumi.set(__self__, "heartbeat_enable", heartbeat_enable)
+        if heartbeat_frequency is not None:
+            pulumi.set(__self__, "heartbeat_frequency", heartbeat_frequency)
+        if heartbeat_schema is not None:
+            pulumi.set(__self__, "heartbeat_schema", heartbeat_schema)
+        if map_boolean_as_boolean is not None:
+            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
+        if map_jsonb_as_clob is not None:
+            pulumi.set(__self__, "map_jsonb_as_clob", map_jsonb_as_clob)
+        if map_long_varchar_as is not None:
+            pulumi.set(__self__, "map_long_varchar_as", map_long_varchar_as)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if plugin_name is not None:
+            pulumi.set(__self__, "plugin_name", plugin_name)
+        if slot_name is not None:
+            pulumi.set(__self__, "slot_name", slot_name)
+
+    @property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> Optional[pulumi.Input[str]]:
+        """
+        For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+        """
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @property
+    @pulumi.getter(name="babelfishDatabaseName")
+    def babelfish_database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Babelfish for Aurora PostgreSQL database name for the endpoint.
+        """
+        return pulumi.get(self, "babelfish_database_name")
+
+    @babelfish_database_name.setter
+    def babelfish_database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "babelfish_database_name", value)
+
+    @property
+    @pulumi.getter(name="captureDdls")
+    def capture_ddls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+        """
+        return pulumi.get(self, "capture_ddls")
+
+    @capture_ddls.setter
+    def capture_ddls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "capture_ddls", value)
+
+    @property
+    @pulumi.getter(name="databaseMode")
+    def database_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+        """
+        return pulumi.get(self, "database_mode")
+
+    @database_mode.setter
+    def database_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_mode", value)
+
+    @property
+    @pulumi.getter(name="ddlArtifactsSchema")
+    def ddl_artifacts_schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+        """
+        return pulumi.get(self, "ddl_artifacts_schema")
+
+    @ddl_artifacts_schema.setter
+    def ddl_artifacts_schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ddl_artifacts_schema", value)
+
+    @property
+    @pulumi.getter(name="executeTimeout")
+    def execute_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+        """
+        return pulumi.get(self, "execute_timeout")
+
+    @execute_timeout.setter
+    def execute_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "execute_timeout", value)
+
+    @property
+    @pulumi.getter(name="failTasksOnLobTruncation")
+    def fail_tasks_on_lob_truncation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+        """
+        return pulumi.get(self, "fail_tasks_on_lob_truncation")
+
+    @fail_tasks_on_lob_truncation.setter
+    def fail_tasks_on_lob_truncation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fail_tasks_on_lob_truncation", value)
+
+    @property
+    @pulumi.getter(name="heartbeatEnable")
+    def heartbeat_enable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+        """
+        return pulumi.get(self, "heartbeat_enable")
+
+    @heartbeat_enable.setter
+    def heartbeat_enable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "heartbeat_enable", value)
+
+    @property
+    @pulumi.getter(name="heartbeatFrequency")
+    def heartbeat_frequency(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+        """
+        return pulumi.get(self, "heartbeat_frequency")
+
+    @heartbeat_frequency.setter
+    def heartbeat_frequency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "heartbeat_frequency", value)
+
+    @property
+    @pulumi.getter(name="heartbeatSchema")
+    def heartbeat_schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+        """
+        return pulumi.get(self, "heartbeat_schema")
+
+    @heartbeat_schema.setter
+    def heartbeat_schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "heartbeat_schema", value)
+
+    @property
+    @pulumi.getter(name="mapBooleanAsBoolean")
+    def map_boolean_as_boolean(self) -> Optional[pulumi.Input[bool]]:
+        """
+        You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+        """
+        return pulumi.get(self, "map_boolean_as_boolean")
+
+    @map_boolean_as_boolean.setter
+    def map_boolean_as_boolean(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_boolean_as_boolean", value)
+
+    @property
+    @pulumi.getter(name="mapJsonbAsClob")
+    def map_jsonb_as_clob(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Optional When true, DMS migrates JSONB values as CLOB.
+        """
+        return pulumi.get(self, "map_jsonb_as_clob")
+
+    @map_jsonb_as_clob.setter
+    def map_jsonb_as_clob(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_jsonb_as_clob", value)
+
+    @property
+    @pulumi.getter(name="mapLongVarcharAs")
+    def map_long_varchar_as(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional When true, DMS migrates LONG values as VARCHAR.
+        """
+        return pulumi.get(self, "map_long_varchar_as")
+
+    @map_long_varchar_as.setter
+    def map_long_varchar_as(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "map_long_varchar_as", value)
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @property
+    @pulumi.getter(name="pluginName")
+    def plugin_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        """
+        return pulumi.get(self, "plugin_name")
+
+    @plugin_name.setter
+    def plugin_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plugin_name", value)
+
+    @property
+    @pulumi.getter(name="slotName")
+    def slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+        """
+        return pulumi.get(self, "slot_name")
+
+    @slot_name.setter
+    def slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slot_name", value)
+
+
+@pulumi.input_type
 class EndpointRedisSettingsArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
@@ -909,7 +1189,7 @@ class EndpointS3SettingsArgs:
         :param pulumi.Input[bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
-        :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+        :param pulumi.Input[int] max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         :param pulumi.Input[bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
         :param pulumi.Input[str] parquet_version: Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
         :param pulumi.Input[bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
@@ -1326,7 +1606,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+        Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         """
         return pulumi.get(self, "max_file_size")
 

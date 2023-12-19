@@ -67,57 +67,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ## Availability Zones
- *
- * Lightsail currently supports the following Availability Zones (e.g., `us-east-1a`):
- *
- * - `ap-northeast-1{a,c,d}`
- * - `ap-northeast-2{a,c}`
- * - `ap-south-1{a,b}`
- * - `ap-southeast-1{a,b,c}`
- * - `ap-southeast-2{a,b,c}`
- * - `ca-central-1{a,b}`
- * - `eu-central-1{a,b,c}`
- * - `eu-west-1{a,b,c}`
- * - `eu-west-2{a,b,c}`
- * - `eu-west-3{a,b,c}`
- * - `us-east-1{a,b,c,d,e,f}`
- * - `us-east-2{a,b,c}`
- * - `us-west-2{a,b,c}`
- *
- * ## Bundles
- *
- * Lightsail currently supports the following Bundle IDs (e.g., an instance in `ap-northeast-1` would use `small20`):
- *
- * ### Prefix
- *
- * A Bundle ID starts with one of the below size prefixes:
- *
- * - `nano_`
- * - `micro_`
- * - `small_`
- * - `medium_`
- * - `large_`
- * - `xlarge_`
- * - `2xlarge_`
- *
- * ### Suffix
- *
- * A Bundle ID ends with one of the following suffixes depending on Availability Zone:
- *
- * - ap-northeast-1: `20`
- * - ap-northeast-2: `20`
- * - ap-south-1: `21`
- * - ap-southeast-1: `20`
- * - ap-southeast-2: `22`
- * - ca-central-1: `20`
- * - eu-central-1: `20`
- * - eu-west-1: `20`
- * - eu-west-2: `20`
- * - eu-west-3: `20`
- * - us-east-1: `20`
- * - us-east-2: `20`
- * - us-west-2: `20`
  *
  * ## Import
  *
@@ -164,16 +113,21 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The Availability Zone in which to create your
-     * instance (see list below)
+     * The Availability Zone in which to create your instance. A
+     * list of available zones can be obtained using the AWS CLI command:
+     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     * The ID for a virtual private server image. A list of available
+     * blueprint IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      */
     public readonly blueprintId!: pulumi.Output<string>;
     /**
-     * The bundle of specification information (see list below)
+     * The bundle of specification information. A list of available
+     * bundle IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      */
     public readonly bundleId!: pulumi.Output<string>;
     /**
@@ -202,7 +156,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly keyPairName!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     * The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -319,16 +273,21 @@ export interface InstanceState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The Availability Zone in which to create your
-     * instance (see list below)
+     * The Availability Zone in which to create your instance. A
+     * list of available zones can be obtained using the AWS CLI command:
+     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     * The ID for a virtual private server image. A list of available
+     * blueprint IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      */
     blueprintId?: pulumi.Input<string>;
     /**
-     * The bundle of specification information (see list below)
+     * The bundle of specification information. A list of available
+     * bundle IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      */
     bundleId?: pulumi.Input<string>;
     /**
@@ -357,7 +316,7 @@ export interface InstanceState {
      */
     keyPairName?: pulumi.Input<string>;
     /**
-     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     * The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      */
     name?: pulumi.Input<string>;
     /**
@@ -401,16 +360,21 @@ export interface InstanceArgs {
      */
     addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
     /**
-     * The Availability Zone in which to create your
-     * instance (see list below)
+     * The Availability Zone in which to create your instance. A
+     * list of available zones can be obtained using the AWS CLI command:
+     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      */
     availabilityZone: pulumi.Input<string>;
     /**
-     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     * The ID for a virtual private server image. A list of available
+     * blueprint IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      */
     blueprintId: pulumi.Input<string>;
     /**
-     * The bundle of specification information (see list below)
+     * The bundle of specification information. A list of available
+     * bundle IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      */
     bundleId: pulumi.Input<string>;
     /**
@@ -423,7 +387,7 @@ export interface InstanceArgs {
      */
     keyPairName?: pulumi.Input<string>;
     /**
-     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     * The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      */
     name?: pulumi.Input<string>;
     /**

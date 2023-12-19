@@ -5,33 +5,28 @@ Subject: [PATCH 27/36] Restore S3ConnURICleaningDisabled
 
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index 05e58080b5..0c0f1952be 100644
+index aa9e51412c..f45c64eed4 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
-@@ -11,10 +11,12 @@ import (
- 	"sync"
- 
- 	aws_sdkv2 "github.com/aws/aws-sdk-go-v2/aws"
-+	aws_sdkv1 "github.com/aws/aws-sdk-go/aws"
- 	endpoints_sdkv1 "github.com/aws/aws-sdk-go/aws/endpoints"
+@@ -16,6 +16,7 @@ import (
  	session_sdkv1 "github.com/aws/aws-sdk-go/aws/session"
  	apigatewayv2_sdkv1 "github.com/aws/aws-sdk-go/service/apigatewayv2"
  	mediaconvert_sdkv1 "github.com/aws/aws-sdk-go/service/mediaconvert"
 +	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
  	baselogging "github.com/hashicorp/aws-sdk-go-base/v2/logging"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/errs"
  	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
- 	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -76,6 +78,13 @@ func (client *AWSClient) S3UsePathStyle() bool {
- 	return client.s3UsePathStyle
+@@ -102,6 +103,13 @@ func (c *AWSClient) S3UsePathStyle() bool {
+ 	return c.s3UsePathStyle
  }
  
 +func (client *AWSClient) S3ConnURICleaningDisabled(ctx context.Context) *s3_sdkv1.S3 {
 +	config := client.S3Conn(ctx).Config
-+	config.DisableRestProtocolURICleaning = aws_sdkv1.Bool(true)
++	config.DisableRestProtocolURICleaning = aws_sdkv2.Bool(true)
 +
 +	return s3_sdkv1.New(client.Session.Copy(&config))
 +}
 +
  // SetHTTPClient sets the http.Client used for AWS API calls.
  // To have effect it must be called before the AWS SDK v1 Session is created.
- func (client *AWSClient) SetHTTPClient(httpClient *http.Client) {
+ func (c *AWSClient) SetHTTPClient(httpClient *http.Client) {

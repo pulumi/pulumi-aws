@@ -63,7 +63,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         /// </summary>
         [Output("logGroupClass")]
-        public Output<string?> LogGroupClass { get; private set; } = null!;
+        public Output<string> LogGroupClass { get; private set; } = null!;
 
         /// <summary>
         /// The name of the log group. If omitted, this provider will assign a random, unique name.

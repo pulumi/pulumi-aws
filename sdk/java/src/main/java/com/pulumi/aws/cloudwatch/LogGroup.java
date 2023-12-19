@@ -102,14 +102,14 @@ public class LogGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="logGroupClass", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> logGroupClass;
+    private Output<String> logGroupClass;
 
     /**
      * @return Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
      * 
      */
-    public Output<Optional<String>> logGroupClass() {
-        return Codegen.optional(this.logGroupClass);
+    public Output<String> logGroupClass() {
+        return this.logGroupClass;
     }
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.

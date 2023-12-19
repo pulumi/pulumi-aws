@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  * ## RDS Instance Class Types
  * 
- * Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+ * Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
  * For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
  * 
  * ## Low-Downtime Updates
@@ -234,6 +234,80 @@ import javax.annotation.Nullable;
  *             .storageEncrypted(true)
  *             .username(&#34;test&#34;)
  *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### RDS Db2 Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.RdsFunctions;
+ * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
+ * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
+ * import com.pulumi.aws.rds.ParameterGroup;
+ * import com.pulumi.aws.rds.ParameterGroupArgs;
+ * import com.pulumi.aws.rds.inputs.ParameterGroupParameterArgs;
+ * import com.pulumi.aws.rds.Instance;
+ * import com.pulumi.aws.rds.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var default = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+ *             .engine(&#34;db2-se&#34;)
+ *             .build());
+ * 
+ *         final var exampleOrderableDbInstance = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+ *             .engine(default_.engine())
+ *             .engineVersion(default_.version())
+ *             .licenseModel(&#34;bring-your-own-license&#34;)
+ *             .storageType(&#34;gp3&#34;)
+ *             .preferredInstanceClasses(            
+ *                 &#34;db.t3.small&#34;,
+ *                 &#34;db.r6i.large&#34;,
+ *                 &#34;db.m6i.large&#34;)
+ *             .build());
+ * 
+ *         var exampleParameterGroup = new ParameterGroup(&#34;exampleParameterGroup&#34;, ParameterGroupArgs.builder()        
+ *             .family(default_.parameterGroupFamily())
+ *             .parameters(            
+ *                 ParameterGroupParameterArgs.builder()
+ *                     .applyMethod(&#34;immediate&#34;)
+ *                     .name(&#34;rds.ibm_customer_id&#34;)
+ *                     .value(0)
+ *                     .build(),
+ *                 ParameterGroupParameterArgs.builder()
+ *                     .applyMethod(&#34;immediate&#34;)
+ *                     .name(&#34;rds.ibm_site_id&#34;)
+ *                     .value(0)
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *             .allocatedStorage(100)
+ *             .backupRetentionPeriod(7)
+ *             .dbName(&#34;test&#34;)
+ *             .engine(exampleOrderableDbInstance.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engine()))
+ *             .engineVersion(exampleOrderableDbInstance.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.engineVersion()))
+ *             .identifier(&#34;db2-instance-demo&#34;)
+ *             .instanceClass(exampleOrderableDbInstance.applyValue(getOrderableDbInstanceResult -&gt; getOrderableDbInstanceResult.instanceClass()))
+ *             .parameterGroupName(exampleParameterGroup.name())
+ *             .password(&#34;avoid-plaintext-passwords&#34;)
+ *             .username(&#34;test&#34;)
  *             .build());
  * 
  *     }
@@ -1171,16 +1245,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.optionGroupName;
     }
     /**
-     * Name of the DB parameter group to
-     * associate.
+     * Name of the DB parameter group to associate.
      * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> parameterGroupName;
 
     /**
-     * @return Name of the DB parameter group to
-     * associate.
+     * @return Name of the DB parameter group to associate.
      * 
      */
     public Output<String> parameterGroupName() {

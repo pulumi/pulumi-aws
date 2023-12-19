@@ -68,7 +68,7 @@ export class LogGroup extends pulumi.CustomResource {
     /**
      * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
      */
-    public readonly logGroupClass!: pulumi.Output<string | undefined>;
+    public readonly logGroupClass!: pulumi.Output<string>;
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      */

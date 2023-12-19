@@ -31,6 +31,11 @@ public final class GetLogGroupResult {
      * 
      */
     private String kmsKeyId;
+    /**
+     * @return The log class of the log group.
+     * 
+     */
+    private String logGroupClass;
     private String name;
     /**
      * @return Number of days log events retained in the specified log group.
@@ -72,6 +77,13 @@ public final class GetLogGroupResult {
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * @return The log class of the log group.
+     * 
+     */
+    public String logGroupClass() {
+        return this.logGroupClass;
+    }
     public String name() {
         return this.name;
     }
@@ -103,6 +115,7 @@ public final class GetLogGroupResult {
         private Integer creationTime;
         private String id;
         private String kmsKeyId;
+        private String logGroupClass;
         private String name;
         private Integer retentionInDays;
         private Map<String,String> tags;
@@ -113,6 +126,7 @@ public final class GetLogGroupResult {
     	      this.creationTime = defaults.creationTime;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
+    	      this.logGroupClass = defaults.logGroupClass;
     	      this.name = defaults.name;
     	      this.retentionInDays = defaults.retentionInDays;
     	      this.tags = defaults.tags;
@@ -139,6 +153,11 @@ public final class GetLogGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder logGroupClass(String logGroupClass) {
+            this.logGroupClass = Objects.requireNonNull(logGroupClass);
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
@@ -159,6 +178,7 @@ public final class GetLogGroupResult {
             _resultValue.creationTime = creationTime;
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.logGroupClass = logGroupClass;
             _resultValue.name = name;
             _resultValue.retentionInDays = retentionInDays;
             _resultValue.tags = tags;

@@ -199,6 +199,7 @@ public final class Endpoints {
     private @Nullable String outposts;
     private @Nullable String pinpoint;
     private @Nullable String pipes;
+    private @Nullable String polly;
     private @Nullable String pricing;
     private @Nullable String prometheus;
     private @Nullable String prometheusservice;
@@ -836,6 +837,9 @@ public final class Endpoints {
     public Optional<String> pipes() {
         return Optional.ofNullable(this.pipes);
     }
+    public Optional<String> polly() {
+        return Optional.ofNullable(this.polly);
+    }
     public Optional<String> pricing() {
         return Optional.ofNullable(this.pricing);
     }
@@ -1247,6 +1251,7 @@ public final class Endpoints {
         private @Nullable String outposts;
         private @Nullable String pinpoint;
         private @Nullable String pipes;
+        private @Nullable String polly;
         private @Nullable String pricing;
         private @Nullable String prometheus;
         private @Nullable String prometheusservice;
@@ -1509,6 +1514,7 @@ public final class Endpoints {
     	      this.outposts = defaults.outposts;
     	      this.pinpoint = defaults.pinpoint;
     	      this.pipes = defaults.pipes;
+    	      this.polly = defaults.polly;
     	      this.pricing = defaults.pricing;
     	      this.prometheus = defaults.prometheus;
     	      this.prometheusservice = defaults.prometheusservice;
@@ -2523,6 +2529,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder polly(@Nullable String polly) {
+            this.polly = polly;
+            return this;
+        }
+        @CustomType.Setter
         public Builder pricing(@Nullable String pricing) {
             this.pricing = pricing;
             return this;
@@ -3067,6 +3078,7 @@ public final class Endpoints {
             _resultValue.outposts = outposts;
             _resultValue.pinpoint = pinpoint;
             _resultValue.pipes = pipes;
+            _resultValue.polly = polly;
             _resultValue.pricing = pricing;
             _resultValue.prometheus = prometheus;
             _resultValue.prometheusservice = prometheusservice;

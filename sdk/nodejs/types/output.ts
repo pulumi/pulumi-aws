@@ -352,6 +352,12 @@ export namespace alb {
         prefix: string;
     }
 
+    export interface GetLoadBalancerConnectionLog {
+        bucket: string;
+        enabled: boolean;
+        prefix: string;
+    }
+
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
         ipv6Address: string;
@@ -877,6 +883,21 @@ export namespace alb {
         bucket: string;
         /**
          * Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
+         */
+        enabled?: boolean;
+        /**
+         * The S3 bucket prefix. Logs are stored in the root if not configured.
+         */
+        prefix?: string;
+    }
+
+    export interface LoadBalancerConnectionLogs {
+        /**
+         * The S3 bucket name to store the logs in.
+         */
+        bucket: string;
+        /**
+         * Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
          */
         enabled?: boolean;
         /**
@@ -15827,6 +15848,7 @@ export namespace config {
         outposts?: string;
         pinpoint?: string;
         pipes?: string;
+        polly?: string;
         pricing?: string;
         prometheus?: string;
         prometheusservice?: string;
@@ -19321,6 +19343,10 @@ export namespace dms {
          * ARN of the IAM Role with permissions to write to the OpenSearch cluster.
          */
         serviceAccessRoleArn: string;
+        /**
+         * Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+         */
+        useNewMappingType?: boolean;
     }
 
     export interface EndpointKafkaSettings {
@@ -19462,6 +19488,73 @@ export namespace dms {
          * Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
          */
         nestingLevel?: string;
+    }
+
+    export interface EndpointPostgresSettings {
+        /**
+         * For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+         */
+        afterConnectScript?: string;
+        /**
+         * The Babelfish for Aurora PostgreSQL database name for the endpoint.
+         */
+        babelfishDatabaseName?: string;
+        /**
+         * To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+         */
+        captureDdls?: boolean;
+        /**
+         * Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+         */
+        databaseMode?: string;
+        /**
+         * Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+         */
+        ddlArtifactsSchema?: string;
+        /**
+         * Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+         */
+        executeTimeout?: number;
+        /**
+         * When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+         */
+        failTasksOnLobTruncation?: boolean;
+        /**
+         * The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+         */
+        heartbeatEnable?: boolean;
+        /**
+         * Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+         */
+        heartbeatFrequency?: number;
+        /**
+         * Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+         */
+        heartbeatSchema?: string;
+        /**
+         * You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+         */
+        mapBooleanAsBoolean?: boolean;
+        /**
+         * Optional When true, DMS migrates JSONB values as CLOB.
+         */
+        mapJsonbAsClob?: boolean;
+        /**
+         * Optional When true, DMS migrates LONG values as VARCHAR.
+         */
+        mapLongVarcharAs?: string;
+        /**
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+         */
+        maxFileSize?: number;
+        /**
+         * Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+         */
+        pluginName?: string;
+        /**
+         * Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+         */
+        slotName?: string;
     }
 
     export interface EndpointRedisSettings {
@@ -19628,7 +19721,7 @@ export namespace dms {
          */
         includeOpForFullLoad?: boolean;
         /**
-         * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
          */
         maxFileSize?: number;
         /**
@@ -19720,6 +19813,25 @@ export namespace dms {
         docsToInvestigate: string;
         extractDocId: string;
         nestingLevel: string;
+    }
+
+    export interface GetEndpointPostgresSetting {
+        afterConnectScript: string;
+        babelfishDatabaseName: string;
+        captureDdls: boolean;
+        databaseMode: string;
+        ddlArtifactsSchema: string;
+        executeTimeout: number;
+        failTasksOnLobTruncation: boolean;
+        heartbeatEnable: boolean;
+        heartbeatFrequency: number;
+        heartbeatSchema: string;
+        mapBooleanAsBoolean: boolean;
+        mapJsonbAsClob: boolean;
+        mapLongVarcharAs: string;
+        maxFileSize: number;
+        pluginName: string;
+        slotName: string;
     }
 
     export interface GetEndpointRedisSetting {
@@ -30230,6 +30342,10 @@ export namespace finspace {
          * Name of the KX database.
          */
         databaseName: string;
+        /**
+         * The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+         */
+        dataviewName?: string;
     }
 
     export interface KxClusterDatabaseCacheConfiguration {
@@ -30247,12 +30363,43 @@ export namespace finspace {
         /**
          * Size of temporary storage in gigabytes. Must be between 10 and 16000.
          */
-        size: number;
+        size?: number;
         /**
          * Type of writeable storage space for temporarily storing your savedown data. The valid values are:
          * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
          */
-        type: string;
+        type?: string;
+        /**
+         * The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+         */
+        volumeName?: string;
+    }
+
+    export interface KxClusterScalingGroupConfiguration {
+        /**
+         * The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+         */
+        cpu?: number;
+        /**
+         * An optional hard limit on the amount of memory a kdb cluster can use.
+         */
+        memoryLimit?: number;
+        /**
+         * A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+         */
+        memoryReservation: number;
+        /**
+         * The number of kdb cluster nodes.
+         */
+        nodeCount: number;
+        /**
+         * A unique identifier for the kdb scaling group.
+         */
+        scalingGroupName: string;
+    }
+
+    export interface KxClusterTickerplantLogConfiguration {
+        tickerplantLogVolumes: string[];
     }
 
     export interface KxClusterVpcConfiguration {
@@ -30270,6 +30417,17 @@ export namespace finspace {
          * Identifier of the VPC endpoint
          */
         vpcId: string;
+    }
+
+    export interface KxDataviewSegmentConfiguration {
+        /**
+         * The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+         */
+        dbPaths: string[];
+        /**
+         * The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+         */
+        volumeName: string;
     }
 
     export interface KxEnvironmentCustomDnsConfiguration {
@@ -30345,6 +30503,23 @@ export namespace finspace {
          * Last port in the range.
          */
         to: number;
+    }
+
+    export interface KxVolumeAttachedCluster {
+        clusterName: string;
+        clusterStatus: string;
+        clusterType: string;
+    }
+
+    export interface KxVolumeNas1Configuration {
+        /**
+         * The size of the network attached storage.
+         */
+        size: number;
+        /**
+         * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+         */
+        type: string;
     }
 
 }
@@ -39957,6 +40132,12 @@ export namespace lb {
         prefix: string;
     }
 
+    export interface GetLoadBalancerConnectionLog {
+        bucket: string;
+        enabled: boolean;
+        prefix: string;
+    }
+
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
         ipv6Address: string;
@@ -40482,6 +40663,21 @@ export namespace lb {
         bucket: string;
         /**
          * Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
+         */
+        enabled?: boolean;
+        /**
+         * The S3 bucket prefix. Logs are stored in the root if not configured.
+         */
+        prefix?: string;
+    }
+
+    export interface LoadBalancerConnectionLogs {
+        /**
+         * The S3 bucket name to store the logs in.
+         */
+        bucket: string;
+        /**
+         * Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
          */
         enabled?: boolean;
         /**
@@ -44026,6 +44222,9 @@ export namespace medialive {
          * This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
          */
         errorClearTimeMsec?: number;
+        /**
+         * A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+         */
         failoverConditions?: outputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition[];
         /**
          * Input preference when deciding which input to make active when a previously failed input has recovered.
@@ -49777,6 +49976,40 @@ export namespace pipes {
          * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
          */
         invocationType: string;
+    }
+
+}
+
+export namespace polly {
+    export interface GetVoicesVoice {
+        /**
+         * Additional codes for languages available for the specified voice in addition to its default language.
+         */
+        additionalLanguageCodes: string[];
+        /**
+         * Gender of the voice.
+         */
+        gender: string;
+        /**
+         * Amazon Polly assigned voice ID.
+         */
+        id: string;
+        /**
+         * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
+         */
+        languageCode: string;
+        /**
+         * Human readable name of the language in English.
+         */
+        languageName: string;
+        /**
+         * Name of the voice.
+         */
+        name: string;
+        /**
+         * Specifies which engines are supported by a given voice.
+         */
+        supportedEngines: string[];
     }
 
 }
@@ -61698,6 +61931,21 @@ export namespace ssoadmin {
         path?: string;
     }
 
+    export interface GetApplicationAssignmentsApplicationAssignment {
+        /**
+         * ARN of the application.
+         */
+        applicationArn: string;
+        /**
+         * An identifier for an object in IAM Identity Center, such as a user or group.
+         */
+        principalId: string;
+        /**
+         * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+         */
+        principalType: string;
+    }
+
     export interface GetApplicationPortalOption {
         signInOptions?: outputs.ssoadmin.GetApplicationPortalOptionSignInOption[];
         visibility: string;
@@ -61738,6 +61986,21 @@ export namespace ssoadmin {
         iconUrl: string;
     }
 
+    export interface GetPrincipalApplicationAssignmentsApplicationAssignment {
+        /**
+         * ARN of the application.
+         */
+        applicationArn: string;
+        /**
+         * An identifier for an object in IAM Identity Center, such as a user or group.
+         */
+        principalId: string;
+        /**
+         * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+         */
+        principalType: string;
+    }
+
     export interface InstanceAccessControlAttributesAttribute {
         /**
          * The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
@@ -61776,6 +62039,32 @@ export namespace ssoadmin {
          * The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
          */
         path?: string;
+    }
+
+    export interface TrustedTokenIssuerTrustedTokenIssuerConfiguration {
+        /**
+         * A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+         */
+        oidcJwtConfiguration?: outputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration;
+    }
+
+    export interface TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
+        /**
+         * Specifies the path of the source attribute in the JWT from the trusted token issuer.
+         */
+        claimAttributePath: string;
+        /**
+         * Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+         */
+        identityStoreAttributePath: string;
+        /**
+         * Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+         */
+        issuerUrl: string;
+        /**
+         * The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+         */
+        jwksRetrievalOption: string;
     }
 
 }

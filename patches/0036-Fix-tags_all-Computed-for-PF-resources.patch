@@ -43,3 +43,16 @@ index bb22016446..22a3c3f977 100644
  		},
  		Blocks: map[string]schema.Block{
  			"portal_options": schema.ListNestedBlock{
+diff --git a/internal/service/ssoadmin/trusted_token_issuer.go b/internal/service/ssoadmin/trusted_token_issuer.go
+index 98d5a67198..2490c56c3a 100644
+--- a/internal/service/ssoadmin/trusted_token_issuer.go
++++ b/internal/service/ssoadmin/trusted_token_issuer.go
+@@ -86,7 +86,7 @@ func (r *resourceTrustedTokenIssuer) Schema(ctx context.Context, req resource.Sc
+ 			},
+ 
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"trusted_token_issuer_configuration": schema.ListNestedBlock{

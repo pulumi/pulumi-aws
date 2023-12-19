@@ -141,6 +141,10 @@ namespace Pulumi.Aws.CloudWatch
         /// ARN of the KMS Key to use when encrypting log data.
         /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// The log class of the log group.
+        /// </summary>
+        public readonly string LogGroupClass;
         public readonly string Name;
         /// <summary>
         /// Number of days log events retained in the specified log group.
@@ -161,6 +165,8 @@ namespace Pulumi.Aws.CloudWatch
 
             string kmsKeyId,
 
+            string logGroupClass,
+
             string name,
 
             int retentionInDays,
@@ -171,6 +177,7 @@ namespace Pulumi.Aws.CloudWatch
             CreationTime = creationTime;
             Id = id;
             KmsKeyId = kmsKeyId;
+            LogGroupClass = logGroupClass;
             Name = name;
             RetentionInDays = retentionInDays;
             Tags = tags;

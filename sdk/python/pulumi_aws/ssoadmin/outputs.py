@@ -18,10 +18,14 @@ __all__ = [
     'InstanceAccessControlAttributesAttributeValue',
     'PermissionsBoundaryAttachmentPermissionsBoundary',
     'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference',
+    'TrustedTokenIssuerTrustedTokenIssuerConfiguration',
+    'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration',
+    'GetApplicationAssignmentsApplicationAssignmentResult',
     'GetApplicationPortalOptionResult',
     'GetApplicationPortalOptionSignInOptionResult',
     'GetApplicationProvidersApplicationProviderResult',
     'GetApplicationProvidersApplicationProviderDisplayDataResult',
+    'GetPrincipalApplicationAssignmentsApplicationAssignmentResult',
 ]
 
 @pulumi.output_type
@@ -283,6 +287,156 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
 
 
 @pulumi.output_type
+class TrustedTokenIssuerTrustedTokenIssuerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oidcJwtConfiguration":
+            suggest = "oidc_jwt_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustedTokenIssuerTrustedTokenIssuerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustedTokenIssuerTrustedTokenIssuerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustedTokenIssuerTrustedTokenIssuerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oidc_jwt_configuration: Optional['outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration'] = None):
+        """
+        :param 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs' oidc_jwt_configuration: A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+        """
+        if oidc_jwt_configuration is not None:
+            pulumi.set(__self__, "oidc_jwt_configuration", oidc_jwt_configuration)
+
+    @property
+    @pulumi.getter(name="oidcJwtConfiguration")
+    def oidc_jwt_configuration(self) -> Optional['outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration']:
+        """
+        A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+        """
+        return pulumi.get(self, "oidc_jwt_configuration")
+
+
+@pulumi.output_type
+class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimAttributePath":
+            suggest = "claim_attribute_path"
+        elif key == "identityStoreAttributePath":
+            suggest = "identity_store_attribute_path"
+        elif key == "issuerUrl":
+            suggest = "issuer_url"
+        elif key == "jwksRetrievalOption":
+            suggest = "jwks_retrieval_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claim_attribute_path: str,
+                 identity_store_attribute_path: str,
+                 issuer_url: str,
+                 jwks_retrieval_option: str):
+        """
+        :param str claim_attribute_path: Specifies the path of the source attribute in the JWT from the trusted token issuer.
+        :param str identity_store_attribute_path: Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+        :param str issuer_url: Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+        :param str jwks_retrieval_option: The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+        """
+        pulumi.set(__self__, "claim_attribute_path", claim_attribute_path)
+        pulumi.set(__self__, "identity_store_attribute_path", identity_store_attribute_path)
+        pulumi.set(__self__, "issuer_url", issuer_url)
+        pulumi.set(__self__, "jwks_retrieval_option", jwks_retrieval_option)
+
+    @property
+    @pulumi.getter(name="claimAttributePath")
+    def claim_attribute_path(self) -> str:
+        """
+        Specifies the path of the source attribute in the JWT from the trusted token issuer.
+        """
+        return pulumi.get(self, "claim_attribute_path")
+
+    @property
+    @pulumi.getter(name="identityStoreAttributePath")
+    def identity_store_attribute_path(self) -> str:
+        """
+        Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+        """
+        return pulumi.get(self, "identity_store_attribute_path")
+
+    @property
+    @pulumi.getter(name="issuerUrl")
+    def issuer_url(self) -> str:
+        """
+        Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+        """
+        return pulumi.get(self, "issuer_url")
+
+    @property
+    @pulumi.getter(name="jwksRetrievalOption")
+    def jwks_retrieval_option(self) -> str:
+        """
+        The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+        """
+        return pulumi.get(self, "jwks_retrieval_option")
+
+
+@pulumi.output_type
+class GetApplicationAssignmentsApplicationAssignmentResult(dict):
+    def __init__(__self__, *,
+                 application_arn: str,
+                 principal_id: str,
+                 principal_type: str):
+        """
+        :param str application_arn: ARN of the application.
+        :param str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
+        :param str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        """
+        pulumi.set(__self__, "application_arn", application_arn)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "principal_type", principal_type)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> str:
+        """
+        ARN of the application.
+        """
+        return pulumi.get(self, "application_arn")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        An identifier for an object in IAM Identity Center, such as a user or group.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> str:
+        """
+        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        """
+        return pulumi.get(self, "principal_type")
+
+
+@pulumi.output_type
 class GetApplicationPortalOptionResult(dict):
     def __init__(__self__, *,
                  visibility: str,
@@ -400,5 +554,45 @@ class GetApplicationProvidersApplicationProviderDisplayDataResult(dict):
         URL that points to an icon that represents the application provider.
         """
         return pulumi.get(self, "icon_url")
+
+
+@pulumi.output_type
+class GetPrincipalApplicationAssignmentsApplicationAssignmentResult(dict):
+    def __init__(__self__, *,
+                 application_arn: str,
+                 principal_id: str,
+                 principal_type: str):
+        """
+        :param str application_arn: ARN of the application.
+        :param str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
+        :param str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        """
+        pulumi.set(__self__, "application_arn", application_arn)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "principal_type", principal_type)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> str:
+        """
+        ARN of the application.
+        """
+        return pulumi.get(self, "application_arn")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        An identifier for an object in IAM Identity Center, such as a user or group.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> str:
+        """
+        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        """
+        return pulumi.get(self, "principal_type")
 
 

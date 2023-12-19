@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.aws.alb.outputs.GetLoadBalancerAccessLogs;
+import com.pulumi.aws.alb.outputs.GetLoadBalancerConnectionLog;
 import com.pulumi.aws.alb.outputs.GetLoadBalancerSubnetMapping;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -18,9 +19,11 @@ public final class GetLoadBalancerResult {
     private GetLoadBalancerAccessLogs accessLogs;
     private String arn;
     private String arnSuffix;
+    private List<GetLoadBalancerConnectionLog> connectionLogs;
     private String customerOwnedIpv4Pool;
     private String desyncMitigationMode;
     private String dnsName;
+    private String dnsRecordClientRoutingPolicy;
     private Boolean dropInvalidHeaderFields;
     private Boolean enableCrossZoneLoadBalancing;
     private Boolean enableDeletionProtection;
@@ -58,6 +61,9 @@ public final class GetLoadBalancerResult {
     public String arnSuffix() {
         return this.arnSuffix;
     }
+    public List<GetLoadBalancerConnectionLog> connectionLogs() {
+        return this.connectionLogs;
+    }
     public String customerOwnedIpv4Pool() {
         return this.customerOwnedIpv4Pool;
     }
@@ -66,6 +72,9 @@ public final class GetLoadBalancerResult {
     }
     public String dnsName() {
         return this.dnsName;
+    }
+    public String dnsRecordClientRoutingPolicy() {
+        return this.dnsRecordClientRoutingPolicy;
     }
     public Boolean dropInvalidHeaderFields() {
         return this.dropInvalidHeaderFields;
@@ -150,9 +159,11 @@ public final class GetLoadBalancerResult {
         private GetLoadBalancerAccessLogs accessLogs;
         private String arn;
         private String arnSuffix;
+        private List<GetLoadBalancerConnectionLog> connectionLogs;
         private String customerOwnedIpv4Pool;
         private String desyncMitigationMode;
         private String dnsName;
+        private String dnsRecordClientRoutingPolicy;
         private Boolean dropInvalidHeaderFields;
         private Boolean enableCrossZoneLoadBalancing;
         private Boolean enableDeletionProtection;
@@ -181,9 +192,11 @@ public final class GetLoadBalancerResult {
     	      this.accessLogs = defaults.accessLogs;
     	      this.arn = defaults.arn;
     	      this.arnSuffix = defaults.arnSuffix;
+    	      this.connectionLogs = defaults.connectionLogs;
     	      this.customerOwnedIpv4Pool = defaults.customerOwnedIpv4Pool;
     	      this.desyncMitigationMode = defaults.desyncMitigationMode;
     	      this.dnsName = defaults.dnsName;
+    	      this.dnsRecordClientRoutingPolicy = defaults.dnsRecordClientRoutingPolicy;
     	      this.dropInvalidHeaderFields = defaults.dropInvalidHeaderFields;
     	      this.enableCrossZoneLoadBalancing = defaults.enableCrossZoneLoadBalancing;
     	      this.enableDeletionProtection = defaults.enableDeletionProtection;
@@ -224,6 +237,14 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder connectionLogs(List<GetLoadBalancerConnectionLog> connectionLogs) {
+            this.connectionLogs = Objects.requireNonNull(connectionLogs);
+            return this;
+        }
+        public Builder connectionLogs(GetLoadBalancerConnectionLog... connectionLogs) {
+            return connectionLogs(List.of(connectionLogs));
+        }
+        @CustomType.Setter
         public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
             this.customerOwnedIpv4Pool = Objects.requireNonNull(customerOwnedIpv4Pool);
             return this;
@@ -236,6 +257,11 @@ public final class GetLoadBalancerResult {
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
             this.dnsName = Objects.requireNonNull(dnsName);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dnsRecordClientRoutingPolicy(String dnsRecordClientRoutingPolicy) {
+            this.dnsRecordClientRoutingPolicy = Objects.requireNonNull(dnsRecordClientRoutingPolicy);
             return this;
         }
         @CustomType.Setter
@@ -362,9 +388,11 @@ public final class GetLoadBalancerResult {
             _resultValue.accessLogs = accessLogs;
             _resultValue.arn = arn;
             _resultValue.arnSuffix = arnSuffix;
+            _resultValue.connectionLogs = connectionLogs;
             _resultValue.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
             _resultValue.desyncMitigationMode = desyncMitigationMode;
             _resultValue.dnsName = dnsName;
+            _resultValue.dnsRecordClientRoutingPolicy = dnsRecordClientRoutingPolicy;
             _resultValue.dropInvalidHeaderFields = dropInvalidHeaderFields;
             _resultValue.enableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             _resultValue.enableDeletionProtection = enableDeletionProtection;

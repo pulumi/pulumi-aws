@@ -501,7 +501,7 @@ class LogGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logGroupClass")
-    def log_group_class(self) -> pulumi.Output[Optional[str]]:
+    def log_group_class(self) -> pulumi.Output[str]:
         """
         Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         """

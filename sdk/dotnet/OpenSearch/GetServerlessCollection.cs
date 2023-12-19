@@ -146,6 +146,10 @@ namespace Pulumi.Aws.OpenSearch
         public readonly string LastModifiedDate;
         public readonly string Name;
         /// <summary>
+        /// Indicates whether standby replicas should be used for a collection.
+        /// </summary>
+        public readonly string StandbyReplicas;
+        /// <summary>
         /// A map of tags to assign to the collection.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -174,6 +178,8 @@ namespace Pulumi.Aws.OpenSearch
 
             string name,
 
+            string standbyReplicas,
+
             ImmutableDictionary<string, string> tags,
 
             string type)
@@ -187,6 +193,7 @@ namespace Pulumi.Aws.OpenSearch
             KmsKeyArn = kmsKeyArn;
             LastModifiedDate = lastModifiedDate;
             Name = name;
+            StandbyReplicas = standbyReplicas;
             Tags = tags;
             Type = type;
         }

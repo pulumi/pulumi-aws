@@ -94,6 +94,8 @@ type ServerlessCollection struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas pulumi.StringOutput `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -151,6 +153,8 @@ type serverlessCollectionState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas *string `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -175,6 +179,8 @@ type ServerlessCollectionState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas pulumi.StringPtrInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
@@ -195,6 +201,8 @@ type serverlessCollectionArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas *string `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string             `pulumi:"tags"`
 	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
@@ -210,6 +218,8 @@ type ServerlessCollectionArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	StandbyReplicas pulumi.StringPtrInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ServerlessCollectionTimeoutsPtrInput
@@ -334,6 +344,11 @@ func (o ServerlessCollectionOutput) KmsKeyArn() pulumi.StringOutput {
 // The following arguments are optional:
 func (o ServerlessCollectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+func (o ServerlessCollectionOutput) StandbyReplicas() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.StandbyReplicas }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

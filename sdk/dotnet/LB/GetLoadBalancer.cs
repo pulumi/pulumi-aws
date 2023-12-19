@@ -164,9 +164,11 @@ namespace Pulumi.Aws.LB
         public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
         public readonly string Arn;
         public readonly string ArnSuffix;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerConnectionLogResult> ConnectionLogs;
         public readonly string CustomerOwnedIpv4Pool;
         public readonly string DesyncMitigationMode;
         public readonly string DnsName;
+        public readonly string DnsRecordClientRoutingPolicy;
         public readonly bool DropInvalidHeaderFields;
         public readonly bool EnableCrossZoneLoadBalancing;
         public readonly bool EnableDeletionProtection;
@@ -201,11 +203,15 @@ namespace Pulumi.Aws.LB
 
             string arnSuffix,
 
+            ImmutableArray<Outputs.GetLoadBalancerConnectionLogResult> connectionLogs,
+
             string customerOwnedIpv4Pool,
 
             string desyncMitigationMode,
 
             string dnsName,
+
+            string dnsRecordClientRoutingPolicy,
 
             bool dropInvalidHeaderFields,
 
@@ -254,9 +260,11 @@ namespace Pulumi.Aws.LB
             AccessLogs = accessLogs;
             Arn = arn;
             ArnSuffix = arnSuffix;
+            ConnectionLogs = connectionLogs;
             CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             DesyncMitigationMode = desyncMitigationMode;
             DnsName = dnsName;
+            DnsRecordClientRoutingPolicy = dnsRecordClientRoutingPolicy;
             DropInvalidHeaderFields = dropInvalidHeaderFields;
             EnableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             EnableDeletionProtection = enableDeletionProtection;

@@ -64,6 +64,7 @@ export interface GetEndpointResult {
     readonly mongodbSettings: outputs.dms.GetEndpointMongodbSetting[];
     readonly password: string;
     readonly port: number;
+    readonly postgresSettings: outputs.dms.GetEndpointPostgresSetting[];
     readonly redisSettings: outputs.dms.GetEndpointRedisSetting[];
     readonly redshiftSettings: outputs.dms.GetEndpointRedshiftSetting[];
     readonly s3Settings: outputs.dms.GetEndpointS3Setting[];

@@ -9,6 +9,8 @@ import com.pulumi.aws.finspace.inputs.KxClusterCapacityConfigurationArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterCodeArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterDatabaseArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterSavedownStorageConfigurationArgs;
+import com.pulumi.aws.finspace.inputs.KxClusterScalingGroupConfigurationArgs;
+import com.pulumi.aws.finspace.inputs.KxClusterTickerplantLogConfigurationArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterVpcConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -298,6 +300,21 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.savedownStorageConfiguration);
     }
 
+    /**
+     * The structure that stores the configuration details of a scaling group.
+     * 
+     */
+    @Import(name="scalingGroupConfiguration")
+    private @Nullable Output<KxClusterScalingGroupConfigurationArgs> scalingGroupConfiguration;
+
+    /**
+     * @return The structure that stores the configuration details of a scaling group.
+     * 
+     */
+    public Optional<Output<KxClusterScalingGroupConfigurationArgs>> scalingGroupConfiguration() {
+        return Optional.ofNullable(this.scalingGroupConfiguration);
+    }
+
     @Import(name="status")
     private @Nullable Output<String> status;
 
@@ -348,6 +365,21 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
     @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
+     * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * 
+     */
+    @Import(name="tickerplantLogConfigurations")
+    private @Nullable Output<List<KxClusterTickerplantLogConfigurationArgs>> tickerplantLogConfigurations;
+
+    /**
+     * @return A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * 
+     */
+    public Optional<Output<List<KxClusterTickerplantLogConfigurationArgs>>> tickerplantLogConfigurations() {
+        return Optional.ofNullable(this.tickerplantLogConfigurations);
     }
 
     /**
@@ -413,10 +445,12 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.releaseLabel = $.releaseLabel;
         this.savedownStorageConfiguration = $.savedownStorageConfiguration;
+        this.scalingGroupConfiguration = $.scalingGroupConfiguration;
         this.status = $.status;
         this.statusReason = $.statusReason;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.tickerplantLogConfigurations = $.tickerplantLogConfigurations;
         this.type = $.type;
         this.vpcConfiguration = $.vpcConfiguration;
     }
@@ -841,6 +875,27 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
             return savedownStorageConfiguration(Output.of(savedownStorageConfiguration));
         }
 
+        /**
+         * @param scalingGroupConfiguration The structure that stores the configuration details of a scaling group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingGroupConfiguration(@Nullable Output<KxClusterScalingGroupConfigurationArgs> scalingGroupConfiguration) {
+            $.scalingGroupConfiguration = scalingGroupConfiguration;
+            return this;
+        }
+
+        /**
+         * @param scalingGroupConfiguration The structure that stores the configuration details of a scaling group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingGroupConfiguration(KxClusterScalingGroupConfigurationArgs scalingGroupConfiguration) {
+            return scalingGroupConfiguration(Output.of(scalingGroupConfiguration));
+        }
+
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
@@ -907,6 +962,37 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tickerplantLogConfigurations(@Nullable Output<List<KxClusterTickerplantLogConfigurationArgs>> tickerplantLogConfigurations) {
+            $.tickerplantLogConfigurations = tickerplantLogConfigurations;
+            return this;
+        }
+
+        /**
+         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tickerplantLogConfigurations(List<KxClusterTickerplantLogConfigurationArgs> tickerplantLogConfigurations) {
+            return tickerplantLogConfigurations(Output.of(tickerplantLogConfigurations));
+        }
+
+        /**
+         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tickerplantLogConfigurations(KxClusterTickerplantLogConfigurationArgs... tickerplantLogConfigurations) {
+            return tickerplantLogConfigurations(List.of(tickerplantLogConfigurations));
         }
 
         /**

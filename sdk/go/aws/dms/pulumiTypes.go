@@ -22,6 +22,8 @@ type EndpointElasticsearchSettings struct {
 	FullLoadErrorPercentage *int `pulumi:"fullLoadErrorPercentage"`
 	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 	ServiceAccessRoleArn string `pulumi:"serviceAccessRoleArn"`
+	// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+	UseNewMappingType *bool `pulumi:"useNewMappingType"`
 }
 
 // EndpointElasticsearchSettingsInput is an input type that accepts EndpointElasticsearchSettingsArgs and EndpointElasticsearchSettingsOutput values.
@@ -44,6 +46,8 @@ type EndpointElasticsearchSettingsArgs struct {
 	FullLoadErrorPercentage pulumi.IntPtrInput `pulumi:"fullLoadErrorPercentage"`
 	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 	ServiceAccessRoleArn pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+	// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+	UseNewMappingType pulumi.BoolPtrInput `pulumi:"useNewMappingType"`
 }
 
 func (EndpointElasticsearchSettingsArgs) ElementType() reflect.Type {
@@ -143,6 +147,11 @@ func (o EndpointElasticsearchSettingsOutput) ServiceAccessRoleArn() pulumi.Strin
 	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
 }
 
+// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+func (o EndpointElasticsearchSettingsOutput) UseNewMappingType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) *bool { return v.UseNewMappingType }).(pulumi.BoolPtrOutput)
+}
+
 type EndpointElasticsearchSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointElasticsearchSettingsPtrOutput) ElementType() reflect.Type {
@@ -205,6 +214,16 @@ func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.St
 		}
 		return &v.ServiceAccessRoleArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+func (o EndpointElasticsearchSettingsPtrOutput) UseNewMappingType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointElasticsearchSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseNewMappingType
+	}).(pulumi.BoolPtrOutput)
 }
 
 type EndpointKafkaSettings struct {
@@ -1188,6 +1207,428 @@ func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointPostgresSettings struct {
+	// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+	AfterConnectScript *string `pulumi:"afterConnectScript"`
+	// The Babelfish for Aurora PostgreSQL database name for the endpoint.
+	BabelfishDatabaseName *string `pulumi:"babelfishDatabaseName"`
+	// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+	CaptureDdls *bool `pulumi:"captureDdls"`
+	// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+	DatabaseMode *string `pulumi:"databaseMode"`
+	// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+	DdlArtifactsSchema *string `pulumi:"ddlArtifactsSchema"`
+	// Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+	ExecuteTimeout *int `pulumi:"executeTimeout"`
+	// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+	FailTasksOnLobTruncation *bool `pulumi:"failTasksOnLobTruncation"`
+	// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+	HeartbeatEnable *bool `pulumi:"heartbeatEnable"`
+	// Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+	HeartbeatFrequency *int `pulumi:"heartbeatFrequency"`
+	// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+	HeartbeatSchema *string `pulumi:"heartbeatSchema"`
+	// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+	MapBooleanAsBoolean *bool `pulumi:"mapBooleanAsBoolean"`
+	// Optional When true, DMS migrates JSONB values as CLOB.
+	MapJsonbAsClob *bool `pulumi:"mapJsonbAsClob"`
+	// Optional When true, DMS migrates LONG values as VARCHAR.
+	MapLongVarcharAs *string `pulumi:"mapLongVarcharAs"`
+	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+	MaxFileSize *int `pulumi:"maxFileSize"`
+	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+	PluginName *string `pulumi:"pluginName"`
+	// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+	SlotName *string `pulumi:"slotName"`
+}
+
+// EndpointPostgresSettingsInput is an input type that accepts EndpointPostgresSettingsArgs and EndpointPostgresSettingsOutput values.
+// You can construct a concrete instance of `EndpointPostgresSettingsInput` via:
+//
+//	EndpointPostgresSettingsArgs{...}
+type EndpointPostgresSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointPostgresSettingsOutput() EndpointPostgresSettingsOutput
+	ToEndpointPostgresSettingsOutputWithContext(context.Context) EndpointPostgresSettingsOutput
+}
+
+type EndpointPostgresSettingsArgs struct {
+	// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+	AfterConnectScript pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	// The Babelfish for Aurora PostgreSQL database name for the endpoint.
+	BabelfishDatabaseName pulumi.StringPtrInput `pulumi:"babelfishDatabaseName"`
+	// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+	CaptureDdls pulumi.BoolPtrInput `pulumi:"captureDdls"`
+	// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+	DatabaseMode pulumi.StringPtrInput `pulumi:"databaseMode"`
+	// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+	DdlArtifactsSchema pulumi.StringPtrInput `pulumi:"ddlArtifactsSchema"`
+	// Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+	ExecuteTimeout pulumi.IntPtrInput `pulumi:"executeTimeout"`
+	// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+	FailTasksOnLobTruncation pulumi.BoolPtrInput `pulumi:"failTasksOnLobTruncation"`
+	// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+	HeartbeatEnable pulumi.BoolPtrInput `pulumi:"heartbeatEnable"`
+	// Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+	HeartbeatFrequency pulumi.IntPtrInput `pulumi:"heartbeatFrequency"`
+	// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+	HeartbeatSchema pulumi.StringPtrInput `pulumi:"heartbeatSchema"`
+	// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+	MapBooleanAsBoolean pulumi.BoolPtrInput `pulumi:"mapBooleanAsBoolean"`
+	// Optional When true, DMS migrates JSONB values as CLOB.
+	MapJsonbAsClob pulumi.BoolPtrInput `pulumi:"mapJsonbAsClob"`
+	// Optional When true, DMS migrates LONG values as VARCHAR.
+	MapLongVarcharAs pulumi.StringPtrInput `pulumi:"mapLongVarcharAs"`
+	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
+	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+	PluginName pulumi.StringPtrInput `pulumi:"pluginName"`
+	// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+	SlotName pulumi.StringPtrInput `pulumi:"slotName"`
+}
+
+func (EndpointPostgresSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPostgresSettings)(nil)).Elem()
+}
+
+func (i EndpointPostgresSettingsArgs) ToEndpointPostgresSettingsOutput() EndpointPostgresSettingsOutput {
+	return i.ToEndpointPostgresSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointPostgresSettingsArgs) ToEndpointPostgresSettingsOutputWithContext(ctx context.Context) EndpointPostgresSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPostgresSettingsOutput)
+}
+
+func (i EndpointPostgresSettingsArgs) ToEndpointPostgresSettingsPtrOutput() EndpointPostgresSettingsPtrOutput {
+	return i.ToEndpointPostgresSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointPostgresSettingsArgs) ToEndpointPostgresSettingsPtrOutputWithContext(ctx context.Context) EndpointPostgresSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPostgresSettingsOutput).ToEndpointPostgresSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointPostgresSettingsPtrInput is an input type that accepts EndpointPostgresSettingsArgs, EndpointPostgresSettingsPtr and EndpointPostgresSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointPostgresSettingsPtrInput` via:
+//
+//	        EndpointPostgresSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointPostgresSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointPostgresSettingsPtrOutput() EndpointPostgresSettingsPtrOutput
+	ToEndpointPostgresSettingsPtrOutputWithContext(context.Context) EndpointPostgresSettingsPtrOutput
+}
+
+type endpointPostgresSettingsPtrType EndpointPostgresSettingsArgs
+
+func EndpointPostgresSettingsPtr(v *EndpointPostgresSettingsArgs) EndpointPostgresSettingsPtrInput {
+	return (*endpointPostgresSettingsPtrType)(v)
+}
+
+func (*endpointPostgresSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointPostgresSettings)(nil)).Elem()
+}
+
+func (i *endpointPostgresSettingsPtrType) ToEndpointPostgresSettingsPtrOutput() EndpointPostgresSettingsPtrOutput {
+	return i.ToEndpointPostgresSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointPostgresSettingsPtrType) ToEndpointPostgresSettingsPtrOutputWithContext(ctx context.Context) EndpointPostgresSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPostgresSettingsPtrOutput)
+}
+
+type EndpointPostgresSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointPostgresSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPostgresSettings)(nil)).Elem()
+}
+
+func (o EndpointPostgresSettingsOutput) ToEndpointPostgresSettingsOutput() EndpointPostgresSettingsOutput {
+	return o
+}
+
+func (o EndpointPostgresSettingsOutput) ToEndpointPostgresSettingsOutputWithContext(ctx context.Context) EndpointPostgresSettingsOutput {
+	return o
+}
+
+func (o EndpointPostgresSettingsOutput) ToEndpointPostgresSettingsPtrOutput() EndpointPostgresSettingsPtrOutput {
+	return o.ToEndpointPostgresSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointPostgresSettingsOutput) ToEndpointPostgresSettingsPtrOutputWithContext(ctx context.Context) EndpointPostgresSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPostgresSettings) *EndpointPostgresSettings {
+		return &v
+	}).(EndpointPostgresSettingsPtrOutput)
+}
+
+// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+func (o EndpointPostgresSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
+}
+
+// The Babelfish for Aurora PostgreSQL database name for the endpoint.
+func (o EndpointPostgresSettingsOutput) BabelfishDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.BabelfishDatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+func (o EndpointPostgresSettingsOutput) CaptureDdls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.CaptureDdls }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+func (o EndpointPostgresSettingsOutput) DatabaseMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.DatabaseMode }).(pulumi.StringPtrOutput)
+}
+
+// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+func (o EndpointPostgresSettingsOutput) DdlArtifactsSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.DdlArtifactsSchema }).(pulumi.StringPtrOutput)
+}
+
+// Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+func (o EndpointPostgresSettingsOutput) ExecuteTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *int { return v.ExecuteTimeout }).(pulumi.IntPtrOutput)
+}
+
+// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+func (o EndpointPostgresSettingsOutput) FailTasksOnLobTruncation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.FailTasksOnLobTruncation }).(pulumi.BoolPtrOutput)
+}
+
+// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+func (o EndpointPostgresSettingsOutput) HeartbeatEnable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.HeartbeatEnable }).(pulumi.BoolPtrOutput)
+}
+
+// Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+func (o EndpointPostgresSettingsOutput) HeartbeatFrequency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *int { return v.HeartbeatFrequency }).(pulumi.IntPtrOutput)
+}
+
+// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+func (o EndpointPostgresSettingsOutput) HeartbeatSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.HeartbeatSchema }).(pulumi.StringPtrOutput)
+}
+
+// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+func (o EndpointPostgresSettingsOutput) MapBooleanAsBoolean() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.MapBooleanAsBoolean }).(pulumi.BoolPtrOutput)
+}
+
+// Optional When true, DMS migrates JSONB values as CLOB.
+func (o EndpointPostgresSettingsOutput) MapJsonbAsClob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.MapJsonbAsClob }).(pulumi.BoolPtrOutput)
+}
+
+// Optional When true, DMS migrates LONG values as VARCHAR.
+func (o EndpointPostgresSettingsOutput) MapLongVarcharAs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.MapLongVarcharAs }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+func (o EndpointPostgresSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+func (o EndpointPostgresSettingsOutput) PluginName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.PluginName }).(pulumi.StringPtrOutput)
+}
+
+// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+func (o EndpointPostgresSettingsOutput) SlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.SlotName }).(pulumi.StringPtrOutput)
+}
+
+type EndpointPostgresSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointPostgresSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointPostgresSettings)(nil)).Elem()
+}
+
+func (o EndpointPostgresSettingsPtrOutput) ToEndpointPostgresSettingsPtrOutput() EndpointPostgresSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointPostgresSettingsPtrOutput) ToEndpointPostgresSettingsPtrOutputWithContext(ctx context.Context) EndpointPostgresSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointPostgresSettingsPtrOutput) Elem() EndpointPostgresSettingsOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) EndpointPostgresSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPostgresSettings
+		return ret
+	}).(EndpointPostgresSettingsOutput)
+}
+
+// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+func (o EndpointPostgresSettingsPtrOutput) AfterConnectScript() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AfterConnectScript
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Babelfish for Aurora PostgreSQL database name for the endpoint.
+func (o EndpointPostgresSettingsPtrOutput) BabelfishDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BabelfishDatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+func (o EndpointPostgresSettingsPtrOutput) CaptureDdls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaptureDdls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+func (o EndpointPostgresSettingsPtrOutput) DatabaseMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+func (o EndpointPostgresSettingsPtrOutput) DdlArtifactsSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DdlArtifactsSchema
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+func (o EndpointPostgresSettingsPtrOutput) ExecuteTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExecuteTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+func (o EndpointPostgresSettingsPtrOutput) FailTasksOnLobTruncation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailTasksOnLobTruncation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+func (o EndpointPostgresSettingsPtrOutput) HeartbeatEnable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HeartbeatEnable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+func (o EndpointPostgresSettingsPtrOutput) HeartbeatFrequency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HeartbeatFrequency
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+func (o EndpointPostgresSettingsPtrOutput) HeartbeatSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HeartbeatSchema
+	}).(pulumi.StringPtrOutput)
+}
+
+// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+func (o EndpointPostgresSettingsPtrOutput) MapBooleanAsBoolean() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MapBooleanAsBoolean
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Optional When true, DMS migrates JSONB values as CLOB.
+func (o EndpointPostgresSettingsPtrOutput) MapJsonbAsClob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MapJsonbAsClob
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Optional When true, DMS migrates LONG values as VARCHAR.
+func (o EndpointPostgresSettingsPtrOutput) MapLongVarcharAs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MapLongVarcharAs
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+func (o EndpointPostgresSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+func (o EndpointPostgresSettingsPtrOutput) PluginName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PluginName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+func (o EndpointPostgresSettingsPtrOutput) SlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SlotName
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointRedisSettings struct {
 	// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
 	AuthPassword *string `pulumi:"authPassword"`
@@ -1707,7 +2148,7 @@ type EndpointS3Settings struct {
 	IgnoreHeaderRows *int `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad *bool `pulumi:"includeOpForFullLoad"`
-	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 	MaxFileSize *int `pulumi:"maxFileSize"`
 	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
 	ParquetTimestampInMillisecond *bool `pulumi:"parquetTimestampInMillisecond"`
@@ -1797,7 +2238,7 @@ type EndpointS3SettingsArgs struct {
 	IgnoreHeaderRows pulumi.IntPtrInput `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrInput `pulumi:"includeOpForFullLoad"`
-	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
 	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
 	ParquetTimestampInMillisecond pulumi.BoolPtrInput `pulumi:"parquetTimestampInMillisecond"`
@@ -2033,7 +2474,7 @@ func (o EndpointS3SettingsOutput) IncludeOpForFullLoad() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.IncludeOpForFullLoad }).(pulumi.BoolPtrOutput)
 }
 
-// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 func (o EndpointS3SettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
@@ -2382,7 +2823,7 @@ func (o EndpointS3SettingsPtrOutput) IncludeOpForFullLoad() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
+// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 func (o EndpointS3SettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *int {
 		if v == nil {
@@ -3375,6 +3816,190 @@ func (o GetEndpointMongodbSettingArrayOutput) Index(i pulumi.IntInput) GetEndpoi
 	}).(GetEndpointMongodbSettingOutput)
 }
 
+type GetEndpointPostgresSetting struct {
+	AfterConnectScript       string `pulumi:"afterConnectScript"`
+	BabelfishDatabaseName    string `pulumi:"babelfishDatabaseName"`
+	CaptureDdls              bool   `pulumi:"captureDdls"`
+	DatabaseMode             string `pulumi:"databaseMode"`
+	DdlArtifactsSchema       string `pulumi:"ddlArtifactsSchema"`
+	ExecuteTimeout           int    `pulumi:"executeTimeout"`
+	FailTasksOnLobTruncation bool   `pulumi:"failTasksOnLobTruncation"`
+	HeartbeatEnable          bool   `pulumi:"heartbeatEnable"`
+	HeartbeatFrequency       int    `pulumi:"heartbeatFrequency"`
+	HeartbeatSchema          string `pulumi:"heartbeatSchema"`
+	MapBooleanAsBoolean      bool   `pulumi:"mapBooleanAsBoolean"`
+	MapJsonbAsClob           bool   `pulumi:"mapJsonbAsClob"`
+	MapLongVarcharAs         string `pulumi:"mapLongVarcharAs"`
+	MaxFileSize              int    `pulumi:"maxFileSize"`
+	PluginName               string `pulumi:"pluginName"`
+	SlotName                 string `pulumi:"slotName"`
+}
+
+// GetEndpointPostgresSettingInput is an input type that accepts GetEndpointPostgresSettingArgs and GetEndpointPostgresSettingOutput values.
+// You can construct a concrete instance of `GetEndpointPostgresSettingInput` via:
+//
+//	GetEndpointPostgresSettingArgs{...}
+type GetEndpointPostgresSettingInput interface {
+	pulumi.Input
+
+	ToGetEndpointPostgresSettingOutput() GetEndpointPostgresSettingOutput
+	ToGetEndpointPostgresSettingOutputWithContext(context.Context) GetEndpointPostgresSettingOutput
+}
+
+type GetEndpointPostgresSettingArgs struct {
+	AfterConnectScript       pulumi.StringInput `pulumi:"afterConnectScript"`
+	BabelfishDatabaseName    pulumi.StringInput `pulumi:"babelfishDatabaseName"`
+	CaptureDdls              pulumi.BoolInput   `pulumi:"captureDdls"`
+	DatabaseMode             pulumi.StringInput `pulumi:"databaseMode"`
+	DdlArtifactsSchema       pulumi.StringInput `pulumi:"ddlArtifactsSchema"`
+	ExecuteTimeout           pulumi.IntInput    `pulumi:"executeTimeout"`
+	FailTasksOnLobTruncation pulumi.BoolInput   `pulumi:"failTasksOnLobTruncation"`
+	HeartbeatEnable          pulumi.BoolInput   `pulumi:"heartbeatEnable"`
+	HeartbeatFrequency       pulumi.IntInput    `pulumi:"heartbeatFrequency"`
+	HeartbeatSchema          pulumi.StringInput `pulumi:"heartbeatSchema"`
+	MapBooleanAsBoolean      pulumi.BoolInput   `pulumi:"mapBooleanAsBoolean"`
+	MapJsonbAsClob           pulumi.BoolInput   `pulumi:"mapJsonbAsClob"`
+	MapLongVarcharAs         pulumi.StringInput `pulumi:"mapLongVarcharAs"`
+	MaxFileSize              pulumi.IntInput    `pulumi:"maxFileSize"`
+	PluginName               pulumi.StringInput `pulumi:"pluginName"`
+	SlotName                 pulumi.StringInput `pulumi:"slotName"`
+}
+
+func (GetEndpointPostgresSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointPostgresSetting)(nil)).Elem()
+}
+
+func (i GetEndpointPostgresSettingArgs) ToGetEndpointPostgresSettingOutput() GetEndpointPostgresSettingOutput {
+	return i.ToGetEndpointPostgresSettingOutputWithContext(context.Background())
+}
+
+func (i GetEndpointPostgresSettingArgs) ToGetEndpointPostgresSettingOutputWithContext(ctx context.Context) GetEndpointPostgresSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointPostgresSettingOutput)
+}
+
+// GetEndpointPostgresSettingArrayInput is an input type that accepts GetEndpointPostgresSettingArray and GetEndpointPostgresSettingArrayOutput values.
+// You can construct a concrete instance of `GetEndpointPostgresSettingArrayInput` via:
+//
+//	GetEndpointPostgresSettingArray{ GetEndpointPostgresSettingArgs{...} }
+type GetEndpointPostgresSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointPostgresSettingArrayOutput() GetEndpointPostgresSettingArrayOutput
+	ToGetEndpointPostgresSettingArrayOutputWithContext(context.Context) GetEndpointPostgresSettingArrayOutput
+}
+
+type GetEndpointPostgresSettingArray []GetEndpointPostgresSettingInput
+
+func (GetEndpointPostgresSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointPostgresSetting)(nil)).Elem()
+}
+
+func (i GetEndpointPostgresSettingArray) ToGetEndpointPostgresSettingArrayOutput() GetEndpointPostgresSettingArrayOutput {
+	return i.ToGetEndpointPostgresSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointPostgresSettingArray) ToGetEndpointPostgresSettingArrayOutputWithContext(ctx context.Context) GetEndpointPostgresSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointPostgresSettingArrayOutput)
+}
+
+type GetEndpointPostgresSettingOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointPostgresSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointPostgresSetting)(nil)).Elem()
+}
+
+func (o GetEndpointPostgresSettingOutput) ToGetEndpointPostgresSettingOutput() GetEndpointPostgresSettingOutput {
+	return o
+}
+
+func (o GetEndpointPostgresSettingOutput) ToGetEndpointPostgresSettingOutputWithContext(ctx context.Context) GetEndpointPostgresSettingOutput {
+	return o
+}
+
+func (o GetEndpointPostgresSettingOutput) AfterConnectScript() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.AfterConnectScript }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) BabelfishDatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.BabelfishDatabaseName }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) CaptureDdls() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) bool { return v.CaptureDdls }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) DatabaseMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.DatabaseMode }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) DdlArtifactsSchema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.DdlArtifactsSchema }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) ExecuteTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) int { return v.ExecuteTimeout }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) FailTasksOnLobTruncation() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) bool { return v.FailTasksOnLobTruncation }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) HeartbeatEnable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) bool { return v.HeartbeatEnable }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) HeartbeatFrequency() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) int { return v.HeartbeatFrequency }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) HeartbeatSchema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.HeartbeatSchema }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) MapBooleanAsBoolean() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) bool { return v.MapBooleanAsBoolean }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) MapJsonbAsClob() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) bool { return v.MapJsonbAsClob }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) MapLongVarcharAs() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.MapLongVarcharAs }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) MaxFileSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) int { return v.MaxFileSize }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) PluginName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.PluginName }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointPostgresSettingOutput) SlotName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointPostgresSetting) string { return v.SlotName }).(pulumi.StringOutput)
+}
+
+type GetEndpointPostgresSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointPostgresSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointPostgresSetting)(nil)).Elem()
+}
+
+func (o GetEndpointPostgresSettingArrayOutput) ToGetEndpointPostgresSettingArrayOutput() GetEndpointPostgresSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointPostgresSettingArrayOutput) ToGetEndpointPostgresSettingArrayOutputWithContext(ctx context.Context) GetEndpointPostgresSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointPostgresSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointPostgresSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointPostgresSetting {
+		return vs[0].([]GetEndpointPostgresSetting)[vs[1].(int)]
+	}).(GetEndpointPostgresSettingOutput)
+}
+
 type GetEndpointRedisSetting struct {
 	AuthPassword        string `pulumi:"authPassword"`
 	AuthType            string `pulumi:"authType"`
@@ -3954,6 +4579,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKinesisSettingsPtrInput)(nil)).Elem(), EndpointKinesisSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsPtrInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPostgresSettingsInput)(nil)).Elem(), EndpointPostgresSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPostgresSettingsPtrInput)(nil)).Elem(), EndpointPostgresSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedisSettingsInput)(nil)).Elem(), EndpointRedisSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedisSettingsPtrInput)(nil)).Elem(), EndpointRedisSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
@@ -3970,6 +4597,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointKinesisSettingArrayInput)(nil)).Elem(), GetEndpointKinesisSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointMongodbSettingInput)(nil)).Elem(), GetEndpointMongodbSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointMongodbSettingArrayInput)(nil)).Elem(), GetEndpointMongodbSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointPostgresSettingInput)(nil)).Elem(), GetEndpointPostgresSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointPostgresSettingArrayInput)(nil)).Elem(), GetEndpointPostgresSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointRedisSettingInput)(nil)).Elem(), GetEndpointRedisSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointRedisSettingArrayInput)(nil)).Elem(), GetEndpointRedisSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointRedshiftSettingInput)(nil)).Elem(), GetEndpointRedshiftSettingArgs{})
@@ -3984,6 +4613,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointKinesisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointPostgresSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointPostgresSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRedisSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointRedisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsOutput{})
@@ -4000,6 +4631,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEndpointKinesisSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointMongodbSettingOutput{})
 	pulumi.RegisterOutputType(GetEndpointMongodbSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointPostgresSettingOutput{})
+	pulumi.RegisterOutputType(GetEndpointPostgresSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointRedisSettingOutput{})
 	pulumi.RegisterOutputType(GetEndpointRedisSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointRedshiftSettingOutput{})

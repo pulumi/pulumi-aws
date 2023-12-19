@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Function(&#34;test&#34;, FunctionArgs.builder()        
- *             .runtime(&#34;cloudfront-js-1.0&#34;)
+ *             .runtime(&#34;cloudfront-js-2.0&#34;)
  *             .comment(&#34;my function&#34;)
  *             .publish(true)
  *             .code(Files.readString(Paths.get(String.format(&#34;%s/function.js&#34;, path.module()))))
@@ -166,7 +166,7 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publish);
     }
     /**
-     * Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
+     * Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      * 
      * The following arguments are optional:
      * 
@@ -175,7 +175,7 @@ public class Function extends com.pulumi.resources.CustomResource {
     private Output<String> runtime;
 
     /**
-     * @return Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
+     * @return Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      * 
      * The following arguments are optional:
      * 

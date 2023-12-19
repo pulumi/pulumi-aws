@@ -884,16 +884,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the DB parameter group to
-     * associate.
+     * Name of the DB parameter group to associate.
      * 
      */
     @Import(name="parameterGroupName")
     private @Nullable Output<String> parameterGroupName;
 
     /**
-     * @return Name of the DB parameter group to
-     * associate.
+     * @return Name of the DB parameter group to associate.
      * 
      */
     public Optional<Output<String>> parameterGroupName() {
@@ -2609,8 +2607,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameterGroupName Name of the DB parameter group to
-         * associate.
+         * @param parameterGroupName Name of the DB parameter group to associate.
          * 
          * @return builder
          * 
@@ -2621,8 +2618,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameterGroupName Name of the DB parameter group to
-         * associate.
+         * @param parameterGroupName Name of the DB parameter group to associate.
          * 
          * @return builder
          * 

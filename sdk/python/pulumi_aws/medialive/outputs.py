@@ -10038,6 +10038,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettings(dict):
         """
         :param str secondary_input_id: The input ID of the secondary input in the automatic input failover pair.
         :param int error_clear_time_msec: This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\\_preference for the failover pair is set to PRIMARY\\_INPUT\\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+        :param Sequence['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs'] failover_conditions: A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
         :param str input_preference: Input preference when deciding which input to make active when a previously failed input has recovered.
         """
         pulumi.set(__self__, "secondary_input_id", secondary_input_id)
@@ -10067,6 +10068,9 @@ class ChannelInputAttachmentAutomaticInputFailoverSettings(dict):
     @property
     @pulumi.getter(name="failoverConditions")
     def failover_conditions(self) -> Optional[Sequence['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition']]:
+        """
+        A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+        """
         return pulumi.get(self, "failover_conditions")
 
     @property

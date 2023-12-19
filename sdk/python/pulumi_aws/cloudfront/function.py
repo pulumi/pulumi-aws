@@ -22,7 +22,7 @@ class FunctionArgs:
         """
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] code: Source code of the function
-        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
                The following arguments are optional:
         :param pulumi.Input[str] comment: Comment.
@@ -54,7 +54,7 @@ class FunctionArgs:
     @pulumi.getter
     def runtime(self) -> pulumi.Input[str]:
         """
-        Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
 
         The following arguments are optional:
         """
@@ -122,7 +122,7 @@ class _FunctionState:
         :param pulumi.Input[str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
                The following arguments are optional:
         :param pulumi.Input[str] status: Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
@@ -234,7 +234,7 @@ class _FunctionState:
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
 
         The following arguments are optional:
         """
@@ -283,7 +283,7 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudfront.Function("test",
-            runtime="cloudfront-js-1.0",
+            runtime="cloudfront-js-2.0",
             comment="my function",
             publish=True,
             code=(lambda path: open(path).read())(f"{path['module']}/function.js"))
@@ -303,7 +303,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Comment.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
                The following arguments are optional:
         """
@@ -328,7 +328,7 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cloudfront.Function("test",
-            runtime="cloudfront-js-1.0",
+            runtime="cloudfront-js-2.0",
             comment="my function",
             publish=True,
             code=(lambda path: open(path).read())(f"{path['module']}/function.js"))
@@ -417,7 +417,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
                The following arguments are optional:
         :param pulumi.Input[str] status: Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
@@ -497,7 +497,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def runtime(self) -> pulumi.Output[str]:
         """
-        Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
 
         The following arguments are optional:
         """

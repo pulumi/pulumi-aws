@@ -390,6 +390,7 @@ var moduleMap = map[string]string{
 	"outposts":                        outpostsMod,
 	"pinpoint":                        pinpointMod,
 	"pipes":                           pipesMod,
+	"polly":                           "Polly",
 	"pricing":                         pricingMod,
 	"prometheus":                      ampMod,
 	"qldb":                            qldbMod,

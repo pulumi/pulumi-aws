@@ -30,6 +30,7 @@ class EndpointArgs:
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 postgres_settings: Optional[pulumi.Input['EndpointPostgresSettingsArgs']] = None,
                  redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
@@ -57,6 +58,7 @@ class EndpointArgs:
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
@@ -92,6 +94,8 @@ class EndpointArgs:
             pulumi.set(__self__, "pause_replication_tasks", pause_replication_tasks)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if postgres_settings is not None:
+            pulumi.set(__self__, "postgres_settings", postgres_settings)
         if redis_settings is not None:
             pulumi.set(__self__, "redis_settings", redis_settings)
         if redshift_settings is not None:
@@ -281,6 +285,18 @@ class EndpointArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="postgresSettings")
+    def postgres_settings(self) -> Optional[pulumi.Input['EndpointPostgresSettingsArgs']]:
+        """
+        Configuration block for Postgres settings. See below.
+        """
+        return pulumi.get(self, "postgres_settings")
+
+    @postgres_settings.setter
+    def postgres_settings(self, value: Optional[pulumi.Input['EndpointPostgresSettingsArgs']]):
+        pulumi.set(self, "postgres_settings", value)
+
+    @property
     @pulumi.getter(name="redisSettings")
     def redis_settings(self) -> Optional[pulumi.Input['EndpointRedisSettingsArgs']]:
         return pulumi.get(self, "redis_settings")
@@ -416,6 +432,7 @@ class _EndpointState:
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 postgres_settings: Optional[pulumi.Input['EndpointPostgresSettingsArgs']] = None,
                  redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
@@ -445,6 +462,7 @@ class _EndpointState:
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
@@ -486,6 +504,8 @@ class _EndpointState:
             pulumi.set(__self__, "pause_replication_tasks", pause_replication_tasks)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if postgres_settings is not None:
+            pulumi.set(__self__, "postgres_settings", postgres_settings)
         if redis_settings is not None:
             pulumi.set(__self__, "redis_settings", redis_settings)
         if redshift_settings is not None:
@@ -692,6 +712,18 @@ class _EndpointState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="postgresSettings")
+    def postgres_settings(self) -> Optional[pulumi.Input['EndpointPostgresSettingsArgs']]:
+        """
+        Configuration block for Postgres settings. See below.
+        """
+        return pulumi.get(self, "postgres_settings")
+
+    @postgres_settings.setter
+    def postgres_settings(self, value: Optional[pulumi.Input['EndpointPostgresSettingsArgs']]):
+        pulumi.set(self, "postgres_settings", value)
+
+    @property
     @pulumi.getter(name="redisSettings")
     def redis_settings(self) -> Optional[pulumi.Input['EndpointRedisSettingsArgs']]:
         return pulumi.get(self, "redis_settings")
@@ -843,6 +875,7 @@ class Endpoint(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 postgres_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']]] = None,
                  redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
@@ -909,6 +942,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
@@ -992,6 +1026,7 @@ class Endpoint(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 postgres_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']]] = None,
                  redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
@@ -1031,6 +1066,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["pause_replication_tasks"] = pause_replication_tasks
             __props__.__dict__["port"] = port
+            __props__.__dict__["postgres_settings"] = postgres_settings
             __props__.__dict__["redis_settings"] = redis_settings
             __props__.__dict__["redshift_settings"] = redshift_settings
             __props__.__dict__["s3_settings"] = s3_settings
@@ -1070,6 +1106,7 @@ class Endpoint(pulumi.CustomResource):
             password: Optional[pulumi.Input[str]] = None,
             pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
             port: Optional[pulumi.Input[int]] = None,
+            postgres_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']]] = None,
             redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
             redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
             s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
@@ -1104,6 +1141,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
@@ -1134,6 +1172,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["password"] = password
         __props__.__dict__["pause_replication_tasks"] = pause_replication_tasks
         __props__.__dict__["port"] = port
+        __props__.__dict__["postgres_settings"] = postgres_settings
         __props__.__dict__["redis_settings"] = redis_settings
         __props__.__dict__["redshift_settings"] = redshift_settings
         __props__.__dict__["s3_settings"] = s3_settings
@@ -1265,6 +1304,14 @@ class Endpoint(pulumi.CustomResource):
         Port used by the endpoint database.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="postgresSettings")
+    def postgres_settings(self) -> pulumi.Output[Optional['outputs.EndpointPostgresSettings']]:
+        """
+        Configuration block for Postgres settings. See below.
+        """
+        return pulumi.get(self, "postgres_settings")
 
     @property
     @pulumi.getter(name="redisSettings")

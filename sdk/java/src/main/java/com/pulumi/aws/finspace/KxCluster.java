@@ -12,6 +12,8 @@ import com.pulumi.aws.finspace.outputs.KxClusterCapacityConfiguration;
 import com.pulumi.aws.finspace.outputs.KxClusterCode;
 import com.pulumi.aws.finspace.outputs.KxClusterDatabase;
 import com.pulumi.aws.finspace.outputs.KxClusterSavedownStorageConfiguration;
+import com.pulumi.aws.finspace.outputs.KxClusterScalingGroupConfiguration;
+import com.pulumi.aws.finspace.outputs.KxClusterTickerplantLogConfiguration;
 import com.pulumi.aws.finspace.outputs.KxClusterVpcConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -180,14 +182,14 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="capacityConfiguration", refs={KxClusterCapacityConfiguration.class}, tree="[0]")
-    private Output<KxClusterCapacityConfiguration> capacityConfiguration;
+    private Output</* @Nullable */ KxClusterCapacityConfiguration> capacityConfiguration;
 
     /**
      * @return Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      * 
      */
-    public Output<KxClusterCapacityConfiguration> capacityConfiguration() {
-        return this.capacityConfiguration;
+    public Output<Optional<KxClusterCapacityConfiguration>> capacityConfiguration() {
+        return Codegen.optional(this.capacityConfiguration);
     }
     /**
      * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
@@ -357,6 +359,20 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<KxClusterSavedownStorageConfiguration>> savedownStorageConfiguration() {
         return Codegen.optional(this.savedownStorageConfiguration);
     }
+    /**
+     * The structure that stores the configuration details of a scaling group.
+     * 
+     */
+    @Export(name="scalingGroupConfiguration", refs={KxClusterScalingGroupConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ KxClusterScalingGroupConfiguration> scalingGroupConfiguration;
+
+    /**
+     * @return The structure that stores the configuration details of a scaling group.
+     * 
+     */
+    public Output<Optional<KxClusterScalingGroupConfiguration>> scalingGroupConfiguration() {
+        return Codegen.optional(this.scalingGroupConfiguration);
+    }
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
@@ -400,6 +416,20 @@ public class KxCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * 
+     */
+    @Export(name="tickerplantLogConfigurations", refs={List.class,KxClusterTickerplantLogConfiguration.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<KxClusterTickerplantLogConfiguration>> tickerplantLogConfigurations;
+
+    /**
+     * @return A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * 
+     */
+    public Output<Optional<List<KxClusterTickerplantLogConfiguration>>> tickerplantLogConfigurations() {
+        return Codegen.optional(this.tickerplantLogConfigurations);
     }
     /**
      * Type of KDB database. The following types are available:

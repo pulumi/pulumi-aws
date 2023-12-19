@@ -299,6 +299,8 @@ if typing.TYPE_CHECKING:
     pinpoint = __pinpoint
     import pulumi_aws.pipes as __pipes
     pipes = __pipes
+    import pulumi_aws.polly as __polly
+    polly = __polly
     import pulumi_aws.pricing as __pricing
     pricing = __pricing
     import pulumi_aws.qldb as __qldb
@@ -554,6 +556,7 @@ else:
     outposts = _utilities.lazy_import('pulumi_aws.outposts')
     pinpoint = _utilities.lazy_import('pulumi_aws.pinpoint')
     pipes = _utilities.lazy_import('pulumi_aws.pipes')
+    polly = _utilities.lazy_import('pulumi_aws.polly')
     pricing = _utilities.lazy_import('pulumi_aws.pricing')
     qldb = _utilities.lazy_import('pulumi_aws.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws.quicksight')
@@ -5154,6 +5157,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "finspace/kxDataview",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxDataview:KxDataview": "KxDataview"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "finspace/kxEnvironment",
   "fqn": "pulumi_aws.finspace",
   "classes": {
@@ -5162,10 +5173,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "finspace/kxScalingGroup",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxScalingGroup:KxScalingGroup": "KxScalingGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "finspace/kxUser",
   "fqn": "pulumi_aws.finspace",
   "classes": {
    "aws:finspace/kxUser:KxUser": "KxUser"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "finspace/kxVolume",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxVolume:KxVolume": "KxVolume"
   }
  },
  {
@@ -10326,6 +10353,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
    "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment": "PermissionsBoundaryAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/trustedTokenIssuer",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer": "TrustedTokenIssuer"
   }
  },
  {

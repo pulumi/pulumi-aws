@@ -77,7 +77,7 @@ type EventSubscription struct {
 	// Ids of sources to listen to.
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
+	SourceType pulumi.StringOutput `pulumi:"sourceType"`
 	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -98,6 +98,12 @@ func NewEventSubscription(ctx *pulumi.Context,
 	}
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
+	}
+	if args.SourceIds == nil {
+		return nil, errors.New("invalid value for required argument 'SourceIds'")
+	}
+	if args.SourceType == nil {
+		return nil, errors.New("invalid value for required argument 'SourceType'")
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"tagsAll",
@@ -187,7 +193,7 @@ type eventSubscriptionArgs struct {
 	// Ids of sources to listen to.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType *string `pulumi:"sourceType"`
+	SourceType string `pulumi:"sourceType"`
 	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -205,7 +211,7 @@ type EventSubscriptionArgs struct {
 	// Ids of sources to listen to.
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType pulumi.StringPtrInput
+	SourceType pulumi.StringInput
 	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -328,8 +334,8 @@ func (o EventSubscriptionOutput) SourceIds() pulumi.StringArrayOutput {
 }
 
 // Type of source for events. Valid values: `replication-instance` or `replication-task`
-func (o EventSubscriptionOutput) SourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.SourceType }).(pulumi.StringPtrOutput)
+func (o EventSubscriptionOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
 }
 
 // Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

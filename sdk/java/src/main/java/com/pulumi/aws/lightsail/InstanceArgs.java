@@ -33,16 +33,18 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Availability Zone in which to create your
-     * instance (see list below)
+     * The Availability Zone in which to create your instance. A
+     * list of available zones can be obtained using the AWS CLI command:
+     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone in which to create your
-     * instance (see list below)
+     * @return The Availability Zone in which to create your instance. A
+     * list of available zones can be obtained using the AWS CLI command:
+     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
     public Output<String> availabilityZone() {
@@ -50,14 +52,18 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     * The ID for a virtual private server image. A list of available
+     * blueprint IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
     @Import(name="blueprintId", required=true)
     private Output<String> blueprintId;
 
     /**
-     * @return The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+     * @return The ID for a virtual private server image. A list of available
+     * blueprint IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
     public Output<String> blueprintId() {
@@ -65,14 +71,18 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The bundle of specification information (see list below)
+     * The bundle of specification information. A list of available
+     * bundle IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
     @Import(name="bundleId", required=true)
     private Output<String> bundleId;
 
     /**
-     * @return The bundle of specification information (see list below)
+     * @return The bundle of specification information. A list of available
+     * bundle IDs can be obtained using the AWS CLI command:
+     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
     public Output<String> bundleId() {
@@ -112,14 +122,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     * The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+     * @return The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -210,8 +220,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your
-         * instance (see list below)
+         * @param availabilityZone The Availability Zone in which to create your instance. A
+         * list of available zones can be obtained using the AWS CLI command:
+         * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
          * 
          * @return builder
          * 
@@ -222,8 +233,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your
-         * instance (see list below)
+         * @param availabilityZone The Availability Zone in which to create your instance. A
+         * list of available zones can be obtained using the AWS CLI command:
+         * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
          * 
          * @return builder
          * 
@@ -233,7 +245,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blueprintId The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+         * @param blueprintId The ID for a virtual private server image. A list of available
+         * blueprint IDs can be obtained using the AWS CLI command:
+         * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
          * 
          * @return builder
          * 
@@ -244,7 +258,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blueprintId The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
+         * @param blueprintId The ID for a virtual private server image. A list of available
+         * blueprint IDs can be obtained using the AWS CLI command:
+         * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
          * 
          * @return builder
          * 
@@ -254,7 +270,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId The bundle of specification information (see list below)
+         * @param bundleId The bundle of specification information. A list of available
+         * bundle IDs can be obtained using the AWS CLI command:
+         * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
          * 
          * @return builder
          * 
@@ -265,7 +283,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId The bundle of specification information (see list below)
+         * @param bundleId The bundle of specification information. A list of available
+         * bundle IDs can be obtained using the AWS CLI command:
+         * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
          * 
          * @return builder
          * 
@@ -319,7 +339,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+         * @param name The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
          * 
          * @return builder
          * 
@@ -330,7 +350,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+         * @param name The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
          * 
          * @return builder
          * 

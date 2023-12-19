@@ -11,13 +11,16 @@ from .application_assignment import *
 from .application_assignment_configuration import *
 from .customer_managed_policy_attachment import *
 from .get_application import *
+from .get_application_assignments import *
 from .get_application_providers import *
 from .get_instances import *
 from .get_permission_set import *
+from .get_principal_application_assignments import *
 from .instance_access_control_attributes import *
 from .managed_policy_attachment import *
 from .permission_set import *
 from .permission_set_inline_policy import *
 from .permissions_boundary_attachment import *
+from .trusted_token_issuer import *
 from ._inputs import *
 from . import outputs

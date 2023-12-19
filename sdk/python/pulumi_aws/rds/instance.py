@@ -173,8 +173,7 @@ class InstanceArgs:
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
-        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
-               associate.
+        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
                is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
@@ -911,8 +910,7 @@ class InstanceArgs:
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the DB parameter group to
-        associate.
+        Name of the DB parameter group to associate.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -1358,8 +1356,7 @@ class _InstanceState:
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
-        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
-               associate.
+        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
                is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
@@ -2223,8 +2220,7 @@ class _InstanceState:
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the DB parameter group to
-        associate.
+        Name of the DB parameter group to associate.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -2629,7 +2625,7 @@ class Instance(pulumi.CustomResource):
 
         ## RDS Instance Class Types
 
-        Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+        Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
         For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
 
         ## Low-Downtime Updates
@@ -2661,6 +2657,50 @@ class Instance(pulumi.CustomResource):
             password="foobarbaz",
             skip_final_snapshot=True,
             username="foo")
+        ```
+        ### RDS Db2 Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.get_engine_version(engine="db2-se")
+        example_orderable_db_instance = aws.rds.get_orderable_db_instance(engine=default.engine,
+            engine_version=default.version,
+            license_model="bring-your-own-license",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.t3.small",
+                "db.r6i.large",
+                "db.m6i.large",
+            ])
+        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
+            family=default.parameter_group_family,
+            parameters=[
+                aws.rds.ParameterGroupParameterArgs(
+                    apply_method="immediate",
+                    name="rds.ibm_customer_id",
+                    value="0",
+                ),
+                aws.rds.ParameterGroupParameterArgs(
+                    apply_method="immediate",
+                    name="rds.ibm_site_id",
+                    value="0",
+                ),
+            ])
+        # Create the RDS Db2 instance, use the data sources defined to set attributes
+        example_instance = aws.rds.Instance("exampleInstance",
+            allocated_storage=100,
+            backup_retention_period=7,
+            db_name="test",
+            engine=example_orderable_db_instance.engine,
+            engine_version=example_orderable_db_instance.engine_version,
+            identifier="db2-instance-demo",
+            instance_class=example_orderable_db_instance.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            parameter_group_name=example_parameter_group.name,
+            password="avoid-plaintext-passwords",
+            username="test")
         ```
         ### Storage Autoscaling
 
@@ -2819,8 +2859,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
-        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
-               associate.
+        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
                is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
@@ -2899,7 +2938,7 @@ class Instance(pulumi.CustomResource):
 
         ## RDS Instance Class Types
 
-        Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+        Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
         For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
 
         ## Low-Downtime Updates
@@ -2931,6 +2970,50 @@ class Instance(pulumi.CustomResource):
             password="foobarbaz",
             skip_final_snapshot=True,
             username="foo")
+        ```
+        ### RDS Db2 Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.get_engine_version(engine="db2-se")
+        example_orderable_db_instance = aws.rds.get_orderable_db_instance(engine=default.engine,
+            engine_version=default.version,
+            license_model="bring-your-own-license",
+            storage_type="gp3",
+            preferred_instance_classes=[
+                "db.t3.small",
+                "db.r6i.large",
+                "db.m6i.large",
+            ])
+        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
+            family=default.parameter_group_family,
+            parameters=[
+                aws.rds.ParameterGroupParameterArgs(
+                    apply_method="immediate",
+                    name="rds.ibm_customer_id",
+                    value="0",
+                ),
+                aws.rds.ParameterGroupParameterArgs(
+                    apply_method="immediate",
+                    name="rds.ibm_site_id",
+                    value="0",
+                ),
+            ])
+        # Create the RDS Db2 instance, use the data sources defined to set attributes
+        example_instance = aws.rds.Instance("exampleInstance",
+            allocated_storage=100,
+            backup_retention_period=7,
+            db_name="test",
+            engine=example_orderable_db_instance.engine,
+            engine_version=example_orderable_db_instance.engine_version,
+            identifier="db2-instance-demo",
+            instance_class=example_orderable_db_instance.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
+            parameter_group_name=example_parameter_group.name,
+            password="avoid-plaintext-passwords",
+            username="test")
         ```
         ### Storage Autoscaling
 
@@ -3350,8 +3433,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
-        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
-               associate.
+        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to associate.
         :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
                is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
@@ -3940,8 +4022,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> pulumi.Output[str]:
         """
-        Name of the DB parameter group to
-        associate.
+        Name of the DB parameter group to associate.
         """
         return pulumi.get(self, "parameter_group_name")
 

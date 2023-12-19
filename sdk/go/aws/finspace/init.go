@@ -25,10 +25,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KxCluster{}
 	case "aws:finspace/kxDatabase:KxDatabase":
 		r = &KxDatabase{}
+	case "aws:finspace/kxDataview:KxDataview":
+		r = &KxDataview{}
 	case "aws:finspace/kxEnvironment:KxEnvironment":
 		r = &KxEnvironment{}
+	case "aws:finspace/kxScalingGroup:KxScalingGroup":
+		r = &KxScalingGroup{}
 	case "aws:finspace/kxUser:KxUser":
 		r = &KxUser{}
+	case "aws:finspace/kxVolume:KxVolume":
+		r = &KxVolume{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -54,12 +60,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"finspace/kxDataview",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"finspace/kxEnvironment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"finspace/kxScalingGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"finspace/kxUser",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"finspace/kxVolume",
 		&module{version},
 	)
 }

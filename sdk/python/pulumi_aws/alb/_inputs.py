@@ -36,6 +36,7 @@ __all__ = [
     'ListenerRuleConditionQueryStringArgs',
     'ListenerRuleConditionSourceIpArgs',
     'LoadBalancerAccessLogsArgs',
+    'LoadBalancerConnectionLogsArgs',
     'LoadBalancerSubnetMappingArgs',
     'TargetGroupHealthCheckArgs',
     'TargetGroupStickinessArgs',
@@ -1855,6 +1856,60 @@ class LoadBalancerAccessLogsArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 bucket prefix. Logs are stored in the root if not configured.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class LoadBalancerConnectionLogsArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: The S3 bucket name to store the logs in.
+        :param pulumi.Input[bool] enabled: Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
+        :param pulumi.Input[str] prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The S3 bucket name to store the logs in.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
         """
         return pulumi.get(self, "enabled")
 

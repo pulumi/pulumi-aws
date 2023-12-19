@@ -75,6 +75,8 @@ type LookupServerlessCollectionResult struct {
 	// Date the Collection was last modified.
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
 	Name             string `pulumi:"name"`
+	// Indicates whether standby replicas should be used for a collection.
+	StandbyReplicas string `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of collection.
@@ -162,6 +164,11 @@ func (o LookupServerlessCollectionResultOutput) LastModifiedDate() pulumi.String
 
 func (o LookupServerlessCollectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether standby replicas should be used for a collection.
+func (o LookupServerlessCollectionResultOutput) StandbyReplicas() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.StandbyReplicas }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the collection.

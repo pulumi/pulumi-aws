@@ -69,9 +69,11 @@ export interface GetLoadBalancerResult {
     readonly accessLogs: outputs.lb.GetLoadBalancerAccessLogs;
     readonly arn: string;
     readonly arnSuffix: string;
+    readonly connectionLogs: outputs.lb.GetLoadBalancerConnectionLog[];
     readonly customerOwnedIpv4Pool: string;
     readonly desyncMitigationMode: string;
     readonly dnsName: string;
+    readonly dnsRecordClientRoutingPolicy: string;
     readonly dropInvalidHeaderFields: boolean;
     readonly enableCrossZoneLoadBalancing: boolean;
     readonly enableDeletionProtection: boolean;
