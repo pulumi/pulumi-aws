@@ -24,9 +24,11 @@ namespace Pulumi.Aws.EcrPublic
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// 	private static string ReadFileBase64(string path) {
-    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// 	}
+    /// 	
+    /// string ReadFileBase64(string path) 
+    /// {
+    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
+    /// }
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {

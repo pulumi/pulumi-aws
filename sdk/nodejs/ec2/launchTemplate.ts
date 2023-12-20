@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *             Name: "test",
  *         },
  *     }],
- *     userData: Buffer.from(fs.readFileSync(`${path.module}/example.sh`), 'binary').toString('base64'),
+ *     userData: Buffer.from(fs.readFileSync(`${path.module}/example.sh`, 'binary')).toString('base64'),
  * });
  * ```
  *
