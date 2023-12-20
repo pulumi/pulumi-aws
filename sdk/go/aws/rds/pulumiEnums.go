@@ -139,10 +139,13 @@ func (o EngineModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// EngineModeInput is an input type that accepts EngineModeArgs and EngineModeOutput values.
-// You can construct a concrete instance of `EngineModeInput` via:
+// EngineModeInput is an input type that accepts values of the EngineMode enum
+// A concrete instance of `EngineModeInput` can be one of the following:
 //
-//	EngineModeArgs{...}
+//	EngineModeProvisioned
+//	EngineModeServerless
+//	EngineModeParallelQuery
+//	EngineModeGlobal
 type EngineModeInput interface {
 	pulumi.Input
 
@@ -310,10 +313,12 @@ func (o EngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// EngineTypeInput is an input type that accepts EngineTypeArgs and EngineTypeOutput values.
-// You can construct a concrete instance of `EngineTypeInput` via:
+// EngineTypeInput is an input type that accepts values of the EngineType enum
+// A concrete instance of `EngineTypeInput` can be one of the following:
 //
-//	EngineTypeArgs{...}
+//	EngineTypeAurora
+//	EngineTypeAuroraMysql
+//	EngineTypeAuroraPostgresql
 type EngineTypeInput interface {
 	pulumi.Input
 
@@ -557,10 +562,88 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
-// You can construct a concrete instance of `InstanceTypeInput` via:
+// InstanceTypeInput is an input type that accepts values of the InstanceType enum
+// A concrete instance of `InstanceTypeInput` can be one of the following:
 //
-//	InstanceTypeArgs{...}
+//	InstanceType_T4G_Micro
+//	InstanceType_T4G_Small
+//	InstanceType_T4G_Medium
+//	InstanceType_T4G_Large
+//	InstanceType_T4G_XLarge
+//	InstanceType_T4G_2XLarge
+//	InstanceType_T3_Micro
+//	InstanceType_T3_Small
+//	InstanceType_T3_Medium
+//	InstanceType_T3_Large
+//	InstanceType_T3_XLarge
+//	InstanceType_T3_2XLarge
+//	InstanceType_T2_Micro
+//	InstanceType_T2_Small
+//	InstanceType_T2_Medium
+//	InstanceType_T2_Large
+//	InstanceType_T2_XLarge
+//	InstanceType_T2_2XLarge
+//	InstanceType_M1_Small
+//	InstanceType_M1_Medium
+//	InstanceType_M1_Large
+//	InstanceType_M1_XLarge
+//	InstanceType_M2_XLarge
+//	InstanceType_M2_2XLarge
+//	InstanceType_M2_4XLarge
+//	InstanceType_M3_Medium
+//	InstanceType_M3_Large
+//	InstanceType_M3_XLarge
+//	InstanceType_M3_2XLarge
+//	InstanceType_M4_Large
+//	InstanceType_M4_XLarge
+//	InstanceType_M4_2XLarge
+//	InstanceType_M4_4XLarge
+//	InstanceType_M4_10XLarge
+//	InstanceType_M4_16XLarge
+//	InstanceType_M5_Large
+//	InstanceType_M5_XLarge
+//	InstanceType_M5_2XLarge
+//	InstanceType_M5_4XLarge
+//	InstanceType_M5_12XLarge
+//	InstanceType_M5_24XLarge
+//	InstanceType_M6G_Large
+//	InstanceType_M6G_XLarge
+//	InstanceType_M6G_2XLarge
+//	InstanceType_M6G_4XLarge
+//	InstanceType_M6G_8XLarge
+//	InstanceType_M6G_12XLarge
+//	InstanceType_M6G_16XLarge
+//	InstanceType_R3_Large
+//	InstanceType_R3_XLarge
+//	InstanceType_R3_2XLarge
+//	InstanceType_R3_4XLarge
+//	InstanceType_R3_8XLarge
+//	InstanceType_R4_Large
+//	InstanceType_R4_XLarge
+//	InstanceType_R4_2XLarge
+//	InstanceType_R4_4XLarge
+//	InstanceType_R4_8XLarge
+//	InstanceType_R4_16XLarge
+//	InstanceType_R5_Large
+//	InstanceType_R5_XLarge
+//	InstanceType_R5_2XLarge
+//	InstanceType_R5_4XLarge
+//	InstanceType_R5_12XLarge
+//	InstanceType_R5_24XLarge
+//	InstanceType_R6G_Large
+//	InstanceType_R6G_XLarge
+//	InstanceType_R6G_2XLarge
+//	InstanceType_R6G_4XLarge
+//	InstanceType_R6G_8XLarge
+//	InstanceType_R6G_12XLarge
+//	InstanceType_R6G_16XLarge
+//	InstanceType_X1_16XLarge
+//	InstanceType_X1_32XLarge
+//	InstanceType_X1E_XLarge
+//	InstanceType_X1E_2XLarge
+//	InstanceType_X1E_4XLarge
+//	InstanceType_X1E_8XLarge
+//	InstanceType_X1E_32XLarge
 type InstanceTypeInput interface {
 	pulumi.Input
 
@@ -729,10 +812,13 @@ func (o StorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// StorageTypeInput is an input type that accepts StorageTypeArgs and StorageTypeOutput values.
-// You can construct a concrete instance of `StorageTypeInput` via:
+// StorageTypeInput is an input type that accepts values of the StorageType enum
+// A concrete instance of `StorageTypeInput` can be one of the following:
 //
-//	StorageTypeArgs{...}
+//	StorageTypeStandard
+//	StorageTypeGP2
+//	StorageTypeGP3
+//	StorageTypeIO1
 type StorageTypeInput interface {
 	pulumi.Input
 

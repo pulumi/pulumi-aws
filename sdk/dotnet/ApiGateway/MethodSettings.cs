@@ -28,11 +28,12 @@ namespace Pulumi.Aws.ApiGateway
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
+    /// 	
+    /// string ComputeSHA1(string input) 
+    /// {
+    ///     var hash = SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
+    ///     return BitConverter.ToString(hash).Replace("-","").ToLowerInvariant();
+    /// }
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
