@@ -24,8 +24,8 @@ import (
 // import (
 //
 //	"crypto/sha1"
+//	"encoding/hex"
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"

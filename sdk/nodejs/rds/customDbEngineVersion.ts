@@ -39,8 +39,8 @@ import * as utilities from "../utilities";
  * import * as crypto from "crypto";
  * import * as fs from "fs";
  *
- * function computeFilebase64sha256(path string) string {
- * 	const fileData = Buffer.from(fs.readFileSync(path), 'binary')
+ * function computeFilebase64sha256(path: string): string {
+ * 	const fileData = Buffer.from(fs.readFileSync(path, 'binary'))
  * 	return crypto.createHash('sha256').update(fileData).digest('hex')
  * }
  *
