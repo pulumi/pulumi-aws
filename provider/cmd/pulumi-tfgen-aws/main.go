@@ -15,13 +15,19 @@
 package main
 
 import (
+	"os"
+	"path/filepath"
+	"strings"
+
 	aws "github.com/pulumi/pulumi-aws/provider/v6"
 	pftfgen "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 func main() {
-	info := aws.Provider()
+	info := aws.ProviderFromMeta(tfbridge.NewProviderMetadata(locateMetadata()))
 
 	info.SchemaPostProcessor = func(spec *schema.PackageSpec) {
 		replaceWafV2TypesWithRecursive(spec)
@@ -34,4 +40,11 @@ func main() {
 	}()
 
 	pftfgen.MainWithMuxer("aws", *info)
+}
+
+func locateMetadata() []byte {
+	p := filepath.Join(strings.Split("provider/cmd/pulumi-resource-aws/bridge-metadata.json", "/")...)
+	bytes, err := os.ReadFile(p)
+	contract.AssertNoErrorf(err, "Failed to read bridge-metadata.json")
+	return bytes
 }

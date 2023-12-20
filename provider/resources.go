@@ -707,16 +707,8 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
-//go:embed cmd/pulumi-resource-aws/bridge-metadata.json
-var metadata []byte
-
 //go:embed cmd/pulumi-resource-aws/runtime-bridge-metadata.json
 var runtimeMetadata []byte
-
-// Provider returns additional overlaid schema and metadata associated with the aws package.
-func Provider() *tfbridge.ProviderInfo {
-	return ProviderFromMeta(tfbridge.NewProviderMetadata(metadata))
-}
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func RuntimeProvider() *tfbridge.ProviderInfo {
