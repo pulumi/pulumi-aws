@@ -61,7 +61,7 @@ import (
 //			}
 //			_, err = s3control.NewMultiRegionAccessPointPolicy(ctx, "exampleMultiRegionAccessPointPolicy", &s3control.MultiRegionAccessPointPolicyArgs{
 //				Details: &s3control.MultiRegionAccessPointPolicyDetailsArgs{
-//					Name: "TODO: element",
+//					Name: "TODO: call element",
 //					Policy: exampleMultiRegionAccessPoint.Alias.ApplyT(func(alias string) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON0, err := json.Marshal(map[string]interface{}{
