@@ -715,10 +715,6 @@ func Provider() *tfbridge.ProviderInfo {
 	return ProviderFromMeta(tfbridge.NewProviderMetadata(runtimeMetadata))
 }
 
-func Provider() *tfbridge.ProviderInfo {
-	return RuntimeProvider()
-}
-
 func newUpstreamProvider(ctx context.Context) awsShim.UpstreamProvider {
 	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
 	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
