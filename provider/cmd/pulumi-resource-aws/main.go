@@ -29,6 +29,6 @@ var pulumiSchema []byte
 
 func main() {
 	ctx := context.Background()
-	info := aws.RuntimeProvider()
+	info := aws.Provider()
 	pf.MainWithMuxer(ctx, "aws", *info, pulumiSchema)
 }
