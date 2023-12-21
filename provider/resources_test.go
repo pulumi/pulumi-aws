@@ -29,7 +29,7 @@ func TestParseDuration(t *testing.T) {
 }
 
 func TestHasNonComputedTagsAndTagsAllOptimized(t *testing.T) {
-	p := RuntimeProvider()
+	p := Provider()
 	p.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
 		actual := hasNonComputedTagsAndTagsAllOptimized(key, value)
 		expected := hasNonComputedTagsAndTagsAll(key, value)
@@ -50,7 +50,7 @@ func TestHasNonComputedTagsAndTagsAllOptimized(t *testing.T) {
 }
 
 func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
-	p := RuntimeProvider()
+	p := Provider()
 	p.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
 		actual := hasOptionalOrRequiredNameProperty(p.P, key)
 		expected := hasOptionalOrRequiredNamePropertyOptimized(p.P, key)
