@@ -118,7 +118,7 @@ import (
 // "display_name": "example",
 // "region": "us-west-1",
 // };
-// if param := cfg.GetBool("sns"); param != nil {
+// if param := cfg.GetObject("sns"); param != nil {
 // sns = param
 // }
 // sqs := map[string]interface{}{
@@ -127,7 +127,7 @@ import (
 // "name": "example-sqs-queue",
 // "region": "us-east-1",
 // };
-// if param := cfg.GetBool("sqs"); param != nil {
+// if param := cfg.GetObject("sqs"); param != nil {
 // sqs = param
 // }
 // sns_topic_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
