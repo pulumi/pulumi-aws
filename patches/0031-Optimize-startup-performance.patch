@@ -61,18 +61,10 @@ index 0000000000..35202ebd58
 +	return r.SchemaMap()
 +}
 diff --git a/shim/shim.go b/shim/shim.go
-index e24e53fe17..00297dbe77 100644
+index e24e53fe17..3378f955bb 100644
 --- a/shim/shim.go
 +++ b/shim/shim.go
-@@ -3,6 +3,7 @@ package shim
- import (
- 	"context"
- 	"fmt"
-+	"sync"
- 
- 	pfprovider "github.com/hashicorp/terraform-plugin-framework/provider"
- 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-@@ -17,7 +18,7 @@ type UpstreamProvider struct {
+@@ -17,7 +17,7 @@ type UpstreamProvider struct {
  }
  
  func NewUpstreamProvider(ctx context.Context) (UpstreamProvider, error) {
@@ -81,7 +73,7 @@ index e24e53fe17..00297dbe77 100644
  	if err != nil {
  		return UpstreamProvider{}, err
  	}
-@@ -44,44 +45,47 @@ func NewTagConfig(ctx context.Context, i interface{}) TagConfig {
+@@ -44,44 +44,42 @@ func NewTagConfig(ctx context.Context, i interface{}) TagConfig {
  // rationale for this is that Pulumi copies tags to tags_all before it hits the TF layer, so these
  // attributes must match in schema.
  func markTagsAllNotComputedForResources(sdkV2Provider *schema.Provider) {
@@ -115,13 +107,8 @@ index e24e53fe17..00297dbe77 100644
 +	u := *r
 +	if r.SchemaFunc != nil {
 +		old := r.SchemaFunc
-+		var once sync.Once
-+		var cache map[string]*schema.Schema
 +		u.SchemaFunc = func() map[string]*schema.Schema {
-+			once.Do(func() {
-+				cache = markTagsAllNotComputedForSchema(rn, old())
-+			})
-+			return cache
++			return markTagsAllNotComputedForSchema(rn, old())
  		}
 +	} else {
 +		u.Schema = markTagsAllNotComputedForSchema(rn, r.Schema)
