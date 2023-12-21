@@ -711,7 +711,7 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 var runtimeMetadata []byte
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
-func RuntimeProvider() *tfbridge.ProviderInfo {
+func Provider() *tfbridge.ProviderInfo {
 	return ProviderFromMeta(tfbridge.NewProviderMetadata(runtimeMetadata))
 }
 

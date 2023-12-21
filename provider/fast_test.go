@@ -19,9 +19,3 @@ func BenchmarkProvider(b *testing.B) {
 		Provider()
 	}
 }
-
-func BenchmarkRuntimeProvider(b *testing.B) {
-	for n := 0; n < b.N; n++ {
-		RuntimeProvider()
-	}
-}
