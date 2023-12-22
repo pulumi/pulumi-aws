@@ -445,7 +445,6 @@ jobs:
             uses: codecov/codecov-action@v3
       timeout-minutes: 60
   test_oidc:
-      if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
       name: test_oidc
       needs: build_sdk
       permissions:
