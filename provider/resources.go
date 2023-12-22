@@ -542,22 +542,25 @@ func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []str
 	return vals
 }
 
-// returns a pointer so we can distinguish between a zero value and a missing value
-func durationFromConfig(vars resource.PropertyMap, prop resource.PropertyKey) (*time.Duration, error) {
+func durationFromConfig(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) (time.Duration, error) {
 	val, ok := vars[prop]
 	if ok && val.IsString() {
 		secondsString := val.StringValue()
 		if !strings.HasSuffix(secondsString, "s") {
 			secondsString += "s"
 		}
-		dur, err := time.ParseDuration(secondsString)
-		if err != nil {
-			return nil, err
-		}
-		return &dur, nil
+		return time.ParseDuration(secondsString)
 	}
-
-	return nil, nil
+	for _, env := range envs {
+		val, ok := os.LookupEnv(env)
+		if ok {
+			if !strings.HasSuffix(val, "s") {
+				val += "s"
+			}
+			return time.ParseDuration(val)
+		}
+	}
+	return 0, nil
 }
 
 func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error {
@@ -582,13 +585,11 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 			SourceIdentity:    stringValue(details.ObjectValue(), "sourceIdentity", []string{}),
 			TransitiveTagKeys: arrayValue(details.ObjectValue(), "transitiveTagKeys", []string{}),
 		}
-		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
+		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds", []string{})
 		if err != nil {
 			return err
 		}
-		if duration != nil {
-			assumeRole.Duration = *duration
-		}
+		assumeRole.Duration = duration
 
 		config.AssumeRole = &assumeRole
 	}
@@ -602,13 +603,12 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 			WebIdentityToken:     stringValue(details.ObjectValue(), "webIdentityToken", []string{}),
 			WebIdentityTokenFile: stringValue(details.ObjectValue(), "webIdentityTokenFile", []string{}),
 		}
-		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
+		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds", []string{})
 		if err != nil {
 			return err
 		}
-		if duration != nil {
-			assumeRole.Duration = *duration
-		}
+		assumeRole.Duration = duration
+
 		config.AssumeRoleWithWebIdentity = &assumeRole
 	}
 
