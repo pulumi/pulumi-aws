@@ -22,9 +22,9 @@ func TestParseDuration(t *testing.T) {
 		valid := resource.PropertyMap{
 			"durationSeconds": resource.NewStringProperty(v),
 		}
-		d, err := durationFromConfig(valid, "durationSeconds")
+		d, err := durationFromConfig(valid, "durationSeconds", []string{})
 		assert.NoError(t, err)
-		assert.NotNil(t, d)
+		assert.True(t, d > 0)
 	}
 }
 
