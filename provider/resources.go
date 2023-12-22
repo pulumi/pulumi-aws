@@ -715,11 +715,16 @@ func Provider() *tfbridge.ProviderInfo {
 	return ProviderFromMeta(tfbridge.NewProviderMetadata(runtimeMetadata))
 }
 
+func newUpstreamProvider(ctx context.Context) awsShim.UpstreamProvider {
+	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
+	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
+	return upstreamProvider
+}
+
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
-	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
-	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
+	upstreamProvider := newUpstreamProvider(ctx)
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
 
@@ -6144,20 +6149,8 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			return awsResource(mod, name).String(), nil
 		}))
 
-	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
-		// Skip resources that don't have tags.
-		tagsF, ok := value.Schema().GetOk("tags")
-		if !ok {
-			return true
-		}
-		// Skip resources that don't have tags_all.
-		_, ok = value.Schema().GetOk("tags_all")
-		if !ok {
-			return true
-		}
-
-		// tags must be non-computed.
-		if tagsF.Computed() {
+	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
+		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
 			return true
 		}
 
@@ -6212,11 +6205,139 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 	// Fixes a spurious diff on repeat pulumi up for the aws_wafv2_web_acl resource (pulumi/pulumi#1423).
 	shimv2.SetInstanceStateStrategy(prov.P.ResourcesMap().Get("aws_wafv2_web_acl"), shimv2.CtyInstanceState)
 
-	prov.SetAutonaming(255, "-")
+	setAutonaming(&prov)
 
 	prov.MustApplyAutoAliases()
 
 	prov.XSkipDetailedDiffForChanges = true
 
 	return &prov
+}
+
+const nameProperty = "name"
+
+// prov.SetAutonaming is too inefficient for AWS as it forces SchemaFunc calls for large resources
+// that use up RAM. Instead of doing prov.SetAutonaming(255, "-") we call a surgically crafted
+// setAutonaming that avoids these calls.
+func setAutonaming(p *tfbridge.ProviderInfo) {
+	maxLength := 255
+	separator := "-"
+	for resname, res := range p.Resources {
+		// Only apply auto-name to input properties (Optional || Required) named `name`
+		if !hasOptionalOrRequiredNamePropertyOptimized(p.P, resname) {
+			continue
+		}
+		if _, hasfield := res.Fields[nameProperty]; !hasfield {
+			if res.Fields == nil {
+				res.Fields = make(map[string]*tfbridge.SchemaInfo)
+			}
+			res.Fields[nameProperty] = tfbridge.AutoName(nameProperty, maxLength, separator)
+		}
+	}
+}
+
+func hasOptionalOrRequiredNameProperty(p shim.Provider, tfResourceName string) bool {
+	if schema := p.ResourcesMap().Get(tfResourceName); schema != nil {
+		// Only apply auto-name to input properties (Optional || Required) named `name`
+		if sch := schema.Schema().Get(nameProperty); sch != nil && (sch.Optional() || sch.Required()) {
+			return true
+		}
+	}
+	return false
+}
+
+func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName string) bool {
+	switch tfResourceName {
+	case
+		"aws_quicksight_account_subscription",
+		"aws_quicksight_group",
+		"aws_quicksight_group_membership",
+		"aws_quicksight_user",
+		"aws_wafv2_web_acl_association",
+		"aws_wafv2_web_acl_logging_configuration":
+		return false
+	case "aws_medialive_channel",
+		"aws_opsworks_custom_layer",
+		"aws_opsworks_ecs_cluster_layer",
+		"aws_opsworks_ganglia_layer",
+		"aws_opsworks_haproxy_layer",
+		"aws_opsworks_java_app_layer",
+		"aws_opsworks_memcached_layer",
+		"aws_opsworks_mysql_layer",
+		"aws_opsworks_nodejs_app_layer",
+		"aws_opsworks_php_app_layer",
+		"aws_opsworks_rails_app_layer",
+		"aws_quicksight_analysis",
+		"aws_quicksight_dashboard",
+		"aws_quicksight_data_set",
+		"aws_quicksight_data_source",
+		"aws_quicksight_template",
+		"aws_quicksight_theme",
+		"aws_wafv2_ip_set",
+		"aws_wafv2_regex_pattern_set",
+		"aws_wafv2_rule_group",
+		"aws_wafv2_web_acl",
+		"aws_kinesis_firehose_delivery_stream",
+		"aws_opsworks_static_web_layer":
+		return true
+	}
+	return hasOptionalOrRequiredNameProperty(p, tfResourceName)
+}
+
+// Like hasNonComputedTagsAndTagsAll but optimized with an ad-hoc cache to avoid calling
+// SchemaFunc() and allocating memory at startup.
+func hasNonComputedTagsAndTagsAllOptimized(tfResourceName string, res shim.Resource) bool {
+	switch tfResourceName {
+	case "aws_kinesis_firehose_delivery_stream",
+		"aws_opsworks_custom_layer",
+		"aws_opsworks_ecs_cluster_layer",
+		"aws_opsworks_ganglia_layer",
+		"aws_opsworks_haproxy_layer",
+		"aws_opsworks_java_app_layer",
+		"aws_opsworks_memcached_layer",
+		"aws_opsworks_mysql_layer",
+		"aws_opsworks_nodejs_app_layer",
+		"aws_opsworks_php_app_layer",
+		"aws_opsworks_rails_app_layer",
+		"aws_opsworks_static_web_layer",
+		"aws_quicksight_analysis",
+		"aws_quicksight_dashboard",
+		"aws_quicksight_data_set",
+		"aws_quicksight_data_source",
+		"aws_quicksight_template",
+		"aws_quicksight_theme",
+		"aws_wafv2_ip_set",
+		"aws_wafv2_regex_pattern_set",
+		"aws_wafv2_rule_group",
+		"aws_wafv2_web_acl",
+		"aws_medialive_channel":
+		return true
+	case "aws_quicksight_user",
+		"aws_wafv2_web_acl_logging_configuration",
+		"aws_quicksight_group_membership",
+		"aws_wafv2_web_acl_association",
+		"aws_quicksight_group",
+		"aws_quicksight_account_subscription":
+		return false
+	}
+
+	return hasNonComputedTagsAndTagsAll(tfResourceName, res)
+}
+
+func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool {
+	// Skip resources that don't have tags.
+	tagsF, ok := res.Schema().GetOk("tags")
+	if !ok {
+		return false
+	}
+	// Skip resources that don't have tags_all.
+	_, ok = res.Schema().GetOk("tags_all")
+	if !ok {
+		return false
+	}
+	// tags must be non-computed.
+	if tagsF.Computed() {
+		return false
+	}
+	return true
 }
