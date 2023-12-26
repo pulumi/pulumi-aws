@@ -66,7 +66,7 @@ func TestAccExpress(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "express"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -106,6 +106,7 @@ func TestAccBucket(t *testing.T) {
 			},
 		})
 
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -115,7 +116,7 @@ func TestAccCloudWatch(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "cloudwatch"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -135,7 +136,7 @@ func TestAccLogGroup(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "logGroup"),
 			RunUpdateTest: false,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -145,7 +146,7 @@ func TestAccQueue(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "queue"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -154,7 +155,7 @@ func TestAccEventBus(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "eventbus"),
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -164,7 +165,7 @@ func TestAccStream(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "stream"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -174,7 +175,7 @@ func TestAccTable(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "table"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -184,7 +185,7 @@ func TestAccTopic(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "topic"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -199,7 +200,7 @@ func TestAccSecretCapture(t *testing.T) {
 				assert.NotContains(t, "s3cr3t", string(byts))
 			},
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -235,6 +236,7 @@ func TestAccCallbackFunction(t *testing.T) {
 				}
 			},
 		})
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -265,7 +267,7 @@ func TestAccRoute53(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "route53"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -275,7 +277,7 @@ func TestAccLambdaLayer(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "lambda-layer-old"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -285,7 +287,7 @@ func TestAccLambdaContainerImages(t *testing.T) {
 			RunUpdateTest: false, // new feature!
 			Dir:           filepath.Join(getCwd(t), "lambda-container-image"),
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -295,7 +297,7 @@ func TestAccLambdaLayerNewEnums(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "lambda-layer-new"),
 			RunUpdateTest: false,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -326,7 +328,7 @@ func TestAccDeleteBeforeCreate(t *testing.T) {
 				},
 			},
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -456,6 +458,7 @@ func TestAccWafV2(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "wafv2"),
 		})
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 

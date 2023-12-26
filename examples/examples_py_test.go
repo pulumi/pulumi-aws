@@ -41,7 +41,7 @@ func TestAccCodeBuildProjectPy(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "codebuild-project-py"),
 			RunUpdateTest: false,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
