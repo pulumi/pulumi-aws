@@ -1,4 +1,5 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+//go:build dotnet || all
 // +build dotnet all
 
 package examples
@@ -36,15 +37,14 @@ func TestAccFifoSqsQueueCs(t *testing.T) {
 
 func getCSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
-	base := getBaseOptions()
-	csharpBase := base.With(integration.ProgramTestOptions{
+	csharpBase := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region": envRegion,
 		},
 		Dependencies: []string{
 			"Pulumi.Aws",
 		},
-	})
+	}
 
 	return csharpBase
 }

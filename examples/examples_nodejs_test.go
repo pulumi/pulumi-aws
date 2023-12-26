@@ -37,8 +37,7 @@ func TestAccDedicatedHosts(t *testing.T) {
 // This is a specific test to ensure that we are testing for a missing region and erroring
 func TestAccCredentialsConfigTest(t *testing.T) {
 	t.Skip("STACK72: Temp skip until we investigate the cause of https://github.com/pulumi/pulumi-aws/issues/1995")
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
+	baseJS := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region": "INVALID_REGION",
 		},
@@ -47,7 +46,7 @@ func TestAccCredentialsConfigTest(t *testing.T) {
 		},
 		Dir:           filepath.Join(getCwd(t), "credentialsConfigTest"),
 		ExpectFailure: true,
-	})
+	}
 
 	integration.ProgramTest(t, &baseJS)
 }
@@ -491,8 +490,7 @@ func TestRegress2818(t *testing.T) {
 
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
+	baseJS := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region":    "INVALID_REGION",
 			"aws:envRegion": envRegion,
@@ -500,7 +498,7 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 		Dependencies: []string{
 			"@pulumi/aws",
 		},
-	})
+	}
 
 	return baseJS
 }

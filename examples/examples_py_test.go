@@ -69,15 +69,14 @@ func TestSecretManagerPy(t *testing.T) {
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
-	base := getBaseOptions()
-	pythonBase := base.With(integration.ProgramTestOptions{
+	pythonBase := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region": envRegion,
 		},
 		Dependencies: []string{
 			filepath.Join("..", "sdk", "python", "bin"),
 		},
-	})
+	}
 
 	return pythonBase
 }
