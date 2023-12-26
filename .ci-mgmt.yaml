@@ -36,7 +36,7 @@ actions:
     - name: Install Pulumi CLI
       uses: pulumi/actions@v4
       with:
-        pulumi-version: v3.77.1
+        pulumi-version: ^3
   preTest:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
