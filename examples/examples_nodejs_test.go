@@ -459,6 +459,10 @@ func TestAccWafV2(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "wafv2"),
 		})
 	skipRefresh(&test)
+
+	// TODO[pulumi/pulumi-aws#3190] there is a bug with non-empty diff after pulumi up.
+	test.ExpectRefreshChanges = true
+
 	integration.ProgramTest(t, &test)
 }
 
