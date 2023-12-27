@@ -33,11 +33,6 @@ runner:
   publish: pulumi-ubuntu-8core
   buildSdk: pulumi-ubuntu-8core
 actions:
-  setupPulumi:
-    - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
-      with:
-        pulumi-version: v3.77.1
   preTest:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
