@@ -125,13 +125,8 @@ func TestAccCloudWatchOidcManual(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "cloudwatchOidcManual"),
 
-			// Because explicit provider computes a fresh token for
-			// assumeRoleWithWebIdentity on every program invocation, this generates
-			// non-empty changes on the `pulumi:provider:aws` resource
-			// assumeRoleWithWebIdentity field and trips up the default checks which
-			// need to be disabled.
-			AllowEmptyPreviewChanges: true,
-			AllowEmptyUpdateChanges:  true,
+			// TODO[pulumi/pulumi-aws#3193] multiple issues with refreshing cleanly.
+			SkipRefresh: true,
 		})
 
 	integration.ProgramTest(t, &test)
