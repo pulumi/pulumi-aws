@@ -1,6 +1,4 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
-//go:build nodejs || all
-// +build nodejs all
 
 package examples
 
@@ -461,7 +459,8 @@ func TestAccWafV2(t *testing.T) {
 	skipRefresh(&test)
 
 	// TODO[pulumi/pulumi-aws#3190] there is a bug with non-empty diff after pulumi up.
-	test.ExpectRefreshChanges = true
+	test.AllowEmptyPreviewChanges = true
+	test.AllowEmptyPreviewChanges = true
 
 	integration.ProgramTest(t, &test)
 }
