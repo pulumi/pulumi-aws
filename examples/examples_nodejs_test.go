@@ -125,8 +125,10 @@ func TestAccCloudWatchOidcManual(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "cloudwatchOidcManual"),
 
-			// TODO[pulumi/pulumi-aws#3193] multiple issues with refreshing cleanly.
-			SkipRefresh: true,
+			// TODO[pulumi/pulumi-aws#3193] multiple issues with refreshing and updating cleanly.
+			SkipRefresh:              true,
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
 		})
 
 	integration.ProgramTest(t, &test)
