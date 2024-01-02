@@ -18,9 +18,9 @@ func TestMain(m *testing.M) {
 		}
 		command := exec.Command("make", "provider_no_deps")
 		command.Dir = filepath.Join(cwd, "..")
-		err = command.Run()
-		if err != nil {
-			log.Println("Unable to build provider!")
+		if combinedOutput, err := command.CombinedOutput(); err != nil {
+			log.Printf("Unable to build provider. Command `make provider_no_deps` failed with: %v\nOutput:\n%s",
+				err, combinedOutput)
 			os.Exit(1)
 		}
 

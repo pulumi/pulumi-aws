@@ -37,8 +37,7 @@ func TestAccDedicatedHosts(t *testing.T) {
 // This is a specific test to ensure that we are testing for a missing region and erroring
 func TestAccCredentialsConfigTest(t *testing.T) {
 	t.Skip("STACK72: Temp skip until we investigate the cause of https://github.com/pulumi/pulumi-aws/issues/1995")
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
+	baseJS := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region": "INVALID_REGION",
 		},
@@ -47,7 +46,7 @@ func TestAccCredentialsConfigTest(t *testing.T) {
 		},
 		Dir:           filepath.Join(getCwd(t), "credentialsConfigTest"),
 		ExpectFailure: true,
-	})
+	}
 
 	integration.ProgramTest(t, &baseJS)
 }
@@ -67,7 +66,7 @@ func TestAccExpress(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "express"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -107,6 +106,7 @@ func TestAccBucket(t *testing.T) {
 			},
 		})
 
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -116,15 +116,19 @@ func TestAccCloudWatch(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "cloudwatch"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
 func TestAccCloudWatchOidcManual(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "cloudwatchOidcManual"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "cloudwatchOidcManual"),
+
+			// TODO[pulumi/pulumi-aws#3193] multiple issues with refreshing and updating cleanly.
+			SkipRefresh:              true,
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -136,7 +140,7 @@ func TestAccLogGroup(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "logGroup"),
 			RunUpdateTest: false,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -146,7 +150,7 @@ func TestAccQueue(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "queue"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -155,7 +159,7 @@ func TestAccEventBus(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "eventbus"),
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -165,7 +169,7 @@ func TestAccStream(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "stream"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -175,7 +179,7 @@ func TestAccTable(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "table"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -185,7 +189,7 @@ func TestAccTopic(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "topic"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -200,7 +204,7 @@ func TestAccSecretCapture(t *testing.T) {
 				assert.NotContains(t, "s3cr3t", string(byts))
 			},
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -236,6 +240,7 @@ func TestAccCallbackFunction(t *testing.T) {
 				}
 			},
 		})
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -266,7 +271,7 @@ func TestAccRoute53(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "route53"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -276,7 +281,7 @@ func TestAccLambdaLayer(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "lambda-layer-old"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -286,7 +291,7 @@ func TestAccLambdaContainerImages(t *testing.T) {
 			RunUpdateTest: false, // new feature!
 			Dir:           filepath.Join(getCwd(t), "lambda-container-image"),
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -296,7 +301,7 @@ func TestAccLambdaLayerNewEnums(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "lambda-layer-new"),
 			RunUpdateTest: false,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -327,7 +332,7 @@ func TestAccDeleteBeforeCreate(t *testing.T) {
 				},
 			},
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -457,6 +462,12 @@ func TestAccWafV2(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "wafv2"),
 		})
+	skipRefresh(&test)
+
+	// TODO[pulumi/pulumi-aws#3190] there is a bug with non-empty diff after pulumi up.
+	test.AllowEmptyPreviewChanges = true
+	test.AllowEmptyUpdateChanges = true
+
 	integration.ProgramTest(t, &test)
 }
 
@@ -491,8 +502,7 @@ func TestRegress2818(t *testing.T) {
 
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
+	baseJS := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region":    "INVALID_REGION",
 			"aws:envRegion": envRegion,
@@ -500,7 +510,7 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 		Dependencies: []string{
 			"@pulumi/aws",
 		},
-	})
+	}
 
 	return baseJS
 }

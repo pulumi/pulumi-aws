@@ -50,14 +50,6 @@ func getCwd(t *testing.T) string {
 	return cwd
 }
 
-func getBaseOptions() integration.ProgramTestOptions {
-	return integration.ProgramTestOptions{
-		ExpectRefreshChanges: true,
-		SkipRefresh:          true,
-		Quick:                true,
-	}
-}
-
 func validateAPITest(isValid func(body string)) func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 		var resp *http.Response
@@ -592,4 +584,14 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
   ]
 	`
 	replay(t, repro)
+}
+
+// A lot of tests do not currently refresh cleanly. The work to root cause each tests has not been
+// done yet but the common causes are listed here:
+//
+// TODO[pulumi/pulumi-aws#2246] specifically affects overlays such as bucket.onObjectCreated; may be worked around
+// TODO[pulumi/pulumi#6235]
+// TODO[pulumi/pulumi-terraform-bridge#1595]
+func skipRefresh(opts *integration.ProgramTestOptions) {
+	opts.SkipRefresh = true
 }
